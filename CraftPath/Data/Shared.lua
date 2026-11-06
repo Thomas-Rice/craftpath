@@ -34,16 +34,25 @@ ns.RawData.VendorItems = {
   ["Heavy Stock"] = 2000,           -- seen at a Forever vendor
   ["Blacksmith Hammer"] = 18,       -- seen at a Forever vendor
   ["Elemental Flux"] = 150000,      -- seen at a Forever vendor
+  -- Cooking supplies (seen at Forever vendors)
+  ["Mild Spices"] = 2, ["Hot Spices"] = 40, ["Soothing Spices"] = 160,
+  ["Simple Flour"] = 200, ["Ice Cold Milk"] = 25, ["Shiny Red Apple"] = 5,
+  ["Melon Juice"] = 100, ["Moonberry Juice"] = 400, ["Sweet Nectar"] = 200, ["Morning Glory Dew"] = 800,
+  ["Simple Wood"] = 38, ["Star Wood"] = 4500, ["Thick Logs"] = 200000, ["Flint and Tinder"] = 135,
+  ["Expert Cookbook"] = 10000,      -- estimate
+  ["Alterac Swiss"] = 1600,         -- estimate, cheese vendors
   ["Blank Parchment"] = 125,        -- estimate
   ["Engineer's Ink"] = 400,         -- estimate
   ["Flask of Oil"] = 80,            -- estimate
 }
 
 -- Vendor prices above that are still guesses (shown as "est.").
-ns.RawData.VendorEstimates = { ["Blank Parchment"] = true, ["Engineer's Ink"] = true, ["Flask of Oil"] = true }
+ns.RawData.VendorEstimates = { ["Blank Parchment"] = true, ["Engineer's Ink"] = true, ["Flask of Oil"] = true,
+  ["Expert Cookbook"] = true, ["Alterac Swiss"] = true }
 
 -- Price guess (copper) for gold-vendor recipes until the merchant has been seen.
 ns.RawData.VendorRecipeEstimate = 5000
+ns.RawData.VendorRecipeEstimateBy = { Cooking = 400 }
 
 -- Rank caps and the character level each trainer rank needs (Forever follows Classic).
 ns.RawData.Ranks = {
@@ -73,6 +82,47 @@ ns.RawData.RecipeVendors = {
     ["Red Firework"] = with(SOVIK, { price = 1800 }),
     ["Thorium Tube"] = { npc = "Xizzer Fizzbolt", where = "Winterspring" },
   },
+  Cooking = (function()
+    -- npc / where for your faction; "also" lists other vendors. No faction = anyone.
+    local function v(npc, where, faction, also, alt)
+      return { npc = npc, where = where, faction = faction, also = also, alt = alt }
+    end
+    local A = "Alliance"
+    local H = "Horde"
+    return {
+      ["Brilliant Smallfish"] = v("Harn Longcast", "Mulgore", H, "Sewa Mistrunner (Thunder Bluff), Martine Tramblay (Tirisfal Glades), Lizbeth Cromwell (Undercity)",
+        v("Tharynn Bouden", "Elwynn Forest", A, "Gretta Ganter (Dun Morogh), Khara Deepwater (Loch Modan), Catherine Leland (Stormwind), Nyoma (Teldrassil)")),
+      ["Slitherskin Mackerel"] = v("Zansoa", "Durotar", H, "Martine Tramblay (Tirisfal Glades)",
+        v("Tansy Puddlefizz", "Ironforge", A, "Nessa Shadowsong (Teldrassil), Kriggon Talsone (Westfall)")),
+      ["Crispy Bat Wing"] = v("Abigail Shiel", "Tirisfal Glades", H),
+      ["Scorpid Surprise"] = v("Grimtak", "Durotar", H),
+      ["Kaldorei Spider Kabob"] = { quest = "Recipe of the Kaldorei", npc = "Zarrin", where = "Teldrassil", faction = A },
+      ["Longjaw Mud Snapper"] = v("Harn Longcast", "Mulgore", H, "Killian Sanatha (Silverpine Forest), Naal Mistrunner (Thunder Bluff), Lizbeth Cromwell (Undercity)",
+        v("Tharynn Bouden", "Elwynn Forest", A, "Tansy Puddlefizz (Ironforge), Khara Deepwater (Loch Modan), Nyoma (Teldrassil)")),
+      ["Rainbow Fin Albacore"] = v("Shankys", "Orgrimmar", H, "Zansoa (Durotar), Killian Sanatha (Silverpine Forest), Ronald Burch (Undercity), Kilxx (The Barrens)",
+        v("Catherine Leland", "Stormwind", A, "Heldan Galesong (Darkshore), Nessa Shadowsong (Teldrassil), Kriggon Talsone (Westfall), Stuart Fleming (Wetlands), Kilxx (The Barrens)")),
+      ["Smoked Bear Meat"] = v("Andrew Hilbert", "Silverpine Forest", H, nil, v("Drac Roughcut", "Loch Modan", A)),
+      ["Strider Stew"] = v("Tari'qa", "The Barrens", H, nil, { quest = "Easy Strider Living", faction = A }),
+      ["Bristle Whisker Catfish"] = v("Derak Nightfall", "Hillsbrad Foothills", H, "Naal Mistrunner and Sewa Mistrunner (Thunder Bluff), Ronald Burch (Undercity), Kilxx (The Barrens)",
+        v("Lindea Rabonne", "Hillsbrad Foothills", A, "Catherine Leland (Stormwind), Kilxx (The Barrens)")),
+      ["Cooked Crab Claw"] = v("Kendor Kabonka", "Stormwind", A),
+      ["Hot Lion Chops"] = v("Zargh", "The Barrens", H),
+      ["Curiously Tasty Omelet"] = v("Keena", "Arathi Highlands", H, nil, v("Kendor Kabonka", "Stormwind", A)),
+      ["Mithril Head Trout"] = v("Shankys", "Orgrimmar", H, "Wik'Tar (Ashenvale), Lizbeth Cromwell (Undercity), Wulan (Desolace), Kelsey Yance (Stranglethorn Vale)",
+        v("Tansy Puddlefizz", "Ironforge", A, "Stuart Fleming (Wetlands), Heldan Galesong (Darkshore), Lindea Rabonne (Hillsbrad Foothills), Kelsey Yance (Stranglethorn Vale)")),
+      ["Roast Raptor"] = v("Keena", "Arathi Highlands", H, "Ogg'marr (Dustwallow Marsh)", v("Hammon Karwn", "Arathi Highlands", A)),
+      ["Soothing Turtle Bisque"] = { quest = "Soothing Turtle Bisque", npc = "Christoph Jeffcoat", where = "Hillsbrad Foothills", faction = H,
+        alt = { quest = "Soothing Turtle Bisque", npc = "Chef Jessen", where = "Hillsbrad Foothills", faction = A } },
+      ["Spotted Yellowtail"] = v("Gikkix", "Tanaris, Steamwheedle Port"),
+      ["Filet of Redgill"] = v("Kelsey Yance", "Stranglethorn Vale, Booty Bay"),
+      ["Undermine Clam Chowder"] = v("Jabbey", "Tanaris"),
+      ["Monster Omelet"] = v("Bale", "Felwood", H, "Himmik (Winterspring)", v("Malygen", "Felwood", A, "Himmik (Winterspring)")),
+      ["Tender Wolf Steak"] = v("Dirge Quikcleave", "Tanaris, Gadgetzan"),
+      ["Poached Sunscale Salmon"] = v("Gikkix", "Tanaris, Steamwheedle Port"),
+      ["Nightfin Soup"] = v("Gikkix", "Tanaris, Steamwheedle Port"),
+      ["Smoked Desert Dumplings"] = { quest = "Desert Recipe", where = "Silithus", note = "Then \"Sharing the Knowledge\". Sandworm Meat drops from Dredge Strikers and Crushers in Silithus." },
+    }
+  end)(),
   Blacksmithing = {
     ["Ebon Shiv"] = MAGNUS,
     ["Ornate Thorium Handaxe"] = MAGNUS,
@@ -102,4 +152,23 @@ ns.RawData.FavorCosts = {
 ns.RawData.RecipePrefixes = {
   Engineering = { "Schematic: ", "Blueprint: " },
   Blacksmithing = { "Plans: " },
+  Cooking = { "Recipe: " },
 }
+
+-- Extra steps some professions need to reach a rank, with items for the shopping list.
+-- Keyed by profession and rank name (see Ranks above).
+ns.RawData.RankRules = {
+  Cooking = {
+    Expert = {
+      note = "Expert Cooking needs the Expert Cookbook: Horde from Wulan (Shadowprey Village, Desolace), Alliance from Shandrina (Mystral Lake, Ashenvale).",
+      items = { { "Expert Cookbook", 1 } },
+    },
+    Artisan = {
+      note = "Artisan Cooking is the reward for \"Clamlette Surprise\" from Dirge Quikcleave in Gadgetzan (level 35). Get the travel quest from Zamja in Orgrimmar (Horde) or Daryl Riknussun in Ironforge (Alliance).",
+      items = { { "Giant Egg", 12 }, { "Zesty Clam Meat", 10 }, { "Alterac Swiss", 20 } },
+    },
+  },
+}
+
+-- Professions that need a fire to craft.
+ns.RawData.FireNote = "Cook at a fire: an inn or camp fire, or your own Basic Campfire (Simple Wood, needs Flint and Tinder)."

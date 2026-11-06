@@ -188,6 +188,8 @@ planOnce = function(opts, ownedFactor)
       end
     elseif r.source == "F" then
       if allowFavor then info.cost, info.how = 0, "favor" end
+    elseif r.source == "Q" then
+      info.cost, info.how = 0, "quest"
     elseif r.source == "G" then
       if opts.spec == "goblin" then info.cost, info.how = 0, "trainer" end
     elseif r.source == "N" then
@@ -202,14 +204,15 @@ planOnce = function(opts, ownedFactor)
       end
       if not info.cost and r.source == "V" then
         local listPrice = vendorTable[r.name] and vendorTable[r.name].price
-        info.cost = listPrice or ns.RawData.VendorRecipeEstimate
+        local estimate = (ns.RawData.VendorRecipeEstimateBy or {})[opts.profession] or ns.RawData.VendorRecipeEstimate
+        info.cost = listPrice or estimate
         info.how = listPrice and "vendor" or "vendor-est"
         info.item = prefixes[1] .. r.name
       end
     end
     -- Where to get it: a named vendor or trainer, a Merchant's Favor vendor, or a vendor you
     -- have visited that sold the recipe.
-    if info.cost and info.how ~= "known" and info.how ~= "auto" then
+    if info.how ~= "known" and info.how ~= "auto" then
       local v = vendorTable[r.name]
       if r.source == "F" then
         info.where = favorVendors[faction] or favorVendors.Horde
@@ -217,7 +220,14 @@ planOnce = function(opts, ownedFactor)
           if r.name:find(pat[1]) then info.favor = pat[2]; break end
         end
       elseif v then
-        info.where = (v.faction and faction and v.faction ~= faction and v.alt) or v
+        if v.faction and faction and v.faction ~= faction then
+          info.where = v.alt
+          if not v.alt and (r.source == "V" or r.source == "Q") then
+            info.cost, info.how = nil, "other faction" -- only the other faction can get it
+          end
+        else
+          info.where = v
+        end
       elseif info.item and opts.vendorWhere then
         info.where = opts.vendorWhere(info.item)
       end
@@ -498,11 +508,23 @@ function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
     end
   end
 
+  -- Items some ranks need (e.g. the Artisan Cooking quest), when the route passes that rank.
+  local rules = (ns.RawData.RankRules or {})[plan.profession] or {}
+  for _, rank in ipairs(ns.RawData.Ranks) do
+    local rule = rules[rank.name]
+    local needAt = rank.cap - 75
+    if rule and rule.items and plan.from <= needAt and plan.to > needAt then
+      for _, it in ipairs(rule.items) do acquire(it[1], it[2], needAt) end
+      plan.rankItems = plan.rankItems or {}
+      plan.rankItems[#plan.rankItems + 1] = { rank = rank.name, items = rule.items }
+    end
+  end
+
   for _, st in ipairs(plan.steps) do
     local r = st.recipe
     for _, g in ipairs(r.reagents) do acquire(g.name, st.crafts * g.qty, st.from) end
     inv[r.name] = (inv[r.name] or 0) + st.crafts * r.makes
-    if st.learnCost or st.learnHow == "favor" or st.learnHow == "vendor-est" or st.learnWhere then
+    if st.learnCost or st.learnHow == "favor" or st.learnHow == "quest" or st.learnHow == "vendor-est" or st.learnWhere then
       learn[#learn + 1] = { recipe = r.name, cost = st.learnCost or 0, how = st.learnHow, item = st.learnItem,
         where = st.learnWhere, favor = st.learnFavor, at = st.from }
       if st.learnFavor then plan.favorTotal = (plan.favorTotal or 0) + st.learnFavor end
@@ -544,15 +566,19 @@ function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
 end
 
 function Planner.AddRankNotes(plan)
+  local rules = (ns.RawData.RankRules or {})[plan.profession] or {}
   for _, rank in ipairs(ns.RawData.Ranks) do
     if rank.trainAt > 1 then
       local prevCap = rank.cap - 75
       if plan.from < rank.cap and plan.to > prevCap then
-        plan.notes[#plan.notes + 1] = ("Train %s (character level %d, skill %d+) before you reach %d."):format(
+        local rule = rules[rank.name]
+        plan.notes[#plan.notes + 1] = rule and rule.note or ("Train %s (character level %d, skill %d+) before you reach %d."):format(
           rank.name, rank.level, rank.trainAt, prevCap)
       end
     end
   end
+  local data = Recipes.Load(plan.profession)
+  if data and data.needsFire then table.insert(plan.notes, 1, ns.RawData.FireNote) end
 end
 
 -- Explains why the route stops: which recipes would work at this skill and what's unpriced.

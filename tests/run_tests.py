@@ -11,7 +11,7 @@ import sys
 from lupa import lua51
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "CraftPath")
-CORE_FILES = ["Data/Shared.lua", "Data/Engineering.lua", "Data/Blacksmithing.lua",
+CORE_FILES = ["Data/Shared.lua", "Data/Engineering.lua", "Data/Blacksmithing.lua", "Data/Cooking.lua",
               "Core/Recipes.lua", "Core/Planner.lua"]
 
 # Placeholder prices in copper, loosely Classic-like.
@@ -70,7 +70,7 @@ def show(ns, p):
     print("  Buy:")
     for b in lua_list(p.shopping):
         est = " (est)" if b.estimate else ""
-        print(f"    {b.buy:>5} x {b.name:<26} {b.source:<6} {money(b.unit):>10} = {money(b.total)}{est}")
+        print(f"    {b.buy:>5} x {b.name:<26} {str(b.source):<6} {money(b.unit):>10} = {money(b.total)}{est}")
     print("  Craft yourself:", ", ".join(f"{c.crafts}x {c.name}" for c in lua_list(p.craftYourself)))
     print("  Learn:", ", ".join(f"{l.recipe} ({l.how})" for l in lua_list(p.learn)))
     for n in lua_list(p.notes):
@@ -213,6 +213,28 @@ def main():
     assert p.favorTotal >= 30
     p = plan(lua, ns, "Blacksmithing", 80, 85, prices=cheap_belt, faction="Alliance")
     assert [l for l in lua_list(p.learn) if l.how == "favor"][0].where.npc == "Stondry Darkhammer"
+
+    # Cooking: full route, quest recipes, rank items and the fire note.
+    ck = R.Load("Cooking")
+    assert len(ck.list) > 100 and ck.needsFire
+    assert ck.byName["Soothing Turtle Bisque"].source == "Q"
+    ckp = dict(SAMPLE_PRICES)
+    for name in lua_list(R.AllReagents("Cooking")):
+        ckp.setdefault(name, 60 + 7 * len(name))  # placeholder raw meat/fish prices
+    for name in ("Raw Brilliant Smallfish", "Raw Slitherskin Mackerel", "Spider Ichor", "Chunk of Boar Meat"):
+        ckp[name] = 15
+    p = plan(lua, ns, "Cooking", 1, 300, prices=ckp, faction="Horde")
+    show(ns, p)
+    check_plan(ns, p, 1, 300)
+    notes = lua_list(p.notes)
+    assert any("fire" in n for n in notes) and any("Clamlette Surprise" in n for n in notes)
+    names = {b.name: b for b in lua_list(p.shopping)}
+    assert names["Giant Egg"].qty >= 12 and "Alterac Swiss" in names, list(names)
+    for st in lua_list(p.steps):
+        assert st.recipe.name != "Cooked Crab Claw", "Alliance-only recipe in a Horde route"
+    p = plan(lua, ns, "Cooking", 1, 225, prices=ckp, faction="Horde")
+    check_plan(ns, p, 1, 225)
+    assert "Alterac Swiss" not in {b.name for b in lua_list(p.shopping)}
 
     print("All tests passed.")
     if "--show" in sys.argv:

@@ -32,12 +32,14 @@ local function parseLine(line, profession)
   local f = split(line, "|")
   if #f ~= 9 and #f ~= 10 then error("CraftPath: bad recipe line (" .. #f .. " fields): " .. line) end
   local src, vendor = f[8], nil
+  local quest
   if src:sub(1, 2) == "V:" then vendor = src:sub(3); src = "V" end
+  if src:sub(1, 2) == "Q:" then quest = src:sub(3); src = "Q" end
   local r = {
     name = f[1], profession = profession,
     learn = tonumber(f[2]), orange = tonumber(f[3]), yellow = tonumber(f[4]),
     green = tonumber(f[5]), grey = tonumber(f[6]), makes = tonumber(f[7]),
-    source = src, vendor = vendor, reagents = parseReagents(f[9]),
+    source = src, vendor = vendor, quest = quest, reagents = parseReagents(f[9]),
     points = tonumber(f[10]) or 1, -- skill points per successful craft
   }
   for _, k in ipairs({ "learn", "orange", "yellow", "green", "grey", "makes" }) do
@@ -79,7 +81,7 @@ function Recipes.Load(profession)
       end
     end
   end
-  local data = { profession = profession, list = list, byName = byName, tools = raw.tools or {} }
+  local data = { profession = profession, list = list, byName = byName, tools = raw.tools or {}, needsFire = raw.needsFire }
   cache[profession] = data
   return data
 end

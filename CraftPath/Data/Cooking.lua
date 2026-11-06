@@ -1,0 +1,135 @@
+-- CraftPath recipe data: Cooking (WoW: Forever)
+-- Source: WoW Forever client data as published by metabot.gg (skill colours, reagents),
+-- vendor and quest sources from wow-professions.com's Forever cooking guide (Nov 2026).
+-- The four recipes marked "classic values" were cut off in the source and use WoW Classic
+-- numbers until the daily client sync (tools/sync_recipes.py) replaces them.
+-- Same line format as Data/Engineering.lua, plus:
+--   Q:Quest = quest reward (no gold)
+-- Holiday-only recipes (Gingerbread Cookie, Egg Nog) are left out.
+
+local _, ns = ...
+ns.RawData = ns.RawData or {}
+
+ns.RawData.Cooking = {
+  tools = {},
+  needsFire = true,
+  recipes = [[
+Basic Campfire Kit|1|1|1|3|5|1|A|Simple Wood*1
+Basic Campfire|1|1|25|50|75|1|A|Simple Wood*1
+Brilliant Smallfish|1|1|45|65|85|1|V:Harn Longcast (Mulgore)|Raw Brilliant Smallfish*1
+Charred Wolf Meat|1|1|45|65|85|1|A|Stringy Wolf Meat*1
+Crispy Bat Wing|1|1|45|65|85|1|V:Abigail Shiel (Tirisfal Glades)|Meaty Bat Wing*1;Mild Spices*1
+Roasted Boar Meat|1|1|45|65|85|1|A|Chunk of Boar Meat*1
+Slitherskin Mackerel|1|1|45|65|85|1|V:Zansoa (Durotar)|Raw Slitherskin Mackerel*1
+Herb Baked Egg|5|5|45|65|85|1|T|Small Egg*1;Mild Spices*1
+Kaldorei Spider Kabob|10|10|50|70|90|1|Q:Recipe of the Kaldorei|Small Spider Leg*1
+Spiced Wolf Meat|10|10|50|70|90|1|T|Stringy Wolf Meat*1;Mild Spices*1
+Scorpid Surprise|20|20|60|80|100|1|V:Grimtak (Durotar)|Scorpid Stinger*1
+Beer Basted Boar Ribs|25|25|60|80|100|1|R|Crag Boar Rib*1;Rhapsody Malt*1
+Peace Tea|25|25|30|38|45|1|R|Refreshing Spring Water*1;Peacebloom*2
+Skywall Souffle|25|25|30|38|45|1|R|Small Egg*2;Simple Flour*1
+Tasty Raptor Bites|25|25|35|55|75|1|R|Raptor Egg*1;Mild Spices*4
+Venomous Smoothie|25|25|30|38|45|1|R|Refreshing Spring Water*1;Mild Spices*1;Small Venom Sac*1
+Pincer Bites|35|35|40|48|55|1|R|Crawler Claw*1;Simple Flour*1
+Roasted Kodo Meat|35|35|75|95|115|2|R|Kodo Meat*1;Mild Spices*1
+Critter Cookie|40|40|80|83|85|1|R|Simple Flour*5
+Smoked Bear Meat|40|40|80|100|120|1|V:Andrew Hilbert (Silverpine Forest)|Bear Meat*1
+Boiled Clams|50|50|90|110|130|1|T|Clam Meat*1;Refreshing Spring Water*1
+Coyote Steak|50|50|90|110|130|1|T|Coyote Meat*1
+Fillet of Frenzy|50|50|90|110|130|2|R|Soft Frenzy Flesh*1;Mild Spices*1
+Goretusk Liver Pie|50|50|90|110|130|1|R|Goretusk Liver*1;Mild Spices*1
+Loch Frenzy Delight|50|50|90|110|130|1|R|Raw Loch Frenzy*1;Mild Spices*1
+Longjaw Mud Snapper|50|50|90|110|130|1|V:Harn Longcast (Mulgore)|Raw Longjaw Mud Snapper*1
+Rainbow Fin Albacore|50|50|90|110|130|1|V:Shankys (Orgrimmar)|Raw Rainbow Fin Albacore*1
+Strider Stew|50|50|90|110|130|2|V:Tari'qa (The Barrens)|Strider Meat*1;Shiny Red Apple*1
+Blood Sausage|60|60|100|120|140|2|R|Bear Meat*1;Boar Intestines*1;Spider Ichor*1
+Thistle Tea|60|60|100|120|140|1|R|Swiftthistle*1;Refreshing Spring Water*1
+Breakfast Omelette|75|75|80|88|95|1|R|Small Egg*1;Mild Spices*4
+Crab Cake|75|75|115|135|155|1|T|Crawler Meat*1;Mild Spices*1
+Twice-Spiced Raptor Slice|75|75|115|133|150|1|R|Raptor Flesh*1;Mild Spices*2
+Westfall Stew|75|75|115|135|155|1|R|Stringy Vulture Meat*1;Murloc Eye*1;Goretusk Snout*1
+Crocolisk Steak|80|80|120|140|160|1|R|Crocolisk Meat*1;Mild Spices*1
+Dry Pork Ribs|80|80|120|140|160|1|T|Boar Ribs*1;Mild Spices*1
+Smoked Sagefish|80|80|120|140|160|1|R|Raw Sagefish*1;Mild Spices*1
+Cooked Crab Claw|85|85|125|145|165|1|V:Kendor Kabonka (Stormwind City)|Crawler Claw*1;Mild Spices*1
+Savory Deviate Delight|85|85|125|145|165|1|R|Deviate Fish*1;Mild Spices*1
+Savory Whimsyfin Delight|85|85|125|145|165|1|R|Whimsyfin*1;Mild Spices*1
+Clam Chowder|90|90|130|150|170|1|R|Clam Meat*1;Ice Cold Milk*1;Mild Spices*1
+Dig Rat Stew|90|90|130|150|170|2|R|Dig Rat*1
+Journeyman Campfire Kit|90|90|95|100|105|1|R|Star Wood*1
+Murloc Fin Soup|90|90|130|150|170|1|R|Murloc Fin*2;Hot Spices*1
+Bristle Whisker Catfish|100|100|140|160|180|1|V:Derak Nightfall (Hillsbrad Foothills)|Raw Bristle Whisker Catfish*1
+Crispy Lizard Tail|100|100|140|160|180|2|R|Thunder Lizard Tail*1;Hot Spices*1
+Redridge Goulash|100|100|135|155|175|1|R|Crisp Spider Meat*1;Tough Condor Meat*1
+Royal Tea|100|100|105|115|125|1|R|Ice Cold Milk*1;Mageroyal*2
+Seasoned Wolf Kabob|100|100|140|160|180|3|R|Lean Wolf Flank*2;Mild Spices*1
+Slimy Smoothie|100|100|105|113|120|1|R|Ice Cold Milk*1;Mild Spices*2;Spider Ichor*1
+Big Bear Steak|110|110|150|170|190|1|R|Big Bear Meat*1;Hot Spices*1
+Gooey Spider Cake|110|110|150|170|190|1|R|Gooey Spider Leg*2;Hot Spices*1
+Lean Venison|110|110|150|170|190|2|R|Stag Meat*1;Mild Spices*4
+Succulent Pork Ribs|110|110|130|150|170|1|R|Boar Ribs*2;Hot Spices*1
+Crocolisk Gumbo|120|120|160|180|200|1|R|Tender Crocolisk Meat*1;Hot Spices*1
+Goblin Deviled Clams|125|125|165|185|205|1|T|Tangy Clam Meat*1;Hot Spices*1
+Hot Lion Chops|125|125|175|195|215|1|V:Zargh (The Barrens)|Lion Meat*1;Hot Spices*1
+Lean Wolf Steak|125|125|165|185|205|1|R|Lean Wolf Flank*1;Mild Spices*1
+Mrrggl Smrrthle|125|125|135|140|145|1|R|Melon Juice*1;Hot Spices*2;Murloc Fin*1
+Root Tea|125|125|155|170|185|1|R|Melon Juice*1;Liferoot*2
+Curiously Tasty Omelet|130|130|170|190|210|1|V:Keena (Arathi Highlands)|Raptor Egg*1;Hot Spices*1
+Cookie's Feast|140|140|145|148|150|1|R|Mystery Meat*2;Heavy Kodo Meat*1;Soothing Spices*1
+Heavy Crocolisk Stew|150|150|160|180|200|1|R|Tender Crocolisk Meat*2;Soothing Spices*1
+Tasty Lion Steak|150|150|190|210|230|1|R|Lion Meat*2;Soothing Spices*1
+Spinefin Halibut|170|170|210|215|220|1|T|Raw Spinefin Halibut*1
+Barbecued Buzzard Wing|175|175|215|235|255|1|R|Buzzard Wing*1;Hot Spices*1
+Bear Brisket|175|175|200|210|220|1|R|Big Bear Meat*2;Hot Spices*3
+Carrion Surprise|175|175|215|235|255|1|R|Mystery Meat*1;Hot Spices*1
+Giant Clam Scorcho|175|175|215|235|255|1|R|Giant Clam Meat*1;Hot Spices*1
+Giant Scrambled Eggs|175|175|195|208|220|1|R|Giant Egg*2;Hot Spices*4
+Goldthorn Tea|175|175|215|235|255|4|T|Goldthorn*1;Refreshing Spring Water*1
+Hot Wolf Ribs|175|175|215|235|255|1|R|Red Wolf Meat*1;Hot Spices*1
+Jungle Stew|175|175|215|235|255|2|R|Tiger Meat*1;Refreshing Spring Water*1;Shiny Red Apple*2
+Mithril Head Trout|175|175|215|235|255|1|V:Shankys (Orgrimmar)|Raw Mithril Head Trout*1
+Mystery Stew|175|175|215|235|255|1|R|Mystery Meat*1;Skin of Dwarven Stout*1
+Roast Raptor|175|175|215|235|255|1|V:Keena (Arathi Highlands)|Raptor Flesh*1;Hot Spices*1
+Rockscale Cod|175|175|190|210|230|1|R|Raw Rockscale Cod*1
+Sagefish Delight|175|175|215|235|255|1|R|Raw Greater Sagefish*1;Hot Spices*1
+Soothing Turtle Bisque|175|175|215|235|255|1|Q:Soothing Turtle Bisque|Turtle Meat*1;Soothing Spices*1
+Calcified Smoothie|180|180|185|190|195|1|R|Sweet Nectar*1;Hot Spices*3;Large Fang*1
+Raging Raptor Ribs|180|180|280|295|310|1|R|Raptor Flesh*2;Hot Spices*3
+Triage Tea|180|180|195|215|235|1|R|Sweet Nectar*1;Fadeleaf*2
+Plain Ol' Paletusk|185|185|200|215|230|1|R|Chunk of Boar Meat*2;Mild Spices*1
+Briny Seafood Stew|200|200|220|230|240|1|R|Murloc Eye*2;Tender Crab Meat*1;Hot Spices*1
+Dragonbreath Chili|200|200|240|260|280|1|R|Mystery Meat*1;Small Flame Sac*1;Hot Spices*1
+Expert Campfire Kit|200|200|205|213|220|1|R|Thick Logs*1
+Heavy Kodo Stew|200|200|240|260|280|2|R|Heavy Kodo Meat*2;Soothing Spices*1;Refreshing Spring Water*1
+Spicy Smoothie|200|200|215|220|225|1|R|Moonberry Juice*1;Soothing Spices*3;Small Flame Sac*1
+Spider Sausage|200|200|240|260|280|1|T|White Spider Meat*2
+Sunny Tea|200|200|220|235|250|1|R|Moonberry Juice*1;Sungrass*2
+Cooked Glossy Mightfish|225|225|265|285|305|1|R|Raw Glossy Mightfish*1;Soothing Spices*1
+Filet of Redgill|225|225|265|285|305|1|V:Kelsey Yance (Stranglethorn Vale)|Raw Redgill*1
+Monster Omelet|225|225|265|285|305|1|V:Bale (Felwood)|Giant Egg*1;Soothing Spices*2
+Plated Armorfish|225|225|245|250|255|1|R|Raw Plated Armorfish*1;Soothing Spices*1
+Raptor Rouladen|225|225|230|238|245|1|R|Raptor Flesh*2;Hot Spices*4
+Savory Stag Sliders|225|225|230|238|245|1|R|Stag Meat*2;Hot Spices*3
+Spiced Chili Crab|225|225|265|285|305|1|R|Tender Crab Meat*1;Hot Spices*2
+Spotted Yellowtail|225|225|265|285|305|1|V:Gikkix (Tanaris)|Raw Spotted Yellowtail*1
+Tender Wolf Steak|225|225|265|285|305|1|V:Dirge Quikcleave (Tanaris)|Tender Wolf Meat*1;Soothing Spices*1
+Undermine Clam Chowder|225|225|265|285|305|2|V:Jabbey (Tanaris)|Zesty Clam Meat*2;Hot Spices*1;Ice Cold Milk*1
+Grilled Squid|240|240|280|300|320|1|R|Raw Winter Squid*1;Soothing Spices*1
+Hot Smoked Bass|240|240|280|300|320|1|R|Raw Summer Bass*1;Hot Spices*2
+Filet o' Flank|250|250|260|270|280|2|R|Red Wolf Meat*2;Holy Salts*1
+Nightfin Soup|250|250|290|310|330|1|V:Gikkix (Tanaris)|Raw Nightfin Snapper*1;Refreshing Spring Water*1
+Poached Sunscale Salmon|250|250|290|310|330|1|V:Gikkix (Tanaris)|Raw Sunscale Salmon*1
+Prowler Steak|250|250|260|270|280|2|R|Tiger Meat*2;Holy Salts*1
+Sage's Tea|250|250|260|275|290|1|R|Morning Glory Dew*1;Mountain Silversage*2
+Sunrise Omelette|250|250|260|270|280|2|R|Giant Egg*2;Holy Salts*1
+Wicked Smoothie|250|250|255|263|270|1|R|Morning Glory Dew*1;Soothing Spices*4;Wicked Claw*1
+Baked Salmon|275|275|315|335|355|1|R|Raw Whitescale Salmon*1;Soothing Spices*1
+Bat Hachee|275|275|280|295|310|1|R|Meaty Bat Wing*3;Soothing Spices*2
+Bear Bruscitti|275|275|280|295|310|1|R|Big Bear Meat*3;Soothing Spices*3
+-- classic values below (cut off in the source); the daily client sync will correct them
+Lobster Stew|275|275|315|335|355|1|R|Darkclaw Lobster*1;Refreshing Spring Water*1
+Mightfish Steak|275|275|315|335|355|1|R|Raw Mightfish*1;Hot Spices*1;Soothing Spices*1
+Runn Tum Tuber Surprise|275|275|315|335|355|1|R|Runn Tum Tuber*1;Soothing Spices*1
+Smoked Desert Dumplings|285|285|325|345|365|1|Q:Desert Recipe|Sandworm Meat*1;Soothing Spices*1
+]],
+}

@@ -33,6 +33,7 @@ TABLES = ["SkillLineAbility", "SpellName", "SpellReagents", "SpellEffect", "Item
 PROFESSIONS = {
     "Engineering": (202, ["Schematic: ", "Blueprint: "], ["Arclight Spanner"]),
     "Blacksmithing": (164, ["Plans: "], ["Blacksmith Hammer"]),
+    "Cooking": (185, ["Recipe: "], []),
 }
 MAX_SKILL = 300
 CREATE_ITEM = 24  # SpellEffect.Effect for "create item"
@@ -186,7 +187,7 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
         green = (max(yellow, learn) + grey) // 2
         if estimated:
             problems.append(f"{name}: client gives no trainer skill; learn skill estimated as {learn} (yellow - 5)")
-        if kept and kept[0] in "FVGN":
+        if kept and kept[0] in "FVGNQ":
             source = kept
         elif any(p + name in item_names for p in prefixes):
             source = "R"

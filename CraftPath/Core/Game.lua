@@ -5,7 +5,7 @@ local _, ns = ...
 ns.Game = {}
 local Game = ns.Game
 
-local SKILL_LINES = { Engineering = 202, Blacksmithing = 164 }
+local SKILL_LINES = { Engineering = 202, Blacksmithing = 164, Cooking = 185 }
 
 -- Current skill in a profession, or nil if the character doesn't have it.
 function Game.GetSkill(profession)
@@ -17,9 +17,10 @@ function Game.GetSkill(profession)
     end
   end
   if GetProfessions and GetProfessionInfo then
-    local ok, p1, p2 = pcall(GetProfessions)
+    -- GetProfessions returns prof1, prof2, archaeology, fishing, cooking; any can be nil.
+    local ok, p1, p2, p3, p4, p5 = pcall(GetProfessions)
     if ok then
-      for _, idx in ipairs({ p1, p2 }) do
+      for _, idx in pairs({ p1, p2, p3, p4, p5 }) do
         if idx then
           local ok2, name, _, skill, maxSkill = pcall(GetProfessionInfo, idx)
           if ok2 and name == profession then return skill, maxSkill end
