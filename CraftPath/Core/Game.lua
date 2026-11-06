@@ -14,8 +14,8 @@ function Game.GetSkill(profession)
     if ok then
       for _, idx in ipairs({ p1, p2 }) do
         if idx then
-          local ok2, name, _, skill = pcall(GetProfessionInfo, idx)
-          if ok2 and name == profession then return skill end
+          local ok2, name, _, skill, maxSkill = pcall(GetProfessionInfo, idx)
+          if ok2 and name == profession then return skill, maxSkill end
         end
       end
     end
@@ -23,7 +23,7 @@ function Game.GetSkill(profession)
   local line = SKILL_LINES[profession]
   if line and C_TradeSkillUI and C_TradeSkillUI.GetProfessionInfoBySkillLineID then
     local ok, info = pcall(C_TradeSkillUI.GetProfessionInfoBySkillLineID, line)
-    if ok and info and info.skillLevel and info.skillLevel > 0 then return info.skillLevel end
+    if ok and info and info.skillLevel and info.skillLevel > 0 then return info.skillLevel, info.maxSkillLevel end
   end
   return nil
 end
@@ -85,9 +85,12 @@ local function readKnownRecipes()
   local okIds, ids = pcall(C_TradeSkillUI.GetAllRecipeIDs)
   if not okIds or not ids then return end
   local known = {}
+  ns.db.recipeIDs[prof] = ns.db.recipeIDs[prof] or {}
+  local idMap = ns.db.recipeIDs[prof]
   for _, id in ipairs(ids) do
     local okR, r = pcall(C_TradeSkillUI.GetRecipeInfo, id)
     if okR and r and r.name then
+      idMap[r.name] = id
       if r.learned then known[r.name] = true end
       if not ns.Recipes.Load(prof).byName[r.name] then
         local reagents, makes = recipeReagents(id)
@@ -99,7 +102,32 @@ local function readKnownRecipes()
     ns.db.known[prof] = known
     if ns.UI and ns.UI.Refresh then ns.UI.Refresh() end
   end
+  Game.openProfession = prof
+  if ns.CraftHelper then ns.CraftHelper.Update() end
 end
+-- The profession currently open, or nil.
+function Game.OpenProfession()
+  if not C_TradeSkillUI or not C_TradeSkillUI.GetBaseProfessionInfo then return nil end
+  local ok, info = pcall(C_TradeSkillUI.GetBaseProfessionInfo)
+  local prof = ok and info and info.professionName
+  if prof and ns.RawData[prof] then return prof end
+  return nil
+end
+
+-- How many times a known recipe can be crafted from what's in your bags.
+function Game.Craftable(prof, recipe)
+  local id = ns.db.recipeIDs[prof] and ns.db.recipeIDs[prof][recipe.name]
+  if id then
+    local ok, r = pcall(C_TradeSkillUI.GetRecipeInfo, id)
+    if ok and r and r.numAvailable then return r.numAvailable end
+  end
+  local n = math.huge
+  for _, g in ipairs(recipe.reagents) do
+    n = math.min(n, math.floor(Game.Owned(g.name) / g.qty))
+  end
+  return n == math.huge and 0 or n
+end
+
 ns.On("TRADE_SKILL_SHOW", readKnownRecipes)
 ns.On("TRADE_SKILL_LIST_UPDATE", readKnownRecipes)
 

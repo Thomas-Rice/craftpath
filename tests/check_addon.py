@@ -78,7 +78,8 @@ end
 
 -- Game data
 function GetProfessions() return 1, 2 end
-function GetProfessionInfo(i) if i == 1 then return "Engineering", 0, 112 else return "Mining", 0, 90 end end
+function GetProfessionInfo(i) if i == 1 then return "Engineering", 0, __engSkill, 150 else return "Mining", 0, 90, 150 end end
+__engSkill = 112
 C_Item = {
   GetItemCount = function(n) if n == "Copper Bar" then return 20 end return 0 end,
   GetItemInfo = function(id) return __itemNames[id] end,
@@ -136,9 +137,10 @@ __ahCalls = {}
 __livePrice = {}
 C_TradeSkillUI = {
   GetBaseProfessionInfo = function() return { professionName = "Engineering" } end,
-  GetAllRecipeIDs = function() return { 1, 2, 3 } end,
-  GetRecipeInfo = function(id) return ({ { name = "Rough Blasting Powder", learned = true }, { name = "Thorium Widget", learned = true },
+  GetAllRecipeIDs = function() if __helperRecipe then return { 1, 2, 3, 99 } end return { 1, 2, 3 } end,
+  GetRecipeInfo = function(id) if id == 99 then return { name = __helperRecipe, learned = true, numAvailable = 5 } end return ({ { name = "Rough Blasting Powder", learned = true }, { name = "Thorium Widget", learned = true },
     { name = "Shiny New Gizmo", learned = false } })[id] end,
+  CraftRecipe = function(id, n) __crafted = { id, n } end,
   GetRecipeSchematic = function(id) return { quantityMin = 2, reagentSlotSchematics = {
     { quantityRequired = 3, reagents = { { itemID = 2840 } } } } } end,
 }
@@ -313,6 +315,27 @@ def main():
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
     assert any(t.startswith("Engineering run") for t in texts), "run summary missing"
     ns.Shopping.Stop()
+
+    # ---- Crafting helper ----
+    view = ns.CraftHelper.Compute("Engineering")
+    assert view.recipe and view.step["from"] == 112, view.error
+    G.__helperRecipe = view.recipe.name
+    fire("TRADE_SKILL_SHOW")              # profession window opens: helper reads recipe 99
+    helper = G.CraftPathCraftHelper
+    assert helper is not None and helper.__shown, "helper not shown"
+    v = ns.CraftHelper.view
+    assert v.recipeID == 99 and v.known and v.toDo == 5, (v.recipeID, v.known, v.toDo)
+    craft = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Craft 5"]
+    assert craft, "Craft button missing"
+    craft[0].Click(craft[0])
+    assert G.__crafted[1] == 99 and G.__crafted[2] == 5
+    # Near the Journeyman cap: reminds to train Expert.
+    G.__engSkill = 145
+    v = ns.CraftHelper.Compute("Engineering")
+    assert v.train and v.train.name == "Expert", v.train
+    G.__engSkill = 112
+    fire("TRADE_SKILL_CLOSE")
+    assert not helper.__shown
 
     # Slash command and closing the AH.
     G.SlashCmdList.CRAFTPATH("help")

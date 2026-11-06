@@ -10,6 +10,7 @@ local DEFAULTS = {
   vendor = {},      -- [itemName] = copper per unit, learned at merchants
   ids = {},         -- [itemName] = itemID
   known = {},       -- [profession] = { [recipeName] = true }
+  recipeIDs = {},   -- [profession] = { [recipeName] = recipeID } from the profession window
   trainer = {},     -- [profession] = { [recipeName] = skill needed, as the trainer shows it }
   seen = {},        -- [profession] = { [recipeName] = {...} } recipes the game has that the data lacks
   done = {},        -- [itemName] = true  (ticked off the shopping list)
@@ -21,7 +22,7 @@ local DEFAULTS = {
     profession = "Engineering",
     from = 1, to = 300, useMySkill = true, capToLevel = true,
     allowRecipeItems = true, allowFavor = true, spec = "none", overtimeRank = 0,
-    openWithAH = true, tooltip = true, maxOverPct = 25,
+    openWithAH = true, tooltip = true, maxOverPct = 25, craftHelper = true,
   },
 }
 
@@ -69,11 +70,12 @@ ns.On("ADDON_LOADED", function(name)
 end)
 
 -- Build planner options from saved settings and live game state, then plan.
-function ns.MakePlan()
+-- override (optional): { profession = ..., liveSkill = true } for the crafting helper.
+function ns.MakePlan(override)
   local s = ns.db.settings
-  local prof = s.profession
+  local prof = override and override.profession or s.profession
   local from, to = tonumber(s.from) or 1, tonumber(s.to) or 300
-  if s.useMySkill then
+  if s.useMySkill or (override and override.liveSkill) then
     local skill = ns.Game.GetSkill(prof)
     if skill then from = skill end
   end
@@ -91,7 +93,7 @@ function ns.MakePlan()
     charLevel = s.capToLevel and UnitLevel("player") or nil,
   }
   local plan = ns.Planner.Plan(opts)
-  ns.lastPlan = plan
+  if not override then ns.lastPlan = plan end
   return plan
 end
 
@@ -103,6 +105,10 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.Scanner.FullScan()
   elseif msg == "list" then
     ns.Scanner.ScanShoppingList()
+  elseif msg == "craft" then
+    ns.db.settings.craftHelper = not ns.db.settings.craftHelper
+    ns.Print("Crafting helper " .. (ns.db.settings.craftHelper and "on" or "off") .. ".")
+    ns.CraftHelper.Update()
   elseif msg == "reset" then
     wipe(ns.db.prices); wipe(ns.db.done)
     ns.Print("Auction prices cleared.")
@@ -110,6 +116,7 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.Print("/cpath — open the planner")
     ns.Print("/cpath scan — full auction house scan (at the AH, every 15 min)")
     ns.Print("/cpath list — scan just the items on your shopping list")
+    ns.Print("/cpath craft — turn the crafting helper (beside the profession window) on or off")
     ns.Print("/cpath reset — forget all auction prices")
   else
     ns.UI.Toggle()

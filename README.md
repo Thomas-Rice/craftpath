@@ -32,6 +32,16 @@ On the Shopping list tab, click **Start shopping run**. This freezes the list (q
 
 CraftPath never posts or cancels auctions.
 
+### Crafting helper
+
+Open your profession window and CraftPath opens a panel beside it. The panel shows:
+- the current step (recipe, skill range, crafts left);
+- the reagents in your bags against what the step needs;
+- anything to make first (bolts, powders, grinding stones), and any recipe to learn or rank to train;
+- the next recipe after this one.
+
+**Craft N** crafts as many as your bags allow. **Show recipe** selects it in Blizzard's window. After each skill-up the panel replans from your new skill, and when it's time to change recipe it says so in chat. `/cpath craft` turns the panel on or off.
+
 ## Install
 
 Copy the `CraftPath` folder into `World of Warcraft/_forever_/Interface/AddOns/` (or your Forever client's `Interface/AddOns`), then `/reload`.

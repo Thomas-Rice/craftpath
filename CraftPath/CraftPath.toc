@@ -2,7 +2,7 @@
 ## Title: CraftPath
 ## Notes: Cheapest way to level a profession from live auction house prices, with a shopping list. Engineering and Blacksmithing for WoW: Forever.
 ## Author: Thomas Rice
-## Version: 0.2.0
+## Version: 0.3.0
 ## SavedVariables: CraftPathDB
 ## IconTexture: Interface\Icons\Trade_Engineering
 ## AddonCompartmentFunc: CraftPath_OnAddonCompartmentClick
@@ -20,3 +20,4 @@ Core\Scanner.lua
 Core\Shopping.lua
 Core\Buyer.lua
 UI\MainFrame.lua
+UI\CraftHelper.lua
