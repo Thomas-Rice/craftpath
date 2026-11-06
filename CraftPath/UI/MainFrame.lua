@@ -67,17 +67,25 @@ local function numberBox(parent, w, key, minV, maxV)
   local function commit(self)
     if self.committing then return end
     self.committing = true
-    local v = tonumber(self:GetText()) or settings()[key]
+    local typed = self:GetText()
+    local changed = typed ~= self.before
+    local v = tonumber(typed) or settings()[key]
     v = math.max(minV, math.min(maxV, v))
-    settings()[key] = v
-    self:SetText(tostring(v))
     self:ClearFocus()
     self.committing = false
+    if not changed then UI.Refresh(); return end
+    settings()[key] = v
+    -- Typing a starting skill means "plan from this skill", not from the character's.
+    if key == "from" and settings().useMySkill then
+      settings().useMySkill = false
+      ns.Print(("Planning from skill %d. Tick \"Start from my current skill\" to go back."):format(v))
+    end
     UI.Replan()
   end
+  e:SetScript("OnEditFocusGained", function(self) self.before = self:GetText(); self:HighlightText() end)
   e:SetScript("OnEnterPressed", commit)
   e:SetScript("OnEditFocusLost", commit)
-  e:SetScript("OnEscapePressed", function(self) self:SetText(tostring(settings()[key])); self:ClearFocus() end)
+  e:SetScript("OnEscapePressed", function(self) self:SetText(self.before or ""); self:ClearFocus() end)
   e.key = key
   return e
 end
@@ -302,12 +310,16 @@ local function syncControls()
   local s = settings()
   for _, c in ipairs(widgets.checks) do c:SetChecked(s[c.key]) end
   for _, e in ipairs(widgets.edits) do if not e:HasFocus() then e:SetText(tostring(s[e.key])) end end
+  -- With "Start from my current skill" on, the From box shows the live skill.
+  if s.useMySkill and not widgets.fromBox:HasFocus() then
+    local live = ns.Game.GetSkill(s.profession)
+    if live then widgets.fromBox:SetText(tostring(live)) end
+  end
   for prof, b in pairs(widgets.profButtons) do
     if prof == s.profession then b:LockHighlight() else b:UnlockHighlight() end
   end
   widgets.spec:SetText(SPEC_LABEL[s.spec] or SPEC_LABEL.none)
   widgets.spec:SetShown(s.profession == "Engineering")
-  widgets.fromBox:SetEnabled(not s.useMySkill)
   local atAH = ns.Scanner.atAH
   widgets.scanList:SetEnabled(atAH)
   widgets.fullScan:SetEnabled(atAH)
@@ -333,8 +345,12 @@ function UI.Refresh()
   local run = ns.Shopping.Get()
   if run and activeTab == "shop" then
     local t = ns.Shopping.Totals()
-    widgets.summary:SetText(("%s run %d to %d   Spent: %s of %s planned   |cffffd100Left: %d items, about %s|r"):format(
-      run.profession, run.from, run.to, Money(t.spent), Money(t.planned), t.leftItems, Money(t.leftCost)))
+    if run.stale then
+      widgets.summary:SetText(("|cffff9933List locked at %d to %d while buying. Click Finish buying to use your new range.|r"):format(run.from, run.to))
+    else
+      widgets.summary:SetText(("Buying for %s %d to %d   Spent: %s of %s   |cffffd100Left: %d items, about %s|r"):format(
+        run.profession, run.from, run.to, Money(t.spent), Money(t.planned), t.leftItems, Money(t.leftCost)))
+    end
   end
   local onShop = activeTab == "shop"
   widgets.buyBar:SetShown(onShop)
@@ -361,7 +377,20 @@ end
 
 function UI.Replan()
   if not ns.db then return end
-  ns.MakePlan()
+  local plan = ns.MakePlan()
+  -- A buying list with nothing bought yet follows the new plan; once you've bought
+  -- something it stays locked so purchases keep counting against it.
+  local run = ns.Shopping.Get()
+  if run and plan.shopping and (run.from ~= plan.from or run.to ~= plan.to or run.profession ~= plan.profession) then
+    if ns.Shopping.BoughtAnything() then
+      run.stale = true
+    else
+      ns.Buyer.Cancel()
+      ns.Shopping.Start(plan)
+    end
+  elseif run then
+    run.stale = nil
+  end
   UI.Refresh()
 end
 
@@ -413,7 +442,7 @@ local function create()
   fromL:SetPoint("TOPLEFT", 226, -64)
   widgets.fromBox = numberBox(frame, 36, "from", 1, 299)
   widgets.fromBox:SetPoint("LEFT", fromL, "RIGHT", 8, 0)
-  addTip(widgets.fromBox, "Starting skill", "Used when \"Start from my current skill\" is off.")
+  addTip(widgets.fromBox, "Starting skill", "Type a skill to plan from it. This turns off \"Start from my current skill\".")
   local toL = label(frame, "To")
   toL:SetPoint("LEFT", widgets.fromBox, "RIGHT", 10, 0)
   local toBox = numberBox(frame, 36, "to", 2, 300)

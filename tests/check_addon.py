@@ -48,7 +48,9 @@ end
 Widget.__index = function(t, k)
   local m = rawget(Widget, k)
   if m then return m end
-  return function(self, ...) return self end
+  -- Only WoW-style method names (Capitalised) get a do-nothing stand-in; data fields stay nil.
+  if type(k) == "string" and k:match("^%u") then return function(self, ...) return self end end
+  return nil
 end
 function Widget:SetScript(k, fn) self.__scripts[k] = fn end
 function Widget:SetSize(w, h) self.__w, self.__h = w, h end
@@ -423,7 +425,7 @@ def main():
     shop = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "What to buy"]
     shop[0].Click(shop[0])
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
-    assert any(t.startswith("Engineering run") for t in texts), "run summary missing"
+    assert any(t.startswith("Buying for Engineering") for t in texts), "run summary missing"
     ns.Shopping.Stop()
 
     # ---- Crafting helper ----
@@ -446,6 +448,30 @@ def main():
     G.__engSkill = 112
     fire("TRADE_SKILL_CLOSE")
     assert not helper.__shown
+
+    # ---- From box: always editable; typing a skill turns off "use my skill" ----
+    ns.db.settings.useMySkill = True
+    ns.UI.Refresh()
+    from_box = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.key == "from"][0]
+    assert from_box.__text == "112", from_box.__text        # shows live skill
+    from_box.__scripts.OnEditFocusGained(from_box)
+    from_box.__scripts.OnEditFocusLost(from_box)              # click in and out: nothing changes
+    assert ns.db.settings.useMySkill
+    ns.Shopping.Start(ns.MakePlan())                         # buying list, nothing bought yet
+    from_box.__scripts.OnEditFocusGained(from_box)
+    from_box.SetText(from_box, "130")
+    from_box.__scripts.OnEnterPressed(from_box)
+    assert not ns.db.settings.useMySkill and ns.db.settings["from"] == 130
+    assert ns.Shopping.Get()["from"] == 130, "unbought list didn't follow the new range"
+    first, _ = ns.Shopping.NextToBuy()
+    ns.Shopping.Record(first, 1, 100)                        # buy something: list now locks
+    from_box.__scripts.OnEditFocusGained(from_box)
+    from_box.SetText(from_box, "140")
+    from_box.__scripts.OnEnterPressed(from_box)
+    assert ns.Shopping.Get()["from"] == 130 and ns.Shopping.Get().stale
+    ns.Shopping.Stop()
+    ns.db.settings.useMySkill = True
+    ns.db.settings["from"] = 1
 
     # ---- Layout: nothing may stick out of its window ----
     check_layout(G, "CraftPathFrame")                 # buying bar, no session

@@ -35,6 +35,13 @@ function Shopping.Stop()
   ns.db.shop = nil
 end
 
+function Shopping.BoughtAnything()
+  local s = Shopping.Get()
+  if not s then return false end
+  for _, e in pairs(s.items) do if e.bought > 0 then return true end end
+  return false
+end
+
 function Shopping.Left(name)
   local s = Shopping.Get()
   local e = s and s.items[name]
