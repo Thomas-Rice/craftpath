@@ -24,7 +24,7 @@ def write_csv(path, header, rows):
         w.writerows(rows)
 
 
-def make_csvs(ns, out, extra=None, change=None):
+def make_csvs(ns, out, extra=None, change=None, hidden_reagent=None):
     items, item_rows = {}, []
 
     def item(name):
@@ -65,6 +65,8 @@ def make_csvs(ns, out, extra=None, change=None):
               ["ID", "SpellID"] + [f"Reagent_{i}" for i in range(8)] + [f"ReagentCount_{i}" for i in range(8)], reagents)
     write_csv(os.path.join(out, "SpellEffect.csv"),
               ["ID", "SpellID", "EffectIndex", "Effect", "EffectItemType", "EffectBasePointsF"], effects)
+    if hidden_reagent:  # the client ships this item with no name yet
+        item_rows = [[i, "" if n == hidden_reagent else n] for i, n in item_rows]
     write_csv(os.path.join(out, "ItemSparse.csv"), ["ID", "Display_lang"], item_rows)
 
 
@@ -87,7 +89,10 @@ def main():
         os.makedirs(csvs)
         new = {"name": "Thorium Shield Wall", "learn": 285, "yellow": 300, "grey": 320, "makes": 1, "source": "T",
                "reagents": [("Thorium Bar", 20), ("Dense Grinding Stone", 2)], "points": 2}
-        make_csvs(ns, csvs, extra={"Blacksmithing": new}, change={"Copper Tube": {"grey": 112}})
+        secret = {"name": "Mysterious Gadget", "learn": 150, "yellow": 160, "grey": 180, "makes": 1, "source": "A",
+                  "reagents": [("Iron Bar", 2), ("Glimmering Hidden Cog", 1)]}
+        make_csvs(ns, csvs, extra={"Blacksmithing": new, "Engineering": secret}, change={"Copper Tube": {"grey": 112}},
+                  hidden_reagent="Glimmering Hidden Cog")
         report = os.path.join(tmp, "report.md")
         sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon])
 
@@ -118,6 +123,8 @@ def main():
         assert "Changes found." in text
         assert "Thorium Shield Wall" in text and "Copper Tube" in text
         assert "learn skill estimated as 295" in text
+        assert "Hidden in the client (1)" in text and "Mysterious Gadget" in text
+        assert "Mysterious Gadget" not in after["Engineering"]
         assert "build = \"1.60.1.99999\"" in open(os.path.join(addon, "Data", "Engineering.lua")).read()
 
         # A second run with the same tables reports no changes.

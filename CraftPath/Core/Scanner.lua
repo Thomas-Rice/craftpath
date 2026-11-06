@@ -43,6 +43,7 @@ local function recordBrowseResult(res)
   local name = itemNameFromKey(res.itemKey)
   if name then
     ns.Prices.Record(name, res.minPrice, res.totalQuantity, res.itemKey.itemID)
+    ns.Game.NoteRecipeItem(name, res.minPrice)
   else
     pendingKeys[res.itemKey.itemID] = res
   end

@@ -79,6 +79,7 @@ function ns.MakePlan()
     ahPrice = ns.Prices.AH, vendorPrice = ns.Prices.Vendor,
     known = ns.db.known[prof] or {},
     learnOverride = ns.db.trainer[prof],
+    trainerOffers = ns.db.trainer[prof],
     allowRecipeItems = s.allowRecipeItems, allowFavor = s.allowFavor,
     spec = (s.spec ~= "none") and s.spec or nil,
     bonus = 0.04 * (tonumber(s.overtimeRank) or 0),

@@ -234,6 +234,7 @@ local function buildNotes(plan)
       local e = seen[name]
       local tip = { name, e.reagents and ("Reagents: " .. e.reagents:gsub(";", ", ")) or nil,
         e.learn and ("Trainer: needs skill " .. e.learn) or nil,
+        e.recipeItem and ("On the AH: " .. e.recipeItem .. " for " .. Money(e.price)) or nil,
         "CraftPath can't plan with this until its data is updated." }
       out[#out + 1] = { e.learn and ("@" .. e.learn) or "", name, e.learned and "known" or "", "", tip = tip }
     end

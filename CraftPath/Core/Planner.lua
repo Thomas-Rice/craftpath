@@ -33,6 +33,8 @@ local function ceil(x) return math.ceil(x - 1e-9) end
 --   charLevel                        if set, the target is capped to what can be trained
 --   listed(name) -> count|nil        how many are on the auction house (for "not enough listed")
 --   learnOverride = { [recipe]=skill } real learn skill seen at a trainer
+--   trainerOffers = { [recipe]=skill } everything a trainer listed; trainer recipes it didn't
+--                                      list (up to the highest skill it teaches) are left out
 function Planner.Plan(opts)
   local data = Recipes.Load(opts.profession)
   if not data then return { error = "Unknown profession: " .. tostring(opts.profession) } end
@@ -86,6 +88,25 @@ function Planner.Plan(opts)
     table.insert(producers[r.name], r)
   end
 
+  local trainerOffers, trainerMax = opts.trainerOffers, nil
+  if trainerOffers then
+    for _, skill in pairs(trainerOffers) do
+      if not trainerMax or skill > trainerMax then trainerMax = skill end
+    end
+    -- Only trust the list if it looks complete (a filtered or partial list must not
+    -- knock out recipes): it has to cover at least half the trainer recipes we expect.
+    if trainerMax then
+      local expected, covered = 0, 0
+      for _, r in ipairs(list) do
+        if r.source == "T" and r.learn <= trainerMax then
+          expected = expected + 1
+          if trainerOffers[r.name] then covered = covered + 1 end
+        end
+      end
+      if expected == 0 or covered < expected / 2 then trainerMax = nil end
+    end
+  end
+
   -- Gold needed to learn a recipe; nil = can't be learned right now.
   local learnInfo = {}
   local function learnCost(r)
@@ -97,7 +118,11 @@ function Planner.Plan(opts)
     elseif r.source == "A" then
       info.cost, info.how = 0, "auto"
     elseif r.source == "T" then
-      info.cost, info.how = 0, "trainer"
+      if trainerMax and r.learn <= trainerMax and not trainerOffers[r.name] then
+        info.how = "not at trainer" -- in the client data, but trainers don't teach it (yet)
+      else
+        info.cost, info.how = 0, "trainer"
+      end
     elseif r.source == "F" then
       if allowFavor then info.cost, info.how = 0, "favor" end
     elseif r.source == "G" then

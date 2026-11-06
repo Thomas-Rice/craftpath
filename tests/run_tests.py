@@ -156,6 +156,14 @@ def main():
     assert lua_list(p.steps)[0].recipe.name == "Copper Tube", lua_list(p.steps)[0].recipe.name
     assert eng_tube.learn == 75, "override leaked into the cached data"
 
+    # A trainer list that doesn't include a recipe keeps it out of the route.
+    p_all = plan(lua, ns, "Engineering", 1, 300)
+    used = {st.recipe.name for st in lua_list(p_all.steps) if st.recipe.source == "T"}
+    victim = sorted(used)[0]
+    offers = {r.name: r.learn for r in lua_list(R.Load("Engineering").list) if r.source == "T" and r.name != victim}
+    p = plan(lua, ns, "Engineering", 1, 300, trainerOffers=lua.table_from(offers))
+    assert victim not in {st.recipe.name for st in lua_list(p.steps)}, victim
+
     # Recipes that give 2 points per craft need half the crafts.
     r2 = lua.table_from({"name": "X", "learn": 1, "yellow": 50, "grey": 100, "points": 2})
     assert R.PointsPerCraft(r2, 10, 0) == 2

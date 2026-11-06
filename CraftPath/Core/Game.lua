@@ -45,6 +45,19 @@ local function noteUnknown(prof, name, info)
   e.t = time()
   ns.db.seen[prof][name] = e
 end
+Game.NoteUnknown = noteUnknown
+
+-- A "Plans: X" / "Schematic: X" seen on the auction house for a recipe the data lacks.
+function Game.NoteRecipeItem(itemName, price)
+  for prof, prefixes in pairs(ns.RawData.RecipePrefixes) do
+    for _, pre in ipairs(prefixes) do
+      if itemName:sub(1, #pre) == pre then
+        noteUnknown(prof, itemName:sub(#pre + 1), { recipeItem = itemName, price = price })
+        return
+      end
+    end
+  end
+end
 
 local function recipeReagents(recipeID)
   if not C_TradeSkillUI.GetRecipeSchematic then return nil end
@@ -114,6 +127,15 @@ ns.On("MERCHANT_UPDATE", readMerchant)
 -- give an estimate for some trainer recipes.
 local function readTrainer()
   if not GetNumTrainerServices or not GetTrainerServiceSkillReq then return end
+  -- Show everything the trainer teaches, not just what you can learn right now,
+  -- then put the player's filters back.
+  local saved = {}
+  if SetTrainerServiceTypeFilter and GetTrainerServiceTypeFilter then
+    for _, f in ipairs({ "available", "unavailable", "used" }) do
+      saved[f] = GetTrainerServiceTypeFilter(f)
+      if not saved[f] then SetTrainerServiceTypeFilter(f, 1) end
+    end
+  end
   local n = GetNumTrainerServices() or 0
   for i = 1, n do
     local ok, name = pcall(GetTrainerServiceInfo, i)
@@ -124,6 +146,9 @@ local function readTrainer()
       ns.db.trainer[skill][name] = rank
       noteUnknown(skill, name, { trainer = true, learn = rank })
     end
+  end
+  for f, v in pairs(saved) do
+    if not v then SetTrainerServiceTypeFilter(f, 0) end
   end
 end
 ns.On("TRAINER_SHOW", readTrainer)

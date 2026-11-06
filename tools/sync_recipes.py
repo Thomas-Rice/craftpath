@@ -145,7 +145,7 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
                 count = max(1, int(round(float(r.get("EffectBasePointsF") or 1))))
                 creates[sid] = (num(r, "EffectItemType"), count, num(r, "EffectIndex"))
 
-    recipes, problems = {}, []
+    recipes, problems, hidden = {}, [], []
     for r in tables["SkillLineAbility"]:
         if num(r, "SkillLine") != skill_line:
             continue
@@ -164,7 +164,7 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
             continue
         missing = [iid for iid, _ in regs if not item_name.get(iid)]
         if missing:
-            problems.append(f"{name}: reagent item(s) without a name {missing} (hidden item?) - skipped")
+            hidden.append(f"{name} (learn {learn}): reagent item(s) {missing} have no name yet")
             continue
 
         kept, kept_learn = existing_sources.get(name, (None, None))
@@ -203,7 +203,7 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
         old = recipes.get(name)
         if old is None or line["learn"] < old["learn"]:
             recipes[name] = line
-    return recipes, problems
+    return recipes, problems, hidden
 
 
 def fmt(r):
@@ -279,7 +279,7 @@ def main(argv=None):
         path = os.path.join(addon, "Data", f"{prof}.lua")
         before_sources = parse_existing(path, addon)
         before_lines = parse_lines(path)
-        recipes, problems = build_profession(tables, prof, skill_line, prefixes, before_sources, DEFAULT_EXCLUDE)
+        recipes, problems, hidden = build_profession(tables, prof, skill_line, prefixes, before_sources, DEFAULT_EXCLUDE)
         if not recipes:
             report.append(f"## {prof}\n\nNo recipes found for skill line {skill_line}; left the file alone.\n")
             continue
@@ -298,6 +298,11 @@ def main(argv=None):
                 report.append(f"\n### {title}\n```")
                 report.extend(show(n) for n in names)
                 report.append("```")
+        if hidden:
+            report.append(f"\n### Hidden in the client ({len(hidden)})")
+            report.append("Recipes the client ships with names or reagents still hidden. They join the data "
+                          "automatically once a build reveals them.")
+            report.extend("- " + h for h in hidden[:100])
         if problems:
             report.append("\n### Notes")
             report.extend("- " + p for p in problems[:50])

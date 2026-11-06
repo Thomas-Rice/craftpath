@@ -116,6 +116,9 @@ C_TradeSkillUI = {
     { quantityRequired = 3, reagents = { { itemID = 2840 } } } } } end,
 }
 function GetMerchantNumItems() return 2 end
+__trainerFilter = { available = 1, unavailable = 0, used = 0 }
+function GetTrainerServiceTypeFilter(f) return __trainerFilter[f] == 1 end
+function SetTrainerServiceTypeFilter(f, v) __trainerFilter[f] = v end
 function GetNumTrainerServices() return 3 end
 function GetTrainerServiceInfo(i) return ({ "Copper Tube", "Journeyman Engineering", "Trainer Only Widget" })[i] end
 function GetTrainerServiceSkillReq(i) return "Engineering", ({ 60, 50, 140 })[i] end
@@ -189,6 +192,14 @@ def main():
     assert ns.db.trainer["Engineering"]["Copper Tube"] == 60
     assert seen["Trainer Only Widget"].learn == 140
     assert seen["Journeyman Engineering"] is None, "rank training logged as a recipe"
+    assert G.__trainerFilter.unavailable == 0 and G.__trainerFilter.used == 0, "trainer filters not restored"
+
+    # A plan item for a recipe CraftPath doesn't know, seen on the AH.
+    G.__itemNames[777777] = "Plans: Secret Forever Hammer"
+    G.__browse = lua.table_from([lua.table_from({"itemKey": lua.table_from({"itemID": 777777}), "minPrice": 50000, "totalQuantity": 1})])
+    fire("AUCTION_HOUSE_BROWSE_RESULTS_UPDATED")
+    hammer = ns.db.seen["Blacksmithing"]["Secret Forever Hammer"]
+    assert hammer and hammer.recipeItem == "Plans: Secret Forever Hammer" and hammer.price == 50000
 
     # Plan from the character's real skill (112), capped by level 30 -> 225.
     plan = ns.MakePlan()
