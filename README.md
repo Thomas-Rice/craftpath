@@ -17,7 +17,20 @@ Starting with **Engineering** and **Blacksmithing**. A companion website showing
 - **Learns real vendor prices** when you open a merchant, and **reads the recipes you know** when you open your profession window.
 - **Tooltips** show the last auction price CraftPath saw for an item.
 
-CraftPath never buys, posts or cancels anything. Click a shopping-list item to search for it, then buy it in Blizzard's window. Right-click an item to tick it off.
+### Shopping runs and buying
+
+On the Shopping list tab, click **Start shopping run**. This freezes the list (quantities and planned prices) and notes what was already in your bags, so the route doesn't reshuffle while you buy.
+
+- **Buy next** fetches the live price of the next item. Click again to **Confirm** and buy it.
+  - Blizzard only allows a purchase to start from a click, so there is no fully automatic buying: it takes one click to get the price and one to buy.
+  - If the live price is more than *Max over plan %* (default 25%) above the plan, the button asks before buying.
+  - **Skip** moves on to the next item.
+- **Every auction house purchase is tracked**, including ones made in Blizzard's own window. CraftPath watches the purchase calls, so items count as bought immediately, even while they're still in the mailbox.
+- Each row shows what's left, bought vs needed, and the average paid against the plan. The run's total spend and what's left are in the summary.
+- Vendor items: buy them at the vendor and right-click to tick them off.
+- **End shopping run** clears the run. A log of the last 500 purchases is kept.
+
+CraftPath never posts or cancels auctions.
 
 ## Install
 

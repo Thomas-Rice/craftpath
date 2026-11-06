@@ -13,13 +13,15 @@ local DEFAULTS = {
   trainer = {},     -- [profession] = { [recipeName] = skill needed, as the trainer shows it }
   seen = {},        -- [profession] = { [recipeName] = {...} } recipes the game has that the data lacks
   done = {},        -- [itemName] = true  (ticked off the shopping list)
+  purchases = {},   -- log of auction house purchases { t, item, qty, total }
+  -- shop = { ... } -- the active shopping run (Core/Shopping.lua), nil when none
   lastFullScan = 0,
   scanId = 0,
   settings = {
     profession = "Engineering",
     from = 1, to = 300, useMySkill = true, capToLevel = true,
     allowRecipeItems = true, allowFavor = true, spec = "none", overtimeRank = 0,
-    openWithAH = true, tooltip = true,
+    openWithAH = true, tooltip = true, maxOverPct = 25,
   },
 }
 
@@ -62,6 +64,7 @@ ns.On("ADDON_LOADED", function(name)
   CraftPathDB = CraftPathDB or {}
   applyDefaults(CraftPathDB, DEFAULTS)
   ns.db = CraftPathDB
+  if ns.Shopping then ns.Shopping.InstallHooks() end
   if ns.OnLoaded then ns.OnLoaded() end
 end)
 

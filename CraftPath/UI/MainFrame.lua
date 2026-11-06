@@ -177,7 +177,34 @@ local function buildRoute(plan)
   return out
 end
 
+local function buildRun(run)
+  local out = {}
+  for _, name in ipairs(run.order) do
+    local e = run.items[name]
+    local left = ns.Shopping.Left(name)
+    local doneRow = left == 0 or ns.db.done[name]
+    local label = doneRow and ("|cff777777" .. name .. " |TInterface\\RaidFrame\\ReadyCheck-Ready:12|t|r")
+      or (run.skipped[name] and ("|cff999999" .. name .. " (skipped)|r")) or name
+    local toBuy = e.need - e.have
+    local avg = e.bought > 0 and (e.spent / e.bought) or nil
+    local over = avg and e.unit > 0 and math.floor((avg / e.unit - 1) * 100 + 0.5) or 0
+    local priceCol = avg and (Money(avg) .. (over > 0 and (" |cffff9933+" .. over .. "%|r") or "")) or Money(e.unit)
+    out[#out + 1] = {
+      left > 0 and (left .. " left") or "done", label, ("%d/%d"):format(e.bought, toBuy), priceCol, item = name,
+      tip = { name,
+        ("Need %d, had %d in bags at the start, bought %d, %d left"):format(e.need, e.have, e.bought, left),
+        ("Planned %s each"):format(Money(e.unit)),
+        avg and ("Paid %s on average (%s in total)"):format(Money(avg), Money(e.spent)) or nil,
+        e.source == "vendor" and "Buy this from a vendor (right-click to tick off)" or "Click: search the auction house",
+        "Right-click: tick off" },
+    }
+  end
+  return out
+end
+
 local function buildShopping(plan)
+  local run = ns.Shopping.Get()
+  if run then return buildRun(run) end
   local out = {}
   for _, b in ipairs(plan.shopping) do
     if b.buy > 0 or b.have > 0 then
@@ -285,6 +312,23 @@ function UI.Refresh()
   else
     widgets.summary:SetText(plan.error or "")
   end
+  local run = ns.Shopping.Get()
+  if run and activeTab == "shop" then
+    local t = ns.Shopping.Totals()
+    widgets.summary:SetText(("%s run %d to %d   Spent: %s of %s planned   |cffffd100Left: %d items, about %s|r"):format(
+      run.profession, run.from, run.to, Money(t.spent), Money(t.planned), t.leftItems, Money(t.leftCost)))
+  end
+  local onShop = activeTab == "shop"
+  widgets.buyBar:SetShown(onShop)
+  if onShop then
+    widgets.runButton:SetText(run and "End shopping run" or "Start shopping run")
+    widgets.runButton:SetEnabled(run ~= nil or (plan.shopping ~= nil))
+    widgets.buyButton:SetShown(run ~= nil)
+    widgets.skipButton:SetShown(run ~= nil)
+    widgets.buyButton:SetText(ns.Buyer.ButtonText())
+    widgets.buyButton:SetEnabled(ns.Scanner.atAH and ns.Buyer.state ~= "quoting" and ns.Buyer.state ~= "buying")
+    widgets.hint:SetShown(run == nil)
+  end
   local list
   if activeTab == "route" then list = plan.steps and buildRoute(plan) or {}
   elseif activeTab == "shop" then list = plan.shopping and buildShopping(plan) or {}
@@ -304,7 +348,7 @@ end
 
 local function create()
   frame = CreateFrame("Frame", "CraftPathFrame", UIParent, "BasicFrameTemplateWithInset")
-  frame:SetSize(600, 540)
+  frame:SetSize(600, 570)
   frame:SetPoint("CENTER")
   frame:SetMovable(true)
   frame:EnableMouse(true)
@@ -394,9 +438,32 @@ local function create()
     x = x + 114
   end
 
+  -- Shopping-run bar (Shopping list tab only)
+  local bar = CreateFrame("Frame", nil, frame)
+  bar:SetPoint("TOPLEFT", 12, -194)
+  bar:SetPoint("RIGHT", frame, "RIGHT", -14, 0)
+  bar:SetHeight(26)
+  widgets.buyBar = bar
+  widgets.runButton = button(bar, "Start shopping run", 130, function()
+    if ns.Shopping.Get() then ns.Buyer.Cancel(); ns.Shopping.Stop() else ns.Shopping.Start(ns.lastPlan) end
+    UI.Refresh()
+  end)
+  widgets.runButton:SetPoint("LEFT", 2, 0)
+  widgets.buyButton = button(bar, "Buy next", 300, function() ns.Buyer.Click() end)
+  widgets.buyButton:SetPoint("LEFT", widgets.runButton, "RIGHT", 6, 0)
+  widgets.skipButton = button(bar, "Skip", 50, function() ns.Buyer.SkipCurrent(); UI.Refresh() end)
+  widgets.skipButton:SetPoint("LEFT", widgets.buyButton, "RIGHT", 4, 0)
+  local overL = label(bar, "Max over plan %")
+  overL:SetPoint("LEFT", widgets.skipButton, "RIGHT", 8, 0)
+  local over = numberBox(bar, 30, "maxOverPct", 0, 500)
+  over:SetPoint("LEFT", overL, "RIGHT", 6, 0)
+  table.insert(widgets.edits, over)
+  widgets.hint = label(bar, "Starts a run: freezes this list and tracks what you buy.", "GameFontDisableSmall")
+  widgets.hint:SetPoint("LEFT", widgets.runButton, "RIGHT", 8, 0)
+
   -- Scrolling list
   local scroll = CreateFrame("ScrollFrame", nil, frame, "UIPanelScrollFrameTemplate")
-  scroll:SetPoint("TOPLEFT", 12, -196)
+  scroll:SetPoint("TOPLEFT", 12, -224)
   scroll:SetPoint("BOTTOMRIGHT", -32, 12)
   local content = CreateFrame("Frame", nil, scroll)
   content:SetSize(ROWS_W, 1)

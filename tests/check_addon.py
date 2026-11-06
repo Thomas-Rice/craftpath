@@ -26,7 +26,11 @@ __chat = {}
 function UnitLevel() return 30 end
 function GetCoinTextureString(c) return tostring(c) .. "c" end
 function GameTooltip_Hide() end
-Enum = { AuctionHouseSortOrder = { Price = 0 }, TooltipDataType = { Item = 0 } }
+Enum = { AuctionHouseSortOrder = { Price = 0 }, TooltipDataType = { Item = 0 }, ItemCommodityStatus = { Item = 1, Commodity = 2 } }
+function hooksecurefunc(t, name, fn)
+  local orig = t[name]
+  t[name] = function(...) local r = { orig(...) }; fn(...); return unpack(r) end
+end
 AuctionHouseFrameDisplayMode = { Buy = 1 }
 C_AddOns = { GetAddOnMetadata = function() return "0.1.0" end }
 C_Timer = { After = function(sec, fn) table.insert(timers, fn) end }
@@ -99,6 +103,27 @@ C_AuctionHouse = {
     if price then __browse = { { itemKey = { itemID = idFor(q.searchString) }, minPrice = price, totalQuantity = 50 } } end
     C_Timer.After(0, function() __fire("AUCTION_HOUSE_BROWSE_RESULTS_UPDATED") end)
   end,
+  GetItemCommodityStatus = function(id) return (__itemNames[id] or ""):find("^Plans:") and 1 or 2 end,
+  StartCommoditiesPurchase = function(id, qty)
+    table.insert(__ahCalls, "start " .. __itemNames[id] .. " " .. qty)
+    local unit = __livePrice[__itemNames[id]] or 0
+    C_Timer.After(0, function() __fire("COMMODITY_PRICE_UPDATED", unit, unit * qty) end)
+  end,
+  ConfirmCommoditiesPurchase = function(id, qty)
+    table.insert(__ahCalls, "confirm " .. __itemNames[id] .. " " .. qty)
+    C_Timer.After(0, function() __fire("COMMODITY_PURCHASE_SUCCEEDED") end)
+  end,
+  CancelCommoditiesPurchase = function() table.insert(__ahCalls, "cancel") end,
+  MakeItemKey = function(id) return { itemID = id } end,
+  SendSearchQuery = function(key)
+    C_Timer.After(0, function() __fire("ITEM_SEARCH_RESULTS_UPDATED", key) end)
+  end,
+  GetNumItemSearchResults = function() return 1 end,
+  GetItemSearchResultInfo = function(key, i) return { auctionID = 4242, buyoutAmount = __livePrice[__itemNames[key.itemID]] } end,
+  PlaceBid = function(auctionID, amount)
+    table.insert(__ahCalls, "bid " .. auctionID .. " " .. amount)
+    C_Timer.After(0, function() __fire("AUCTION_HOUSE_PURCHASE_COMPLETED", auctionID) end)
+  end,
   ReplicateItems = function() C_Timer.After(0, function() __fire("REPLICATE_ITEM_LIST_UPDATE") end) end,
   GetNumReplicateItems = function() return #__replicate end,
   GetReplicateItemInfo = function(i)
@@ -107,6 +132,8 @@ C_AuctionHouse = {
   end,
 }
 __replicate = {}
+__ahCalls = {}
+__livePrice = {}
 C_TradeSkillUI = {
   GetBaseProfessionInfo = function() return { professionName = "Engineering" } end,
   GetAllRecipeIDs = function() return { 1, 2, 3 } end,
@@ -234,6 +261,58 @@ def main():
     tip = lua.eval("{ AddDoubleLine = function(self, a, b) self.line = b end }")
     G.__tooltipFn(tip, lua.table_from({"id": 2840}))
     assert tip.line and "38" in tip.line
+
+    # ---- Shopping run and one-click buying ----
+    plan = ns.MakePlan()
+    ns.Shopping.Start(plan)
+    run = ns.Shopping.Get()
+    first, e = ns.Shopping.NextToBuy()
+    assert first and e.source == "ah", first
+    need = ns.Shopping.Left(first)
+    G.__livePrice[first] = e.unit  # live price matches the plan
+    ns.Buyer.Click()               # "Buy next": asks for a quote
+    G.__runTimers()
+    assert ns.Buyer.state == "confirm", ns.Buyer.state
+    assert "Confirm" in ns.Buyer.ButtonText()
+    ns.Buyer.Click()               # "Confirm": buys
+    G.__runTimers()
+    assert ns.Buyer.state is None
+    assert run["items"][first].bought > 0, "purchase not tracked"
+    assert run["items"][first].spent == run["items"][first].bought * e.unit
+
+    # Too expensive: it stops and asks; Skip moves on.
+    second, e2 = ns.Shopping.NextToBuy()
+    if second == first:   # first item was capped by listed quantity; skip it for this check
+        ns.Shopping.Skip(first); second, e2 = ns.Shopping.NextToBuy()
+    G.__livePrice[second] = e2.unit * 3
+    ns.Buyer.Click(); G.__runTimers()
+    assert ns.Buyer.state == "pricey", ns.Buyer.state
+    assert "buy anyway" in ns.Buyer.ButtonText()
+    ns.Buyer.SkipCurrent()
+    assert ns.Shopping.NextToBuy() != second and run.skipped[second]
+
+    # A purchase made in Blizzard's own window is tracked too.
+    third, e3 = ns.Shopping.NextToBuy()
+    tid = ns.db.ids[third]
+    G.__livePrice[third] = e3.unit
+    G.C_AuctionHouse.StartCommoditiesPurchase(tid, 2); G.__runTimers()
+    G.C_AuctionHouse.ConfirmCommoditiesPurchase(tid, 2); G.__runTimers()
+    assert run["items"][third].bought == 2, run["items"][third].bought
+
+    # A single auction (a plan) bought by buyout is logged.
+    G.__itemNames[3611] = "Plans: Green Iron Boots"; ns.db.ids["Plans: Green Iron Boots"] = 3611
+    G.__livePrice["Plans: Green Iron Boots"] = 700
+    fire("ITEM_SEARCH_RESULTS_UPDATED", lua.table_from({"itemID": 3611}))
+    G.C_AuctionHouse.PlaceBid(4242, 700); G.__runTimers()
+    log = [ns.db.purchases[i] for i in range(1, len(ns.db.purchases) + 1)]
+    assert log[-1].item == "Plans: Green Iron Boots" and log[-1].total == 700
+
+    # The Shopping list tab shows the run.
+    shop = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Shopping list"]
+    shop[0].Click(shop[0])
+    texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
+    assert any(t.startswith("Engineering run") for t in texts), "run summary missing"
+    ns.Shopping.Stop()
 
     # Slash command and closing the AH.
     G.SlashCmdList.CRAFTPATH("help")
