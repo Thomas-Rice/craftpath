@@ -5,6 +5,8 @@ ns.UI = {}
 local UI = ns.UI
 
 local ROW_H, ROWS_W = 18, 556
+local FRAME_W, FRAME_H = 600, 600
+local LIST_TOP, LIST_TOP_BUY = -196, -250 -- list top, without / with the buying bar
 local Money = function(c) return ns.Prices.Money(c) end
 local frame, rows, activeTab = nil, {}, "route"
 local widgets = {}
@@ -18,11 +20,28 @@ local function settings() return ns.db.settings end
 -- Small widget helpers
 ---------------------------------------------------------------------------
 
-local function button(parent, text, w, onClick)
+-- Tooltip helper shared by buttons, boxes and checkboxes.
+local function addTip(widget, title, body)
+  if not title then return end
+  widget:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+    GameTooltip:SetText(self.tipTitle or title)
+    local text = self.tipBody or body
+    if text then GameTooltip:AddLine(text, 1, 1, 1, true) end
+    GameTooltip:Show()
+  end)
+  widget:SetScript("OnLeave", GameTooltip_Hide)
+end
+
+-- Buttons never draw text past their edges: long labels are cut with "…".
+local function button(parent, text, w, onClick, tipTitle, tipBody)
   local b = CreateFrame("Button", nil, parent, "UIPanelButtonTemplate")
   b:SetSize(w, 22)
   b:SetText(text)
+  local fs = b.GetFontString and b:GetFontString()
+  if fs then fs:SetWidth(w - 14); fs:SetWordWrap(false) end
   b:SetScript("OnClick", onClick)
+  addTip(b, tipTitle or text, tipBody)
   return b
 end
 
@@ -34,12 +53,7 @@ local function checkbox(parent, label, key, tip)
   fs:SetText(label)
   c:SetHitRectInsets(0, -fs:GetStringWidth() - 4, 0, 0)
   c:SetScript("OnClick", function(self) settings()[key] = self:GetChecked() and true or false; UI.Replan() end)
-  if tip then
-    c:SetScript("OnEnter", function(self)
-      GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:SetText(tip, nil, nil, nil, nil, true); GameTooltip:Show()
-    end)
-    c:SetScript("OnLeave", GameTooltip_Hide)
-  end
+  if tip then addTip(c, label, tip) end
   c.key = key
   return c
 end
@@ -148,6 +162,10 @@ local function setRows(list)
 end
 
 local function header(text) return { "|cffffd100" .. text .. "|r" } end
+local function columns(a, b, c, d)
+  local g = function(t) return t and ("|cff999999" .. t .. "|r") or "" end
+  return { g(a), g(b), g(c), g(d) }
+end
 
 local function sourceText(b)
   if b.source == "vendor" then return b.estimate and "vendor (est.)" or "vendor" end
@@ -162,7 +180,7 @@ local function learnText(l)
 end
 
 local function buildRoute(plan)
-  local out = {}
+  local out = { columns("Skill", "Recipe to craft", "Crafts", "Cost per craft") }
   for _, st in ipairs(plan.steps) do
     local r = st.recipe
     local tip = { r.name, ("Skill %d to %d, about %.0f crafts"):format(st.from, st.to, st.expectedCrafts) }
@@ -178,7 +196,7 @@ local function buildRoute(plan)
 end
 
 local function buildRun(run)
-  local out = {}
+  local out = { columns("Left", "Item", "Bought", "Paid (plan)") }
   for _, name in ipairs(run.order) do
     local e = run.items[name]
     local left = ns.Shopping.Left(name)
@@ -205,7 +223,7 @@ end
 local function buildShopping(plan)
   local run = ns.Shopping.Get()
   if run then return buildRun(run) end
-  local out = {}
+  local out = { columns("Buy", "Item", "Price each", "Total") }
   for _, b in ipairs(plan.shopping) do
     if b.buy > 0 or b.have > 0 then
       local done = ns.db.done[b.name]
@@ -320,8 +338,13 @@ function UI.Refresh()
   end
   local onShop = activeTab == "shop"
   widgets.buyBar:SetShown(onShop)
+  widgets.scroll:ClearAllPoints()
+  widgets.scroll:SetPoint("TOPLEFT", 12, onShop and LIST_TOP_BUY or LIST_TOP)
+  widgets.scroll:SetPoint("BOTTOMRIGHT", -32, 12)
   if onShop then
-    widgets.runButton:SetText(run and "End shopping run" or "Start shopping run")
+    widgets.runButton:SetText(run and "Finish buying" or "Start buying")
+    widgets.runButton.tipTitle = run and "Finish buying" or "Start buying"
+    widgets.runButton.tipBody = run and "Stop tracking this list. Purchases stay in the log." or nil
     widgets.runButton:SetEnabled(run ~= nil or (plan.shopping ~= nil))
     widgets.buyButton:SetShown(run ~= nil)
     widgets.skipButton:SetShown(run ~= nil)
@@ -346,9 +369,12 @@ end
 -- Frame
 ---------------------------------------------------------------------------
 
+-- Layout: the frame is FRAME_W wide; content sits between x = 14 and x = 586 (572 px).
+-- Every row below is sized to fit inside that.
+
 local function create()
   frame = CreateFrame("Frame", "CraftPathFrame", UIParent, "BasicFrameTemplateWithInset")
-  frame:SetSize(600, 570)
+  frame:SetSize(FRAME_W, FRAME_H)
   frame:SetPoint("CENTER")
   frame:SetMovable(true)
   frame:EnableMouse(true)
@@ -360,13 +386,13 @@ local function create()
   tinsert(UISpecialFrames, "CraftPathFrame")
   if frame.TitleText then frame.TitleText:SetText("CraftPath — cheapest way to level a profession") end
 
-  local s = settings()
   widgets.checks, widgets.edits, widgets.profButtons, widgets.tabs = {}, {}, {}, {}
 
-  -- Row 1: profession and specialisation
+  -- Row 1 (y -30): profession, specialisation           14 ... 238 | 436 ... 586
   local x = 14
   for _, prof in ipairs(ns.Recipes.Professions()) do
-    local b = button(frame, prof, 110, function() settings().profession = prof; UI.Replan() end)
+    local b = button(frame, prof, 110, function() settings().profession = prof; UI.Replan() end,
+      prof, "Plan the cheapest way to level " .. prof .. ".")
     b:SetPoint("TOPLEFT", x, -30)
     widgets.profButtons[prof] = b
     x = x + 114
@@ -375,96 +401,120 @@ local function create()
     local cur = settings().spec
     for i, v in ipairs(SPECS) do if v == cur then settings().spec = SPECS[i % #SPECS + 1] break end end
     UI.Replan()
-  end)
+  end, "Engineering specialisation", "Click to cycle: none, Goblin, Gnomish. Goblin and Gnomish recipes are only used if you have that specialisation.")
   widgets.spec:SetPoint("TOPRIGHT", -14, -30)
 
-  -- Row 2: skill range
-  local useSkill = checkbox(frame, "Start from my current skill", "useMySkill")
+  -- Row 2 (y -58): skill range and perk                 12 ... ~530
+  local useSkill = checkbox(frame, "Start from my current skill", "useMySkill",
+    "Plan from your character's real skill. Untick to type a starting skill yourself.")
   useSkill:SetPoint("TOPLEFT", 12, -58)
   table.insert(widgets.checks, useSkill)
   local fromL = label(frame, "From")
-  fromL:SetPoint("TOPLEFT", 222, -64)
+  fromL:SetPoint("TOPLEFT", 226, -64)
   widgets.fromBox = numberBox(frame, 36, "from", 1, 299)
   widgets.fromBox:SetPoint("LEFT", fromL, "RIGHT", 8, 0)
+  addTip(widgets.fromBox, "Starting skill", "Used when \"Start from my current skill\" is off.")
   local toL = label(frame, "To")
   toL:SetPoint("LEFT", widgets.fromBox, "RIGHT", 10, 0)
   local toBox = numberBox(frame, 36, "to", 2, 300)
   toBox:SetPoint("LEFT", toL, "RIGHT", 8, 0)
-  local otL = label(frame, "Working Overtime rank")
-  otL:SetPoint("LEFT", toBox, "RIGHT", 14, 0)
+  addTip(toBox, "Target skill", "The skill you want to reach (up to 300).")
+  local otL = label(frame, "Overtime perk (0-5)")
+  otL:SetPoint("LEFT", toBox, "RIGHT", 16, 0)
   local ot = numberBox(frame, 24, "overtimeRank", 0, 5)
   ot:SetMaxLetters(1)
   ot:SetPoint("LEFT", otL, "RIGHT", 8, 0)
+  addTip(ot, "Working Overtime (Legacy perk)", "Your rank in the perk. Each rank adds 4% skill-up chance, so you need fewer crafts.")
   widgets.edits = { widgets.fromBox, toBox, ot }
 
-  -- Row 3: options
+  -- Row 3 (y -84): route options                        12 | 200 | 400 ... ~560
   local opts = {
-    { "Buy schematics/plans", "allowRecipeItems", "Let the route use recipes you have to buy from a vendor or the auction house." },
-    { "Merchant's Favor recipes", "allowFavor", "Let the route use recipes bought with Merchant's Favor (no gold)." },
-    { "Stop at my level's cap", "capToLevel", "Only plan as far as your character level lets you train (Journeyman 10, Expert 20, Artisan 35)." },
+    { "Use bought recipes", "allowRecipeItems", "Let the route use schematics and plans you buy from a vendor or the auction house." },
+    { "Use Merchant's Favor recipes", "allowFavor", "Let the route use recipes bought with Merchant's Favor (no gold)." },
+    { "Stop at my level's cap", "capToLevel", "Only plan as far as your character level lets you train: Journeyman at level 10, Expert at 20, Artisan at 35." },
   }
-  x = 12
-  for _, o in ipairs(opts) do
+  local optX = { 12, 200, 400 }
+  for i, o in ipairs(opts) do
     local c = checkbox(frame, o[1], o[2], o[3])
-    c:SetPoint("TOPLEFT", x, -84)
+    c:SetPoint("TOPLEFT", optX[i], -84)
     table.insert(widgets.checks, c)
-    x = x + 190
   end
 
-  -- Row 4: actions
-  local planB = button(frame, "Plan", 80, function() UI.Replan() end)
+  -- Row 4 (y -114): actions and status                  14 ... 360 | 368 ... 586
+  local planB = button(frame, "Recalculate", 100, function() UI.Replan() end,
+    "Recalculate", "Work out the cheapest route again with the latest prices and settings.")
   planB:SetPoint("TOPLEFT", 14, -114)
-  widgets.scanList = button(frame, "Scan materials", 120, function() ns.Scanner.ScanShoppingList() end)
+  widgets.scanList = button(frame, "Scan AH prices", 120, function() ns.Scanner.ScanShoppingList() end,
+    "Scan AH prices", "At the auction house: search every material and recipe this profession uses, one by one (about a minute).")
   widgets.scanList:SetPoint("LEFT", planB, "RIGHT", 6, 0)
-  widgets.fullScan = button(frame, "Full scan", 90, function() ns.Scanner.FullScan() end)
+  widgets.fullScan = button(frame, "Full AH scan", 110, function() ns.Scanner.FullScan() end,
+    "Full AH scan", "At the auction house: read every auction in one go. Blizzard allows this once every 15 minutes.")
   widgets.fullScan:SetPoint("LEFT", widgets.scanList, "RIGHT", 6, 0)
   widgets.status = label(frame, ns.Scanner.status ~= "" and ns.Scanner.status or "Open the auction house to scan prices.", "GameFontDisableSmall")
-  widgets.status:SetPoint("LEFT", widgets.fullScan, "RIGHT", 10, 0)
+  widgets.status:SetPoint("LEFT", widgets.fullScan, "RIGHT", 8, 0)
   widgets.status:SetPoint("RIGHT", frame, "RIGHT", -14, 0)
   widgets.status:SetJustifyH("LEFT")
   widgets.status:SetWordWrap(false)
 
+  -- Row 5 (y -146): one-line summary (cut with "…" if too long)
   widgets.summary = label(frame, "", "GameFontHighlight")
   widgets.summary:SetPoint("TOPLEFT", 16, -146)
   widgets.summary:SetPoint("RIGHT", frame, "RIGHT", -14, 0)
   widgets.summary:SetJustifyH("LEFT")
+  widgets.summary:SetWordWrap(false)
 
-  -- Tabs
+  -- Row 6 (y -168): tabs                                14 ... 386
   x = 14
-  for _, t in ipairs({ { "route", "Route" }, { "shop", "Shopping list" }, { "notes", "Notes" } }) do
-    local b = button(frame, t[2], 110, function() activeTab = t[1]; UI.Refresh() end)
+  local tabs = {
+    { "route", "Leveling steps", "Which recipe to craft at each skill, how many, and the cost per craft." },
+    { "shop", "What to buy", "Everything to buy for the route, with prices. Start buying here to track purchases." },
+    { "notes", "Notes & tips", "Recipes to get, things to craft yourself, training reminders and new recipes found in game." },
+  }
+  for _, t in ipairs(tabs) do
+    local b = button(frame, t[2], 120, function() activeTab = t[1]; UI.Refresh() end, t[2], t[3])
     b:SetPoint("TOPLEFT", x, -168)
     widgets.tabs[t[1]] = b
-    x = x + 114
+    x = x + 124
   end
 
-  -- Shopping-run bar (Shopping list tab only)
+  -- Buying bar, "What to buy" tab only (y -194, two lines)
+  --   line 1: [Start/Finish buying 120] [Buy button 300] [Skip 80]   12 ... 530
+  --   line 2: price limit                                           12 ... ~360
   local bar = CreateFrame("Frame", nil, frame)
   bar:SetPoint("TOPLEFT", 12, -194)
   bar:SetPoint("RIGHT", frame, "RIGHT", -14, 0)
-  bar:SetHeight(26)
+  bar:SetHeight(50)
   widgets.buyBar = bar
-  widgets.runButton = button(bar, "Start shopping run", 130, function()
+  widgets.runButton = button(bar, "Start buying", 120, function()
     if ns.Shopping.Get() then ns.Buyer.Cancel(); ns.Shopping.Stop() else ns.Shopping.Start(ns.lastPlan) end
     UI.Refresh()
-  end)
-  widgets.runButton:SetPoint("LEFT", 2, 0)
-  widgets.buyButton = button(bar, "Buy next", 300, function() ns.Buyer.Click() end)
+  end, "Start buying", "Locks this list (quantities and prices) and counts everything you buy, so the route doesn't change while you shop. Click again when you're done.")
+  widgets.runButton:SetPoint("TOPLEFT", 2, 0)
+  widgets.buyButton = button(bar, "Get price", 300, function() ns.Buyer.Click() end,
+    "Buy the next item", "First click gets the live price. Second click buys it. Blizzard needs a click for each purchase.")
   widgets.buyButton:SetPoint("LEFT", widgets.runButton, "RIGHT", 6, 0)
-  widgets.skipButton = button(bar, "Skip", 50, function() ns.Buyer.SkipCurrent(); UI.Refresh() end)
-  widgets.skipButton:SetPoint("LEFT", widgets.buyButton, "RIGHT", 4, 0)
-  local overL = label(bar, "Max over plan %")
-  overL:SetPoint("LEFT", widgets.skipButton, "RIGHT", 8, 0)
-  local over = numberBox(bar, 30, "maxOverPct", 0, 500)
-  over:SetPoint("LEFT", overL, "RIGHT", 6, 0)
-  table.insert(widgets.edits, over)
-  widgets.hint = label(bar, "Starts a run: freezes this list and tracks what you buy.", "GameFontDisableSmall")
+  widgets.skipButton = button(bar, "Skip item", 80, function() ns.Buyer.SkipCurrent(); UI.Refresh() end,
+    "Skip item", "Leave this item for now and move on to the next one.")
+  widgets.skipButton:SetPoint("LEFT", widgets.buyButton, "RIGHT", 6, 0)
+  widgets.hint = label(bar, "Locks this list and counts every purchase.", "GameFontDisableSmall")
   widgets.hint:SetPoint("LEFT", widgets.runButton, "RIGHT", 8, 0)
+  widgets.hint:SetPoint("RIGHT", bar, "RIGHT", 0, 0)
+  widgets.hint:SetJustifyH("LEFT")
+  widgets.hint:SetWordWrap(false)
+  local overL = label(bar, "Only buy if the price is at most")
+  overL:SetPoint("TOPLEFT", 4, -32)
+  local over = numberBox(bar, 34, "maxOverPct", 0, 500)
+  over:SetPoint("LEFT", overL, "RIGHT", 8, 0)
+  addTip(over, "Price limit", "If the live price is more than this % above the plan, CraftPath asks before buying.")
+  table.insert(widgets.edits, over)
+  local overR = label(bar, "% above the plan")
+  overR:SetPoint("LEFT", over, "RIGHT", 4, 0)
 
-  -- Scrolling list
+  -- Scrolling list (moves down when the buying bar is showing)
   local scroll = CreateFrame("ScrollFrame", nil, frame, "UIPanelScrollFrameTemplate")
-  scroll:SetPoint("TOPLEFT", 12, -224)
+  scroll:SetPoint("TOPLEFT", 12, LIST_TOP)
   scroll:SetPoint("BOTTOMRIGHT", -32, 12)
+  widgets.scroll = scroll
   local content = CreateFrame("Frame", nil, scroll)
   content:SetSize(ROWS_W, 1)
   scroll:SetScrollChild(content)

@@ -19,16 +19,16 @@ Starting with **Engineering** and **Blacksmithing**. A companion website showing
 
 ### Shopping runs and buying
 
-On the Shopping list tab, click **Start shopping run**. This freezes the list (quantities and planned prices) and notes what was already in your bags, so the route doesn't reshuffle while you buy.
+On the **What to buy** tab, click **Start buying**. This freezes the list (quantities and planned prices) and notes what was already in your bags, so the route doesn't reshuffle while you buy.
 
-- **Buy next** fetches the live price of the next item. Click again to **Confirm** and buy it.
+- **Get price** fetches the live price of the next item. Click again (**Buy 20× Iron Bar for …**) to buy it.
   - Blizzard only allows a purchase to start from a click, so there is no fully automatic buying: it takes one click to get the price and one to buy.
-  - If the live price is more than *Max over plan %* (default 25%) above the plan, the button asks before buying.
-  - **Skip** moves on to the next item.
+  - If the live price is more than the limit you set (default 25% above the plan), the button asks before buying.
+  - **Skip item** moves on to the next item.
 - **Every auction house purchase is tracked**, including ones made in Blizzard's own window. CraftPath watches the purchase calls, so items count as bought immediately, even while they're still in the mailbox.
 - Each row shows what's left, bought vs needed, and the average paid against the plan. The run's total spend and what's left are in the summary.
 - Vendor items: buy them at the vendor and right-click to tick them off.
-- **End shopping run** clears the run. A log of the last 500 purchases is kept.
+- **Finish buying** ends tracking for this list. A log of the last 500 purchases is kept.
 
 CraftPath never posts or cancels auctions.
 
@@ -50,15 +50,15 @@ Copy the `CraftPath` folder into `World of Warcraft/_forever_/Interface/AddOns/`
 
 1. `/cpath` opens the planner (it also opens beside the auction house).
 2. Choose a profession. Leave **Start from my current skill** ticked, or set From/To.
-3. At the auction house, click **Scan materials** (or **Full scan**).
-4. Read the **Route** tab, then work through the **Shopping list** tab.
+3. At the auction house, click **Scan AH prices** (or **Full AH scan**).
+4. Read the **Leveling steps** tab, then work through the **What to buy** tab.
 
 Options:
-- *Buy schematics/plans*
-- *Merchant's Favor recipes*
+- *Use bought recipes*
+- *Use Merchant's Favor recipes*
 - *Stop at my level's cap*: Journeyman needs level 10, Expert 20, Artisan 35.
 - Engineering specialisation (Goblin or Gnomish).
-- *Working Overtime rank*: the Legacy perk, +4% skill-up chance per rank.
+- *Overtime perk (0–5)*: the Legacy perk Working Overtime, +4% skill-up chance per rank.
 
 Commands:
 - `/cpath scan`: full scan

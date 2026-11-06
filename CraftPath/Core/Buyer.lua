@@ -1,8 +1,8 @@
 -- CraftPath: one-click buying for the shopping run.
 --
 -- Blizzard only lets a purchase start from a real click, so this never buys on its own:
---   click "Buy next"  -> asks the auction house for the live price of the next item
---   click "Confirm"   -> buys it, if the live price is within your limit over the plan
+--   click "Get price" -> asks the auction house for the live price of the next item
+--   click "Buy ..."   -> buys it, if the live price is within your limit over the plan
 -- Purchases are recorded by Core/Shopping.lua's hooks, the same as Blizzard-window buys.
 
 local _, ns = ...
@@ -46,7 +46,7 @@ function Buyer.Next()
   if not name then ns.Print("Nothing left to buy on the auction house."); fail(); return end
   local itemID = ns.db.ids[name]
   if not itemID then
-    ns.Print(name .. " hasn't been seen on the auction house yet. Searching for it now; click Buy next again.")
+    ns.Print(name .. " hasn't been seen on the auction house yet. Searching for it now; click Get price again.")
     ns.UI.SearchAH(name)
     return
   end
@@ -134,23 +134,24 @@ local function done()
 end
 ns.On("COMMODITY_PURCHASE_SUCCEEDED", function() C_Timer.After(0, done) end)
 ns.On("AUCTION_HOUSE_PURCHASE_COMPLETED", function() C_Timer.After(0, done) end)
-ns.On("COMMODITY_PURCHASE_FAILED", function() fail("Purchase failed (someone may have bought it first). Click Buy next to retry.") end)
+ns.On("COMMODITY_PURCHASE_FAILED", function() fail("Purchase failed (someone may have bought it first). Click Get price to retry.") end)
 ns.On("AUCTION_HOUSE_CLOSED", function() Buyer.state, Buyer.current = nil, nil end)
 
 -- Text for the main button.
 function Buyer.ButtonText()
   local c = Buyer.current
-  if Buyer.state == "quoting" then return "Getting price…" end
+  if Buyer.state == "quoting" then return "Getting live price…" end
   if Buyer.state == "buying" then return "Buying…" end
   if Buyer.state == "confirm" then
-    return ("Confirm %d× %s — %s"):format(c.qty, c.name, ns.Prices.Money(c.total))
+    return ("Buy %d× %s for %s"):format(c.qty, c.name, ns.Prices.Money(c.total))
   end
   if Buyer.state == "pricey" then
     local _, planned = limitFor(c.name)
-    return ("Pricier than planned (%s vs %s) — buy anyway?"):format(ns.Prices.Money(c.unit), ns.Prices.Money(planned))
+    local pct = planned > 0 and math.floor((c.unit / planned - 1) * 100 + 0.5) or 0
+    return ("Buy anyway? +%d%% over plan (%s each)"):format(pct, ns.Prices.Money(c.unit))
   end
   local name = ns.Shopping.NextToBuy()
-  return name and ("Buy next: %d× %s"):format(ns.Shopping.Left(name), name) or "All bought"
+  return name and ("Get price: %d× %s"):format(ns.Shopping.Left(name), name) or "All bought"
 end
 
 function Buyer.Click()

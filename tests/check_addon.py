@@ -39,7 +39,8 @@ function __runTimers() local n=0 while #timers>0 and n<500 do local fn=table.rem
 -- Generic widget: every method exists and returns a widget/self.
 local Widget = {}
 local function newWidget(kind, name)
-  local w = setmetatable({ __kind = kind, __scripts = {}, __shown = true, __text = "" }, Widget)
+  local w = setmetatable({ __kind = kind, __scripts = {}, __shown = true, __text = "", __points = {},
+    __w = false, __h = false, __wrap = "unset", __template = false, __parent = false, __fs = false }, Widget)
   if name then _G[name] = w end
   table.insert(frames, w)
   return w
@@ -50,12 +51,31 @@ Widget.__index = function(t, k)
   return function(self, ...) return self end
 end
 function Widget:SetScript(k, fn) self.__scripts[k] = fn end
+function Widget:SetSize(w, h) self.__w, self.__h = w, h end
+function Widget:SetWidth(w) self.__w = w end
+function Widget:SetHeight(h) self.__h = h end
+function Widget:GetParent() return self.__parent end
+function Widget:ClearAllPoints() self.__points = {} end
+function Widget:SetPoint(point, a, b, c, d)
+  self.__points = self.__points or {}
+  local rel, relPoint, x
+  if type(a) == "number" or a == nil then rel, relPoint, x = self.__parent, point, a or 0
+  elseif type(b) == "string" then rel, relPoint, x = a, b, c or 0
+  else rel, relPoint, x = a, point, b or 0 end
+  self.__points[point] = { rel = rel, relPoint = relPoint, x = x }
+end
+function Widget:SetWordWrap(v) self.__wrap = v end
+function Widget:SetScrollChild(c) c.__parent = self; c.__points = { TOPLEFT = { rel = self, relPoint = "TOPLEFT", x = 0 } } end
+function Widget:GetFontString() if not self.__fs then self.__fs = newWidget("FontString"); self.__fs.__parent = self end return self.__fs end
 function Widget:GetScript(k) return self.__scripts[k] end
-function Widget:CreateFontString() return newWidget("FontString") end
+function Widget:CreateFontString(_, _, template)
+  local fs = newWidget("FontString"); fs.__parent = self; fs.__template = template; return fs
+end
 function Widget:CreateTexture() return newWidget("Texture") end
-function Widget:SetText(t) self.__text = t end
+function Widget:SetText(t) self.__text = t; if self.__kind == "Button" and self.__fs then self.__fs.__text = t end end
 function Widget:GetText() return self.__text end
 function Widget:GetStringWidth() return 50 end
+function Widget:GetStringHeight() local _, n = tostring(self.__text):gsub("\n", "") return (n + 1) * 12 end
 function Widget:Show() self.__shown = true; local f = self.__scripts.OnShow; if f then f(self) end end
 function Widget:Hide() self.__shown = false end
 function Widget:SetShown(v) if v then self:Show() else self:Hide() end end
@@ -67,6 +87,7 @@ function Widget:RegisterEvent(e) events[e] = events[e] or {}; table.insert(event
 function Widget:Click(btn) self.__scripts.OnClick(self, btn or "LeftButton") end
 function CreateFrame(kind, name, parent, template)
   local w = newWidget(kind, name)
+  w.__parent = parent or false
   if template and template:find("FrameTemplate") then w.TitleText = newWidget("FontString") end
   return w
 end
@@ -162,6 +183,95 @@ function AuctionHouseFrame.SearchBar:StartSearch() __searched = self.SearchBox:G
 """
 
 
+import re as _re
+
+def text_width(fs):
+    """Rough pixel width of a font string's visible text (WoW fonts, colour codes removed)."""
+    t = fs.__text if isinstance(fs.__text, str) else ""
+    t = _re.sub(r"\|c[0-9a-fA-F]{8}|\|r|\|T[^|]*\|t", "", t)
+    per = 7.2 if fs.__template in ("GameFontNormal", "GameFontHighlight") else 6.0
+    if fs.__template == "GameFontHighlightLarge":
+        per = 8.5
+    longest = max((len(l) for l in t.split("\n")), default=0)
+    return longest * per
+
+
+def check_layout(G, root_name):
+    frames = [G.__frames[i] for i in range(1, len(G.__frames) + 1)]
+    root = G[root_name]
+
+    def parent_chain(w):
+        while w is not None and w is not False:
+            yield w
+            w = w.__parent
+
+    def width(w, depth=0):
+        pts = w.__points or {}
+        if depth > 30:
+            return 0
+        if ("LEFT" in pts or "TOPLEFT" in pts) and ("RIGHT" in pts or "TOPRIGHT" in pts):
+            return right_anchor(w, depth) - left(w, depth)
+        if w.__w:
+            return w.__w
+        if w.__kind == "FontString":
+            return text_width(w)
+        return 0
+
+    def anchor_x(p, depth):
+        rel = p.rel
+        if rel is None or rel is False:
+            return 0
+        base = left(rel, depth + 1)
+        rp = p.relPoint
+        if rp in ("RIGHT", "TOPRIGHT", "BOTTOMRIGHT"):
+            base += width(rel, depth + 1)
+        elif rp in ("CENTER", "TOP", "BOTTOM"):
+            base += width(rel, depth + 1) / 2
+        return base + p.x
+
+    def right_anchor(w, depth):
+        pts = w.__points
+        p = pts["RIGHT"] if "RIGHT" in pts else pts["TOPRIGHT"]
+        return anchor_x(p, depth)
+
+    def left(w, depth=0):
+        if depth > 30 or w is None or w is False:
+            return 0
+        pts = w.__points or {}
+        for name in ("LEFT", "TOPLEFT", "BOTTOMLEFT"):
+            if name in pts:
+                return anchor_x(pts[name], depth)
+        for name in ("RIGHT", "TOPRIGHT", "BOTTOMRIGHT"):
+            if name in pts:
+                return anchor_x(pts[name], depth) - width(w, depth)
+        if "CENTER" in pts:
+            return anchor_x(pts["CENTER"], depth) - width(w, depth) / 2
+        return 0
+
+    root_left, root_right = left(root), left(root) + root.__w
+    root.__layoutRoot = True
+    bad = []
+    for f in frames:
+        if f.__layoutRoot is True or not any(x.__layoutRoot is True for x in parent_chain(f.__parent)):
+            continue
+        if not all(x.__shown for x in parent_chain(f)):
+            continue
+        if not isinstance(f.__text, str) and f.__kind == "FontString":
+            continue
+        pts = f.__points or {}
+        if f.__kind == "FontString" and f.__wrap is False and len([k for k in pts if "LEFT" in k or "RIGHT" in k]) >= 2:
+            continue  # spans two anchors and cuts its text: always fits
+        if f.__kind == "FontString" and f.__parent and f.__parent.__kind == "Button" and f.__wrap is False:
+            continue  # button label sized to the button and cut with "..."
+        l = left(f)
+        r = l + width(f)
+        if r > root_right - 6 or l < root_left + 4:
+            what = f.__text if isinstance(f.__text, str) and f.__text else f.__kind
+            bad.append(f"{what!r}: x {l:.0f}..{r:.0f}, window {root_left:.0f}..{root_right:.0f}")
+    root.__layoutRoot = False
+    assert not bad, root_name + " has elements outside its window:\n  " + "\n  ".join(bad)
+
+
 def main():
     lua = lua51.LuaRuntime(unpack_returned_tuples=True)
     lua.execute(STUBS)
@@ -237,7 +347,7 @@ def main():
 
     # Window: tabs, row click searches the AH, right-click ticks off.
     ns.UI.Refresh()
-    tabs = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Shopping list"]
+    tabs = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "What to buy"]
     tabs[0].Click(tabs[0])
     rows = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__kind == "Button" and isinstance(f.item, str)]
     assert rows, "no shopping rows"
@@ -245,7 +355,7 @@ def main():
     assert G.__searched == rows[0].item
     rows[0].Click(rows[0], "RightButton")
     assert ns.db.done[rows[0].item]
-    notes = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Notes"]
+    notes = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Notes & tips"]
     notes[0].Click(notes[0])
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
     assert any("Shiny New Gizmo" == t for t in texts), "unknown recipe not on Notes tab"
@@ -275,7 +385,7 @@ def main():
     ns.Buyer.Click()               # "Buy next": asks for a quote
     G.__runTimers()
     assert ns.Buyer.state == "confirm", ns.Buyer.state
-    assert "Confirm" in ns.Buyer.ButtonText()
+    assert ns.Buyer.ButtonText().startswith("Buy "), ns.Buyer.ButtonText()
     ns.Buyer.Click()               # "Confirm": buys
     G.__runTimers()
     assert ns.Buyer.state is None
@@ -289,7 +399,7 @@ def main():
     G.__livePrice[second] = e2.unit * 3
     ns.Buyer.Click(); G.__runTimers()
     assert ns.Buyer.state == "pricey", ns.Buyer.state
-    assert "buy anyway" in ns.Buyer.ButtonText()
+    assert ns.Buyer.ButtonText().startswith("Buy anyway?"), ns.Buyer.ButtonText()
     ns.Buyer.SkipCurrent()
     assert ns.Shopping.NextToBuy() != second and run.skipped[second]
 
@@ -310,7 +420,7 @@ def main():
     assert log[-1].item == "Plans: Green Iron Boots" and log[-1].total == 700
 
     # The Shopping list tab shows the run.
-    shop = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Shopping list"]
+    shop = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "What to buy"]
     shop[0].Click(shop[0])
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
     assert any(t.startswith("Engineering run") for t in texts), "run summary missing"
@@ -336,6 +446,19 @@ def main():
     G.__engSkill = 112
     fire("TRADE_SKILL_CLOSE")
     assert not helper.__shown
+
+    # ---- Layout: nothing may stick out of its window ----
+    check_layout(G, "CraftPathFrame")                 # buying bar, no session
+    ns.Shopping.Start(ns.MakePlan()); ns.UI.Refresh()
+    check_layout(G, "CraftPathFrame")                 # buying bar with session
+    ns.Shopping.Stop()
+    for tab in ("Leveling steps", "Notes & tips", "What to buy"):
+        t = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == tab][0]
+        t.Click(t)
+        check_layout(G, "CraftPathFrame")
+    fire("TRADE_SKILL_SHOW")
+    check_layout(G, "CraftPathCraftHelper")
+    fire("TRADE_SKILL_CLOSE")
 
     # Slash command and closing the AH.
     G.SlashCmdList.CRAFTPATH("help")

@@ -40,17 +40,27 @@ local function line(parent, template)
   return fs
 end
 
-local function button(parent, text, width, onClick)
+local function button(parent, text, width, onClick, tipTitle, tipBody)
   local b = CreateFrame("Button", nil, parent, "UIPanelButtonTemplate")
   b:SetSize(width, 22)
   b:SetText(text)
+  local fs = b.GetFontString and b:GetFontString()
+  if fs then fs:SetWidth(width - 14); fs:SetWordWrap(false) end
   b:SetScript("OnClick", onClick)
+  if tipTitle then
+    b:SetScript("OnEnter", function(self)
+      GameTooltip:SetOwner(self, "ANCHOR_RIGHT"); GameTooltip:SetText(tipTitle)
+      if tipBody then GameTooltip:AddLine(tipBody, 1, 1, 1, true) end
+      GameTooltip:Show()
+    end)
+    b:SetScript("OnLeave", GameTooltip_Hide)
+  end
   return b
 end
 
 local function create()
   frame = CreateFrame("Frame", "CraftPathCraftHelper", UIParent, "BasicFrameTemplateWithInset")
-  frame:SetSize(300, 330)
+  frame:SetSize(320, 330) -- height grows to fit the text (see fitHeight)
   frame:SetPoint("CENTER", 320, 0)
   frame:SetMovable(true)
   frame:EnableMouse(true)
@@ -84,11 +94,15 @@ local function create()
   w.next:SetPoint("TOPLEFT", w.first, "BOTTOMLEFT", 0, -8)
   w.next:SetPoint("RIGHT", -14, 0)
 
-  w.craft = button(frame, "Craft", 130, function() Helper.Craft() end)
+  -- Buttons: 12 + 120 + 6 + 90 + 6 + 72 = 306, inside 320 - 12.
+  w.craft = button(frame, "Craft", 120, function() Helper.Craft() end,
+    "Craft", "Craft as many of this step's recipe as your bags allow.")
   w.craft:SetPoint("BOTTOMLEFT", 12, 12)
-  w.open = button(frame, "Show recipe", 90, function() Helper.ShowRecipe() end)
+  w.open = button(frame, "Show recipe", 90, function() Helper.ShowRecipe() end,
+    "Show recipe", "Select this recipe in the profession window.")
   w.open:SetPoint("LEFT", w.craft, "RIGHT", 6, 0)
-  w.planner = button(frame, "Planner", 60, function() ns.UI.Toggle() end)
+  w.planner = button(frame, "Planner", 72, function() ns.UI.Toggle() end,
+    "Planner", "Open the CraftPath planner: full route, shopping list and scans.")
   w.planner:SetPoint("LEFT", w.open, "RIGHT", 6, 0)
   frame:Hide()
 end
@@ -196,10 +210,21 @@ function Helper.Render(view)
     w.craft:SetText(("Craft %d"):format(view.toDo))
     w.craft:Enable()
   elseif view.known and view.craftable == 0 then
-    w.craft:SetText(#view.makeFirst > 0 and "Make reagents first" or "Missing reagents")
+    w.craft:SetText(#view.makeFirst > 0 and "Make reagents first" or "Need reagents")
   else
     w.craft:SetText("Craft")
   end
+end
+
+-- Grow or shrink the panel so the text never runs past the buttons or the border.
+local function fitHeight()
+  local h = 30
+  for _, key in ipairs({ "skill", "step", "detail", "reagents", "first", "next" }) do
+    local fs = w[key]
+    local text = fs:GetText()
+    if text and text ~= "" then h = h + fs:GetStringHeight() + 8 end
+  end
+  frame:SetHeight(math.max(200, h + 46))
 end
 
 function Helper.Update()
@@ -222,6 +247,7 @@ function Helper.Update()
   end
   lastStep = view.recipe and view.recipe.name or nil
   Helper.Render(view)
+  fitHeight()
 end
 
 function Helper.Craft()
