@@ -13,6 +13,12 @@ function Prices.AH(name)
   return e.p
 end
 
+-- How many were listed in the last scan that saw the item.
+function Prices.Listed(name)
+  local e = ns.db and ns.db.prices[name]
+  return e and e.p and e.q or nil
+end
+
 function Prices.Vendor(name)
   return ns.db and ns.db.vendor[name]
 end

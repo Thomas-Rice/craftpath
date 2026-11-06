@@ -123,8 +123,11 @@ local function getRow(i)
   r:SetScript("OnEnter", function(self)
     if not self.tip then return end
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-    for n, line in ipairs(self.tip) do
-      if n == 1 then GameTooltip:SetText(line) else GameTooltip:AddLine(line, 1, 1, 1, true) end
+    for n = 1, table.maxn(self.tip) do
+      local line = self.tip[n]
+      if line then
+        if n == 1 then GameTooltip:SetText(line) else GameTooltip:AddLine(line, 1, 1, 1, true) end
+      end
     end
     GameTooltip:Show()
   end)
@@ -179,12 +182,15 @@ local function buildShopping(plan)
   for _, b in ipairs(plan.shopping) do
     if b.buy > 0 or b.have > 0 then
       local done = ns.db.done[b.name]
-      local name = done and ("|cff777777" .. b.name .. " |TInterface\\RaidFrame\\ReadyCheck-Ready:12|t|r") or b.name
+      local shown = b.short and ("|cffff9933" .. b.name .. "|r") or b.name
+      local name = done and ("|cff777777" .. b.name .. " |TInterface\\RaidFrame\\ReadyCheck-Ready:12|t|r") or shown
       local qty = b.have > 0 and ("%d |cff999999(+%d)|r"):format(b.buy, b.have) or tostring(b.buy)
       out[#out + 1] = {
         qty, name, Money(b.unit), Money(b.total), item = b.name,
         tip = { b.name, ("Need %d, you have %d, buy %d"):format(b.qty, b.have, b.buy),
-          "Price: " .. sourceText(b), "Click: search the auction house", "Right-click: tick off" },
+          "Price: " .. sourceText(b),
+          b.short and ("|cffff9933Only %d listed at the last scan, so the rest may cost more.|r"):format(b.listed) or nil,
+          "Click: search the auction house", "Right-click: tick off" },
       }
     end
   end
@@ -258,8 +264,9 @@ function UI.Refresh()
   if plan.error and activeTab ~= "notes" then
     widgets.summary:SetText("|cffff6060" .. plan.error .. "|r  See Notes.")
   elseif plan.total then
-    widgets.summary:SetText(("Skill %d to %d   Buy: %s   Recipes: %s   |cffffd100Total: %s|r"):format(
-      plan.from, plan.to, Money(plan.buyTotal), Money(plan.learnTotal), Money(plan.total)))
+    local short = plan.short and ("   |cffff9933%d item%s short on the AH|r"):format(plan.short, plan.short > 1 and "s" or "") or ""
+    widgets.summary:SetText(("Skill %d to %d   Buy: %s   Recipes: %s   |cffffd100Total: %s|r%s"):format(
+      plan.from, plan.to, Money(plan.buyTotal), Money(plan.learnTotal), Money(plan.total), short))
   else
     widgets.summary:SetText(plan.error or "")
   end

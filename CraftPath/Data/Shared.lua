@@ -39,6 +39,9 @@ ns.RawData.VendorItems = {
   ["Flask of Oil"] = 80,            -- estimate
 }
 
+-- Vendor prices above that are still guesses (shown as "est.").
+ns.RawData.VendorEstimates = { ["Blank Parchment"] = true, ["Engineer's Ink"] = true, ["Flask of Oil"] = true }
+
 -- Price guess (copper) for gold-vendor recipes until the merchant has been seen.
 ns.RawData.VendorRecipeEstimate = 5000
 

@@ -143,6 +143,11 @@ def main():
     check_plan(ns, p, 1, 300)
     assert p.expectedGold > base.expectedGold
 
+    # Too few listed: the shopping list flags it.
+    p = plan(lua, ns, "Engineering", 1, 300, listed=lambda name: 3 if name == "Copper Bar" else None)
+    short = [b for b in lua_list(p.shopping) if b.short]
+    assert [b.name for b in short] == ["Copper Bar"] and p.short == 1, [b.name for b in short]
+
     print("All tests passed.")
     if "--show" in sys.argv:
         for prof, p in results.items():

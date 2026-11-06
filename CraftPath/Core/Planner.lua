@@ -31,6 +31,7 @@ local function ceil(x) return math.ceil(x - 1e-9) end
 --   bonus = 0..0.2                   extra skill-up chance (Legacy "Working Overtime")
 --   owned(name) -> count             items already in bags/bank
 --   charLevel                        if set, the target is capped to what can be trained
+--   listed(name) -> count|nil        how many are on the auction house (for "not enough listed")
 function Planner.Plan(opts)
   local data = Recipes.Load(opts.profession)
   if not data then return { error = "Unknown profession: " .. tostring(opts.profession) } end
@@ -110,7 +111,9 @@ function Planner.Plan(opts)
     local a = ahPrice(name)
     if a and a < best.cost then best = { cost = a, how = "ah" } end
     local v = vendorPrice(name) or ns.RawData.VendorItems[name]
-    if v and v < best.cost then best = { cost = v, how = "vendor", est = not vendorPrice(name) } end
+    if v and v < best.cost then
+      best = { cost = v, how = "vendor", est = not vendorPrice(name) and ns.RawData.VendorEstimates[name] or nil }
+    end
     visiting = visiting or {}
     if producers[name] and not visiting[name] then
       visiting[name] = true
@@ -244,13 +247,13 @@ function Planner.Plan(opts)
     profession = opts.profession, from = from, to = to, steps = steps, notes = notes,
     expectedGold = best[to],
   }
-  Planner.BuildShoppingList(plan, data, unitCost, opts.owned)
+  Planner.BuildShoppingList(plan, data, unitCost, opts.owned, opts.listed)
   Planner.AddRankNotes(plan)
   return plan
 end
 
 -- Replays the route to produce a buy list, a craft-yourself list and recipes to learn.
-function Planner.BuildShoppingList(plan, data, unitCost, owned)
+function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
   local inv, buy, crafted, order = {}, {}, {}, {}
   local learn = {}
 
@@ -308,6 +311,13 @@ function Planner.BuildShoppingList(plan, data, unitCost, owned)
     b.buy = b.qty - b.have
     b.total = b.buy * b.unit
     total = total + b.total
+    if b.source == "ah" and listed then
+      b.listed = listed(b.name)
+      if b.listed and b.buy > b.listed then
+        b.short = true
+        plan.short = (plan.short or 0) + 1
+      end
+    end
     list[#list + 1] = b
   end
   table.sort(list, function(x, y) if x.total ~= y.total then return x.total > y.total end return x.name < y.name end)

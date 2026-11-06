@@ -80,6 +80,7 @@ function ns.MakePlan()
     spec = (s.spec ~= "none") and s.spec or nil,
     bonus = 0.04 * (tonumber(s.overtimeRank) or 0),
     owned = ns.Game.Owned,
+    listed = ns.Prices.Listed,
     charLevel = s.capToLevel and UnitLevel("player") or nil,
   }
   local plan = ns.Planner.Plan(opts)
