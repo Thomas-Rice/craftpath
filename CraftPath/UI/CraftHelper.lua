@@ -100,8 +100,9 @@ local function create()
   w.open = button(frame, "Show recipe", 90, function() Helper.ShowRecipe() end,
     "Show recipe", "Select this recipe in the profession window.")
   w.open:SetPoint("LEFT", w.craft, "RIGHT", 6, 0)
-  w.planner = button(frame, "Planner", 72, function() ns.UI.Toggle() end,
-    "Planner", "Open the CraftPath planner: full route, shopping list and scans.")
+  w.planner = button(frame, "Planner", 72, function()
+    if Helper.preview then Helper.preview = nil; Helper.Update() else ns.UI.Toggle() end
+  end, "Planner / Back", "Open the CraftPath planner. When you're looking at another step, go back to your current step.")
   w.planner:SetPoint("LEFT", w.open, "RIGHT", 6, 0)
   frame:Hide()
 end
@@ -133,19 +134,29 @@ local function stepFromLock(lock, skill, plan, data)
   }
 end
 
+-- A step picked on the planner's Leveling steps tab, shown instead of the current step.
+Helper.preview = nil -- { prof, step, index, total }
+
 -- Works out what to show for the open profession.
 function Helper.Compute(prof)
   local plan = ns.MakePlan({ profession = prof, liveSkill = true })
   local skill, maxSkill = ns.Game.GetSkill(prof)
   local view = { prof = prof, skill = skill, maxSkill = maxSkill, plan = plan }
-  if plan.error then view.error = plan.error; return view end
+  local pv = Helper.preview
+  if plan.error and not (pv and pv.prof == prof) then view.error = plan.error; return view end
   local data = ns.Recipes.Load(prof)
   local step
   local lock = Helper.lock
-  if lock and lock.prof == prof and skill and skill < lock.to then
+  if pv and pv.prof == prof then
+    step = pv.step
+    view.preview = pv
+    view.after = pv.next
+  elseif lock and lock.prof == prof and skill and skill < lock.to then
     step = stepFromLock(lock, skill, plan, data)
   end
-  if step then
+  if view.preview then
+    -- previewing: leave the lock alone
+  elseif step then
     -- What comes after this step: plan from the end of it.
     local afterPlan = ns.MakePlan({ profession = prof, from = lock.to })
     view.after = afterPlan.steps and afterPlan.steps[1] or nil
@@ -175,7 +186,7 @@ function Helper.Compute(prof)
   -- Intermediates the plan has you make yourself, that you're short of for this step.
   view.makeFirst = {}
   local selfMade = {}
-  for _, c in ipairs(plan.craftYourself or {}) do selfMade[c.name] = true end
+  for _, c in ipairs(plan.craftYourself or (pv and pv.craftYourself) or {}) do selfMade[c.name] = true end
   for _, g in ipairs(view.reagents) do
     local sub = data.byName[g.name]
     if sub and selfMade[g.name] and g.have < g.need then
@@ -200,7 +211,14 @@ end
 function Helper.Render(view)
   Helper.view = view
   local prof = view.prof
-  w.skill:SetText(("%s  %s"):format(prof, view.skill and ("skill " .. view.skill) or ""))
+  if view.preview then
+    w.skill:SetText(("|cff33bbffStep %d of %d|r  (you're at %s %s)"):format(
+      view.preview.index, view.preview.total, prof, view.skill and tostring(view.skill) or "?"))
+    w.planner:SetText("Back")
+  else
+    w.skill:SetText(("%s  %s"):format(prof, view.skill and ("skill " .. view.skill) or ""))
+    w.planner:SetText("Planner")
+  end
   w.craft:Disable()
   w.open:SetEnabled(view.recipeID ~= nil)
   if view.error then
@@ -245,7 +263,8 @@ function Helper.Render(view)
     w.next:SetText(("This step takes you to %d."):format(st.to))
   end
 
-  if view.known and view.recipeID and view.toDo > 0 then
+  local windowOpen = ns.Game.OpenProfession() == prof
+  if view.known and view.recipeID and view.toDo > 0 and windowOpen then
     w.craft:SetText(("Craft %d"):format(view.toDo))
     w.craft:Enable()
   elseif view.known and view.craftable == 0 then
@@ -268,10 +287,10 @@ end
 
 function Helper.Update()
   if not ns.db or not ns.db.settings.craftHelper then return end
-  local prof = ns.Game.OpenProfession()
+  local prof = ns.Game.OpenProfession() or (Helper.preview and Helper.preview.prof)
   if not prof then if frame then frame:Hide() end return end
   if not frame then create() end
-  local parent = profFrame()
+  local parent = profFrame() or (Helper.preview and CraftPathFrame and CraftPathFrame:IsShown() and CraftPathFrame)
   if parent and not frame.userMoved then
     frame:ClearAllPoints()
     frame:SetPoint("TOPLEFT", parent, "TOPRIGHT", 4, 0)
@@ -290,10 +309,21 @@ function Helper.Update()
     end
   end
   -- Keep Blizzard's window on the step's recipe (once per recipe, so you can browse freely).
-  if view.recipeID and Helper.selected ~= view.recipeID then
+  if view.recipeID and Helper.selected ~= view.recipeID and ns.Game.OpenProfession() == prof then
     Helper.selected = view.recipeID
     Helper.ShowRecipe()
   end
+end
+
+-- Opens a route step from the planner in this panel.
+function Helper.ShowStep(prof, step, index, total, plan)
+  plan = plan or ns.lastPlan
+  Helper.preview = {
+    prof = prof, step = step, index = index, total = total,
+    next = plan and plan.steps and plan.steps[index + 1] or nil,
+    craftYourself = plan and plan.craftYourself or nil,
+  }
+  Helper.Update()
 end
 
 function Helper.Craft()
@@ -320,9 +350,14 @@ local function soon(delay)
   C_Timer.After(delay or 0.5, function() pending = false; Helper.Update() end)
 end
 ns.On("BAG_UPDATE_DELAYED", function() soon(0.5) end)
-ns.On("SKILL_LINES_CHANGED", function() soon(0.1) end)
-ns.On("CHAT_MSG_SKILL", function() soon(0.1) end)
+-- A skill-up while crafting means you're back on the route: drop any preview.
+local function skillUp()
+  if Helper.preview and ns.Game.OpenProfession() then Helper.preview = nil end
+  soon(0.1)
+end
+ns.On("SKILL_LINES_CHANGED", skillUp)
+ns.On("CHAT_MSG_SKILL", skillUp)
 ns.On("TRADE_SKILL_CLOSE", function()
-  if frame then frame:Hide() end
   Helper.selected = nil
+  if Helper.preview then C_Timer.After(0, Helper.Update) elseif frame then frame:Hide() end
 end)

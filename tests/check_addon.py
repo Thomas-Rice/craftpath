@@ -463,6 +463,31 @@ def main():
     G.__engSkill = 112
     ns.CraftHelper.lock = None
 
+    # Clicking a step on the Leveling steps tab shows its materials and opens it in the helper.
+    steps_tab = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Leveling steps"][0]
+    steps_tab.Click(steps_tab)
+    plan = ns.lastPlan
+    target = plan.steps[2]
+    rows = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)]
+            if f.__kind == "Button" and f.__shown and f.onClick and f.cols and isinstance(f.cols[2].__text, str)
+            and f.cols[2].__text.endswith(target.recipe.name)]
+    assert rows, "step row not found"
+    rows[0].Click(rows[0], "LeftButton")
+    texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
+    reagent = target.recipe.reagents[1]
+    assert any(t.strip() == ("%d× %s" % (reagent.qty, reagent.name)) for t in texts), "materials not shown"
+    pv = ns.CraftHelper.view
+    assert pv.preview and pv.recipe.name == target.recipe.name, "step not opened in the helper"
+    assert G.CraftPathCraftHelper.__shown
+    helper_texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
+    assert any(t.startswith("|cff33bbffStep 2 of") for t in helper_texts), "preview header missing"
+    back = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Back"]
+    assert back, "Back button missing"
+    back[0].Click(back[0])
+    assert not ns.CraftHelper.preview and not ns.CraftHelper.view.preview
+    rows[0].Click(rows[0], "LeftButton")                      # click again: collapses
+    ns.CraftHelper.preview = None
+
     # Near the Journeyman cap: reminds to train Expert.
     G.__engSkill = 145
     v = ns.CraftHelper.Compute("Engineering")

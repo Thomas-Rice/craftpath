@@ -134,6 +134,7 @@ local function getRow(i)
     r.cols[c] = fs
   end
   r:SetScript("OnClick", function(self, btn)
+    if self.onClick then self.onClick(btn); return end
     if not self.item then return end
     if btn == "RightButton" then
       ns.db.done[self.item] = not ns.db.done[self.item] or nil
@@ -162,7 +163,7 @@ local function setRows(list)
   for i, data in ipairs(list) do
     local r = getRow(i)
     for c = 1, 4 do r.cols[c]:SetText(data[c] or "") end
-    r.item, r.tip = data.item, data.tip
+    r.item, r.tip, r.onClick = data.item, data.tip, data.onClick
     r:Show()
   end
   for i = #list + 1, #rows do rows[i]:Hide(); rows[i].item = nil end
@@ -187,14 +188,46 @@ local function learnText(l)
   return (l.item or l.recipe) .. where .. est
 end
 
+-- Route steps the player has opened to see their materials (by step start skill).
+local expanded = {}
+
+local function bagCount(name)
+  if not C_Item or not C_Item.GetItemCount then return 0 end
+  local ok, n = pcall(C_Item.GetItemCount, ns.db.ids[name] or name, false)
+  return ok and n or 0
+end
+
 local function buildRoute(plan)
-  local out = { columns("Skill", "Recipe to craft", "Crafts", "Cost per craft") }
-  for _, st in ipairs(plan.steps) do
+  local out = { columns("Skill", "Recipe to craft  (click for materials)", "Crafts", "Cost per craft") }
+  for i, st in ipairs(plan.steps) do
     local r = st.recipe
-    local tip = { r.name, ("Skill %d to %d, about %.0f crafts"):format(st.from, st.to, st.expectedCrafts) }
-    for _, g in ipairs(r.reagents) do tip[#tip + 1] = ("%d× %s"):format(g.qty, g.name) end
-    if r.makes > 1 then tip[#tip + 1] = ("Makes %d per craft"):format(r.makes) end
-    out[#out + 1] = { ("%d–%d"):format(st.from, st.to), r.name, "×" .. st.crafts, Money(st.costPerCraft) .. " each", tip = tip }
+    local open = expanded[st.from]
+    local tip = { r.name, ("Skill %d to %d, about %.0f crafts"):format(st.from, st.to, st.expectedCrafts),
+      open and "Click: hide materials" or "Click: show materials and open in the crafting helper" }
+    local arrow = open and "|cffffd100-|r " or "|cffffd100+|r "
+    out[#out + 1] = {
+      ("%d–%d"):format(st.from, st.to), arrow .. r.name, "×" .. st.crafts, Money(st.costPerCraft) .. " each", tip = tip,
+      onClick = function()
+        expanded[st.from] = not expanded[st.from] or nil
+        if expanded[st.from] and ns.CraftHelper then ns.CraftHelper.ShowStep(plan.profession, st, i, #plan.steps) end
+        UI.Refresh()
+      end,
+    }
+    if open then
+      out[#out + 1] = { "", "|cff999999    Materials for this step|r", "|cff999999have / need|r", "|cff999999price each|r" }
+      for _, g in ipairs(r.reagents) do
+        local need = g.qty * st.crafts
+        local have = bagCount(g.name)
+        local col = have >= need and "|cff33ff33" or "|cffff6060"
+        local unit = ns.Prices.AH(g.name) or ns.Prices.Vendor(g.name) or ns.RawData.VendorItems[g.name]
+        out[#out + 1] = {
+          "", ("    %d× %s"):format(g.qty, g.name), ("%s%d|r / %d"):format(col, have, need), unit and Money(unit) or "—",
+          item = g.name, tip = { g.name, ("%d per craft, %d for the whole step"):format(g.qty, need),
+            "Click: search the auction house" },
+        }
+      end
+      if r.makes > 1 then out[#out + 1] = { "", ("|cff999999    Each craft makes %d|r"):format(r.makes) } end
+    end
     if st.learnCost or st.learnHow == "favor" or st.learnHow == "vendor-est" then
       out[#out + 1] = { "", "|cff999999  learn: " .. learnText({ how = st.learnHow, item = st.learnItem, vendor = r.vendor, recipe = r.name }) .. "|r", "",
         st.learnCost and Money(st.learnCost) or "" }
