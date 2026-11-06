@@ -1,0 +1,132 @@
+"""Tests tools/sync_recipes.py offline: turns the current recipe data into wago.tools-style
+CSVs (real column names), regenerates the data from them, and checks the result matches,
+that hand-kept sources survive, and that new and changed recipes show up in the report.
+"""
+import csv
+import os
+import shutil
+import sys
+import tempfile
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+sys.path.insert(0, os.path.join(HERE, "..", "tools"))
+from run_tests import load_core, lua_list  # noqa: E402
+import sync_recipes  # noqa: E402
+
+SKILL_LINES = {"Engineering": 202, "Blacksmithing": 164}
+
+
+def write_csv(path, header, rows):
+    with open(path, "w", newline="", encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(header)
+        w.writerows(rows)
+
+
+def make_csvs(ns, out, extra=None, change=None):
+    items, item_rows = {}, []
+
+    def item(name):
+        if name not in items:
+            items[name] = 100000 + len(items)
+            item_rows.append([items[name], name])
+        return items[name]
+
+    sla, names, reagents, effects = [], [], [], []
+    spell = 50000
+    for prof, line in SKILL_LINES.items():
+        data = ns.Recipes.Load(prof)
+        recipes = [dict(r.items()) for r in lua_list(data.list)]
+        recipes = [dict(r, reagents=[(g.name, g.qty) for g in lua_list(r["reagents"])]) for r in recipes]
+        if extra and prof in extra:
+            recipes.append(extra[prof])
+        for r in recipes:
+            r = dict(r)
+            if change and r["name"] in change:
+                r.update(change[r["name"]])
+            spell += 1
+            acquire = 1 if r["source"] == "A" else 0
+            client_learn = r["learn"] if acquire else 1  # the client lists trainer recipes at 1
+            sla.append([len(sla) + 1, line, spell, client_learn, acquire, r["grey"], r["yellow"], r.get("points", 1)])
+            names.append([spell, r["name"]])
+            regs = r["reagents"]
+            row = [len(reagents) + 1, spell] + [item(n) for n, _ in regs] + [0] * (8 - len(regs)) \
+                  + [q for _, q in regs] + [0] * (8 - len(regs))
+            reagents.append(row)
+            effects.append([len(effects) + 1, spell, 0, sync_recipes.CREATE_ITEM, item(r["name"]), float(r["makes"])])
+            if r["source"] in ("R", "V"):
+                item(sync_recipes.PROFESSIONS[prof][1][0] + r["name"])
+    write_csv(os.path.join(out, "SkillLineAbility.csv"),
+              ["ID", "SkillLine", "Spell", "MinSkillLineRank", "AcquireMethod", "TrivialSkillLineRankHigh",
+               "TrivialSkillLineRankLow", "NumSkillUps"], sla)
+    write_csv(os.path.join(out, "SpellName.csv"), ["ID", "Name_lang"], names)
+    write_csv(os.path.join(out, "SpellReagents.csv"),
+              ["ID", "SpellID"] + [f"Reagent_{i}" for i in range(8)] + [f"ReagentCount_{i}" for i in range(8)], reagents)
+    write_csv(os.path.join(out, "SpellEffect.csv"),
+              ["ID", "SpellID", "EffectIndex", "Effect", "EffectItemType", "EffectBasePointsF"], effects)
+    write_csv(os.path.join(out, "ItemSparse.csv"), ["ID", "Display_lang"], item_rows)
+
+
+def snapshot(ns, prof):
+    out = {}
+    for r in lua_list(ns.Recipes.Load(prof).list):
+        out[r.name] = (r.learn, r.yellow, r.grey, r.makes, r.source, r.vendor,
+                       tuple((g.name, g.qty) for g in lua_list(r.reagents)), r.points)
+    return out
+
+
+def main():
+    lua, ns = load_core()
+    before = {p: snapshot(ns, p) for p in SKILL_LINES}
+    tmp = tempfile.mkdtemp()
+    try:
+        addon = os.path.join(tmp, "CraftPath")
+        shutil.copytree(os.path.join(HERE, "..", "CraftPath"), addon)
+        csvs = os.path.join(tmp, "csv")
+        os.makedirs(csvs)
+        new = {"name": "Thorium Shield Wall", "learn": 285, "yellow": 300, "grey": 320, "makes": 1, "source": "T",
+               "reagents": [("Thorium Bar", 20), ("Dense Grinding Stone", 2)], "points": 2}
+        make_csvs(ns, csvs, extra={"Blacksmithing": new}, change={"Copper Tube": {"grey": 112}})
+        report = os.path.join(tmp, "report.md")
+        sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon])
+
+        # Load the regenerated data with the same core code.
+        sys_path = sys.modules["run_tests"]
+        old_root = sys_path.ROOT
+        sys_path.ROOT = addon
+        try:
+            lua2, ns2 = load_core()
+        finally:
+            sys_path.ROOT = old_root
+        after = {p: snapshot(ns2, p) for p in SKILL_LINES}
+
+        for prof in SKILL_LINES:
+            for name, b in before[prof].items():
+                a = after[prof].get(name)
+                assert a, f"{prof}: {name} lost"
+                if name == "Copper Tube":
+                    assert a[0] == 75 and a[2] == 112, a  # learn kept from the old data, grey from the client
+                    continue
+                assert a == b, f"{prof}: {name}\n before {b}\n after  {a}"
+        wall = after["Blacksmithing"]["Thorium Shield Wall"]
+        assert wall[0] == 295 and wall[7] == 2, wall  # new trainer recipe: learn estimated as yellow - 5
+        assert after["Engineering"]["Thorium Widget"][5] == "Sovik (Orgrimmar)"  # hand-kept vendor
+        assert after["Engineering"]["SAF-T Dynamite"][4] == "F"                 # hand-kept Favor
+
+        text = open(report, encoding="utf-8").read()
+        assert "Changes found." in text
+        assert "Thorium Shield Wall" in text and "Copper Tube" in text
+        assert "learn skill estimated as 295" in text
+        assert "build = \"1.60.1.99999\"" in open(os.path.join(addon, "Data", "Engineering.lua")).read()
+
+        # A second run with the same tables reports no changes.
+        sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon])
+        assert "No recipe changes." in open(report, encoding="utf-8").read()
+        print("Sync test passed:", {p: len(after[p]) for p in after})
+    finally:
+        shutil.rmtree(tmp)
+
+
+if __name__ == "__main__":
+    main()

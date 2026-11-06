@@ -109,10 +109,16 @@ C_AuctionHouse = {
 __replicate = {}
 C_TradeSkillUI = {
   GetBaseProfessionInfo = function() return { professionName = "Engineering" } end,
-  GetAllRecipeIDs = function() return { 1, 2 } end,
-  GetRecipeInfo = function(id) return ({ { name = "Rough Blasting Powder", learned = true }, { name = "Thorium Widget", learned = true } })[id] end,
+  GetAllRecipeIDs = function() return { 1, 2, 3 } end,
+  GetRecipeInfo = function(id) return ({ { name = "Rough Blasting Powder", learned = true }, { name = "Thorium Widget", learned = true },
+    { name = "Shiny New Gizmo", learned = false } })[id] end,
+  GetRecipeSchematic = function(id) return { quantityMin = 2, reagentSlotSchematics = {
+    { quantityRequired = 3, reagents = { { itemID = 2840 } } } } } end,
 }
 function GetMerchantNumItems() return 2 end
+function GetNumTrainerServices() return 3 end
+function GetTrainerServiceInfo(i) return ({ "Copper Tube", "Journeyman Engineering", "Trainer Only Widget" })[i] end
+function GetTrainerServiceSkillReq(i) return "Engineering", ({ 60, 50, 140 })[i] end
 C_MerchantFrame = { GetItemInfo = function(i)
   return ({ { name = "Weak Flux", price = 95, stackCount = 1 }, { name = "Schematic: Thorium Widget", price = 4500, stackCount = 1 } })[i]
 end }
@@ -176,6 +182,14 @@ def main():
     fire("TRADE_SKILL_SHOW")
     assert ns.db.known["Engineering"]["Thorium Widget"]
 
+    # Recipes the game shows that the data lacks, and trainer learn levels.
+    seen = ns.db.seen["Engineering"]
+    assert seen["Shiny New Gizmo"].reagents == "Copper Bar*3" and seen["Shiny New Gizmo"].makes == 2
+    fire("TRAINER_SHOW")
+    assert ns.db.trainer["Engineering"]["Copper Tube"] == 60
+    assert seen["Trainer Only Widget"].learn == 140
+    assert seen["Journeyman Engineering"] is None, "rank training logged as a recipe"
+
     # Plan from the character's real skill (112), capped by level 30 -> 225.
     plan = ns.MakePlan()
     assert not plan.error, plan.error
@@ -191,6 +205,10 @@ def main():
     assert G.__searched == rows[0].item
     rows[0].Click(rows[0], "RightButton")
     assert ns.db.done[rows[0].item]
+    notes = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Notes"]
+    notes[0].Click(notes[0])
+    texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
+    assert any("Shiny New Gizmo" == t for t in texts), "unknown recipe not on Notes tab"
 
     # Full scan via ReplicateItems, then the 15-minute cooldown.
     G.__replicate = lua.table_from([lua.table_from({"name": "Mithril Bar", "count": 20, "buyout": 4000}),

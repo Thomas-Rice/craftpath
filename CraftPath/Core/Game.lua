@@ -35,7 +35,34 @@ function Game.Owned(name)
   return ok and n or 0
 end
 
--- Remember which recipes the character knows whenever a profession window is open.
+-- Recipes the game shows that CraftPath's data doesn't have yet (a new patch or hotfix).
+local function noteUnknown(prof, name, info)
+  local data = ns.Recipes.Load(prof)
+  if not data or data.byName[name] then return end
+  ns.db.seen[prof] = ns.db.seen[prof] or {}
+  local e = ns.db.seen[prof][name] or {}
+  for k, v in pairs(info) do e[k] = v end
+  e.t = time()
+  ns.db.seen[prof][name] = e
+end
+
+local function recipeReagents(recipeID)
+  if not C_TradeSkillUI.GetRecipeSchematic then return nil end
+  local ok, sch = pcall(C_TradeSkillUI.GetRecipeSchematic, recipeID, false)
+  if not ok or not sch or not sch.reagentSlotSchematics then return nil end
+  local out = {}
+  for _, slot in ipairs(sch.reagentSlotSchematics) do
+    local reagent = slot.reagents and slot.reagents[1]
+    if reagent and reagent.itemID then
+      local name = C_Item.GetItemNameByID and C_Item.GetItemNameByID(reagent.itemID)
+      out[#out + 1] = (name or ("item:" .. reagent.itemID)) .. "*" .. (slot.quantityRequired or 1)
+    end
+  end
+  return table.concat(out, ";"), sch.quantityMin
+end
+
+-- Remember which recipes the character knows whenever a profession window is open,
+-- and note any recipe (learned or not) that CraftPath's data doesn't list.
 local function readKnownRecipes()
   if not C_TradeSkillUI or not C_TradeSkillUI.GetAllRecipeIDs then return end
   local prof
@@ -47,7 +74,13 @@ local function readKnownRecipes()
   local known = {}
   for _, id in ipairs(ids) do
     local okR, r = pcall(C_TradeSkillUI.GetRecipeInfo, id)
-    if okR and r and r.learned and r.name then known[r.name] = true end
+    if okR and r and r.name then
+      if r.learned then known[r.name] = true end
+      if not ns.Recipes.Load(prof).byName[r.name] then
+        local reagents, makes = recipeReagents(id)
+        noteUnknown(prof, r.name, { recipeID = id, learned = r.learned or nil, reagents = reagents, makes = makes })
+      end
+    end
   end
   if next(known) then
     ns.db.known[prof] = known
@@ -76,3 +109,22 @@ local function readMerchant()
 end
 ns.On("MERCHANT_SHOW", readMerchant)
 ns.On("MERCHANT_UPDATE", readMerchant)
+
+-- Trainers show the real skill needed to learn each recipe; the client tables only
+-- give an estimate for some trainer recipes.
+local function readTrainer()
+  if not GetNumTrainerServices or not GetTrainerServiceSkillReq then return end
+  local n = GetNumTrainerServices() or 0
+  for i = 1, n do
+    local ok, name = pcall(GetTrainerServiceInfo, i)
+    local ok2, skill, rank = pcall(GetTrainerServiceSkillReq, i)
+    -- Skip rank training such as "Journeyman Engineering".
+    if ok and ok2 and name and skill and rank and ns.RawData[skill] and not name:find(skill, 1, true) then
+      ns.db.trainer[skill] = ns.db.trainer[skill] or {}
+      ns.db.trainer[skill][name] = rank
+      noteUnknown(skill, name, { trainer = true, learn = rank })
+    end
+  end
+end
+ns.On("TRAINER_SHOW", readTrainer)
+ns.On("TRAINER_UPDATE", readTrainer)

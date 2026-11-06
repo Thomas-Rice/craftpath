@@ -224,6 +224,20 @@ local function buildNotes(plan)
       out[#out + 1] = { "×" .. c.crafts, c.name, c.makes > 1 and ("makes " .. c.makes) or "" }
     end
   end
+  local seen = ns.db.seen[plan.profession or settings().profession]
+  if seen and next(seen) then
+    local names = {}
+    for name in pairs(seen) do names[#names + 1] = name end
+    table.sort(names)
+    out[#out + 1] = header(("New in game, not in CraftPath's data yet (%d)"):format(#names))
+    for _, name in ipairs(names) do
+      local e = seen[name]
+      local tip = { name, e.reagents and ("Reagents: " .. e.reagents:gsub(";", ", ")) or nil,
+        e.learn and ("Trainer: needs skill " .. e.learn) or nil,
+        "CraftPath can't plan with this until its data is updated." }
+      out[#out + 1] = { e.learn and ("@" .. e.learn) or "", name, e.learned and "known" or "", "", tip = tip }
+    end
+  end
   out[#out + 1] = header("How this works")
   out[#out + 1] = { "", "Crafts are averages: yellow and green recipes can miss." }
   out[#out + 1] = { "", "Trainer fees aren't included." }

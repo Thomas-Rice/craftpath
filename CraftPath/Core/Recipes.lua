@@ -30,7 +30,7 @@ end
 
 local function parseLine(line, profession)
   local f = split(line, "|")
-  if #f ~= 9 then error("CraftPath: bad recipe line (" .. #f .. " fields): " .. line) end
+  if #f ~= 9 and #f ~= 10 then error("CraftPath: bad recipe line (" .. #f .. " fields): " .. line) end
   local src, vendor = f[8], nil
   if src:sub(1, 2) == "V:" then vendor = src:sub(3); src = "V" end
   local r = {
@@ -38,6 +38,7 @@ local function parseLine(line, profession)
     learn = tonumber(f[2]), orange = tonumber(f[3]), yellow = tonumber(f[4]),
     green = tonumber(f[5]), grey = tonumber(f[6]), makes = tonumber(f[7]),
     source = src, vendor = vendor, reagents = parseReagents(f[9]),
+    points = tonumber(f[10]) or 1, -- skill points per successful craft
   }
   for _, k in ipairs({ "learn", "orange", "yellow", "green", "grey", "makes" }) do
     if not r[k] then error("CraftPath: bad number in " .. k .. ": " .. line) end
@@ -106,6 +107,11 @@ function Recipes.AllReagents(profession)
   end
   table.sort(out)
   return out
+end
+
+-- Expected skill points from one craft of r at skill s.
+function Recipes.PointsPerCraft(r, s, bonus)
+  return Recipes.SkillUpChance(r, s, bonus) * (r.points or 1)
 end
 
 -- Chance of a skill point when crafting recipe r at skill s (Classic rule:

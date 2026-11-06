@@ -32,6 +32,7 @@ local function ceil(x) return math.ceil(x - 1e-9) end
 --   owned(name) -> count             items already in bags/bank
 --   charLevel                        if set, the target is capped to what can be trained
 --   listed(name) -> count|nil        how many are on the auction house (for "not enough listed")
+--   learnOverride = { [recipe]=skill } real learn skill seen at a trainer
 function Planner.Plan(opts)
   local data = Recipes.Load(opts.profession)
   if not data then return { error = "Unknown profession: " .. tostring(opts.profession) } end
@@ -60,9 +61,27 @@ function Planner.Plan(opts)
   local bonus = opts.bonus or 0
   local prefixes = ns.RawData.RecipePrefixes[opts.profession] or {}
 
+  -- Trainer-confirmed learn skills replace the data's estimates (copies, so the cache is untouched).
+  local list = data.list
+  if opts.learnOverride and next(opts.learnOverride) then
+    list = {}
+    for i, r in ipairs(data.list) do
+      local learn = opts.learnOverride[r.name]
+      if learn and learn ~= r.learn then
+        local c = {}
+        for k, v in pairs(r) do c[k] = v end
+        c.learn = learn
+        if c.orange < learn then c.orange = learn end
+        list[i] = c
+      else
+        list[i] = r
+      end
+    end
+  end
+
   -- Which recipes produce which item (item name == recipe name in these professions).
   local producers = {}
-  for _, r in ipairs(data.list) do
+  for _, r in ipairs(list) do
     producers[r.name] = producers[r.name] or {}
     table.insert(producers[r.name], r)
   end
@@ -150,7 +169,7 @@ function Planner.Plan(opts)
     local key = r.index * 1000 + s
     local m = cppMemo[key]
     if m then return m end
-    local p = Recipes.SkillUpChance(r, s, bonus)
+    local p = Recipes.PointsPerCraft(r, s, bonus)
     local c = INF
     if p > 0 then c = craftCost(r, s) / p end
     cppMemo[key] = c
@@ -159,7 +178,7 @@ function Planner.Plan(opts)
 
   -- Candidate recipes: usable somewhere in range and learnable.
   local candidates = {}
-  for _, r in ipairs(data.list) do
+  for _, r in ipairs(list) do
     if r.grey > from and r.learn < to and learnCost(r) then candidates[#candidates + 1] = r end
   end
 
@@ -199,7 +218,7 @@ function Planner.Plan(opts)
     for s = from, to do if best[s] < INF then reached = s end end
     return {
       error = ("No priced recipe can take you past skill %d."):format(reached),
-      blocked = Planner.Blockers(data, reached, unitCost, learnCost, bonus),
+      blocked = Planner.Blockers(list, reached, unitCost, learnCost, bonus),
       reached = reached, from = from, to = to, notes = notes,
     }
   end
@@ -227,7 +246,7 @@ function Planner.Plan(opts)
     local r = st.recipe
     local exp, gold = 0, 0
     for k = st.from, st.to - 1 do
-      exp = exp + 1 / Recipes.SkillUpChance(r, k, bonus)
+      exp = exp + 1 / Recipes.PointsPerCraft(r, k, bonus)
       gold = gold + costPerPoint(r, k)
     end
     st.expectedCrafts = exp
@@ -349,9 +368,9 @@ function Planner.AddRankNotes(plan)
 end
 
 -- Explains why the route stops: which recipes would work at this skill and what's unpriced.
-function Planner.Blockers(data, s, unitCost, learnCost, bonus)
+function Planner.Blockers(list, s, unitCost, learnCost, bonus)
   local out = {}
-  for _, r in ipairs(data.list) do
+  for _, r in ipairs(list) do
     if Recipes.SkillUpChance(r, s, bonus) > 0 then
       local missing = {}
       if not learnCost(r) then missing[#missing + 1] = "recipe" end

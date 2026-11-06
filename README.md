@@ -53,6 +53,24 @@ It comes from the WoW: Forever client data (build 1.60.1.70790) as published by 
 
 To add a profession, add `Data/<Profession>.lua` in the same format and list it in `CraftPath.toc`.
 
+## Keeping recipes up to date
+
+Forever is new, so recipes are still being added. CraftPath keeps up in two ways:
+
+- **From the game client (daily).** `.github/workflows/recipe-sync.yml` runs `tools/sync_recipes.py` every morning. The script:
+  - finds the newest Forever client build on [wago.tools](https://wago.tools), product `wowf`;
+  - downloads that build's recipe tables: `SkillLineAbility`, `SpellName`, `SpellReagents`, `SpellEffect` and `ItemSparse`;
+  - rebuilds `Data/*.lua`;
+  - opens a pull request listing new, changed and removed recipes.
+
+  Sources set by hand are kept: Merchant's Favor, gold vendors, Goblin/Gnomish only. Trainer recipes don't carry a learn skill in the client, so the existing number is kept, and new trainer recipes are estimated and flagged in the PR.
+- **From the game itself (as you play).**
+  - Opening a profession window logs any recipe the game shows that CraftPath's data lacks, with its reagents.
+  - Opening a trainer records the real skill each recipe needs; the planner uses these over the data's estimates.
+  - Logged recipes are listed on the Notes tab.
+
+To run the sync by hand: `python3 tools/sync_recipes.py` (or `--build 1.60.1.70790`).
+
 ## Known limits
 
 - **Trainer learn skills.** The client doesn't state when a trainer offers some recipes, so a few of those are estimated.
@@ -67,6 +85,7 @@ To add a profession, add `Data/<Profession>.lua` in the same format and list it 
 pip install lupa
 python3 tests/run_tests.py --show   # planner tests + sample routes
 python3 tests/check_addon.py        # whole addon against a stubbed WoW API
+python3 tests/test_sync.py          # recipe sync against wago.tools-style CSVs
 python3 tools/export_json.py        # recipe data → web/data/recipes.json for the website
 ```
 

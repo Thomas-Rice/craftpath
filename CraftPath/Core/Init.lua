@@ -10,6 +10,8 @@ local DEFAULTS = {
   vendor = {},      -- [itemName] = copper per unit, learned at merchants
   ids = {},         -- [itemName] = itemID
   known = {},       -- [profession] = { [recipeName] = true }
+  trainer = {},     -- [profession] = { [recipeName] = skill needed, as the trainer shows it }
+  seen = {},        -- [profession] = { [recipeName] = {...} } recipes the game has that the data lacks
   done = {},        -- [itemName] = true  (ticked off the shopping list)
   lastFullScan = 0,
   scanId = 0,
@@ -76,6 +78,7 @@ function ns.MakePlan()
     profession = prof, from = from, to = to,
     ahPrice = ns.Prices.AH, vendorPrice = ns.Prices.Vendor,
     known = ns.db.known[prof] or {},
+    learnOverride = ns.db.trainer[prof],
     allowRecipeItems = s.allowRecipeItems, allowFavor = s.allowFavor,
     spec = (s.spec ~= "none") and s.spec or nil,
     bonus = 0.04 * (tonumber(s.overtimeRank) or 0),

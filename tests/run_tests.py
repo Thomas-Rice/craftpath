@@ -148,6 +148,18 @@ def main():
     short = [b for b in lua_list(p.shopping) if b.short]
     assert [b.name for b in short] == ["Copper Bar"] and p.short == 1, [b.name for b in short]
 
+    # Trainer-confirmed learn skill: Copper Tube (data 75) learned at 60 at the trainer.
+    eng_tube = R.Load("Engineering").byName["Copper Tube"]
+    p = plan(lua, ns, "Engineering", 60, 75, learnOverride=lua.table_from({"Copper Tube": 60}),
+             prices={"Copper Bar": 100, "Rough Stone": 10000, "Linen Cloth": 10000})
+    assert not p.error, p.error
+    assert lua_list(p.steps)[0].recipe.name == "Copper Tube", lua_list(p.steps)[0].recipe.name
+    assert eng_tube.learn == 75, "override leaked into the cached data"
+
+    # Recipes that give 2 points per craft need half the crafts.
+    r2 = lua.table_from({"name": "X", "learn": 1, "yellow": 50, "grey": 100, "points": 2})
+    assert R.PointsPerCraft(r2, 10, 0) == 2
+
     print("All tests passed.")
     if "--show" in sys.argv:
         for prof, p in results.items():
