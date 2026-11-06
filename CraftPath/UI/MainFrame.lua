@@ -181,11 +181,23 @@ local function sourceText(b)
   return "AH " .. ns.Prices.AgeText(b.name)
 end
 
+-- How to get a recipe, with the vendor and where to find them.
 local function learnText(l)
-  if l.how == "favor" then return "Merchant's Favor — Fritz Fizzle, Three Corners (Redridge)" end
-  local where = l.vendor and (" from " .. l.vendor) or (l.how == "ah" and " on the AH" or "")
-  local est = l.how == "vendor-est" and " (price estimated until you visit the vendor)" or ""
-  return (l.item or l.recipe) .. where .. est
+  local w = l.where
+  local who = w and w.npc and (w.npc .. (w.where and (", " .. w.where) or "")) or (w and w.where) or nil
+  if l.how == "favor" then
+    local cost = l.favor and (l.favor .. " Merchant's Favor") or "Merchant's Favor"
+    return ("%s from %s"):format(cost, who or "the Merchant's Favor vendor") .. " (may need reputation)"
+  end
+  if w and w.trainer then return "Learn from " .. who end
+  if l.how == "trainer" then return who and ("Learn from " .. who) or "Learn from your trainer" end
+  local item = l.item or l.recipe
+  if who then
+    local est = l.how == "vendor-est" and " (price is a guess until you visit)" or ""
+    return ("Buy %s from %s%s"):format(item, who, est)
+  end
+  if l.how == "ah" then return "Buy " .. item .. " on the auction house" end
+  return "Buy " .. item
 end
 
 -- Route steps the player has opened to see their materials (by step start skill).
@@ -228,9 +240,11 @@ local function buildRoute(plan)
       end
       if r.makes > 1 then out[#out + 1] = { "", ("|cff999999    Each craft makes %d|r"):format(r.makes) } end
     end
-    if st.learnCost or st.learnHow == "favor" or st.learnHow == "vendor-est" then
-      out[#out + 1] = { "", "|cff999999  learn: " .. learnText({ how = st.learnHow, item = st.learnItem, vendor = r.vendor, recipe = r.name }) .. "|r", "",
-        st.learnCost and Money(st.learnCost) or "" }
+    if st.learnCost or st.learnHow == "favor" or st.learnHow == "vendor-est" or st.learnWhere then
+      local text = learnText({ how = st.learnHow, item = st.learnItem, where = st.learnWhere, favor = st.learnFavor, recipe = r.name })
+      local note = st.learnWhere and st.learnWhere.note
+      out[#out + 1] = { "", "|cffff9933  First: " .. text .. "|r", "", st.learnCost and Money(st.learnCost) or "",
+        tip = { "Get the recipe first", text, note } }
     end
   end
   return out
@@ -299,9 +313,11 @@ local function buildNotes(plan)
   end
   for _, n in ipairs(plan.notes or {}) do out[#out + 1] = { "", n } end
   if plan.learn and #plan.learn > 0 then
-    out[#out + 1] = header("Recipes to get")
+    out[#out + 1] = header(plan.favorTotal and ("Recipes to get (%d Merchant's Favor in total)"):format(plan.favorTotal) or "Recipes to get")
     for _, l in ipairs(plan.learn) do
-      out[#out + 1] = { "@" .. l.at, l.recipe, "", l.cost > 0 and Money(l.cost) or "", tip = { l.recipe, learnText(l) } }
+      out[#out + 1] = { "@" .. l.at, l.recipe, "", l.cost > 0 and Money(l.cost) or (l.favor and (l.favor .. " Favor") or ""),
+        tip = { l.recipe, learnText(l), l.where and l.where.note or nil } }
+      out[#out + 1] = { "", "|cff999999    " .. learnText(l) .. "|r" }
     end
   end
   if plan.craftYourself and #plan.craftYourself > 0 then
@@ -410,6 +426,7 @@ end
 
 function UI.Replan()
   if not ns.db then return end
+  if ns.CraftHelper and ns.CraftHelper.ClearCache then ns.CraftHelper.ClearCache() end
   local plan = ns.MakePlan()
   -- A buying list with nothing bought yet follows the new plan; once you've bought
   -- something it stays locked so purchases keep counting against it.
@@ -491,11 +508,12 @@ local function create()
 
   -- Row 3 (y -84): route options                        12 | 200 | 400 ... ~560
   local opts = {
-    { "Use bought recipes", "allowRecipeItems", "Let the route use schematics and plans you buy from a vendor or the auction house." },
-    { "Use Merchant's Favor recipes", "allowFavor", "Let the route use recipes bought with Merchant's Favor (no gold)." },
-    { "Stop at my level's cap", "capToLevel", "Only plan as far as your character level lets you train: Journeyman at level 10, Expert at 20, Artisan at 35." },
+    { "Bought recipes", "allowRecipeItems", "Let the route use schematics and plans you buy from a vendor or the auction house." },
+    { "Favor recipes", "allowFavor", "Let the route use recipes bought with Merchant's Favor (no gold, but some need reputation)." },
+    { "Use my stock", "useOwned", "Count materials already in your bags and bank as free when choosing recipes, and only buy what's missing." },
+    { "Stop at level cap", "capToLevel", "Only plan as far as your character level lets you train: Journeyman at level 10, Expert at 20, Artisan at 35." },
   }
-  local optX = { 12, 200, 400 }
+  local optX = { 12, 150, 286, 422 }
   for i, o in ipairs(opts) do
     local c = checkbox(frame, o[1], o[2], o[3])
     c:SetPoint("TOPLEFT", optX[i], -84)

@@ -169,7 +169,11 @@ C_TradeSkillUI = {
   GetRecipeSchematic = function(id) return { quantityMin = 2, reagentSlotSchematics = {
     { quantityRequired = 3, reagents = { { itemID = 2840 } } } } } end,
 }
-function GetMerchantNumItems() return 2 end
+function GetMerchantNumItems() return 3 end
+function UnitName(u) if u == "npc" then return "Sovik" end return "Mr" end
+function GetRealZoneText() return "Orgrimmar" end
+function GetSubZoneText() return "Valley of Honor" end
+function UnitFactionGroup() return "Horde" end
 __trainerFilter = { available = 1, unavailable = 0, used = 0 }
 function GetTrainerServiceTypeFilter(f) return __trainerFilter[f] == 1 end
 function SetTrainerServiceTypeFilter(f, v) __trainerFilter[f] = v end
@@ -177,7 +181,8 @@ function GetNumTrainerServices() return 3 end
 function GetTrainerServiceInfo(i) return ({ "Copper Tube", "Journeyman Engineering", "Trainer Only Widget" })[i] end
 function GetTrainerServiceSkillReq(i) return "Engineering", ({ 60, 50, 140 })[i] end
 C_MerchantFrame = { GetItemInfo = function(i)
-  return ({ { name = "Weak Flux", price = 95, stackCount = 1 }, { name = "Schematic: Thorium Widget", price = 4500, stackCount = 1 } })[i]
+  return ({ { name = "Weak Flux", price = 95, stackCount = 1 }, { name = "Schematic: Thorium Widget", price = 4500, stackCount = 1 },
+    { name = "Plans: Secret Forever Hammer", price = 9000, stackCount = 1 } })[i]
 end }
 TooltipDataProcessor = { AddTooltipPostCall = function(_, fn) __tooltipFn = fn end }
 AuctionHouseFrame = newWidget("Frame", "AuctionHouseFrame")
@@ -323,6 +328,8 @@ def main():
     fire("MERCHANT_SHOW")
     assert ns.Prices.Vendor("Weak Flux") == 95
     assert ns.Prices.Vendor("Schematic: Thorium Widget") == 4500
+    where = ns.db.vendorWhere["Plans: Secret Forever Hammer"]
+    assert where.npc == "Sovik" and where.where == "Orgrimmar, Valley of Honor", (where.npc, where.where)
 
     # Known recipes are read from the profession window.
     fire("TRADE_SKILL_SHOW")

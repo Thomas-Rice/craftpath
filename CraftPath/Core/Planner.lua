@@ -35,7 +35,67 @@ local function ceil(x) return math.ceil(x - 1e-9) end
 --   learnOverride = { [recipe]=skill } real learn skill seen at a trainer
 --   trainerOffers = { [recipe]=skill } everything a trainer listed; trainer recipes it didn't
 --                                      list (up to the highest skill it teaches) are left out
+local planOnce
+
+-- Plans, using what you already own first (opts.useOwned, default on):
+--   1. price owned items at 0 and plan;
+--   2. where the route needs more than you own, charge the market price for the share it
+--      doesn't cover, and plan again; repeat until the route settles (a few passes).
 function Planner.Plan(opts)
+  if opts.useOwned == false or not opts.owned then return planOnce(opts, nil) end
+  -- Using stock is a quantity problem (the first 40 Heavy Stone are free, the 41st isn't),
+  -- so try a few routes and keep the one with the lowest real gold cost. The shopping list
+  -- always uses your stock first and charges market price for the rest, so plan.total is
+  -- the gold you'd actually spend.
+  local ownedCache = {}
+  local function ownedOf(name)
+    local n = ownedCache[name]
+    if n == nil then n = opts.owned(name) or 0; ownedCache[name] = n end
+    return n
+  end
+  local function flat(f) return function(name) return ownedOf(name) > 0 and f or 1 end end
+
+  local best
+  local function consider(p)
+    if p.error then return end
+    if not best or p.total < best.total - 0.5 or (math.abs(p.total - best.total) <= 0.5 and #p.steps < #best.steps) then
+      best = p
+    end
+  end
+  local free = planOnce(opts, flat(0))
+  if free.error then return planOnce(opts, nil) end
+  consider(free)
+  consider(planOnce(opts, nil))
+
+  -- Items the all-free route wants more of than you have: find, per item, the price at
+  -- which the route uses about what you own (a binary search, 6 passes each, max 3 items).
+  local demand = free.demand or {}
+  local contested = {}
+  for name, have in pairs(ownedCache) do
+    if have > 0 and (demand[name] or 0) > have then contested[#contested + 1] = name end
+  end
+  table.sort(contested, function(a, b) return (demand[a] or 0) > (demand[b] or 0) end)
+  local factor = {}
+  local function priced(name)
+    if ownedOf(name) <= 0 then return 1 end
+    return factor[name] or 0
+  end
+  for i = 1, math.min(3, #contested) do
+    local name, have = contested[i], ownedOf(contested[i])
+    local lo, hi = 0, 1
+    for _ = 1, 6 do
+      local mid = (lo + hi) / 2
+      factor[name] = mid
+      local p = planOnce(opts, priced)
+      consider(p)
+      if ((p.demand or {})[name] or 0) > have then lo = mid else hi = mid end
+    end
+    factor[name] = hi
+    consider(planOnce(opts, priced))
+  end  return best
+end
+
+planOnce = function(opts, ownedFactor)
   local data = Recipes.Load(opts.profession)
   if not data then return { error = "Unknown profession: " .. tostring(opts.profession) } end
 
@@ -109,6 +169,9 @@ function Planner.Plan(opts)
 
   -- Gold needed to learn a recipe; nil = can't be learned right now.
   local learnInfo = {}
+  local vendorTable = (ns.RawData.RecipeVendors or {})[opts.profession] or {}
+  local favorVendors = (ns.RawData.FavorVendors or {})[opts.profession] or {}
+  local faction = opts.faction
   local function learnCost(r)
     local cached = learnInfo[r]
     if cached ~= nil then return cached.cost, cached end
@@ -138,7 +201,25 @@ function Planner.Plan(opts)
         if a and (not info.cost or a < info.cost) then info.cost, info.how, info.item = a, "ah", item end
       end
       if not info.cost and r.source == "V" then
-        info.cost, info.how, info.item = ns.RawData.VendorRecipeEstimate, "vendor-est", prefixes[1] .. r.name
+        local listPrice = vendorTable[r.name] and vendorTable[r.name].price
+        info.cost = listPrice or ns.RawData.VendorRecipeEstimate
+        info.how = listPrice and "vendor" or "vendor-est"
+        info.item = prefixes[1] .. r.name
+      end
+    end
+    -- Where to get it: a named vendor or trainer, a Merchant's Favor vendor, or a vendor you
+    -- have visited that sold the recipe.
+    if info.cost and info.how ~= "known" and info.how ~= "auto" then
+      local v = vendorTable[r.name]
+      if r.source == "F" then
+        info.where = favorVendors[faction] or favorVendors.Horde
+        for _, pat in ipairs(ns.RawData.FavorCosts) do
+          if r.name:find(pat[1]) then info.favor = pat[2]; break end
+        end
+      elseif v then
+        info.where = (v.faction and faction and v.faction ~= faction and v.alt) or v
+      elseif info.item and opts.vendorWhere then
+        info.where = opts.vendorWhere(info.item)
       end
     end
     learnInfo[r] = info
@@ -158,6 +239,15 @@ function Planner.Plan(opts)
     if v and v < best.cost then
       best = { cost = v, how = "vendor", est = not vendorPrice(name) and ns.RawData.VendorEstimates[name] or nil }
     end
+    -- Items you own cost only the share of them you'd still have to buy.
+    local f = ownedFactor and ownedFactor(name) or 1
+    if f < 1 then
+      if best.cost < INF then
+        best = { cost = best.cost * f, how = best.how, est = best.est, market = best.cost, owned = true }
+      elseif f == 0 then
+        best = { cost = 0, how = "owned", owned = true } -- you have enough, even with no price seen
+      end
+    end
     visiting = visiting or {}
     if producers[name] and not visiting[name] then
       visiting[name] = true
@@ -171,6 +261,7 @@ function Planner.Plan(opts)
           end
           local per = total / r.makes
           if per < best.cost then best = { cost = per, how = "craft", recipe = r } end
+          -- (owning some already is handled when the shopping list uses your stock first)
         end
       end
       visiting[name] = nil
@@ -291,6 +382,15 @@ function Planner.Plan(opts)
     end
   end
 
+  -- Cost per craft shown at market prices (your stock is accounted for in the shopping list).
+  local function marketCraftCost(r, at)
+    local savedF, savedMemo = ownedFactor, unitMemo
+    ownedFactor, unitMemo = nil, {}
+    local c = craftCost(r, at)
+    ownedFactor, unitMemo = savedF, savedMemo
+    return c
+  end
+
   local learned = {}
   for _, st in ipairs(steps) do
     local r = st.recipe
@@ -301,10 +401,17 @@ function Planner.Plan(opts)
     end
     st.expectedCrafts = exp
     st.crafts = ceil(exp)
-    st.costPerCraft = craftCost(r, st.from)
+    st.costPerCraft = ownedFactor and marketCraftCost(r, st.from) or craftCost(r, st.from)
+    if ownedFactor then
+      for _, g in ipairs(r.reagents) do
+        if ownedFactor(g.name) < 1 then st.usesStock = true end
+      end
+    end
     local lc, info = learnCost(r)
     st.learnHow = info.how
     st.learnItem = info.item
+    st.learnWhere = info.where
+    st.learnFavor = info.favor
     if lc > 0 and not learned[r] then
       learned[r] = true
       st.learnCost = lc
@@ -327,8 +434,19 @@ end
 function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
   local inv, buy, crafted, order = {}, {}, {}, {}
   local learn = {}
+  local ownedLeft, demand = {}, {}
+
+  local function buyEntry(name, how, cost)
+    local b = buy[name]
+    if not b then
+      b = { name = name, qty = 0, have = 0, unit = how.market or cost, source = how.how, estimate = how.est }
+      buy[name] = b
+    end
+    return b
+  end
 
   local function acquire(name, qty, s)
+    -- 1. things made earlier on the route
     local have = inv[name] or 0
     if have > 0 then
       local take = math.min(have, qty)
@@ -336,28 +454,42 @@ function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
       qty = qty - take
     end
     if qty <= 0 then return end
+    demand[name] = (demand[name] or 0) + qty
     local cost, how = unitCost(name, s)
+    -- 2. what's already in your bags and bank
+    if ownedLeft[name] == nil then ownedLeft[name] = owned and owned(name) or 0 end
+    local fromStock = math.min(ownedLeft[name], qty)
+    if fromStock > 0 then
+      ownedLeft[name] = ownedLeft[name] - fromStock
+      qty = qty - fromStock
+      if how.how ~= "craft" then
+        local b = buyEntry(name, how, cost)
+        b.qty, b.have = b.qty + fromStock, b.have + fromStock
+      else
+        crafted[name] = crafted[name] or { name = name, crafts = 0, makes = how.recipe.makes, fromStock = 0 }
+        if not crafted[name].listed then crafted[name].listed = true; order[#order + 1] = name end
+        crafted[name].fromStock = (crafted[name].fromStock or 0) + fromStock
+      end
+    end
+    if qty <= 0 then return end
+    -- 3. craft it or buy it
     if how.how == "craft" then
       local r = how.recipe
       local n = ceil(qty / r.makes)
-      if not crafted[name] then crafted[name] = { name = name, crafts = 0, makes = r.makes }; order[#order + 1] = name end
+      crafted[name] = crafted[name] or { name = name, crafts = 0, makes = r.makes, fromStock = 0 }
+      if not crafted[name].listed then crafted[name].listed = true; order[#order + 1] = name end
       crafted[name].crafts = crafted[name].crafts + n
       for _, g in ipairs(r.reagents) do acquire(g.name, n * g.qty, s) end
       inv[name] = (inv[name] or 0) + n * r.makes - qty
     else
-      local b = buy[name]
-      if not b then
-        b = { name = name, qty = 0, unit = cost, source = how.how, estimate = how.est }
-        buy[name] = b
-      end
+      local b = buyEntry(name, how, cost)
       b.qty = b.qty + qty
     end
   end
 
   -- Tools first (needed from the start or as soon as they can be made).
   for _, tool in ipairs(data.tools) do
-    local have = owned and owned(tool) or 0
-    if have < 1 then
+    do
       local r = data.byName[tool]
       local s = plan.from
       if r and s < r.learn and r.learn < plan.to then s = r.learn end
@@ -370,15 +502,16 @@ function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
     local r = st.recipe
     for _, g in ipairs(r.reagents) do acquire(g.name, st.crafts * g.qty, st.from) end
     inv[r.name] = (inv[r.name] or 0) + st.crafts * r.makes
-    if st.learnCost or st.learnHow == "favor" or st.learnHow == "vendor-est" then
-      learn[#learn + 1] = { recipe = r.name, cost = st.learnCost or 0, how = st.learnHow, item = st.learnItem, vendor = r.vendor, at = st.from }
+    if st.learnCost or st.learnHow == "favor" or st.learnHow == "vendor-est" or st.learnWhere then
+      learn[#learn + 1] = { recipe = r.name, cost = st.learnCost or 0, how = st.learnHow, item = st.learnItem,
+        where = st.learnWhere, favor = st.learnFavor, at = st.from }
+      if st.learnFavor then plan.favorTotal = (plan.favorTotal or 0) + st.learnFavor end
     end
   end
 
   local list, total = {}, 0
   for _, b in pairs(buy) do
-    local have = owned and owned(b.name) or 0
-    b.have = math.min(have, b.qty)
+    if not b.unit or b.unit == INF then b.unit = 0 end -- owned, never priced
     b.buy = b.qty - b.have
     b.total = b.buy * b.unit
     total = total + b.total
@@ -394,12 +527,15 @@ function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
   table.sort(list, function(x, y) if x.total ~= y.total then return x.total > y.total end return x.name < y.name end)
 
   local craftList = {}
-  for _, name in ipairs(order) do craftList[#craftList + 1] = crafted[name] end
+  for _, name in ipairs(order) do
+    if crafted[name].crafts > 0 then craftList[#craftList + 1] = crafted[name] end
+  end
 
   local learnTotal = 0
   for _, l in ipairs(learn) do learnTotal = learnTotal + l.cost end
 
   plan.shopping = list
+  plan.demand = demand
   plan.craftYourself = craftList
   plan.learn = learn
   plan.buyTotal = total

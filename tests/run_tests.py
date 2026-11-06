@@ -177,6 +177,43 @@ def main():
         if "--show" in sys.argv:
             print(f"  {prof}: {len(steps)} steps, bounces kept: {bounces}")
 
+    # Owned items are used first: a stack of Heavy Stone puts the stone recipes in the route.
+    stone_prices = dict(SAMPLE_PRICES, **{"Heavy Stone": 898, "Iron Bar": 844})
+    base = plan(lua, ns, "Blacksmithing", 100, 125, prices=stone_prices)
+    owned = plan(lua, ns, "Blacksmithing", 100, 125, prices=stone_prices,
+                 owned=lambda name: 40 if name == "Heavy Stone" else 0)
+    stone_steps = [st.recipe.name for st in lua_list(owned.steps) if "Stone" in st.recipe.name or "stone" in st.recipe.name]
+    assert stone_steps, [st.recipe.name for st in lua_list(owned.steps)]
+    assert owned.total < base.total
+    hs = [b for b in lua_list(owned.shopping) if b.name == "Heavy Stone"]
+    if hs:
+        assert hs[0].have <= 40 and hs[0].buy == hs[0].qty - hs[0].have
+    # ... but never more than you have: with 3 Heavy Stone the route can't lean on stones for long.
+    few = plan(lua, ns, "Blacksmithing", 100, 125, prices=stone_prices, owned=lambda name: 3 if name == "Heavy Stone" else 0)
+    hs = [b for b in lua_list(few.shopping) if b.name == "Heavy Stone"]
+    assert not hs or hs[0].have <= 3
+    # Turning the option off ignores stock when choosing recipes.
+    off = plan(lua, ns, "Blacksmithing", 100, 125, prices=stone_prices,
+               owned=lambda name: 40 if name == "Heavy Stone" else 0, useOwned=False)
+    assert [st.recipe.name for st in lua_list(off.steps)] == [st.recipe.name for st in lua_list(base.steps)]
+
+    # Vendor recipes say who sells them and where, by faction.
+    widget_prices = dict(SAMPLE_PRICES, **{"Thorium Bar": 50, "Runecloth": 10})
+    for faction, npc in (("Horde", "Sovik"), ("Alliance", "Gearcutter Cogspinner")):
+        p = plan(lua, ns, "Engineering", 260, 270, prices=widget_prices, faction=faction)
+        widget = [st for st in lua_list(p.steps) if st.recipe.name == "Thorium Widget"]
+        assert widget and widget[0].learnWhere.npc == npc, (faction, [st.recipe.name for st in lua_list(p.steps)])
+    # Merchant's Favor plans name the faction's Favor vendor and the Favor cost.
+    cheap_belt = {"Bronze Bar": 1, "Rough Stone": 1, "Strange Dust": 1}
+    p = plan(lua, ns, "Blacksmithing", 80, 85, prices=cheap_belt, faction="Horde")
+    favor = [l for l in lua_list(p.learn) if l.how == "favor"]
+    assert favor, [st.recipe.name for st in lua_list(p.steps)]
+    assert favor[0].where.npc == "Gor'mak" and favor[0].favor == 30, (favor[0].where.npc, favor[0].favor)
+    assert "Durotar Supply and Logistics" in favor[0].where.where
+    assert p.favorTotal >= 30
+    p = plan(lua, ns, "Blacksmithing", 80, 85, prices=cheap_belt, faction="Alliance")
+    assert [l for l in lua_list(p.learn) if l.how == "favor"][0].where.npc == "Stondry Darkhammer"
+
     print("All tests passed.")
     if "--show" in sys.argv:
         for prof, p in results.items():

@@ -29,7 +29,7 @@ Copper Axe|40|40|60|80|100|1|T|Copper Bar*6;Weak Flux*1;Linen Cloth*2
 Copper Chain Boots|40|40|60|80|100|1|T|Copper Bar*8
 Copper Chain Pants|40|40|50|70|90|1|T|Copper Bar*4
 Copper Shortsword|40|40|65|85|105|1|T|Copper Bar*6;Weak Flux*1;Linen Cloth*2
-@SET ORDER %V Chain Belt|45|45|85|105|125|1|R|Copper Bar*12;Rough Grinding Stone*4;Pristine Leather*2;%G*2
+@SET ORDER %V Chain Belt|45|45|85|105|125|1|F|Copper Bar*12;Rough Grinding Stone*4;Pristine Leather*2;%G*2
 Copper Claymore|45|45|65|85|105|1|T|Copper Bar*10;Weak Flux*2;Rough Grinding Stone*1;Light Leather*1
 Copper Dagger|45|45|65|85|105|1|T|Copper Bar*6;Weak Flux*1;Rough Grinding Stone*1;Light Leather*1
 @SET SKY %V Skyforged Chain|50|50|55|58|60|1|R|Copper Bar*6
@@ -51,20 +51,20 @@ Silver Rod|60|60|80|83|85|1|T|Silver Bar*1;Rough Grinding Stone*2
 Thick War Axe|65|65|85|105|125|1|T|Copper Bar*10;Weak Flux*2;Silver Bar*2;Rough Grinding Stone*2;Light Leather*2
 Runed Copper Bracers|70|70|90|103|115|1|T|Copper Bar*10;Rough Grinding Stone*3
 Bronze Mace|75|75|115|130|145|1|T|Bronze Bar*6;Weak Flux*4;Medium Leather*1
-@SET ORDER %V Chain Shirt|80|80|85|85|85|1|R|Bronze Bar*4;Rough Grinding Stone*2;%G*2
-@SET ORDER %V Gloves|80|80|110|125|140|1|R|Bronze Bar*10;Rough Grinding Stone*4;Sulfuric Acid*2;%G*3
+@SET ORDER %V Chain Shirt|80|80|85|85|85|1|F|Bronze Bar*4;Rough Grinding Stone*2;%G*2
+@SET ORDER %V Gloves|80|80|110|125|140|1|F|Bronze Bar*10;Rough Grinding Stone*4;Sulfuric Acid*2;%G*3
 Blackfathom Sharpening Stone|80|80|100|110|120|1|R|Coarse Sharpening Stone*1;Lesser Magic Essence*1
 Brass Knuckles|80|80|110|125|140|1|R|Bronze Bar*6;Weak Flux*4;Rough Grinding Stone*2;Shadowgem*2;Medium Leather*1
 Heavy Grinding Stone|80|80|100|113|125|1|T|Heavy Stone*3
 Heavy Weightstone|80|80|100|108|115|1|T|Heavy Stone*1
 Rough Bronze Boots|80|80|100|115|130|1|T|Bronze Bar*6;Rough Grinding Stone*6
 Runed Copper Belt|80|80|85|105|125|1|T|Copper Bar*10
-@SET ORDER %V Boots|85|85|115|130|145|1|R|Bronze Bar*12;Coarse Grinding Stone*2;Pristine Leather*4;%G*5
+@SET ORDER %V Boots|85|85|115|130|145|1|F|Bronze Bar*12;Coarse Grinding Stone*2;Pristine Leather*4;%G*5
 Bronze Axe|85|85|120|135|150|1|T|Bronze Bar*7;Weak Flux*4;Medium Leather*1
 Big Bronze Knife|90|90|110|125|140|1|T|Bronze Bar*6;Weak Flux*4;Rough Grinding Stone*2;Tigerseye*1;Medium Leather*1
 Heavy Copper Broadsword|90|90|110|130|150|1|T|Copper Bar*14;Weak Flux*2;Tigerseye*2;Medium Leather*2
-@SET ORDER %V Chain Leggings|95|95|100|100|100|1|R|Bronze Bar*6;Coarse Grinding Stone*2;%G*4
-@SET ORDER %V Silvered Chain Helm|95|95|125|140|155|1|R|Bronze Bar*15;Coarse Grinding Stone*6;Silver Bar*4;Pristine Leather*4;%G*6
+@SET ORDER %V Chain Leggings|95|95|100|100|100|1|F|Bronze Bar*6;Coarse Grinding Stone*2;%G*4
+@SET ORDER %V Silvered Chain Helm|95|95|125|140|155|1|F|Bronze Bar*15;Coarse Grinding Stone*6;Silver Bar*4;Pristine Leather*4;%G*6
 Bronze Dory|95|95|125|140|155|1|R|Bronze Bar*8;Weak Flux*4;Medium Leather*1
 Bronze Shortsword|95|95|125|140|155|1|T|Bronze Bar*5;Weak Flux*4;Medium Leather*2
 Pearl-handled Dagger|95|95|115|130|145|1|T|Bronze Bar*6;Strong Flux*1;Small Lustrous Pearl*2;Coarse Grinding Stone*2
@@ -82,7 +82,7 @@ Rough Bronze Cuirass|105|105|120|135|150|1|T|Bronze Bar*7
 Silvered Bronze Breastplate|105|105|135|150|165|1|R|Bronze Bar*10;Silver Bar*2;Coarse Grinding Stone*2;Lesser Moonstone*1
 Sterling Silver Gauntlet|105|105|135|150|165|1|R|Silver Bar*6;Copper Bar*2;Coarse Grinding Stone*2
 Sterling Silver Leggings|105|105|135|150|165|1|R|Silver Bar*10;Copper Bar*3;Coarse Grinding Stone*3
-@SET ORDER %V Silvered Chain Shirt|110|110|140|155|170|1|R|Bronze Bar*20;Coarse Grinding Stone*6;Silver Bar*5;Pristine Leather*6;%G*8
+@SET ORDER %V Silvered Chain Shirt|110|110|140|155|170|1|F|Bronze Bar*20;Coarse Grinding Stone*6;Silver Bar*5;Pristine Leather*6;%G*8
 Cracked Blacksmith Hammer|110|110|115|118|120|1|R|Bronze Bar*18;Silver Bar*2;Tigerseye*1
 Golden Rod|110|110|130|133|135|1|T|Gold Bar*1;Coarse Grinding Stone*2
 Sterling Silver Shoulders|110|110|140|155|170|1|R|Silver Bar*6;Copper Bar*2;Coarse Grinding Stone*2
@@ -96,8 +96,8 @@ Ironforge Gauntlets|120|120|140|155|170|1|R|Bronze Bar*8;Shadowgem*3;Coarse Grin
 Mighty Iron Hammer|120|120|150|165|180|1|R|Iron Bar*6;Strong Flux*2;Elixir of Ogre Strength*1;Lesser Moonstone*2;Coarse Grinding Stone*2;Medium Leather*2
 Patterned Bronze Bracers|120|120|125|140|155|1|T|Bronze Bar*5;Coarse Grinding Stone*2
 Silvered Bronze Gauntlets|120|120|140|155|170|1|T|Bronze Bar*8;Silver Bar*1;Coarse Grinding Stone*2
-@SET ORDER %V Chain Helm|125|125|130|130|130|1|R|Bronze Bar*8;Coarse Grinding Stone*2;%G*6
-@SET ORDER %V Silvered Chain Leggings|125|125|155|170|185|1|R|Bronze Bar*20;Coarse Grinding Stone*8;Silver Bar*6;Pristine Leather*6;%G*8
+@SET ORDER %V Chain Helm|125|125|130|130|130|1|F|Bronze Bar*8;Coarse Grinding Stone*2;%G*6
+@SET ORDER %V Silvered Chain Leggings|125|125|155|170|185|1|F|Bronze Bar*20;Coarse Grinding Stone*8;Silver Bar*6;Pristine Leather*6;%G*8
 Bronze Warhammer|125|125|155|170|185|1|T|Bronze Bar*8;Strong Flux*1;Medium Leather*1
 Green Iron Gauntlets|125|125|155|170|185|1|R|Iron Bar*4;Small Lustrous Pearl*2;Coarse Grinding Stone*2;Green Dye*1
 Iron Shield Spike|125|125|155|170|185|1|R|Iron Bar*6;Coarse Grinding Stone*4
@@ -153,7 +153,7 @@ Frost Tiger Blade|175|175|200|213|225|1|R|Steel Bar*8;Strong Flux*2;Heavy Grindi
 Golden Scale Boots|175|175|200|213|225|1|R|Steel Bar*10;Gold Bar*4;Heavy Grinding Stone*4;Citrine*1
 Hard Gold Gauntlet|175|175|200|213|225|1|R|Gold Bar*8;Steel Bar*2;Heavy Grinding Stone*2
 Hard Gold Pauldrons|175|175|200|213|225|1|R|Gold Bar*8;Steel Bar*2;Heavy Grinding Stone*2
-@SET WATCH %V Gauntlet|175|175|200|213|225|1|R|Steel Bar*10;Heavy Grinding Stone*4;Sandpaper*4;Sulfuric Acid*2;%G*4
+@SET WATCH %V Gauntlet|175|175|200|213|225|1|F|Steel Bar*10;Heavy Grinding Stone*4;Sandpaper*4;Sulfuric Acid*2;%G*4
 Shadow Crescent Axe|175|175|200|213|225|1|R|Steel Bar*10;Strong Flux*2;Heavy Grinding Stone*3;Citrine*2;Shadow Oil*1;Heavy Leather*3
 Golden Scale Gauntlets|180|180|200|210|220|1|R|Steel Bar*10;Gold Bar*4;Heavy Grinding Stone*4;Citrine*1
 Heavy Mithril Gauntlet|180|180|200|210|220|1|T|Mithril Bar*6;Mageweave Cloth*4
@@ -190,7 +190,7 @@ Dense Grinding Stone|210|210|230|233|235|1|T|Dense Stone*4
 Dense Sharpening Stone|210|210|230|233|235|1|T|Dense Stone*1
 Dense Weightstone|210|210|230|233|235|1|T|Dense Stone*1
 Heavy Mithril Boots|210|210|230|240|250|1|T|Mithril Bar*14;Thick Leather*4
-@SET WATCH %V Pauldrons|210|210|230|240|250|1|R|Mithril Bar*20;Solid Grinding Stone*2;Sandpaper*6;Sulfuric Acid*4;%G*8;Large Glowing Shard*1
+@SET WATCH %V Pauldrons|210|210|230|240|250|1|F|Mithril Bar*20;Solid Grinding Stone*2;Sandpaper*6;Sulfuric Acid*4;%G*8;Large Glowing Shard*1
 Mithril Plate Shoulders|210|210|230|240|250|1|R|Mithril Bar*14;Thick Leather*4;Citrine*4
 Mithril Spurs|210|210|230|240|250|1|R|Mithril Bar*4;Solid Grinding Stone*3
 Mithril Stiletto|210|210|230|240|250|1|R|Mithril Bar*16;Shadowgem*6;Gold Bar*2;Solid Grinding Stone*1
@@ -206,7 +206,7 @@ Runed Mithril Hammer|220|220|245|258|270|1|R|Mithril Bar*18;Core of Earth*2;Soli
 Shining Mithril Gauntlet|220|220|240|250|260|1|R|Mithril Bar*5;Truesilver Bar*6;Heavy Grinding Stone*2;Aquamarine*2
 Shining Mithril Pants|220|220|240|250|260|1|R|Mithril Bar*6;Truesilver Bar*9;Heavy Grinding Stone*2;Core of Earth*1
 Truesilver Breastplate|220|220|240|250|260|1|T|Mithril Bar*12;Truesilver Bar*24;Star Ruby*4;Black Pearl*4;Solid Grinding Stone*2
-@SET WATCH %V Wristguards|225|225|250|263|275|1|R|Thorium Bar*16;Solid Grinding Stone*2;Sandpaper*6;Sulfuric Acid*4;%G*6;Large Glowing Shard*1
+@SET WATCH %V Wristguards|225|225|250|263|275|1|F|Thorium Bar*16;Solid Grinding Stone*2;Sandpaper*6;Sulfuric Acid*4;%G*6;Large Glowing Shard*1
 Phantom Blade|225|225|245|258|270|1|T|Mithril Bar*28;Breath of Wind*6;Truesilver Bar*8;Lesser Invisibility Potion*2;Aquamarine*6;Solid Grinding Stone*4;Thick Leather*2
 Thorium Armor|225|225|245|255|265|1|R|Thorium Bar*16;Blue Sapphire*1;Yellow Power Crystal*4
 Thorium Belt|225|225|245|255|265|1|R|Thorium Bar*12;Red Power Crystal*4
@@ -221,7 +221,7 @@ Blessed Plate Pauldrons|240|240|260|270|280|1|R|Thorium Bar*20;Blue Sapphire*1;R
 Dark Iron Pulverizer|240|240|260|270|280|1|R|Dark Iron Bar*18;Heart of Fire*4
 Imperial Plate Belt|240|240|260|270|280|1|R|Thorium Bar*22;Rugged Leather*6;Aquamarine*1
 Imperial Plate Shoulders|240|240|260|270|280|1|R|Thorium Bar*24;Rugged Leather*6;Citrine*2
-@SET WATCH %V Sabatons|240|240|260|270|280|1|R|Thorium Bar*20;Solid Grinding Stone*3;Sandpaper*4;Sulfuric Acid*4;%G*6;Pristine Leather*4
+@SET WATCH %V Sabatons|240|240|260|270|280|1|F|Thorium Bar*20;Solid Grinding Stone*3;Sandpaper*4;Sulfuric Acid*4;%G*6;Pristine Leather*4
 Thorium Greatsword|240|240|260|273|285|1|R|Thorium Bar*16;Dense Grinding Stone*2;Rugged Leather*4
 Truesilver Champion|240|240|260|273|285|1|T|Mithril Bar*30;Truesilver Bar*16;Star Ruby*6;Breath of Wind*4;Solid Grinding Stone*8;Thick Leather*6
 Blessed Plate Gauntlet|245|245|265|275|285|1|R|Thorium Bar*20;Blue Sapphire*2
@@ -233,16 +233,16 @@ Dark Iron Sunderer|250|250|270|280|290|1|R|Dark Iron Bar*26;Heart of Fire*4
 Dawn's Edge|250|250|275|288|300|1|R|Thorium Bar*30;Enchanted Thorium Bar*4;Star Ruby*4;Blue Sapphire*4;Dense Grinding Stone*2;Rugged Leather*4
 Inlaid Thorium Hammer|250|250|270|283|295|1|R|Thorium Bar*30;Gold Bar*4;Truesilver Bar*2;Blue Sapphire*2;Rugged Leather*4
 @SET WATCH %V Gloves|250|250|255|255|255|1|R|Thorium Bar*8;Solid Grinding Stone*4;%G*4
-@SET WATCH %V Waistguard|250|250|270|280|290|1|R|Thorium Bar*24;Solid Grinding Stone*4;Sandpaper*6;Sulfuric Acid*6;%G*10
+@SET WATCH %V Waistguard|250|250|270|280|290|1|F|Thorium Bar*24;Solid Grinding Stone*4;Sandpaper*6;Sulfuric Acid*6;%G*10
 Ornate Thorium Handaxe|250|250|275|288|300|1|V:Magnus Frostwake (Western Plaguelands)|Thorium Bar*20;Large Opal*2;Dense Grinding Stone*2;Rugged Leather*4
 Scarlet Soldier's Protectors|250|250|260|283|305|1|R|Thorium Bar*16
 Scarlet Soldier's Waistguard|250|250|260|283|305|1|R|Righteous Orb*1;Thorium Bar*20
-Thorium Cestus|250|250|270|280|290|1|R|Thorium Bar*20;Heavy Thorium Bar*8;Essence of Air*4;Azerothium Bar*10;Dense Grinding Stone*1
-Thorium Greatmace|250|250|270|280|290|1|R|Thorium Bar*30;Heavy Thorium Bar*4;Essence of Earth*4;Azerothium Bar*10;Dense Grinding Stone*2
+Thorium Cestus|250|250|270|280|290|1|F|Thorium Bar*20;Heavy Thorium Bar*8;Essence of Air*4;Azerothium Bar*10;Dense Grinding Stone*1
+Thorium Greatmace|250|250|270|280|290|1|F|Thorium Bar*30;Heavy Thorium Bar*4;Essence of Earth*4;Azerothium Bar*10;Dense Grinding Stone*2
 Thorium Shield Spike|250|250|270|280|290|1|R|Thorium Bar*4;Dense Grinding Stone*4;Essence of Earth*2
 Blessed Plate Bracers|255|255|275|285|295|1|R|Thorium Bar*16;Blue Sapphire*1
 Dark Iron Shoulders|255|255|275|285|295|1|R|Dark Iron Bar*6;Heart of Fire*1
-Huge Thorium Battleaxe|255|255|280|293|305|1|R|Thorium Bar*40;Dense Grinding Stone*6;Rugged Leather*6
+Huge Thorium Battleaxe|255|255|280|293|305|1|V:Magnus Frostwake (Western Plaguelands)|Thorium Bar*40;Dense Grinding Stone*6;Rugged Leather*6
 Imperial Plate Gauntlets|255|255|275|285|295|1|R|Thorium Bar*24;Star Ruby*1
 Thorium Boots|255|255|275|285|295|1|R|Thorium Bar*20;Rugged Leather*8;Green Power Crystal*4
 Thorium Helm|255|255|275|285|295|1|R|Thorium Bar*24;Star Ruby*1;Yellow Power Crystal*4

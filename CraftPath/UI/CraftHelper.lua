@@ -131,16 +131,36 @@ local function stepFromLock(lock, skill, plan, data)
     recipe = r, from = skill, to = lock.to, expectedCrafts = exp, crafts = math.ceil(exp - 1e-9),
     costPerCraft = (first and first.recipe.name == r.name and first.costPerCraft) or lock.cost,
     learnHow = first and first.recipe.name == r.name and first.learnHow or nil,
+    learnItem = first and first.recipe.name == r.name and first.learnItem or nil,
+    learnWhere = first and first.recipe.name == r.name and first.learnWhere or nil,
+    learnFavor = first and first.recipe.name == r.name and first.learnFavor or nil,
   }
 end
 
 -- A step picked on the planner's Leveling steps tab, shown instead of the current step.
 Helper.preview = nil -- { prof, step, index, total }
 
+-- Plans are reused until your skill, prices or settings change (planning with your stock
+-- takes a moment, and bag changes after every craft shouldn't trigger it).
+local planCache, cacheSize = {}, 0
+local function cachedPlan(prof, skill, from)
+  local s = ns.db.settings
+  local key = table.concat({ prof, tostring(skill), tostring(from), tostring(ns.db.scanId), tostring(#ns.db.purchases),
+    tostring(s.allowRecipeItems), tostring(s.allowFavor), tostring(s.useOwned), tostring(s.spec), tostring(s.overtimeRank),
+    tostring(s.to), tostring(s.capToLevel) }, "|")
+  local c = planCache[key]
+  if c then return c end
+  local plan = ns.MakePlan({ profession = prof, liveSkill = from == nil, from = from })
+  if cacheSize >= 6 then planCache, cacheSize = {}, 0 end -- keep only the latest few
+  planCache[key], cacheSize = plan, cacheSize + 1
+  return plan
+end
+function Helper.ClearCache() planCache, cacheSize = {}, 0 end
+
 -- Works out what to show for the open profession.
 function Helper.Compute(prof)
-  local plan = ns.MakePlan({ profession = prof, liveSkill = true })
   local skill, maxSkill = ns.Game.GetSkill(prof)
+  local plan = cachedPlan(prof, skill)
   local view = { prof = prof, skill = skill, maxSkill = maxSkill, plan = plan }
   local pv = Helper.preview
   if plan.error and not (pv and pv.prof == prof) then view.error = plan.error; return view end
@@ -158,7 +178,7 @@ function Helper.Compute(prof)
     -- previewing: leave the lock alone
   elseif step then
     -- What comes after this step: plan from the end of it.
-    local afterPlan = ns.MakePlan({ profession = prof, from = lock.to })
+    local afterPlan = cachedPlan(prof, skill, lock.to)
     view.after = afterPlan.steps and afterPlan.steps[1] or nil
   else
     step = plan.steps[1]
@@ -241,9 +261,24 @@ function Helper.Render(view)
 
   local first = {}
   if not view.known then
-    local how = st.learnHow == "trainer" and "from your trainer"
-      or (st.learnItem and ("— buy " .. st.learnItem)) or "first"
-    first[#first + 1] = "|cffff9933Learn " .. r.name .. " " .. how .. "|r"
+    local w = st.learnWhere
+    local who = w and w.npc and (w.npc .. (w.where and (", " .. w.where) or "")) or nil
+    local how
+    if st.learnHow == "favor" then
+      how = ("%s from %s"):format(st.learnFavor and (st.learnFavor .. " Merchant's Favor") or "Merchant's Favor", who or "the Favor vendor")
+    elseif who and (st.learnHow == "trainer" or (w and w.trainer)) then
+      how = "from " .. who
+    elseif st.learnHow == "trainer" then
+      how = "from your trainer"
+    elseif who then
+      how = ("buy %s from %s"):format(st.learnItem or "the recipe", who)
+    elseif st.learnItem then
+      how = "buy " .. st.learnItem .. (st.learnHow == "ah" and " on the auction house" or "")
+    else
+      how = "first"
+    end
+    first[#first + 1] = "|cffff9933Learn " .. r.name .. ": " .. how .. "|r"
+    if w and w.note then first[#first + 1] = "|cff999999" .. w.note .. "|r" end
   end
   if view.train then
     first[#first + 1] = ("|cffff9933Train %s at your trainer (character level %d): you're capped at %d|r"):format(

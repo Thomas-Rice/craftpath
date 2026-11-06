@@ -8,6 +8,7 @@ ns.version = C_AddOns and C_AddOns.GetAddOnMetadata and C_AddOns.GetAddOnMetadat
 local DEFAULTS = {
   prices = {},      -- [itemName] = { p = copper, q = quantity, id = itemID, t = time, scan = scanId }
   vendor = {},      -- [itemName] = copper per unit, learned at merchants
+  vendorWhere = {}, -- [recipe item] = { npc, where } for recipes seen at a merchant
   ids = {},         -- [itemName] = itemID
   known = {},       -- [profession] = { [recipeName] = true }
   recipeIDs = {},   -- [profession] = { [recipeName] = recipeID } from the profession window
@@ -22,7 +23,7 @@ local DEFAULTS = {
     profession = "Engineering",
     from = 1, to = 300, useMySkill = true, capToLevel = true,
     allowRecipeItems = true, allowFavor = true, spec = "none", overtimeRank = 0,
-    openWithAH = true, tooltip = true, maxOverPct = 25, craftHelper = true,
+    openWithAH = true, tooltip = true, maxOverPct = 25, craftHelper = true, useOwned = true,
   },
 }
 
@@ -91,6 +92,9 @@ function ns.MakePlan(override)
     bonus = 0.04 * (tonumber(s.overtimeRank) or 0),
     owned = ns.Game.Owned,
     listed = ns.Prices.Listed,
+    useOwned = s.useOwned,
+    faction = UnitFactionGroup and UnitFactionGroup("player") or nil,
+    vendorWhere = function(item) return ns.db.vendorWhere[item] end,
     charLevel = s.capToLevel and UnitLevel("player") or nil,
   }
   local plan = ns.Planner.Plan(opts)

@@ -73,6 +73,7 @@ Moonsight Rifle|145|145|170|183|195|1|R|Bronze Tube*3;Whirring Bronze Gizmo*3;He
 No Slip SAF-T Padding|145|145|145|148|150|1|F|Heavy Leather*1;Magenta Dye*1
 SAF-T Bronze Bomb|145|145|145|170|195|1|R|Coarse Blasting Powder*4;Bronze Bar*2;Silver Contact*1;Wool Cloth*1;No Slip SAF-T Padding*1
 @SET FIREWORK %V Firework|150|150|150|163|175|3|R|Heavy Blasting Powder*1;Heavy Leather*1
+Red Firework|150|150|150|163|175|3|V:Sovik (Orgrimmar)|Heavy Blasting Powder*1;Heavy Leather*1
 SAF-T Jumbo Dynamite|150|150|150|160|170|1|R|Heavy Blasting Powder*2;Wool Cloth*1;No Slip SAF-T Padding*1
 Silver-plated Shotgun|150|150|155|168|180|1|T|Bronze Tube*2;Whirring Bronze Gizmo*2;Heavy Stock*1;Silver Bar*3
 Ice Deflector|155|155|175|185|195|1|R|Whirring Bronze Gizmo*1;Frost Oil*1
@@ -158,7 +159,7 @@ Pop-Up Shrub|250|250|255|258|260|1|R|Thorium Widget*1;Unstable Trigger*1;Bronze 
 Snake Burst Firework|250|250|250|260|270|4|R|Dense Blasting Powder*2;Runecloth*2;Deeprock Salt*1
 Tinkerbox|255|255|260|270|280|1|R|Mithril Casing*1;Gold Power Core*2
 Green Lens|260|260|265|275|285|1|T|Thick Leather*8;Jade*3;Aquamarine*3;Heart of the Wild*2;Wildvine*2
-Thorium Grenade|260|260|280|290|300|3|R|Thorium Widget*1;Thorium Bar*3;Dense Blasting Powder*3;Runecloth*3
+Thorium Grenade|260|260|280|290|300|3|V:Sovik (Orgrimmar)|Thorium Widget*1;Thorium Bar*3;Dense Blasting Powder*3;Runecloth*3
 Thorium Rifle|260|260|280|290|300|1|R|Mithril Tube*2;Mithril Casing*2;Thorium Widget*2;Thorium Bar*4;Deadly Scope*1
 Thorium Widget|260|260|280|290|300|1|V:Sovik (Orgrimmar)|Thorium Bar*3;Runecloth*1
 Truesilver Transformer|260|260|270|275|280|1|R|Truesilver Bar*2;Elemental Earth*2;Elemental Air*1

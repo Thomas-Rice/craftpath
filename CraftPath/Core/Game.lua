@@ -156,8 +156,34 @@ local function readMerchant()
     if name and price and price > 0 and not extended then
       ns.Prices.RecordVendor(name, price / math.max(1, qty or 1))
     end
+    -- Remember who sells recipes and where, to tell you later.
+    if name then
+      for _, prefixes in pairs(ns.RawData.RecipePrefixes) do
+        for _, pre in ipairs(prefixes) do
+          if name:sub(1, #pre) == pre then ns.db.vendorWhere[name] = Game.HereNPC() end
+        end
+      end
+    end
   end
 end
+-- The NPC you're talking to and where you are, e.g. "Sovik" / "Orgrimmar, Valley of Honor (37.2, 85.0)".
+function Game.HereNPC()
+  local npc = UnitName and UnitName("npc") or nil
+  local zone = GetRealZoneText and GetRealZoneText() or ""
+  local sub = GetSubZoneText and GetSubZoneText() or ""
+  local where = (sub ~= "" and sub ~= zone) and (zone .. ", " .. sub) or zone
+  if C_Map and C_Map.GetBestMapForUnit and C_Map.GetPlayerMapPosition then
+    local ok, pos = pcall(function()
+      return C_Map.GetPlayerMapPosition(C_Map.GetBestMapForUnit("player"), "player")
+    end)
+    if ok and pos and pos.GetXY then
+      local x, y = pos:GetXY()
+      if x and y and x > 0 then where = ("%s (%.1f, %.1f)"):format(where, x * 100, y * 100) end
+    end
+  end
+  return { npc = npc, where = where }
+end
+
 ns.On("MERCHANT_SHOW", readMerchant)
 ns.On("MERCHANT_UPDATE", readMerchant)
 

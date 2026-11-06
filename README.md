@@ -8,7 +8,9 @@ Starting with **Engineering** and **Blacksmithing**. A companion website showing
 
 - **Plans the route** from your current skill to your target (up to 300). For every skill point it picks the recipe with the lowest expected gold per point, using the Classic skill-up rule (orange always, yellow and green fall off linearly to grey).
 - **Prices every reagent** as the cheapest of the auction house, an NPC vendor, or crafting it yourself (for example, making your own Solid Blasting Powder instead of buying it).
-- **Counts schematics and plans**: vendor and auction house recipes are charged once, and Merchant's Favor recipes are free in gold.
+- **Counts schematics and plans**: vendor and auction house recipes are charged once, and Merchant's Favor recipes are free in gold (the Favor needed is totalled).
+- **Says where to get recipes.** Vendor recipes name the vendor and location for your faction, for example *Schematic: Thorium Widget* from Sovik in Orgrimmar's Valley of Honor. Merchant's Favor plans name the Favor vendor and cost; for Horde that's Gor'mak or Fizzlefuse at Durotar Supply and Logistics. Special trainers are named too, such as Brikk Keencraft in Booty Bay for Mithril Coif. Any merchant you visit that sells a recipe is remembered with its location.
+- **Uses what you already have** (*Use my stock*). Materials in your bags and bank count as free when choosing recipes, up to how many you have. CraftPath compares a few routes on real gold cost, so your stock goes where it saves the most.
 - **Builds a shopping list** by replaying the route, so items you make along the way (powders, bolts, grinding stones) are used before anything is bought. Items in your bags and bank are subtracted.
 - **Scans the auction house** in three ways:
   - *Passive*: any search you do on the Buy tab records prices.
