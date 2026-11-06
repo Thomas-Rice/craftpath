@@ -19,22 +19,24 @@ ns.RawData.Sets = {
 }
 
 -- Reagents sold by NPC vendors, with a starting price estimate in copper.
--- These are Classic-era estimates; the addon replaces each one with the real price
--- the first time you open a merchant that sells it.
+-- Most were seen at Forever vendors (Nov 2026); the addon replaces any of them with the
+-- price it sees the next time you open a merchant that sells it.
 ns.RawData.VendorItems = {
-  ["Weak Flux"] = 100,
-  ["Strong Flux"] = 200,
-  ["Coarse Thread"] = 10,
-  ["Green Dye"] = 100,
-  ["Nightcrawlers"] = 50,
-  ["Blank Parchment"] = 125,
-  ["Engineer's Ink"] = 400,
-  ["Refreshing Spring Water"] = 25,
-  ["Razor Arrow"] = 2,
-  ["Flask of Oil"] = 80,
-  ["Wooden Stock"] = 200,
-  ["Heavy Stock"] = 400,
-  ["Blacksmith Hammer"] = 20,
+  ["Weak Flux"] = 100,              -- seen at a Forever vendor
+  ["Strong Flux"] = 2000,           -- seen at a Forever vendor
+  ["Coarse Thread"] = 10,           -- seen at a Forever vendor
+  ["Fine Thread"] = 100,            -- seen at a Forever vendor
+  ["Green Dye"] = 100,              -- seen at a Forever vendor
+  ["Nightcrawlers"] = 100,          -- seen at a Forever vendor
+  ["Refreshing Spring Water"] = 5,  -- seen at a Forever vendor
+  ["Razor Arrow"] = 2,              -- seen at a Forever vendor
+  ["Wooden Stock"] = 200,           -- seen at a Forever vendor
+  ["Heavy Stock"] = 2000,           -- seen at a Forever vendor
+  ["Blacksmith Hammer"] = 18,       -- seen at a Forever vendor
+  ["Elemental Flux"] = 150000,      -- seen at a Forever vendor
+  ["Blank Parchment"] = 125,        -- estimate
+  ["Engineer's Ink"] = 400,         -- estimate
+  ["Flask of Oil"] = 80,            -- estimate
 }
 
 -- Price guess (copper) for gold-vendor recipes until the merchant has been seen.
