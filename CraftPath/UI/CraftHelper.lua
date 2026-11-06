@@ -151,7 +151,7 @@ function Helper.Compute(prof)
     step = pv.step
     view.preview = pv
     view.after = pv.next
-  elseif lock and lock.prof == prof and skill and skill < lock.to then
+  elseif lock and lock.prof == prof and skill and skill >= (lock.from or 0) and skill < lock.to then
     step = stepFromLock(lock, skill, plan, data)
   end
   if view.preview then
@@ -163,7 +163,7 @@ function Helper.Compute(prof)
   else
     step = plan.steps[1]
     view.switchedFrom = lock and lock.prof == prof and lock.recipe ~= step.recipe.name and lock.recipe or nil
-    Helper.lock = { prof = prof, recipe = step.recipe.name, to = step.to, cost = step.costPerCraft }
+    Helper.lock = { prof = prof, recipe = step.recipe.name, from = step.from, to = step.to, cost = step.costPerCraft }
     view.after = plan.steps[2]
   end
   view.step = step
@@ -212,7 +212,7 @@ function Helper.Render(view)
   Helper.view = view
   local prof = view.prof
   if view.preview then
-    w.skill:SetText(("|cff33bbffStep %d of %d|r  (you're at %s %s)"):format(
+    w.skill:SetText(("|cffff9933Previewing step %d of %d. You're at %s %s: click Back.|r"):format(
       view.preview.index, view.preview.total, prof, view.skill and tostring(view.skill) or "?"))
     w.planner:SetText("Back")
   else
@@ -357,6 +357,9 @@ local function skillUp()
 end
 ns.On("SKILL_LINES_CHANGED", skillUp)
 ns.On("CHAT_MSG_SKILL", skillUp)
+-- Opening the profession window always starts on your current step.
+ns.On("TRADE_SKILL_SHOW", function() Helper.preview = nil end)
+
 ns.On("TRADE_SKILL_CLOSE", function()
   Helper.selected = nil
   if Helper.preview then C_Timer.After(0, Helper.Update) elseif frame then frame:Hide() end

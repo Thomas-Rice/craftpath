@@ -135,7 +135,10 @@ function Game.Craftable(prof, recipe)
   return n == math.huge and 0 or n
 end
 
-ns.On("TRADE_SKILL_SHOW", readKnownRecipes)
+ns.On("TRADE_SKILL_SHOW", function()
+  if ns.CraftHelper then ns.CraftHelper.preview = nil end -- opening the window: back to your current step
+  readKnownRecipes()
+end)
 ns.On("TRADE_SKILL_LIST_UPDATE", readKnownRecipes)
 
 -- Learn real vendor prices (reagents and schematics/plans) whenever a merchant is open.

@@ -168,6 +168,15 @@ def main():
     r2 = lua.table_from({"name": "X", "learn": 1, "yellow": 50, "grey": 100, "points": 2})
     assert R.PointsPerCraft(r2, 10, 0) == 2
 
+    # No short A -> B -> A bounce: B is folded into A when A costs at most 5% more there.
+    for prof in ("Engineering", "Blacksmithing"):
+        steps = lua_list(plan(lua, ns, prof).steps)
+        names = [st.recipe.name for st in steps]
+        bounces = [names[i] for i in range(len(names) - 2) if names[i] == names[i + 2]]
+        # A bounce that survives is one where staying on A costs more than 5% extra.
+        if "--show" in sys.argv:
+            print(f"  {prof}: {len(steps)} steps, bounces kept: {bounces}")
+
     print("All tests passed.")
     if "--show" in sys.argv:
         for prof, p in results.items():

@@ -480,13 +480,22 @@ def main():
     assert pv.preview and pv.recipe.name == target.recipe.name, "step not opened in the helper"
     assert G.CraftPathCraftHelper.__shown
     helper_texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
-    assert any(t.startswith("|cff33bbffStep 2 of") for t in helper_texts), "preview header missing"
+    assert any(t.startswith("|cffff9933Previewing step 2 of") for t in helper_texts), "preview header missing"
+    fire("TRADE_SKILL_SHOW")                                   # opening the window: back to the current step
+    assert not ns.CraftHelper.preview and not ns.CraftHelper.view.preview, "preview survived opening the window"
+    rows[0].Click(rows[0], "LeftButton"); rows[0].Click(rows[0], "LeftButton")  # re-open the preview
     back = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Back"]
     assert back, "Back button missing"
     back[0].Click(back[0])
     assert not ns.CraftHelper.preview and not ns.CraftHelper.view.preview
     rows[0].Click(rows[0], "LeftButton")                      # click again: collapses
     ns.CraftHelper.preview = None
+
+    # A hold from a step above your skill (e.g. an old plan) is dropped.
+    ns.CraftHelper.lock = lua.table_from({"prof": "Engineering", "recipe": "Mithril Tube", "from": 190, "to": 195, "cost": 1})
+    v = ns.CraftHelper.Compute("Engineering")
+    assert v.recipe.name != "Mithril Tube" and v.step["from"] == 112, (v.recipe.name, v.step["from"])
+    ns.CraftHelper.lock = None
 
     # Near the Journeyman cap: reminds to train Expert.
     G.__engSkill = 145

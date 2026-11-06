@@ -266,6 +266,31 @@ function Planner.Plan(opts)
     end
   end
 
+  -- Smooth out short back-and-forth switches (A, B, A): stay on A through B's stretch when
+  -- that costs at most 5% more for it. Changing recipe for a few points isn't worth it.
+  local SWITCH_TOLERANCE = 1.05
+  local changed = true
+  while changed do
+    changed = false
+    for i = 1, #steps - 2 do
+      local a, b, c = steps[i], steps[i + 1], steps[i + 2]
+      if a.recipe == c.recipe and b.recipe ~= a.recipe then
+        local costA, costB = 0, 0
+        for k = b.from, b.to - 1 do
+          costA = costA + costPerPoint(a.recipe, k)
+          costB = costB + costPerPoint(b.recipe, k)
+        end
+        if costA < INF and costA <= costB * SWITCH_TOLERANCE then
+          a.to = c.to
+          table.remove(steps, i + 2)
+          table.remove(steps, i + 1)
+          changed = true
+          break
+        end
+      end
+    end
+  end
+
   local learned = {}
   for _, st in ipairs(steps) do
     local r = st.recipe
@@ -287,9 +312,11 @@ function Planner.Plan(opts)
     st.expectedGold = gold + (st.learnCost or 0)
   end
 
+  local total = 0
+  for _, st in ipairs(steps) do total = total + st.expectedGold end
   local plan = {
     profession = opts.profession, from = from, to = to, steps = steps, notes = notes,
-    expectedGold = best[to],
+    expectedGold = total,
   }
   Planner.BuildShoppingList(plan, data, unitCost, opts.owned, opts.listed)
   Planner.AddRankNotes(plan)
