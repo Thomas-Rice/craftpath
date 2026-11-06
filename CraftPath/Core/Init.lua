@@ -79,6 +79,7 @@ function ns.MakePlan(override)
     local skill = ns.Game.GetSkill(prof)
     if skill then from = skill end
   end
+  if override and override.from then from = override.from end
   local opts = {
     profession = prof, from = from, to = to,
     ahPrice = ns.Prices.AH, vendorPrice = ns.Prices.Vendor,

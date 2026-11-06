@@ -9,6 +9,13 @@ local SKILL_LINES = { Engineering = 202, Blacksmithing = 164 }
 
 -- Current skill in a profession, or nil if the character doesn't have it.
 function Game.GetSkill(profession)
+  -- With the profession window open its own numbers update first, so prefer them.
+  if C_TradeSkillUI and C_TradeSkillUI.GetBaseProfessionInfo then
+    local ok, info = pcall(C_TradeSkillUI.GetBaseProfessionInfo)
+    if ok and info and info.professionName == profession and info.skillLevel and info.skillLevel > 0 then
+      return info.skillLevel, info.maxSkillLevel
+    end
+  end
   if GetProfessions and GetProfessionInfo then
     local ok, p1, p2 = pcall(GetProfessions)
     if ok then

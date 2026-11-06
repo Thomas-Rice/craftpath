@@ -8,7 +8,6 @@ local Helper = ns.CraftHelper
 
 local frame, w = nil, {}
 local Money = function(c) return ns.Prices.Money(c) end
-local lastStep -- recipe name of the step shown last time, to announce changes
 
 local function inBags(name)
   if not C_Item or not C_Item.GetItemCount then return 0 end
@@ -107,13 +106,55 @@ local function create()
   frame:Hide()
 end
 
+-- The step being worked on is "locked" until you reach the end of its skill range, so the
+-- panel doesn't flip between recipes on small price changes. At the end of the range it
+-- moves to the next step of a fresh plan.
+Helper.lock = nil -- { prof, recipe = name, to = skill, cost = copper per craft }
+
+local function stepFromLock(lock, skill, plan, data)
+  local r = data.byName[lock.recipe]
+  if not r then return nil end
+  local bonus = 0.04 * (tonumber(ns.db.settings.overtimeRank) or 0)
+  if ns.Recipes.PointsPerCraft(r, skill, bonus) <= 0 then return nil end -- turned grey early
+  local first = plan.steps and plan.steps[1]
+  if first and first.recipe.name == r.name then
+    first.to = lock.to
+  end
+  local exp = 0
+  for k = skill, lock.to - 1 do
+    local p = ns.Recipes.PointsPerCraft(r, k, bonus)
+    if p <= 0 then break end
+    exp = exp + 1 / p
+  end
+  return {
+    recipe = r, from = skill, to = lock.to, expectedCrafts = exp, crafts = math.ceil(exp - 1e-9),
+    costPerCraft = (first and first.recipe.name == r.name and first.costPerCraft) or lock.cost,
+    learnHow = first and first.recipe.name == r.name and first.learnHow or nil,
+  }
+end
+
 -- Works out what to show for the open profession.
 function Helper.Compute(prof)
   local plan = ns.MakePlan({ profession = prof, liveSkill = true })
   local skill, maxSkill = ns.Game.GetSkill(prof)
   local view = { prof = prof, skill = skill, maxSkill = maxSkill, plan = plan }
   if plan.error then view.error = plan.error; return view end
-  local step = plan.steps[1]
+  local data = ns.Recipes.Load(prof)
+  local step
+  local lock = Helper.lock
+  if lock and lock.prof == prof and skill and skill < lock.to then
+    step = stepFromLock(lock, skill, plan, data)
+  end
+  if step then
+    -- What comes after this step: plan from the end of it.
+    local afterPlan = ns.MakePlan({ profession = prof, from = lock.to })
+    view.after = afterPlan.steps and afterPlan.steps[1] or nil
+  else
+    step = plan.steps[1]
+    view.switchedFrom = lock and lock.prof == prof and lock.recipe ~= step.recipe.name and lock.recipe or nil
+    Helper.lock = { prof = prof, recipe = step.recipe.name, to = step.to, cost = step.costPerCraft }
+    view.after = plan.steps[2]
+  end
   view.step = step
   local r = step.recipe
   view.recipe = r
@@ -135,7 +176,6 @@ function Helper.Compute(prof)
   view.makeFirst = {}
   local selfMade = {}
   for _, c in ipairs(plan.craftYourself or {}) do selfMade[c.name] = true end
-  local data = ns.Recipes.Load(prof)
   for _, g in ipairs(view.reagents) do
     local sub = data.byName[g.name]
     if sub and selfMade[g.name] and g.have < g.need then
@@ -144,7 +184,6 @@ function Helper.Compute(prof)
     end
   end
 
-  view.after = plan.steps[2]
   -- Rank training due: you're near your current cap (e.g. 150 at Journeyman).
   if view.skill and view.maxSkill and view.maxSkill < 300 and view.skill >= view.maxSkill - 10 then
     for _, rank in ipairs(ns.RawData.Ranks) do
@@ -239,15 +278,22 @@ function Helper.Update()
   end
   frame:Show()
   local view = Helper.Compute(prof)
-  if view.recipe and lastStep and lastStep ~= view.recipe.name then
-    ns.Print(("Skill %d: switch to |cffffd100%s|r."):format(view.skill or 0, view.recipe.name))
+  Helper.Render(view)
+  fitHeight()
+  if view.switchedFrom then
+    -- End of a step: stop any batch still crafting the old recipe, select the new one.
+    if C_TradeSkillUI.StopRecipeRepeat then pcall(C_TradeSkillUI.StopRecipeRepeat) end
+    ns.Print(("Skill %d: %s is done for this route. Next: |cffffd100%s|r (to %d)."):format(
+      view.skill or 0, view.switchedFrom, view.recipe.name, view.step.to))
     if PlaySound and SOUNDKIT and SOUNDKIT.UI_PROFESSIONS_NEW_RECIPE_LEARNED_TOAST then
       pcall(PlaySound, SOUNDKIT.UI_PROFESSIONS_NEW_RECIPE_LEARNED_TOAST)
     end
   end
-  lastStep = view.recipe and view.recipe.name or nil
-  Helper.Render(view)
-  fitHeight()
+  -- Keep Blizzard's window on the step's recipe (once per recipe, so you can browse freely).
+  if view.recipeID and Helper.selected ~= view.recipeID then
+    Helper.selected = view.recipeID
+    Helper.ShowRecipe()
+  end
 end
 
 function Helper.Craft()
@@ -266,14 +312,17 @@ function Helper.ShowRecipe()
   end
 end
 
--- Refresh after crafts, skill-ups and bag changes (throttled).
+-- Refresh after bag changes (throttled) and straight after every skill-up.
 local pending = false
-local function soon()
+local function soon(delay)
   if pending or not frame or not frame:IsShown() then return end
   pending = true
-  C_Timer.After(0.5, function() pending = false; Helper.Update() end)
+  C_Timer.After(delay or 0.5, function() pending = false; Helper.Update() end)
 end
-ns.On("BAG_UPDATE_DELAYED", soon)
-ns.On("SKILL_LINES_CHANGED", soon)
-ns.On("CHAT_MSG_SKILL", soon)
-ns.On("TRADE_SKILL_CLOSE", function() if frame then frame:Hide() end end)
+ns.On("BAG_UPDATE_DELAYED", function() soon(0.5) end)
+ns.On("SKILL_LINES_CHANGED", function() soon(0.1) end)
+ns.On("CHAT_MSG_SKILL", function() soon(0.1) end)
+ns.On("TRADE_SKILL_CLOSE", function()
+  if frame then frame:Hide() end
+  Helper.selected = nil
+end)

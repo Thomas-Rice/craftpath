@@ -164,6 +164,8 @@ C_TradeSkillUI = {
   GetRecipeInfo = function(id) if id == 99 then return { name = __helperRecipe, learned = true, numAvailable = 5 } end return ({ { name = "Rough Blasting Powder", learned = true }, { name = "Thorium Widget", learned = true },
     { name = "Shiny New Gizmo", learned = false } })[id] end,
   CraftRecipe = function(id, n) __crafted = { id, n } end,
+  StopRecipeRepeat = function() __stopped = (__stopped or 0) + 1 end,
+  OpenRecipe = function(id) __opened = id end,
   GetRecipeSchematic = function(id) return { quantityMin = 2, reagentSlotSchematics = {
     { quantityRequired = 3, reagents = { { itemID = 2840 } } } } } end,
 }
@@ -441,6 +443,26 @@ def main():
     assert craft, "Craft button missing"
     craft[0].Click(craft[0])
     assert G.__crafted[1] == 99 and G.__crafted[2] == 5
+    # Step boundary: reaching the end of the step stops the batch and selects the next recipe.
+    step_recipe, step_to = v.recipe.name, v.step.to
+    assert G.__opened == 99, "step recipe not selected in Blizzard's window on open"
+    G.__engSkill = step_to - 1 if step_to - 1 > 112 else 112
+    fire("CHAT_MSG_SKILL"); G.__runTimers()
+    assert ns.CraftHelper.view.recipe.name == step_recipe, "switched before the end of the step"
+    nxt = ns.MakePlan(lua.table_from({"profession": "Engineering", "from": step_to})).steps[1].recipe.name
+    ns.db.recipeIDs["Engineering"][nxt] = 100
+    ns.db.known["Engineering"][nxt] = True
+    G.__engSkill = step_to
+    fire("CHAT_MSG_SKILL"); G.__runTimers()
+    v2 = ns.CraftHelper.view
+    assert v2.recipe.name == nxt and v2.recipe.name != step_recipe, (v2.recipe.name, step_recipe)
+    assert G.__stopped == 1, "batch not stopped at the step boundary"
+    assert G.__opened == 100, "next recipe not selected"
+    assert any("is done for this route" in G.__chat[i] for i in range(1, len(G.__chat) + 1))
+    Gcraft = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str) and f.__text.startswith("Craft")]
+    G.__engSkill = 112
+    ns.CraftHelper.lock = None
+
     # Near the Journeyman cap: reminds to train Expert.
     G.__engSkill = 145
     v = ns.CraftHelper.Compute("Engineering")
