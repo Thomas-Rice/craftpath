@@ -32,6 +32,12 @@ def main():
     wm = os.path.join(ROOT, "node_modules", "wasmoon", "dist")
     copy(os.path.join(wm, "index.js"), os.path.join(OUT, "assets", "vendor", "wasmoon.js"))
     copy(os.path.join(wm, "glue.wasm"), os.path.join(OUT, "assets", "vendor", "glue.wasm"))
+    fonts = {"anton": ["anton-latin-400-normal"], "inter-tight": [f"inter-tight-latin-{w}-normal" for w in (500, 600, 700)],
+             "inter": [f"inter-latin-{w}-normal" for w in (400, 500, 600)]}
+    for pkg, files in fonts.items():
+        for f in files:
+            copy(os.path.join(ROOT, "node_modules", "@fontsource", pkg, "files", f + ".woff2"),
+                 os.path.join(OUT, "assets", "fonts", f + ".woff2"))
     for rel in LUA:
         copy(os.path.join(ROOT, "CraftPath", rel), os.path.join(OUT, "lua", rel))
     copy(os.path.join(WEB, "src", "bridge.lua"), os.path.join(OUT, "lua", "bridge.lua"))
@@ -42,6 +48,7 @@ def main():
         fh.write("/lua/*\n  Content-Type: text/plain; charset=utf-8\n  Cache-Control: public, max-age=300\n"
                  "/data/*\n  Cache-Control: public, max-age=300\n"
                  "/assets/vendor/*\n  Cache-Control: public, max-age=604800\n"
+                 "/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n"
                  "/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n")
     with open(os.path.join(OUT, "robots.txt"), "w") as fh:
         fh.write(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")

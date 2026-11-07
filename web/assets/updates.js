@@ -13,12 +13,16 @@ async function main() {
   const box = document.getElementById("runs");
   try {
     const runs = await fetch("data/recipe-changes.json").then((r) => r.json());
+    if (runs.length) {
+      const n = runs[0].professions.reduce((t, p) => t + p.added.length + p.removed.length + p.changed.length, 0);
+      document.getElementById("heroNum").textContent = n;
+    }
     if (!runs.length) { box.innerHTML = `<div class="panel muted">No changes recorded yet.</div>`; return; }
     box.innerHTML = runs.map((run) => {
       const date = new Date(run.date + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
       const profs = run.professions.map((p) => `
         <div class="prof-change">
-          <h3><img src="assets/${p.profession.toLowerCase()}.svg" alt="" width="20" height="20">${esc(p.profession)}</h3>
+          <h3>${esc(p.profession)}</h3>
           <div class="counts">${p.before} → ${p.after} recipes · ${p.added.length} new, ${p.removed.length} removed, ${p.changed.length} changed</div>
           ${list(p.added, "new", "New", (a) => `<strong>${esc(a.name)}</strong> <span class="muted">skill ${a.skill}, ${esc(a.source)}${a.materials ? ` · ${esc(a.materials)}` : ""}</span>`)}
           ${list(p.removed, "gone", "Removed", (a) => `<strong>${esc(a.name)}</strong> <span class="muted">skill ${a.skill}</span>`)}

@@ -4,6 +4,9 @@
   "description": "CraftPath website build: runs the addon's Lua planner in the browser with wasmoon.",
   "type": "module",
   "devDependencies": {
+    "@fontsource/anton": "^5.1.0",
+    "@fontsource/inter": "^5.1.0",
+    "@fontsource/inter-tight": "^5.1.0",
     "wasmoon": "1.16.0"
   }
 }

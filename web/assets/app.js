@@ -130,6 +130,9 @@ function render(plan) {
   $("loading").hidden = true;
   if (plan.error) {
     $("result").hidden = true;
+    $("heroNum").textContent = state.from;
+    $("heroTitle").textContent = state.profession;
+    $("heroText").textContent = "Not enough prices to plan this range yet.";
     $("error").hidden = false;
     const blocked = arr(plan.blocked).slice(0, 6).map((b) =>
       `<li>${esc(b.recipe)}: needs a price for ${esc(arr(b.missing).join(", "))}</li>`).join("");
@@ -140,6 +143,9 @@ function render(plan) {
   }
   $("error").hidden = true;
   $("result").hidden = false;
+  $("heroNum").textContent = plan.to;
+  $("heroTitle").innerHTML = `${esc(plan.profession)} <span class="thin">${plan.from} → ${plan.to}</span>`;
+  $("heroText").innerHTML = `${money(plan.total)} on the shopping list, about ${money(plan.expectedGold)} with average luck, in ${arr(plan.steps).length} steps.`;
   $("tTotal").innerHTML = money(plan.total);
   $("tExpected").innerHTML = money(plan.expectedGold);
   $("tSteps").textContent = `${arr(plan.steps).length} steps`;
@@ -231,7 +237,7 @@ $("resetPrices").addEventListener("click", () => { overrides = {}; store.set("pr
 // ---------- controls ----------
 function setupControls() {
   $("profTabs").innerHTML = PROFESSIONS.map((p) =>
-    `<button role="tab" class="prof" data-prof="${p}" aria-selected="${p === state.profession}"><img src="assets/${p.toLowerCase()}.svg" alt="" width="22" height="22">${p}</button>`).join("");
+    `<button role="tab" class="navitem" data-prof="${p}" aria-selected="${p === state.profession}">${p}</button>`).join("");
   $("profTabs").addEventListener("click", (e) => {
     const b = e.target.closest("[data-prof]");
     if (!b) return;
@@ -261,7 +267,7 @@ function priceNote() {
   const d = snapshot.updated ? new Date(snapshot.updated) : null;
   const when = d ? d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }) : "unknown";
   const n = Object.keys(overrides).length;
-  $("priceNote").innerHTML = `Prices from an auction house scan on <strong>${when}</strong> (Horde). ` +
+  $("priceNote2").innerHTML = $("priceNote").innerHTML = `Prices from an auction house scan on <strong>${when}</strong> (Horde). ` +
     (n ? `You've changed ${n} price${n > 1 ? "s" : ""}. ` : "") + `Edit them on the Prices tab to match your realm.`;
 }
 

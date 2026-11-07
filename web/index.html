@@ -7,28 +7,37 @@
 <meta name="description" content="Plan the cheapest way to level Engineering, Blacksmithing and Cooking from 1 to 300 in World of Warcraft: Forever, with a shopping list priced from real auction house scans.">
 <link rel="canonical" href="/">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/style.css">
 <meta property="og:title" content="CraftPath: cheapest profession levelling for WoW: Forever">
 <meta property="og:description" content="Cheapest 1-300 routes for Engineering, Blacksmithing and Cooking, priced from real auction house scans.">
 <meta property="og:type" content="website">
 </head>
 <body>
-<header class="top">
-  <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="28" height="28"> CraftPath</a>
-  <nav><a href="./" aria-current="page">Planner</a><a href="updates.html">Recipe updates</a><a href="https://github.com/Thomas-Rice/craftpath">Get the addon</a></nav>
-</header>
+<div class="frame">
+  <aside class="side">
+    <a class="mark" href="./" aria-label="CraftPath home"><img src="assets/icon.svg" alt="" width="34" height="34"><span>CraftPath</span></a>
+    <nav class="bignav" aria-label="Professions">
+      <div id="profTabs" role="tablist"></div>
+      <a href="updates.html">Recipe updates</a>
+      <a href="https://github.com/Thomas-Rice/craftpath">Get the addon</a>
+    </nav>
+    <div class="side-foot">
+      <p class="price-note" id="priceNote"></p>
+      <div class="fine"><span>An unofficial fan project</span><span>Not affiliated with Blizzard</span></div>
+    </div>
+  </aside>
 
-<main>
-  <section class="intro">
-    <h1>The cheapest way to level your profession</h1>
-    <p>Pick a profession and a skill range. CraftPath works out the cheapest route recipe by recipe, using the same planner as the in-game addon, and builds the shopping list.</p>
-  </section>
+  <main class="stage">
+    <section class="hero" aria-live="polite">
+      <div class="bignum" id="heroNum" aria-hidden="true">300</div>
+      <div class="caption">
+        <h1 id="heroTitle">The cheapest way to level your profession</h1>
+        <p id="heroText">Pick a profession and a skill range. CraftPath works out the cheapest route recipe by recipe, using the same planner as the in-game addon.</p>
+      </div>
+    </section>
 
-  <section class="controls panel" aria-label="Plan settings">
-    <div class="prof-tabs" role="tablist" id="profTabs"></div>
+    <section class="controls panel" aria-label="Plan settings">
     <div class="row">
       <label class="field">From skill <input id="from" type="number" min="1" max="299" value="1" inputmode="numeric"></label>
       <label class="field">To skill <input id="to" type="number" min="2" max="300" value="300" inputmode="numeric"></label>
@@ -48,8 +57,8 @@
     </div>
   </section>
 
-  <p class="price-note" id="priceNote"></p>
 
+  <p class="price-note mobile-only" id="priceNote2"></p>
   <div id="loading" class="panel loading">Loading the planner…</div>
   <div id="error" class="panel error" hidden></div>
 
@@ -102,15 +111,13 @@
     </div>
   </section>
 
-  <section class="addon panel">
-    <h2>Live prices in game</h2>
-    <p>The <a href="https://github.com/Thomas-Rice/craftpath">CraftPath addon</a> runs this planner inside WoW: Forever on your own auction house scan. It also buys the list for you, tracks what you bought, and shows what to craft next.</p>
-  </section>
-</main>
-
-<footer>
-  <p>CraftPath is an unofficial fan project and is not affiliated with or endorsed by Blizzard Entertainment. World of Warcraft is a trademark of Blizzard Entertainment.</p>
-</footer>
+    <section class="addon panel">
+      <h2>Live prices in game</h2>
+      <p>The <a href="https://github.com/Thomas-Rice/craftpath">CraftPath addon</a> runs this planner inside WoW: Forever on your own auction house scan. It also buys the list for you, tracks what you bought, and shows what to craft next.</p>
+    </section>
+    <footer><p>CraftPath is an unofficial fan project and is not affiliated with or endorsed by Blizzard Entertainment. World of Warcraft is a trademark of Blizzard Entertainment.</p></footer>
+  </main>
+</div>
 
 <script src="assets/vendor/wasmoon.js"></script>
 <script type="module" src="assets/app.js"></script>
