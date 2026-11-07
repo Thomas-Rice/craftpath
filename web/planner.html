@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profession levelling planner · CraftPath, the cheapest way to level your profession</title>
+<meta name="description" content="Plan the cheapest way to level Engineering, Blacksmithing and Cooking from 1 to 300 in World of Warcraft: Forever, with a shopping list priced from real auction house scans.">
+<link rel="canonical" href="/planner">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<meta property="og:title" content="CraftPath: cheapest profession levelling for WoW: Forever">
+<meta property="og:description" content="Cheapest 1-300 routes for Engineering, Blacksmithing and Cooking, priced from real auction house scans.">
+<meta property="og:type" content="website">
+</head>
+<body>
+<div class="frame">
+  <aside class="side">
+    <a class="mark" href="./" aria-label="CraftPath home"><img src="assets/icon.svg" alt="" width="34" height="34"><span class="mark-text"><span>CraftPath</span><small>The cheapest way to level your profession</small></span></a>
+    <nav class="bignav" aria-label="Professions">
+      <div id="profTabs" role="tablist"></div>
+      <a href="./">Home</a>
+      <a href="updates.html">Recipe updates</a>
+      <a href="./#download">Get the addon</a>
+    </nav>
+    <div class="side-foot">
+      <p class="price-note" id="priceNote"></p>
+      <div class="fine"><span>An unofficial fan project</span><span>Not affiliated with Blizzard</span></div>
+    </div>
+  </aside>
+
+  <main class="stage">
+    <section class="hero" aria-live="polite">
+      <div class="bignum" id="heroNum" aria-hidden="true">300</div>
+      <div class="caption">
+        <h1 id="heroTitle">The cheapest way to level your profession</h1>
+        <p id="heroText">Pick a profession and a skill range. CraftPath works out the cheapest route recipe by recipe, using the same planner as the in-game addon.</p>
+      </div>
+    </section>
+
+    <section class="controls panel" aria-label="Plan settings">
+    <div class="row">
+      <label class="field">From skill <input id="from" type="number" min="1" max="299" value="1" inputmode="numeric"></label>
+      <label class="field">To skill <input id="to" type="number" min="2" max="300" value="300" inputmode="numeric"></label>
+      <label class="field">Faction
+        <select id="faction"><option>Horde</option><option>Alliance</option></select>
+      </label>
+      <label class="field" title="Journeyman needs level 10, Expert 20 and Artisan 35">Character level
+        <input id="charLevel" type="number" min="1" max="60" value="60" inputmode="numeric">
+      </label>
+      <label class="field" id="specField">Engineering speciality
+        <select id="spec"><option value="">None</option><option value="Goblin">Goblin</option><option value="Gnomish">Gnomish</option></select>
+      </label>
+    </div>
+    <div class="row checks">
+      <label><input type="checkbox" id="allowRecipeItems" checked> Buy recipes from vendors or the auction house</label>
+      <label><input type="checkbox" id="allowFavor" checked> Use Merchant's Favor recipes</label>
+    </div>
+  </section>
+
+
+  <p class="price-note mobile-only" id="priceNote2"></p>
+  <div id="loading" class="panel loading">Loading the planner…</div>
+  <div id="error" class="panel error" hidden></div>
+
+  <section id="result" hidden>
+    <div class="tiles">
+      <div class="tile"><span class="label">Shopping list</span><span class="value" id="tTotal"></span><span class="sub">what you buy, including recipes</span></div>
+      <div class="tile"><span class="label">Likely spend</span><span class="value" id="tExpected"></span><span class="sub">with average skill-up luck</span></div>
+      <div class="tile"><span class="label">Route</span><span class="value" id="tSteps"></span><span class="sub" id="tRange"></span></div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" class="tab" data-tab="route" aria-selected="true">Route</button>
+      <button role="tab" class="tab" data-tab="shop" aria-selected="false">Shopping list</button>
+      <button role="tab" class="tab" data-tab="prices" aria-selected="false">Prices</button>
+    </div>
+
+    <div class="tabpanel" id="tab-route">
+      <ul class="notes" id="notes"></ul>
+      <ol class="route" id="route"></ol>
+    </div>
+
+    <div class="tabpanel" id="tab-shop" hidden>
+      <div class="panel">
+        <h2>Buy</h2>
+        <div class="list" id="shopping"></div>
+        <div class="list-total"><span>Materials</span><span id="buyTotal"></span></div>
+      </div>
+      <div class="panel" id="craftPanel">
+        <h2>Craft these yourself along the way</h2>
+        <p class="muted">Cheaper than buying them. Their materials are already on the list.</p>
+        <ul class="plain" id="craftYourself"></ul>
+      </div>
+      <div class="panel" id="learnPanel">
+        <h2>Recipes to get</h2>
+        <div class="list" id="learn"></div>
+        <div class="list-total"><span>Recipes</span><span id="learnTotal"></span></div>
+      </div>
+    </div>
+
+    <div class="tabpanel" id="tab-prices" hidden>
+      <div class="panel">
+        <h2>Prices used</h2>
+        <p class="muted">Change any price to match your realm and the route updates straight away. Your changes stay in this browser only.</p>
+        <div class="price-tools">
+          <input type="search" id="priceSearch" placeholder="Find an item" aria-label="Find an item">
+          <button class="ghost" id="resetPrices" type="button">Reset my changes</button>
+        </div>
+        <div class="list prices" id="priceList"></div>
+      </div>
+    </div>
+  </section>
+
+    <section class="addon panel">
+      <h2>Live prices in game</h2>
+      <p>The <a href="./#download">CraftPath addon</a> runs this planner inside WoW: Forever on your own auction house scan. It also buys the list for you, tracks what you bought, and shows what to craft next.</p>
+    </section>
+    <footer><p>CraftPath is an unofficial fan project and is not affiliated with or endorsed by Blizzard Entertainment. World of Warcraft is a trademark of Blizzard Entertainment.</p></footer>
+  </main>
+</div>
+
+<script src="assets/vendor/wasmoon.js"></script>
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>

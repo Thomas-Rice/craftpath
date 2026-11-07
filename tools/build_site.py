@@ -6,7 +6,10 @@ The planner page runs the addon's own Lua files, so they're copied in unchanged.
 """
 import json
 import os
+import re
 import shutil
+import subprocess
+import zipfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
@@ -25,7 +28,7 @@ def copy(src, dst):
 def main():
     if os.path.exists(OUT):
         shutil.rmtree(OUT)
-    for name in ("index.html", "updates.html"):
+    for name in ("index.html", "planner.html", "updates.html"):
         copy(os.path.join(WEB, name), os.path.join(OUT, name))
     shutil.copytree(os.path.join(WEB, "assets"), os.path.join(OUT, "assets"))
     copy(os.path.join(WEB, "src", "engine.js"), os.path.join(OUT, "assets", "engine.js"))
@@ -44,9 +47,31 @@ def main():
     for name in ("prices.json", "recipe-changes.json"):
         copy(os.path.join(ROOT, "data", name), os.path.join(OUT, "data", name))
 
+    # The addon itself, ready to unzip into Interface\AddOns.
+    toc = open(os.path.join(ROOT, "CraftPath", "CraftPath.toc"), encoding="utf-8").read()
+    version = re.search(r"## Version:\s*(\S+)", toc).group(1)
+    os.makedirs(os.path.join(OUT, "download"), exist_ok=True)
+    zpath = os.path.join(OUT, "download", "CraftPath.zip")
+    with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
+        for d, _, files in os.walk(os.path.join(ROOT, "CraftPath")):
+            for f in sorted(files):
+                if f.endswith((".pyc",)) or "__pycache__" in d:
+                    continue
+                full = os.path.join(d, f)
+                z.write(full, os.path.relpath(full, ROOT))
+    shutil.copyfile(zpath, os.path.join(OUT, "download", f"CraftPath-{version}.zip"))
+
+    # Headline costs for the homepage, from the same planner and prices.
+    stats = subprocess.run(["node", os.path.join(HERE, "site_stats.mjs")], capture_output=True, text=True, check=True, cwd=ROOT)
+    summary = json.loads(stats.stdout)
+    summary["version"] = version
+    with open(os.path.join(OUT, "data", "summary.json"), "w", encoding="utf-8") as fh:
+        json.dump(summary, fh, indent=1)
+
     with open(os.path.join(OUT, "_headers"), "w") as fh:
         fh.write("/lua/*\n  Content-Type: text/plain; charset=utf-8\n  Cache-Control: public, max-age=300\n"
                  "/data/*\n  Cache-Control: public, max-age=300\n"
+                 "/download/*\n  Cache-Control: public, max-age=300\n"
                  "/assets/vendor/*\n  Cache-Control: public, max-age=604800\n"
                  "/assets/fonts/*\n  Cache-Control: public, max-age=31536000, immutable\n"
                  "/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n")
@@ -54,7 +79,7 @@ def main():
         fh.write(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
     with open(os.path.join(ROOT, "data", "recipe-changes.json"), encoding="utf-8") as fh:
         last = (json.load(fh) or [{}])[0].get("date", "")
-    urls = [("", ""), ("updates.html", last)]
+    urls = [("", ""), ("planner", ""), ("updates", last)]
     with open(os.path.join(OUT, "sitemap.xml"), "w") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for path, mod in urls:
