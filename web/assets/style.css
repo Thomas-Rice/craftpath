@@ -155,6 +155,7 @@ input:focus-visible, select:focus-visible, button:focus-visible { outline: 2px s
 .learn { margin-top: 8px; font-size: .86rem; background: rgba(0, 0, 0, .25); border-radius: 10px; padding: 8px 10px; }
 .where { color: var(--muted); font-size: .84rem; }
 .badge { display: inline-block; font-size: .7rem; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: rgba(91, 70, 144, .35); color: #d9cdfb; vertical-align: 2px; }
+.badge.short { background: rgba(224, 106, 85, .2); color: #ffb2a6; }
 .badge.mine { background: rgba(233, 184, 79, .18); color: var(--gold); }
 
 .list { display: grid; }

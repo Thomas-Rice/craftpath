@@ -71,6 +71,14 @@ function prices() {
   return out;
 }
 
+// How many were listed in the scan, so the shopping list can flag thin supply. Skipped for
+// items the visitor priced themselves.
+function listedCounts() {
+  const out = {};
+  for (const [k, v] of Object.entries(snapshot.prices)) if (v.q && overrides[k] == null) out[k] = v.q;
+  return out;
+}
+
 function run() {
   saveState();
   const from = Math.max(1, Math.min(299, Math.round(+state.from || 1)));
@@ -80,7 +88,7 @@ function run() {
     spec: state.profession === "Engineering" && state.spec ? state.spec : null,
     allowRecipeItems: state.allowRecipeItems, allowFavor: state.allowFavor,
     charLevel: Math.max(1, Math.min(MAX_LEVEL, Math.round(+state.charLevel || MAX_LEVEL))),
-    prices: prices(), vendor: snapshot.vendor,
+    prices: prices(), vendor: snapshot.vendor, listed: listedCounts(),
   };
   let plan = engine.plan(opts);
   // No prices yet for the top end? Plan as far as the prices go and say what's missing.
@@ -152,7 +160,9 @@ function render(plan) {
   $("tRange").textContent = `skill ${plan.from} to ${plan.to}`;
 
   const partial = plan.partial ? `<li class="warn">This route stops at ${plan.partial.at}: there's no auction price yet for ${esc(plan.partial.missing.join(", ") || "the materials above that")}. Add prices on the Prices tab to plan up to ${plan.partial.wanted}.</li>` : "";
-  $("notes").innerHTML = partial + arr(plan.notes).map((n) => `<li>${esc(n)}</li>`).join("");
+  const short = arr(plan.shopping).filter((b) => b.short).map((b) => b.name);
+  const thin = short.length ? `<li class="warn">The last scan had fewer ${esc(short.slice(0, 3).join(", "))}${short.length > 3 ? " and others" : ""} listed than this route needs, so buying it all could push prices up.</li>` : "";
+  $("notes").innerHTML = partial + thin + arr(plan.notes).map((n) => `<li>${esc(n)}</li>`).join("");
 
   $("route").innerHTML = arr(plan.steps).map((s, i) => {
     const r = s.recipe;
@@ -177,7 +187,7 @@ function render(plan) {
   $("shopping").innerHTML = arr(plan.shopping).map((b) => `
     <div class="line">
       <span class="qty">${b.buy}×</span>
-      <span class="item">${esc(b.name)}${b.source === "vendor" ? ' <span class="badge">vendor</span>' : ""}${overrides[b.name] != null ? ' <span class="badge mine">your price</span>' : ""}</span>
+      <span class="item">${esc(b.name)}${b.source === "vendor" ? ' <span class="badge">vendor</span>' : ""}${overrides[b.name] != null ? ' <span class="badge mine">your price</span>' : ""}${b.short ? ` <span class="badge short">only ${b.listed} listed</span>` : ""}</span>
       <span class="unit">${money(b.unit)}</span>
       <span class="total">${money(b.total)}</span>
     </div>`).join("") || `<p class="muted">Nothing to buy.</p>`;

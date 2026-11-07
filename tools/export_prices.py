@@ -50,8 +50,14 @@ def main(argv=None):
         lua.execute(fh.read())
     db = lua.globals().CraftPathDB
     names = wanted_items()
-    prices, newest = {}, 0
+    # Only prices from the latest full scan (with an hour's grace for targeted scans just
+    # before it): anything older is no longer listed, and old prices mislead.
+    since = int(db.lastFullScan or 0) - 3600
+    prices, newest, dropped = {}, 0, 0
     for name, e in (db.prices or {}).items():
+        if name in names and e.p and int(e.t or 0) < since:
+            dropped += 1
+            continue
         if name in names and e.p:
             prices[name] = {"p": int(e.p), "t": int(e.t or 0)}
             if e.q:
@@ -69,7 +75,8 @@ def main(argv=None):
     with open(OUT, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(out, fh, indent=1, ensure_ascii=False)
         fh.write("\n")
-    print(f"Wrote {os.path.relpath(OUT)}: {len(prices)} auction prices, {len(vendor)} vendor prices, newest {out['updated']}")
+    print(f"Wrote {os.path.relpath(OUT)}: {len(prices)} auction prices, {len(vendor)} vendor prices, "
+          f"newest {out['updated']}; left out {dropped} older than the last full scan")
 
 
 if __name__ == "__main__":

@@ -112,13 +112,14 @@ end
 -- prices {name = copper}, vendor {name = copper}
 function CP_Plan(optsJson)
   local o = json.decode(optsJson)
-  local prices, vendor = o.prices or {}, o.vendor or {}
+  local prices, vendor, listed = o.prices or {}, o.vendor or {}, o.listed or {}
   local opts = {
     profession = o.profession, from = o.from, to = o.to,
     ahPrice = function(n) return prices[n] end,
     vendorPrice = function(n) return vendor[n] end,
     known = {}, allowRecipeItems = o.allowRecipeItems ~= false, allowFavor = o.allowFavor ~= false,
     spec = o.spec, bonus = o.bonus or 0, faction = o.faction, charLevel = o.charLevel,
+    listed = function(n) return listed[n] end,
   }
   local ok, plan = pcall(ns.Planner.Plan, opts)
   if not ok then return json.encode({ error = tostring(plan) }) end
