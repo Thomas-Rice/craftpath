@@ -1,0 +1,456 @@
+[
+ {
+  "date": "2026-11-07",
+  "build": "1.60.1.70862",
+  "professions": [
+   {
+    "profession": "Engineering",
+    "before": 186,
+    "after": 216,
+    "minor": 58,
+    "added": [
+     {
+      "name": "Harvester Override Signalcaster",
+      "skill": 60,
+      "source": "recipe item",
+      "materials": "Golem Isospring x4, Copper Modulator x2, Crude Scope x1"
+     },
+     {
+      "name": "Polished Truesilver Gears",
+      "skill": 195,
+      "source": "recipe item",
+      "materials": "Truesilver Bar x1, Pile of Tarnished Gears x5"
+     },
+     {
+      "name": "Lil' Smoky",
+      "skill": 200,
+      "source": "recipe item",
+      "materials": "Core of Earth x1, Gyrochronatom x2, Fused Wiring x1, Mithril Bar x2, Truesilver Bar x1"
+     },
+     {
+      "name": "Pet Bombling",
+      "skill": 200,
+      "source": "recipe item",
+      "materials": "Big Iron Bomb x1, Heart of Fire x1, Fused Wiring x1, Mithril Bar x6"
+     },
+     {
+      "name": "Soul Vessel",
+      "skill": 200,
+      "source": "recipe item",
+      "materials": "Shadowgem x4, Black Vitriol x1, Demonic Figurine x1"
+     },
+     {
+      "name": "Hyperconductive Goldwap",
+      "skill": 220,
+      "source": "trainer",
+      "materials": "Polished Truesilver Gears x3, Hyperconductive Arcano-Filament x3, Faintly Glowing Leather x1, Gold Bar x10"
+     },
+     {
+      "name": "Whirling Truesilver Gearwall",
+      "skill": 220,
+      "source": "recipe item",
+      "materials": "Low-Background Truesilver Plates x3, Polished Truesilver Gears x5, Faintly Glowing Leather x2, Mithril Casing x2, Gyrochronatom x2, Mithril Bar x15"
+     },
+     {
+      "name": "Gnomish Goggles",
+      "skill": 225,
+      "source": "Gnomish",
+      "materials": "Fire Goggles x1, Mithril Tube x1, Gold Power Core x2, Flask of Mojo x2, Heavy Leather x2"
+     },
+     {
+      "name": "Gnomish Net-o-Matic Projector",
+      "skill": 225,
+      "source": "Gnomish",
+      "materials": "Mithril Tube x1, Shadow Silk x2, Thick Spider's Silk x4, Solid Blasting Powder x2, Mithril Bar x4"
+     },
+     {
+      "name": "Goblin Bomb Dispenser",
+      "skill": 225,
+      "source": "Goblin",
+      "materials": "Mithril Casing x2, Solid Blasting Powder x4, Truesilver Bar x6, Unstable Trigger x1, Accurate Scope x2"
+     },
+     {
+      "name": "Gnomish Harm Prevention Belt",
+      "skill": 230,
+      "source": "Gnomish",
+      "materials": "Dusky Belt x1, Mithril Bar x4, Truesilver Bar x2, Unstable Trigger x1, Aquamarine x2"
+     },
+     {
+      "name": "The Big One",
+      "skill": 230,
+      "source": "Goblin",
+      "materials": "Mithril Casing x1, Goblin Rocket Fuel x1, Solid Dynamite x6, Unstable Trigger x1"
+     },
+     {
+      "name": "Catseye Ultra Goggles",
+      "skill": 235,
+      "source": "recipe item",
+      "materials": "Thick Leather x4, Aquamarine x2, Catseye Draught x1"
+     },
+     {
+      "name": "Gnomish Rocket Boots",
+      "skill": 240,
+      "source": "Gnomish",
+      "materials": "Black Mageweave Boots x1, Mithril Tube x2, Heavy Leather x4, Solid Blasting Powder x8, Gyrochronatom x4"
+     },
+     {
+      "name": "Goblin Rocket Boots",
+      "skill": 240,
+      "source": "Goblin",
+      "materials": "Black Mageweave Boots x1, Mithril Tube x2, Heavy Leather x4, Goblin Rocket Fuel x2, Unstable Trigger x1"
+     },
+     {
+      "name": "Gnomish Battle Chicken",
+      "skill": 245,
+      "source": "Gnomish",
+      "materials": "Mithril Casing x1, Truesilver Bar x6, Mithril Bar x6, Inlaid Mithril Cylinder x2, Gold Power Core x1, Jade x2"
+     },
+     {
+      "name": "Gnomish Mind Control Cap",
+      "skill": 250,
+      "source": "Gnomish",
+      "materials": "Mithril Bar x10, Truesilver Bar x4, Gold Power Core x1, Star Ruby x2, Mageweave Cloth x4"
+     },
+     {
+      "name": "Gnomish Death Ray",
+      "skill": 255,
+      "source": "Gnomish",
+      "materials": "Mithril Tube x2, Unstable Trigger x1, Essence of Undeath x1, Ichor of Undeath x4, Inlaid Mithril Cylinder x1"
+     },
+     {
+      "name": "Goblin Dragon Gun",
+      "skill": 255,
+      "source": "Goblin",
+      "materials": "Mithril Tube x2, Goblin Rocket Fuel x4, Mithril Bar x6, Truesilver Bar x6, Unstable Trigger x1"
+     },
+     {
+      "name": "World Enlarger",
+      "skill": 255,
+      "source": "Gnomish",
+      "materials": "Mithril Casing x1, Thorium Widget x2, Gold Power Core x1, Unstable Trigger x1, Citrine x1"
+     },
+     {
+      "name": "Goblin Rocket Helmet",
+      "skill": 260,
+      "source": "Goblin",
+      "materials": "Goblin Construction Helmet x1, Goblin Rocket Fuel x4, Mithril Bar x4, Unstable Trigger x1"
+     },
+     {
+      "name": "SAF-T Disposable Parachute",
+      "skill": 265,
+      "source": "recipe item",
+      "materials": "Parachute Cloak x1, SAF-T Casing x1"
+     },
+     {
+      "name": "Gnomish Alarm-O-Bot",
+      "skill": 270,
+      "source": "Gnomish",
+      "materials": "Thorium Bar x4, Thorium Widget x2, Rugged Leather x4, Star Ruby x1, Fused Wiring x1"
+     },
+     {
+      "name": "Gyrofreeze Ice Reflector",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Thorium Widget x6, Truesilver Transformer x2, Blue Sapphire x2, Essence of Fire x4, Frost Oil x2, Icecap x4"
+     },
+     {
+      "name": "Unsanctified Grenade",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Truesilver Transformer x1, Enchanted Thorium Bar x2, Dense Blasting Powder x3, Runecloth x2"
+     },
+     {
+      "name": "Dimensional Ripper - Everlook",
+      "skill": 280,
+      "source": "Goblin",
+      "materials": "Mithril Bar x10, Truesilver Transformer x1, Heart of Fire x4, Star Ruby x2, The Big One x1"
+     },
+     {
+      "name": "Goblin Jumper Cables XL",
+      "skill": 280,
+      "source": "Goblin",
+      "materials": "Thorium Widget x2, Truesilver Transformer x2, Fused Wiring x2, Ironweb Spider Silk x2, Star Ruby x2"
+     },
+     {
+      "name": "Ultrasafe Transporter: Gadgetzan",
+      "skill": 280,
+      "source": "Gnomish",
+      "materials": "Mithril Bar x12, Truesilver Transformer x2, Core of Earth x4, Globe of Water x2, Aquamarine x4, Inlaid Mithril Cylinder x1"
+     },
+     {
+      "name": "Satchel of Dark Iron Bombs",
+      "skill": 285,
+      "source": "recipe item",
+      "materials": "Dark Iron Bomb x20, Rugged Leather x6, Unstable Trigger x1"
+     },
+     {
+      "name": "Anarchist's Workbench",
+      "skill": 295,
+      "source": "recipe item",
+      "materials": "Essence of Anarchy x1, Thorium Widget x2"
+     }
+    ],
+    "removed": [],
+    "changed": [
+     {
+      "name": "Goblin Jumper Cables",
+      "change": "yellow 165 → 160"
+     },
+     {
+      "name": "Gnomish Cloaking Device",
+      "change": "source R → N"
+     },
+     {
+      "name": "Goblin \"Boom\" Box",
+      "change": "source T → G"
+     },
+     {
+      "name": "Gnomish Ham Radio",
+      "change": "source T → N"
+     },
+     {
+      "name": "Goblin Radio",
+      "change": "source T → G"
+     }
+    ]
+   },
+   {
+    "profession": "Blacksmithing",
+    "before": 351,
+    "after": 370,
+    "minor": 115,
+    "added": [
+     {
+      "name": "Low-Background Truesilver Plates",
+      "skill": 195,
+      "source": "recipe item",
+      "materials": "Truesilver Bar x1, Reflective Scrapmetal x5"
+     },
+     {
+      "name": "Reflective Truesilver Braincage",
+      "skill": 220,
+      "source": "recipe item",
+      "materials": "Mithril Bar x25, Low-Background Truesilver Plates x4, Hyperconductive Arcano-Filament x2, Polished Truesilver Gears x1"
+     },
+     {
+      "name": "Tempered Interference-Negating Helmet",
+      "skill": 220,
+      "source": "recipe item",
+      "materials": "Mithril Bar x25, Low-Background Truesilver Plates x4, Hyperconductive Arcano-Filament x1, Faintly Glowing Leather x2"
+     },
+     {
+      "name": "Elemental Sharpening Stone",
+      "skill": 270,
+      "source": "recipe item",
+      "materials": "Elemental Earth x2, Dense Stone x3"
+     },
+     {
+      "name": "Blazing Rapier",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Enchanted Thorium Bar x10, Essence of Fire x4, Heart of Fire x4, Azerothian Diamond x2, Dense Grinding Stone x2"
+     },
+     {
+      "name": "Enchanted Battlehammer",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Thorium Bar x20, Enchanted Thorium Bar x6, Huge Emerald x2, Powerful Mojo x4, Rugged Leather x4"
+     },
+     {
+      "name": "Scarlet Soldier's Legplates",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Blood of Heroes x1, Righteous Orb x1, Thorium Bar x20"
+     },
+     {
+      "name": "Scarlet Soldier's Chestplate",
+      "skill": 280,
+      "source": "recipe item",
+      "materials": "Blood of Heroes x1, Righteous Orb x1, Thorium Bar x24"
+     },
+     {
+      "name": "Scarlet Soldier's Helmet",
+      "skill": 280,
+      "source": "recipe item",
+      "materials": "Blood of Heroes x1, Righteous Orb x2, Thorium Bar x24"
+     },
+     {
+      "name": "Serenity",
+      "skill": 280,
+      "source": "recipe item",
+      "materials": "Enchanted Thorium Bar x6, Arcanite Bar x2, Powerful Mojo x4, Large Opal x2, Blue Sapphire x2, Huge Emerald x1"
+     },
+     {
+      "name": "Corruption",
+      "skill": 285,
+      "source": "recipe item",
+      "materials": "Thorium Bar x40, Arcanite Bar x2, Demonic Rune x16, Essence of Undeath x8, Blue Sapphire x2, Dense Grinding Stone x2, Rugged Leather x4"
+     },
+     {
+      "name": "Annihilator",
+      "skill": 290,
+      "source": "recipe item",
+      "materials": "Thorium Bar x40, Arcanite Bar x12, Essence of Undeath x10, Huge Emerald x8, Dense Grinding Stone x2, Enchanted Leather x4"
+     },
+     {
+      "name": "Blackguard",
+      "skill": 290,
+      "source": "recipe item",
+      "materials": "Lava Core x6, Fiery Core x6, Arcanite Bar x10, Dark Iron Bar x6, Guardian Stone x12"
+     },
+     {
+      "name": "Clutchlord's Stompers",
+      "skill": 290,
+      "source": "recipe item",
+      "materials": "Thorium Bar x9, Enchanted Thorium Bar x5, Essence of Earth x3, Elemental Flux x1"
+     },
+     {
+      "name": "Clutchlord's Support",
+      "skill": 290,
+      "source": "recipe item",
+      "materials": "Thorium Bar x11, Enchanted Thorium Bar x5, Essence of Earth x3, Elemental Flux x1"
+     },
+     {
+      "name": "Ebon Hand",
+      "skill": 290,
+      "source": "recipe item",
+      "materials": "Lava Core x4, Fiery Core x7, Arcanite Bar x12, Dark Iron Bar x8, Azerothian Diamond x4"
+     },
+     {
+      "name": "Goregasher Stompers",
+      "skill": 290,
+      "source": "recipe item",
+      "materials": "Thorium Bar x9, Enchanted Thorium Bar x5, Essence of Fire x3, Elemental Flux x1"
+     },
+     {
+      "name": "Goregasher Support",
+      "skill": 290,
+      "source": "recipe item",
+      "materials": "Thorium Bar x11, Enchanted Thorium Bar x5, Essence of Fire x3, Elemental Flux x1"
+     },
+     {
+      "name": "Nightfall",
+      "skill": 290,
+      "source": "recipe item",
+      "materials": "Lava Core x8, Fiery Core x5, Arcanite Bar x10, Dark Iron Bar x12, Huge Emerald x4"
+     },
+     {
+      "name": "Master Forge",
+      "skill": 295,
+      "source": "trainer",
+      "materials": "Golem Heart x1, Thorium Bar x5, Rugged Leather x2"
+     }
+    ],
+    "removed": [
+     {
+      "name": "Heavy Sharpening Stone",
+      "skill": 100
+     }
+    ],
+    "changed": [
+     {
+      "name": "Runed Copper Breastplate",
+      "change": "learn 55 → 90; orange 55 → 90"
+     }
+    ]
+   },
+   {
+    "profession": "Cooking",
+    "before": 116,
+    "after": 129,
+    "minor": 14,
+    "added": [
+     {
+      "name": "Gingerbread Cookie",
+      "skill": 40,
+      "source": "recipe item",
+      "materials": "Small Egg x1, Holiday Spices x1"
+     },
+     {
+      "name": "Egg Nog",
+      "skill": 70,
+      "source": "recipe item",
+      "materials": "Small Egg x1, Ice Cold Milk x1, Holiday Spirits x1, Holiday Spices x1"
+     },
+     {
+      "name": "Clam Linguine",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Zesty Clam Meat x3, Soothing Spices x4"
+     },
+     {
+      "name": "Prehistoric Pulled Raptor",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Raptor Flesh x3, Soothing Spices x4"
+     },
+     {
+      "name": "Savory Turtle Stew",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Turtle Meat x3, Soothing Spices x3"
+     },
+     {
+      "name": "Soaring Pamplona",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Buzzard Wing x3, Soothing Spices x3"
+     },
+     {
+      "name": "Steaming Stag Steak",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Stag Meat x3, Soothing Spices x4"
+     },
+     {
+      "name": "Sweetpaw Jam",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Hyjal Berries x3, Soothing Spices x1"
+     },
+     {
+      "name": "Swiftstrike Steak",
+      "skill": 275,
+      "source": "recipe item",
+      "materials": "Tiger Meat x3, Soothing Spices x2"
+     },
+     {
+      "name": "Flank au Poivre",
+      "skill": 280,
+      "source": "recipe item",
+      "materials": "Red Wolf Meat x3, Soothing Spices x3"
+     },
+     {
+      "name": "Grand Lobster Banquet",
+      "skill": 285,
+      "source": "recipe item",
+      "materials": "Darkclaw Lobster x12, Turtle Meat x4, Buzzard Wing x3, Exquisite Spices x1"
+     },
+     {
+      "name": "Specklefin Feast",
+      "skill": 285,
+      "source": "recipe item",
+      "materials": "Raw Spotted Yellowtail x12, Raptor Flesh x4, Raw Rockscale Cod x3, Exquisite Spices x1"
+     },
+     {
+      "name": "Iron Oven",
+      "skill": 295,
+      "source": "trainer",
+      "materials": "Simple Flour x10, Refreshing Spring Water x5, Soothing Spices x4"
+     }
+    ],
+    "removed": [],
+    "changed": [
+     {
+      "name": "Herb Baked Egg",
+      "change": "learn 5 → 1; orange 5 → 1; source T → A"
+     },
+     {
+      "name": "Mightfish Steak",
+      "change": "materials now Large Raw Mightfish x1, Hot Spices x1, Soothing Spices x1"
+     }
+    ]
+   }
+  ]
+ }
+]

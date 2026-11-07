@@ -25,6 +25,8 @@ import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ADDON = os.path.join(HERE, "..", "CraftPath")
+CHANGES = os.path.join(HERE, "..", "data", "recipe-changes.json")  # history shown on the website
+KEEP_CHANGES = 365
 BUILDS_URL = "https://wago.tools/api/builds"
 CSV_URL = "https://wago.tools/db2/{table}/csv?build={build}"
 TABLES = ["SkillLineAbility", "SpellName", "SpellReagents", "SpellEffect", "ItemSparse"]
@@ -296,7 +298,33 @@ def summarise(prof, before, after):
         for n in added:
             if any(w in n for w in SPEC_WORDS) and after[n]["source"] not in ("G", "N"):
                 look.append(f"**{n}** may need Goblin or Gnomish Engineering; it came in as an ordinary recipe.")
-    return {"added": added, "removed": removed, "big": big, "minor": minor, "look": look}
+    def change_text(n, diffs):
+        return "; ".join(
+            f"materials now {after[n]['reagents'].replace(';', ', ').replace('*', ' x')}" if k == "reagents"
+            else f"{LABEL[k]} {before[n].get(k, '1')} → {after[n].get(k, '1')}" for k in diffs)
+    entry = {
+        "profession": prof, "before": len(before), "after": len(after), "minor": len(minor),
+        "added": [{"name": n, "skill": int(after[n]["learn"]), "source": src_text(after[n]),
+                   "materials": after[n]["reagents"].replace(";", ", ").replace("*", " x")} for n in added],
+        "removed": [{"name": n, "skill": int(before[n]["learn"])} for n in removed],
+        "changed": [{"name": n, "change": change_text(n, d)} for n, d in big],
+    }
+    return {"added": added, "removed": removed, "big": big, "minor": minor, "look": look, "entry": entry}
+
+
+def add_changes_entry(path, build, entries, date=None):
+    """Prepends one run's summary to the website's change history (newest first)."""
+    import datetime
+    history = []
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            history = json.load(fh)
+    history = [h for h in history if h.get("build") != build]  # one entry per build
+    history.insert(0, {"date": date or datetime.date.today().isoformat(), "build": build, "professions": entries})
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(history[:KEEP_CHANGES], fh, indent=1, ensure_ascii=False)
+        fh.write("\n")
 
 
 def src_text(f):
@@ -324,6 +352,7 @@ def main(argv=None):
     ap.add_argument("--csv-dir")
     ap.add_argument("--report", default=os.path.join(HERE, "..", "recipe-sync-report.md"))
     ap.add_argument("--addon-dir", default=ADDON, help="CraftPath folder to update (default: this repo's)")
+    ap.add_argument("--changes", default=CHANGES, help="website change-history JSON to add this run to")
     args = ap.parse_args(argv)
     addon = args.addon_dir
 
@@ -337,7 +366,7 @@ def main(argv=None):
 
     report = [f"# Recipe sync: Forever build {build} ({product})", ""]
     changed_any = False
-    summary_rows, look, sections, details = [], [], [], []
+    summary_rows, look, sections, details, entries = [], [], [], [], []
     for prof, (skill_line, prefixes, tools) in PROFESSIONS.items():
         path = os.path.join(addon, "Data", f"{prof}.lua")
         before_full = parse_existing_full(path, addon)
@@ -356,6 +385,8 @@ def main(argv=None):
         summary_rows.append(f"| {prof} | {len(before_full)} | {len(after)} | {len(found['added'])} | "
                             f"{len(found['removed'])} | {len(found['big'])} | {len(found['minor'])} |")
         look.extend(found["look"])
+        if found["added"] or found["removed"] or found["big"]:
+            entries.append(found["entry"])
         sec = [f"## {prof}"]
         if found["added"]:
             sec.append(f"\n**New ({len(found['added'])})**")
@@ -389,6 +420,8 @@ def main(argv=None):
         report.append("")
     report.extend(sections)
     report.extend(["", *details])
+    if entries:  # green-only runs don't make the website history
+        add_changes_entry(args.changes, build, entries)
     with open(args.report, "w", encoding="utf-8") as fh:
         fh.write("\n".join(report) + "\n")
     print("\n".join(report[:3]))

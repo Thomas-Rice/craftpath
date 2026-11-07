@@ -94,7 +94,15 @@ def main():
         make_csvs(ns, csvs, extra={"Blacksmithing": new, "Engineering": secret}, change={"Copper Tube": {"grey": 112}},
                   hidden_reagent="Glimmering Hidden Cog")
         report = os.path.join(tmp, "report.md")
-        sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon])
+        changes = os.path.join(tmp, "changes.json")
+        sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
+                           "--changes", changes])
+        import json
+        hist = json.load(open(changes, encoding="utf-8"))
+        assert len(hist) == 1 and hist[0]["build"] == "1.60.1.99999", hist
+        bsh = {e["profession"]: e for e in hist[0]["professions"]}
+        assert bsh["Blacksmithing"]["added"][0]["name"] == "Thorium Shield Wall"
+        assert any(c["name"] == "Copper Tube" for c in bsh["Engineering"]["changed"])
 
         # Load the regenerated data with the same core code.
         sys_path = sys.modules["run_tests"]
@@ -131,7 +139,9 @@ def main():
         assert "build = \"1.60.1.99999\"" in open(os.path.join(addon, "Data", "Engineering.lua")).read()
 
         # A second run with the same tables reports no changes.
-        sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon])
+        sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
+                           "--changes", changes])
+        assert len(json.load(open(changes, encoding="utf-8"))) == 1  # no new entry without changes
         assert "No recipe changes." in open(report, encoding="utf-8").read()
         print("Sync test passed:", {p: len(after[p]) for p in after})
     finally:

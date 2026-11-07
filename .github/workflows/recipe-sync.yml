@@ -61,7 +61,9 @@ jobs:
         with:
           branch: recipe-sync
           delete-branch: true
-          add-paths: CraftPath/Data/*.lua
+          add-paths: |
+            CraftPath/Data/*.lua
+            data/recipe-changes.json
           commit-message: "Recipe data from Forever build ${{ steps.sync.outputs.build }}"
           title: "${{ steps.tests.outcome == 'failure' && '[TESTS FAILING] ' || '' }}Recipe data from Forever build ${{ steps.sync.outputs.build }}"
           draft: ${{ steps.tests.outcome == 'failure' }}
