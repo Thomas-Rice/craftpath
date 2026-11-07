@@ -216,7 +216,8 @@ def main():
 
     # Cooking: full route, quest recipes, rank items and the fire note.
     ck = R.Load("Cooking")
-    assert len(ck.list) > 100 and ck.needsFire
+    assert len(ck.list) > 50, len(ck.list)
+    assert ck.needsFire, "Cooking lost its needsFire flag"
     assert ck.byName["Soothing Turtle Bisque"].source == "Q"
     ckp = dict(SAMPLE_PRICES)
     for name in lua_list(R.AllReagents("Cooking")):

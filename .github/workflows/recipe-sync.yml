@@ -40,8 +40,14 @@ jobs:
         id: sync
         run: python tools/sync_recipes.py ${{ inputs.build && format('--build {0}', inputs.build) || '' }}
 
+      - name: Show the report on the run page
+        if: always()
+        run: test -f recipe-sync-report.md && cat recipe-sync-report.md >> "$GITHUB_STEP_SUMMARY" || true
+
       - name: Run tests on the new data
+        id: tests
         if: steps.sync.outputs.changed == 'true'
+        continue-on-error: true # still open the PR so the new data can be looked at
         run: |
           python tests/run_tests.py
           python tests/check_addon.py
@@ -55,6 +61,13 @@ jobs:
           delete-branch: true
           add-paths: CraftPath/Data/*.lua
           commit-message: "Recipe data from Forever build ${{ steps.sync.outputs.build }}"
-          title: "Recipe data from Forever build ${{ steps.sync.outputs.build }}"
+          title: "${{ steps.tests.outcome == 'failure' && '[TESTS FAILING] ' || '' }}Recipe data from Forever build ${{ steps.sync.outputs.build }}"
+          draft: ${{ steps.tests.outcome == 'failure' }}
           body-path: recipe-sync-report.md
           labels: recipe-sync
+
+      - name: Fail the run if the tests failed
+        if: steps.tests.outcome == 'failure'
+        run: |
+          echo "::error::Tests failed on the new recipe data. The PR is a draft: check it before merging."
+          exit 1
