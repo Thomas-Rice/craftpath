@@ -2,3 +2,6 @@ web/data/
 __pycache__/
 *.zip
 recipe-sync-report.md
+
+node_modules/
+site/

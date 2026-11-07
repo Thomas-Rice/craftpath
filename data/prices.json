@@ -1,0 +1,1739 @@
+{
+ "updated": "2026-11-06T18:21:55+00:00",
+ "note": "Lowest buyout from the site owner's CraftPath scans (Horde). Prices change constantly; the addon uses your own live scan.",
+ "prices": {
+  "Anvil": {
+   "p": 5000,
+   "t": 1793989290,
+   "q": 2
+  },
+  "Aquadynamic Fish Attractor": {
+   "p": 378,
+   "t": 1793989290,
+   "q": 161
+  },
+  "Aquamarine": {
+   "p": 5000,
+   "t": 1793989290,
+   "q": 30
+  },
+  "Arclight Spanner": {
+   "p": 200,
+   "t": 1793989290,
+   "q": 147
+  },
+  "Azure Skyforged Gauntlets": {
+   "p": 1000,
+   "t": 1793989290,
+   "q": 4
+  },
+  "Azure Skyforged Greaves": {
+   "p": 1000,
+   "t": 1793989290,
+   "q": 3
+  },
+  "Basic Campfire Kit": {
+   "p": 69,
+   "t": 1793989290,
+   "q": 517
+  },
+  "Bauxite": {
+   "p": 9800,
+   "t": 1793989293,
+   "q": 11
+  },
+  "Bear Brisket": {
+   "p": 2000,
+   "t": 1793989293,
+   "q": 10
+  },
+  "Bear Meat": {
+   "p": 35,
+   "t": 1793989293,
+   "q": 841
+  },
+  "Big Bear Meat": {
+   "p": 67,
+   "t": 1793989293,
+   "q": 1921
+  },
+  "Big Bear Steak": {
+   "p": 200,
+   "t": 1793989293,
+   "q": 325
+  },
+  "Big Bronze Knife": {
+   "p": 2200,
+   "t": 1793989293,
+   "q": 74
+  },
+  "Black Pearl": {
+   "p": 50745,
+   "t": 1793989293,
+   "q": 3
+  },
+  "Black Vitriol": {
+   "p": 60000,
+   "t": 1793989293,
+   "q": 2
+  },
+  "Blacksmith Hammer": {
+   "p": 100,
+   "t": 1793989293,
+   "q": 53
+  },
+  "Blank Parchment": {
+   "p": 700,
+   "t": 1793989293,
+   "q": 2
+  },
+  "Blue Pearl": {
+   "p": 5000,
+   "t": 1793989293,
+   "q": 50
+  },
+  "Blueprint: Repair Bot": {
+   "p": 39800,
+   "t": 1793989293,
+   "q": 22
+  },
+  "Boar Intestines": {
+   "p": 99,
+   "t": 1793989293,
+   "q": 167
+  },
+  "Boar Ribs": {
+   "p": 2200,
+   "t": 1793989293,
+   "q": 124
+  },
+  "Boiled Clams": {
+   "p": 29,
+   "t": 1793989293,
+   "q": 741
+  },
+  "Bolt of Linen Cloth": {
+   "p": 58,
+   "t": 1793989293,
+   "q": 1561
+  },
+  "Bolt of Mageweave": {
+   "p": 3100,
+   "t": 1793989293,
+   "q": 315
+  },
+  "Brilliant Smallfish": {
+   "p": 8,
+   "t": 1793989293,
+   "q": 2412
+  },
+  "Bristle Whisker Catfish": {
+   "p": 16,
+   "t": 1793989293,
+   "q": 2028
+  },
+  "Bronze Axe": {
+   "p": 1800,
+   "t": 1793989295,
+   "q": 22
+  },
+  "Bronze Bar": {
+   "p": 195,
+   "t": 1793989295,
+   "q": 4574
+  },
+  "Bronze Battle Axe": {
+   "p": 5600,
+   "t": 1793989295,
+   "q": 20
+  },
+  "Bronze Framework": {
+   "p": 1079,
+   "t": 1793989295,
+   "q": 126
+  },
+  "Bronze Greatsword": {
+   "p": 6700,
+   "t": 1793989295,
+   "q": 23
+  },
+  "Bronze Mace": {
+   "p": 1600,
+   "t": 1793989295,
+   "q": 87
+  },
+  "Bronze Shortsword": {
+   "p": 1800,
+   "t": 1793989295,
+   "q": 101
+  },
+  "Bronze Tube": {
+   "p": 300,
+   "t": 1793989295,
+   "q": 243
+  },
+  "Bronze Warhammer": {
+   "p": 2100,
+   "t": 1793989295,
+   "q": 51
+  },
+  "Buzzard Wing": {
+   "p": 920,
+   "t": 1793989295,
+   "q": 33
+  },
+  "Cerulean Dye": {
+   "p": 2195,
+   "t": 1793989295,
+   "q": 353
+  },
+  "Charred Wolf Meat": {
+   "p": 6,
+   "t": 1793989295,
+   "q": 862
+  },
+  "Chunk of Boar Meat": {
+   "p": 133,
+   "t": 1793989295,
+   "q": 3662
+  },
+  "Citrine": {
+   "p": 2820,
+   "t": 1793989295,
+   "q": 35
+  },
+  "Clam Meat": {
+   "p": 99,
+   "t": 1793989295,
+   "q": 136
+  },
+  "Coarse Blasting Powder": {
+   "p": 115,
+   "t": 1793989295,
+   "q": 876
+  },
+  "Coarse Dynamite": {
+   "p": 190,
+   "t": 1793989295,
+   "q": 746
+  },
+  "Coarse Grinding Stone": {
+   "p": 270,
+   "t": 1793989295,
+   "q": 894
+  },
+  "Coarse Sharpening Stone": {
+   "p": 190,
+   "t": 1793989295,
+   "q": 38
+  },
+  "Coarse Stone": {
+   "p": 78,
+   "t": 1793989295,
+   "q": 3479
+  },
+  "Coarse Thread": {
+   "p": 16,
+   "t": 1793989295,
+   "q": 1268
+  },
+  "Coarse Weightstone": {
+   "p": 170,
+   "t": 1793989295,
+   "q": 119
+  },
+  "Copper Axe": {
+   "p": 200,
+   "t": 1793989295,
+   "q": 24
+  },
+  "Copper Bar": {
+   "p": 60,
+   "t": 1793989295,
+   "q": 5686
+  },
+  "Copper Battle Axe": {
+   "p": 1000,
+   "t": 1793989295,
+   "q": 33
+  },
+  "Copper Bracers": {
+   "p": 100,
+   "t": 1793989295,
+   "q": 800
+  },
+  "Copper Chain Belt": {
+   "p": 100,
+   "t": 1793989295,
+   "q": 666
+  },
+  "Copper Chain Boots": {
+   "p": 200,
+   "t": 1793989295,
+   "q": 299
+  },
+  "Copper Chain Pants": {
+   "p": 100,
+   "t": 1793989295,
+   "q": 1951
+  },
+  "Copper Chain Vest": {
+   "p": 300,
+   "t": 1793989295,
+   "q": 33
+  },
+  "Copper Claymore": {
+   "p": 500,
+   "t": 1793989295,
+   "q": 29
+  },
+  "Copper Dagger": {
+   "p": 600,
+   "t": 1793989295,
+   "q": 17
+  },
+  "Copper Mace": {
+   "p": 200,
+   "t": 1793989295,
+   "q": 28
+  },
+  "Copper Modulator": {
+   "p": 210,
+   "t": 1793989295,
+   "q": 90
+  },
+  "Copper Rod": {
+   "p": 100,
+   "t": 1793989295,
+   "q": 4289
+  },
+  "Copper Shortsword": {
+   "p": 400,
+   "t": 1793989295,
+   "q": 142
+  },
+  "Copper Tube": {
+   "p": 239,
+   "t": 1793989295,
+   "q": 798
+  },
+  "Crab Cake": {
+   "p": 898,
+   "t": 1793989295,
+   "q": 248
+  },
+  "Crafted Heavy Shot": {
+   "p": 2,
+   "t": 1793989295,
+   "q": 25518
+  },
+  "Crafted Light Shot": {
+   "p": 1,
+   "t": 1793989295,
+   "q": 358053
+  },
+  "Crawler Claw": {
+   "p": 31,
+   "t": 1793989297,
+   "q": 667
+  },
+  "Crawler Meat": {
+   "p": 399,
+   "t": 1793989297,
+   "q": 241
+  },
+  "Crisp Spider Meat": {
+   "p": 50,
+   "t": 1793989297,
+   "q": 1938
+  },
+  "Crispy Bat Wing": {
+   "p": 67,
+   "t": 1793989297,
+   "q": 423
+  },
+  "Crispy Lizard Tail": {
+   "p": 239,
+   "t": 1793989297,
+   "q": 124
+  },
+  "Crocolisk Meat": {
+   "p": 26,
+   "t": 1793989297,
+   "q": 690
+  },
+  "Crude Scope": {
+   "p": 125,
+   "t": 1793989297,
+   "q": 238
+  },
+  "Deadly Blunderbuss": {
+   "p": 2300,
+   "t": 1793989297,
+   "q": 130
+  },
+  "Deadly Bronze Poniard": {
+   "p": 7900,
+   "t": 1793989297,
+   "q": 17
+  },
+  "Deeprock Salt": {
+   "p": 4500,
+   "t": 1793989297,
+   "q": 63
+  },
+  "Deviate Fish": {
+   "p": 99,
+   "t": 1793989297,
+   "q": 343
+  },
+  "Dig Rat": {
+   "p": 800,
+   "t": 1793989297,
+   "q": 133
+  },
+  "Dig Rat Stew": {
+   "p": 300,
+   "t": 1793989297,
+   "q": 15
+  },
+  "Elemental Air": {
+   "p": 7700,
+   "t": 1793989299,
+   "q": 2
+  },
+  "Elemental Earth": {
+   "p": 7300,
+   "t": 1793989299,
+   "q": 121
+  },
+  "Elemental Fire": {
+   "p": 1595,
+   "t": 1793989299,
+   "q": 162
+  },
+  "Elemental Water": {
+   "p": 600,
+   "t": 1793989299,
+   "q": 279
+  },
+  "Elixir of Ogre Strength": {
+   "p": 527,
+   "t": 1793989299,
+   "q": 554
+  },
+  "Fadeleaf": {
+   "p": 2900,
+   "t": 1793989299,
+   "q": 103
+  },
+  "Flask of Mojo": {
+   "p": 3000,
+   "t": 1793989299,
+   "q": 2
+  },
+  "Flask of Oil": {
+   "p": 30,
+   "t": 1793989299,
+   "q": 450
+  },
+  "Flying Tiger Goggles": {
+   "p": 500,
+   "t": 1793989299,
+   "q": 80
+  },
+  "Fused Wiring": {
+   "p": 29500,
+   "t": 1793989299,
+   "q": 34
+  },
+  "Giant Clam Meat": {
+   "p": 2500,
+   "t": 1793989299,
+   "q": 4
+  },
+  "Giant Egg": {
+   "p": 10300,
+   "t": 1793989299,
+   "q": 1
+  },
+  "Goblin Deviled Clams": {
+   "p": 300,
+   "t": 1793989301,
+   "q": 323
+  },
+  "Gold Bar": {
+   "p": 900,
+   "t": 1793989301,
+   "q": 432
+  },
+  "Golden Rod": {
+   "p": 1300,
+   "t": 1793989301,
+   "q": 109
+  },
+  "Goldthorn": {
+   "p": 8900,
+   "t": 1793989301,
+   "q": 42
+  },
+  "Golem Isospring": {
+   "p": 37,
+   "t": 1793989301,
+   "q": 97
+  },
+  "Gooey Spider Leg": {
+   "p": 33,
+   "t": 1793989301,
+   "q": 1026
+  },
+  "Goretusk Liver": {
+   "p": 99,
+   "t": 1793989301,
+   "q": 3
+  },
+  "Green Dye": {
+   "p": 206,
+   "t": 1793989301,
+   "q": 195
+  },
+  "Green Iron Boots": {
+   "p": 14500,
+   "t": 1793989301,
+   "q": 6
+  },
+  "Green Iron Bracers": {
+   "p": 2500,
+   "t": 1793989301,
+   "q": 46
+  },
+  "Green Iron Gauntlets": {
+   "p": 10000,
+   "t": 1793989301,
+   "q": 6
+  },
+  "Green Iron Helm": {
+   "p": 23000,
+   "t": 1793989301,
+   "q": 4
+  },
+  "Green Iron Leggings": {
+   "p": 18500,
+   "t": 1793989301,
+   "q": 10
+  },
+  "Green Iron Shoulders": {
+   "p": 19500,
+   "t": 1793989301,
+   "q": 12
+  },
+  "Green Leather Armor": {
+   "p": 10000,
+   "t": 1793989301,
+   "q": 2
+  },
+  "Green Tinted Goggles": {
+   "p": 2400,
+   "t": 1793989301,
+   "q": 8
+  },
+  "Gyrochronatom": {
+   "p": 10000,
+   "t": 1793989301,
+   "q": 10
+  },
+  "Handful of Copper Bolts": {
+   "p": 72,
+   "t": 1793989301,
+   "q": 1077
+  },
+  "Heavy Blasting Powder": {
+   "p": 890,
+   "t": 1793989301,
+   "q": 252
+  },
+  "Heavy Bronze Mace": {
+   "p": 6000,
+   "t": 1793989301,
+   "q": 1
+  },
+  "Heavy Copper Broadsword": {
+   "p": 1600,
+   "t": 1793989301,
+   "q": 29
+  },
+  "Heavy Copper Maul": {
+   "p": 900,
+   "t": 1793989301,
+   "q": 37
+  },
+  "Heavy Dynamite": {
+   "p": 2900,
+   "t": 1793989301,
+   "q": 4
+  },
+  "Heavy Grinding Stone": {
+   "p": 4549,
+   "t": 1793989301,
+   "q": 137
+  },
+  "Heavy Kodo Meat": {
+   "p": 200,
+   "t": 1793989301,
+   "q": 5
+  },
+  "Heavy Leather": {
+   "p": 700,
+   "t": 1793989301,
+   "q": 532
+  },
+  "Heavy Stock": {
+   "p": 3999,
+   "t": 1793989301,
+   "q": 14
+  },
+  "Heavy Stone": {
+   "p": 898,
+   "t": 1793989301,
+   "q": 1856
+  },
+  "Heavy Weightstone": {
+   "p": 999,
+   "t": 1793989301,
+   "q": 132
+  },
+  "Herb Baked Egg": {
+   "p": 149,
+   "t": 1793989303,
+   "q": 437
+  },
+  "Hot Lion Chops": {
+   "p": 438,
+   "t": 1793989302,
+   "q": 730
+  },
+  "Hot Spices": {
+   "p": 73,
+   "t": 1793989302,
+   "q": 391
+  },
+  "Ice Cold Milk": {
+   "p": 80,
+   "t": 1793989303,
+   "q": 517
+  },
+  "Iridescent Pearl": {
+   "p": 7999,
+   "t": 1793989302,
+   "q": 155
+  },
+  "Iron Bar": {
+   "p": 844,
+   "t": 1793989302,
+   "q": 1909
+  },
+  "Iron Buckle": {
+   "p": 500,
+   "t": 1793989302,
+   "q": 494
+  },
+  "Iron Grenade": {
+   "p": 1900,
+   "t": 1793989303,
+   "q": 58
+  },
+  "Iron Shield Spike": {
+   "p": 13399,
+   "t": 1793989302,
+   "q": 32
+  },
+  "Iron Strut": {
+   "p": 1099,
+   "t": 1793989303,
+   "q": 14
+  },
+  "Ironweb Spider Silk": {
+   "p": 2700,
+   "t": 1793989303,
+   "q": 130
+  },
+  "Jade": {
+   "p": 690,
+   "t": 1793989302,
+   "q": 833
+  },
+  "Journeyman Campfire Kit": {
+   "p": 5000,
+   "t": 1793989302,
+   "q": 31
+  },
+  "Kodo Meat": {
+   "p": 59,
+   "t": 1793989303,
+   "q": 647
+  },
+  "Large Copper Bomb": {
+   "p": 898,
+   "t": 1793989303,
+   "q": 249
+  },
+  "Large Fang": {
+   "p": 799,
+   "t": 1793989302,
+   "q": 173
+  },
+  "Large Glowing Shard": {
+   "p": 34900,
+   "t": 1793989302,
+   "q": 25
+  },
+  "Lean Wolf Flank": {
+   "p": 72,
+   "t": 1793989302,
+   "q": 688
+  },
+  "Lesser Invisibility Potion": {
+   "p": 13500,
+   "t": 1793989302,
+   "q": 9
+  },
+  "Lesser Magic Essence": {
+   "p": 121,
+   "t": 1793989302,
+   "q": 988
+  },
+  "Lesser Moonstone": {
+   "p": 600,
+   "t": 1793989302,
+   "q": 266
+  },
+  "Liferoot": {
+   "p": 501,
+   "t": 1793989302,
+   "q": 397
+  },
+  "Light Leather": {
+   "p": 25,
+   "t": 1793989302,
+   "q": 16565
+  },
+  "Linen Cloak": {
+   "p": 100,
+   "t": 1793989303,
+   "q": 127
+  },
+  "Linen Cloth": {
+   "p": 18,
+   "t": 1793989302,
+   "q": 33960
+  },
+  "Lion Meat": {
+   "p": 82,
+   "t": 1793989302,
+   "q": 279
+  },
+  "Longjaw Mud Snapper": {
+   "p": 16,
+   "t": 1793989303,
+   "q": 1765
+  },
+  "Magenta Dye": {
+   "p": 20000,
+   "t": 1793989304,
+   "q": 15
+  },
+  "Mageroyal": {
+   "p": 41,
+   "t": 1793989304,
+   "q": 1392
+  },
+  "Mageweave Cloth": {
+   "p": 4900,
+   "t": 1793989304,
+   "q": 149
+  },
+  "Malachite": {
+   "p": 13,
+   "t": 1793989304,
+   "q": 1443
+  },
+  "Meaty Bat Wing": {
+   "p": 75,
+   "t": 1793989304,
+   "q": 609
+  },
+  "Mechanical Squirrel Box": {
+   "p": 700,
+   "t": 1793989304,
+   "q": 41
+  },
+  "Medium Leather": {
+   "p": 119,
+   "t": 1793989304,
+   "q": 1808
+  },
+  "Melon Juice": {
+   "p": 199,
+   "t": 1793989304,
+   "q": 15
+  },
+  "Mild Spices": {
+   "p": 7,
+   "t": 1793989304,
+   "q": 3344
+  },
+  "Mithril Bar": {
+   "p": 10000,
+   "t": 1793989304,
+   "q": 16
+  },
+  "Mithril Head Trout": {
+   "p": 911,
+   "t": 1793989304,
+   "q": 455
+  },
+  "Moonsight Rifle": {
+   "p": 15000,
+   "t": 1793989304,
+   "q": 9
+  },
+  "Moss Agate": {
+   "p": 395,
+   "t": 1793989304,
+   "q": 544
+  },
+  "Murloc Eye": {
+   "p": 40,
+   "t": 1793989304,
+   "q": 3363
+  },
+  "Murloc Fin": {
+   "p": 76,
+   "t": 1793989304,
+   "q": 651
+  },
+  "Mystery Meat": {
+   "p": 499,
+   "t": 1793989304,
+   "q": 439
+  },
+  "Nightcrawlers": {
+   "p": 110,
+   "t": 1793989304,
+   "q": 249
+  },
+  "Ornate Spyglass": {
+   "p": 1000,
+   "t": 1793989306,
+   "q": 9
+  },
+  "Patterned Bronze Bracers": {
+   "p": 600,
+   "t": 1793989306,
+   "q": 478
+  },
+  "Peace Tea": {
+   "p": 200,
+   "t": 1793989306,
+   "q": 5
+  },
+  "Peacebloom": {
+   "p": 16,
+   "t": 1793989306,
+   "q": 5341
+  },
+  "Pearl-handled Dagger": {
+   "p": 5700,
+   "t": 1793989306,
+   "q": 42
+  },
+  "Pincer Bites": {
+   "p": 150,
+   "t": 1793989306,
+   "q": 251
+  },
+  "Plans: Copper Chain Vest": {
+   "p": 100,
+   "t": 1793989306,
+   "q": 551
+  },
+  "Plans: Deadly Bronze Poniard": {
+   "p": 400,
+   "t": 1793989306,
+   "q": 97
+  },
+  "Plans: Frost Tiger Blade": {
+   "p": 9900,
+   "t": 1793989306,
+   "q": 8
+  },
+  "Plans: Gemmed Copper Gauntlets": {
+   "p": 100,
+   "t": 1793989306,
+   "q": 186
+  },
+  "Plans: Golden Iron Destroyer": {
+   "p": 3000,
+   "t": 1793989306,
+   "q": 20
+  },
+  "Plans: Golden Scale Boots": {
+   "p": 81900,
+   "t": 1793989306,
+   "q": 1
+  },
+  "Plans: Golden Scale Cuirass": {
+   "p": 9900,
+   "t": 1793989306,
+   "q": 5
+  },
+  "Plans: Golden Scale Leggings": {
+   "p": 4500,
+   "t": 1793989306,
+   "q": 28
+  },
+  "Plans: Green Iron Boots": {
+   "p": 700,
+   "t": 1793989306,
+   "q": 6
+  },
+  "Plans: Green Iron Gauntlets": {
+   "p": 800,
+   "t": 1793989306,
+   "q": 11
+  },
+  "Plans: Green Iron Shoulders": {
+   "p": 3900,
+   "t": 1793989308,
+   "q": 17
+  },
+  "Plans: Heavy Mithril Pants": {
+   "p": 2300,
+   "t": 1793989308,
+   "q": 1
+  },
+  "Plans: Iridescent Hammer": {
+   "p": 600,
+   "t": 1793989308,
+   "q": 52
+  },
+  "Plans: Iron Counterweight": {
+   "p": 4200,
+   "t": 1793989308,
+   "q": 22
+  },
+  "Plans: Iron Shield Spike": {
+   "p": 1900,
+   "t": 1793989308,
+   "q": 41
+  },
+  "Plans: Jade Serpentblade": {
+   "p": 3000,
+   "t": 1793989308,
+   "q": 17
+  },
+  "Plans: Mighty Iron Hammer": {
+   "p": 600,
+   "t": 1793989308,
+   "q": 33
+  },
+  "Plans: Mithril Shield Spike": {
+   "p": 100000,
+   "t": 1793989308,
+   "q": 2
+  },
+  "Plans: Runed Copper Breastplate": {
+   "p": 200,
+   "t": 1793989308,
+   "q": 69
+  },
+  "Plans: Shadow Crescent Axe": {
+   "p": 5000,
+   "t": 1793989308,
+   "q": 1
+  },
+  "Plans: Silvered Bronze Breastplate": {
+   "p": 300,
+   "t": 1793989308,
+   "q": 30
+  },
+  "Plans: Silvered Bronze Leggings": {
+   "p": 800,
+   "t": 1793989308,
+   "q": 21
+  },
+  "Plans: Silvered Bronze Shoulders": {
+   "p": 300,
+   "t": 1793989308,
+   "q": 42
+  },
+  "Practice Lock": {
+   "p": 100,
+   "t": 1793989308,
+   "q": 492
+  },
+  "Pristine Hide": {
+   "p": 2400,
+   "t": 1793989308,
+   "q": 616
+  },
+  "Pristine Leather": {
+   "p": 255,
+   "t": 1793989308,
+   "q": 2290
+  },
+  "Pyrite": {
+   "p": 107,
+   "t": 1793989308,
+   "q": 306
+  },
+  "Rainbow Fin Albacore": {
+   "p": 29,
+   "t": 1793989308,
+   "q": 2532
+  },
+  "Raptor Egg": {
+   "p": 450,
+   "t": 1793989308,
+   "q": 1132
+  },
+  "Raptor Flesh": {
+   "p": 400,
+   "t": 1793989308,
+   "q": 27
+  },
+  "Raw Brilliant Smallfish": {
+   "p": 50,
+   "t": 1793989308,
+   "q": 1181
+  },
+  "Raw Bristle Whisker Catfish": {
+   "p": 39,
+   "t": 1793989308,
+   "q": 1065
+  },
+  "Raw Glossy Mightfish": {
+   "p": 3000,
+   "t": 1793989308,
+   "q": 17
+  },
+  "Raw Greater Sagefish": {
+   "p": 459,
+   "t": 1793989308,
+   "q": 656
+  },
+  "Raw Loch Frenzy": {
+   "p": 200,
+   "t": 1793989308,
+   "q": 1
+  },
+  "Raw Longjaw Mud Snapper": {
+   "p": 12,
+   "t": 1793989308,
+   "q": 2394
+  },
+  "Raw Mithril Head Trout": {
+   "p": 455,
+   "t": 1793989308,
+   "q": 1219
+  },
+  "Raw Rainbow Fin Albacore": {
+   "p": 50,
+   "t": 1793989308,
+   "q": 746
+  },
+  "Raw Redgill": {
+   "p": 2000,
+   "t": 1793989308,
+   "q": 9
+  },
+  "Raw Rockscale Cod": {
+   "p": 55,
+   "t": 1793989308,
+   "q": 1950
+  },
+  "Raw Sagefish": {
+   "p": 147,
+   "t": 1793989308,
+   "q": 1666
+  },
+  "Raw Slitherskin Mackerel": {
+   "p": 35,
+   "t": 1793989308,
+   "q": 1929
+  },
+  "Raw Spotted Yellowtail": {
+   "p": 58,
+   "t": 1793989308,
+   "q": 423
+  },
+  "Raw Winter Squid": {
+   "p": 4000,
+   "t": 1793989308,
+   "q": 35
+  },
+  "Razor Arrow": {
+   "p": 5,
+   "t": 1793989308,
+   "q": 7195
+  },
+  "Reagent Bot": {
+   "p": 350,
+   "t": 1793989308,
+   "q": 269
+  },
+  "Recipe: Brilliant Smallfish": {
+   "p": 200,
+   "t": 1793989308,
+   "q": 179
+  },
+  "Recipe: Bristle Whisker Catfish": {
+   "p": 1600,
+   "t": 1793989308,
+   "q": 55
+  },
+  "Recipe: Crispy Bat Wing": {
+   "p": 200,
+   "t": 1793989308,
+   "q": 77
+  },
+  "Recipe: Crispy Lizard Tail": {
+   "p": 1000,
+   "t": 1793989308,
+   "q": 33
+  },
+  "Recipe: Curiously Tasty Omelet": {
+   "p": 9900,
+   "t": 1793989308,
+   "q": 2
+  },
+  "Recipe: Dig Rat Stew": {
+   "p": 1900,
+   "t": 1793989308,
+   "q": 8
+  },
+  "Recipe: Heavy Crocolisk Stew": {
+   "p": 7500,
+   "t": 1793989308,
+   "q": 3
+  },
+  "Recipe: Longjaw Mud Snapper": {
+   "p": 700,
+   "t": 1793989308,
+   "q": 94
+  },
+  "Recipe: Mithril Head Trout": {
+   "p": 2900,
+   "t": 1793989308,
+   "q": 3
+  },
+  "Recipe: Pincer Bites": {
+   "p": 400,
+   "t": 1793989308,
+   "q": 70
+  },
+  "Recipe: Rainbow Fin Albacore": {
+   "p": 400,
+   "t": 1793989308,
+   "q": 30
+  },
+  "Recipe: Roasted Kodo Meat": {
+   "p": 1500,
+   "t": 1793989308,
+   "q": 20
+  },
+  "Recipe: Rockscale Cod": {
+   "p": 6000,
+   "t": 1793989308,
+   "q": 22
+  },
+  "Recipe: Sagefish Delight": {
+   "p": 4200,
+   "t": 1793989308,
+   "q": 8
+  },
+  "Recipe: Savory Deviate Delight": {
+   "p": 2900,
+   "t": 1793989308,
+   "q": 43
+  },
+  "Recipe: Scorpid Surprise": {
+   "p": 1200,
+   "t": 1793989308,
+   "q": 28
+  },
+  "Recipe: Skywall Souffle": {
+   "p": 400,
+   "t": 1793989308,
+   "q": 98
+  },
+  "Recipe: Slitherskin Mackerel": {
+   "p": 300,
+   "t": 1793989308,
+   "q": 104
+  },
+  "Recipe: Smoked Bear Meat": {
+   "p": 1000,
+   "t": 1793989308,
+   "q": 96
+  },
+  "Recipe: Smoked Sagefish": {
+   "p": 500,
+   "t": 1793989308,
+   "q": 32
+  },
+  "Recipe: Soothing Turtle Bisque": {
+   "p": 3300,
+   "t": 1793989308,
+   "q": 17
+  },
+  "Recipe: Spiced Chili Crab": {
+   "p": 54600,
+   "t": 1793989308,
+   "q": 1
+  },
+  "Recipe: Strider Stew": {
+   "p": 1000,
+   "t": 1793989308,
+   "q": 76
+  },
+  "Red Wolf Meat": {
+   "p": 499,
+   "t": 1793989308,
+   "q": 18
+  },
+  "Refreshing Spring Water": {
+   "p": 18,
+   "t": 1793989308,
+   "q": 772
+  },
+  "Roasted Boar Meat": {
+   "p": 85,
+   "t": 1793989310,
+   "q": 1215
+  },
+  "Roasted Kodo Meat": {
+   "p": 195,
+   "t": 1793989310,
+   "q": 408
+  },
+  "Rockscale Cod": {
+   "p": 490,
+   "t": 1793989310,
+   "q": 245
+  },
+  "Rough Blasting Powder": {
+   "p": 22,
+   "t": 1793989310,
+   "q": 2232
+  },
+  "Rough Boomstick": {
+   "p": 200,
+   "t": 1793989310,
+   "q": 287
+  },
+  "Rough Bronze Boots": {
+   "p": 300,
+   "t": 1793989310,
+   "q": 252
+  },
+  "Rough Bronze Cuirass": {
+   "p": 600,
+   "t": 1793989310,
+   "q": 197
+  },
+  "Rough Bronze Leggings": {
+   "p": 600,
+   "t": 1793989310,
+   "q": 1029
+  },
+  "Rough Bronze Shoulders": {
+   "p": 800,
+   "t": 1793989310,
+   "q": 294
+  },
+  "Rough Copper Bomb": {
+   "p": 60,
+   "t": 1793989310,
+   "q": 986
+  },
+  "Rough Copper Vest": {
+   "p": 100,
+   "t": 1793989310,
+   "q": 633
+  },
+  "Rough Dynamite": {
+   "p": 30,
+   "t": 1793989310,
+   "q": 927
+  },
+  "Rough Grinding Stone": {
+   "p": 10,
+   "t": 1793989310,
+   "q": 2076
+  },
+  "Rough Sharpening Stone": {
+   "p": 12,
+   "t": 1793989310,
+   "q": 549
+  },
+  "Rough Stone": {
+   "p": 8,
+   "t": 1793989310,
+   "q": 8261
+  },
+  "Rough Weightstone": {
+   "p": 6,
+   "t": 1793989310,
+   "q": 366
+  },
+  "Royal Tea": {
+   "p": 600,
+   "t": 1793989310,
+   "q": 12
+  },
+  "Rugged Leather": {
+   "p": 3599,
+   "t": 1793989310,
+   "q": 72
+  },
+  "Runed Copper Belt": {
+   "p": 300,
+   "t": 1793989310,
+   "q": 1330
+  },
+  "Runed Copper Bracers": {
+   "p": 300,
+   "t": 1793989310,
+   "q": 498
+  },
+  "Runed Copper Breastplate": {
+   "p": 900,
+   "t": 1793989310,
+   "q": 47
+  },
+  "Runed Copper Gauntlets": {
+   "p": 200,
+   "t": 1793989310,
+   "q": 1331
+  },
+  "Runed Copper Pants": {
+   "p": 300,
+   "t": 1793989310,
+   "q": 50
+  },
+  "SAF-T Copper Bomb": {
+   "p": 198,
+   "t": 1793989310,
+   "q": 196
+  },
+  "SAF-T Dynamite": {
+   "p": 199,
+   "t": 1793989310,
+   "q": 79
+  },
+  "Sagefish Delight": {
+   "p": 499,
+   "t": 1793989310,
+   "q": 10
+  },
+  "Savory Deviate Delight": {
+   "p": 129,
+   "t": 1793989310,
+   "q": 3138
+  },
+  "Schematic: Bright-Eye Goggles": {
+   "p": 3300,
+   "t": 1793989310,
+   "q": 41
+  },
+  "Schematic: Catseye Ultra Goggles": {
+   "p": 15500,
+   "t": 1793989310,
+   "q": 1
+  },
+  "Schematic: Goblin Land Mine": {
+   "p": 9700,
+   "t": 1793989310,
+   "q": 5
+  },
+  "Schematic: Large Seaforium Charge": {
+   "p": 4500,
+   "t": 1793989310,
+   "q": 5
+  },
+  "Schematic: Moonsight Rifle": {
+   "p": 700,
+   "t": 1793989310,
+   "q": 88
+  },
+  "Schematic: Portable Bronze Mortar": {
+   "p": 3000,
+   "t": 1793989310,
+   "q": 30
+  },
+  "Schematic: Shadow Goggles": {
+   "p": 300,
+   "t": 1793989310,
+   "q": 112
+  },
+  "Schematic: Small Seaforium Charge": {
+   "p": 200,
+   "t": 1793989310,
+   "q": 240
+  },
+  "Schematic: Spellpower Goggles Xtreme": {
+   "p": 99900,
+   "t": 1793989310,
+   "q": 1
+  },
+  "Scorpid Stinger": {
+   "p": 9,
+   "t": 1793989310,
+   "q": 308
+  },
+  "Scorpid Surprise": {
+   "p": 84,
+   "t": 1793989310,
+   "q": 407
+  },
+  "Shadow Goggles": {
+   "p": 2000,
+   "t": 1793989312,
+   "q": 18
+  },
+  "Shadow Oil": {
+   "p": 14000,
+   "t": 1793989312,
+   "q": 6
+  },
+  "Shadow Silk": {
+   "p": 1366,
+   "t": 1793989312,
+   "q": 76
+  },
+  "Shadowgem": {
+   "p": 280,
+   "t": 1793989312,
+   "q": 255
+  },
+  "Sharp Claw": {
+   "p": 48,
+   "t": 1793989312,
+   "q": 625
+  },
+  "Sharpening Wheel": {
+   "p": 120,
+   "t": 1793989312,
+   "q": 459
+  },
+  "Shining Silver Breastplate": {
+   "p": 33300,
+   "t": 1793989312,
+   "q": 21
+  },
+  "Shiny Red Apple": {
+   "p": 28,
+   "t": 1793989312,
+   "q": 1134
+  },
+  "Silk Cloth": {
+   "p": 434,
+   "t": 1793989312,
+   "q": 2128
+  },
+  "Silver Bar": {
+   "p": 322,
+   "t": 1793989312,
+   "q": 287
+  },
+  "Silver Contact": {
+   "p": 28,
+   "t": 1793989312,
+   "q": 3352
+  },
+  "Silver Rod": {
+   "p": 200,
+   "t": 1793989312,
+   "q": 542
+  },
+  "Silver Skeleton Key": {
+   "p": 90,
+   "t": 1793989312,
+   "q": 638
+  },
+  "Silver-plated Shotgun": {
+   "p": 7000,
+   "t": 1793989312,
+   "q": 17
+  },
+  "Silvered Bronze Boots": {
+   "p": 1500,
+   "t": 1793989312,
+   "q": 29
+  },
+  "Silvered Bronze Breastplate": {
+   "p": 6000,
+   "t": 1793989312,
+   "q": 33
+  },
+  "Silvered Bronze Gauntlets": {
+   "p": 2000,
+   "t": 1793989312,
+   "q": 139
+  },
+  "Silvered Bronze Leggings": {
+   "p": 8600,
+   "t": 1793989312,
+   "q": 20
+  },
+  "Silvered Bronze Shoulders": {
+   "p": 3700,
+   "t": 1793989312,
+   "q": 81
+  },
+  "Simple Flour": {
+   "p": 400,
+   "t": 1793989312,
+   "q": 90
+  },
+  "Simple Wood": {
+   "p": 50,
+   "t": 1793989312,
+   "q": 680
+  },
+  "Skywall Souffle": {
+   "p": 182,
+   "t": 1793989312,
+   "q": 54
+  },
+  "Slitherskin Mackerel": {
+   "p": 21,
+   "t": 1793989312,
+   "q": 1178
+  },
+  "Small Bronze Bomb": {
+   "p": 1000,
+   "t": 1793989312,
+   "q": 44
+  },
+  "Small Egg": {
+   "p": 299,
+   "t": 1793989312,
+   "q": 230
+  },
+  "Small Flame Sac": {
+   "p": 2800,
+   "t": 1793989312,
+   "q": 24
+  },
+  "Small Lustrous Pearl": {
+   "p": 400,
+   "t": 1793989312,
+   "q": 150
+  },
+  "Small Seaforium Charge": {
+   "p": 575,
+   "t": 1793989312,
+   "q": 32
+  },
+  "Small Venom Sac": {
+   "p": 123,
+   "t": 1793989315,
+   "q": 32
+  },
+  "Smoked Bear Meat": {
+   "p": 49,
+   "t": 1793989315,
+   "q": 1521
+  },
+  "Smoked Sagefish": {
+   "p": 138,
+   "t": 1793989315,
+   "q": 1470
+  },
+  "Soft Frenzy Flesh": {
+   "p": 299,
+   "t": 1793989315,
+   "q": 133
+  },
+  "Solid Stone": {
+   "p": 9800,
+   "t": 1793989315,
+   "q": 99
+  },
+  "Soothing Turtle Bisque": {
+   "p": 1000,
+   "t": 1793989315,
+   "q": 3
+  },
+  "Spiced Wolf Meat": {
+   "p": 49,
+   "t": 1793989315,
+   "q": 1121
+  },
+  "Spider Ichor": {
+   "p": 12,
+   "t": 1793989315,
+   "q": 1507
+  },
+  "Spotted Yellowtail": {
+   "p": 6700,
+   "t": 1793989315,
+   "q": 20
+  },
+  "Stag Meat": {
+   "p": 200,
+   "t": 1793989315,
+   "q": 641
+  },
+  "Standard Scope": {
+   "p": 650,
+   "t": 1793989315,
+   "q": 386
+  },
+  "Star Ruby": {
+   "p": 12600,
+   "t": 1793989315,
+   "q": 5
+  },
+  "Steel Bar": {
+   "p": 5000,
+   "t": 1793989315,
+   "q": 29
+  },
+  "Sterling Silver Boots": {
+   "p": 6900,
+   "t": 1793989315,
+   "q": 20
+  },
+  "Strange Dust": {
+   "p": 68,
+   "t": 1793989315,
+   "q": 4614
+  },
+  "Strider Meat": {
+   "p": 18,
+   "t": 1793989315,
+   "q": 277
+  },
+  "Strider Stew": {
+   "p": 33,
+   "t": 1793989315,
+   "q": 2835
+  },
+  "Stringy Vulture Meat": {
+   "p": 599,
+   "t": 1793989315,
+   "q": 56
+  },
+  "Stringy Wolf Meat": {
+   "p": 103,
+   "t": 1793989315,
+   "q": 1990
+  },
+  "Strong Flux": {
+   "p": 2000,
+   "t": 1793989315,
+   "q": 12
+  },
+  "Sulfuric Acid": {
+   "p": 320,
+   "t": 1793989315,
+   "q": 40
+  },
+  "Sweet Nectar": {
+   "p": 300,
+   "t": 1793989315,
+   "q": 57
+  },
+  "Swiftness Potion": {
+   "p": 319,
+   "t": 1793989315,
+   "q": 384
+  },
+  "Swiftthistle": {
+   "p": 249,
+   "t": 1793989315,
+   "q": 253
+  },
+  "Tangy Clam Meat": {
+   "p": 100,
+   "t": 1793989315,
+   "q": 2224
+  },
+  "Target Dummy": {
+   "p": 400,
+   "t": 1793989315,
+   "q": 178
+  },
+  "Tasty Raptor Bites": {
+   "p": 1499,
+   "t": 1793989315,
+   "q": 76
+  },
+  "Tender Crocolisk Meat": {
+   "p": 470,
+   "t": 1793989315,
+   "q": 189
+  },
+  "Thick Leather": {
+   "p": 600,
+   "t": 1793989315,
+   "q": 273
+  },
+  "Thick Spider's Silk": {
+   "p": 1100,
+   "t": 1793989315,
+   "q": 88
+  },
+  "Thick War Axe": {
+   "p": 1500,
+   "t": 1793989315,
+   "q": 9
+  },
+  "Thistle Tea": {
+   "p": 400,
+   "t": 1793989315,
+   "q": 1016
+  },
+  "Tigerseye": {
+   "p": 109,
+   "t": 1793987825,
+   "q": 325
+  },
+  "Truesilver Bar": {
+   "p": 5699,
+   "t": 1793987805,
+   "q": 96
+  },
+  "Wildvine": {
+   "p": 30000,
+   "t": 1793987828,
+   "q": 2
+  }
+ },
+ "vendor": {
+  "Blacksmith Hammer": 17,
+  "Coarse Thread": 9,
+  "Copper Rod": 112,
+  "Green Dye": 90,
+  "Hot Spices": 36,
+  "Ice Cold Milk": 22,
+  "Melon Juice": 90,
+  "Mild Spices": 1,
+  "Moonberry Juice": 360,
+  "Morning Glory Dew": 720,
+  "Nightcrawlers": 90,
+  "Razor Arrow": 1,
+  "Recipe: Crispy Lizard Tail": 360,
+  "Recipe: Strider Stew": 396,
+  "Refreshing Spring Water": 4,
+  "Shiny Red Apple": 4,
+  "Simple Wood": 38,
+  "Star Wood": 4500,
+  "Strong Flux": 1800,
+  "Sweet Nectar": 180,
+  "Weak Flux": 90
+ }
+}

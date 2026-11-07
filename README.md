@@ -115,3 +115,17 @@ python3 tools/export_json.py        # recipe data → web/data/recipes.json for 
 ```
 
 The planner (`Core/Planner.lua`) and data parser (`Core/Recipes.lua`) are plain Lua 5.1 with no game calls. They run the same in tests, in game, and can be ported to the website.
+
+## Website
+
+`web/` is the website (deployed to Cloudflare Pages at https://craftpath.pages.dev). The planner page runs the
+addon's own Lua planner in the browser with [wasmoon](https://github.com/ceifa/wasmoon), so routes match the
+addon exactly (`tests/test_web.py` checks this).
+
+- `data/prices.json`: auction price snapshot. Refresh it from your own scan:
+  `python3 tools/export_prices.py "<WoW>/_forever_/WTF/Account/<ACCOUNT>/SavedVariables/CraftPath.lua"`
+  (only recipe-related prices are exported; nothing about your character).
+- `data/recipe-changes.json`: written by the daily recipe sync; shown on the Recipe updates page.
+- Build locally: `npm ci && python3 tools/build_site.py`, then serve `site/`.
+- Every push to `main` that touches the data, planner or site redeploys it (`.github/workflows/site.yml`,
+  needs the `CLOUDFLARE_API_TOKEN` repo secret).

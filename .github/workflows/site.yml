@@ -1,0 +1,46 @@
+# Builds and deploys the website (site/) to Cloudflare Pages on every push to main,
+# including merged recipe-sync PRs, so the planner and Recipe updates page stay current.
+#
+# Needs repo secret CLOUDFLARE_API_TOKEN (a token with "Cloudflare Pages: Edit").
+name: Website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "CraftPath/Data/**"
+      - "CraftPath/Core/Recipes.lua"
+      - "CraftPath/Core/Planner.lua"
+      - "web/**"
+      - "data/**"
+      - "tools/build_site.py"
+      - "package*.json"
+      - ".github/workflows/site.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: site
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: npm ci
+      - run: pip install lupa
+      - name: Check the web planner matches the addon
+        run: python tests/test_web.py
+      - run: python tools/build_site.py
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: 88030665879aabe43dfe0e4a78e88b18
+        run: npx --yes wrangler@3.114.0 pages deploy site --project-name craftpath --branch main --commit-dirty=true

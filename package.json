@@ -1,0 +1,9 @@
+{
+  "name": "craftpath-site",
+  "private": true,
+  "description": "CraftPath website build: runs the addon's Lua planner in the browser with wasmoon.",
+  "type": "module",
+  "devDependencies": {
+    "wasmoon": "1.16.0"
+  }
+}
