@@ -18,6 +18,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 
 concurrency:
   group: recipe-sync
@@ -54,6 +55,7 @@ jobs:
           python tests/test_sync.py
 
       - name: Open or update the pull request
+        id: cpr
         if: steps.sync.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v7
         with:
@@ -66,8 +68,34 @@ jobs:
           body-path: recipe-sync-report.md
           labels: recipe-sync
 
+      # A new PR emails you on its own. When an open PR gets newer data, post the summary as a
+      # comment so that run emails you too.
+      - name: Comment the summary on an updated pull request
+        if: steps.cpr.outputs.pull-request-operation == 'updated'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          { echo "**New run: Forever build ${{ steps.sync.outputs.build }}** ([run log](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}))"; echo; cat recipe-sync-report.md; } > comment.md
+          gh pr comment "${{ steps.cpr.outputs.pull-request-number }}" --body-file comment.md
+
       - name: Fail the run if the tests failed
         if: steps.tests.outcome == 'failure'
         run: |
           echo "::error::Tests failed on the new recipe data. The PR is a draft: check it before merging."
           exit 1
+
+      # Any failure (download, tests, PR) opens an issue, or comments on the open one, so you hear about it.
+      - name: Report a failed run
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          url="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          body="The recipe sync failed on $(date -u +'%Y-%m-%d %H:%M') UTC. Run log: $url"
+          n=$(gh issue list --label recipe-sync-failed --state open --json number --jq '.[0].number')
+          if [ -n "$n" ]; then
+            gh issue comment "$n" --body "$body"
+          else
+            gh label create recipe-sync-failed --color B60205 --force >/dev/null
+            gh issue create --title "Recipe sync failed" --label recipe-sync-failed --body "$body"
+          fi

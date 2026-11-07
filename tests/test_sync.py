@@ -120,6 +120,9 @@ def main():
         assert after["Engineering"]["SAF-T Dynamite"][4] == "F"                 # hand-kept Favor
 
         text = open(report, encoding="utf-8").read()
+        if os.environ.get("SHOW_REPORT"):
+            print(text)
+        assert "Worth a look" in text and "**Copper Tube**: grey" in text, text[:1500]
         assert "Changes found." in text
         assert "Thorium Shield Wall" in text and "Copper Tube" in text
         assert "learn skill estimated as 295" in text

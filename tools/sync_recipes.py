@@ -96,6 +96,14 @@ def num(row, key, default=0):
 
 def parse_existing(path, addon=ADDON):
     """Existing recipe lines -> {name: (source field, learn skill)}."""
+    return {n: (f["source"], int(f["learn"])) for n, f in parse_existing_full(path, addon).items()}
+
+
+FIELDS = ["learn", "orange", "yellow", "green", "grey", "makes", "source", "reagents"]
+
+
+def parse_existing_full(path, addon=ADDON):
+    """Existing recipe lines (sets expanded) -> {name: {field: text}}."""
     out = {}
     if not os.path.exists(path):
         return out
@@ -108,7 +116,7 @@ def parse_existing(path, addon=ADDON):
     if os.path.exists(shared):
         stext = open(shared, encoding="utf-8").read()
         for name, body in re.findall(r"(\w+)\s*=\s*\{((?:\s*\{[^}]*\},?)+)\s*\}", stext):
-            sets[name] = [re.findall(r'"([^"]*)"', v)[0] for v in re.findall(r"\{([^}]*)\}", body)]
+            sets[name] = [re.findall(r'"([^"]*)"', v) for v in re.findall(r"\{([^}]*)\}", body)]
     for line in m.group(1).splitlines():
         line = line.strip()
         if not line or line.startswith("--"):
@@ -117,12 +125,20 @@ def parse_existing(path, addon=ADDON):
         if line.startswith("@SET "):
             _, set_name, line = line.split(" ", 2)
             variants = sets.get(set_name, [])
-        f = line.split("|")
-        if len(f) < 9:
-            continue
-        names = [f[0].replace("%V", v) for v in variants] if variants is not None else [f[0]]
-        for n in names:
-            out[n] = (f[7], int(f[1]))
+        lines = []
+        for v in (variants if variants is not None else [None]):
+            l = line
+            if v:
+                l = l.replace("%V", v[0])
+                if len(v) > 1:
+                    l = l.replace("%G", v[1])
+            lines.append(l)
+        for l in lines:
+            f = l.split("|")
+            if len(f) < 9:
+                continue
+            out[f[0]] = dict(zip(FIELDS, f[1:9]))
+            out[f[0]]["points"] = f[9] if len(f) > 9 else "1"
     return out
 
 
@@ -249,6 +265,46 @@ ns.RawData.{prof} = {{
         fh.write(header)
 
 
+SPEC_WORDS = ("Gnomish", "Goblin")
+LABEL = {"learn": "learn", "orange": "orange", "yellow": "yellow", "grey": "grey", "makes": "makes",
+         "source": "source", "reagents": "materials", "points": "skill-ups"}
+
+
+def summarise(prof, before, after):
+    """Plain-English findings for one profession. before/after: {name: {field: text}}."""
+    added = sorted(set(after) - set(before), key=lambda n: (int(after[n]["learn"]), n))
+    removed = sorted(set(before) - set(after), key=lambda n: (int(before[n]["learn"]), n))
+    big, minor = [], []
+    for n in sorted(set(before) & set(after), key=lambda n: (int(after[n]["learn"]), n)):
+        diffs = [k for k in LABEL if str(before[n].get(k, "1")) != str(after[n].get(k, "1"))]
+        if diffs:
+            big.append((n, diffs))
+        elif before[n]["green"] != after[n]["green"]:
+            minor.append(n)
+    look = []
+    for n in removed:
+        look.append(f"**{n}** (skill {before[n]['learn']}) is no longer in the game data. Routes will go around it.")
+    for n, diffs in big:
+        parts = []
+        for k in diffs:
+            if k == "reagents":
+                parts.append(f"materials now {after[n]['reagents'].replace(';', ', ').replace('*', ' x')}")
+            else:
+                parts.append(f"{LABEL[k]} {before[n].get(k, '1')} → {after[n].get(k, '1')}")
+        look.append(f"**{n}**: " + "; ".join(parts))
+    if prof == "Engineering":
+        for n in added:
+            if any(w in n for w in SPEC_WORDS) and after[n]["source"] not in ("G", "N"):
+                look.append(f"**{n}** may need Goblin or Gnomish Engineering; it came in as an ordinary recipe.")
+    return {"added": added, "removed": removed, "big": big, "minor": minor, "look": look}
+
+
+def src_text(f):
+    src = f["source"]
+    return {"A": "automatic", "T": "trainer", "R": "recipe item", "F": "Favor", "G": "Goblin", "N": "Gnomish"}.get(
+        src, "vendor " + src[2:] if src.startswith("V:") else "quest " + src[2:] if src.startswith("Q:") else src)
+
+
 def parse_lines(path):
     """name -> line (without @SET expansion handled by parse_existing for sources)."""
     out = {}
@@ -281,40 +337,58 @@ def main(argv=None):
 
     report = [f"# Recipe sync: Forever build {build} ({product})", ""]
     changed_any = False
+    summary_rows, look, sections, details = [], [], [], []
     for prof, (skill_line, prefixes, tools) in PROFESSIONS.items():
         path = os.path.join(addon, "Data", f"{prof}.lua")
+        before_full = parse_existing_full(path, addon)
         before_sources = parse_existing(path, addon)
         before_lines = parse_lines(path)
         recipes, problems, hidden = build_profession(tables, prof, skill_line, prefixes, before_sources, DEFAULT_EXCLUDE)
         if not recipes:
-            report.append(f"## {prof}\n\nNo recipes found for skill line {skill_line}; left the file alone.\n")
+            sections.append(f"## {prof}\n\nNo recipes found for skill line {skill_line}; left the file alone.\n")
             continue
         write_profession(path, prof, recipes, tools, build)
         print(f"{prof}: {len(recipes)} recipes")
         after = {r["name"]: fmt(r) for r in recipes.values()}
-        old_names = set(before_sources) | set(before_lines)
-        added = sorted(set(after) - old_names)
-        removed = sorted(old_names - set(after))
-        changed = sorted(n for n in after if n in before_lines and before_lines[n] != after[n])
-        changed_any |= bool(added or removed or changed)
-        report.append(f"## {prof}: {len(after)} recipes")
-        report.append(f"- New: {len(added)}  Changed: {len(changed)}  Removed: {len(removed)}")
-        for title, names, show in (("New", added, lambda n: after[n]), ("Changed", changed, lambda n: f"{before_lines[n]}\n    -> {after[n]}"),
-                                   ("Removed", removed, lambda n: before_lines.get(n, n))):
-            if names:
-                report.append(f"\n### {title}\n```")
-                report.extend(show(n) for n in names)
-                report.append("```")
+        after_full = {n: dict(zip(FIELDS, l.split("|")[1:9]), points=(l.split("|") + ["1"])[9]) for n, l in after.items()}
+        found = summarise(prof, before_full, after_full)
+        changed_any |= bool(found["added"] or found["removed"] or found["big"] or found["minor"])
+        summary_rows.append(f"| {prof} | {len(before_full)} | {len(after)} | {len(found['added'])} | "
+                            f"{len(found['removed'])} | {len(found['big'])} | {len(found['minor'])} |")
+        look.extend(found["look"])
+        sec = [f"## {prof}"]
+        if found["added"]:
+            sec.append(f"\n**New ({len(found['added'])})**")
+            sec.extend(f"- {n} (skill {after_full[n]['learn']}, {src_text(after_full[n])})" for n in found["added"])
+        if found["minor"]:
+            sec.append(f"\n{len(found['minor'])} recipes only had their green skill move, which doesn't affect routes.")
+        if not (found["added"] or found["removed"] or found["big"] or found["minor"]):
+            sec.append("\nNo changes.")
         if hidden:
-            report.append(f"\n### Hidden in the client ({len(hidden)})")
-            report.append("Recipes the client ships with names or reagents still hidden. They join the data "
-                          "automatically once a build reveals them.")
-            report.extend("- " + h for h in hidden[:100])
+            sec.append(f"\n### Hidden in the client ({len(hidden)})")
+            sec.append("Recipes the client ships with names or reagents still hidden. They join the data "
+                       "automatically once a build reveals them.")
+            sec.extend("- " + h for h in hidden[:100])
         if problems:
-            report.append("\n### Notes")
-            report.extend("- " + p for p in problems[:50])
-        report.append("")
+            sec.append("\n### Notes")
+            sec.extend("- " + p for p in problems[:50])
+        detail_lines = [f"{n}\n    {before_lines.get(n, '(in a set)')}\n -> {after[n]}" for n, _ in found["big"]]
+        detail_lines += [f"+ {after[n]}" for n in found["added"]] + [f"- {n}" for n in found["removed"]]
+        if detail_lines:
+            details.append(f"<details><summary>{prof} raw lines</summary>\n\n```\n" + "\n".join(detail_lines) + "\n```\n</details>")
+        sections.append("\n".join(sec) + "\n")
     report.insert(1, "Changes found." if changed_any else "No recipe changes.")
+    report.append("| Profession | Before | After | New | Removed | Changed | Minor |")
+    report.append("|---|---|---|---|---|---|---|")
+    report.extend(summary_rows)
+    report.append("\n*Changed* = something the planner uses (learn, orange, yellow or grey skill, materials, source). "
+                  "*Minor* = only the green skill moved.\n")
+    if look:
+        report.append("## Worth a look before merging")
+        report.extend("- " + l for l in look)
+        report.append("")
+    report.extend(sections)
+    report.extend(["", *details])
     with open(args.report, "w", encoding="utf-8") as fh:
         fh.write("\n".join(report) + "\n")
     print("\n".join(report[:3]))
