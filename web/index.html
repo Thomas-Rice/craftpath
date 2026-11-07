@@ -35,6 +35,9 @@
       <label class="field">Faction
         <select id="faction"><option>Horde</option><option>Alliance</option></select>
       </label>
+      <label class="field" title="Journeyman needs level 10, Expert 20 and Artisan 35">Character level
+        <input id="charLevel" type="number" min="1" max="60" value="60" inputmode="numeric">
+      </label>
       <label class="field" id="specField">Engineering speciality
         <select id="spec"><option value="">None</option><option value="Goblin">Goblin</option><option value="Gnomish">Gnomish</option></select>
       </label>
@@ -42,7 +45,6 @@
     <div class="row checks">
       <label><input type="checkbox" id="allowRecipeItems" checked> Buy recipes from vendors or the auction house</label>
       <label><input type="checkbox" id="allowFavor" checked> Use Merchant's Favor recipes</label>
-      <label><input type="checkbox" id="levelCap" checked> Stop at the level 30 cap (Expert, 225)</label>
     </div>
   </section>
 

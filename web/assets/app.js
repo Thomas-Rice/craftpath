@@ -8,13 +8,14 @@ const store = {
 };
 
 const PROFESSIONS = ["Engineering", "Blacksmithing", "Cooking"];
-const BETA_LEVEL = 30;
+const MAX_LEVEL = 60;
 
 let engine, snapshot, overrides = store.get("prices", {}), lastPlan;
 const state = Object.assign({
   profession: "Engineering", from: 1, to: 300, faction: "Horde", spec: "",
-  allowRecipeItems: true, allowFavor: true, levelCap: true,
+  allowRecipeItems: true, allowFavor: true, charLevel: MAX_LEVEL,
 }, store.get("settings", {}), fromHash());
+delete state.levelCap; // old setting from the level 30 beta
 
 // ---------- money ----------
 export function money(c, { plain = false } = {}) {
@@ -53,11 +54,12 @@ function fromHash() {
   if (p.get("from")) o.from = +p.get("from");
   if (p.get("to")) o.to = +p.get("to");
   if (["Horde", "Alliance"].includes(p.get("f"))) o.faction = p.get("f");
+  if (p.get("lvl")) o.charLevel = +p.get("lvl");
   return o;
 }
 function saveState() {
   store.set("settings", state);
-  const p = new URLSearchParams({ p: state.profession, from: state.from, to: state.to, f: state.faction });
+  const p = new URLSearchParams({ p: state.profession, from: state.from, to: state.to, f: state.faction, lvl: state.charLevel });
   history.replaceState(null, "", "#" + p);
 }
 
@@ -73,13 +75,24 @@ function run() {
   saveState();
   const from = Math.max(1, Math.min(299, Math.round(+state.from || 1)));
   const to = Math.max(from + 1, Math.min(300, Math.round(+state.to || 300)));
-  const plan = engine.plan({
+  const opts = {
     profession: state.profession, from, to, faction: state.faction,
     spec: state.profession === "Engineering" && state.spec ? state.spec : null,
     allowRecipeItems: state.allowRecipeItems, allowFavor: state.allowFavor,
-    charLevel: state.levelCap ? BETA_LEVEL : null,
+    charLevel: Math.max(1, Math.min(MAX_LEVEL, Math.round(+state.charLevel || MAX_LEVEL))),
     prices: prices(), vendor: snapshot.vendor,
-  });
+  };
+  let plan = engine.plan(opts);
+  // No prices yet for the top end? Plan as far as the prices go and say what's missing.
+  const stuck = plan.error && /past skill (\d+)/.exec(plan.error);
+  if (stuck && +stuck[1] > from) {
+    const short = engine.plan({ ...opts, to: +stuck[1] });
+    if (!short.error) {
+      const missing = [...new Set(arr(plan.blocked).flatMap((b) => arr(b.missing)).filter((m) => m !== "recipe"))].slice(0, 5);
+      short.partial = { at: +stuck[1], wanted: to, missing };
+      plan = short;
+    }
+  }
   lastPlan = plan;
   priceNote();
   render(plan);
@@ -132,7 +145,8 @@ function render(plan) {
   $("tSteps").textContent = `${arr(plan.steps).length} steps`;
   $("tRange").textContent = `skill ${plan.from} to ${plan.to}`;
 
-  $("notes").innerHTML = arr(plan.notes).map((n) => `<li>${esc(n)}</li>`).join("");
+  const partial = plan.partial ? `<li class="warn">This route stops at ${plan.partial.at}: there's no auction price yet for ${esc(plan.partial.missing.join(", ") || "the materials above that")}. Add prices on the Prices tab to plan up to ${plan.partial.wanted}.</li>` : "";
+  $("notes").innerHTML = partial + arr(plan.notes).map((n) => `<li>${esc(n)}</li>`).join("");
 
   $("route").innerHTML = arr(plan.steps).map((s, i) => {
     const r = s.recipe;
@@ -229,11 +243,11 @@ function setupControls() {
   });
   $("specField").hidden = state.profession !== "Engineering";
   $("allowFavor").closest("label").hidden = state.profession === "Cooking";
-  for (const id of ["from", "to", "faction", "spec"]) {
+  for (const id of ["from", "to", "faction", "spec", "charLevel"]) {
     $(id).value = state[id];
     $(id).addEventListener("change", () => { state[id] = $(id).type === "number" ? +$(id).value : $(id).value; run(); });
   }
-  for (const id of ["allowRecipeItems", "allowFavor", "levelCap"]) {
+  for (const id of ["allowRecipeItems", "allowFavor"]) {
     $(id).checked = !!state[id];
     $(id).addEventListener("change", () => { state[id] = $(id).checked; run(); });
   }
