@@ -66,6 +66,7 @@ Commands:
 - `/cpath scan`: full scan
 - `/cpath list`: materials scan
 - `/cpath reset`: clear prices
+- `/cpath perf` — print anything that takes a noticeable time, for lag reports
 - `/cpath help`
 
 ## Data

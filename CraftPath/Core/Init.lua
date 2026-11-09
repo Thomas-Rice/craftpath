@@ -52,12 +52,20 @@ function ns.On(event, fn)
   end
   table.insert(handlers[event], fn)
 end
+-- /cpath perf: prints any event handler or background job that takes a noticeable time.
+ns.perf = false
+local clock = function() return debugprofilestop and debugprofilestop() or 0 end
 frame:SetScript("OnEvent", function(_, event, ...)
   local list = handlers[event]
   if not list then return end
+  local t0 = ns.perf and clock()
   for i = 1, #list do
     local ok, err = pcall(list[i], ...)
     if not ok then geterrorhandler()(err) end
+  end
+  if t0 then
+    local ms = clock() - t0
+    if ms >= 2 then ns.Print(("perf: %s took %.1f ms"):format(event, ms)) end
   end
 end)
 
@@ -75,7 +83,7 @@ end)
 -- same key replaces one still waiting. Without debugprofilestop (tests) it runs at once.
 local jobs, runner = {}, CreateFrame("Frame")
 runner:Hide()
-local SLICE_MS = 5
+local SLICE_MS = 3 -- background work per frame, in milliseconds
 function ns.Async(key, fn, done)
   if not debugprofilestop then
     local result = fn()
@@ -85,20 +93,25 @@ function ns.Async(key, fn, done)
   for i = #jobs, 2, -1 do
     if jobs[i].key == key then table.remove(jobs, i) end
   end
-  jobs[#jobs + 1] = { key = key, co = coroutine.create(fn), done = done }
+  jobs[#jobs + 1] = { key = key, co = coroutine.create(fn), done = done, frames = 0, ms = 0 }
   runner:Show()
 end
 runner:SetScript("OnUpdate", function(self)
   local job = jobs[1]
   if not job then self:Hide(); return end
-  ns.Planner.sliceEnd = debugprofilestop() + SLICE_MS
+  local t0 = debugprofilestop()
+  ns.Planner.sliceEnd = t0 + SLICE_MS
   local ok, result = coroutine.resume(job.co)
   ns.Planner.sliceEnd = nil
+  local ms = debugprofilestop() - t0
+  job.frames, job.ms = job.frames + 1, job.ms + ms
+  if ns.perf and ms > SLICE_MS * 3 then ns.Print(("perf: %s job held one frame for %.1f ms"):format(job.key, ms)) end
   if not ok then
     table.remove(jobs, 1)
     geterrorhandler()(result)
   elseif coroutine.status(job.co) == "dead" then
     table.remove(jobs, 1)
+    if ns.perf then ns.Print(("perf: %s job done, %.1f ms over %d frames"):format(job.key, job.ms, job.frames)) end
     if job.done then
       local okDone, err = pcall(job.done, result)
       if not okDone then geterrorhandler()(err) end
@@ -161,6 +174,9 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.CraftHelper.Update()
   elseif msg == "keep" then
     ns.Keep.Toggle()
+  elseif msg == "perf" then
+    ns.perf = not ns.perf
+    ns.Print("Timing " .. (ns.perf and "on: open your profession window and anything slow is printed here." or "off."))
   elseif msg == "reset" then
     wipe(ns.db.prices); wipe(ns.db.done)
     ns.Print("Auction prices cleared.")
@@ -171,6 +187,7 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.Print("/cpath craft — turn the crafting helper (beside the profession window) on or off")
     ns.Print("/cpath keep — turn marking of items you need in your bags and bank on or off")
     ns.Print("/cpath reset — forget all auction prices")
+    ns.Print("/cpath perf — print anything that takes a noticeable time (for lag reports)")
   else
     ns.UI.Toggle()
   end

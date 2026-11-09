@@ -84,40 +84,60 @@ end
 
 -- Remember which recipes the character knows whenever a profession window is open,
 -- and note any recipe (learned or not) that CraftPath's data doesn't list.
-local function readKnownRecipes()
+--
+-- A profession can list hundreds of recipes, so the read runs in the background over a few
+-- frames (ns.Async) instead of in one go. It runs when the window opens and when you learn
+-- a recipe; the many list updates while you craft only re-read if the list itself changed.
+local lastCount, lastRead = {}, {} -- [prof] = recipe IDs seen / GetTime() of the last full read
+local noted = {}                   -- [recipeID] = true: unknown recipes already looked up this session
+local REREAD_AFTER = 30            -- seconds; a safety re-read for list updates with no visible change
+
+local function readKnownRecipes(force)
   if not C_TradeSkillUI or not C_TradeSkillUI.GetAllRecipeIDs then return end
-  local prof
-  local ok, info = pcall(C_TradeSkillUI.GetBaseProfessionInfo)
-  if ok and info then prof = info.professionName end
-  if not prof or not ns.RawData[prof] then return end
+  local prof = Game.OpenProfession()
+  if not prof then return end
   local okIds, ids = pcall(C_TradeSkillUI.GetAllRecipeIDs)
-  if not okIds or not ids then return end
-  local known = {}
-  ns.db.recipeIDs[prof] = ns.db.recipeIDs[prof] or {}
-  local idMap = ns.db.recipeIDs[prof]
-  for _, id in ipairs(ids) do
-    local okR, r = pcall(C_TradeSkillUI.GetRecipeInfo, id)
-    if okR and r and r.name then
-      idMap[r.name] = id
-      if r.learned then known[r.name] = true end
-      if not ns.Recipes.Load(prof).byName[r.name] then
-        local reagents, makes = recipeReagents(id)
-        noteUnknown(prof, r.name, { recipeID = id, learned = r.learned or nil, reagents = reagents, makes = makes })
+  if not okIds or not ids or #ids == 0 then return end -- list not ready yet; a list update follows
+  local now = GetTime and GetTime() or 0
+  if not force and lastCount[prof] == #ids and now - (lastRead[prof] or -1e9) < REREAD_AFTER then return end
+  lastCount[prof], lastRead[prof] = #ids, now
+
+  ns.Async("recipes", function()
+    local known = {}
+    ns.db.recipeIDs[prof] = ns.db.recipeIDs[prof] or {}
+    local idMap = ns.db.recipeIDs[prof]
+    local byName = ns.Recipes.Load(prof).byName
+    for _, id in ipairs(ids) do
+      ns.Planner.Tick() -- hands the frame back when this frame's time is used up
+      local okR, r = pcall(C_TradeSkillUI.GetRecipeInfo, id)
+      if okR and r and r.name then
+        idMap[r.name] = id
+        if r.learned then known[r.name] = true end
+        if not byName[r.name] and not noted[id] then
+          noted[id] = true
+          local reagents, makes = recipeReagents(id)
+          noteUnknown(prof, r.name, { recipeID = id, learned = r.learned or nil, reagents = reagents, makes = makes })
+        end
       end
     end
-  end
-  if next(known) then
-    local old, same = ns.db.known[prof] or {}, true
-    for k in pairs(known) do if not old[k] then same = false; break end end
-    for k in pairs(old) do if not known[k] then same = false; break end end
-    if not same then
-      ns.db.known[prof] = known
-      ns.db.knownVersion = (ns.db.knownVersion or 0) + 1
-      if ns.UI and ns.UI.Refresh then ns.UI.Refresh() end
+    -- The window closed or switched profession mid-read: don't save a partial list.
+    if Game.OpenProfession() ~= prof then lastCount[prof] = nil; return false end
+    if next(known) then
+      local old, same = ns.db.known[prof] or {}, true
+      for k in pairs(known) do if not old[k] then same = false; break end end
+      if same then for k in pairs(old) do if not known[k] then same = false; break end end end
+      if not same then
+        ns.db.known[prof] = known
+        ns.db.knownVersion = (ns.db.knownVersion or 0) + 1
+        return true
+      end
     end
-  end
-  Game.openProfession = prof
-  if ns.CraftHelper then ns.CraftHelper.Update() end
+    return false
+  end, function(changed)
+    Game.openProfession = prof
+    if changed and ns.UI and ns.UI.Refresh then ns.UI.Refresh() end
+    if (changed or force) and ns.CraftHelper then ns.CraftHelper.Update() end
+  end)
 end
 -- The profession currently open, or nil.
 function Game.OpenProfession()
@@ -144,15 +164,24 @@ end
 
 ns.On("TRADE_SKILL_SHOW", function()
   if ns.CraftHelper then ns.CraftHelper.preview = nil end -- opening the window: back to your current step
-  readKnownRecipes()
+  readKnownRecipes(true)
 end)
--- This fires several times per craft: read the recipe list at most about once a second.
+-- This fires several times per craft. It only triggers a read (at most about once a second)
+-- when the list changed, so crafting doesn't keep re-reading every recipe.
 local readPending = false
 ns.On("TRADE_SKILL_LIST_UPDATE", function()
   if readPending then return end
   readPending = true
-  C_Timer.After(0.75, function() readPending = false; readKnownRecipes() end)
+  C_Timer.After(0.75, function() readPending = false; readKnownRecipes(false) end)
 end)
+-- Learning a recipe (trainer, plans or schematic) doesn't change the list's length.
+local learnRead = false
+local function learned()
+  if learnRead then return end
+  learnRead = true
+  C_Timer.After(0.5, function() learnRead = false; readKnownRecipes(true) end)
+end
+pcall(ns.On, "NEW_RECIPE_LEARNED", learned) -- not every client has this event
 
 -- Learn real vendor prices (reagents and schematics/plans) whenever a merchant is open.
 local function readMerchant()

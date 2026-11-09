@@ -161,12 +161,12 @@ __livePrice = {}
 C_TradeSkillUI = {
   GetBaseProfessionInfo = function() return { professionName = "Engineering" } end,
   GetAllRecipeIDs = function() if __helperRecipe then return { 1, 2, 3, 99 } end return { 1, 2, 3 } end,
-  GetRecipeInfo = function(id) if id == 99 then return { name = __helperRecipe, learned = true, numAvailable = 5 } end return ({ { name = "Rough Blasting Powder", learned = true }, { name = "Thorium Widget", learned = true },
+  GetRecipeInfo = function(id) __recipeReads = (__recipeReads or 0) + 1; if id == 99 then return { name = __helperRecipe, learned = true, numAvailable = 5 } end return ({ { name = "Rough Blasting Powder", learned = true }, { name = "Thorium Widget", learned = true },
     { name = "Shiny New Gizmo", learned = false } })[id] end,
   CraftRecipe = function(id, n) __crafted = { id, n } end,
   StopRecipeRepeat = function() __stopped = (__stopped or 0) + 1 end,
   OpenRecipe = function(id) __opened = id end,
-  GetRecipeSchematic = function(id) return { quantityMin = 2, reagentSlotSchematics = {
+  GetRecipeSchematic = function(id) __schematicReads = (__schematicReads or 0) + 1; return { quantityMin = 2, reagentSlotSchematics = {
     { quantityRequired = 3, reagents = { { itemID = 2840 } } } } } end,
 }
 function GetMerchantNumItems() return 3 end
@@ -498,6 +498,14 @@ def main():
     assert G.__stopped == 1, "batch not stopped at the step boundary"
     assert G.__opened == 100, "next recipe not selected"
     assert any("is done for this route" in G.__chat[i] for i in range(1, len(G.__chat) + 1))
+    # Lag: list updates while crafting don't re-read the recipe list, and recipes CraftPath
+    # doesn't know are looked up once per session, not on every open.
+    G.__recipeReads, G.__schematicReads = 0, 0
+    for _ in range(5):
+        fire("TRADE_SKILL_LIST_UPDATE"); G.__runTimers()
+    assert G.__recipeReads == 0, f"list updates re-read recipes {G.__recipeReads} times"
+    fire("TRADE_SKILL_SHOW"); G.__runTimers()
+    assert 4 <= G.__recipeReads <= 6 and G.__schematicReads == 0, (G.__recipeReads, G.__schematicReads)  # list + helper
     Gcraft = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str) and f.__text.startswith("Craft")]
     G.__engSkill = 112
     ns.CraftHelper.lock = None
