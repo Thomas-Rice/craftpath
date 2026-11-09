@@ -85,6 +85,11 @@ def main():
     try:
         addon = os.path.join(tmp, "CraftPath")
         shutil.copytree(os.path.join(HERE, "..", "CraftPath"), addon)
+        # A recipe marked by hand as giving no skill-ups keeps that, though the game data says 1.
+        eng = os.path.join(addon, "Data", "Engineering.lua")
+        text = open(eng, encoding="utf-8").read()
+        line = next(l for l in text.splitlines() if l.startswith("Rough Blasting Powder|"))
+        open(eng, "w", encoding="utf-8").write(text.replace(line, line + "|0"))
         csvs = os.path.join(tmp, "csv")
         os.makedirs(csvs)
         new = {"name": "Thorium Shield Wall", "learn": 285, "yellow": 300, "grey": 320, "makes": 1, "source": "T",
@@ -97,6 +102,9 @@ def main():
         changes = os.path.join(tmp, "changes.json")
         sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
                            "--changes", changes])
+        synced = open(eng, encoding="utf-8").read()
+        assert any(l.startswith("Rough Blasting Powder|") and l.endswith("|0") for l in synced.splitlines()), \
+            "hand-set 0 skill-ups was lost"
         import json
         hist = json.load(open(changes, encoding="utf-8"))
         assert len(hist) == 1 and hist[0]["build"] == "1.60.1.99999", hist
@@ -120,6 +128,9 @@ def main():
                 assert a, f"{prof}: {name} lost"
                 if name == "Copper Tube":
                     assert a[0] == 75 and a[2] == 112, a  # learn kept from the old data, grey from the client
+                    continue
+                if name == "Rough Blasting Powder":
+                    assert a[:-1] == b[:-1] and a[-1] == 0, a  # hand-set "no skill-ups" kept
                     continue
                 assert a == b, f"{prof}: {name}\n before {b}\n after  {a}"
         wall = after["Blacksmithing"]["Thorium Shield Wall"]
