@@ -185,7 +185,39 @@ C_MerchantFrame = { GetItemInfo = function(i)
     { name = "Plans: Secret Forever Hammer", price = 9000, stackCount = 1 } })[i]
 end }
 TooltipDataProcessor = { AddTooltipPostCall = function(_, fn) __tooltipFn = fn end }
+-- Bags, bank, merchant and the auction house sell frame, for the "keep" marks.
+function GetTime() return now end
+__bag = {}   -- [bag][slot] = item name
+local function bagButton(bag, slot)
+  local b = newWidget("Button"); b.__bag, b.__slot = bag, slot
+  function b:GetBagID() return self.__bag end
+  function b:GetID() return self.__slot end
+  return b
+end
+ContainerFrameCombinedBags = newWidget("Frame", "ContainerFrameCombinedBags")
+ContainerFrameCombinedBags.__buttons = { bagButton(0, 1), bagButton(0, 2), bagButton(1, 1) }
+function ContainerFrameCombinedBags:EnumerateValidItems() return ipairs(self.__buttons) end
+function ContainerFrameCombinedBags:UpdateItems() end
+BankPanel = newWidget("Frame", "BankPanel")
+BankPanel.__shown = false
+local bankButton = newWidget("Button")
+function bankButton:GetBankTabID() return 6 end
+function bankButton:GetContainerSlotID() return 3 end
+BankPanel.__buttons = { bankButton }
+function BankPanel:EnumerateValidItems() return ipairs(self.__buttons) end
+C_Container = {
+  GetContainerItemInfo = function(bag, slot)
+    local n = __bag[bag] and __bag[bag][slot]
+    if n then return { hyperlink = "|cffffffff|Hitem:1|h[" .. n .. "]|h|r", stackCount = 5 } end
+  end,
+  UseContainerItem = function(bag, slot) if __bag[bag] then __bag[bag][slot] = nil end end,
+}
+MerchantFrame = newWidget("Frame", "MerchantFrame")
+MerchantFrame.__shown = false
 AuctionHouseFrame = newWidget("Frame", "AuctionHouseFrame")
+AuctionHouseFrame.ItemSellFrame = newWidget("Frame")
+function AuctionHouseFrame.ItemSellFrame:SetItem(location) self.__item = location end
+C_Item.GetItemName = function(location) return location.name end
 AuctionHouseFrame.SearchBar = newWidget("Frame")
 AuctionHouseFrame.SearchBar.SearchBox = newWidget("EditBox")
 function AuctionHouseFrame.SearchBar:StartSearch() __searched = self.SearchBox:GetText() end
@@ -548,6 +580,46 @@ def main():
     fire("TRADE_SKILL_SHOW")
     check_layout(G, "CraftPathCraftHelper")
     fire("TRADE_SKILL_CLOSE")
+
+    # ---- Keep marks: items your routes need, in bags and bank ----
+    fire("PLAYER_LOGIN")
+    keep = ns.Keep.Build(True)
+    needed = sorted(keep.keys())
+    assert needed, "expected the Engineering route to need something"
+    item = needed[0]
+    G.__bag[0] = lua.table_from({1: item, 2: "Hearthstone"})
+    G.__bag[6] = lua.table_from({3: item})
+    G.BankPanel.__shown = True
+    fire("BAG_UPDATE_DELAYED"); G.__runTimers()
+    b1, b2 = G.ContainerFrameCombinedBags.__buttons[1], G.ContainerFrameCombinedBags.__buttons[2]
+    assert b1.cpKeep and b1.cpKeep.__shown, "needed item in bags not marked"
+    assert not b2.cpKeep or not b2.cpKeep.__shown, "unneeded item marked"
+    assert G.BankPanel.__buttons[1].cpKeep.__shown, "needed item in the bank not marked"
+    # tooltip line
+    G.__itemNames[777001] = item
+    tip = G.CreateFrame("GameTooltip"); lines = []
+    tip.AddDoubleLine = lambda self, a, b, *r: lines.append((a, b))
+    G.__tooltipFn(tip, lua.table_from({"id": 777001}))
+    assert any("keep" in a and "Engineering" in b for a, b in lines), lines
+    # auction house: putting it up for sale warns
+    fire("AUCTION_HOUSE_SHOW"); G.__runTimers()
+    sell = G.AuctionHouseFrame.ItemSellFrame
+    sell.SetItem(sell, lua.table_from({"name": item}))
+    assert sell.cpKeepWarning.__shown and item in sell.cpKeepWarning.__text
+    sell.SetItem(sell, lua.table_from({"name": "Hearthstone"}))
+    assert not sell.cpKeepWarning.__shown
+    # vendor: selling it prints a warning
+    G.MerchantFrame.__shown = True
+    before = len(G.__chat)
+    G.C_Container.UseContainerItem(0, 1)
+    assert len(G.__chat) > before and item in G.__chat[len(G.__chat)], "no vendor warning"
+    G.MerchantFrame.__shown = False
+    # cleared slot loses its mark; turning it off hides marks
+    fire("BAG_UPDATE_DELAYED"); G.__runTimers()
+    assert not b1.cpKeep.__shown
+    G.SlashCmdList.CRAFTPATH("keep"); G.__runTimers()
+    assert not G.BankPanel.__buttons[1].cpKeep.__shown
+    G.SlashCmdList.CRAFTPATH("keep")
 
     # Slash command and closing the AH.
     G.SlashCmdList.CRAFTPATH("help")

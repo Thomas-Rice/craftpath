@@ -206,6 +206,7 @@ function Scanner.FullScan()
     return
   end
   ns.db.lastFullScan = time()
+  if ns.Keep then ns.Keep.MarkDirty() end
 end
 
 ns.On("REPLICATE_ITEM_LIST_UPDATE", function()

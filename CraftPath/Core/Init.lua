@@ -23,7 +23,7 @@ local DEFAULTS = {
     profession = "Engineering",
     from = 1, to = 300, useMySkill = true, capToLevel = true,
     allowRecipeItems = true, allowFavor = true, spec = "none", overtimeRank = 0,
-    openWithAH = true, tooltip = true, maxOverPct = 25, craftHelper = true, useOwned = true,
+    openWithAH = true, tooltip = true, maxOverPct = 25, craftHelper = true, useOwned = true, markBags = true,
   },
 }
 
@@ -98,7 +98,10 @@ function ns.MakePlan(override)
     charLevel = s.capToLevel and UnitLevel("player") or nil,
   }
   local plan = ns.Planner.Plan(opts)
-  if not override then ns.lastPlan = plan end
+  if not override then
+    ns.lastPlan = plan
+    if ns.Keep then ns.Keep.MarkDirty() end -- settings or prices changed: re-check what to keep
+  end
   return plan
 end
 
@@ -114,6 +117,8 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.db.settings.craftHelper = not ns.db.settings.craftHelper
     ns.Print("Crafting helper " .. (ns.db.settings.craftHelper and "on" or "off") .. ".")
     ns.CraftHelper.Update()
+  elseif msg == "keep" then
+    ns.Keep.Toggle()
   elseif msg == "reset" then
     wipe(ns.db.prices); wipe(ns.db.done)
     ns.Print("Auction prices cleared.")
@@ -122,6 +127,7 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.Print("/cpath scan — full auction house scan (at the AH, every 15 min)")
     ns.Print("/cpath list — scan just the items on your shopping list")
     ns.Print("/cpath craft — turn the crafting helper (beside the profession window) on or off")
+    ns.Print("/cpath keep — turn marking of items you need in your bags and bank on or off")
     ns.Print("/cpath reset — forget all auction prices")
   else
     ns.UI.Toggle()

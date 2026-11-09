@@ -630,9 +630,14 @@ end
 function ns.OnLoaded()
   if not (TooltipDataProcessor and Enum.TooltipDataType and Enum.TooltipDataType.Item) then return end
   TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, function(tooltip, data)
-    if not settings().tooltip or not data or not data.id then return end
+    if not data or not data.id then return end
     local ok, name = pcall(C_Item.GetItemInfo, data.id)
     if not ok or not name then return end
+    local keep = ns.Keep and ns.Keep.For(name)
+    if keep then
+      tooltip:AddDoubleLine("|cff33bbffCraftPath|r keep", keep.qty .. " (" .. ns.Keep.Text(keep) .. ")", 1, 1, 1, 1, 0.82, 0)
+    end
+    if not settings().tooltip then return end
     local e = ns.Prices.Info(name)
     if e and e.p then
       tooltip:AddDoubleLine("|cff33bbffCraftPath|r AH", Money(e.p) .. " |cff999999(" .. ns.Prices.AgeText(name) .. ")|r", 1, 1, 1, 1, 1, 1)
