@@ -237,6 +237,37 @@ def main():
     check_plan(ns, p, 1, 225)
     assert "Alterac Swiss" not in {b.name for b in lua_list(p.shopping)}
 
+    # Background planning: the planner yields when a frame's time budget is spent, and the
+    # result matches planning in one go.
+    lua.execute("""
+      local ns = ...
+    """)
+    run_sliced = lua.eval("""
+      function(ns, opts)
+        local clock = 0
+        debugprofilestop = function() clock = clock + 1; return clock end -- 1 ms per call
+        local co = coroutine.create(function() return ns.Planner.Plan(opts) end)
+        local slices, ok, plan = 0
+        repeat
+          ns.Planner.sliceEnd = clock + 3
+          ok, plan = coroutine.resume(co)
+          assert(ok, plan)
+          slices = slices + 1
+        until coroutine.status(co) == "dead"
+        ns.Planner.sliceEnd = nil
+        debugprofilestop = nil
+        return plan, slices
+      end
+    """)
+    owned = {"Copper Bar": 40, "Heavy Stone": 30, "Iron Bar": 12}
+    opts = lua.table_from({"profession": "Blacksmithing", "from": 1, "to": 225, "faction": "Horde",
+                           "ahPrice": lambda n: SAMPLE_PRICES.get(n), "owned": lambda n: owned.get(n, 0)})
+    sliced, slices = run_sliced(ns, opts)
+    whole = ns.Planner.Plan(opts)
+    assert slices > 20, slices
+    assert sliced.total == whole.total and len(sliced.steps) == len(whole.steps), (sliced.total, whole.total)
+    print(f"Background planning: {slices} slices, same route")
+
     print("All tests passed.")
     if "--show" in sys.argv:
         for prof, p in results.items():

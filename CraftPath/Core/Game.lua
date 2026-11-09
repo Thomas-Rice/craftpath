@@ -107,8 +107,14 @@ local function readKnownRecipes()
     end
   end
   if next(known) then
-    ns.db.known[prof] = known
-    if ns.UI and ns.UI.Refresh then ns.UI.Refresh() end
+    local old, same = ns.db.known[prof] or {}, true
+    for k in pairs(known) do if not old[k] then same = false; break end end
+    for k in pairs(old) do if not known[k] then same = false; break end end
+    if not same then
+      ns.db.known[prof] = known
+      ns.db.knownVersion = (ns.db.knownVersion or 0) + 1
+      if ns.UI and ns.UI.Refresh then ns.UI.Refresh() end
+    end
   end
   Game.openProfession = prof
   if ns.CraftHelper then ns.CraftHelper.Update() end
@@ -140,7 +146,13 @@ ns.On("TRADE_SKILL_SHOW", function()
   if ns.CraftHelper then ns.CraftHelper.preview = nil end -- opening the window: back to your current step
   readKnownRecipes()
 end)
-ns.On("TRADE_SKILL_LIST_UPDATE", readKnownRecipes)
+-- This fires several times per craft: read the recipe list at most about once a second.
+local readPending = false
+ns.On("TRADE_SKILL_LIST_UPDATE", function()
+  if readPending then return end
+  readPending = true
+  C_Timer.After(0.75, function() readPending = false; readKnownRecipes() end)
+end)
 
 -- Learn real vendor prices (reagents and schematics/plans) whenever a merchant is open.
 local function readMerchant()

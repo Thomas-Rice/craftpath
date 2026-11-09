@@ -16,60 +16,87 @@ local ICONS = {
   Blacksmithing = "Interface\\Icons\\Trade_BlackSmithing",
   Cooking = "Interface\\Icons\\INV_Misc_Food_15",
 }
-local RECOMPUTE_AFTER = 3 -- seconds: plans are only rebuilt this often
 
 local need = {}      -- item name -> { qty = n, profs = { {prof, qty}, ... } }
-local dirty = true
-local lastBuilt = 0
+local plans = {}     -- prof -> { key = route key, plan = plan }
+local building = false
+local lastCheck = -10
 local slotNames = {} -- "bag:slot" -> item name, for the vendor warning after the item is gone
 
 local function enabled()
   return ns.db and ns.db.settings.markBags ~= false
 end
 
--- The professions CraftPath plans that this character has.
+-- The professions CraftPath plans that this character has, below the planner's target.
 local function myProfessions()
   local out = {}
+  local target = tonumber(ns.db.settings.to) or 300
   for _, prof in ipairs(ns.Recipes.Professions()) do
-    local skill, maxSkill = ns.Game.GetSkill(prof)
-    if skill and skill > 0 then out[#out + 1] = { prof = prof, skill = skill, max = maxSkill } end
+    local skill = ns.Game.GetSkill(prof)
+    if skill and skill > 0 and skill < target then out[#out + 1] = { prof = prof, skill = skill } end
   end
   return out
 end
 
--- Rebuilds the "needed" list from fresh plans (at most every few seconds).
-function Keep.Build(force)
-  if not force and not dirty then return need end
-  local now = GetTime and GetTime() or 0
-  if not force and now - lastBuilt < RECOMPUTE_AFTER then return need end
-  lastBuilt, dirty = now, false
+-- A profession's plan is reused until you finish its current step or prices/settings change.
+local function current(p)
+  local c = plans[p.prof]
+  if not c or c.key ~= ns.RouteKey(p.prof) then return false end
+  local first = c.plan.steps and c.plan.steps[1]
+  if c.plan.error then return c.skill == p.skill end
+  return first and p.skill >= c.plan.from and p.skill < first.to
+end
+
+local function collect(profs)
   wipe(need)
-  local target = tonumber(ns.db.settings.to) or 300
-  for _, p in ipairs(myProfessions()) do
-    if p.skill < target then
-      local ok, plan = pcall(ns.MakePlan, { profession = p.prof, liveSkill = true })
-      if ok and plan and not plan.error and plan.demand then
-        for name, qty in pairs(plan.demand) do
-          if qty and qty > 0 then
-            local e = need[name] or { qty = 0, profs = {} }
-            e.qty = e.qty + qty
-            e.profs[#e.profs + 1] = { p.prof, qty }
-            need[name] = e
-          end
+  for _, p in ipairs(profs) do
+    local c = plans[p.prof]
+    local demand = c and not c.plan.error and c.plan.demand
+    if demand then
+      for name, qty in pairs(demand) do
+        if qty and qty > 0 then
+          local e = need[name] or { qty = 0, profs = {} }
+          e.qty = e.qty + qty
+          e.profs[#e.profs + 1] = { p.prof, qty }
+          need[name] = e
         end
       end
     end
   end
+end
+
+-- The "needed" list. Out-of-date plans are rebuilt in the background (no freeze); the
+-- marks update when that finishes.
+function Keep.Build(force)
+  local now = GetTime and GetTime() or 0
+  if building or (not force and now - lastCheck < 1) then return need end
+  lastCheck = now
+  local profs = myProfessions()
+  local todo = {}
+  for _, p in ipairs(profs) do
+    if not current(p) then todo[#todo + 1] = p end
+  end
+  if #todo == 0 then collect(profs); return need end
+  building = true
+  ns.Async("keep", function()
+    for _, p in ipairs(todo) do
+      plans[p.prof] = { key = ns.RouteKey(p.prof), skill = p.skill,
+        plan = ns.MakePlan({ profession = p.prof, liveSkill = true }) }
+    end
+  end, function()
+    building = false
+    collect(myProfessions())
+    Keep.Refresh()
+  end)
   return need
 end
 
-function Keep.MarkDirty() dirty = true end
+function Keep.MarkDirty() lastCheck = -10 end
 
--- How many of this item to keep, and which profession first wants it.
+-- How many of this item to keep, and for which professions.
 function Keep.For(name)
   if not enabled() or not name then return nil end
-  local e = Keep.Build()[name]
-  return e
+  return Keep.Build()[name]
 end
 
 local function keepText(e)
@@ -243,7 +270,7 @@ end
 
 local ev = CreateFrame("Frame")
 for _, e in ipairs({ "PLAYER_LOGIN", "BAG_UPDATE_DELAYED", "BANKFRAME_OPENED", "PLAYERBANKSLOTS_CHANGED",
-  "SKILL_LINES_CHANGED", "TRADE_SKILL_LIST_UPDATE", "AUCTION_HOUSE_SHOW", "MERCHANT_SHOW", "BAG_OPEN" }) do
+  "SKILL_LINES_CHANGED", "AUCTION_HOUSE_SHOW", "MERCHANT_SHOW", "BAG_OPEN" }) do
   pcall(ev.RegisterEvent, ev, e)
 end
 ev:SetScript("OnEvent", function(_, event)
@@ -257,7 +284,7 @@ ev:SetScript("OnEvent", function(_, event)
     end
     return
   end
-  if event == "SKILL_LINES_CHANGED" or event == "TRADE_SKILL_LIST_UPDATE" then Keep.MarkDirty() end
+  if event == "SKILL_LINES_CHANGED" then Keep.MarkDirty() end
   if event == "AUCTION_HOUSE_SHOW" then hookAuctionHouse() end
   if event == "MERCHANT_SHOW" then Keep.MarkDirty() end
   Keep.RefreshSoon()

@@ -70,6 +70,51 @@ ns.On("ADDON_LOADED", function(name)
   if ns.OnLoaded then ns.OnLoaded() end
 end)
 
+-- Background jobs: fn runs spread over frames, a few milliseconds per frame, so planning
+-- never freezes the game; done(result) is called when it finishes. A newer job with the
+-- same key replaces one still waiting. Without debugprofilestop (tests) it runs at once.
+local jobs, runner = {}, CreateFrame("Frame")
+runner:Hide()
+local SLICE_MS = 5
+function ns.Async(key, fn, done)
+  if not debugprofilestop then
+    local result = fn()
+    if done then done(result) end
+    return
+  end
+  for i = #jobs, 2, -1 do
+    if jobs[i].key == key then table.remove(jobs, i) end
+  end
+  jobs[#jobs + 1] = { key = key, co = coroutine.create(fn), done = done }
+  runner:Show()
+end
+runner:SetScript("OnUpdate", function(self)
+  local job = jobs[1]
+  if not job then self:Hide(); return end
+  ns.Planner.sliceEnd = debugprofilestop() + SLICE_MS
+  local ok, result = coroutine.resume(job.co)
+  ns.Planner.sliceEnd = nil
+  if not ok then
+    table.remove(jobs, 1)
+    geterrorhandler()(result)
+  elseif coroutine.status(job.co) == "dead" then
+    table.remove(jobs, 1)
+    if job.done then
+      local okDone, err = pcall(job.done, result)
+      if not okDone then geterrorhandler()(err) end
+    end
+  end
+end)
+
+-- Everything except your skill that changes a route: plans made with the same key can be
+-- reused while you level (the crafting helper and bag marks rely on this).
+function ns.RouteKey(prof)
+  local s = ns.db.settings
+  return table.concat({ prof, tostring(ns.db.scanId), tostring(#ns.db.purchases),
+    tostring(s.allowRecipeItems), tostring(s.allowFavor), tostring(s.useOwned), tostring(s.spec),
+    tostring(s.overtimeRank), tostring(s.to), tostring(s.capToLevel), tostring(ns.db.knownVersion) }, "|")
+end
+
 -- Build planner options from saved settings and live game state, then plan.
 -- override (optional): { profession = ..., liveSkill = true } for the crafting helper.
 function ns.MakePlan(override)
@@ -98,10 +143,7 @@ function ns.MakePlan(override)
     charLevel = s.capToLevel and UnitLevel("player") or nil,
   }
   local plan = ns.Planner.Plan(opts)
-  if not override then
-    ns.lastPlan = plan
-    if ns.Keep then ns.Keep.MarkDirty() end -- settings or prices changed: re-check what to keep
-  end
+  if not override then ns.lastPlan = plan end
   return plan
 end
 

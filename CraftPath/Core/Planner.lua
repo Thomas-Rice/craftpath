@@ -37,6 +37,14 @@ local function ceil(x) return math.ceil(x - 1e-9) end
 --                                      list (up to the highest skill it teaches) are left out
 local planOnce
 
+-- Long plans can be spread over several frames (ns.Async): Tick hands control back once this
+-- frame's time budget is spent. Outside such a job (or in tests) it does nothing.
+Planner.sliceEnd = nil
+function Planner.Tick()
+  local stop = Planner.sliceEnd
+  if stop and debugprofilestop and debugprofilestop() > stop and coroutine.running() then coroutine.yield() end
+end
+
 -- Plans, using what you already own first (opts.useOwned, default on):
 --   1. price owned items at 0 and plan;
 --   2. where the route needs more than you own, charge the market price for the share it
@@ -83,7 +91,7 @@ function Planner.Plan(opts)
   for i = 1, math.min(3, #contested) do
     local name, have = contested[i], ownedOf(contested[i])
     local lo, hi = 0, 1
-    for _ = 1, 6 do
+    for _ = 1, 4 do
       local mid = (lo + hi) / 2
       factor[name] = mid
       local p = planOnce(opts, priced)
@@ -96,6 +104,7 @@ function Planner.Plan(opts)
 end
 
 planOnce = function(opts, ownedFactor)
+  Planner.Tick()
   local data = Recipes.Load(opts.profession)
   if not data then return { error = "Unknown profession: " .. tostring(opts.profession) } end
 
@@ -236,11 +245,26 @@ planOnce = function(opts, ownedFactor)
     return info.cost, info
   end
 
+  -- What you can craft only changes at skills where some recipe is learned, so item and
+  -- craft costs are worked out once per such "tier" instead of once per skill point.
+  local tierOf = {}
+  do
+    local learns = {}
+    for _, r in ipairs(list) do learns[r.learn] = true end
+    local tier = 0
+    for k = 0, 300 do
+      if learns[k] then tier = k end
+      tierOf[k] = tier
+    end
+  end
+
   -- Cheapest way to get one unit of an item while at skill s.
   local unitMemo = {}
   local function unitCost(name, s, visiting)
-    local key = name .. "@" .. s
-    local m = unitMemo[key]
+    local tier = tierOf[s] or s
+    local memo = unitMemo[name]
+    if not memo then memo = {}; unitMemo[name] = memo end
+    local m = memo[tier]
     if m then return m.cost, m end
     local best = { cost = INF }
     local a = ahPrice(name)
@@ -277,16 +301,23 @@ planOnce = function(opts, ownedFactor)
       visiting[name] = nil
     end
     -- Only memoise results computed without a cycle guard in play.
-    if not next(visiting) then unitMemo[key] = best end
+    if not next(visiting) then memo[tier] = best end
     return best.cost, best
   end
 
+  local craftMemo = {}
   local function craftCost(r, s)
+    local tier = tierOf[s] or s
+    local memo = craftMemo[r]
+    if not memo then memo = {}; craftMemo[r] = memo end
+    local m = memo[tier]
+    if m then return m end
     local total = 0
     for _, g in ipairs(r.reagents) do
       total = total + g.qty * (unitCost(g.name, s))
-      if total == INF then return INF end
+      if total == INF then break end
     end
+    memo[tier] = total
     return total
   end
 
@@ -312,6 +343,7 @@ planOnce = function(opts, ownedFactor)
   for s = from, to do best[s] = INF end
   best[from] = 0
   for s = from, to - 1 do
+    if s % 8 == 0 then Planner.Tick() end
     if best[s] < INF then
       for _, r in ipairs(candidates) do
         if s >= r.learn and s < r.grey then

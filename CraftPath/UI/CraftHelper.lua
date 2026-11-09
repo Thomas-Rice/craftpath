@@ -140,46 +140,62 @@ end
 -- A step picked on the planner's Leveling steps tab, shown instead of the current step.
 Helper.preview = nil -- { prof, step, index, total }
 
--- Plans are reused until your skill, prices or settings change (planning with your stock
--- takes a moment, and bag changes after every craft shouldn't trigger it).
+-- Plans are reused until your skill leaves the current step, or prices, settings, known
+-- recipes or purchases change. A missing plan is worked out in the background (a few ms per
+-- frame) and the panel updates when it's ready, so crafting never stutters.
 local planCache, cacheSize = {}, 0
+local waiting = {}
 local function cachedPlan(prof, skill, from)
-  local s = ns.db.settings
-  local key = table.concat({ prof, tostring(skill), tostring(from), tostring(ns.db.scanId), tostring(#ns.db.purchases),
-    tostring(s.allowRecipeItems), tostring(s.allowFavor), tostring(s.useOwned), tostring(s.spec), tostring(s.overtimeRank),
-    tostring(s.to), tostring(s.capToLevel) }, "|")
+  local key = ns.RouteKey(prof) .. "|" .. tostring(skill) .. "|" .. tostring(from)
   local c = planCache[key]
   if c then return c end
-  local plan = ns.MakePlan({ profession = prof, liveSkill = from == nil, from = from })
-  if cacheSize >= 6 then planCache, cacheSize = {}, 0 end -- keep only the latest few
-  planCache[key], cacheSize = plan, cacheSize + 1
-  return plan
+  if not waiting[key] then
+    waiting[key] = true
+    ns.Async("helper", function()
+      return ns.MakePlan({ profession = prof, liveSkill = from == nil, from = from })
+    end, function(plan)
+      waiting[key] = nil
+      if cacheSize >= 6 then planCache, cacheSize = {}, 0 end -- keep only the latest few
+      planCache[key], cacheSize = plan, cacheSize + 1
+      if Helper.Update then Helper.Update() end
+    end)
+  end
+  return nil
 end
-function Helper.ClearCache() planCache, cacheSize = {}, 0 end
+function Helper.ClearCache() planCache, cacheSize, waiting = {}, 0, {} end
 
 -- Works out what to show for the open profession.
 function Helper.Compute(prof)
   local skill, maxSkill = ns.Game.GetSkill(prof)
-  local plan = cachedPlan(prof, skill)
+  local lock = Helper.lock
+  local locked = lock and lock.prof == prof and skill and skill >= (lock.from or 0) and skill < lock.to
+  -- On a step, keep using the plan made when it started; replan only at its end.
+  local plan = locked and cachedPlan(prof, lock.from) or cachedPlan(prof, skill)
   local view = { prof = prof, skill = skill, maxSkill = maxSkill, plan = plan }
   local pv = Helper.preview
+  if not plan then
+    if Helper.view and Helper.view.prof == prof and not Helper.view.pending then
+      Helper.view.switchedFrom = nil -- already announced
+      return Helper.view -- keep showing the last step until the new plan is ready
+    end
+    view.pending = true
+    return view
+  end
   if plan.error and not (pv and pv.prof == prof) then view.error = plan.error; return view end
   local data = ns.Recipes.Load(prof)
   local step
-  local lock = Helper.lock
   if pv and pv.prof == prof then
     step = pv.step
     view.preview = pv
     view.after = pv.next
-  elseif lock and lock.prof == prof and skill and skill >= (lock.from or 0) and skill < lock.to then
+  elseif locked then
     step = stepFromLock(lock, skill, plan, data)
   end
   if view.preview then
     -- previewing: leave the lock alone
   elseif step then
-    -- What comes after this step: plan from the end of it.
-    local afterPlan = cachedPlan(prof, skill, lock.to)
-    view.after = afterPlan.steps and afterPlan.steps[1] or nil
+    -- What comes after this step: the next step of the same plan.
+    view.after = plan.steps and plan.steps[2] or nil
   else
     step = plan.steps[1]
     view.switchedFrom = lock and lock.prof == prof and lock.recipe ~= step.recipe.name and lock.recipe or nil
@@ -241,6 +257,13 @@ function Helper.Render(view)
   end
   w.craft:Disable()
   w.open:SetEnabled(view.recipeID ~= nil)
+  if view.pending then
+    w.step:SetText("Working out your route…")
+    w.detail:SetText("This takes a moment and won't slow the game down.")
+    w.reagents:SetText(""); w.first:SetText(""); w.next:SetText("")
+    w.craft:SetText("Craft")
+    return
+  end
   if view.error then
     w.step:SetText("No route yet")
     w.detail:SetText(view.error .. "\nScan the auction house from the planner so CraftPath knows prices.")
