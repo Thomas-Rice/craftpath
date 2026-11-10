@@ -366,7 +366,23 @@ def add_changes_entry(path, build, entries, date=None):
     if os.path.exists(path):
         with open(path, encoding="utf-8") as fh:
             history = json.load(fh)
-    history = [h for h in history if h.get("build") != build]  # one entry per build
+    # One entry per build: a later run for the same build adds to it (per profession) rather
+    # than replacing what an earlier run recorded.
+    same = next((h for h in history if h.get("build") == build), None)
+    if same:
+        history.remove(same)
+        merged = {e["profession"]: e for e in same.get("professions", [])}
+        for e in entries:
+            old = merged.get(e["profession"])
+            if old:
+                names = {a["name"] for a in old["added"]}
+                old["added"] += [a for a in e["added"] if a["name"] not in names]
+                old["removed"] += e["removed"]
+                old["changed"] += e["changed"]
+                old["after"] = e["after"]
+            else:
+                merged[e["profession"]] = e
+        entries = list(merged.values())
     history.insert(0, {"date": date or datetime.date.today().isoformat(), "build": build, "professions": entries})
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8", newline="\n") as fh:
