@@ -134,6 +134,13 @@ function Profit.Find(opts)
               info.how = r.source == "G" and "goblin" or "gnomish"
             end
             entry.needSkill = r.learn
+            -- What stands between you and this craft:
+            --   "learn"      you have the skill, just get the recipe
+            --   "skill"      level the profession first (from skill to needSkill), then get the recipe
+            --   "profession" you don't have the profession
+            if not it.skill then entry.need = "profession"
+            elseif it.skill < r.learn then entry.need = "skill"; entry.skillGap = r.learn - it.skill
+            else entry.need = "learn" end
             local per = math.max(safe or 0, vendorProfit or 0, profit or 0)
             if learnCost and learnCost > 0 and per > 0 then entry.payback = math.ceil(learnCost / per) end
           end

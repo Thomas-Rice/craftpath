@@ -281,7 +281,7 @@ def main():
 
     # ---- Profit finder ----
     pp = {"Copper Ore": 10, "Copper Bar": 40, "Tin Ore": 10, "Tin Bar": 8,
-          "Peacebloom": 5, "Silverleaf": 5, "Elixir of Minor Defense": 200, "Empty Vial": 4}
+          "Peacebloom": 5, "Silverleaf": 5, "Elixir of Minor Defense": 200, "Empty Vial": 4, "Bronze Bar": 500}
     stats = {"Copper Bar": {"low": 20, "median": 38, "high": 60, "days": 5}}
     opts = lua.table_from({
         "professions": lua.table_from({1: lua.table_from({"prof": "Mining", "skill": 50}),
@@ -302,6 +302,9 @@ def main():
     eld = found["Elixir of Minor Defense"]
     assert not eld.canCraft and not eld.hasProfession and eld.learn.how == "auto", eld.learn.how
     assert eld.cost > 10 and eld.profit > 100, (eld.cost, eld.profit)
+    assert eld.need == "profession"
+    bronze = found["Bronze Bar"]  # Mining 60, you have 50: level up 10 points first
+    assert bronze.need == "skill" and bronze.skillGap == 10, (bronze.need, bronze.skillGap)
     print("Profit finder:", {n: round(e.best, 1) for n, e in list(found.items())[:4]})
 
     print("All tests passed.")

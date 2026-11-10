@@ -623,12 +623,12 @@ def main():
     G.SlashCmdList.CRAFTPATH("profit")
     assert G.CraftPathProfitFrame.__shown
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
-    assert any("profitable crafts you can make" in t for t in texts), [t for t in texts if "rofit" in t][:5]
+    assert any("you can craft now" in t for t in texts), [t for t in texts if "rofit" in t][:5]
     check_layout(G, "CraftPathProfitFrame")
     ns.db.settings.profitUnknown = True
     ns.ProfitUI.Recompute()
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
-    assert any("Recipes you don't know yet" in t for t in texts), "unknown section missing"
+    assert any("Professions you don't have" in t for t in texts), "other professions section missing"
     check_layout(G, "CraftPathProfitFrame")
     G.SlashCmdList.CRAFTPATHPROFIT()
     assert not G.CraftPathProfitFrame.__shown

@@ -365,3 +365,10 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; bac
   .profit { grid-template-columns: 1fr; }
   .p-nums { justify-content: space-between; text-align: left; }
 }
+
+.skills { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 10px; }
+.skills:empty { display: none; }
+.skill { display: flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--muted); }
+.skill input { width: 76px; padding: 6px 8px; }
+.badge.lvl { background: rgba(102, 204, 255, .16); color: #b8e6ff; text-decoration: none; }
+.badge.learnb { background: rgba(233, 184, 79, .16); color: var(--gold); }

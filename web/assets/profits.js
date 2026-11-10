@@ -39,8 +39,30 @@ function learnText(e) {
   return t;
 }
 
-let all = [], snapshot;
+let all = [], snapshot, engine;
 let mine = new Set(store.get("myProfs", []));
+const skills = store.get("mySkills", {});
+const levelCosts = {};
+
+// Gold to level a profession between two skills (the planner, same prices), cached.
+function levelCost(prof, from, to) {
+  const key = `${prof}|${from}|${to}`;
+  if (!(key in levelCosts)) {
+    const prices = Object.fromEntries(Object.entries(snapshot.prices).map(([k, v]) => [k, v.p]));
+    const p = engine.plan({ profession: prof, from, to, faction: "Horde", charLevel: 60, prices, vendor: snapshot.vendor });
+    levelCosts[key] = p.error ? null : p.total;
+  }
+  return levelCosts[key];
+}
+
+// Where an entry stands for you: ready, learn (you have the skill), skill (level up first), or other.
+function needOf(e) {
+  if (!mine.has(e.profession)) return "other";
+  const sk = skills[e.profession];
+  if (!sk) return "mine";
+  if (sk < e.skill) return "skill";
+  return ["A", "T"].includes(e.source) ? "ready" : "learn";
+}
 const state = Object.assign({ showAll: false, onlyEasy: false, sort: "safe", find: "" }, store.get("profitView", {}));
 
 const keyOf = (e) => state.sort === "profit" ? (e.profit ?? e.vendorProfit ?? -1e12)
@@ -49,6 +71,12 @@ const keyOf = (e) => state.sort === "profit" ? (e.profit ?? e.vendorProfit ?? -1
 
 function card(e, idx) {
   const badges = [];
+  const need = needOf(e), sk = skills[e.profession];
+  if (need === "skill") {
+    const c = levelCost(e.profession, sk, e.skill);
+    badges.push(`<a class="badge lvl" href="planner.html#p=${encodeURIComponent(e.profession)}&from=${sk}&to=${e.skill}&f=Horde">level ${sk} → ${e.skill}${c != null ? ` · about ${money(c)}` : ""}</a>`);
+  }
+  if (need === "learn") badges.push(`<span class="badge learnb">learn the recipe</span>`);
   if (e.vendorProfit > 0) badges.push(`<span class="badge vendor">vendor pays more</span>`);
   if (e.swings) badges.push(`<span class="badge short">price swings</span>`);
   if (e.listed > 40) badges.push(`<span class="badge">${e.listed} listed</span>`);
@@ -92,17 +120,31 @@ function render() {
     && (!q || e.name.toLowerCase().includes(q) || arr(e.materials).some((m) => m.name.toLowerCase().includes(q)));
   const list = all.filter(ok).sort((a, b) => keyOf(b) - keyOf(a));
   const noneChosen = mine.size === 0;
-  const yours = noneChosen ? [] : list.filter((e) => mine.has(e.profession));
-  const rest = (state.showAll || noneChosen) ? list.filter((e) => !mine.has(e.profession)) : [];
+  const by = { ready: [], mine: [], learn: [], skill: [], other: [] };
+  for (const e of list) by[needOf(e)].push(e);
+  const yours = [...by.ready, ...by.mine].sort((a, b) => keyOf(b) - keyOf(a));
+  const rest = (state.showAll || noneChosen) ? by.other : [];
   $("heroNum").textContent = noneChosen ? list.length : yours.length;
   $("heroText").textContent = noneChosen
     ? "Profitable crafts across every profession at today's prices. Choose your professions below to put yours first."
     : `Profitable crafts for ${[...mine].join(", ")} at today's prices, after the auction house's 5% cut.`;
-  $("list").innerHTML = (noneChosen ? "" : section("Your professions", yours) || `<div class="panel muted">Nothing in your professions makes a profit at these prices.</div>`)
+  const anySkill = [...mine].some((p) => skills[p]);
+  $("list").innerHTML = (noneChosen ? "" : (section(anySkill ? "Craft now" : "Your professions", yours)
+      || `<div class="panel muted">Nothing you can craft now makes a profit at these prices.</div>`))
+    + section("Learn the recipe: you have the skill", by.learn)
+    + section("Level up first, then learn the recipe", by.skill)
     + section(noneChosen ? "Every profession" : "Other professions", rest)
     + (!state.showAll && !noneChosen ? `<button class="btn show-all" type="button">Show other professions too</button>` : "");
+  $("skills").innerHTML = [...mine].sort((a, b) => ORDER.indexOf(a) - ORDER.indexOf(b)).map((p) =>
+    `<label class="skill">${esc(p)} skill <input type="number" min="1" max="300" inputmode="numeric" data-skill="${esc(p)}" value="${skills[p] || ""}" placeholder="?"></label>`).join("");
 }
 
+$("skills").addEventListener("change", (ev) => {
+  const el = ev.target.closest("[data-skill]"); if (!el) return;
+  const v = Math.round(+el.value);
+  if (v >= 1 && v <= 300) skills[el.dataset.skill] = v; else delete skills[el.dataset.skill];
+  store.set("mySkills", skills); render();
+});
 $("myProfs").addEventListener("click", (ev) => {
   const b = ev.target.closest("[data-p]"); if (!b) return;
   const p = b.dataset.p; mine.has(p) ? mine.delete(p) : mine.add(p); render();
@@ -122,12 +164,12 @@ $("find").addEventListener("input", (e) => { state.find = e.target.value; render
 async function main() {
   try {
     const text = (p) => fetch(p).then((r) => { if (!r.ok) throw new Error(p + " " + r.status); return r.text(); });
-    const [engine, snap] = await Promise.all([
+    const [eng, snap] = await Promise.all([
       createEngine(window.wasmoon.LuaFactory, text, new URL("vendor/glue.wasm", import.meta.url).href),
       fetch("data/prices.json").then((r) => r.json()),
     ]);
-    snapshot = snap;
-    const res = engine.profit({ prices: snap.prices, vendor: snap.vendor, faction: "Horde" });
+    snapshot = snap; engine = eng;
+    const res = eng.profit({ prices: snap.prices, vendor: snap.vendor, faction: "Horde" });
     if (res.error) throw new Error(res.error);
     all = arr(res);
     const d = snap.updated ? new Date(snap.updated).toLocaleString("en-GB", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" }) : "unknown";

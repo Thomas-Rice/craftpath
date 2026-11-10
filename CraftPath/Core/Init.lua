@@ -142,6 +142,7 @@ function ns.MakePlan(override)
     if skill then from = skill end
   end
   if override and override.from then from = override.from end
+  if override and override.to then to = override.to end
   local opts = {
     profession = prof, from = from, to = to,
     ahPrice = ns.Prices.AH, vendorPrice = ns.Prices.Vendor,
@@ -153,7 +154,7 @@ function ns.MakePlan(override)
     bonus = 0.04 * (tonumber(s.overtimeRank) or 0),
     owned = ns.Game.Owned,
     listed = ns.Prices.Listed,
-    useOwned = s.useOwned,
+    useOwned = s.useOwned and not (override and override.noStock),
     faction = UnitFactionGroup and UnitFactionGroup("player") or nil,
     vendorWhere = function(item) return ns.db.vendorWhere[item] end,
     charLevel = s.capToLevel and UnitLevel("player") or nil,

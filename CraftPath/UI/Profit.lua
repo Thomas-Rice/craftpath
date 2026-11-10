@@ -116,7 +116,22 @@ function UI.Recompute()
   if computing then return end
   computing = true
   widgets.status:SetText("Working out today's profits…")
-  ns.Async("profit", function() return ns.Profit.Find(findOpts()) end, function(list)
+  ns.Async("profit", function()
+    local list = ns.Profit.Find(findOpts())
+    -- For recipes that need more skill: what levelling there costs (planner, without your stock).
+    local cache = {}
+    for _, e in ipairs(list) do
+      if e.need == "skill" and e.skill then
+        local key = e.profession .. "|" .. e.skill .. "|" .. e.needSkill
+        if cache[key] == nil then
+          local plan = ns.MakePlan({ profession = e.profession, from = e.skill, to = e.needSkill, noStock = true })
+          cache[key] = plan and not plan.error and plan.total or false
+        end
+        e.levelCost = cache[key] or nil
+      end
+    end
+    return list
+  end, function(list)
     computing = false
     results = list
     UI.Refresh()
@@ -209,7 +224,13 @@ local function tipFor(e)
     if not e.hasProfession then
       t[#t + 1] = "|cffff9933You don't have " .. e.profession .. ".|r"
     elseif e.skill and e.skill < e.needSkill then
-      t[#t + 1] = ("|cffff9933Needs %s %d (you have %d).|r"):format(e.profession, e.needSkill, e.skill)
+      t[#t + 1] = ("|cffff9933Needs %s %d: you have %d, so level up %d points first.|r"):format(
+        e.profession, e.needSkill, e.skill, e.needSkill - e.skill)
+      if e.levelCost then
+        t[#t + 1] = ("Levelling %d to %d costs about %s (see the CraftPath planner)."):format(e.skill, e.needSkill, Money(e.levelCost))
+      end
+    else
+      t[#t + 1] = "|cff33ff33You have the skill: just get the recipe.|r"
     end
     local text = learnLine(e)
     t[#t + 1] = "Get the recipe: " .. text
@@ -230,7 +251,11 @@ local function rowFor(e)
     local how = e.learn and e.learn.how
     local tag = ({ trainer = "trainer", auto = "auto", favor = "favor", quest = "quest", vendor = "vendor",
       ["vendor-est"] = "vendor", ah = "AH", goblin = "goblin", gnomish = "gnomish" })[how] or "drop"
-    notes = { "|cff999999learn: " .. tag .. "|r" }
+    if e.need == "skill" then
+      notes = { ("|cff66ccffskill %d|r"):format(e.needSkill) }
+    else
+      notes = { "|cff999999learn: " .. tag .. "|r" }
+    end
     name = "|cffbbbbbb" .. name .. "|r"
   end
   local safe = e.safeProfit
@@ -263,35 +288,42 @@ function UI.Refresh()
     setRows({})
     return
   end
-  local mine, other = {}, {}
+  local mine, groups = {}, { learn = {}, skill = {}, profession = {} }
   for _, e in ipairs(results) do
-    if e.canCraft then mine[#mine + 1] = e elseif s.profitUnknown then other[#other + 1] = e end
+    if e.canCraft then mine[#mine + 1] = e
+    elseif e.need and (e.need ~= "profession" or s.profitUnknown) then table.insert(groups[e.need], e) end
   end
   table.sort(mine, function(a, b) return keyOf(a) > keyOf(b) end)
-  table.sort(other, function(a, b) return keyOf(a) > keyOf(b) end)
+  for _, g in pairs(groups) do table.sort(g, function(a, b) return keyOf(a) > keyOf(b) end) end
+  local other = groups.profession
   local out = {
     { "|cff999999Item  (hover for details, click to search)|r", "|cff999999Cost|r", "|cff999999Sells for|r",
       "|cff999999Profit|r", "|cffffd100Safe|r", "|cff999999Listed|r", "|cff999999Notes|r" },
   }
   if #mine == 0 then
     out[#out + 1] = { "|cffff9933Nothing you can craft makes a profit at these prices.|r" }
-    out[#out + 1] = { "Tick 'Show recipes I don't know' to see what you could learn." }
+    out[#out + 1] = { "See below for recipes you could learn, or tick 'Show other professions'." }
   end
   for i, e in ipairs(mine) do
     if i > MAX_ROWS_SHOWN then break end
     out[#out + 1] = rowFor(e)
   end
-  if s.profitUnknown then
+  local function section(title, list)
+    if #list == 0 then return end
     out[#out + 1] = { "" }
-    out[#out + 1] = { ("|cffffd100Recipes you don't know yet (%d)|r"):format(#other) }
-    for i, e in ipairs(other) do
+    out[#out + 1] = { ("|cffffd100%s (%d)|r"):format(title, #list) }
+    for i, e in ipairs(list) do
       if i > MAX_ROWS_SHOWN then break end
       out[#out + 1] = rowFor(e)
     end
   end
+  -- Your professions: recipes you could add by learning them, or by levelling up first.
+  section("Learn the recipe: you have the skill", groups.learn)
+  section("Level up first, then learn the recipe", groups.skill)
+  if s.profitUnknown then section("Professions you don't have", other) end
   setRows(out)
-  widgets.status:SetText(("Prices from your scan on %s.  %d profitable crafts you can make%s."):format(
-    when, #mine, s.profitUnknown and (", " .. #other .. " more to learn") or ""))
+  widgets.status:SetText(("Prices from %s.  %d you can craft now, %d to learn, %d after levelling up%s."):format(
+    when, #mine, #groups.learn, #groups.skill, s.profitUnknown and (", " .. #other .. " in other professions") or ""))
 end
 
 ---------------------------------------------------------------------------
@@ -313,8 +345,8 @@ local function create()
   if frame.TitleText then frame.TitleText:SetText("CraftPath Profits — what to craft today") end
 
   -- Row 1 (y -30): show unknown, sort, refresh          12 ... 300 | 340 ... 646
-  widgets.unknown = checkbox(frame, "Show recipes I don't know", "profitUnknown",
-    "Also list recipes you haven't learned, from every profession, with where to get them and how many crafts pay them back.")
+  widgets.unknown = checkbox(frame, "Show other professions", "profitUnknown",
+    "Also list profitable crafts from professions you don't have. Recipes you could learn in your own professions are always shown, below the ones you can craft now.")
   widgets.unknown:SetPoint("TOPLEFT", 12, -30)
   widgets.sort = button(frame, "", 140, function()
     local cur = settings().profitSort or "safe"
