@@ -405,6 +405,12 @@ def main():
     tabs[0].Click(tabs[0])
     rows = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__kind == "Button" and isinstance(f.item, str)]
     assert rows, "no shopping rows"
+    # Need / Bags / Bank / Mail / Buy columns, all inside the list width
+    texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
+    assert any("Need" in t for t in texts) and any("Mail" in t for t in texts), "stock columns missing"
+    r0 = rows[0]
+    need_text = r0.cols[2].__text
+    assert need_text and need_text.isdigit(), need_text
     rows[0].Click(rows[0], "LeftButton")
     assert G.__searched == rows[0].item
     rows[0].Click(rows[0], "RightButton")

@@ -5,6 +5,15 @@ ns.UI = {}
 local UI = ns.UI
 
 local ROW_H, ROWS_W = 18, 556
+-- Column layouts for the list (x, width, right-aligned). Every column ends inside ROWS_W.
+local MAX_COLS = 7
+local LAYOUT = { x = { 4, 64, 300, 420 }, w = { 58, 234, 118, 132 }, right = { false, false, true, true } }
+-- Shopping list: item, then need / in bags / in bank / in mailbox / to buy, then cost.
+local SHOP_LAYOUT = {
+  x = { 4, 196, 244, 292, 340, 388, 440 },
+  w = { 188, 44, 44, 44, 44, 48, 112 },
+  right = { false, true, true, true, true, true, true },
+}
 local FRAME_W, FRAME_H = 600, 600
 local LIST_TOP, LIST_TOP_BUY = -196, -250 -- list top, without / with the buying bar
 local Money = function(c) return ns.Prices.Money(c) end
@@ -123,13 +132,8 @@ local function getRow(i)
   r:RegisterForClicks("LeftButtonUp", "RightButtonUp")
   r:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
   r.cols = {}
-  local x = { 4, 64, 300, 420 }
-  local w = { 58, 234, 118, 132 }
-  for c = 1, 4 do
+  for c = 1, MAX_COLS do
     local fs = r:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-    fs:SetPoint("LEFT", x[c], 0)
-    fs:SetWidth(w[c])
-    fs:SetJustifyH(c >= 3 and "RIGHT" or "LEFT")
     fs:SetWordWrap(false)
     r.cols[c] = fs
   end
@@ -159,10 +163,30 @@ local function getRow(i)
   return r
 end
 
-local function setRows(list)
+local function placeColumns(r, layout)
+  if r.layout == layout then return end
+  r.layout = layout
+  for c = 1, MAX_COLS do
+    local fs, x = r.cols[c], layout.x[c]
+    fs:ClearAllPoints()
+    if x then
+      fs:SetPoint("LEFT", x, 0)
+      fs:SetWidth(layout.w[c])
+      fs:SetJustifyH(layout.right[c] and "RIGHT" or "LEFT")
+      fs:Show()
+    else
+      fs:SetText("")
+      fs:Hide()
+    end
+  end
+end
+
+local function setRows(list, layout)
+  layout = layout or LAYOUT
   for i, data in ipairs(list) do
     local r = getRow(i)
-    for c = 1, 4 do r.cols[c]:SetText(data[c] or "") end
+    placeColumns(r, layout)
+    for c = 1, #layout.x do r.cols[c]:SetText(data[c] or "") end
     r.item, r.tip, r.onClick = data.item, data.tip, data.onClick
     r:Show()
   end
@@ -291,21 +315,28 @@ end
 local function buildShopping(plan)
   local run = ns.Shopping.Get()
   if run then return buildRun(run) end
-  local out = { columns("Buy", "Item", "Price each", "Total") }
+  local g = function(t) return "|cff999999" .. t .. "|r" end
+  local out = { { g("Item  (click to search the AH)"), g("Need"), g("Bags"), g("Bank"), g("Mail"), "|cffffd100Buy|r", g("Cost") } }
+  local dim = function(n) return n > 0 and tostring(n) or "|cff555555–|r" end
   for _, b in ipairs(plan.shopping) do
     if b.buy > 0 or b.have > 0 then
       local done = ns.db.done[b.name]
       local shown = b.short and ("|cffff9933" .. b.name .. "|r") or b.name
       local name = done and ("|cff777777" .. b.name .. " |TInterface\\RaidFrame\\ReadyCheck-Ready:12|t|r") or shown
-      local qty = b.have > 0 and ("%d |cff999999(+%d)|r"):format(b.buy, b.have) or tostring(b.buy)
+      local bags = ns.Game.Bags(b.name)
+      local bank = math.max(0, ns.Game.BagsAndBank(b.name) - bags)
+      local mail = ns.Game.Mail(b.name)
+      local buy = b.buy > 0 and ("|cffffd100" .. b.buy .. "|r") or "|TInterface\\RaidFrame\\ReadyCheck-Ready:12|t"
       out[#out + 1] = {
-        qty, name, Money(b.unit), Money(b.total), item = b.name,
+        name, tostring(b.qty), dim(bags), dim(bank), dim(mail), buy, b.buy > 0 and Money(b.total) or "",
+        item = b.name,
         tip = (function()
-          local t = { b.name, ("Need %d, you have %d, buy %d"):format(b.qty, b.have, b.buy) }
-          local elsewhere = b.have > 0 and ns.Game.Elsewhere(b.name)
-          if elsewhere then t[#t + 1] = "Of what you have: " .. elsewhere end
-          t[#t + 1] = "Price: " .. sourceText(b)
+          local t = { b.name, ("Need %d for the route"):format(b.qty),
+            ("You have %d: %d in bags, %d in bank, %d in mailbox"):format(bags + bank + mail, bags, bank, mail) }
+          t[#t + 1] = b.buy > 0 and ("Buy %d at about %s each (%s)"):format(b.buy, Money(b.unit), sourceText(b))
+            or "You have enough: nothing to buy"
           if b.short then t[#t + 1] = ("|cffff9933Only %d listed at the last scan, so the rest may cost more.|r"):format(b.listed) end
+          if mail > 0 then t[#t + 1] = "|cff66ccffMailbox counts are from your last visit.|r" end
           t[#t + 1] = "Click: search the auction house"
           t[#t + 1] = "Right-click: tick off"
           return t
@@ -440,7 +471,7 @@ function UI.Refresh()
   if activeTab == "route" then list = plan.steps and buildRoute(plan) or {}
   elseif activeTab == "shop" then list = plan.shopping and buildShopping(plan) or {}
   else list = buildNotes(plan) end
-  setRows(list)
+  setRows(list, activeTab == "shop" and not ns.Shopping.Get() and SHOP_LAYOUT or LAYOUT)
 end
 
 function UI.Replan()
