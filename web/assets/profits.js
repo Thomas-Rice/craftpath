@@ -80,7 +80,8 @@ function card(e, idx) {
     badges.push(`<a class="badge lvl" href="planner.html#p=${encodeURIComponent(e.profession)}&from=${sk}&to=${e.skill}&f=Horde">level ${sk} → ${e.skill}${c != null ? ` · about ${money(c)}` : ""}</a>`);
   }
   if (need === "learn") badges.push(`<span class="badge learnb">learn the recipe</span>`);
-  if (e.vendorProfit > 0 && (e.vendorProfit >= (e.safeProfit ?? -1e12))) badges.push(`<span class="badge vendor">best sold to a vendor</span>`);
+  if (e.vendorProfit > 0) badges.push(`<span class="badge vendor">vendor pays more</span>`);
+  if (e.vendorProfit > 0 && e.price != null && e.vendorProfit >= (e.safeProfit ?? -1e12)) badges.push(`<span class="badge vendor">best sold to a vendor</span>`);
   if (e.swings) badges.push(`<span class="badge short">price swings</span>`);
   if (e.listed > 40) badges.push(`<span class="badge">${e.listed} listed</span>`);
   const mats = arr(e.materials).map((m) => `<div class="mat"><span class="mq">${m.qty}×</span><span>${esc(m.name)} <span class="muted">(${m.how === "craft" ? "craft it" : m.how === "vendor" ? "vendor" : "auction house"})</span></span><span class="mp">${money(m.unit * m.qty)}</span></div>`).join("");

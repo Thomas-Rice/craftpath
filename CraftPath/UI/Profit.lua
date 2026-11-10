@@ -243,8 +243,10 @@ end
 
 local function rowFor(e)
   local notes = {}
-  if e.vendorProfit and e.vendorProfit > 0 and e.vendorProfit >= (e.safeProfit or -math.huge) then
-    notes[#notes + 1] = "|cff33ff33sell to vendor|r"
+  if e.vendorProfit and e.vendorProfit > 0 then
+    -- "vendor pays more" (than it costs to make); "vendor best" when that beats the auction house too
+    notes[#notes + 1] = e.price and e.vendorProfit >= (e.safeProfit or -math.huge) and "|cff33ff33vendor best|r"
+      or "|cff33ff33vendor|r"
   end
   if e.swings then notes[#notes + 1] = "|cffff9933swings|r" end
   if e.levelsYou then notes[#notes + 1] = "|cff66ccffskill|r" end
@@ -371,7 +373,7 @@ local function create()
   help:SetPoint("RIGHT", frame, "RIGHT", -14, 0)
   help:SetJustifyH("LEFT")
   help:SetWordWrap(false)
-  help:SetText("AH profit is after the 5% cut; AH safe uses the week's lowest price. Vendor = profit selling to a vendor (guaranteed).")
+  help:SetText("AH profit is after the 5% cut; AH safe uses the week's lowest price. Vendor = profit selling to a vendor; the vendor tag means it pays more than it costs.")
 
   local scroll = CreateFrame("ScrollFrame", nil, frame, "UIPanelScrollFrameTemplate")
   scroll:SetPoint("TOPLEFT", 12, -98)
