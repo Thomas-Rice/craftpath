@@ -125,7 +125,7 @@ function UI.Recompute()
       if e.need == "skill" and e.skill then
         local key = e.profession .. "|" .. e.skill .. "|" .. e.needSkill
         if cache[key] == nil then
-          local plan = ns.MakePlan({ profession = e.profession, from = e.skill, to = e.needSkill, noStock = true })
+          local plan = ns.MakePlan({ profession = e.profession, from = e.skill, to = e.needSkill, noStock = true, noCompare = true })
           cache[key] = plan and not plan.error and plan.total or false
         end
         e.levelCost = cache[key] or nil

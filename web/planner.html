@@ -49,6 +49,13 @@
       <label class="field" title="Journeyman needs level 10, Expert 20 and Artisan 35">Character level
         <input id="charLevel" type="number" min="1" max="60" value="60" inputmode="numeric">
       </label>
+      <label class="field">Sell what you craft
+        <select id="resale">
+          <option value="off">Don't count it</option>
+          <option value="vendor" selected>Vendor (guaranteed)</option>
+          <option value="auction">Vendor or AH (careful)</option>
+        </select>
+      </label>
       <label class="field" id="specField">Engineering speciality
         <select id="spec"><option value="">None</option><option value="Goblin">Goblin</option><option value="Gnomish">Gnomish</option></select>
       </label>
@@ -66,8 +73,8 @@
 
   <section id="result" hidden>
     <div class="tiles">
-      <div class="tile"><span class="label">Shopping list</span><span class="value" id="tTotal"></span><span class="sub">what you buy, including recipes</span></div>
-      <div class="tile"><span class="label">Likely spend</span><span class="value" id="tExpected"></span><span class="sub">with average skill-up luck</span></div>
+      <div class="tile"><span class="label">Shopping list</span><span class="value" id="tTotal"></span><span class="sub" id="tTotalSub">what you buy, including recipes</span></div>
+      <div class="tile"><span class="label">After selling</span><span class="value" id="tExpected"></span><span class="sub" id="tExpectedSub">what you make, sold back</span></div>
       <div class="tile"><span class="label">Route</span><span class="value" id="tSteps"></span><span class="sub" id="tRange"></span></div>
     </div>
 

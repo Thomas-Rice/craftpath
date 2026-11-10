@@ -303,6 +303,21 @@ local function buildRoute(plan)
         "Untick Stop at level cap to see the route to " .. cap.wanted .. "." } }
     out[#out + 1] = { "", "|cffff9933Untick Stop at level cap to plan to " .. cap.wanted .. ".|r" }
   end
+  -- Selling what you craft: how this route compares with the cheapest one that ignores selling.
+  local pl = plan.plain
+  if plan.resaleTotal and plan.resaleTotal > 0 then
+    local function net(v) return v < 0 and ("+" .. Money(-v) .. " profit") or Money(v) end
+    if pl and pl.net - plan.netTotal >= 100 then
+      out[#out + 1] = { "", ("|cff33ff33Selling what you craft saves %s on this route.|r"):format(Money(pl.net - plan.netTotal)),
+        tip = { "Selling what you craft", ("This route: spend %s, sell back %s, net %s."):format(Money(plan.total), Money(plan.resaleTotal), net(plan.netTotal)),
+          ("Cheapest route without selling: spend %s, net %s even if you sold its crafts."):format(Money(pl.total), net(pl.net)),
+          "Change with the Sell button at the top." } }
+      out[#out + 1] = { "", ("|cff999999Net %s here vs %s on the plain route (spend %s vs %s).|r"):format(
+        net(plan.netTotal), net(pl.net), Money(plan.total), Money(pl.total)) }
+    else
+      out[#out + 1] = { "", ("|cff33ff33Selling what you make gets back %s (net %s).|r"):format(Money(plan.resaleTotal), net(plan.netTotal)) }
+    end
+  end
   out[#out + 1] = columns("Skill", "Recipe  (click to open in the crafting helper)", "Crafts", "Step total")
   out[#out + 1] = { grey("    Materials"), grey("Need"), grey("Bags"), grey("Bank"), grey("Mail"), "|cffffd100Buy|r", grey("Cost"),
     layout = SHOP_LAYOUT }
@@ -338,6 +353,15 @@ local function buildRoute(plan)
       local note = st.learnWhere and st.learnWhere.note
       out[#out + 1] = { "", "|cffff9933First: " .. text .. "|r", "", st.learnCost and Money(st.learnCost) or "",
         tip = { "Get the recipe first", text, note } }
+    end
+    if st.resaleTotal and st.resaleTotal > 0 then
+      local made = st.crafts * r.makes
+      local where = st.resaleHow == "ah" and "on the auction house" or "to a vendor"
+      out[#out + 1] = { "", ("|cff33ff33Sell the %d made %s|r"):format(made, where), "",
+        "|cff33ff33+" .. Money(st.resaleTotal) .. "|r",
+        tip = { "Sell what you make", ("%d × %s %s at about %s each."):format(made, r.name, where, Money(st.resalePerCraft / r.makes)),
+          ("Step: materials %s, back %s, net %s."):format(Money(total), Money(st.resaleTotal), Money(total - st.resaleTotal)),
+          st.resaleHow == "ah" and "Auction sales aren't guaranteed: this uses the week's lowest price after the 5% cut." or "Vendors always buy at this price." } }
     end
     for _, g in ipairs(r.reagents) do
       local need = g.qty * st.crafts
@@ -452,6 +476,7 @@ local function syncControls()
     b:SetText(skill and skill > 0 and ("%s |cff999999%d|r"):format(prof, skill) or prof)
   end
   widgets.profMenu:SetText(s.profession .. "  |cffffd100v|r")
+  widgets.resale:SetText(({ off = "Sell: off", vendor = "Sell: vendor", auction = "Sell: vendor+AH" })[s.resale or "vendor"])
   widgets.spec:SetText(SPEC_LABEL[s.spec] or SPEC_LABEL.none)
   widgets.spec:SetShown(s.profession == "Engineering")
   local atAH = ns.Scanner.atAH
@@ -471,8 +496,14 @@ function UI.Refresh()
     widgets.summary:SetText("|cffff6060" .. plan.error .. "|r  See Notes.")
   elseif plan.total then
     local short = plan.short and ("   |cffff9933%d item%s short on the AH|r"):format(plan.short, plan.short > 1 and "s" or "") or ""
-    widgets.summary:SetText(("Skill %d to %d   Buy: %s   Recipes: %s   |cffffd100Total: %s|r%s"):format(
-      plan.from, plan.to, Money(plan.buyTotal), Money(plan.learnTotal), Money(plan.total), short))
+    if plan.resaleTotal and plan.resaleTotal > 0 then
+      widgets.summary:SetText(("Skill %d to %d   Spend: %s   Sell back: |cff33ff33%s|r   |cffffd100Net: %s|r%s"):format(
+        plan.from, plan.to, Money(plan.total), Money(plan.resaleTotal), plan.netTotal < 0
+          and ("|cff33ff33+" .. Money(-plan.netTotal) .. " profit|r") or Money(plan.netTotal), short))
+    else
+      widgets.summary:SetText(("Skill %d to %d   Buy: %s   Recipes: %s   |cffffd100Total: %s|r%s"):format(
+        plan.from, plan.to, Money(plan.buyTotal), Money(plan.learnTotal), Money(plan.total), short))
+    end
   else
     widgets.summary:SetText(plan.error or "")
   end
@@ -565,6 +596,13 @@ local function create()
   widgets.profitsButton = button(frame, "Profits", 110, function() if ns.ProfitUI then ns.ProfitUI.Toggle() end end,
     "CraftPath Profits", "What you can craft today at today's prices to make a profit.")
   widgets.profitsButton:SetPoint("LEFT", widgets.profMenu, "RIGHT", 6, 0)
+  widgets.resale = button(frame, "", 114, function()
+    local order = { "off", "vendor", "auction" }
+    local cur = settings().resale or "vendor"
+    for i, v in ipairs(order) do if v == cur then settings().resale = order[i % #order + 1] break end end
+    UI.Replan()
+  end, "Sell what you craft", "Count what you get back for the items you make while levelling, so the route can pick recipes that cost more but sell back well. Off: ignore selling. Vendor: what a vendor pays (guaranteed). Vendor + AH: also the auction price at the week's low, after the 5% cut.")
+  widgets.resale:SetPoint("LEFT", widgets.profitsButton, "RIGHT", 6, 0)
 
   -- The menu itself: every profession, two columns, over the list area.
   local menu = CreateFrame("Frame", nil, frame, "BackdropTemplate")
@@ -587,7 +625,7 @@ local function create()
     b:SetPoint("TOPLEFT", 10 + ((i - 1) % 2) * 142, -10 - math.floor((i - 1) / 2) * 26)
     widgets.profButtons[prof] = b
   end
-  widgets.spec = button(frame, "", 150, function()
+  widgets.spec = button(frame, "", 130, function()
     local cur = settings().spec
     for i, v in ipairs(SPECS) do if v == cur then settings().spec = SPECS[i % #SPECS + 1] break end end
     UI.Replan()

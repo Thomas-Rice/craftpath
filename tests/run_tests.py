@@ -279,6 +279,20 @@ def main():
         assert st.costPerCraft > 0, (st.recipe.name, "step cost shows owned stock as free")
     print("Step costs at market price with stock:", [(st.recipe.name, st.costPerCraft) for st in lua_list(po.steps)])
 
+    # ---- Selling what you craft ----
+    # Make one recipe in range resell well; the route should pick it up and come out cheaper net.
+    sellback = {"Rough Copper Bomb": 400, "Copper Modulator": 300}
+    resale = lambda n: (sellback.get(n), "vendor") if n in sellback else (None, None)
+    plain = plan(lua, ns, "Engineering", 30, 80)
+    sold = plan(lua, ns, "Engineering", 30, 80, resale=resale)
+    assert sold.plain and abs(sold.plain.total - plain.total) < 1, "plain comparison missing"
+    assert sold.netTotal <= sold.plain.net + 0.5, (sold.netTotal, sold.plain.net)
+    names = [st.recipe.name for st in lua_list(sold.steps)]
+    assert any(n in sellback for n in names), names
+    st = next(st for st in lua_list(sold.steps) if st.recipe.name in sellback)
+    assert st.resalePerCraft > 0 and st.resaleHow == "vendor" and st.resaleTotal > 0
+    print(f"Selling crafts: net {sold.netTotal:.0f} vs plain {sold.plain.net:.0f} (spends {sold.total:.0f} vs {plain.total:.0f})")
+
     # ---- Profit finder ----
     pp = {"Copper Ore": 10, "Copper Bar": 40, "Tin Ore": 10, "Tin Bar": 8,
           "Peacebloom": 5, "Silverleaf": 5, "Elixir of Minor Defense": 200, "Empty Vial": 4, "Bronze Bar": 500}

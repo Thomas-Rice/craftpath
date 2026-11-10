@@ -49,7 +49,28 @@ end
 --   1. price owned items at 0 and plan;
 --   2. where the route needs more than you own, charge the market price for the share it
 --      doesn't cover, and plan again; repeat until the route settles (a few passes).
+-- With opts.resale, also works out the cheapest route that ignores selling, so the UI can show
+-- what selling saves: plan.plain = { total = gold spent, net = after selling its crafts too }.
 function Planner.Plan(opts)
+  local plan = Planner.PlanStock(opts)
+  if opts.resale and opts.comparePlain ~= false and not plan.error then
+    local plainOpts = {}
+    for k, v in pairs(opts) do plainOpts[k] = v end
+    plainOpts.resale = nil
+    local plain = Planner.PlanStock(plainOpts)
+    if not plain.error then
+      local back = 0
+      for _, st in ipairs(plain.steps) do
+        local v = opts.resale(st.recipe.name)
+        if v then back = back + v * st.recipe.makes * st.crafts end
+      end
+      plan.plain = { total = plain.total, net = plain.total - back, steps = #plain.steps }
+    end
+  end
+  return plan
+end
+
+function Planner.PlanStock(opts)
   if opts.useOwned == false or not opts.owned then return planOnce(opts, nil) end
   -- Using stock is a quantity problem (the first 40 Heavy Stone are free, the 41st isn't),
   -- so try a few routes and keep the one with the lowest real gold cost. The shopping list
@@ -66,7 +87,8 @@ function Planner.Plan(opts)
   local best
   local function consider(p)
     if p.error then return end
-    if not best or p.total < best.total - 0.5 or (math.abs(p.total - best.total) <= 0.5 and #p.steps < #best.steps) then
+    local pt, bt = p.netTotal or p.total, best and (best.netTotal or best.total)
+    if not best or pt < bt - 0.5 or (math.abs(pt - bt) <= 0.5 and #p.steps < #best.steps) then
       best = p
     end
   end
@@ -349,6 +371,21 @@ planOnce = function(opts, ownedFactor)
     return total
   end
 
+  -- opts.resale(name) -> copper you get back per item sold, and how ("vendor" or "ah").
+  local resaleOf
+  if opts.resale then
+    local memo = {}
+    resaleOf = function(r)
+      local m = memo[r]
+      if not m then
+        local v, how = opts.resale(r.name)
+        m = { value = (v or 0) * r.makes, how = how }
+        memo[r] = m
+      end
+      return m.value, m.how
+    end
+  end
+
   local cppMemo = {}
   local function costPerPoint(r, s)
     local key = r.index * 1000 + s
@@ -356,7 +393,12 @@ planOnce = function(opts, ownedFactor)
     if m then return m end
     local p = Recipes.PointsPerCraft(r, s, bonus)
     local c = INF
-    if p > 0 then c = craftCost(r, s) / p end
+    if p > 0 then
+      c = craftCost(r, s)
+      -- Selling what you make: each craft costs its materials minus what the items sell back for.
+      if c < INF and resaleOf then c = c - resaleOf(r) end
+      c = c / p
+    end
     cppMemo[key] = c
     return c
   end
@@ -466,8 +508,10 @@ planOnce = function(opts, ownedFactor)
     local r = st.recipe
     local exp, gold = 0, 0
     for k = st.from, st.to - 1 do
-      exp = exp + 1 / Recipes.PointsPerCraft(r, k, bonus)
-      gold = gold + costPerPoint(r, k)
+      local pts = Recipes.PointsPerCraft(r, k, bonus)
+      exp = exp + 1 / pts
+      -- gold spent (materials), not counting what selling gets back
+      gold = gold + craftCost(r, k) / pts
     end
     st.expectedCrafts = exp
     st.crafts = ceil(exp)
@@ -486,6 +530,10 @@ planOnce = function(opts, ownedFactor)
       learned[r] = true
       st.learnCost = lc
     end
+    if resaleOf then
+      local v, how = resaleOf(r)
+      if v > 0 then st.resalePerCraft, st.resaleHow = v, how end
+    end
     st.expectedGold = gold + (st.learnCost or 0)
   end
 
@@ -497,6 +545,16 @@ planOnce = function(opts, ownedFactor)
   }
   Planner.BuildShoppingList(plan, data, unitCost, opts.owned, opts.listed)
   Planner.AddRankNotes(plan)
+  -- What selling the crafted items gets back, and the gold that leaves after that.
+  local back = 0
+  for _, st in ipairs(steps) do
+    if st.resalePerCraft then
+      st.resaleTotal = st.resalePerCraft * st.crafts
+      back = back + st.resaleTotal
+    end
+  end
+  plan.resaleTotal = back
+  plan.netTotal = plan.total - back
   return plan
 end
 

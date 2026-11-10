@@ -374,3 +374,6 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; bac
 .badge.lvl { background: rgba(102, 204, 255, .16); color: #b8e6ff; text-decoration: none; }
 .badge.learnb { background: rgba(233, 184, 79, .16); color: var(--gold); }
 .loss, .loss .coin { color: var(--dim) !important; font-weight: 400; }
+.notes li.good { background: rgba(69, 210, 106, .1); border-color: rgba(69, 210, 106, .35); }
+.sellback { color: #9ff0b4; }
+.profit-word { font-size: .7em; color: #9ff0b4; font-weight: 500; }

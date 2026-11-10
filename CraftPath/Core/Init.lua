@@ -27,6 +27,7 @@ local DEFAULTS = {
     allowRecipeItems = true, allowFavor = true, spec = "none", overtimeRank = 0,
     openWithAH = true, tooltip = true, maxOverPct = 25, craftHelper = true, useOwned = true, markBags = true,
     profitUnknown = false, profitSort = "safe",
+    resale = "vendor", -- selling what you craft while levelling: "off", "vendor", or "auction" (vendor + AH)
   },
 }
 
@@ -128,7 +129,34 @@ function ns.RouteKey(prof)
   local s = ns.db.settings
   return table.concat({ prof, tostring(ns.db.scanId), tostring(#ns.db.purchases),
     tostring(s.allowRecipeItems), tostring(s.allowFavor), tostring(s.useOwned), tostring(s.spec),
-    tostring(s.overtimeRank), tostring(s.to), tostring(s.capToLevel), tostring(ns.db.knownVersion) }, "|")
+    tostring(s.overtimeRank), tostring(s.to), tostring(s.capToLevel), tostring(ns.db.knownVersion), tostring(s.resale) }, "|")
+end
+
+-- What you get back for selling one of an item you crafted while levelling: a vendor's price
+-- (guaranteed) or, with "auction", also the auction price at the week's low after the 5% cut.
+-- Auction resale is counted carefully: only for items with a real market (at least this many
+-- listed), and 20% under the week's low, since selling many of one item pushes its price down.
+ns.RESALE_MIN_LISTED = 10
+ns.RESALE_AH_FACTOR = 0.8
+
+function ns.ResaleValue(mode)
+  if not mode or mode == "off" then return nil end
+  return function(name)
+    local sell = (ns.RawData.ItemSell or {})[name] or ns.db.sell[name]
+    local best, how = (sell and sell > 0) and sell or nil, nil
+    if best then how = "vendor" end
+    if mode == "auction" then
+      local p = ns.Prices.AH(name)
+      local listed = ns.Prices.Listed(name) or 0
+      if p and listed >= ns.RESALE_MIN_LISTED then
+        local st = ns.Prices.Stats(name)
+        if st and st.low and st.low < p then p = st.low end
+        p = p * 0.95 * ns.RESALE_AH_FACTOR
+        if not best or p > best then best, how = p, "ah" end
+      end
+    end
+    return best, how
+  end
 end
 
 -- Build planner options from saved settings and live game state, then plan.
@@ -158,6 +186,8 @@ function ns.MakePlan(override)
     faction = UnitFactionGroup and UnitFactionGroup("player") or nil,
     vendorWhere = function(item) return ns.db.vendorWhere[item] end,
     charLevel = s.capToLevel and UnitLevel("player") or nil,
+    resale = ns.ResaleValue(s.resale),
+    comparePlain = not (override and override.noCompare),
   }
   local plan = ns.Planner.Plan(opts)
   if not override then ns.lastPlan = plan end

@@ -81,7 +81,7 @@ function Keep.Build(force)
   ns.Async("keep", function()
     for _, p in ipairs(todo) do
       plans[p.prof] = { key = ns.RouteKey(p.prof), skill = p.skill,
-        plan = ns.MakePlan({ profession = p.prof, liveSkill = true }) }
+        plan = ns.MakePlan({ profession = p.prof, liveSkill = true, noCompare = true }) }
     end
   end, function()
     building = false

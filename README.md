@@ -53,7 +53,8 @@ Copy the `CraftPath` folder into `World of Warcraft/_forever_/Interface/AddOns/`
 1. `/cpath` opens the planner (it also opens beside the auction house).
 2. Choose a profession. Leave **Start from my current skill** ticked, or set From/To.
 3. At the auction house, click **Scan AH prices** (or **Full AH scan**).
-4. Read the **Route & shopping** tab: each step with its materials (and what your bags, bank and mailbox cover), then the shopping list for the whole route.
+4. The **Sell** button (top row) sets whether the route counts what you get back for the items you make: *off*, *vendor* (default, guaranteed) or *vendor + AH* (careful: auction prices at 20% under the week's low, only for items with 10+ listed). The route then picks recipes by cost after selling, and the Route & shopping tab shows what each step sells back and how this compares with the cheapest route that ignores selling.
+5. Read the **Route & shopping** tab: each step with its materials (and what your bags, bank and mailbox cover), then the shopping list for the whole route.
 
 Options:
 - *Use bought recipes*

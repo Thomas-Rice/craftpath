@@ -14,7 +14,7 @@ const MAX_LEVEL = 60;
 let engine, snapshot, overrides = store.get("prices", {}), lastPlan;
 const state = Object.assign({
   profession: "Engineering", from: 1, to: 300, faction: "Horde", spec: "",
-  allowRecipeItems: true, allowFavor: true, charLevel: MAX_LEVEL,
+  allowRecipeItems: true, allowFavor: true, charLevel: MAX_LEVEL, resale: "vendor",
 }, store.get("settings", {}), fromHash());
 delete state.levelCap; // old setting from the level 30 beta
 
@@ -89,7 +89,8 @@ function run() {
     spec: state.profession === "Engineering" && state.spec ? state.spec : null,
     allowRecipeItems: state.allowRecipeItems, allowFavor: state.allowFavor,
     charLevel: Math.max(1, Math.min(MAX_LEVEL, Math.round(+state.charLevel || MAX_LEVEL))),
-    prices: prices(), vendor: snapshot.vendor, listed: listedCounts(),
+    prices: prices(), vendor: snapshot.vendor, listed: listedCounts(), resale: state.resale,
+    lows: Object.fromEntries(Object.entries(snapshot.prices).filter(([, v]) => v.low).map(([k, v]) => [k, v.low])),
   };
   let plan = engine.plan(opts);
   // No prices yet for the top end? Plan as far as the prices go and say what's missing.
@@ -156,14 +157,31 @@ function render(plan) {
   $("heroTitle").innerHTML = `${esc(plan.profession)} <span class="thin">${plan.from} → ${plan.to}</span>`;
   $("heroText").innerHTML = `${money(plan.total)} on the shopping list, about ${money(plan.expectedGold)} with average luck, in ${arr(plan.steps).length} steps.`;
   $("tTotal").innerHTML = money(plan.total);
-  $("tExpected").innerHTML = money(plan.expectedGold);
+  const back = plan.resaleTotal || 0;
+  const netText = (v) => v < 0 ? `<span class="coin gold">+</span>${money(-v)} <span class="profit-word">profit</span>` : money(v);
+  if (back > 0) {
+    $("tExpected").innerHTML = netText(plan.netTotal);
+    $("tExpectedSub").innerHTML = `${money(back)} back from selling ${state.resale === "auction" ? "(vendor or AH)" : "to vendors"}`;
+  } else {
+    $("tExpected").innerHTML = money(plan.total);
+    $("tExpectedSub").textContent = state.resale === "off" ? "selling isn't counted" : "nothing on this route sells back";
+  }
+  $("tTotalSub").textContent = `what you buy, including recipes · about ${money(plan.expectedGold, { plain: true })} with average luck`;
   $("tSteps").textContent = `${arr(plan.steps).length} steps`;
   $("tRange").textContent = `skill ${plan.from} to ${plan.to}`;
 
   const partial = plan.partial ? `<li class="warn">This route stops at ${plan.partial.at}: there's no auction price yet for ${esc(plan.partial.missing.join(", ") || "the materials above that")}. Add prices on the Prices tab to plan up to ${plan.partial.wanted}.</li>` : "";
   const short = arr(plan.shopping).filter((b) => b.short).map((b) => b.name);
   const thin = short.length ? `<li class="warn">The last scan had fewer ${esc(short.slice(0, 3).join(", "))}${short.length > 3 ? " and others" : ""} listed than this route needs, so buying it all could push prices up.</li>` : "";
-  $("notes").innerHTML = partial + thin + arr(plan.notes).map((n) => `<li>${esc(n)}</li>`).join("");
+  let selling = "";
+  if (back > 0 && plan.plain) {
+    const saves = plan.plain.net - plan.netTotal;
+    selling = saves >= 100
+      ? `<li class="good"><strong>Selling what you craft saves ${money(saves)} on this route.</strong> Net ${netText(plan.netTotal)} here, against ${netText(plan.plain.net)} on the cheapest route that ignores selling (which spends ${money(plan.plain.total)} up front, this one ${money(plan.total)}).</li>`
+      : `<li class="good">Selling what you make gets back ${money(back)}, so this route nets ${netText(plan.netTotal)}. It's also the cheapest route without selling.</li>`;
+    if (state.resale === "auction") selling += `<li class="warn">Auction sales aren't guaranteed. CraftPath counts them at 20% under the week's lowest price, and only for items with at least 10 listed, but selling dozens of one item can still push its price down.</li>`;
+  }
+  $("notes").innerHTML = selling + partial + thin + arr(plan.notes).map((n) => `<li>${esc(n)}</li>`).join("");
 
   $("route").innerHTML = arr(plan.steps).map((s, i) => {
     const r = s.recipe;
@@ -180,7 +198,7 @@ function render(plan) {
       <div class="range"><span>${s.from}</span><span class="arrow">→</span><span>${s.to}</span></div>
       <div class="body">
         <div class="name">${esc(r.name)} ${stock}</div>
-        <div class="meta">Craft about ${s.crafts}${r.makes > 1 ? ` (makes ${r.makes} each)` : ""} · ${money(s.costPerCraft)} each · <span class="steptotal">${money(total)} for the step</span></div>
+        <div class="meta">Craft about ${s.crafts}${r.makes > 1 ? ` (makes ${r.makes} each)` : ""} · ${money(s.costPerCraft)} each · <span class="steptotal">${money(total)} for the step</span>${s.resaleTotal ? ` · <span class="sellback">sell the ${s.crafts * r.makes} made ${s.resaleHow === "ah" ? "on the AH" : "to a vendor"}: +${money(s.resaleTotal, { plain: true })}, net ${money(total - s.resaleTotal, { plain: true })}</span>` : ""}</div>
         <details><summary>Materials for this step and colours</summary>
           <div class="mats">${mats}</div>
           <div class="colours"><span class="c-or">${r.orange}</span><span class="c-ye">${r.yellow}</span><span class="c-gr">${r.green}</span><span class="c-gy">${r.grey}</span></div>
@@ -265,7 +283,7 @@ function setupControls() {
   });
   $("specField").hidden = state.profession !== "Engineering";
   $("allowFavor").closest("label").hidden = state.profession === "Cooking";
-  for (const id of ["from", "to", "faction", "spec", "charLevel"]) {
+  for (const id of ["from", "to", "faction", "spec", "charLevel", "resale"]) {
     $(id).value = state[id];
     $(id).addEventListener("change", () => { state[id] = $(id).type === "number" ? +$(id).value : $(id).value; run(); });
   }

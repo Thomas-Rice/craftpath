@@ -554,6 +554,10 @@ def main():
     reagent = target.recipe.reagents[1]
     assert any(t.strip().startswith(reagent.name + " ") and "each" in t for t in texts), "materials not shown"
     assert any("Shopping list for the whole route" in t for t in texts), "shopping list section missing"
+    # Selling what you craft (default: vendor): summary and per-step rows
+    assert ns.lastPlan.resaleTotal > 0, "no resale on the route"
+    assert any("Sell back" in t for t in texts), "net summary missing"
+    assert any(t.startswith("|cff33ff33Sell the ") for t in texts), "per-step sell row missing"
     pv = ns.CraftHelper.view
     assert pv.preview and pv.recipe.name == target.recipe.name, "step not opened in the helper"
     assert G.CraftPathCraftHelper.__shown

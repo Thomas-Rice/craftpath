@@ -152,7 +152,7 @@ local function cachedPlan(prof, skill, from)
   if not waiting[key] then
     waiting[key] = true
     ns.Async("helper", function()
-      return ns.MakePlan({ profession = prof, liveSkill = from == nil, from = from })
+      return ns.MakePlan({ profession = prof, liveSkill = from == nil, from = from, noCompare = true })
     end, function(plan)
       waiting[key] = nil
       if cacheSize >= 6 then planCache, cacheSize = {}, 0 end -- keep only the latest few

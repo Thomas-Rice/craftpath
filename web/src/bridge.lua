@@ -121,6 +121,22 @@ function CP_Plan(optsJson)
     spec = o.spec, bonus = o.bonus or 0, faction = o.faction, charLevel = o.charLevel,
     listed = function(n) return listed[n] end,
   }
+  -- Selling what you craft: a vendor's price, or with "auction" also the auction price at the
+  -- week's low after the 5% cut (same rule as the addon).
+  local mode, lows, itemSell = o.resale, o.lows or {}, ns.RawData.ItemSell or {}
+  if mode and mode ~= "off" then
+    opts.resale = function(n)
+      local best, how = itemSell[n], nil
+      if best then how = "vendor" end
+      if mode == "auction" and prices[n] and (listed[n] or 0) >= 10 then
+        local p = prices[n]
+        if lows[n] and lows[n] < p then p = lows[n] end
+        p = p * 0.95 * 0.8
+        if not best or p > best then best, how = p, "ah" end
+      end
+      return best, how
+    end
+  end
   local ok, plan = pcall(ns.Planner.Plan, opts)
   if not ok then return json.encode({ error = tostring(plan) }) end
   return json.encode(plan)
