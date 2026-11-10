@@ -8,9 +8,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "CraftPath/Data/**"
-      - "CraftPath/Core/Recipes.lua"
-      - "CraftPath/Core/Planner.lua"
+      - "CraftPath/**"   # any addon change: the site serves the addon download
       - "web/**"
       - "data/**"
       - "tools/build_site.py"
