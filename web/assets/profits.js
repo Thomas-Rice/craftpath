@@ -70,6 +70,7 @@ const state = Object.assign({ showAll: false, onlyEasy: false, sort: "safe", fin
 
 const keyOf = (e) => state.sort === "profit" ? (e.profit ?? e.vendorProfit ?? -1e12)
   : state.sort === "margin" ? (e.margin ?? -1e12)
+  : state.sort === "vendor" ? (e.vendorProfit ?? -1e12)
   : Math.max(e.safeProfit ?? -1e12, e.vendorProfit ?? -1e12);
 
 function card(e, idx) {

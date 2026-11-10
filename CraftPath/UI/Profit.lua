@@ -15,8 +15,9 @@ local COLS = {
   w = { 206, 68, 68, 68, 68, 42, 62 },
   right = { false, true, true, true, true, true, false },
 }
-local SORTS = { "safe", "profit", "margin" }
-local SORT_LABEL = { safe = "Sort: safe profit", profit = "Sort: profit now", margin = "Sort: margin %" }
+local SORTS = { "safe", "profit", "vendor", "margin" }
+local SORT_LABEL = { safe = "Sort: safe profit", profit = "Sort: profit now", vendor = "Sort: vendor profit",
+  margin = "Sort: margin %" }
 
 local frame, rows, widgets = nil, {}, {}
 local results, computing = nil, false
@@ -275,6 +276,7 @@ local function keyOf(e)
   local s = settings().profitSort or "safe"
   if s == "profit" then return e.profit or e.vendorProfit or -math.huge end
   if s == "margin" then return e.margin or -math.huge end
+  if s == "vendor" then return e.vendorProfit or -math.huge end
   return math.max(e.safeProfit or -math.huge, e.vendorProfit or -math.huge)
 end
 
@@ -356,7 +358,7 @@ local function create()
     local cur = settings().profitSort or "safe"
     for i, v in ipairs(SORTS) do if v == cur then settings().profitSort = SORTS[i % #SORTS + 1] break end end
     UI.Refresh()
-  end, "Sort", "Safe profit: at the lowest price of the last week (the default, it allows for prices moving). Profit now: at today's lowest price. Margin: profit as a share of the cost.")
+  end, "Sort", "Safe profit: at the lowest price of the last week (the default, it allows for prices moving). Profit now: at today's lowest price. Vendor profit: selling to a vendor. Margin: profit as a share of the cost.")
   widgets.sort:SetPoint("TOPRIGHT", -112, -30)
   widgets.refresh = button(frame, "Refresh", 90, function() UI.Recompute() end,
     "Refresh", "Work the list out again from your latest prices. Scan the auction house from the planner for fresh prices.")
