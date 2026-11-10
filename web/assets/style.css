@@ -356,6 +356,7 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; bac
 .p-nums { display: flex; gap: 18px; text-align: right; font-variant-numeric: tabular-nums; }
 .p-nums .l { display: block; font-size: .7rem; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
 .p-nums .big { font-weight: 700; font-size: 1.05rem; }
+.p-nums .sub { display: block; font-size: .72rem; font-weight: 400; color: var(--dim); }
 .profit details { grid-column: 1 / -1; font-size: .86rem; }
 .profit summary { color: var(--muted); cursor: pointer; }
 .p-facts { display: grid; gap: 3px; color: var(--muted); }
@@ -372,3 +373,4 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; bac
 .skill input { width: 76px; padding: 6px 8px; }
 .badge.lvl { background: rgba(102, 204, 255, .16); color: #b8e6ff; text-decoration: none; }
 .badge.learnb { background: rgba(233, 184, 79, .16); color: var(--gold); }
+.loss, .loss .coin { color: var(--dim) !important; font-weight: 400; }

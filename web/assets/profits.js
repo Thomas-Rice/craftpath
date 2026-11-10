@@ -22,6 +22,9 @@ function money(c) {
   return (neg ? "−" : "") + parts.join(" ");
 }
 
+// A profit, or a greyed-out loss.
+const pm = (c) => c == null ? "—" : c < 0 ? `<span class="loss">${money(c)}</span>` : money(c);
+
 const HOW = {
   trainer: "Trainer", auto: "Learned automatically", favor: "Merchant's Favor", quest: "Quest reward",
   vendor: "Vendor", "vendor-est": "Vendor", ah: "Auction house", "not at trainer": "Not at trainers yet",
@@ -77,7 +80,7 @@ function card(e, idx) {
     badges.push(`<a class="badge lvl" href="planner.html#p=${encodeURIComponent(e.profession)}&from=${sk}&to=${e.skill}&f=Horde">level ${sk} → ${e.skill}${c != null ? ` · about ${money(c)}` : ""}</a>`);
   }
   if (need === "learn") badges.push(`<span class="badge learnb">learn the recipe</span>`);
-  if (e.vendorProfit > 0) badges.push(`<span class="badge vendor">vendor pays more</span>`);
+  if (e.vendorProfit > 0 && (e.vendorProfit >= (e.safeProfit ?? -1e12))) badges.push(`<span class="badge vendor">best sold to a vendor</span>`);
   if (e.swings) badges.push(`<span class="badge short">price swings</span>`);
   if (e.listed > 40) badges.push(`<span class="badge">${e.listed} listed</span>`);
   const mats = arr(e.materials).map((m) => `<div class="mat"><span class="mq">${m.qty}×</span><span>${esc(m.name)} <span class="muted">(${m.how === "craft" ? "craft it" : m.how === "vendor" ? "vendor" : "auction house"})</span></span><span class="mp">${money(m.unit * m.qty)}</span></div>`).join("");
@@ -89,8 +92,10 @@ function card(e, idx) {
     </div>
     <div class="p-nums">
       <div><span class="l">Cost</span>${money(e.cost)}</div>
-      <div><span class="l">Sells for</span>${money(e.sale ?? e.vendorSell)}</div>
-      <div class="big"><span class="l">${state.sort === "profit" ? "Profit" : "Safe profit"}</span>${money(state.sort === "profit" ? (e.profit ?? e.vendorProfit) : Math.max(e.safeProfit ?? -1e12, e.vendorProfit ?? -1e12))}</div>
+      <div${(e.safeProfit ?? -1e12) >= (e.vendorProfit ?? -1e12) ? ' class="big"' : ""}><span class="l">Auction profit</span>${e.price != null
+        ? `${pm(state.sort === "profit" ? e.profit : e.safeProfit)}<span class="sub">sells ${money(e.price)}</span>` : "—"}</div>
+      <div${(e.vendorProfit ?? -1e12) > (e.safeProfit ?? -1e12) ? ' class="big"' : ""}><span class="l">Vendor profit</span>${e.vendorSell != null
+        ? `${pm(e.vendorProfit)}<span class="sub">pays ${money(e.vendorSell)}</span>` : "—"}</div>
     </div>
     <details><summary>Materials, prices and where to get the recipe</summary>
       <div class="mats">${mats}</div>

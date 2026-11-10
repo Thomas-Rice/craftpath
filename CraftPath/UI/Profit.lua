@@ -243,7 +243,9 @@ end
 
 local function rowFor(e)
   local notes = {}
-  if e.vendorProfit and e.vendorProfit > 0 then notes[#notes + 1] = "|cff33ff33vendor|r" end
+  if e.vendorProfit and e.vendorProfit > 0 and e.vendorProfit >= (e.safeProfit or -math.huge) then
+    notes[#notes + 1] = "|cff33ff33sell to vendor|r"
+  end
   if e.swings then notes[#notes + 1] = "|cffff9933swings|r" end
   if e.levelsYou then notes[#notes + 1] = "|cff66ccffskill|r" end
   local name = e.name .. (e.makes > 1 and ("|cff999999 ×" .. e.makes .. "|r") or "")
@@ -258,11 +260,11 @@ local function rowFor(e)
     end
     name = "|cffbbbbbb" .. name .. "|r"
   end
-  local safe = e.safeProfit
-  local safeText = safe and (safe > 0 and ("|cff33ff33" .. short(safe) .. "|r") or short(safe)) or "—"
+  local function green(v) return v and (v > 0 and ("|cff33ff33" .. short(v) .. "|r") or short(v)) or "—" end
   return {
-    name .. " |cff777777" .. e.profession:sub(1, 3) .. "|r", short(e.cost), short(e.sale or e.vendorSell),
-    e.profit and short(e.profit) or "—", safeText, e.listed and tostring(e.listed) or "—", table.concat(notes, " "),
+    name .. " |cff777777" .. e.profession:sub(1, 3) .. "|r", short(e.cost),
+    e.profit and short(e.profit) or "—", green(e.safeProfit), green(e.vendorProfit),
+    e.listed and tostring(e.listed) or "—", table.concat(notes, " "),
     item = e.name, tip = tipFor(e),
   }
 end
@@ -297,8 +299,8 @@ function UI.Refresh()
   for _, g in pairs(groups) do table.sort(g, function(a, b) return keyOf(a) > keyOf(b) end) end
   local other = groups.profession
   local out = {
-    { "|cff999999Item  (hover for details, click to search)|r", "|cff999999Cost|r", "|cff999999Sells for|r",
-      "|cff999999Profit|r", "|cffffd100Safe|r", "|cff999999Listed|r", "|cff999999Notes|r" },
+    { "|cff999999Item  (hover for details, click to search)|r", "|cff999999Cost|r", "|cff999999AH profit|r",
+      "|cffffd100AH safe|r", "|cff999999Vendor|r", "|cff999999Listed|r", "|cff999999Notes|r" },
   }
   if #mine == 0 then
     out[#out + 1] = { "|cffff9933Nothing you can craft makes a profit at these prices.|r" }
@@ -369,7 +371,7 @@ local function create()
   help:SetPoint("RIGHT", frame, "RIGHT", -14, 0)
   help:SetJustifyH("LEFT")
   help:SetWordWrap(false)
-  help:SetText("Safe = profit at the week's lowest price, after the 5% auction cut.  vendor = a vendor pays more than it costs.")
+  help:SetText("AH profit is after the 5% cut; AH safe uses the week's lowest price. Vendor = profit selling to a vendor (guaranteed).")
 
   local scroll = CreateFrame("ScrollFrame", nil, frame, "UIPanelScrollFrameTemplate")
   scroll:SetPoint("TOPLEFT", 12, -98)
