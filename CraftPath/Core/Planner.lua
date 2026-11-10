@@ -439,10 +439,10 @@ planOnce = function(opts, ownedFactor)
 
   -- Cost per craft shown at market prices (your stock is accounted for in the shopping list).
   local function marketCraftCost(r, at)
-    local savedF, savedMemo = ownedFactor, unitMemo
-    ownedFactor, unitMemo = nil, {}
+    local savedF, savedMemo, savedCraft = ownedFactor, unitMemo, craftMemo
+    ownedFactor, unitMemo, craftMemo = nil, {}, {}
     local c = craftCost(r, at)
-    ownedFactor, unitMemo = savedF, savedMemo
+    ownedFactor, unitMemo, craftMemo = savedF, savedMemo, savedCraft
     return c
   end
 

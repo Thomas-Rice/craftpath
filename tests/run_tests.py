@@ -268,6 +268,16 @@ def main():
     assert sliced.total == whole.total and len(sliced.steps) == len(whole.steps), (sliced.total, whole.total)
     print(f"Background planning: {slices} slices, same route")
 
+    # Step costs are shown at market price even when your stock makes the route cheaper
+    # (seen in game: Bristle Whisker Catfish at "0c" with 6 of 110 fish in the bags).
+    ckp2 = {n: 60 + 7 * len(n) for n in lua_list(R.AllReagents("Cooking"))}
+    ckp2["Raw Bristle Whisker Catfish"] = 24
+    po = plan(lua, ns, "Cooking", 110, 175, prices=ckp2, faction="Horde",
+              owned=lambda n: 6 if n == "Raw Bristle Whisker Catfish" else 0)
+    for st in lua_list(po.steps):
+        assert st.costPerCraft > 0, (st.recipe.name, "step cost shows owned stock as free")
+    print("Step costs at market price with stock:", [(st.recipe.name, st.costPerCraft) for st in lua_list(po.steps)])
+
     print("All tests passed.")
     if "--show" in sys.argv:
         for prof, p in results.items():

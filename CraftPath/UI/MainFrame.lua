@@ -287,8 +287,16 @@ local function buildRoute(plan)
   return out
 end
 
+local function stockCols(name)
+  local bags = ns.Game.Bags(name)
+  local bank = math.max(0, ns.Game.BagsAndBank(name) - bags)
+  return bags, bank, ns.Game.Mail(name)
+end
+local function dim(n) return n > 0 and tostring(n) or "|cff555555–|r" end
+local function grey(t) return "|cff999999" .. t .. "|r" end
+
 local function buildRun(run)
-  local out = { columns("Left", "Item", "Bought", "Paid (plan)") }
+  local out = { { grey("Item  (buying now)"), grey("Need"), grey("Bags"), grey("Bank"), grey("Mail"), "|cffffd100Bought|r", grey("Paid") } }
   for _, name in ipairs(run.order) do
     local e = run.items[name]
     local left = ns.Shopping.Left(name)
@@ -298,13 +306,17 @@ local function buildRun(run)
     local toBuy = e.need - e.have
     local avg = e.bought > 0 and (e.spent / e.bought) or nil
     local over = avg and e.unit > 0 and math.floor((avg / e.unit - 1) * 100 + 0.5) or 0
-    local priceCol = avg and (Money(avg) .. (over > 0 and (" |cffff9933+" .. over .. "%|r") or "")) or Money(e.unit)
+    local paid = avg and (Money(e.spent) .. (over > 0 and (" |cffff9933+" .. over .. "%|r") or "")) or ""
+    local bags, bank, mail = stockCols(name)
     out[#out + 1] = {
-      left > 0 and (left .. " left") or "done", label, ("%d/%d"):format(e.bought, toBuy), priceCol, item = name,
+      label, tostring(e.need), dim(bags), dim(bank), dim(mail),
+      left > 0 and ("|cffffd100%d/%d|r"):format(e.bought, toBuy) or "|TInterface\\RaidFrame\\ReadyCheck-Ready:12|t",
+      paid, item = name,
       tip = { name,
-        ("Need %d, had %d in bags at the start, bought %d, %d left"):format(e.need, e.have, e.bought, left),
+        ("Need %d, had %d at the start, bought %d, %d left to buy"):format(e.need, e.have, e.bought, left),
+        ("Now: %d in bags, %d in bank, %d in mailbox"):format(bags, bank, mail),
         ("Planned %s each"):format(Money(e.unit)),
-        avg and ("Paid %s on average (%s in total)"):format(Money(avg), Money(e.spent)) or nil,
+        avg and ("Paid %s on average (%s in total)"):format(Money(avg), Money(e.spent)) or "Nothing bought yet",
         e.source == "vendor" and "Buy this from a vendor (right-click to tick off)" or "Click: search the auction house",
         "Right-click: tick off" },
     }
@@ -315,17 +327,13 @@ end
 local function buildShopping(plan)
   local run = ns.Shopping.Get()
   if run then return buildRun(run) end
-  local g = function(t) return "|cff999999" .. t .. "|r" end
-  local out = { { g("Item  (click to search the AH)"), g("Need"), g("Bags"), g("Bank"), g("Mail"), "|cffffd100Buy|r", g("Cost") } }
-  local dim = function(n) return n > 0 and tostring(n) or "|cff555555–|r" end
+  local out = { { grey("Item  (click to search the AH)"), grey("Need"), grey("Bags"), grey("Bank"), grey("Mail"), "|cffffd100Buy|r", grey("Cost") } }
   for _, b in ipairs(plan.shopping) do
     if b.buy > 0 or b.have > 0 then
       local done = ns.db.done[b.name]
       local shown = b.short and ("|cffff9933" .. b.name .. "|r") or b.name
       local name = done and ("|cff777777" .. b.name .. " |TInterface\\RaidFrame\\ReadyCheck-Ready:12|t|r") or shown
-      local bags = ns.Game.Bags(b.name)
-      local bank = math.max(0, ns.Game.BagsAndBank(b.name) - bags)
-      local mail = ns.Game.Mail(b.name)
+      local bags, bank, mail = stockCols(b.name)
       local buy = b.buy > 0 and ("|cffffd100" .. b.buy .. "|r") or "|TInterface\\RaidFrame\\ReadyCheck-Ready:12|t"
       out[#out + 1] = {
         name, tostring(b.qty), dim(bags), dim(bank), dim(mail), buy, b.buy > 0 and Money(b.total) or "",
@@ -471,7 +479,7 @@ function UI.Refresh()
   if activeTab == "route" then list = plan.steps and buildRoute(plan) or {}
   elseif activeTab == "shop" then list = plan.shopping and buildShopping(plan) or {}
   else list = buildNotes(plan) end
-  setRows(list, activeTab == "shop" and not ns.Shopping.Get() and SHOP_LAYOUT or LAYOUT)
+  setRows(list, activeTab == "shop" and SHOP_LAYOUT or LAYOUT)
 end
 
 function UI.Replan()
