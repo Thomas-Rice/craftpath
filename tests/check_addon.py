@@ -212,6 +212,17 @@ C_Container = {
   end,
   UseContainerItem = function(bag, slot) if __bag[bag] then __bag[bag][slot] = nil end end,
 }
+-- Mailbox: __mail[i] = { [name] = count, __cod = 1 for cash on delivery }
+__mail = {}
+function GetInboxNumItems() return #__mail end
+function GetInboxHeaderInfo(i) return nil, nil, "x", "y", 0, (__mail[i].__cod and 100 or 0) end
+function GetInboxItem(i, j)
+  local k = 0
+  for name, count in pairs(__mail[i]) do
+    if name ~= "__cod" then k = k + 1; if k == j then return name, 1, 1, count end end
+  end
+end
+function GetRealmName() return "Forever" end
 MerchantFrame = newWidget("Frame", "MerchantFrame")
 MerchantFrame.__shown = false
 AuctionHouseFrame = newWidget("Frame", "AuctionHouseFrame")
@@ -628,6 +639,17 @@ def main():
     G.SlashCmdList.CRAFTPATH("keep"); G.__runTimers()
     assert not G.BankPanel.__buttons[1].cpKeep.__shown
     G.SlashCmdList.CRAFTPATH("keep")
+
+    # ---- Mailbox stock counts as owned, from the last visit ----
+    G.__mail = lua.table_from({1: lua.table_from({"Copper Bar": 7}), 2: lua.table_from({"Copper Bar": 5, "__cod": 1})})
+    before = ns.Game.Owned("Copper Bar")
+    fire("MAIL_INBOX_UPDATE")
+    assert ns.Game.Mail("Copper Bar") == 7, ns.Game.Mail("Copper Bar")  # COD mail not counted
+    assert ns.Game.Owned("Copper Bar") == before + 7
+    assert "7 in mailbox" in (ns.Game.Elsewhere("Copper Bar") or "")
+    G.__mail = lua.table_from({})
+    fire("MAIL_INBOX_UPDATE")
+    assert ns.Game.Mail("Copper Bar") == 0
 
     # Slash command and closing the AH.
     G.SlashCmdList.CRAFTPATH("help")

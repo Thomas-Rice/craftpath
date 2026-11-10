@@ -278,7 +278,9 @@ function Helper.Render(view)
 
   local lines = { "|cffffd100Reagents (in bags / needed for this step)|r" }
   for _, g in ipairs(view.reagents) do
-    lines[#lines + 1] = ("%s%d|r / %d  %s"):format(colour(g.have, g.need), g.have, g.need, g.name)
+    local elsewhere = g.have < g.need and ns.Game.Elsewhere(g.name)
+    lines[#lines + 1] = ("%s%d|r / %d  %s%s"):format(colour(g.have, g.need), g.have, g.need, g.name,
+      elsewhere and ("  |cff66ccff(" .. elsewhere .. ")|r") or "")
   end
   w.reagents:SetText(table.concat(lines, "\n"))
 

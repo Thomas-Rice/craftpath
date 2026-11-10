@@ -242,10 +242,12 @@ local function buildRoute(plan)
         local need = g.qty * st.crafts
         local have = bagCount(g.name)
         local col = have >= need and "|cff33ff33" or "|cffff6060"
+        local elsewhere = have < need and ns.Game.Elsewhere(g.name)
         local unit = ns.Prices.AH(g.name) or ns.Prices.Vendor(g.name) or ns.RawData.VendorItems[g.name]
         out[#out + 1] = {
           "", ("    %d× %s"):format(g.qty, g.name), ("%s%d|r / %d"):format(col, have, need), unit and Money(unit) or "—",
           item = g.name, tip = { g.name, ("%d per craft, %d for the whole step"):format(g.qty, need),
+            elsewhere and ("|cff66ccffAlso " .. elsewhere .. "|r") or "In your bags: " .. have,
             "Click: search the auction house" },
         }
       end
@@ -298,10 +300,16 @@ local function buildShopping(plan)
       local qty = b.have > 0 and ("%d |cff999999(+%d)|r"):format(b.buy, b.have) or tostring(b.buy)
       out[#out + 1] = {
         qty, name, Money(b.unit), Money(b.total), item = b.name,
-        tip = { b.name, ("Need %d, you have %d, buy %d"):format(b.qty, b.have, b.buy),
-          "Price: " .. sourceText(b),
-          b.short and ("|cffff9933Only %d listed at the last scan, so the rest may cost more.|r"):format(b.listed) or nil,
-          "Click: search the auction house", "Right-click: tick off" },
+        tip = (function()
+          local t = { b.name, ("Need %d, you have %d, buy %d"):format(b.qty, b.have, b.buy) }
+          local elsewhere = b.have > 0 and ns.Game.Elsewhere(b.name)
+          if elsewhere then t[#t + 1] = "Of what you have: " .. elsewhere end
+          t[#t + 1] = "Price: " .. sourceText(b)
+          if b.short then t[#t + 1] = ("|cffff9933Only %d listed at the last scan, so the rest may cost more.|r"):format(b.listed) end
+          t[#t + 1] = "Click: search the auction house"
+          t[#t + 1] = "Right-click: tick off"
+          return t
+        end)(),
       }
     end
   end

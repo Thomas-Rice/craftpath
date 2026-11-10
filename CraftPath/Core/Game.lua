@@ -36,11 +36,62 @@ function Game.GetSkill(profession)
   return nil
 end
 
-function Game.Owned(name)
+-- Mailbox: the game only shows mail while the mailbox is open, so CraftPath remembers what
+-- was in this character's mail at the last visit. Cash-on-delivery mail isn't counted
+-- (you'd have to pay for it), and only the mail the game lists (up to 50) is seen.
+local function charKey()
+  return (UnitName and UnitName("player") or "?") .. "-" .. (GetRealmName and GetRealmName() or "")
+end
+
+local function readMail()
+  if not (GetInboxNumItems and GetInboxItem) then return end
+  local counts = {}
+  for i = 1, GetInboxNumItems() or 0 do
+    local cod = GetInboxHeaderInfo and select(6, GetInboxHeaderInfo(i))
+    if not cod or cod == 0 then
+      for j = 1, ATTACHMENTS_MAX_RECEIVE or 12 do
+        local name, _, _, count = GetInboxItem(i, j)
+        if name and count and count > 0 then counts[name] = (counts[name] or 0) + count end
+      end
+    end
+  end
+  ns.db.mail = ns.db.mail or {}
+  ns.db.mail[charKey()] = { counts = counts, t = time() }
+  if ns.Keep then ns.Keep.MarkDirty() end
+end
+ns.On("MAIL_INBOX_UPDATE", readMail)
+
+-- How many of an item are in this character's mailbox (as of the last visit).
+function Game.Mail(name)
+  local m = ns.db.mail and ns.db.mail[charKey()]
+  return m and m.counts[name] or 0
+end
+
+-- Bags only, and bags plus bank.
+function Game.Bags(name)
   if not C_Item or not C_Item.GetItemCount then return 0 end
-  local id = ns.db.ids[name]
-  local ok, n = pcall(C_Item.GetItemCount, id or name, true)
+  local ok, n = pcall(C_Item.GetItemCount, ns.db.ids[name] or name, false)
   return ok and n or 0
+end
+function Game.BagsAndBank(name)
+  if not C_Item or not C_Item.GetItemCount then return 0 end
+  local ok, n = pcall(C_Item.GetItemCount, ns.db.ids[name] or name, true)
+  return ok and n or 0
+end
+
+-- Everything you own: bags, bank and mailbox.
+function Game.Owned(name)
+  return Game.BagsAndBank(name) + Game.Mail(name)
+end
+
+-- "12 in bank, 20 in mailbox" style breakdown of what isn't in your bags, or nil.
+function Game.Elsewhere(name)
+  local bags, all = Game.Bags(name), Game.BagsAndBank(name)
+  local parts = {}
+  if all - bags > 0 then parts[#parts + 1] = (all - bags) .. " in bank" end
+  local mail = Game.Mail(name)
+  if mail > 0 then parts[#parts + 1] = mail .. " in mailbox" end
+  return #parts > 0 and table.concat(parts, ", ") or nil
 end
 
 -- Recipes the game shows that CraftPath's data doesn't have yet (a new patch or hotfix).
