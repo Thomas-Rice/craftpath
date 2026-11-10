@@ -151,7 +151,12 @@ C_AuctionHouse = {
     C_Timer.After(0, function() __fire("AUCTION_HOUSE_PURCHASE_COMPLETED", auctionID) end)
   end,
   ReplicateItems = function() C_Timer.After(0, function() __fire("REPLICATE_ITEM_LIST_UPDATE") end) end,
-  GetNumReplicateItems = function() return #__replicate end,
+  GetNumReplicateItems = function()
+    -- a later batch shows up after the first count has been read
+    if __replicateLater and __replicateReads then table.insert(__replicate, __replicateLater); __replicateLater = nil end
+    __replicateReads = true
+    return #__replicate
+  end,
   GetReplicateItemInfo = function(i)
     local r = __replicate[i + 1]
     return r.name, nil, r.count, 1, true, 1, 0, 0, 0, r.buyout, 0, false, nil, "x", "x", 0, idFor(r.name), true
@@ -426,9 +431,13 @@ def main():
     # Full scan via ReplicateItems, then the 15-minute cooldown.
     G.__replicate = lua.table_from([lua.table_from({"name": "Mithril Bar", "count": 20, "buyout": 4000}),
                                     lua.table_from({"name": "Mithril Bar", "count": 5, "buyout": 1100})])
+    # The list arrives in batches: the second batch (Thorium Bar) must be read too.
+    batch2 = lua.table_from({"name": "Batch Two Ore", "count": 10, "buyout": 3000})
+    G.__replicateLater = batch2
     ns.Scanner.FullScan()
     G.__runTimers()
     assert ns.Prices.AH("Mithril Bar") == 200, ns.Prices.AH("Mithril Bar")
+    assert ns.Prices.AH("Batch Two Ore") == 300, "second batch of the full scan was not read"
     ns.Scanner.FullScan()
     assert any("15 minutes" in G.__chat[i] for i in range(1, len(G.__chat) + 1))
 

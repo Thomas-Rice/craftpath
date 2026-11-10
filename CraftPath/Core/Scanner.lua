@@ -197,7 +197,7 @@ function Scanner.FullScan()
     ns.Print(("Blizzard allows one full scan every 15 minutes. Try again in %d min, or use the shopping-list scan."):format(math.ceil(wait / 60)))
     return
   end
-  Scanner.fullPending = true
+  Scanner.fullPending, Scanner.fullWaiting = true, false
   setStatus("Full scan requested…")
   local ok, err = pcall(C_AuctionHouse.ReplicateItems)
   if not ok then
@@ -209,9 +209,32 @@ function Scanner.FullScan()
   if ns.Keep then ns.Keep.MarkDirty() end
 end
 
+-- The full list arrives in batches (REPLICATE_ITEM_LIST_UPDATE fires as it grows). Reading at
+-- the first event only got the first batch (a few hundred items), so wait until the count has
+-- stopped growing for a couple of seconds (at most a minute) and then read everything.
+local readFullScan
 ns.On("REPLICATE_ITEM_LIST_UPDATE", function()
-  if not Scanner.fullPending then return end
-  Scanner.fullPending = false
+  if not Scanner.fullPending or Scanner.fullWaiting then return end
+  Scanner.fullWaiting = true
+  local last, still, polls = -1, 0, 0
+  local function poll()
+    local n = C_AuctionHouse.GetNumReplicateItems() or 0
+    polls = polls + 1
+    if n == last and n > 0 then still = still + 1 else still = 0 end
+    last = n
+    setStatus(("Receiving the full scan: %d auctions so far…"):format(n))
+    if still >= 4 or polls >= 120 then
+      Scanner.fullWaiting = false
+      Scanner.fullPending = false
+      readFullScan()
+    else
+      C_Timer.After(0.5, poll)
+    end
+  end
+  poll()
+end)
+
+readFullScan = function()
   local total = C_AuctionHouse.GetNumReplicateItems() or 0
   ns.Prices.BeginScan()
   local best = {} -- itemID -> { unit, qty, name }
@@ -285,4 +308,4 @@ ns.On("REPLICATE_ITEM_LIST_UPDATE", function()
     end
   end
   chunk()
-end)
+end
