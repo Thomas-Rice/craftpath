@@ -54,7 +54,7 @@ Draught of Water Breathing|115|115|120|140|160|1|T|Stranglekelp*1;Blackmouth Oil
 Elixir of Giant Growth|115|115|120|140|160|1|R|Deviate Fish*1;Earthroot*1;Empty Vial*1
 Elixir of Spirit|115|115|120|122|125|1|R|Khadgar's Whisker*3;Kingsblood*1;Leaded Vial*1
 Elixir of Wisdom|115|115|120|140|160|1|T|Mageroyal*1;Briarthorn*2;Empty Vial*1
-Lesser Arcane Elixir|120|120|125|127|130|1|R|Kingsblood*4;Leaded Vial*1
+Lesser Arcane Elixir|120|120|210|212|215|1|R|Kingsblood*1;Goldthorn*1;Crystal Vial*1
 Holy Protection Potion|125|125|130|150|170|1|R|Bruiseweed*1;Swiftthistle*1;Empty Vial*1
 Magenta Dye|125|125|130|142|155|1|T|Rosecap*2;Leaded Vial*1
 Swim Speed Potion|125|125|130|150|170|1|T|Swiftthistle*1;Blackmouth Oil*1;Empty Vial*1

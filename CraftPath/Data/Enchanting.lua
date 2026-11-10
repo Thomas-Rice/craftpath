@@ -113,7 +113,7 @@ Enchant Chest - Lesser Stats|215|215|220|240|260|1|T|Greater Mystic Essence*1;Vi
 Enchant Gloves - Skinning|215|215|220|240|260|1|R|Vision Dust*1;Green Whelp Scale*1
 Runed Truesilver Rod|215|215|220|240|260|1|T|Truesilver Rod*1;Black Pearl*1;Greater Mystic Essence*1;Vision Dust*1
 Dreamstaff|220|220|225|245|265|1|R|Large Radiant Shard*4;Small Radiant Shard*4;Star Wood*4;Greater Nether Essence*6;Dream Dust*8;Cerulean Dye*2;Magenta Dye*4
-Enchant Bracer - Agility|220|220|225|245|265|1|R|Vision Dust*1
+Enchant Bracer - Agility|220|220|320|340|360|1|R|Nexus Crystal*2;Illusion Dust*10;Greater Eternal Essence*2;Essence of Air*2
 Enchant Bracer - Lesser Healing Power|220|220|225|245|265|1|R|Lesser Mystic Essence*2
 Enchant Chest - Absorption|220|220|225|245|265|1|R|Dream Dust*10;Greater Nether Essence*4;Large Radiant Shard*2
 Enchant Cloak - Greater Defense|220|220|225|245|265|1|T|Vision Dust*1
