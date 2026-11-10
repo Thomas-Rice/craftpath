@@ -103,73 +103,17 @@ function Planner.Plan(opts)
   end  return best
 end
 
-planOnce = function(opts, ownedFactor)
-  Planner.Tick()
-  local data = Recipes.Load(opts.profession)
-  if not data then return { error = "Unknown profession: " .. tostring(opts.profession) } end
-
-  local from = math.max(1, math.floor(opts.from or 1))
-  local to = math.min(300, math.floor(opts.to or 300))
-  local notes = {}
-  local levelCap
-
-  if opts.charLevel then
-    local cap = 0
-    for _, rank in ipairs(ns.RawData.Ranks) do
-      if opts.charLevel >= rank.level then cap = rank.cap end
-    end
-    if to > cap then
-      local needLevel
-      for _, rank in ipairs(ns.RawData.Ranks) do
-        if not needLevel and rank.cap > cap then needLevel = rank.level end
-      end
-      notes[#notes + 1] = ("Level %d can train up to %d skill, so the plan stops at %d."):format(opts.charLevel, cap, cap)
-      levelCap = { level = opts.charLevel, cap = cap, wanted = to, needLevel = needLevel }
-      to = cap
-    end
-  end
-  if to <= from then
-    if levelCap then
-      return { error = ("Your level (%d) can't train past %d yet: %s needs level %d. Untick Stop at level cap to plan ahead."):format(
-        levelCap.level, levelCap.cap, levelCap.cap == 225 and "Artisan" or "the next rank", levelCap.needLevel or 0),
-        from = from, to = to, notes = notes, levelCap = levelCap }
-    end
-    return { error = "Target skill must be above current skill.", from = from, to = to, notes = notes }
-  end
-
+-- How to get each recipe and what it costs to learn: known, automatic, trainer, Favor, quest,
+-- or a recipe item from a vendor or the auction house, with where to find it. Returns
+-- learnCost(r) -> cost (nil = can't be learned now), info. Used by the planner and the profit finder.
+function Planner.Learner(opts, list)
+  list = list or Recipes.Load(opts.profession).list
   local ahPrice = opts.ahPrice or function() return nil end
   local vendorPrice = opts.vendorPrice or function() return nil end
   local known = opts.known or {}
   local allowRecipeItems = opts.allowRecipeItems ~= false
   local allowFavor = opts.allowFavor ~= false
-  local bonus = opts.bonus or 0
   local prefixes = ns.RawData.RecipePrefixes[opts.profession] or {}
-
-  -- Trainer-confirmed learn skills replace the data's estimates (copies, so the cache is untouched).
-  local list = data.list
-  if opts.learnOverride and next(opts.learnOverride) then
-    list = {}
-    for i, r in ipairs(data.list) do
-      local learn = opts.learnOverride[r.name]
-      if learn and learn ~= r.learn then
-        local c = {}
-        for k, v in pairs(r) do c[k] = v end
-        c.learn = learn
-        if c.orange < learn then c.orange = learn end
-        list[i] = c
-      else
-        list[i] = r
-      end
-    end
-  end
-
-  -- Which recipes produce which item (item name == recipe name in these professions).
-  local producers = {}
-  for _, r in ipairs(list) do
-    producers[r.name] = producers[r.name] or {}
-    table.insert(producers[r.name], r)
-  end
-
   local trainerOffers, trainerMax = opts.trainerOffers, nil
   if trainerOffers then
     for _, skill in pairs(trainerOffers) do
@@ -257,6 +201,77 @@ planOnce = function(opts, ownedFactor)
     learnInfo[r] = info
     return info.cost, info
   end
+  return learnCost
+end
+
+planOnce = function(opts, ownedFactor)
+  Planner.Tick()
+  local data = Recipes.Load(opts.profession)
+  if not data then return { error = "Unknown profession: " .. tostring(opts.profession) } end
+
+  local from = math.max(1, math.floor(opts.from or 1))
+  local to = math.min(300, math.floor(opts.to or 300))
+  local notes = {}
+  local levelCap
+
+  if opts.charLevel then
+    local cap = 0
+    for _, rank in ipairs(ns.RawData.Ranks) do
+      if opts.charLevel >= rank.level then cap = rank.cap end
+    end
+    if to > cap then
+      local needLevel
+      for _, rank in ipairs(ns.RawData.Ranks) do
+        if not needLevel and rank.cap > cap then needLevel = rank.level end
+      end
+      notes[#notes + 1] = ("Level %d can train up to %d skill, so the plan stops at %d."):format(opts.charLevel, cap, cap)
+      levelCap = { level = opts.charLevel, cap = cap, wanted = to, needLevel = needLevel }
+      to = cap
+    end
+  end
+  if to <= from then
+    if levelCap then
+      return { error = ("Your level (%d) can't train past %d yet: %s needs level %d. Untick Stop at level cap to plan ahead."):format(
+        levelCap.level, levelCap.cap, levelCap.cap == 225 and "Artisan" or "the next rank", levelCap.needLevel or 0),
+        from = from, to = to, notes = notes, levelCap = levelCap }
+    end
+    return { error = "Target skill must be above current skill.", from = from, to = to, notes = notes }
+  end
+
+  local ahPrice = opts.ahPrice or function() return nil end
+  local vendorPrice = opts.vendorPrice or function() return nil end
+  local known = opts.known or {}
+  local allowRecipeItems = opts.allowRecipeItems ~= false
+  local allowFavor = opts.allowFavor ~= false
+  local bonus = opts.bonus or 0
+  local prefixes = ns.RawData.RecipePrefixes[opts.profession] or {}
+
+  -- Trainer-confirmed learn skills replace the data's estimates (copies, so the cache is untouched).
+  local list = data.list
+  if opts.learnOverride and next(opts.learnOverride) then
+    list = {}
+    for i, r in ipairs(data.list) do
+      local learn = opts.learnOverride[r.name]
+      if learn and learn ~= r.learn then
+        local c = {}
+        for k, v in pairs(r) do c[k] = v end
+        c.learn = learn
+        if c.orange < learn then c.orange = learn end
+        list[i] = c
+      else
+        list[i] = r
+      end
+    end
+  end
+
+  -- Which recipes produce which item (item name == recipe name in these professions).
+  local producers = {}
+  for _, r in ipairs(list) do
+    producers[r.name] = producers[r.name] or {}
+    table.insert(producers[r.name], r)
+  end
+
+  local learnCost = Planner.Learner(opts, list)
 
   -- What you can craft only changes at skills where some recipe is learned, so item and
   -- craft costs are worked out once per such "tier" instead of once per skill point.
@@ -282,7 +297,7 @@ planOnce = function(opts, ownedFactor)
     local best = { cost = INF }
     local a = ahPrice(name)
     if a and a < best.cost then best = { cost = a, how = "ah" } end
-    local v = vendorPrice(name) or ns.RawData.VendorItems[name]
+    local v = vendorPrice(name) or ns.RawData.VendorItems[name] or (ns.RawData.VendorGoods or {})[name]
     if v and v < best.cost then
       best = { cost = v, how = "vendor", est = not vendorPrice(name) and ns.RawData.VendorEstimates[name] or nil }
     end

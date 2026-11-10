@@ -44,6 +44,57 @@ function Prices.Record(name, unitPrice, quantity, itemID)
   end
   db.prices[name] = { p = math.floor(unitPrice + 0.5), q = quantity, id = itemID, t = time(), scan = scan }
   if itemID then db.ids[name] = itemID end
+  Prices.Remember(name, unitPrice)
+end
+
+-- Price history: the lowest price seen each day, for items any recipe uses or makes, kept
+-- for two weeks. The profit finder uses it to tell steady prices from spikes.
+local HISTORY_DAYS = 14
+local tracked
+local function isTracked(name)
+  if not tracked then
+    tracked = {}
+    for _, prof in ipairs(ns.Recipes.Professions()) do
+      local data = ns.Recipes.Load(prof)
+      local prefixes = (ns.RawData.RecipePrefixes or {})[prof] or {}
+      for _, r in ipairs(data.list) do
+        tracked[r.name] = true
+        for _, g in ipairs(r.reagents) do tracked[g.name] = true end
+        for _, pre in ipairs(prefixes) do tracked[pre .. r.name] = true end
+      end
+    end
+  end
+  return tracked[name]
+end
+
+function Prices.Remember(name, unitPrice)
+  if not isTracked(name) then return end
+  local db = ns.db
+  db.history = db.history or {}
+  local day = math.floor(time() / 86400)
+  local h = db.history[name]
+  if not h then h = {}; db.history[name] = h end
+  local last = h[#h]
+  if last and last.d == day then
+    if unitPrice < last.p then last.p = math.floor(unitPrice + 0.5) end
+  else
+    h[#h + 1] = { d = day, p = math.floor(unitPrice + 0.5) }
+    while #h > HISTORY_DAYS do table.remove(h, 1) end
+  end
+end
+
+-- Lowest, middle and highest daily price over the last `days` days (default 7), and how
+-- many days had a price. nil when the item hasn't been seen.
+function Prices.Stats(name, days)
+  local h = ns.db and ns.db.history and ns.db.history[name]
+  if not h or #h == 0 then return nil end
+  local since = math.floor(time() / 86400) - (days or 7)
+  local list = {}
+  for _, e in ipairs(h) do if e.d > since then list[#list + 1] = e.p end end
+  if #list == 0 then return nil end
+  table.sort(list)
+  local mid = list[math.floor((#list + 1) / 2)]
+  return { low = list[1], median = mid, high = list[#list], days = #list }
 end
 
 -- Marks an item as searched but not listed, so it shows as "none on AH".

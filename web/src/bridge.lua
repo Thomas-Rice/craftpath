@@ -134,3 +134,35 @@ function CP_Data()
   end
   return json.encode(out)
 end
+
+-- Profit finder for the website. opts: prices { name = { p, q, low, med, high, days } },
+-- vendor { name = copper }, faction, professions (list of names; default all).
+function CP_Profit(optsJson)
+  local o = json.decode(optsJson)
+  local prices, vendor = o.prices or {}, o.vendor or {}
+  local profs = {}
+  for _, name in ipairs(o.professions or ns.Recipes.Professions()) do profs[#profs + 1] = { prof = name } end
+  local ok, list = pcall(ns.Profit.Find, {
+    professions = profs, includeUnknown = true, faction = o.faction,
+    ahPrice = function(n) local e = prices[n]; return e and e.p end,
+    vendorPrice = function(n) return vendor[n] end,
+    listed = function(n) local e = prices[n]; return e and e.q end,
+    stats = function(n)
+      local e = prices[n]
+      if e and e.low then return { low = e.low, median = e.med, high = e.high, days = e.days } end
+    end,
+  })
+  if not ok then return json.encode({ error = tostring(list) }) end
+  local out = {}
+  for i, e in ipairs(list) do
+    local l = e.learn or {}
+    out[i] = {
+      name = e.name, profession = e.profession, makes = e.makes, skill = e.recipe.learn,
+      cost = e.cost, price = e.price, sale = e.sale, profit = e.profit, safeProfit = e.safeProfit,
+      vendorSell = e.vendorSell, vendorProfit = e.vendorProfit, margin = e.margin, listed = e.listed,
+      swings = e.swings, stats = e.stats, materials = e.materials, payback = e.payback,
+      learnHow = l.how, learnCost = e.learnCost, learnWhere = l.where, learnItem = l.item, source = e.recipe.source,
+    }
+  end
+  return json.encode(out)
+end

@@ -7,6 +7,8 @@ ns.version = C_AddOns and C_AddOns.GetAddOnMetadata and C_AddOns.GetAddOnMetadat
 
 local DEFAULTS = {
   prices = {},      -- [itemName] = { p = copper, q = quantity, id = itemID, t = time, scan = scanId }
+  history = {},     -- [itemName] = { {d = day number, p = lowest that day}, ... } for recipe items
+  sell = {},        -- [itemName] = vendor sell price (copper), learned from item info
   vendor = {},      -- [itemName] = copper per unit, learned at merchants
   vendorWhere = {}, -- [recipe item] = { npc, where } for recipes seen at a merchant
   ids = {},         -- [itemName] = itemID
@@ -24,6 +26,7 @@ local DEFAULTS = {
     from = 1, to = 300, useMySkill = true, capToLevel = true,
     allowRecipeItems = true, allowFavor = true, spec = "none", overtimeRank = 0,
     openWithAH = true, tooltip = true, maxOverPct = 25, craftHelper = true, useOwned = true, markBags = true,
+    profitUnknown = false, profitSort = "safe",
   },
 }
 
@@ -172,6 +175,8 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.db.settings.craftHelper = not ns.db.settings.craftHelper
     ns.Print("Crafting helper " .. (ns.db.settings.craftHelper and "on" or "off") .. ".")
     ns.CraftHelper.Update()
+  elseif msg == "profit" or msg == "profits" then
+    ns.ProfitUI.Toggle()
   elseif msg == "keep" then
     ns.Keep.Toggle()
   elseif msg == "perf" then
@@ -186,6 +191,7 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.Print("/cpath list — scan just the items on your shopping list")
     ns.Print("/cpath craft — turn the crafting helper (beside the profession window) on or off")
     ns.Print("/cpath keep — turn marking of items you need in your bags and bank on or off")
+    ns.Print("/cpath profit — CraftPath Profits: what to craft today for a profit (also /cprofit)")
     ns.Print("/cpath reset — forget all auction prices")
     ns.Print("/cpath perf — print anything that takes a noticeable time (for lag reports)")
   else
@@ -196,3 +202,6 @@ end
 function CraftPath_OnAddonCompartmentClick()
   ns.UI.Toggle()
 end
+
+SLASH_CRAFTPATHPROFIT1 = "/cprofit"
+SlashCmdList.CRAFTPATHPROFIT = function() if ns.ProfitUI then ns.ProfitUI.Toggle() end end

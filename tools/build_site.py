@@ -16,8 +16,8 @@ ROOT = os.path.join(HERE, "..")
 WEB = os.path.join(ROOT, "web")
 OUT = os.path.join(ROOT, "site")
 SITE_URL = os.environ.get("SITE_URL", "https://craftpath.pages.dev")
-LUA = ["Data/Shared.lua", "Data/Engineering.lua", "Data/Blacksmithing.lua", "Data/Cooking.lua",
-       "Core/Recipes.lua", "Core/Planner.lua"]
+from luafiles import pure_files  # noqa: E402
+LUA = pure_files()
 
 
 def copy(src, dst):
@@ -28,7 +28,7 @@ def copy(src, dst):
 def main():
     if os.path.exists(OUT):
         shutil.rmtree(OUT)
-    for name in ("index.html", "planner.html", "updates.html"):
+    for name in ("index.html", "planner.html", "profits.html", "updates.html"):
         copy(os.path.join(WEB, name), os.path.join(OUT, name))
     shutil.copytree(os.path.join(WEB, "assets"), os.path.join(OUT, "assets"))
     copy(os.path.join(WEB, "src", "engine.js"), os.path.join(OUT, "assets", "engine.js"))
@@ -44,6 +44,8 @@ def main():
     for rel in LUA:
         copy(os.path.join(ROOT, "CraftPath", rel), os.path.join(OUT, "lua", rel))
     copy(os.path.join(WEB, "src", "bridge.lua"), os.path.join(OUT, "lua", "bridge.lua"))
+    with open(os.path.join(OUT, "lua", "files.json"), "w") as fh:
+        json.dump(LUA, fh)
     for name in ("prices.json", "recipe-changes.json"):
         copy(os.path.join(ROOT, "data", name), os.path.join(OUT, "data", name))
 
@@ -79,7 +81,7 @@ def main():
         fh.write(f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
     with open(os.path.join(ROOT, "data", "recipe-changes.json"), encoding="utf-8") as fh:
         last = (json.load(fh) or [{}])[0].get("date", "")
-    urls = [("", ""), ("planner", ""), ("updates", last)]
+    urls = [("", ""), ("planner", ""), ("profits", ""), ("updates", last)]
     with open(os.path.join(OUT, "sitemap.xml"), "w") as fh:
         fh.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         for path, mod in urls:

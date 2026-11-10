@@ -67,7 +67,8 @@ def make_csvs(ns, out, extra=None, change=None, hidden_reagent=None):
               ["ID", "SpellID", "EffectIndex", "Effect", "EffectItemType", "EffectBasePointsF"], effects)
     if hidden_reagent:  # the client ships this item with no name yet
         item_rows = [[i, "" if n == hidden_reagent else n] for i, n in item_rows]
-    write_csv(os.path.join(out, "ItemSparse.csv"), ["ID", "Display_lang"], item_rows)
+    item_rows = [[i, n, 40 if n == "Empty Vial" else 0, 7 if n == "Copper Bar" else 0] for i, n in item_rows]
+    write_csv(os.path.join(out, "ItemSparse.csv"), ["ID", "Display_lang", "BuyPrice", "SellPrice"], item_rows)
 
 
 def snapshot(ns, prof):
@@ -102,6 +103,8 @@ def main():
         changes = os.path.join(tmp, "changes.json")
         sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
                            "--changes", changes])
+        items = open(os.path.join(addon, "Data", "Items.lua"), encoding="utf-8").read()
+        assert '["Copper Bar"] = 7,' in items, items[:400]
         synced = open(eng, encoding="utf-8").read()
         assert any(l.startswith("Rough Blasting Powder|") and l.endswith("|0") for l in synced.splitlines()), \
             "hand-set 0 skill-ups was lost"

@@ -11,8 +11,9 @@ import sys
 from lupa import lua51
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "CraftPath")
-CORE_FILES = ["Data/Shared.lua", "Data/Engineering.lua", "Data/Blacksmithing.lua", "Data/Cooking.lua",
-              "Core/Recipes.lua", "Core/Planner.lua"]
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "tools"))
+from luafiles import pure_files  # noqa: E402
+CORE_FILES = pure_files()
 
 # Placeholder prices in copper, loosely Classic-like.
 SAMPLE_PRICES = {
@@ -277,6 +278,31 @@ def main():
     for st in lua_list(po.steps):
         assert st.costPerCraft > 0, (st.recipe.name, "step cost shows owned stock as free")
     print("Step costs at market price with stock:", [(st.recipe.name, st.costPerCraft) for st in lua_list(po.steps)])
+
+    # ---- Profit finder ----
+    pp = {"Copper Ore": 10, "Copper Bar": 40, "Tin Ore": 10, "Tin Bar": 8,
+          "Peacebloom": 5, "Silverleaf": 5, "Elixir of Minor Defense": 200, "Empty Vial": 4}
+    stats = {"Copper Bar": {"low": 20, "median": 38, "high": 60, "days": 5}}
+    opts = lua.table_from({
+        "professions": lua.table_from({1: lua.table_from({"prof": "Mining", "skill": 50}),
+                                       2: lua.table_from({"prof": "Alchemy"})}),
+        "ahPrice": lambda n: pp.get(n), "sellPrice": lambda n: 15 if n == "Tin Bar" else None,
+        "stats": lambda n: lua.table_from(stats[n]) if n in stats else None,
+        "listed": lambda n: 12, "faction": "Horde",
+    })
+    found = {e.name: e for e in lua_list(ns.Profit.Find(opts))}
+    cb = found["Copper Bar"]
+    assert cb.canCraft and abs(cb.profit - (40 * 0.95 - 10)) < 0.01, cb.profit
+    assert abs(cb.safeProfit - (20 * 0.95 - 10)) < 0.01 and cb.swings, (cb.safeProfit, cb.swings)
+    assert "Elixir of Minor Defense" not in found, "unknown recipes listed without asking"
+    tin = found["Tin Bar"]  # loses money on the AH (8 after the cut vs 10 ore) but a vendor pays 15
+    assert tin.canCraft and tin.profit < 0 and abs(tin.vendorProfit - 5) < 0.01, (tin.profit, tin.vendorProfit)
+    opts.includeUnknown = True
+    found = {e.name: e for e in lua_list(ns.Profit.Find(opts))}
+    eld = found["Elixir of Minor Defense"]
+    assert not eld.canCraft and not eld.hasProfession and eld.learn.how == "auto", eld.learn.how
+    assert eld.cost > 10 and eld.profit > 100, (eld.cost, eld.profit)
+    print("Profit finder:", {n: round(e.best, 1) for n, e in list(found.items())[:4]})
 
     print("All tests passed.")
     if "--show" in sys.argv:

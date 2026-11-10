@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profitable crafts today · CraftPath for WoW: Forever</title>
+<meta name="description" content="What to craft today in World of Warcraft: Forever to make a profit, for every profession, priced from a recent auction house scan, with where to get recipes you don't know.">
+<link rel="canonical" href="/profits">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/style.css">
+<meta property="og:title" content="Profitable crafts today · CraftPath">
+<meta property="og:description" content="What to craft today in WoW: Forever to make a profit, for every profession.">
+<meta property="og:type" content="website">
+</head>
+<body>
+<div class="frame">
+  <aside class="side">
+    <a class="mark" href="./" aria-label="CraftPath home"><img src="assets/icon.svg" alt="" width="34" height="34"><span class="mark-text"><span>CraftPath</span><small>The cheapest way to level your profession</small></span></a>
+    <nav class="bignav" aria-label="Site">
+      <div id="profLinks">
+        <a class="navitem" href="./">Home</a>
+        <a class="navitem" href="planner.html">Planner</a>
+        <a class="navitem" href="profits.html" aria-current="page">Profits</a>
+        <a class="navitem" href="updates.html">Recipe updates</a>
+      </div>
+      <a href="./#download">Get the addon</a>
+    </nav>
+    <div class="side-foot">
+      <p class="price-note" id="priceNote"></p>
+      <div class="fine"><span>An unofficial fan project</span><span>Not affiliated with Blizzard</span></div>
+    </div>
+  </aside>
+
+  <main class="stage">
+    <section class="hero" aria-live="polite">
+      <div class="bignum" id="heroNum" aria-hidden="true">–</div>
+      <div class="caption">
+        <h1>Profitable crafts today</h1>
+        <p id="heroText">What to craft at today's auction house prices to make money, after the auction house's 5% cut.</p>
+      </div>
+    </section>
+
+    <section class="controls panel" aria-label="Filters">
+      <p class="field-label">My professions <span class="muted">(tap to choose; saved in this browser)</span></p>
+      <div class="chips" id="myProfs"></div>
+      <div class="row checks">
+        <label><input type="checkbox" id="showAll"> Show every profession, not just mine</label>
+        <label><input type="checkbox" id="onlyEasy"> Only recipes from trainers or learned automatically</label>
+      </div>
+      <div class="row">
+        <label class="field">Sort by
+          <select id="sort">
+            <option value="safe">Safe profit (at the week's low)</option>
+            <option value="profit">Profit at today's price</option>
+            <option value="margin">Margin %</option>
+          </select>
+        </label>
+        <label class="field">Find an item <input type="search" id="find" placeholder="e.g. Mithril"></label>
+      </div>
+    </section>
+    <p class="price-note mobile-only" id="priceNote2"></p>
+
+    <div id="loading" class="panel loading">Working out today's profits…</div>
+    <div id="error" class="panel error" hidden></div>
+    <div class="profit-list" id="list"></div>
+
+    <section class="panel addon">
+      <h2>Your realm, your recipes</h2>
+      <p>The <a href="./#download">CraftPath addon</a> has the same profit finder in game: type <code>/cpath profit</code>. It uses your own auction house scan, knows which recipes you've learned, and keeps a week of prices to tell a steady profit from a one-day spike.</p>
+    </section>
+    <footer><p>CraftPath is an unofficial fan project and is not affiliated with or endorsed by Blizzard Entertainment. World of Warcraft is a trademark of Blizzard Entertainment.</p></footer>
+  </main>
+</div>
+<script src="assets/vendor/wasmoon.js"></script>
+<script type="module" src="assets/profits.js"></script>
+</body>
+</html>

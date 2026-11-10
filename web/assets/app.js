@@ -7,7 +7,8 @@ const store = {
   set(k, v) { try { localStorage.setItem("cp." + k, JSON.stringify(v)); } catch { /* private mode */ } },
 };
 
-const PROFESSIONS = ["Engineering", "Blacksmithing", "Cooking"];
+const ORDER = ["Alchemy", "Blacksmithing", "Enchanting", "Engineering", "Leatherworking", "Tailoring", "Mining", "Cooking", "First Aid"];
+let PROFESSIONS = ORDER.slice();
 const MAX_LEVEL = 60;
 
 let engine, snapshot, overrides = store.get("prices", {}), lastPlan;
@@ -296,6 +297,8 @@ async function main() {
     engine = eng; snapshot = snap;
     const data = engine.data();
     for (const [p, v] of Object.entries(data.professions)) reagentNames[p] = v.reagents;
+    PROFESSIONS = ORDER.filter((p) => data.professions[p]).concat(Object.keys(data.professions).filter((p) => !ORDER.includes(p)));
+    if (!PROFESSIONS.includes(state.profession)) state.profession = "Engineering";
     setupControls();
     run();
   } catch (err) {

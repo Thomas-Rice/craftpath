@@ -72,6 +72,7 @@ h2 { font-size: 1.05rem; font-weight: 600; margin: 0 0 .75rem; letter-spacing: -
   margin: 0 10px 0 -18px; vertical-align: .3em;
 }
 .bignav > a { font-size: 1.05rem; font-weight: 500; }
+.bignav #profTabs .navitem { font-size: 1.08rem; padding: 1px 0; }
 .side-foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 14px; }
 .price-note { color: var(--muted); font-size: .8rem; margin: 0 0 12px; }
 .price-note strong { color: var(--text); font-weight: 600; }
@@ -334,4 +335,33 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; bac
   .tagline { font-size: 1.12rem; }
   .wow.helper { width: 180px; }
   .download { padding: 16px; }
+}
+
+/* ---------- profits page ---------- */
+.field-label { margin: 0 0 8px; font-size: .85rem; color: var(--text); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font: 500 .88rem Inter, sans-serif; color: var(--muted); background: rgba(255, 255, 255, .03);
+  border: 1px solid var(--line-2); border-radius: 999px; padding: 6px 12px; cursor: pointer;
+}
+.chip[aria-pressed="true"] { color: #1a1206; background: var(--gold); border-color: var(--gold); font-weight: 600; }
+.p-section { margin: 22px 0 10px; font-size: 1.25rem; }
+.profit {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 18px; align-items: center;
+  background: rgba(255, 255, 255, .025); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; margin-bottom: 8px;
+}
+.p-name { font: 600 1.02rem "Inter Tight", Inter, sans-serif; }
+.p-meta { margin-top: 3px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.ptag { font-size: .78rem; color: var(--muted); }
+.p-nums { display: flex; gap: 18px; text-align: right; font-variant-numeric: tabular-nums; }
+.p-nums .l { display: block; font-size: .7rem; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; }
+.p-nums .big { font-weight: 700; font-size: 1.05rem; }
+.profit details { grid-column: 1 / -1; font-size: .86rem; }
+.profit summary { color: var(--muted); cursor: pointer; }
+.p-facts { display: grid; gap: 3px; color: var(--muted); }
+.badge.vendor { background: rgba(69, 210, 106, .18); color: #9ff0b4; }
+.show-all { margin: 10px 0 20px; }
+@media (max-width: 640px) {
+  .profit { grid-template-columns: 1fr; }
+  .p-nums { justify-content: space-between; text-align: left; }
 }

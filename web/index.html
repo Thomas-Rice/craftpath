@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CraftPath: the cheapest way to level your profession in WoW: Forever</title>
-<meta name="description" content="CraftPath is a free WoW: Forever addon that scans the auction house, plans the cheapest 1-300 route for Engineering, Blacksmithing and Cooking, and buys the shopping list for you.">
+<meta name="description" content="CraftPath is a free WoW: Forever addon that scans the auction house, plans the cheapest 1-300 route for every profession, finds what is profitable to craft today, and buys the shopping list for you.">
 <link rel="canonical" href="/">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -26,6 +26,7 @@
       <div id="profLinks">
         <a class="navitem" href="./" aria-current="page">Home</a>
         <a class="navitem" href="planner.html">Planner</a>
+        <a class="navitem" href="profits.html">Profits</a>
         <a class="navitem" href="updates.html">Recipe updates</a>
       </div>
       <a href="#features">Features</a>
@@ -47,6 +48,7 @@
         <div class="cta">
           <a class="btn primary" href="#download">Download the addon</a>
           <a class="btn" href="planner.html">Try the planner</a>
+          <a class="btn" href="profits.html">Today's profits</a>
         </div>
       </div>
     </section>
@@ -88,6 +90,7 @@
           <li><strong>Buys the shopping list for you</strong>It finds each item at the best price and keeps track of what you've bought. You confirm every purchase.</li>
           <li><strong>Tells you what to craft next</strong>A helper beside the profession window opens the right recipe and moves on to the next one as soon as you pass it.</li>
           <li><strong>Uses what you already have</strong>Materials in your bags and bank come off the list before anything is bought.</li>
+          <li><strong>Finds what's profitable to craft today</strong>CraftPath Profits lists what you can make for a profit at today's prices, allowing for prices moving, and where to get the recipes you don't have yet.</li>
           <li><strong>Stops you selling what you need</strong>Items your routes still need are marked in your bags and bank, and it warns you before they go to a vendor or the auction house.</li>
           <li><strong>Knows where every recipe comes from</strong>Trainers, vendors and where to find them, Merchant's Favor and quest rewards, for your faction.</li>
         </ul>
@@ -95,13 +98,9 @@
     </section>
 
     <section aria-label="Professions">
-      <h2 class="section-title">Three professions, priced today</h2>
+      <h2 class="section-title">Every profession, priced today</h2>
       <p class="muted section-sub" id="pricedOn">Cheapest routes at current auction house prices.</p>
-      <div class="prof-cards" id="profCards">
-        <a class="prof-card" href="planner.html#p=Engineering"><span class="pc-name">Engineering</span></a>
-        <a class="prof-card" href="planner.html#p=Blacksmithing"><span class="pc-name">Blacksmithing</span></a>
-        <a class="prof-card" href="planner.html#p=Cooking"><span class="pc-name">Cooking</span></a>
-      </div>
+      <div class="prof-cards" id="profCards"></div>
     </section>
 
     <section class="panel download" id="download">
@@ -132,7 +131,7 @@
       <h2 class="section-title">Questions</h2>
       <details><summary>Is it free?</summary><p>Yes. CraftPath is a free fan project.</p></details>
       <details><summary>Does it play the game for me?</summary><p>No. It plans, finds items and keeps track, but the game needs you to click for every purchase and every craft, and CraftPath works within that.</p></details>
-      <details><summary>Which professions does it cover?</summary><p>Engineering, Blacksmithing and Cooking from 1 to 300, including Goblin and Gnomish Engineering recipes. More professions are planned.</p></details>
+      <details><summary>Which professions does it cover?</summary><p>Alchemy, Blacksmithing, Enchanting, Engineering, Leatherworking, Tailoring, Mining (smelting), Cooking and First Aid, from 1 to 300. The recipes come straight from the WoW: Forever game data and are checked every day.</p></details>
       <details><summary>Where do the website's prices come from?</summary><p>From a recent auction house scan, shown with its date on the planner. Your realm will differ a little, so the planner lets you change any price, and the addon always uses your own live scan.</p></details>
       <details><summary>What if a recipe changes in a game update?</summary><p>The game data is checked every day. Changes go into the addon and the planner, and are listed on the <a href="updates.html">recipe updates</a> page.</p></details>
     </section>

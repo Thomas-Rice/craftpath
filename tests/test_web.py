@@ -14,7 +14,7 @@ from run_tests import SAMPLE_PRICES, load_core, lua_list, plan  # noqa: E402
 def main():
     lua, ns = load_core()
     prices = dict(SAMPLE_PRICES)
-    for prof in ("Engineering", "Blacksmithing", "Cooking"):
+    for prof in ("Engineering", "Blacksmithing", "Cooking", "Alchemy", "Tailoring"):
         for name in lua_list(ns.Recipes.AllReagents(prof)):
             prices.setdefault(name, 60 + 7 * len(name))
     cases = [
@@ -24,6 +24,8 @@ def main():
         {"profession": "Engineering", "from": 150, "to": 300, "faction": "Horde", "spec": "Gnomish"},
         {"profession": "Cooking", "from": 1, "to": 300, "faction": "Horde"},
         {"profession": "Cooking", "from": 1, "to": 300, "faction": "Horde", "charLevel": 30},
+        {"profession": "Alchemy", "from": 1, "to": 300, "faction": "Horde"},
+        {"profession": "Tailoring", "from": 50, "to": 250, "faction": "Alliance"},
     ]
     for c in cases:
         c["prices"] = prices

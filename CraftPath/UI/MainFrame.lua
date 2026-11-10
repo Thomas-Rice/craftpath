@@ -448,7 +448,10 @@ local function syncControls()
   end
   for prof, b in pairs(widgets.profButtons) do
     if prof == s.profession then b:LockHighlight() else b:UnlockHighlight() end
+    local skill = ns.Game.GetSkill(prof)
+    b:SetText(skill and skill > 0 and ("%s |cff999999%d|r"):format(prof, skill) or prof)
   end
+  widgets.profMenu:SetText(s.profession .. "  |cffffd100v|r")
   widgets.spec:SetText(SPEC_LABEL[s.spec] or SPEC_LABEL.none)
   widgets.spec:SetShown(s.profession == "Engineering")
   local atAH = ns.Scanner.atAH
@@ -505,6 +508,13 @@ function UI.Refresh()
   setRows(list, LAYOUT)
 end
 
+function UI.ToggleProfessionMenu()
+  if widgets.menu then
+    widgets.menu:SetShown(not widgets.menu:IsShown())
+    if widgets.menu:IsShown() then syncControls() end
+  end
+end
+
 function UI.Replan()
   if not ns.db then return end
   if ns.CraftHelper and ns.CraftHelper.ClearCache then ns.CraftHelper.ClearCache() end
@@ -548,14 +558,34 @@ local function create()
 
   widgets.checks, widgets.edits, widgets.profButtons, widgets.tabs = {}, {}, {}, {}
 
-  -- Row 1 (y -30): profession, specialisation           14 ... 238 | 436 ... 586
-  local x = 14
-  for _, prof in ipairs(ns.Recipes.Professions()) do
-    local b = button(frame, prof, 110, function() settings().profession = prof; UI.Replan() end,
-      prof, "Plan the cheapest way to level " .. prof .. ".")
-    b:SetPoint("TOPLEFT", x, -30)
+  -- Row 1 (y -30): profession menu, profits, specialisation   14 ... 214 | 220 ... 330 | 436 ... 586
+  widgets.profMenu = button(frame, "", 200, function() UI.ToggleProfessionMenu() end,
+    "Profession", "Choose which profession to plan. Ones your character has show your skill.")
+  widgets.profMenu:SetPoint("TOPLEFT", 14, -30)
+  widgets.profitsButton = button(frame, "Profits", 110, function() if ns.ProfitUI then ns.ProfitUI.Toggle() end end,
+    "CraftPath Profits", "What you can craft today at today's prices to make a profit.")
+  widgets.profitsButton:SetPoint("LEFT", widgets.profMenu, "RIGHT", 6, 0)
+
+  -- The menu itself: every profession, two columns, over the list area.
+  local menu = CreateFrame("Frame", nil, frame, "BackdropTemplate")
+  menu:SetPoint("TOPLEFT", widgets.profMenu, "BOTTOMLEFT", 0, -2)
+  menu:SetSize(300, 20 + 26 * math.ceil(#ns.Recipes.Professions() / 2))
+  menu:SetFrameLevel(frame:GetFrameLevel() + 20)
+  if menu.SetBackdrop then
+    menu:SetBackdrop({ bgFile = "Interface\\Tooltips\\UI-Tooltip-Background", edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+      edgeSize = 14, insets = { left = 3, right = 3, top = 3, bottom = 3 } })
+    menu:SetBackdropColor(0.05, 0.05, 0.05, 0.97)
+  end
+  menu:Hide()
+  widgets.menu = menu
+  for i, prof in ipairs(ns.Recipes.Professions()) do
+    local b = button(menu, prof, 136, function()
+      settings().profession = prof
+      menu:Hide()
+      UI.Replan()
+    end, prof, "Plan the cheapest way to level " .. prof .. ".")
+    b:SetPoint("TOPLEFT", 10 + ((i - 1) % 2) * 142, -10 - math.floor((i - 1) / 2) * 26)
     widgets.profButtons[prof] = b
-    x = x + 114
   end
   widgets.spec = button(frame, "", 150, function()
     local cur = settings().spec

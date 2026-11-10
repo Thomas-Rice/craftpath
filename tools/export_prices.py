@@ -15,7 +15,8 @@ from lupa import lua51
 HERE = os.path.dirname(os.path.abspath(__file__))
 ADDON = os.path.join(HERE, "..", "CraftPath")
 OUT = os.path.join(HERE, "..", "data", "prices.json")
-FILES = ["Data/Shared.lua", "Data/Engineering.lua", "Data/Blacksmithing.lua", "Data/Cooking.lua", "Core/Recipes.lua"]
+from luafiles import pure_files  # noqa: E402
+FILES = pure_files()
 
 
 def wanted_items():
@@ -64,6 +65,14 @@ def main(argv=None):
                 prices[name]["q"] = int(e.q)
             newest = max(newest, int(e.t or 0))
     vendor = {n: int(p) for n, p in (db.vendor or {}).items() if n in names}
+    # Last week's daily lows, so the website can show a "safe" profit like the addon.
+    today = newest // 86400 if newest else 0
+    for name, h in (db.history or {}).items():
+        if name not in prices:
+            continue
+        days = sorted(int(e.p) for e in h.values() if e.p and int(e.d) > today - 7)
+        if len(days) >= 2:
+            prices[name].update(low=days[0], med=days[(len(days) - 1) // 2], high=days[-1], days=len(days))
     out = {
         "updated": datetime.datetime.fromtimestamp(newest, datetime.timezone.utc).isoformat() if newest else None,
         "note": "Lowest buyout from the site owner's CraftPath scans (Horde). Prices change constantly; "

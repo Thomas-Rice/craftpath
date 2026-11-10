@@ -10,10 +10,17 @@ function gold(c) {
 }
 
 const BLURB = {
-  Engineering: "Bombs, goggles and gadgets, with Goblin and Gnomish recipes.",
+  Alchemy: "Potions, elixirs and transmutes.",
   Blacksmithing: "Weapons, armour and stones, with Merchant's Favor plans.",
+  Enchanting: "Enchants, rods and oils.",
+  Engineering: "Bombs, goggles and gadgets, with Goblin and Gnomish recipes.",
+  Leatherworking: "Armour, kits and cured hides.",
+  Tailoring: "Cloth armour, bags and bolts.",
+  Mining: "Smelting bars from ore.",
   Cooking: "The cheapest secondary profession, including the Artisan quest.",
+  "First Aid": "Bandages, from linen to runecloth.",
 };
+const ORDER = Object.keys(BLURB);
 
 async function main() {
   try {
@@ -22,8 +29,7 @@ async function main() {
       const d = new Date(s.updated).toLocaleDateString("en-GB", { day: "numeric", month: "long" });
       document.getElementById("pricedOn").textContent = `Cheapest routes at auction house prices from ${d} (Horde). The addon uses your own live prices.`;
     }
-    document.getElementById("profCards").innerHTML = Object.entries(s.professions).sort((a, b) =>
-      ["Engineering", "Blacksmithing", "Cooking"].indexOf(a[0]) - ["Engineering", "Blacksmithing", "Cooking"].indexOf(b[0]))
+    document.getElementById("profCards").innerHTML = Object.entries(s.professions).sort((a, b) => ORDER.indexOf(a[0]) - ORDER.indexOf(b[0]))
       .map(([name, p]) => {
         const full = p.full && p.full.to === 300
           ? `<div class="pc-row"><span>1 → 300</span><b>${gold(p.full.total)}</b></div>`

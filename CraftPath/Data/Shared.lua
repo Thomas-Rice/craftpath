@@ -153,6 +153,12 @@ ns.RawData.RecipePrefixes = {
   Engineering = { "Schematic: ", "Blueprint: " },
   Blacksmithing = { "Plans: " },
   Cooking = { "Recipe: " },
+  Alchemy = { "Recipe: " },
+  Tailoring = { "Pattern: " },
+  Leatherworking = { "Pattern: " },
+  Enchanting = { "Formula: " },
+  ["First Aid"] = { "Manual: " },
+  Mining = {},
 }
 
 -- Extra steps some professions need to reach a rank, with items for the shopping list.

@@ -55,6 +55,8 @@ end
 function Widget:SetScript(k, fn) self.__scripts[k] = fn end
 function Widget:SetSize(w, h) self.__w, self.__h = w, h end
 function Widget:SetWidth(w) self.__w = w end
+function Widget:GetFrameLevel() return self.__level or 1 end
+function Widget:SetFrameLevel(l) self.__level = l end
 function Widget:SetHeight(h) self.__h = h end
 function Widget:GetParent() return self.__parent end
 function Widget:ClearAllPoints() self.__points = {} end
@@ -223,6 +225,7 @@ function GetInboxItem(i, j)
   end
 end
 function GetRealmName() return "Forever" end
+function date(fmt, t) return os.date(fmt, t) end
 MerchantFrame = newWidget("Frame", "MerchantFrame")
 MerchantFrame.__shown = false
 AuctionHouseFrame = newWidget("Frame", "AuctionHouseFrame")
@@ -606,6 +609,29 @@ def main():
         check_layout(G, "CraftPathFrame")
     fire("TRADE_SKILL_SHOW")
     check_layout(G, "CraftPathCraftHelper")
+
+    # ---- Profession menu: every profession, picking one replans ----
+    ns.UI.ToggleProfessionMenu()
+    check_layout(G, "CraftPathFrame")
+    alch = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)]
+            if isinstance(f.__text, str) and f.__text.startswith("Alchemy") and f.__kind == "Button"][0]
+    alch.Click(alch)
+    assert ns.db.settings.profession == "Alchemy"
+    ns.db.settings.profession = "Engineering"
+
+    # ---- CraftPath Profits window ----
+    G.SlashCmdList.CRAFTPATH("profit")
+    assert G.CraftPathProfitFrame.__shown
+    texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
+    assert any("profitable crafts you can make" in t for t in texts), [t for t in texts if "rofit" in t][:5]
+    check_layout(G, "CraftPathProfitFrame")
+    ns.db.settings.profitUnknown = True
+    ns.ProfitUI.Recompute()
+    texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
+    assert any("Recipes you don't know yet" in t for t in texts), "unknown section missing"
+    check_layout(G, "CraftPathProfitFrame")
+    G.SlashCmdList.CRAFTPATHPROFIT()
+    assert not G.CraftPathProfitFrame.__shown
     fire("TRADE_SKILL_CLOSE")
 
     # ---- Keep marks: items your routes need, in bags and bank ----
