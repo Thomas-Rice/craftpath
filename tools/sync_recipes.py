@@ -36,6 +36,12 @@ PROFESSIONS = {
     "Engineering": (202, ["Schematic: ", "Blueprint: "], ["Arclight Spanner"]),
     "Blacksmithing": (164, ["Plans: "], ["Blacksmith Hammer"]),
     "Cooking": (185, ["Recipe: "], []),
+    "Alchemy": (171, ["Recipe: "], []),
+    "Tailoring": (197, ["Pattern: "], []),
+    "Leatherworking": (165, ["Pattern: "], []),
+    "Enchanting": (333, ["Formula: "], []),
+    "First Aid": (129, ["Manual: "], []),
+    "Mining": (186, [], []),
 }
 MAX_SKILL = 300
 CREATE_ITEM = 24  # SpellEffect.Effect for "create item"
@@ -255,7 +261,7 @@ def write_profession(path, prof, recipes, tools, build):
 local _, ns = ...
 ns.RawData = ns.RawData or {{}}
 
-ns.RawData.{prof} = {{
+ns.RawData["{prof}"] = {{
   build = "{build}",
   tools = {{ {", ".join('"%s"' % t for t in tools)} }},{extra}
   recipes = [[
@@ -368,7 +374,7 @@ def main(argv=None):
     changed_any = False
     summary_rows, look, sections, details, entries = [], [], [], [], []
     for prof, (skill_line, prefixes, tools) in PROFESSIONS.items():
-        path = os.path.join(addon, "Data", f"{prof}.lua")
+        path = os.path.join(addon, "Data", f"{prof.replace(' ', '')}.lua")
         before_full = parse_existing_full(path, addon)
         before_sources = parse_existing(path, addon)
         before_lines = parse_lines(path)
