@@ -236,20 +236,52 @@ ns.On("REPLICATE_ITEM_LIST_UPDATE", function()
     if i < total then
       C_Timer.After(0, chunk)
     else
-      local named, waiting = 0, 0
+      -- Names: items seen before are known by ID; the rest load from the game, which takes a
+      -- moment. Only say "done" once every name is in (or after a minute), so a /reload
+      -- straight after the message saves everything.
+      local nameOf = {}
+      for n, id in pairs(ns.db.ids) do nameOf[id] = n end
+      local named, waiting, missed = 0, 0, 0
+      local finished, looping = false, true
+      local function finish()
+        if finished then return end
+        finished = true
+        setStatus(("Full scan done: %d items priced%s. You can /reload or log out now."):format(
+          named, missed > 0 and (" (" .. missed .. " names didn't load)") or ""))
+        ns.Print(("Full scan done: %d items priced. Prices are saved when you /reload or log out."):format(named))
+        if ns.UI then ns.UI.Replan() end
+        if ns.ProfitUI then ns.ProfitUI.Recompute() end
+      end
       for itemID, b in pairs(best) do
-        if b.name then
-          ns.Prices.Record(b.name, b.unit, b.qty, itemID); named = named + 1
+        local name = b.name or nameOf[itemID]
+        if not name and C_Item and C_Item.GetItemNameByID then
+          local ok, n = pcall(C_Item.GetItemNameByID, itemID)
+          if ok then name = n end
+        end
+        if name then
+          ns.Prices.Record(name, b.unit, b.qty, itemID); named = named + 1
         elseif Item and Item.CreateFromItemID then
           waiting = waiting + 1
           local item = Item:CreateFromItemID(itemID)
           item:ContinueOnItemLoad(function()
-            ns.Prices.Record(item:GetItemName(), b.unit, b.qty, itemID)
+            local n = item:GetItemName()
+            if n then ns.Prices.Record(n, b.unit, b.qty, itemID); named = named + 1 else missed = missed + 1 end
+            waiting = waiting - 1
+            if waiting % 100 == 0 then setStatus(("Loading item names: %d left…"):format(waiting)) end
+            if waiting <= 0 and not looping then finish() end
           end)
+        else
+          missed = missed + 1
         end
       end
-      setStatus(("Full scan done: %d auctions, %d items."):format(total, named + waiting))
-      if ns.UI then ns.UI.Replan() end
+      looping = false
+      if waiting > 0 then
+        setStatus(("Loading item names: %d left… (don't /reload yet)"):format(waiting))
+        ns.Print(("Reading the full scan: %d item names still loading. Wait for \"Full scan done\" before you /reload."):format(waiting))
+        C_Timer.After(60, function() missed = missed + math.max(0, waiting); finish() end)
+      else
+        finish()
+      end
     end
   end
   chunk()

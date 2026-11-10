@@ -44,16 +44,18 @@ def wanted_items():
 
 def main(argv=None):
     argv = argv or sys.argv[1:]
+    args = [a for a in argv if not a.startswith("--")]
     if not argv:
         sys.exit(__doc__)
     lua = lua51.LuaRuntime(unpack_returned_tuples=True)
-    with open(argv[0], encoding="utf-8") as fh:
+    with open(args[0], encoding="utf-8") as fh:
         lua.execute(fh.read())
     db = lua.globals().CraftPathDB
     names = wanted_items()
-    # Only prices from the latest full scan (with an hour's grace for targeted scans just
-    # before it): anything older is no longer listed, and old prices mislead.
-    since = int(db.lastFullScan or 0) - 3600
+    # Only recent prices: anything not seen in the 36 hours before the newest price is no
+    # longer listed, and old prices mislead. (Full and targeted scans both count.)
+    newest_seen = max((int(e.t or 0) for e in (db.prices or {}).values() if e.p), default=0)
+    since = newest_seen - 36 * 3600
     prices, newest, dropped = {}, 0, 0
     for name, e in (db.prices or {}).items():
         if name in names and e.p and int(e.t or 0) < since:
@@ -80,12 +82,19 @@ def main(argv=None):
         "prices": dict(sorted(prices.items())),
         "vendor": dict(sorted(vendor.items())),
     }
+    # Safety: a scan that stopped early would wipe most of the site's prices.
+    if os.path.exists(OUT) and "--force" not in argv:
+        with open(OUT, encoding="utf-8") as fh:
+            before = len(json.load(fh).get("prices", {}))
+        if before and len(prices) < 0.6 * before:
+            sys.exit(f"Refusing: only {len(prices)} prices vs {before} published (a partial scan?). "
+                     "Run a full scan and wait for 'Full scan done', or pass --force.")
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(out, fh, indent=1, ensure_ascii=False)
         fh.write("\n")
     print(f"Wrote {os.path.relpath(OUT)}: {len(prices)} auction prices, {len(vendor)} vendor prices, "
-          f"newest {out['updated']}; left out {dropped} older than the last full scan")
+          f"newest {out['updated']}; left out {dropped} not seen in the last 36 hours")
 
 
 if __name__ == "__main__":
