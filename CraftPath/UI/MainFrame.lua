@@ -182,11 +182,11 @@ local function placeColumns(r, layout)
 end
 
 local function setRows(list, layout)
-  layout = layout or LAYOUT
   for i, data in ipairs(list) do
     local r = getRow(i)
-    placeColumns(r, layout)
-    for c = 1, #layout.x do r.cols[c]:SetText(data[c] or "") end
+    local l = data.layout or layout or LAYOUT
+    placeColumns(r, l)
+    for c = 1, #l.x do r.cols[c]:SetText(data[c] or "") end
     r.item, r.tip, r.onClick = data.item, data.tip, data.onClick
     r:Show()
   end
@@ -222,69 +222,6 @@ local function learnText(l)
   end
   if l.how == "ah" then return "Buy " .. item .. " on the auction house" end
   return "Buy " .. item
-end
-
--- Route steps the player has opened to see their materials (by step start skill).
-local expanded = {}
-
-local function bagCount(name)
-  if not C_Item or not C_Item.GetItemCount then return 0 end
-  local ok, n = pcall(C_Item.GetItemCount, ns.db.ids[name] or name, false)
-  return ok and n or 0
-end
-
-local function buildRoute(plan)
-  local out = {}
-  local cap = plan.levelCap
-  if cap then
-    out[#out + 1] = { "", ("|cffff9933Stops at %d: the next rank needs level %d.|r"):format(cap.cap, cap.needLevel or 0),
-      tip = { "Level cap", ("Your character is level %d, which can train up to %d skill."):format(cap.level, cap.cap),
-        "Untick Stop at level cap to see the route to " .. cap.wanted .. "." } }
-    out[#out + 1] = { "", "|cffff9933Untick Stop at level cap to plan to " .. cap.wanted .. ".|r" }
-  end
-  out[#out + 1] = columns("Skill", "Recipe to craft  (click for materials)", "Crafts", "Step total")
-  for i, st in ipairs(plan.steps) do
-    local r = st.recipe
-    local open = expanded[st.from]
-    local total = st.costPerCraft * st.crafts
-    local tip = { r.name, ("Skill %d to %d, about %.0f crafts"):format(st.from, st.to, st.expectedCrafts),
-      ("%s per craft, %s for the step%s"):format(Money(st.costPerCraft), Money(total),
-        st.learnCost and st.learnCost > 0 and (" plus " .. Money(st.learnCost) .. " for the recipe") or ""),
-      open and "Click: hide materials" or "Click: show materials and open in the crafting helper" }
-    local arrow = open and "|cffffd100-|r " or "|cffffd100+|r "
-    out[#out + 1] = {
-      ("%d–%d"):format(st.from, st.to), arrow .. r.name, "×" .. st.crafts, Money(total), tip = tip,
-      onClick = function()
-        expanded[st.from] = not expanded[st.from] or nil
-        if expanded[st.from] and ns.CraftHelper then ns.CraftHelper.ShowStep(plan.profession, st, i, #plan.steps) end
-        UI.Refresh()
-      end,
-    }
-    if open then
-      out[#out + 1] = { "", "|cff999999    Materials for this step|r", "|cff999999have / need|r", "|cff999999price each|r" }
-      for _, g in ipairs(r.reagents) do
-        local need = g.qty * st.crafts
-        local have = bagCount(g.name)
-        local col = have >= need and "|cff33ff33" or "|cffff6060"
-        local elsewhere = have < need and ns.Game.Elsewhere(g.name)
-        local unit = ns.Prices.AH(g.name) or ns.Prices.Vendor(g.name) or ns.RawData.VendorItems[g.name]
-        out[#out + 1] = {
-          "", ("    %d× %s"):format(g.qty, g.name), ("%s%d|r / %d"):format(col, have, need), unit and Money(unit) or "—",
-          item = g.name, tip = { g.name, ("%d per craft, %d for the whole step"):format(g.qty, need),
-            elsewhere and ("|cff66ccffAlso " .. elsewhere .. "|r") or "In your bags: " .. have,
-            "Click: search the auction house" },
-        }
-      end
-      if r.makes > 1 then out[#out + 1] = { "", ("|cff999999    Each craft makes %d|r"):format(r.makes) } end
-    end
-    if st.learnCost or st.learnHow == "favor" or st.learnHow == "vendor-est" or st.learnWhere then
-      local text = learnText({ how = st.learnHow, item = st.learnItem, where = st.learnWhere, favor = st.learnFavor, recipe = r.name })
-      local note = st.learnWhere and st.learnWhere.note
-      out[#out + 1] = { "", "|cffff9933  First: " .. text .. "|r", "", st.learnCost and Money(st.learnCost) or "",
-        tip = { "Get the recipe first", text, note } }
-    end
-  end
-  return out
 end
 
 local function stockCols(name)
@@ -351,6 +288,93 @@ local function buildShopping(plan)
         end)(),
       }
     end
+  end
+  return out
+end
+
+-- Route & shopping: each step with its materials (your stock used up in route order: bags,
+-- then bank, then mailbox), then the shopping list for the whole route.
+local function buildRoute(plan)
+  local out = {}
+  local cap = plan.levelCap
+  if cap then
+    out[#out + 1] = { "", ("|cffff9933Stops at %d: the next rank needs level %d.|r"):format(cap.cap, cap.needLevel or 0),
+      tip = { "Level cap", ("Your character is level %d, which can train up to %d skill."):format(cap.level, cap.cap),
+        "Untick Stop at level cap to see the route to " .. cap.wanted .. "." } }
+    out[#out + 1] = { "", "|cffff9933Untick Stop at level cap to plan to " .. cap.wanted .. ".|r" }
+  end
+  out[#out + 1] = columns("Skill", "Recipe  (click to open in the crafting helper)", "Crafts", "Step total")
+  out[#out + 1] = { grey("    Materials"), grey("Need"), grey("Bags"), grey("Bank"), grey("Mail"), "|cffffd100Buy|r", grey("Cost"),
+    layout = SHOP_LAYOUT }
+
+  local selfMade = {}
+  for _, c in ipairs(plan.craftYourself or {}) do selfMade[c.name] = true end
+  local pools = {}
+  local function pool(name)
+    local p = pools[name]
+    if not p then
+      local bags, bank, mail = stockCols(name)
+      p = { bags, bank, mail }
+      pools[name] = p
+    end
+    return p
+  end
+
+  for i, st in ipairs(plan.steps) do
+    local r = st.recipe
+    local total = st.costPerCraft * st.crafts
+    out[#out + 1] = {
+      ("|cffffd100%d–%d|r"):format(st.from, st.to), "|cffffffff" .. r.name .. "|r", "×" .. st.crafts, Money(total),
+      tip = { r.name, ("Skill %d to %d, about %.0f crafts"):format(st.from, st.to, st.expectedCrafts),
+        ("%s per craft, %s for the step%s"):format(Money(st.costPerCraft), Money(total),
+          st.learnCost and st.learnCost > 0 and (" plus " .. Money(st.learnCost) .. " for the recipe") or ""),
+        "Click: open this step in the crafting helper" },
+      onClick = function()
+        if ns.CraftHelper then ns.CraftHelper.ShowStep(plan.profession, st, i, #plan.steps) end
+      end,
+    }
+    if st.learnCost or st.learnHow == "favor" or st.learnHow == "vendor-est" or st.learnWhere then
+      local text = learnText({ how = st.learnHow, item = st.learnItem, where = st.learnWhere, favor = st.learnFavor, recipe = r.name })
+      local note = st.learnWhere and st.learnWhere.note
+      out[#out + 1] = { "", "|cffff9933First: " .. text .. "|r", "", st.learnCost and Money(st.learnCost) or "",
+        tip = { "Get the recipe first", text, note } }
+    end
+    for _, g in ipairs(r.reagents) do
+      local need = g.qty * st.crafts
+      local p = pool(g.name)
+      local use, left = { 0, 0, 0 }, need
+      for k = 1, 3 do
+        use[k] = math.min(left, p[k]); p[k] = p[k] - use[k]; left = left - use[k]
+      end
+      local unit = ns.Prices.AH(g.name) or ns.Prices.Vendor(g.name) or ns.RawData.VendorItems[g.name]
+      local buyCol, cost
+      if left <= 0 then
+        buyCol = "|TInterface\\RaidFrame\\ReadyCheck-Ready:12|t"
+      elseif selfMade[g.name] then
+        buyCol, cost = "|cff66ccffmake " .. left .. "|r", nil
+      else
+        buyCol, cost = "|cffffd100" .. left .. "|r", unit and unit * left
+      end
+      out[#out + 1] = {
+        ("    %s |cff999999(%d each)|r"):format(g.name, g.qty), tostring(need), dim(use[1]), dim(use[2]), dim(use[3]), buyCol,
+        cost and Money(cost) or "", layout = SHOP_LAYOUT, item = g.name,
+        tip = { g.name, ("%d per craft, %d for this step"):format(g.qty, need),
+          ("From your stock: %d from bags, %d from bank, %d from mailbox"):format(use[1], use[2], use[3]),
+          left > 0 and (selfMade[g.name] and ("Make %d yourself (its materials are in the shopping list below)"):format(left)
+            or ("Buy %d%s"):format(left, unit and (" at about " .. Money(unit) .. " each") or "")) or "Covered by your stock",
+          "Stock is used up in route order, so earlier steps get it first.",
+          "Click: search the auction house" },
+      }
+    end
+  end
+
+  out[#out + 1] = { "" }
+  local run = ns.Shopping.Get()
+  out[#out + 1] = { run and "|cffffd100Buying now|r" or "|cffffd100Shopping list for the whole route|r" }
+  local shop = run and buildRun(run) or (plan.shopping and buildShopping(plan)) or {}
+  for _, row in ipairs(shop) do
+    row.layout = SHOP_LAYOUT
+    out[#out + 1] = row
   end
   return out
 end
@@ -450,7 +474,7 @@ function UI.Refresh()
     widgets.summary:SetText(plan.error or "")
   end
   local run = ns.Shopping.Get()
-  if run and activeTab == "shop" then
+  if run and activeTab == "route" then
     local t = ns.Shopping.Totals()
     if run.stale then
       widgets.summary:SetText(("|cffff9933List locked at %d to %d while buying. Click Finish buying to use your new range.|r"):format(run.from, run.to))
@@ -459,7 +483,7 @@ function UI.Refresh()
         run.profession, run.from, run.to, Money(t.spent), Money(t.planned), t.leftItems, Money(t.leftCost)))
     end
   end
-  local onShop = activeTab == "shop"
+  local onShop = activeTab == "route" and plan.steps ~= nil
   widgets.buyBar:SetShown(onShop)
   widgets.scroll:ClearAllPoints()
   widgets.scroll:SetPoint("TOPLEFT", 12, onShop and LIST_TOP_BUY or LIST_TOP)
@@ -477,9 +501,8 @@ function UI.Refresh()
   end
   local list
   if activeTab == "route" then list = plan.steps and buildRoute(plan) or {}
-  elseif activeTab == "shop" then list = plan.shopping and buildShopping(plan) or {}
   else list = buildNotes(plan) end
-  setRows(list, activeTab == "shop" and SHOP_LAYOUT or LAYOUT)
+  setRows(list, LAYOUT)
 end
 
 function UI.Replan()
@@ -604,18 +627,17 @@ local function create()
   -- Row 6 (y -168): tabs                                14 ... 386
   x = 14
   local tabs = {
-    { "route", "Leveling steps", "Which recipe to craft at each skill, how many, and the cost per craft." },
-    { "shop", "What to buy", "Everything to buy for the route, with prices. Start buying here to track purchases." },
-    { "notes", "Notes & tips", "Recipes to get, things to craft yourself, training reminders and new recipes found in game." },
+    { "route", "Route & shopping", 150, "Each step with its materials and what you have in bags, bank and mailbox, then the shopping list for the whole route. Start buying here to track purchases." },
+    { "notes", "Notes & tips", 120, "Recipes to get, things to craft yourself, training reminders and new recipes found in game." },
   }
   for _, t in ipairs(tabs) do
-    local b = button(frame, t[2], 120, function() activeTab = t[1]; UI.Refresh() end, t[2], t[3])
+    local b = button(frame, t[2], t[3], function() activeTab = t[1]; UI.Refresh() end, t[2], t[4])
     b:SetPoint("TOPLEFT", x, -168)
     widgets.tabs[t[1]] = b
-    x = x + 124
+    x = x + t[3] + 4
   end
 
-  -- Buying bar, "What to buy" tab only (y -194, two lines)
+  -- Buying bar, Route & shopping tab (y -194, two lines)
   --   line 1: [Start/Finish buying 120] [Buy button 300] [Skip 80]   12 ... 530
   --   line 2: price limit                                           12 ... ~360
   local bar = CreateFrame("Frame", nil, frame)

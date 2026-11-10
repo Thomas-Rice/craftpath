@@ -137,7 +137,7 @@ local function stepFromLock(lock, skill, plan, data)
   }
 end
 
--- A step picked on the planner's Leveling steps tab, shown instead of the current step.
+-- A step picked on the planner's Route & shopping tab, shown instead of the current step.
 Helper.preview = nil -- { prof, step, index, total }
 
 -- Plans are reused until your skill leaves the current step, or prices, settings, known

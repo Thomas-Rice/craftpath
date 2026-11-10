@@ -401,7 +401,7 @@ def main():
 
     # Window: tabs, row click searches the AH, right-click ticks off.
     ns.UI.Refresh()
-    tabs = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "What to buy"]
+    tabs = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Route & shopping"]
     tabs[0].Click(tabs[0])
     rows = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__kind == "Button" and isinstance(f.item, str)]
     assert rows, "no shopping rows"
@@ -480,7 +480,7 @@ def main():
     assert log[-1].item == "Plans: Green Iron Boots" and log[-1].total == 700
 
     # The Shopping list tab shows the run.
-    shop = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "What to buy"]
+    shop = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Route & shopping"]
     shop[0].Click(shop[0])
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
     assert any(t.startswith("Buying for Engineering") for t in texts), "run summary missing"
@@ -527,19 +527,21 @@ def main():
     G.__engSkill = 112
     ns.CraftHelper.lock = None
 
-    # Clicking a step on the Leveling steps tab shows its materials and opens it in the helper.
-    steps_tab = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Leveling steps"][0]
+    # Route & shopping: each step lists its materials with stock columns; clicking a step
+    # opens it in the helper.
+    steps_tab = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == "Route & shopping"][0]
     steps_tab.Click(steps_tab)
     plan = ns.lastPlan
     target = plan.steps[2]
     rows = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)]
             if f.__kind == "Button" and f.__shown and f.onClick and f.cols and isinstance(f.cols[2].__text, str)
-            and f.cols[2].__text.endswith(target.recipe.name)]
+            and target.recipe.name in f.cols[2].__text]
     assert rows, "step row not found"
     rows[0].Click(rows[0], "LeftButton")
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
     reagent = target.recipe.reagents[1]
-    assert any(t.strip() == ("%d× %s" % (reagent.qty, reagent.name)) for t in texts), "materials not shown"
+    assert any(t.strip().startswith(reagent.name + " ") and "each" in t for t in texts), "materials not shown"
+    assert any("Shopping list for the whole route" in t for t in texts), "shopping list section missing"
     pv = ns.CraftHelper.view
     assert pv.preview and pv.recipe.name == target.recipe.name, "step not opened in the helper"
     assert G.CraftPathCraftHelper.__shown
@@ -598,7 +600,7 @@ def main():
     ns.Shopping.Start(ns.MakePlan()); ns.UI.Refresh()
     check_layout(G, "CraftPathFrame")                 # buying bar with session
     ns.Shopping.Stop()
-    for tab in ("Leveling steps", "Notes & tips", "What to buy"):
+    for tab in ("Route & shopping", "Notes & tips"):
         t = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == tab][0]
         t.Click(t)
         check_layout(G, "CraftPathFrame")

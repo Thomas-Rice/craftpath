@@ -21,7 +21,7 @@ Starting with **Engineering** and **Blacksmithing**. A companion website showing
 
 ### Shopping runs and buying
 
-On the **What to buy** tab, click **Start buying**. This freezes the list (quantities and planned prices) and notes what was already in your bags, so the route doesn't reshuffle while you buy.
+On the **Route & shopping** tab, click **Start buying**. This freezes the list (quantities and planned prices) and notes what was already in your bags, so the route doesn't reshuffle while you buy.
 
 - **Get price** fetches the live price of the next item. Click again (**Buy 20× Iron Bar for …**) to buy it.
   - Blizzard only allows a purchase to start from a click, so there is no fully automatic buying: it takes one click to get the price and one to buy.
@@ -53,7 +53,7 @@ Copy the `CraftPath` folder into `World of Warcraft/_forever_/Interface/AddOns/`
 1. `/cpath` opens the planner (it also opens beside the auction house).
 2. Choose a profession. Leave **Start from my current skill** ticked, or set From/To.
 3. At the auction house, click **Scan AH prices** (or **Full AH scan**).
-4. Read the **Leveling steps** tab, then work through the **What to buy** tab.
+4. Read the **Route & shopping** tab: each step with its materials (and what your bags, bank and mailbox cover), then the shopping list for the whole route.
 
 Options:
 - *Use bought recipes*
