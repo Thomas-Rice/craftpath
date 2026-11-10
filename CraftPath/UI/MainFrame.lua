@@ -210,15 +210,26 @@ local function bagCount(name)
 end
 
 local function buildRoute(plan)
-  local out = { columns("Skill", "Recipe to craft  (click for materials)", "Crafts", "Cost per craft") }
+  local out = {}
+  local cap = plan.levelCap
+  if cap then
+    out[#out + 1] = { "", ("|cffff9933Stops at %d: the next rank needs level %d.|r"):format(cap.cap, cap.needLevel or 0),
+      tip = { "Level cap", ("Your character is level %d, which can train up to %d skill."):format(cap.level, cap.cap),
+        "Untick Stop at level cap to see the route to " .. cap.wanted .. "." } }
+    out[#out + 1] = { "", "|cffff9933Untick Stop at level cap to plan to " .. cap.wanted .. ".|r" }
+  end
+  out[#out + 1] = columns("Skill", "Recipe to craft  (click for materials)", "Crafts", "Step total")
   for i, st in ipairs(plan.steps) do
     local r = st.recipe
     local open = expanded[st.from]
+    local total = st.costPerCraft * st.crafts
     local tip = { r.name, ("Skill %d to %d, about %.0f crafts"):format(st.from, st.to, st.expectedCrafts),
+      ("%s per craft, %s for the step%s"):format(Money(st.costPerCraft), Money(total),
+        st.learnCost and st.learnCost > 0 and (" plus " .. Money(st.learnCost) .. " for the recipe") or ""),
       open and "Click: hide materials" or "Click: show materials and open in the crafting helper" }
     local arrow = open and "|cffffd100-|r " or "|cffffd100+|r "
     out[#out + 1] = {
-      ("%d–%d"):format(st.from, st.to), arrow .. r.name, "×" .. st.crafts, Money(st.costPerCraft) .. " each", tip = tip,
+      ("%d–%d"):format(st.from, st.to), arrow .. r.name, "×" .. st.crafts, Money(total), tip = tip,
       onClick = function()
         expanded[st.from] = not expanded[st.from] or nil
         if expanded[st.from] and ns.CraftHelper then ns.CraftHelper.ShowStep(plan.profession, st, i, #plan.steps) end

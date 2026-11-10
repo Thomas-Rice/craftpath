@@ -166,7 +166,12 @@ function render(plan) {
 
   $("route").innerHTML = arr(plan.steps).map((s, i) => {
     const r = s.recipe;
-    const mats = arr(r.reagents).map((g) => `${g.qty} × ${esc(g.name)}`).join(", ");
+    const priceOf = prices();
+    const total = s.costPerCraft * s.crafts;
+    const mats = arr(r.reagents).map((g) => {
+      const need = g.qty * s.crafts, unit = priceOf[g.name] ?? snapshot.vendor[g.name];
+      return `<div class="mat"><span class="mq">${need.toLocaleString("en-GB")}×</span><span>${esc(g.name)} <span class="muted">(${g.qty} per craft)</span></span><span class="mp">${unit != null ? money(unit * need) : ""}</span></div>`;
+    }).join("");
     const learn = s.learnHow && !["auto", "known"].includes(s.learnHow) || s.learnWhere
       ? `<div class="learn">${learnLine(s.learnHow, s.learnCost, s.learnWhere, s.learnFavor, s.learnItem)}</div>` : "";
     const stock = s.usesStock ? `<span class="badge">uses your stock</span>` : "";
@@ -174,8 +179,8 @@ function render(plan) {
       <div class="range"><span>${s.from}</span><span class="arrow">→</span><span>${s.to}</span></div>
       <div class="body">
         <div class="name">${esc(r.name)} ${stock}</div>
-        <div class="meta">Craft about ${s.crafts}${r.makes > 1 ? ` (makes ${r.makes} each)` : ""} · ${money(s.costPerCraft)} each</div>
-        <details><summary>Materials and colours</summary>
+        <div class="meta">Craft about ${s.crafts}${r.makes > 1 ? ` (makes ${r.makes} each)` : ""} · ${money(s.costPerCraft)} each · <span class="steptotal">${money(total)} for the step</span></div>
+        <details><summary>Materials for this step and colours</summary>
           <div class="mats">${mats}</div>
           <div class="colours"><span class="c-or">${r.orange}</span><span class="c-ye">${r.yellow}</span><span class="c-gr">${r.green}</span><span class="c-gy">${r.grey}</span></div>
         </details>

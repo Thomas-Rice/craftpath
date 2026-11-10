@@ -111,6 +111,7 @@ planOnce = function(opts, ownedFactor)
   local from = math.max(1, math.floor(opts.from or 1))
   local to = math.min(300, math.floor(opts.to or 300))
   local notes = {}
+  local levelCap
 
   if opts.charLevel then
     local cap = 0
@@ -118,11 +119,23 @@ planOnce = function(opts, ownedFactor)
       if opts.charLevel >= rank.level then cap = rank.cap end
     end
     if to > cap then
+      local needLevel
+      for _, rank in ipairs(ns.RawData.Ranks) do
+        if not needLevel and rank.cap > cap then needLevel = rank.level end
+      end
       notes[#notes + 1] = ("Level %d can train up to %d skill, so the plan stops at %d."):format(opts.charLevel, cap, cap)
+      levelCap = { level = opts.charLevel, cap = cap, wanted = to, needLevel = needLevel }
       to = cap
     end
   end
-  if to <= from then return { error = "Target skill must be above current skill.", from = from, to = to, notes = notes } end
+  if to <= from then
+    if levelCap then
+      return { error = ("Your level (%d) can't train past %d yet: %s needs level %d. Untick Stop at level cap to plan ahead."):format(
+        levelCap.level, levelCap.cap, levelCap.cap == 225 and "Artisan" or "the next rank", levelCap.needLevel or 0),
+        from = from, to = to, notes = notes, levelCap = levelCap }
+    end
+    return { error = "Target skill must be above current skill.", from = from, to = to, notes = notes }
+  end
 
   local ahPrice = opts.ahPrice or function() return nil end
   local vendorPrice = opts.vendorPrice or function() return nil end
@@ -464,7 +477,7 @@ planOnce = function(opts, ownedFactor)
   local total = 0
   for _, st in ipairs(steps) do total = total + st.expectedGold end
   local plan = {
-    profession = opts.profession, from = from, to = to, steps = steps, notes = notes,
+    profession = opts.profession, from = from, to = to, steps = steps, notes = notes, levelCap = levelCap,
     expectedGold = total,
   }
   Planner.BuildShoppingList(plan, data, unitCost, opts.owned, opts.listed)
