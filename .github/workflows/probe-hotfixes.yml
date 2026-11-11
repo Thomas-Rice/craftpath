@@ -7,28 +7,18 @@ jobs:
       - name: Probe wago.tools
         run: |
           UA="CraftPath recipe sync (+https://github.com/Thomas-Rice/craftpath)"
-          get() { echo "=== $1"; curl -sS -A "$UA" -w "\n[http %{http_code}, %{size_download} bytes]\n" "$1" -o /tmp/out; head -c 1500 /tmp/out; echo; }
-          curl -sS -A "$UA" https://wago.tools/api/builds | python3 -c "import json,sys; d=json.load(sys.stdin); [print(k, [e.get('version') for e in v[:4]]) for k,v in d.items() if k.startswith('wowf')]"
-          B=$(curl -sS -A "$UA" https://wago.tools/api/builds | python3 -c "import json,sys; d=json.load(sys.stdin); print(max((e['version'] for k,v in d.items() if k.startswith('wowf') for e in v), key=lambda x: tuple(map(int,x.split('.')))))")
-          echo "newest $B"
-          for q in "" "&hotfixes=1" "&hotfixes=true" "&includeHotfixes=1"; do
-            curl -sS -A "$UA" "https://wago.tools/db2/ItemSparse/csv?build=$B$q" -o is.csv -w "ItemSparse q='$q' http %{http_code} %{size_download}\n"
-            python3 - <<'PY'
-          import csv
-          for r in csv.DictReader(open('is.csv', encoding='utf-8')):
-              if r.get('Display_lang') in ('Iron Grenade', 'Minor Arcane Elixir', 'Heavy Mithril Breastplate', 'Copper Chain Vest'):
-                  print('  ', r.get('ID'), r['Display_lang'], 'Sell', r.get('SellPrice'), 'Buy', r.get('BuyPrice'))
+          curl -sS -A "$UA" "https://wago.tools/hotfixes?product=wowf" -o page.html
+          python3 - <<'PY'
+          import re, json, html
+          s = open('page.html', encoding='utf-8').read()
+          m = re.search(r'const Ziggy=(\{.*?\});', s, re.S)
+          z = json.loads(m.group(1))
+          for k, v in z['routes'].items():
+              if any(w in (k + v['uri']).lower() for w in ('hotfix', 'db2', 'api')):
+                  print('ROUTE', k, v['uri'], v.get('methods'))
+          m = re.search(r'data-page="([^"]+)"', s)
+          if m:
+              d = json.loads(html.unescape(m.group(1)))
+              print('PAGE component', d.get('component'), 'version', d.get('version'))
+              print('PROPS', json.dumps(d.get('props'), default=str)[:4000])
           PY
-            curl -sS -A "$UA" "https://wago.tools/db2/SkillLineAbility/csv?build=$B$q" -o sla.csv -w "SLA q='$q' http %{http_code}\n"
-            python3 - <<'PY'
-          import csv
-          for r in csv.DictReader(open('sla.csv', encoding='utf-8')):
-              if r.get('Spell') in ('3326',):
-                  print('   Coarse Grinding Stone spell 3326', {k: r[k] for k in r if 'Trivial' in k or k in ('ID','MinSkillLineRank')})
-          PY
-          done
-          get "https://wago.tools/api/hotfixes"
-          get "https://wago.tools/api/hotfixes?product=wowf"
-          get "https://wago.tools/hotfixes?product=wowf"
-          get "https://wago.tools/api/db2/ItemSparse/hotfixes?build=$B"
-          get "https://wago.tools/db2/ItemSparse?build=$B&filter[Display_lang]=Iron%20Grenade"
