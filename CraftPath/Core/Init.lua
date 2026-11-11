@@ -139,10 +139,26 @@ end
 ns.RESALE_MIN_LISTED = 10
 ns.RESALE_AH_FACTOR = 0.8
 
+-- What a vendor pays for an item. The game's own number comes first (it has Blizzard's
+-- hotfixes, e.g. the November cut to what vendors pay for crafted armor), then CraftPath's
+-- data, then the last number the game gave us.
+local liveSell = {}
+function ns.SellPrice(name)
+  local v = liveSell[name]
+  if v == nil and C_Item and C_Item.GetItemInfo and ns.db then
+    local ok, n, _, _, _, _, _, _, _, _, _, sell = pcall(C_Item.GetItemInfo, ns.db.ids[name] or name)
+    if ok and n and type(sell) == "number" then
+      v = sell; liveSell[name] = sell; ns.db.sell[name] = sell
+    end
+  end
+  if v == nil then v = (ns.RawData.ItemSell or {})[name] or (ns.db and ns.db.sell[name]) end
+  return (v and v > 0) and v or nil
+end
+
 function ns.ResaleValue(mode)
   if not mode or mode == "off" then return nil end
   return function(name)
-    local sell = (ns.RawData.ItemSell or {})[name] or ns.db.sell[name]
+    local sell = ns.SellPrice(name)
     local best, how = (sell and sell > 0) and sell or nil, nil
     if best then how = "vendor" end
     if mode == "auction" then

@@ -55,6 +55,19 @@ DEFAULT_EXCLUDE = {
 }
 
 
+# Blizzard hotfixes that the client data on wago.tools doesn't show yet. Each is
+# (value in the game data before the hotfix, value after): applied only while the game data
+# still has the old value, so once wago catches up (or it changes again) the game data wins.
+# From the WoW: Forever hotfixes of 10 Nov 2026 (wowhead.com/forever/news/...-383837).
+HOTFIX_GREY = {  # recipe -> (old grey skill, new grey skill)
+    "Coarse Grinding Stone": (75, 90),
+}
+HOTFIX_SELL = {  # item -> (old vendor sell price, new), copper
+    "Iron Grenade": (500, 125),
+    "Minor Arcane Elixir": (25, 5),
+}
+
+
 def fetch(url):
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=120) as r:
@@ -203,6 +216,8 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
             else:
                 learn = max(1, yellow - 5)
                 estimated = True
+        if name in HOTFIX_GREY and grey == HOTFIX_GREY[name][0]:
+            grey = HOTFIX_GREY[name][1]
         if learn >= MAX_SKILL or grey <= learn:
             continue  # can't help reach the cap
         orange = learn
@@ -259,6 +274,9 @@ def write_items(addon, tables, names, build):
         if n and n not in by_name:
             by_name[n] = (num(r, "BuyPrice"), num(r, "SellPrice"))
     sell = {n: by_name[n][1] for n in sorted(names) if n in by_name and by_name[n][1] > 0}
+    for n, (old, new) in HOTFIX_SELL.items():
+        if sell.get(n) == old:
+            sell[n] = new
     goods = {n: by_name[n][0] for n in VENDOR_GOODS if n in by_name and by_name[n][0] > 0}
     esc = lambda n: n.replace("\\", "\\\\").replace('"', '\\"')
     lines = [

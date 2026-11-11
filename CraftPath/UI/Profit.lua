@@ -75,20 +75,8 @@ end
 -- Data
 ---------------------------------------------------------------------------
 
--- What a vendor pays for an item (remembered once the game has told us).
-local function sellPrice(name)
-  local known = ns.db.sell[name]
-  if known then return known > 0 and known or nil end
-  local fromData = ns.RawData.ItemSell and ns.RawData.ItemSell[name]
-  if fromData then return fromData end
-  if C_Item and C_Item.GetItemInfo then
-    local ok, n, _, _, _, _, _, _, _, _, _, sell = pcall(C_Item.GetItemInfo, ns.db.ids[name] or name)
-    if ok and n and type(sell) == "number" then
-      ns.db.sell[name] = sell
-      return sell > 0 and sell or nil
-    end
-  end
-end
+-- What a vendor pays for an item: the game's own number first (it has the hotfixes).
+local function sellPrice(name) return ns.SellPrice(name) end
 
 local function professions()
   local list = {}

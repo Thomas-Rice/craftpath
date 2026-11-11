@@ -133,14 +133,7 @@ end
 -- Recording: vendor, mail (auction sales), crafting, skill-ups
 ---------------------------------------------------------------------------
 
-local function sellPriceOf(name)
-  local v = ns.RawData.ItemSell and ns.RawData.ItemSell[name] or ns.db.sell[name]
-  if v then return v end
-  if C_Item and C_Item.GetItemInfo then
-    local ok, n, _, _, _, _, _, _, _, _, _, sell = pcall(C_Item.GetItemInfo, ns.db.ids[name] or name)
-    if ok and n and type(sell) == "number" then return sell end
-  end
-end
+local function sellPriceOf(name) return ns.SellPrice(name) end
 
 -- Bag contents just before a vendor sale (the item is gone afterwards).
 local bagSnap = {}
