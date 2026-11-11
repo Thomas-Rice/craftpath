@@ -7,13 +7,20 @@ jobs:
       - name: Probe wago.tools
         run: |
           UA="CraftPath recipe sync (+https://github.com/Thomas-Rice/craftpath)"
-          curl -sS -A "$UA" "https://wago.tools/build/assets/app-CyYaB7ID.js" -o app.js
-          grep -o '"[^"]*Hotfix[^"]*"' app.js | sort -u | head -20 | sed 's/^/OUT name /'
-          grep -o './Pages/Hotfixes[^"]*"\?[^)]*' app.js | head -5 | sed 's/^/OUT imp /'
-          for c in $(grep -oE 'Hotfixes[A-Za-z0-9_.-]*\.js' app.js | sort -u); do
-            curl -sS -A "$UA" "https://wago.tools/build/assets/$c" -o h.js
-            echo "OUT chunk $c size $(wc -c < h.js)"
-            grep -oE '.{100}route\("hotfixes".{200}' h.js | head -5 | sed 's/^/OUT R /'
-            grep -oE '.{80}(filters\.|filters\[).{120}' h.js | head -15 | sed 's/^/OUT F /'
-            grep -oE '(search|table|locale|build|status|per_page|perPage|region|onlyLatest|latest|tableName)\s*:' h.js | sort | uniq -c | sed 's/^/OUT P /'
+          B=1.60.1.70888
+          for q in "" "&useHotfixes=1" "&useHotfixes=1&locale=enUS"; do
+            curl -sS -A "$UA" "https://wago.tools/db2/ItemSparse/csv?build=$B$q" -o is.csv -w "OUT ItemSparse q='$q' http %{http_code} %{size_download}\n"
+            python3 - <<'PY'
+          import csv
+          for r in csv.DictReader(open('is.csv', encoding='utf-8')):
+              if r.get('Display_lang') in ('Iron Grenade', 'Minor Arcane Elixir', 'Heavy Mithril Breastplate', 'Copper Chain Vest', 'Runecloth Robe'):
+                  print('OUT   ', r.get('ID'), r['Display_lang'], 'Sell', r.get('SellPrice'))
+          PY
+            curl -sS -A "$UA" "https://wago.tools/db2/SkillLineAbility/csv?build=$B$q" -o sla.csv -w "OUT SLA q='$q' http %{http_code}\n"
+            python3 - <<'PY'
+          import csv
+          for r in csv.DictReader(open('sla.csv', encoding='utf-8')):
+              if r.get('Spell') == '3326':
+                  print('OUT    Coarse Grinding Stone', r.get('TrivialSkillLineRankLow'), r.get('TrivialSkillLineRankHigh'))
+          PY
           done
