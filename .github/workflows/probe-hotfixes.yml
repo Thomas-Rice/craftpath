@@ -7,29 +7,19 @@ jobs:
       - name: Probe wago.tools
         run: |
           UA="CraftPath recipe sync (+https://github.com/Thomas-Rice/craftpath)"
-          V=7e6126634325be55fb95f48ee768ce01
-          ij() { curl -sS -g -A "$UA" -H "X-Inertia: true" -H "X-Inertia-Version: $V" -H "X-Requested-With: XMLHttpRequest" "$1"; }
-          show() {
-            python3 -c "
-          import json,sys
-          raw=sys.stdin.read()
-          try: d=json.loads(raw)
-          except Exception: print('OUT not json', raw[:300]); sys.exit()
-          p=d.get('props',d)
-          print('OUT filters', p.get('filters'), 'pageMeta', json.dumps(p.get('pageMeta'))[:300])
-          h=p.get('hotfixes') or {}
-          print('OUT meta', {k:v for k,v in h.items() if k!='data' and k!='links'})
-          rows=h.get('data',[])
-          from collections import Counter
-          print('OUT tables', Counter(r['table_name'] for r in rows).most_common(12))
-          print('OUT dates', rows[0]['created_at'] if rows else None, rows[-1]['created_at'] if rows else None)
-          for r in rows:
-              if r['table_name'] in ('ItemSparse','SkillLineAbility') and r['record_id'] in (4390,247754,1861,3326):
-                  print('OUT HIT', json.dumps(r)[:700])
-          "
-          }
-          echo "OUT === base"; ij "https://wago.tools/hotfixes?product=wowf" | show
-          for q in "search=4390" "search=itemsparse%204390" "table=ItemSparse" "table_name=ItemSparse" "search=skilllineability" "search=1861"; do
-            echo "OUT === $q"; ij "https://wago.tools/hotfixes?product=wowf&$q" | show
+          curl -sS -A "$UA" "https://wago.tools/hotfixes?product=wowf" -o page.html
+          grep -o 'src="[^"]*\.js"' page.html | head -5 | sed 's/^/OUT script /'
+          grep -o 'href="[^"]*\.js"' page.html | head -40 | sed 's/^/OUT link /'
+          for u in $(grep -o '/build/assets/[^"]*\.js' page.html | sort -u); do
+            curl -sS -A "$UA" "https://wago.tools$u" -o a.js
+            if grep -q -i "hotfix" a.js; then echo "OUT asset $u $(wc -c < a.js)"; fi
           done
-          echo "OUT === page 50"; ij "https://wago.tools/hotfixes?product=wowf&page=50" | show
+          MAIN=$(grep -o '/build/assets/app[^"]*\.js' page.html | head -1)
+          curl -sS -A "$UA" "https://wago.tools$MAIN" -o app.js
+          grep -o 'Hotfixes-[A-Za-z0-9_-]*\.js' app.js | sort -u | sed 's/^/OUT chunk /'
+          for c in $(grep -o 'Hotfixes-[A-Za-z0-9_-]*\.js' app.js | sort -u); do
+            curl -sS -A "$UA" "https://wago.tools/build/assets/$c" -o h.js
+            echo "OUT size $(wc -c < h.js)"
+            grep -o '.\{120\}filters.\{160\}' h.js | head -12 | sed 's/^/OUT F /'
+            grep -oE '"(search|table|tables|locale|build|status|per_page|perPage|region|record_id|push_id)"' h.js | sort | uniq -c | sed 's/^/OUT P /'
+          done
