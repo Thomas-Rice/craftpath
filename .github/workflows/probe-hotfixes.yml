@@ -16,14 +16,20 @@ jobs:
           try: d=json.loads(raw)
           except Exception: print('OUT not json', raw[:300]); sys.exit()
           p=d.get('props',d)
-          p.pop('ziggy',None)
-          print('OUT keys', list(p.keys()))
-          print('OUT', json.dumps(p, default=str)[:2500])
+          print('OUT filters', p.get('filters'), 'pageMeta', json.dumps(p.get('pageMeta'))[:300])
+          h=p.get('hotfixes') or {}
+          print('OUT meta', {k:v for k,v in h.items() if k!='data' and k!='links'})
+          rows=h.get('data',[])
+          from collections import Counter
+          print('OUT tables', Counter(r['table_name'] for r in rows).most_common(12))
+          print('OUT dates', rows[0]['created_at'] if rows else None, rows[-1]['created_at'] if rows else None)
+          for r in rows:
+              if r['table_name'] in ('ItemSparse','SkillLineAbility') and r['record_id'] in (4390,247754,1861,3326):
+                  print('OUT HIT', json.dumps(r)[:700])
           "
           }
-          echo "OUT === hotfixes"; ij "https://wago.tools/hotfixes?product=wowf" | show
-          echo "OUT === hotfixes page 1"; ij "https://wago.tools/hotfixes?product=wowf&page=1" | show
-          B=1.60.1.70888
-          for q in "" "&hotfixes=1" "&hotfixes=true" "&hotfix=1"; do
-            echo "OUT === ItemSparse 4390 q=$q"; ij "https://wago.tools/db2/ItemSparse?build=$B&filter[ID]=exact:4390$q" | show
+          echo "OUT === base"; ij "https://wago.tools/hotfixes?product=wowf" | show
+          for q in "search=4390" "search=itemsparse%204390" "table=ItemSparse" "table_name=ItemSparse" "search=skilllineability" "search=1861"; do
+            echo "OUT === $q"; ij "https://wago.tools/hotfixes?product=wowf&$q" | show
           done
+          echo "OUT === page 50"; ij "https://wago.tools/hotfixes?product=wowf&page=50" | show
