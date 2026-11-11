@@ -21,7 +21,7 @@ local frame, rows, activeTab = nil, {}, "route"
 local widgets = {}
 
 local SPECS = { "none", "goblin", "gnomish" }
-local SPEC_LABEL = { none = "No specialisation", goblin = "Goblin", gnomish = "Gnomish" }
+local SPEC_LABEL = { none = "No spec", goblin = "Goblin", gnomish = "Gnomish" }
 
 local function settings() return ns.db.settings end
 
@@ -589,20 +589,23 @@ local function create()
 
   widgets.checks, widgets.edits, widgets.profButtons, widgets.tabs = {}, {}, {}, {}
 
-  -- Row 1 (y -30): profession menu, profits, specialisation   14 ... 214 | 220 ... 330 | 436 ... 586
-  widgets.profMenu = button(frame, "", 200, function() UI.ToggleProfessionMenu() end,
+  -- Row 1 (y -30): profession, profits, history, sell, spec   14..184 | 190..270 | 276..356 | 362..472 | 476..586
+  widgets.profMenu = button(frame, "", 170, function() UI.ToggleProfessionMenu() end,
     "Profession", "Choose which profession to plan. Ones your character has show your skill.")
   widgets.profMenu:SetPoint("TOPLEFT", 14, -30)
-  widgets.profitsButton = button(frame, "Profits", 110, function() if ns.ProfitUI then ns.ProfitUI.Toggle() end end,
+  widgets.profitsButton = button(frame, "Profits", 80, function() if ns.ProfitUI then ns.ProfitUI.Toggle() end end,
     "CraftPath Profits", "What you can craft today at today's prices to make a profit.")
   widgets.profitsButton:SetPoint("LEFT", widgets.profMenu, "RIGHT", 6, 0)
-  widgets.resale = button(frame, "", 114, function()
+  widgets.historyButton = button(frame, "History", 80, function() if ns.LedgerUI then ns.LedgerUI.Toggle() end end,
+    "CraftPath History", "What you've bought, sold and crafted, and what made you a profit.")
+  widgets.historyButton:SetPoint("LEFT", widgets.profitsButton, "RIGHT", 6, 0)
+  widgets.resale = button(frame, "", 110, function()
     local order = { "off", "vendor", "auction" }
     local cur = settings().resale or "vendor"
     for i, v in ipairs(order) do if v == cur then settings().resale = order[i % #order + 1] break end end
     UI.Replan()
   end, "Sell what you craft", "Count what you get back for the items you make while levelling, so the route can pick recipes that cost more but sell back well. Off: ignore selling. Vendor: what a vendor pays (guaranteed). Vendor + AH: also the auction price at the week's low, after the 5% cut.")
-  widgets.resale:SetPoint("LEFT", widgets.profitsButton, "RIGHT", 6, 0)
+  widgets.resale:SetPoint("LEFT", widgets.historyButton, "RIGHT", 6, 0)
 
   -- The menu itself: every profession, two columns, over the list area.
   local menu = CreateFrame("Frame", nil, frame, "BackdropTemplate")
@@ -625,7 +628,7 @@ local function create()
     b:SetPoint("TOPLEFT", 10 + ((i - 1) % 2) * 142, -10 - math.floor((i - 1) / 2) * 26)
     widgets.profButtons[prof] = b
   end
-  widgets.spec = button(frame, "", 130, function()
+  widgets.spec = button(frame, "", 110, function()
     local cur = settings().spec
     for i, v in ipairs(SPECS) do if v == cur then settings().spec = SPECS[i % #SPECS + 1] break end end
     UI.Replan()

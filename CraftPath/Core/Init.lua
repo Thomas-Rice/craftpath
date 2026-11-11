@@ -208,6 +208,8 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.CraftHelper.Update()
   elseif msg == "profit" or msg == "profits" then
     ns.ProfitUI.Toggle()
+  elseif msg == "history" or msg == "ledger" then
+    ns.LedgerUI.Toggle()
   elseif msg == "keep" then
     ns.Keep.Toggle()
   elseif msg == "perf" then
@@ -223,6 +225,7 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.Print("/cpath craft — turn the crafting helper (beside the profession window) on or off")
     ns.Print("/cpath keep — turn marking of items you need in your bags and bank on or off")
     ns.Print("/cpath profit — CraftPath Profits: what to craft today for a profit (also /cprofit)")
+    ns.Print("/cpath history — what you've bought, sold and crafted, and what made a profit")
     ns.Print("/cpath reset — forget all auction prices")
     ns.Print("/cpath perf — print anything that takes a noticeable time (for lag reports)")
   else

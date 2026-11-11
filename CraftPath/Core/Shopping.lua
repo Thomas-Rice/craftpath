@@ -90,6 +90,7 @@ function Shopping.Record(name, qty, total)
     e.spent = e.spent + (total or 0)
   end
   if total and qty > 0 then ns.Prices.Record(name, total / qty, nil, ns.db.ids[name]) end
+  if ns.Ledger and ns.Ledger.Add then ns.Ledger.Add("buy", name, qty, -(total or 0)) end
   ns.Print(("Bought %d× %s for %s"):format(qty, name, ns.Prices.Money(total)))
   if ns.UI and ns.UI.Refresh then ns.UI.Refresh() end
 end

@@ -28,6 +28,7 @@ function GetCoinTextureString(c) return tostring(c) .. "c" end
 function GameTooltip_Hide() end
 Enum = { AuctionHouseSortOrder = { Price = 0 }, TooltipDataType = { Item = 0 }, ItemCommodityStatus = { Item = 1, Commodity = 2 } }
 function hooksecurefunc(t, name, fn)
+  if type(t) == "string" then t, name, fn = _G, t, name end
   local orig = t[name]
   t[name] = function(...) local r = { orig(...) }; fn(...); return unpack(r) end
 end
@@ -697,6 +698,64 @@ def main():
     G.__mail = lua.table_from({})
     fire("MAIL_INBOX_UPDATE")
     assert ns.Game.Mail("Copper Bar") == 0
+
+    # ---- History (ledger): buys, vendor trades, auction sales from mail, crafts, skill-ups ----
+    L = ns.Ledger
+    lua.execute("""
+      function BuyMerchantItem(i, q) end
+      C_Container.GetContainerNumSlots = function(bag) return bag == 0 and 2 or 0 end
+      __invoices = {}
+      function GetInboxInvoiceInfo(i) local v = __invoices[i]; if v then return "seller", v.item, "Bob", v.bid, 0, 0, v.cut, 0, 0, v.count end end
+      function GetInboxHeaderInfo(i) return nil, nil, "Auction House", "Auction successful", 0, 0, 29.5 end
+      ProfessionsFrame = CreateFrame("Frame", "ProfessionsFrame")
+      C_Spell = { GetSpellName = function(id) return id == 4242 and "Rough Blasting Powder" or "Hearthstone" end }
+    """)
+    L.hooked = False
+    L.Hook()
+    ns.Shopping.Record("Rough Stone", 20, 200)            # AH buy (10c each)
+    G.MerchantFrame.__shown = True
+    G.BuyMerchantItem(1, 4)                                 # 4x Weak Flux at 95c
+    G.__bag[0] = lua.table_from({1: "Rough Blasting Powder"})
+    L.SnapBags()
+    G.C_Container.UseContainerItem(0, 1)                    # vendor sale of a stack of 5
+    G.MerchantFrame.__shown = False
+    # a craft: only while the profession window is open, and only for recipe spells
+    G.ProfessionsFrame.__shown = True
+    G.C_TradeSkillUI.GetRecipeInfo = lua.eval("function(id) if id == 4242 then return { name = 'Rough Blasting Powder' } end end")
+    fire("UNIT_SPELLCAST_SUCCEEDED", "player", "x", 4242)
+    fire("UNIT_SPELLCAST_SUCCEEDED", "player", "x", 8690)  # Hearthstone: not a craft
+    G.ProfessionsFrame.__shown = False
+    fire("UNIT_SPELLCAST_SUCCEEDED", "player", "x", 4242)  # window closed: not counted
+    fire("CHAT_MSG_SKILL", "Your skill in Engineering has increased to 113.")
+    # auction sale mail, read once even when the mailbox is opened again
+    G.__mail = lua.table_from({1: lua.table_from({})})
+    G.__invoices = lua.table_from({1: lua.table_from({"item": "Rough Blasting Powder", "bid": 1000, "cut": 50, "count": 5})})
+    fire("MAIL_INBOX_UPDATE"); fire("MAIL_INBOX_UPDATE")
+    G.__advance(120); fire("MAIL_INBOX_UPDATE")
+    G.__mail = lua.table_from({}); G.__invoices = lua.table_from({})
+    evs = L.Events(None, True)
+    kinds = [evs[i].k for i in range(1, len(evs) + 1)]
+    assert kinds[-6] == "buy" and evs[len(evs) - 5].n == "Rough Stone" and kinds.count("vbuy") == 1 and kinds.count("vsell") == 1, kinds
+    assert kinds.count("craft") == 1 and kinds.count("skill") == 1 and kinds.count("sell") == 1, kinds
+    summ = L.Summarise(evs)
+    assert summ["items"]["Rough Stone"].spent >= 200 and summ.spend.vbuy == 380, (summ.spend.buy, summ.spend.vbuy)
+    assert summ.income.sell == 950, summ.income.sell
+    powder = summ["items"]["Rough Blasting Powder"]
+    assert powder.made >= 1 and powder.sold >= 6 and powder.profit is not None
+    # the window: every view, inside its width
+    G.SlashCmdList.CRAFTPATH("history")
+    assert G.CraftPathLedgerFrame.__shown
+    texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
+    assert any("Net gold" in t for t in texts) and any("Rough Blasting Powder" in t for t in texts)
+    check_layout(G, "CraftPathLedgerFrame")
+    for tab in ("Items", "History"):
+        t = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == tab and f.__kind == "Button"][-1]
+        t.Click(t)
+        check_layout(G, "CraftPathLedgerFrame")
+    texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
+    assert any("Skill-up" in t for t in texts) and any("Sold (AH)" in t for t in texts)
+    G.SlashCmdList.CRAFTPATH("history")
+    assert not G.CraftPathLedgerFrame.__shown
 
     # Slash command and closing the AH.
     G.SlashCmdList.CRAFTPATH("help")

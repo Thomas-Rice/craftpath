@@ -66,6 +66,7 @@ Options:
 Commands:
 - `/cpath scan`: full scan
 - `/cpath list`: materials scan
+- `/cpath history`: CraftPath History: what you've bought, sold and crafted, and what made a profit
 - `/cpath reset`: clear prices
 - `/cpath perf`: print anything that takes a noticeable time (for lag reports)
 - `/cpath help`
