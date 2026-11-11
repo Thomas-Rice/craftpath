@@ -84,13 +84,64 @@ function Game.Owned(name)
   return Game.BagsAndBank(name) + Game.Mail(name)
 end
 
+---------------------------------------------------------------------------
+-- Ore you can smelt counts as bars
+---------------------------------------------------------------------------
+
+-- Bar name -> { ore, per, makes, learn } for every smelt that takes a single ore.
+local smelts
+local function smeltTable()
+  if smelts then return smelts end
+  smelts = {}
+  local data = ns.Recipes and ns.Recipes.Load("Mining")
+  for _, r in ipairs(data and data.list or {}) do
+    local g = r.reagents
+    if #g == 1 and g[1].name:find(" Ore$") then
+      smelts[r.name] = { ore = g[1].name, per = g[1].qty, makes = r.makes, learn = r.learn }
+    end
+  end
+  return smelts
+end
+
+-- How to smelt this bar, if this character can: Mining at the recipe's skill.
+function Game.Smelt(name)
+  local s = smeltTable()[name]
+  if not s then return nil end
+  local skill = Game.GetSkill("Mining")
+  if not skill or skill < s.learn then return nil end
+  return s
+end
+
+-- Bars you could smelt from the ore in bags, bank and mailbox: three numbers.
+function Game.FromOre(name)
+  local s = Game.Smelt(name)
+  if not s then return 0, 0, 0 end
+  local bags = Game.Bags(s.ore)
+  local bank = math.max(0, Game.BagsAndBank(s.ore) - bags)
+  local mail = Game.Mail(s.ore)
+  local function bars(n) return math.floor(n / s.per) * s.makes end
+  return bars(bags), bars(bank), bars(mail)
+end
+
+-- Everything you own, counting ore you can smelt as bars (for routes in other professions).
+function Game.OwnedWithOre(name)
+  local a, b, c = Game.FromOre(name)
+  return Game.Owned(name) + a + b + c
+end
+
 -- "12 in bank, 20 in mailbox" style breakdown of what isn't in your bags, or nil.
+-- Includes bars you could smelt from ore ("smelt 8 from Iron Ore").
 function Game.Elsewhere(name)
   local bags, all = Game.Bags(name), Game.BagsAndBank(name)
   local parts = {}
   if all - bags > 0 then parts[#parts + 1] = (all - bags) .. " in bank" end
   local mail = Game.Mail(name)
   if mail > 0 then parts[#parts + 1] = mail .. " in mailbox" end
+  local a, b, c = Game.FromOre(name)
+  if a + b + c > 0 then
+    local s = Game.Smelt(name)
+    parts[#parts + 1] = ("smelt %d from %s%s"):format(a + b + c, s.ore, a == a + b + c and " in bags" or "")
+  end
   return #parts > 0 and table.concat(parts, ", ") or nil
 end
 

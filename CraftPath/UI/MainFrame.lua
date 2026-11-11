@@ -224,10 +224,21 @@ local function learnText(l)
   return "Buy " .. item
 end
 
+-- Bags / bank / mail, each counting bars you could smelt from the ore there (Mining).
+-- The fourth value is a tooltip line about the ore, or nil.
 local function stockCols(name)
   local bags = ns.Game.Bags(name)
   local bank = math.max(0, ns.Game.BagsAndBank(name) - bags)
-  return bags, bank, ns.Game.Mail(name)
+  local mail = ns.Game.Mail(name)
+  local oa, ob, oc = 0, 0, 0
+  if ns.db.settings.profession ~= "Mining" and ns.Game.FromOre then oa, ob, oc = ns.Game.FromOre(name) end
+  local note
+  if oa + ob + oc > 0 then
+    local sm = ns.Game.Smelt(name)
+    note = ("|cff66ccffIncludes %d you can smelt from %s (%d in bags, %d in bank, %d in mailbox).|r"):format(
+      oa + ob + oc, sm.ore, oa, ob, oc)
+  end
+  return bags + oa, bank + ob, mail + oc, note
 end
 local function dim(n) return n > 0 and tostring(n) or "|cff555555–|r" end
 local function grey(t) return "|cff999999" .. t .. "|r" end
@@ -244,7 +255,7 @@ local function buildRun(run)
     local avg = e.bought > 0 and (e.spent / e.bought) or nil
     local over = avg and e.unit > 0 and math.floor((avg / e.unit - 1) * 100 + 0.5) or 0
     local paid = avg and (Money(e.spent) .. (over > 0 and (" |cffff9933+" .. over .. "%|r") or "")) or ""
-    local bags, bank, mail = stockCols(name)
+    local bags, bank, mail, oreNote = stockCols(name)
     out[#out + 1] = {
       label, tostring(e.need), dim(bags), dim(bank), dim(mail),
       left > 0 and ("|cffffd100%d/%d|r"):format(e.bought, toBuy) or "|TInterface\\RaidFrame\\ReadyCheck-Ready:12|t",
@@ -257,6 +268,7 @@ local function buildRun(run)
         e.source == "vendor" and "Buy this from a vendor (right-click to tick off)" or "Click: search the auction house",
         "Right-click: tick off" },
     }
+    if oreNote then table.insert(out[#out].tip, 4, oreNote) end
   end
   return out
 end
@@ -270,7 +282,7 @@ local function buildShopping(plan)
       local done = ns.db.done[b.name]
       local shown = b.short and ("|cffff9933" .. b.name .. "|r") or b.name
       local name = done and ("|cff777777" .. b.name .. " |TInterface\\RaidFrame\\ReadyCheck-Ready:12|t|r") or shown
-      local bags, bank, mail = stockCols(b.name)
+      local bags, bank, mail, oreNote = stockCols(b.name)
       local buy = b.buy > 0 and ("|cffffd100" .. b.buy .. "|r") or "|TInterface\\RaidFrame\\ReadyCheck-Ready:12|t"
       out[#out + 1] = {
         name, tostring(b.qty), dim(bags), dim(bank), dim(mail), buy, b.buy > 0 and Money(b.total) or "",
@@ -278,6 +290,7 @@ local function buildShopping(plan)
         tip = (function()
           local t = { b.name, ("Need %d for the route"):format(b.qty),
             ("You have %d: %d in bags, %d in bank, %d in mailbox"):format(bags + bank + mail, bags, bank, mail) }
+          if oreNote then t[#t + 1] = oreNote end
           t[#t + 1] = b.buy > 0 and ("Buy %d at about %s each (%s)"):format(b.buy, Money(b.unit), sourceText(b))
             or "You have enough: nothing to buy"
           if b.short then t[#t + 1] = ("|cffff9933Only %d listed at the last scan, so the rest may cost more.|r"):format(b.listed) end
@@ -328,8 +341,8 @@ local function buildRoute(plan)
   local function pool(name)
     local p = pools[name]
     if not p then
-      local bags, bank, mail = stockCols(name)
-      p = { bags, bank, mail }
+      local bags, bank, mail, oreNote = stockCols(name)
+      p = { bags, bank, mail, note = oreNote }
       pools[name] = p
     end
     return p
@@ -387,7 +400,7 @@ local function buildRoute(plan)
           left > 0 and (selfMade[g.name] and ("Make %d yourself (its materials are in the shopping list below)"):format(left)
             or ("Buy %d%s"):format(left, unit and (" at about " .. Money(unit) .. " each") or "")) or "Covered by your stock",
           "Stock is used up in route order, so earlier steps get it first.",
-          "Click: search the auction house" },
+          p.note or "Click: search the auction house", p.note and "Click: search the auction house" or nil },
       }
     end
   end

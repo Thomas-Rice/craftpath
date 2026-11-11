@@ -333,6 +333,10 @@ def check_layout(G, root_name):
     assert not bad, root_name + " has elements outside its window:\n  " + "\n  ".join(bad)
 
 
+def lua_list(t):
+    return [t[i] for i in range(1, len(t) + 1)] if t else []
+
+
 def main():
     lua = lua51.LuaRuntime(unpack_returned_tuples=True)
     lua.execute(STUBS)
@@ -756,6 +760,30 @@ def main():
     assert any("Skill-up" in t for t in texts) and any("Sold (AH)" in t for t in texts)
     G.SlashCmdList.CRAFTPATH("history")
     assert not G.CraftPathLedgerFrame.__shown
+
+    # ---- Ore you can smelt counts as bars (Mining 90: Copper yes, Iron needs 125) ----
+    lua.execute("""
+      __origCount = C_Item.GetItemCount
+      C_Item.GetItemCount = function(n, bank)
+        if n == "Copper Ore" then return bank and 30 or 12 end
+        if n == "Iron Ore" then return 50 end
+        return __origCount(n, bank)
+      end
+    """)
+    base = ns.Game.Owned("Copper Bar")
+    assert ns.Game.OwnedWithOre("Copper Bar") == base + 30, (ns.Game.OwnedWithOre("Copper Bar"), base)
+    assert ns.Game.OwnedWithOre("Iron Bar") == ns.Game.Owned("Iron Bar"), "Iron needs Mining 125"
+    assert "smelt 30 from Copper Ore" in (ns.Game.Elsewhere("Copper Bar") or ""), ns.Game.Elsewhere("Copper Bar")
+    ns.db.settings.useOwned = True
+    oreplan = ns.MakePlan()
+    cb = [b for b in lua_list(oreplan.shopping) if b.name == "Copper Bar"]
+    assert cb and cb[0].qty > base, "expected the route to need more Copper Bar than the bags hold"
+    assert cb[0].have == min(cb[0].qty, base + 30), (cb[0].have, cb[0].qty, base)
+    keep = ns.Keep.Build(True); G.__runTimers()
+    keep = ns.Keep.Build(True)
+    assert keep["Copper Ore"] and "smelted into Copper Bar" in ns.Keep.Text(keep["Copper Ore"]), "ore not kept"
+    print("Ore counts as bars:", cb[0].qty, "Copper Bar needed,", cb[0].have, "owned incl. ore")
+    lua.execute("C_Item.GetItemCount = __origCount")
 
     # Slash command and closing the AH.
     G.SlashCmdList.CRAFTPATH("help")

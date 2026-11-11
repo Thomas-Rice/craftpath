@@ -180,7 +180,8 @@ function ns.MakePlan(override)
     allowRecipeItems = s.allowRecipeItems, allowFavor = s.allowFavor,
     spec = (s.spec ~= "none") and s.spec or nil,
     bonus = 0.04 * (tonumber(s.overtimeRank) or 0),
-    owned = ns.Game.Owned,
+    -- ore you can smelt counts as bars (not on the Mining route itself, which smelts it)
+    owned = prof ~= "Mining" and ns.Game.OwnedWithOre or ns.Game.Owned,
     listed = ns.Prices.Listed,
     useOwned = s.useOwned and not (override and override.noStock),
     faction = UnitFactionGroup and UnitFactionGroup("player") or nil,

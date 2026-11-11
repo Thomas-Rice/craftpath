@@ -59,6 +59,19 @@ local function collect(profs)
           e.qty = e.qty + qty
           e.profs[#e.profs + 1] = { p.prof, qty }
           need[name] = e
+          -- Ore you'd smelt into these bars is needed too (the route counts it as bars).
+          local sm = p.prof ~= "Mining" and ns.Game.Smelt and ns.Game.Smelt(name)
+          if sm then
+            local short = math.max(0, qty - ns.Game.Owned(name))
+            local ore = math.min(ns.Game.Owned(sm.ore), math.ceil(short / sm.makes) * sm.per)
+            if ore > 0 then
+              local o = need[sm.ore] or { qty = 0, profs = {} }
+              o.qty = o.qty + ore
+              o.profs[#o.profs + 1] = { p.prof, ore }
+              o.smelt = name
+              need[sm.ore] = o
+            end
+          end
         end
       end
     end
@@ -102,7 +115,7 @@ end
 local function keepText(e)
   local parts = {}
   for _, pq in ipairs(e.profs) do parts[#parts + 1] = pq[2] .. " for " .. pq[1] end
-  return table.concat(parts, ", ")
+  return table.concat(parts, ", ") .. (e.smelt and (", smelted into " .. e.smelt) or "")
 end
 Keep.Text = keepText
 
