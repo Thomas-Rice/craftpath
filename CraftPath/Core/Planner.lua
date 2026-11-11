@@ -14,6 +14,7 @@
 local _, ns = ...
 ns.Planner = ns.Planner or {}
 local Planner = ns.Planner
+Planner.RESALE_FLOOR = 0.5 -- selling back can cover at most half of a craft's materials when choosing a route
 local Recipes = ns.Recipes
 
 local INF = math.huge
@@ -395,8 +396,12 @@ planOnce = function(opts, ownedFactor)
     local c = INF
     if p > 0 then
       c = craftCost(r, s)
-      -- Selling what you make: each craft costs its materials minus what the items sell back for.
-      if c < INF and resaleOf then c = c - resaleOf(r) end
+      -- Selling what you make: each craft costs its materials minus what the items sell back for,
+      -- but never less than a share of the materials. Otherwise a craft that sells for more than
+      -- it costs looks free (or better than free) and the route farms it far into green and grey
+      -- for hundreds of crafts: a profit trick, not a levelling route, and the auction house
+      -- doesn't have that many materials. Making money is the Profits window's job.
+      if c < INF and resaleOf then c = math.max(c - resaleOf(r), c * (opts.resaleFloor or Planner.RESALE_FLOOR)) end
       c = c / p
     end
     cppMemo[key] = c

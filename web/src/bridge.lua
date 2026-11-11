@@ -118,7 +118,7 @@ function CP_Plan(optsJson)
     ahPrice = function(n) return prices[n] end,
     vendorPrice = function(n) return vendor[n] end,
     known = {}, allowRecipeItems = o.allowRecipeItems ~= false, allowFavor = o.allowFavor ~= false,
-    spec = o.spec, bonus = o.bonus or 0, faction = o.faction, charLevel = o.charLevel,
+    spec = o.spec, bonus = o.bonus or 0, faction = o.faction, charLevel = o.charLevel, resaleFloor = o.resaleFloor,
     listed = function(n) return listed[n] end,
   }
   -- Selling what you craft: a vendor's price, or with "auction" also the auction price at the

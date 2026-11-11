@@ -291,6 +291,10 @@ def main():
     assert any(n in sellback for n in names), names
     st = next(st for st in lua_list(sold.steps) if st.recipe.name in sellback)
     assert st.resalePerCraft > 0 and st.resaleHow == "vendor" and st.resaleTotal > 0
+    # A craft that sells for more than it costs mustn't be farmed deep into green and grey
+    # (seen on the site: ~900 Bronze Bar and Heavy Stone for Engineering 1-300).
+    crafts = lambda p: sum(st.crafts for st in lua_list(p.steps))
+    assert crafts(sold) <= crafts(plain) * 1.3, (crafts(sold), crafts(plain))
     print(f"Selling crafts: net {sold.netTotal:.0f} vs plain {sold.plain.net:.0f} (spends {sold.total:.0f} vs {plain.total:.0f})")
 
     # ---- Profit finder ----
