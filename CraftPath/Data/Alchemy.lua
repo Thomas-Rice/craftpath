@@ -84,7 +84,7 @@ Greater Mageblood Elixir|175|175|180|182|185|1|R|Blindweed*3;Arthas' Tears*2;Cry
 Mana Potion|175|175|180|200|220|1|T|Stranglekelp*1;Kingsblood*1;Leaded Vial*1
 Greater Mender's Potion|180|180|185|187|190|1|R|Arthas' Tears*2;Purple Lotus*1;Crystal Vial*1
 Lesser Invisibility Potion|180|180|185|205|225|1|T|Fadeleaf*1;Wild Steelbloom*1;Leaded Vial*1
-Draught of Water Walking|185|185|190|210|230|1|T|Blackmouth Oil*1;Liferoot*1;Leaded Vial*1
+Draught of Water Walking|185|185|190|210|230|1|R|Blackmouth Oil*1;Liferoot*1;Leaded Vial*1
 Greater Spellblasting Potion|185|185|190|192|195|1|R|Kingsblood*2;Fadeleaf*1;Leaded Vial*1
 Shadow Oil|185|185|190|210|230|2|R|Fadeleaf*4;Grave Moss*4;Leaded Vial*1
 Elixir of Lesser Fortitude|190|190|195|215|235|1|R|Wild Steelbloom*1;Goldthorn*1;Leaded Vial*1
@@ -137,7 +137,7 @@ Distilled Firewater|255|255|260|265|270|1|R|Wintersbite*4;Gromsblood*2;Leaded Vi
 Elixir of Greater Strength|255|255|260|280|300|1|T|Sungrass*1;Gromsblood*1;Crystal Vial*1
 Ghost Dye|255|255|260|280|300|2|R|Ghost Mushroom*2;Purple Dye*1;Crystal Vial*1
 Draught of Detect Demon|260|260|265|285|305|1|T|Gromsblood*2;Crystal Vial*1
-Elixir of Holy Power|260|260|265|285|305|1|T|Fire Oil*3;Firebloom*3;Crystal Vial*1
+Elixir of Holy Power|260|260|265|285|305|1|R|Fire Oil*3;Firebloom*3;Crystal Vial*1
 Elixir of Shadow Power|260|260|265|285|305|1|R|Ghost Mushroom*3;Crystal Vial*1
 Potion of Demon Slaying|260|260|265|285|305|1|R|Gromsblood*1;Ghost Mushroom*1;Crystal Vial*1
 Caustic Smog Potion|265|265|270|272|275|1|R|Ghost Mushroom*2;Grave Moss*2;Crystal Vial*1

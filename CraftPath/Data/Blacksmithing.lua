@@ -26,7 +26,7 @@ Rough Weightstone|1|1|15|35|55|1|A|Rough Stone*1
 Sharpening Wheel|1|1|20|22|25|1|T|Rough Stone*1;Copper Bar*1
 Coarse Weightstone|20|20|40|47|55|1|T|Coarse Stone*1
 Rough Grinding Stone|25|25|45|65|85|1|T|Rough Stone*2
-Coarse Grinding Stone|30|30|50|62|75|1|T|Coarse Stone*2
+Coarse Grinding Stone|30|30|50|70|90|1|T|Coarse Stone*2
 Copper Chain Vest|30|30|70|90|110|1|R|Copper Bar*8;Malachite*1;Rough Grinding Stone*2
 Copper Mace|35|35|55|75|95|1|T|Copper Bar*6;Weak Flux*1;Linen Cloth*2
 Gemmed Copper Boots|35|35|40|40|40|1|R|Copper Bar*2;Tigerseye*2;Malachite*2;Light Leather*4
