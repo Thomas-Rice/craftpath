@@ -157,6 +157,19 @@ def main():
                            "--changes", changes])
         assert len(json.load(open(changes, encoding="utf-8"))) == 1  # no new entry without changes
         assert "No recipe changes." in open(report, encoding="utf-8").read()
+
+        # A hotfix that changes what vendors pay is reported and recorded on the updates page.
+        path = os.path.join(csvs, "ItemSparse.csv")
+        rows = open(path, encoding="utf-8").read().replace(",Copper Bar,0,7", ",Copper Bar,0,5")
+        open(path, "w", encoding="utf-8").write(rows)
+        sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
+                           "--changes", changes])
+        text = open(report, encoding="utf-8").read()
+        assert "Changes found." in text and "Copper Bar: vendors pay 5c (was 7c)" in text, text[:800]
+        hist = json.load(open(changes, encoding="utf-8"))
+        vend = [p for p in hist[0]["professions"] if p["profession"] == "Vendor prices"]
+        assert vend and vend[0]["changed"][0]["name"] == "Copper Bar", hist[0]
+        assert '["Copper Bar"] = 5,' in open(os.path.join(addon, "Data", "Items.lua"), encoding="utf-8").read()
         print("Sync test passed:", {p: len(after[p]) for p in after})
     finally:
         shutil.rmtree(tmp)

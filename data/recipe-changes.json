@@ -1,58 +1,6 @@
 [
  {
   "date": "2026-11-10",
-  "build": "hotfixes (10 Nov)",
-  "professions": [
-   {
-    "profession": "Blacksmithing",
-    "before": 371,
-    "after": 371,
-    "minor": 0,
-    "added": [],
-    "removed": [],
-    "changed": [
-     {
-      "name": "Coarse Grinding Stone",
-      "change": "skill-ups now to 90 (was 75)"
-     }
-    ]
-   },
-   {
-    "profession": "Engineering",
-    "before": 216,
-    "after": 216,
-    "minor": 0,
-    "added": [],
-    "removed": [],
-    "changed": [
-     {
-      "name": "Iron Grenade",
-      "change": "vendors now pay 1s 25c (was 5s)"
-     }
-    ]
-   },
-   {
-    "profession": "Alchemy",
-    "before": 160,
-    "after": 160,
-    "minor": 0,
-    "added": [],
-    "removed": [],
-    "changed": [
-     {
-      "name": "Minor Arcane Elixir",
-      "change": "vendors now pay 5c (was 25c)"
-     },
-     {
-      "name": "Mana Well",
-      "change": "learned at 20 (was listed as 15)"
-     }
-    ]
-   }
-  ]
- },
- {
-  "date": "2026-11-10",
   "build": "1.60.1.70888",
   "professions": [
    {

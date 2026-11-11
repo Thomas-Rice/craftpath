@@ -23,7 +23,7 @@ async function main() {
       const profs = run.professions.map((p) => `
         <div class="prof-change">
           <h3>${esc(p.profession)}</h3>
-          <div class="counts">${p.before} → ${p.after} recipes · ${p.added.length} new, ${p.removed.length} removed, ${p.changed.length} changed</div>
+          <div class="counts">${p.kind === "items" ? `${p.changed.length} items changed price` : `${p.before} → ${p.after} recipes · ${p.added.length} new, ${p.removed.length} removed, ${p.changed.length} changed`}</div>
           ${list(p.added, "new", "New", (a) => `<strong>${esc(a.name)}</strong> <span class="muted">skill ${a.skill}, ${esc(a.source)}${a.materials ? ` · ${esc(a.materials)}` : ""}</span>`)}
           ${list(p.removed, "gone", "Removed", (a) => `<strong>${esc(a.name)}</strong> <span class="muted">skill ${a.skill}</span>`)}
           ${list(p.changed, "chg", "Changed", (a) => `<strong>${esc(a.name)}</strong> <span class="muted">${esc(a.change)}</span>`)}

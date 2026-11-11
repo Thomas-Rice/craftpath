@@ -28,7 +28,10 @@ ADDON = os.path.join(HERE, "..", "CraftPath")
 CHANGES = os.path.join(HERE, "..", "data", "recipe-changes.json")  # history shown on the website
 KEEP_CHANGES = 365
 BUILDS_URL = "https://wago.tools/api/builds"
-CSV_URL = "https://wago.tools/db2/{table}/csv?build={build}"
+# useHotfixes=1: the tables with Blizzard's hotfixes applied (what the game client actually
+# uses). Without it wago returns the data as shipped in the build, which misses hotfixes such
+# as the Nov 2026 vendor price cuts and skill-up changes.
+CSV_URL = "https://wago.tools/db2/{table}/csv?build={build}&useHotfixes=1"
 TABLES = ["SkillLineAbility", "SpellName", "SpellReagents", "SpellEffect", "ItemSparse"]
 
 # Profession -> (SkillLine ID, recipe item prefixes, tools needed)
@@ -52,19 +55,6 @@ USER_AGENT = "CraftPath recipe sync (+https://github.com/Thomas-Rice/craftpath)"
 DEFAULT_EXCLUDE = {
     "Clanking Cord", "Gizmo Girdle", "Serrated Strap", "Whimsical Waistwrap",
     "Bent Goggles", "Dented Goggles", "Floppy Goggles", "Stuckbutton Goggles",
-}
-
-
-# Blizzard hotfixes that the client data on wago.tools doesn't show yet. Each is
-# (value in the game data before the hotfix, value after): applied only while the game data
-# still has the old value, so once wago catches up (or it changes again) the game data wins.
-# From the WoW: Forever hotfixes of 10 Nov 2026 (wowhead.com/forever/news/...-383837).
-HOTFIX_GREY = {  # recipe -> (old grey skill, new grey skill)
-    "Coarse Grinding Stone": (75, 90),
-}
-HOTFIX_SELL = {  # item -> (old vendor sell price, new), copper
-    "Iron Grenade": (500, 125),
-    "Minor Arcane Elixir": (25, 5),
 }
 
 
@@ -216,8 +206,6 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
             else:
                 learn = max(1, yellow - 5)
                 estimated = True
-        if name in HOTFIX_GREY and grey == HOTFIX_GREY[name][0]:
-            grey = HOTFIX_GREY[name][1]
         if learn >= MAX_SKILL or grey <= learn:
             continue  # can't help reach the cap
         orange = learn
@@ -262,21 +250,59 @@ VENDOR_GOODS = [
 ]
 
 
+def read_item_prices(addon):
+    """The ItemSell and VendorGoods tables in the current Data/Items.lua, as two dicts."""
+    path = os.path.join(addon, "Data", "Items.lua")
+    out = {"ItemSell": {}, "VendorGoods": {}}
+    if not os.path.exists(path):
+        return out
+    table = None
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            m = re.match(r"ns\.RawData\.(\w+) = \{", line)
+            if m:
+                table = m.group(1)
+                continue
+            m = re.match(r'\s*\["(.*)"\] = (\d+),', line)
+            if m and table in out:
+                out[table][m.group(1).replace('\\"', '"').replace("\\\\", "\\")] = int(m.group(2))
+    return out
+
+
+def money(c):
+    g, s, cp = c // 10000, c // 100 % 100, c % 100
+    parts = [f"{g}g" if g else "", f"{s}s" if s else "", f"{cp}c" if cp or c == 0 else ""]
+    return " ".join(p for p in parts if p)
+
+
+def price_changes(before, sell, goods):
+    """Items whose vendor price changed (items new to or gone from the list aren't changes)."""
+    out = []
+    for n in sorted(sell):
+        old = before["ItemSell"].get(n)
+        if old is not None and old != sell[n]:
+            out.append({"name": n, "change": f"vendors pay {money(sell[n])} (was {money(old)})"})
+    for n in sorted(goods):
+        old = before["VendorGoods"].get(n)
+        if old is not None and old != goods[n]:
+            out.append({"name": n, "change": f"vendors charge {money(goods[n])} (was {money(old)})"})
+    return out
+
+
 def write_items(addon, tables, names, build):
     """Data/Items.lua: vendor sell prices for every recipe item and material, and buy prices of
-    VENDOR_GOODS. Skipped (with a note) if the game data has no price columns."""
+    VENDOR_GOODS. Skipped (with a note) if the game data has no price columns.
+    Returns (message, list of price changes)."""
     rows = tables["ItemSparse"]
     if not rows or "SellPrice" not in rows[0]:
-        return "ItemSparse has no SellPrice column; Items.lua left alone."
+        return "ItemSparse has no SellPrice column; Items.lua left alone.", []
+    before = read_item_prices(addon)
     by_name = {}
     for r in sorted(rows, key=lambda r: num(r, "ID")):
         n = r.get("Display_lang", "")
         if n and n not in by_name:
             by_name[n] = (num(r, "BuyPrice"), num(r, "SellPrice"))
     sell = {n: by_name[n][1] for n in sorted(names) if n in by_name and by_name[n][1] > 0}
-    for n, (old, new) in HOTFIX_SELL.items():
-        if sell.get(n) == old:
-            sell[n] = new
     goods = {n: by_name[n][0] for n in VENDOR_GOODS if n in by_name and by_name[n][0] > 0}
     esc = lambda n: n.replace("\\", "\\\\").replace('"', '\\"')
     lines = [
@@ -290,7 +316,7 @@ def write_items(addon, tables, names, build):
     lines += ["}", ""]
     with open(os.path.join(addon, "Data", "Items.lua"), "w", encoding="utf-8", newline="\n") as fh:
         fh.write("\n".join(lines))
-    return f"Items.lua: {len(sell)} sell prices, {len(goods)} vendor supplies."
+    return f"Items.lua: {len(sell)} sell prices, {len(goods)} vendor supplies.", price_changes(before, sell, goods)
 
 
 def fmt(r):
@@ -498,6 +524,14 @@ def main(argv=None):
         if detail_lines:
             details.append(f"<details><summary>{prof} raw lines</summary>\n\n```\n" + "\n".join(detail_lines) + "\n```\n</details>")
         sections.append("\n".join(sec) + "\n")
+    msg, prices = write_items(addon, tables, item_names, build)
+    print(msg)
+    if prices:
+        changed_any = True
+        entries.append({"profession": "Vendor prices", "kind": "items", "before": len(prices), "after": len(prices),
+                        "minor": 0, "added": [], "removed": [], "changed": prices})
+        sections.append(f"## Vendor prices\n\n{len(prices)} items changed price:\n"
+                        + "\n".join(f"- {c['name']}: {c['change']}" for c in prices[:200]) + "\n")
     report.insert(1, "Changes found." if changed_any else "No recipe changes.")
     report.append("| Profession | Before | After | New | Removed | Changed | Minor |")
     report.append("|---|---|---|---|---|---|---|")
@@ -510,7 +544,6 @@ def main(argv=None):
         report.append("")
     report.extend(sections)
     report.extend(["", *details])
-    print(write_items(addon, tables, item_names, build))
     if entries:  # green-only runs don't make the website history
         add_changes_entry(args.changes, build, entries)
     with open(args.report, "w", encoding="utf-8") as fh:
