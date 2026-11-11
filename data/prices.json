@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-11T09:07:37+00:00",
+ "updated": "2026-11-11T09:22:52+00:00",
  "note": "Lowest buyout from the site owner's CraftPath scans (Horde). Prices change constantly; the addon uses your own live scan.",
  "prices": {
   "9-60 Battery Pack": {
@@ -7596,9 +7596,9 @@
    "q": 160
   },
   "Silverleaf": {
-   "p": 18,
-   "t": 1794387918,
-   "q": 11924,
+   "p": 19,
+   "t": 1794388972,
+   "q": 13110,
    "low": 14,
    "med": 14,
    "high": 17,
