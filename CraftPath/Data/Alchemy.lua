@@ -22,7 +22,7 @@ Elixir of Minor Defense|1|1|55|75|95|1|A|Silverleaf*1;Peacebloom*1;Empty Vial*1
 Elixir of Minor Force|1|1|10|12|15|1|A|Silverleaf*1;Empty Vial*1
 Minor Arcane Elixir|1|1|10|12|15|1|A|Peacebloom*1;Empty Vial*1
 Elixir of Minor Spirit|15|15|20|22|25|1|R|Earthroot*2;Peacebloom*1;Empty Vial*1
-Mana Well|15|15|20|22|25|1|T|Peacebloom*1;Empty Vial*1
+Mana Well|20|20|20|22|25|1|T|Peacebloom*1;Empty Vial*1
 Minor Mageblood Elixir|25|25|30|32|35|1|R|Mageroyal*2;Empty Vial*1
 Minor Mender's Potion|30|30|35|37|40|1|R|Mageroyal*2;Bruiseweed*1;Empty Vial*1
 Minor Spellblasting Potion|35|35|40|42|45|1|R|Silverleaf*1;Peacebloom*1;Empty Vial*1
