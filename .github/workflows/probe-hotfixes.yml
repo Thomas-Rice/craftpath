@@ -7,19 +7,13 @@ jobs:
       - name: Probe wago.tools
         run: |
           UA="CraftPath recipe sync (+https://github.com/Thomas-Rice/craftpath)"
-          curl -sS -A "$UA" "https://wago.tools/hotfixes?product=wowf" -o page.html
-          grep -o 'src="[^"]*\.js"' page.html | head -5 | sed 's/^/OUT script /'
-          grep -o 'href="[^"]*\.js"' page.html | head -40 | sed 's/^/OUT link /'
-          for u in $(grep -o '/build/assets/[^"]*\.js' page.html | sort -u); do
-            curl -sS -A "$UA" "https://wago.tools$u" -o a.js
-            if grep -q -i "hotfix" a.js; then echo "OUT asset $u $(wc -c < a.js)"; fi
-          done
-          MAIN=$(grep -o '/build/assets/app[^"]*\.js' page.html | head -1)
-          curl -sS -A "$UA" "https://wago.tools$MAIN" -o app.js
-          grep -o 'Hotfixes-[A-Za-z0-9_-]*\.js' app.js | sort -u | sed 's/^/OUT chunk /'
-          for c in $(grep -o 'Hotfixes-[A-Za-z0-9_-]*\.js' app.js | sort -u); do
+          curl -sS -A "$UA" "https://wago.tools/build/assets/app-CyYaB7ID.js" -o app.js
+          grep -o '"[^"]*Hotfix[^"]*"' app.js | sort -u | head -20 | sed 's/^/OUT name /'
+          grep -o './Pages/Hotfixes[^"]*"\?[^)]*' app.js | head -5 | sed 's/^/OUT imp /'
+          for c in $(grep -oE 'Hotfixes[A-Za-z0-9_.-]*\.js' app.js | sort -u); do
             curl -sS -A "$UA" "https://wago.tools/build/assets/$c" -o h.js
-            echo "OUT size $(wc -c < h.js)"
-            grep -o '.\{120\}filters.\{160\}' h.js | head -12 | sed 's/^/OUT F /'
-            grep -oE '"(search|table|tables|locale|build|status|per_page|perPage|region|record_id|push_id)"' h.js | sort | uniq -c | sed 's/^/OUT P /'
+            echo "OUT chunk $c size $(wc -c < h.js)"
+            grep -oE '.{100}route\("hotfixes".{200}' h.js | head -5 | sed 's/^/OUT R /'
+            grep -oE '.{80}(filters\.|filters\[).{120}' h.js | head -15 | sed 's/^/OUT F /'
+            grep -oE '(search|table|locale|build|status|per_page|perPage|region|onlyLatest|latest|tableName)\s*:' h.js | sort | uniq -c | sed 's/^/OUT P /'
           done
