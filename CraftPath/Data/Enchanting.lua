@@ -23,35 +23,34 @@ Enchant Bracer - Minor Deflect|1|1|80|100|120|1|A|Lesser Magic Essence*1
 Mote of Magic|1|1|10|12|15|3|A|Strange Dust*1
 Novice's Practice Wand|1|1|10|12|15|1|A|Simple Wood*1;Mote of Magic*1
 Runed Copper Rod|1|1|5|7|10|1|A|Copper Rod*1;Mote of Magic*1
-Enchanted Lute|15|15|20|22|25|1|T|Simple Wood*1;Strange Dust*1
+Enchanted Lute|15|15|20|20|20|1|T|Simple Wood*1;Strange Dust*1
 Minor Wizard Oil|25|25|30|47|65|1|R|Strange Dust*1;Maple Seed*1;Empty Vial*1
-Enchant Chest - Inferior Stamina|65|65|70|90|110|1|T|Strange Dust*1
-Lesser Magic Wand|70|70|75|95|115|1|T|Simple Wood*1;Lesser Magic Essence*1
+Enchant Chest - Inferior Stamina|70|70|70|90|110|1|T|Strange Dust*1
 Enchant Chest - Minor Intellect|75|75|80|100|120|1|R|Lesser Magic Essence*1
-Enchant Chest - Minor Absorption|85|85|90|110|130|1|T|Lesser Magic Essence*1
-Enchant Cloak - Minor Resistance|90|90|95|115|135|1|T|Strange Dust*1;Lesser Magic Essence*1
-Blackfathom Mana Oil|95|95|100|110|120|1|T|Leaded Vial*1;Greater Magic Essence*1;Strange Dust*5
-Enchant Bracer - Minor Stamina|95|95|100|120|140|1|T|Strange Dust*2
+Lesser Magic Wand|75|75|75|95|115|1|T|Simple Wood*1;Lesser Magic Essence*1
+Enchant Chest - Minor Absorption|90|90|90|110|130|1|T|Lesser Magic Essence*1
+Enchant Cloak - Minor Resistance|95|95|95|115|135|1|T|Strange Dust*1;Lesser Magic Essence*1
+Blackfathom Mana Oil|100|100|100|110|120|1|T|Leaded Vial*1;Greater Magic Essence*1;Strange Dust*5
 Enchant Bracer - Minor Spirit|100|100|105|125|145|1|R|Lesser Magic Essence*1
-Enchant Chest - Lesser Stamina|100|100|105|125|145|1|T|Strange Dust*1;Lesser Magic Essence*1
+Enchant Bracer - Minor Stamina|100|100|100|120|140|1|T|Strange Dust*2
 Enchant Bracer - Minor Intellect|105|105|110|130|150|1|R|Lesser Magic Essence*1
-Enchant Cloak - Minor Protection|105|105|110|130|150|1|T|Strange Dust*2
-Greater Magic Wand|105|105|110|130|150|1|T|Simple Wood*1;Lesser Magic Essence*2
-Enchant Bracer - Minor Agility|110|110|115|135|155|1|T|Strange Dust*1;Lesser Magic Essence*2
+Enchant Chest - Lesser Stamina|105|105|105|125|145|1|T|Strange Dust*1;Lesser Magic Essence*1
 Enchant Bracer - Minor Strength|110|110|115|135|155|1|R|Strange Dust*3
 Enchant Chest - Lesser Intellect|110|110|115|135|155|1|R|Lesser Magic Essence*2
+Enchant Cloak - Minor Protection|110|110|110|130|150|1|T|Strange Dust*2
+Greater Magic Wand|110|110|110|130|150|1|T|Simple Wood*1;Lesser Magic Essence*2
+Enchant Bracer - Minor Agility|115|115|115|135|155|1|T|Strange Dust*1;Lesser Magic Essence*2
 Enchant Bracer - Minor Healing Power|115|115|120|140|160|1|R|Lesser Magic Essence*2
 Enchant Weapon - Minor Beastslayer|115|115|120|140|160|1|R|Strange Dust*2;Greater Magic Essence*1
-Enchant Weapon - Minor Striking|115|115|120|140|160|1|T|Strange Dust*1;Lesser Magic Essence*1;Small Glimmering Shard*1
 Scroll of Spatial Mending|115|115|120|140|160|1|R|Simple Wood*1;Strange Dust*4
+Enchant Weapon - Minor Striking|120|120|120|140|160|1|T|Strange Dust*1;Lesser Magic Essence*1;Small Glimmering Shard*1
 Enchant 2H Weapon - Lesser Intellect|125|125|130|150|170|1|R|Lesser Magic Essence*4
-Enchant 2H Weapon - Minor Impact|125|125|130|150|170|1|T|Strange Dust*1;Small Glimmering Shard*1
-Enchant Shield - Minor Stamina|125|125|130|150|170|1|T|Lesser Astral Essence*1;Strange Dust*1
-Runed Silver Rod|125|125|130|150|170|1|T|Silver Rod*1;Strange Dust*3;Lesser Magic Essence*4;Shadowgem*1
 Enchant 2H Weapon - Lesser Spirit|130|130|135|155|175|1|R|Lesser Astral Essence*1;Strange Dust*3
+Enchant 2H Weapon - Minor Impact|130|130|130|150|170|1|T|Strange Dust*1;Small Glimmering Shard*1
 Enchant Cloak - Minor Agility|130|130|135|155|175|1|R|Lesser Astral Essence*1
-Arcane Salvager|135|135|140|142|145|1|T|Vision Dust*2;Lesser Nether Essence*1
-Enchant Cloak - Lesser Protection|135|135|140|160|180|1|T|Strange Dust*3;Small Glimmering Shard*1
+Enchant Shield - Minor Stamina|130|130|130|150|170|1|T|Lesser Astral Essence*1;Strange Dust*1
+Runed Silver Rod|130|130|130|150|170|1|T|Silver Rod*1;Strange Dust*3;Lesser Magic Essence*4;Shadowgem*1
+Arcane Salvager|135|135|140|140|140|1|T|Vision Dust*2;Lesser Nether Essence*1
 Enchant Shield - Lesser Protection|135|135|140|160|180|1|R|Strange Dust*1;Small Glimmering Shard*1
 Enchant Weapon - Insight|135|135|140|160|180|1|R|Strange Dust*10;Large Glimmering Shard*4;Greater Astral Essence*4;Pyrite*4;Frilled Lichen*4
 Enchant Weapon - Recovery|135|135|140|160|180|1|R|Soul Dust*6;Large Glimmering Shard*4;Greater Astral Essence*6;Pyrite*4;Silver Ore*4
@@ -64,107 +63,108 @@ Polished Driftwood Icon|135|135|140|160|180|1|R|Large Glimmering Shard*1;Greater
 Soulstaff|135|135|140|160|180|1|R|Large Glimmering Shard*2;Small Glimmering Shard*1;Star Wood*4;Greater Astral Essence*1;Soul Dust*6;Shadowgem*2
 Tenets of the Silver Hand|135|135|140|160|180|1|R|Large Glimmering Shard*1;Greater Magic Essence*1;Strange Dust*2;Scroll of Protection*5
 Enchant Bracer - Lesser Spirit|140|140|145|165|185|1|R|Lesser Astral Essence*1
-Enchant Chest - Stamina|140|140|145|165|185|1|T|Strange Dust*2;Lesser Astral Essence*1
+Enchant Cloak - Lesser Protection|140|140|140|160|180|1|T|Strange Dust*3;Small Glimmering Shard*1
 Enchant Boots - Minor Agility|145|145|150|170|190|1|R|Strange Dust*3;Lesser Astral Essence*1
 Enchant Boots - Minor Stamina|145|145|150|170|190|1|R|Strange Dust*4
-Enchant Cloak - Lesser Fire Resistance|145|145|150|170|190|1|T|Fire Oil*1;Lesser Astral Essence*1
-Enchant Bracer - Lesser Stamina|150|150|155|175|195|1|T|Soul Dust*1
-Enchant Shield - Lesser Spirit|150|150|155|175|195|1|T|Lesser Astral Essence*1;Strange Dust*2
+Enchant Chest - Stamina|145|145|145|165|185|1|T|Strange Dust*2;Lesser Astral Essence*1
+Enchant Cloak - Lesser Fire Resistance|150|150|150|170|190|1|T|Fire Oil*1;Lesser Astral Essence*1
+Enchant Bracer - Lesser Stamina|155|155|155|175|195|1|T|Soul Dust*1
 Enchant Cloak - Lesser Shadow Resistance|155|155|160|180|200|1|R|Lesser Astral Essence*1;Shadow Protection Potion*1
+Enchant Shield - Lesser Spirit|155|155|155|175|195|1|T|Lesser Astral Essence*1;Strange Dust*2
 Minor Mana Oil|155|155|160|170|180|1|R|Soul Dust*1;Maple Seed*2;Leaded Vial*1
 Enchant Bracer - Lesser Agility|160|160|165|185|205|1|R|Lesser Mystic Essence*1
 Enchant Bracer - Lesser Strength|160|160|165|185|205|1|R|Soul Dust*1
-Enchant Chest - Lesser Absorption|160|160|165|185|205|1|T|Strange Dust*1;Lesser Astral Essence*1;Large Glimmering Shard*1
-Enchant Weapon - Lesser Striking|160|160|165|185|205|1|T|Soul Dust*1;Large Glimmering Shard*1
-Enchant 2H Weapon - Lesser Impact|165|165|170|190|210|1|T|Soul Dust*1;Large Glimmering Shard*1
-Enchant Chest - Intellect|165|165|170|190|210|1|T|Greater Astral Essence*1
+Enchant Chest - Lesser Absorption|165|165|165|185|205|1|T|Strange Dust*1;Lesser Astral Essence*1;Large Glimmering Shard*1
 Enchant Gloves - Fishing|165|165|170|190|210|1|R|Soul Dust*1;Blackmouth Oil*1
 Enchant Gloves - Herbalism|165|165|170|190|210|1|R|Soul Dust*1;Kingsblood*1
 Enchant Gloves - Mining|165|165|170|190|210|1|R|Soul Dust*1;Iron Ore*1
-Enchant Bracer - Lesser Intellect|170|170|175|195|215|1|T|Greater Astral Essence*1
-Enchant Chest - Minor Stats|170|170|175|195|215|1|T|Lesser Astral Essence*1;Soul Dust*1;Large Glimmering Shard*1
-Enchant Cloak - Defense|170|170|175|195|215|1|T|Small Glowing Shard*1;Soul Dust*1
-Enchant Shield - Lesser Stamina|170|170|175|195|215|1|T|Lesser Mystic Essence*1
-Lesser Mystic Wand|170|170|175|195|215|1|T|Star Wood*1;Lesser Mystic Essence*1
-Runed Golden Rod|170|170|175|195|215|1|T|Golden Rod*1;Iridescent Pearl*1;Greater Astral Essence*1;Soul Dust*1
-Enchant Boots - Lesser Agility|175|175|180|200|220|1|T|Soul Dust*1
-Enchant Chest - Greater Stamina|175|175|180|200|220|1|T|Soul Dust*2
-Enchant Bracer - Spirit|180|180|185|205|225|1|T|Lesser Mystic Essence*1
-Enchant Boots - Lesser Stamina|185|185|190|210|230|1|T|Soul Dust*2
+Enchant Weapon - Lesser Striking|165|165|165|185|205|1|T|Soul Dust*1;Large Glimmering Shard*1
+Enchant 2H Weapon - Lesser Impact|170|170|170|190|210|1|T|Soul Dust*1;Large Glimmering Shard*1
+Enchant Chest - Intellect|170|170|170|190|210|1|T|Greater Astral Essence*1
+Enchant Bracer - Lesser Intellect|175|175|175|195|215|1|T|Greater Astral Essence*1
+Enchant Chest - Minor Stats|175|175|175|195|215|1|T|Lesser Astral Essence*1;Soul Dust*1;Large Glimmering Shard*1
+Enchant Cloak - Defense|175|175|175|195|215|1|T|Small Glowing Shard*1;Soul Dust*1
+Enchant Shield - Lesser Stamina|175|175|175|195|215|1|T|Lesser Mystic Essence*1
+Lesser Mystic Wand|175|175|175|195|215|1|T|Star Wood*1;Lesser Mystic Essence*1
+Runed Golden Rod|175|175|175|195|215|1|T|Golden Rod*1;Iridescent Pearl*1;Greater Astral Essence*1;Soul Dust*1
+Enchant Boots - Lesser Agility|180|180|180|200|220|1|T|Soul Dust*1
+Enchant Chest - Greater Stamina|180|180|180|200|220|1|T|Soul Dust*2
 Enchant Bracer - Lesser Deflection|185|185|190|210|230|1|R|Lesser Mystic Essence*1;Soul Dust*1
-Enchant Bracer - Stamina|185|185|190|210|230|1|T|Soul Dust*3
-Enchant Cloak - Fire Resistance|190|190|195|215|235|1|T|Lesser Mystic Essence*1;Elemental Fire*1
+Enchant Bracer - Spirit|185|185|185|205|225|1|T|Lesser Mystic Essence*1
+Enchant Boots - Lesser Stamina|190|190|190|210|230|1|T|Soul Dust*2
+Enchant Bracer - Stamina|190|190|190|210|230|1|T|Soul Dust*3
 Enchant Weapon - Lesser Beastslayer|190|190|195|215|235|1|R|Large Fang*1;Small Glowing Shard*1
 Enchant Weapon - Lesser Elemental Slayer|190|190|195|215|235|1|R|Elemental Earth*1;Small Glowing Shard*1
-Greater Mystic Wand|190|190|195|215|235|1|T|Star Wood*1;Lesser Mystic Essence*1;Vision Dust*1
-Enchant Bracer - Strength|195|195|200|220|240|1|T|Vision Dust*1
 Enchant Chest - Retricutioner|195|195|200|220|240|1|R|Small Radiant Shard*1;Dream Dust*2
-Enchant Shield - Spirit|195|195|200|220|240|1|T|Lesser Mystic Essence*1;Vision Dust*1
+Enchant Cloak - Fire Resistance|195|195|195|215|235|1|T|Lesser Mystic Essence*1;Elemental Fire*1
 Enchant Weapon - Dismantle|195|195|200|217|235|1|R|Lesser Nether Essence*4;Large Fang*2;Small Radiant Shard*2
-Enchant Chest - Greater Intellect|200|200|205|225|245|1|T|Lesser Mystic Essence*1
+Greater Mystic Wand|195|195|195|215|235|1|T|Star Wood*1;Lesser Mystic Essence*1;Vision Dust*1
+Enchant Bracer - Strength|200|200|200|220|240|1|T|Vision Dust*1
+Enchant Shield - Spirit|200|200|200|220|240|1|T|Lesser Mystic Essence*1;Vision Dust*1
 Twisted Nether Wand|200|200|205|225|245|1|R|Lesser Nether Essence*1;Dream Dust*1;Star Wood*1
 Enchant Boots - Lesser Spirit|205|205|210|230|250|1|R|Lesser Mystic Essence*2
+Enchant Chest - Greater Intellect|205|205|205|225|245|1|T|Lesser Mystic Essence*1
 Enchant Weapon - Winter's Might|205|205|210|230|250|1|R|Greater Mystic Essence*1;Vision Dust*1;Large Glowing Shard*1;Wintersbite*1
 Lesser Wizard Oil|205|205|210|220|230|1|R|Vision Dust*1;Stranglethorn Seed*2;Leaded Vial*1
 Enchant Shield - Lesser Block|210|210|215|235|255|1|R|Greater Mystic Essence*1;Vision Dust*1;Large Glowing Shard*1
-Enchant Weapon - Striking|210|210|215|235|255|1|T|Greater Mystic Essence*1;Large Glowing Shard*1
-Enchant 2H Weapon - Impact|215|215|220|240|260|1|T|Vision Dust*2;Large Glowing Shard*1
-Enchant Chest - Lesser Stats|215|215|220|240|260|1|T|Greater Mystic Essence*1;Vision Dust*1;Large Glowing Shard*1
 Enchant Gloves - Skinning|215|215|220|240|260|1|R|Vision Dust*1;Green Whelp Scale*1
-Runed Truesilver Rod|215|215|220|240|260|1|T|Truesilver Rod*1;Black Pearl*1;Greater Mystic Essence*1;Vision Dust*1
+Enchant Weapon - Striking|215|215|215|235|255|1|T|Greater Mystic Essence*1;Large Glowing Shard*1
 Dreamstaff|220|220|225|245|265|1|R|Large Radiant Shard*4;Small Radiant Shard*4;Star Wood*4;Greater Nether Essence*6;Dream Dust*8;Cerulean Dye*2;Magenta Dye*4
+Enchant 2H Weapon - Impact|220|220|220|240|260|1|T|Vision Dust*2;Large Glowing Shard*1
 Enchant Bracer - Agility|220|220|320|340|360|1|R|Nexus Crystal*2;Illusion Dust*10;Greater Eternal Essence*2;Essence of Air*2
 Enchant Bracer - Lesser Healing Power|220|220|225|245|265|1|R|Lesser Mystic Essence*2
 Enchant Chest - Absorption|220|220|225|245|265|1|R|Dream Dust*10;Greater Nether Essence*4;Large Radiant Shard*2
-Enchant Cloak - Greater Defense|220|220|225|245|265|1|T|Vision Dust*1
-Enchant Cloak - Resistance|220|220|225|245|265|1|T|Lesser Nether Essence*1
+Enchant Chest - Lesser Stats|220|220|220|240|260|1|T|Greater Mystic Essence*1;Vision Dust*1;Large Glowing Shard*1
 Enchant Necklace - Agility|220|220|225|245|265|1|R|Greater Nether Essence*2;Large Radiant Shard*8;Dream Dust*6;Sulfuric Acid*4;Magenta Dye*4
 Enchant Necklace - Deflection|220|220|225|245|265|1|R|Greater Nether Essence*8;Large Radiant Shard*2;Dream Dust*2;Cerulean Dye*4;Magenta Dye*4
 Enchant Necklace - Healing Power|220|220|225|245|265|1|R|Greater Nether Essence*3;Large Radiant Shard*5;Dream Dust*4;Pyrite*4;Rosecap*4
 Enchant Necklace - Spell Power|220|220|225|245|265|1|R|Greater Nether Essence*5;Large Radiant Shard*3;Dream Dust*8;Cerulean Dye*4;Magenta Dye*4
 Enchant Necklace - Strength|220|220|225|245|265|1|R|Greater Nether Essence*4;Large Radiant Shard*4;Dream Dust*10;Sulfuric Acid*4;Bauxite*4
-Enchanted Sigil: Innovation|220|220|225|227|230|1|T|Vision Dust*5
 Libram of Invocation|220|220|225|245|265|1|R|Large Radiant Shard*3;Greater Nether Essence*3;Dream Dust*4;Magenta Dye*2;Cerulean Dye*1;Scroll of Strength II*4
 Radiant Staff|220|220|225|245|265|1|R|Large Radiant Shard*6;Small Radiant Shard*2;Star Wood*4;Greater Nether Essence*4;Dream Dust*6;Cerulean Dye*2;Magenta Dye*4
+Runed Truesilver Rod|220|220|220|240|260|1|T|Truesilver Rod*1;Black Pearl*1;Greater Mystic Essence*1;Vision Dust*1
 Talons of Wrath|220|220|225|245|265|1|R|Large Radiant Shard*2;Greater Nether Essence*4;Dream Dust*6;Magenta Dye*2;Cerulean Dye*1;Star Wood*1
 Totem of Ancestral Protection|220|220|225|245|265|1|R|Large Radiant Shard*4;Greater Nether Essence*2;Dream Dust*2;Sandpaper*4;Sulfuric Acid*2;Star Wood*2
 Truesilver Conduit|220|220|225|245|265|1|R|Large Radiant Shard*3;Small Radiant Shard*1;Star Wood*2;Greater Nether Essence*2;Dream Dust*3;Cerulean Dye*1;Magenta Dye*2
 Twisting Essence Jar|220|220|225|245|265|1|R|Truesilver Bar*4;Greater Nether Essence*12;Greater Mystic Essence*12;Cerulean Dye*1;Magenta Dye*2
 Enchant 2H Weapon - Lesser Agility|225|225|230|250|270|1|R|Vision Dust*2;Large Glowing Shard*1;Lesser Nether Essence*1
-Enchant Bracer - Intellect|225|225|230|250|270|1|T|Lesser Nether Essence*1
-Enchant Gloves - Agility|225|225|230|250|270|1|T|Vision Dust*1
+Enchant Cloak - Greater Defense|225|225|225|245|265|1|T|Vision Dust*1
+Enchant Cloak - Resistance|225|225|225|245|265|1|T|Lesser Nether Essence*1
 Enchant Shield - Stamina|225|225|230|250|270|1|R|Vision Dust*2
+Enchanted Sigil: Innovation|225|225|225|227|230|1|T|Vision Dust*5
 Dreambough Wand|230|230|235|255|275|1|R|Lesser Nether Essence*2;Vision Dust*1;Star Wood*1
-Enchant Boots - Stamina|230|230|235|255|275|1|T|Vision Dust*2
+Enchant Bracer - Intellect|230|230|230|250|270|1|T|Lesser Nether Essence*1
 Enchant Gloves - Advanced Mining|230|230|235|255|275|1|R|Vision Dust*2;Truesilver Bar*1
+Enchant Gloves - Agility|230|230|230|250|270|1|T|Vision Dust*1
 Enchant 2H Weapon - Lesser Strength|235|235|240|260|280|1|R|Vision Dust*1;Large Glowing Shard*1;Lesser Nether Essence*2
+Enchant Boots - Stamina|235|235|235|255|275|1|T|Vision Dust*2
 Enchant Bracer - Greater Spirit|235|235|240|260|280|1|R|Lesser Nether Essence*1;Vision Dust*1
-Enchant Chest - Superior Stamina|235|235|240|260|280|1|T|Vision Dust*3
-Enchant Boots - Minor Speed|240|240|245|265|285|1|T|Small Radiant Shard*1;Aquamarine*1;Lesser Nether Essence*1
+Enchant Chest - Superior Stamina|240|240|240|260|280|1|T|Vision Dust*3
 Enchant Cloak - Lesser Agility|240|240|245|265|285|1|R|Lesser Nether Essence*1
 Enchant Gloves - Advanced Herbalism|240|240|245|265|285|1|R|Vision Dust*2;Sungrass*1
-Enchant Gloves - Strength|240|240|245|265|285|1|T|Lesser Nether Essence*1;Vision Dust*2
-Enchant Chest - Superior Intellect|245|245|250|270|290|1|T|Greater Nether Essence*1
-Enchant Shield - Greater Spirit|245|245|250|270|290|1|T|Lesser Nether Essence*2;Dream Dust*1
+Enchant Boots - Minor Speed|245|245|245|265|285|1|T|Small Radiant Shard*1;Aquamarine*1;Lesser Nether Essence*1
+Enchant Gloves - Strength|245|245|245|265|285|1|T|Lesser Nether Essence*1;Vision Dust*2
 Enchant Weapon - Demonslaying|245|245|250|270|290|1|R|Small Radiant Shard*1;Dream Dust*1;Potion of Demon Slaying*1
-Enchanted Leather|245|245|250|255|260|1|T|Rugged Leather*1;Lesser Eternal Essence*1
-Enchanted Thorium Bar|245|245|250|255|260|1|T|Thorium Bar*1;Dream Dust*3
-Sigil of Living Dreams|245|245|250|255|260|1|T|Dream Dust*5
-Enchant Boots - Agility|250|250|255|275|295|1|T|Greater Nether Essence*1
 Enchant Bracer - Deflection|250|250|255|275|295|1|R|Lesser Nether Essence*2;Dream Dust*1
+Enchant Chest - Superior Intellect|250|250|250|270|290|1|T|Greater Nether Essence*1
 Enchant Shield - Frost Resistance|250|250|255|275|295|1|R|Large Radiant Shard*1;Frost Oil*1
-Enchant 2H Weapon - Greater Impact|255|255|260|280|300|1|T|Large Radiant Shard*1;Dream Dust*1
+Enchant Shield - Greater Spirit|250|250|250|270|290|1|T|Lesser Nether Essence*2;Dream Dust*1
+Enchanted Leather|250|250|250|255|260|1|T|Rugged Leather*1;Lesser Eternal Essence*1
+Enchanted Thorium Bar|250|250|250|255|260|1|T|Thorium Bar*1;Dream Dust*3
+Sigil of Living Dreams|250|250|250|255|260|1|T|Dream Dust*5
+Enchant Boots - Agility|255|255|255|275|295|1|T|Greater Nether Essence*1
 Enchant Bracer - Greater Agility|255|255|260|280|300|1|R|Dream Dust*3;Lesser Nether Essence*1
-Enchant Bracer - Greater Strength|255|255|260|280|300|1|T|Dream Dust*1;Lesser Nether Essence*2
 Lesser Mana Oil|255|255|260|270|280|1|R|Dream Dust*1;Purple Lotus*1;Crystal Vial*1
+Enchant 2H Weapon - Greater Impact|260|260|260|280|300|1|T|Large Radiant Shard*1;Dream Dust*1
 Enchant Bracer - Greater Stamina|260|260|265|285|305|1|R|Dream Dust*3
-Enchant Chest - Stats|260|260|265|285|305|1|T|Large Radiant Shard*1;Dream Dust*1;Greater Nether Essence*1
-Enchant Weapon - Greater Striking|260|260|265|285|305|1|T|Large Radiant Shard*1;Greater Nether Essence*1
+Enchant Bracer - Greater Strength|260|260|260|280|300|1|T|Dream Dust*1;Lesser Nether Essence*2
 Lesser Eternal Wand|260|260|265|285|305|1|R|Lesser Eternal Essence*1;Dream Dust*1;Star Wood*1
+Enchant Chest - Stats|265|265|265|285|305|1|T|Large Radiant Shard*1;Dream Dust*1;Greater Nether Essence*1
 Enchant Gloves - Advanced Skinning|265|265|270|290|310|1|R|Dream Dust*2;Cured Rugged Hide*1
-Enchant Gloves - Minor Haste|265|265|270|290|310|1|T|Large Radiant Shard*1;Wildvine*1
 Enchant Gloves - Riding Skill|265|265|270|290|310|1|R|Large Radiant Shard*1;Dream Dust*2
+Enchant Weapon - Greater Striking|265|265|265|285|305|1|T|Large Radiant Shard*1;Greater Nether Essence*1
 Enchant Bracer - Greater Intellect|270|270|275|295|315|1|R|Lesser Eternal Essence*2
+Enchant Gloves - Minor Haste|270|270|270|290|310|1|T|Large Radiant Shard*1;Wildvine*1
 Enchant Boots - Greater Stamina|275|275|280|300|320|1|R|Dream Dust*6
 Enchant Boots - Speed|275|275|280|290|300|1|R|Large Radiant Shard*2;Dream Dust*8;Greater Nether Essence*2;Blue Sapphire*1
 Conductive Shield Coating|280|280|285|295|305|1|R|Illusion Dust*2;Firebloom*1;Crystal Vial*1

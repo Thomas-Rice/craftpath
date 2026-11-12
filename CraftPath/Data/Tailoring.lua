@@ -23,47 +23,45 @@ Brown Linen Shirt|1|1|35|47|60|1|A|Bolt of Linen Cloth*1;Coarse Thread*1
 Linen Bag|1|1|30|47|65|1|A|Bolt of Linen Cloth*3;Coarse Thread*3
 Linen Cloak|1|1|35|47|60|1|A|Bolt of Linen Cloth*1;Coarse Thread*1
 Simple Linen Pants|1|1|40|50|60|1|A|Bolt of Linen Cloth*1;Coarse Thread*1
-Faction Banner|15|15|20|22|25|1|T|Bolt of Linen Cloth*1;Coarse Thread*1
+Faction Banner|15|15|20|20|20|1|T|Bolt of Linen Cloth*1;Coarse Thread*1
 Linen Reagent Bag|25|25|30|47|65|1|R|Bolt of Linen Cloth*6;Coarse Thread*6
-White Linen Shirt|30|30|35|47|60|1|T|Bolt of Linen Cloth*1;Coarse Thread*1;Bleach*1
-Brown Linen Vest|40|40|45|57|70|1|T|Bolt of Linen Cloth*1;Coarse Thread*1
-Blue Linen Shirt|45|45|50|67|85|1|T|Bolt of Linen Cloth*2;Coarse Thread*1;Blue Dye*1
-Brown Linen Pants|45|45|50|67|85|1|T|Bolt of Linen Cloth*2;Coarse Thread*1
-Brown Linen Robe|45|45|50|67|85|1|T|Bolt of Linen Cloth*3;Coarse Thread*1
-Heavy Linen Gloves|45|45|50|67|85|1|T|Bolt of Linen Cloth*2;Coarse Thread*1
-Linen Belt|45|45|50|67|85|1|T|Bolt of Linen Cloth*1;Coarse Thread*1
+White Linen Shirt|35|35|35|47|60|1|T|Bolt of Linen Cloth*1;Coarse Thread*1;Bleach*1
+Brown Linen Vest|45|45|45|57|70|1|T|Bolt of Linen Cloth*1;Coarse Thread*1
 Red Linen Robe|45|45|50|67|85|1|R|Bolt of Linen Cloth*3;Coarse Thread*2;Red Dye*2
-Red Linen Shirt|45|45|50|67|85|1|T|Bolt of Linen Cloth*2;Coarse Thread*1;Red Dye*1
-Simple Dress|45|45|50|67|85|1|T|Bolt of Linen Cloth*2;Coarse Thread*1;Blue Dye*1;Bleach*1
-Simple Linen Boots|45|45|50|67|85|1|T|Bolt of Linen Cloth*2;Light Leather*1;Coarse Thread*1
-White Linen Robe|45|45|50|67|85|1|T|Bolt of Linen Cloth*3;Coarse Thread*1;Bleach*1
 Azure Stormsewn Cord|50|50|55|57|60|1|R|Bolt of Linen Cloth*3;Coarse Thread*3
 Azure Stormsewn Cuffs|50|50|55|57|60|1|R|Bolt of Linen Cloth*3;Coarse Thread*3
+Blue Linen Shirt|50|50|50|67|85|1|T|Bolt of Linen Cloth*2;Coarse Thread*1;Blue Dye*1
+Brown Linen Pants|50|50|50|67|85|1|T|Bolt of Linen Cloth*2;Coarse Thread*1
+Brown Linen Robe|50|50|50|67|85|1|T|Bolt of Linen Cloth*3;Coarse Thread*1
 Cloudy Stormsewn Cord|50|50|55|57|60|1|R|Bolt of Linen Cloth*3;Coarse Thread*3
 Cloudy Stormsewn Cuffs|50|50|55|57|60|1|R|Bolt of Linen Cloth*3;Coarse Thread*3
+Heavy Linen Gloves|50|50|50|67|85|1|T|Bolt of Linen Cloth*2;Coarse Thread*1
+Linen Belt|50|50|50|67|85|1|T|Bolt of Linen Cloth*1;Coarse Thread*1
 Novice Arcanist's Sash|50|50|55|55|55|1|R|Bolt of Linen Cloth*8;Fine Thread*2;Minor Mana Potion*2
 Novice Ardent's Sash|50|50|55|55|55|1|R|Bolt of Linen Cloth*12;Fine Thread*2;Minor Healing Potion*2
+Red Linen Shirt|50|50|50|67|85|1|T|Bolt of Linen Cloth*2;Coarse Thread*1;Red Dye*1
+Simple Dress|50|50|50|67|85|1|T|Bolt of Linen Cloth*2;Coarse Thread*1;Blue Dye*1;Bleach*1
+Simple Linen Boots|50|50|50|67|85|1|T|Bolt of Linen Cloth*2;Light Leather*1;Coarse Thread*1
+White Linen Robe|50|50|50|67|85|1|T|Bolt of Linen Cloth*3;Coarse Thread*1;Bleach*1
 Azure Stormsewn Handwraps|55|55|60|62|65|1|R|Bolt of Linen Cloth*4;Coarse Thread*4
 Azure Stormsewn Shoes|55|55|60|62|65|1|R|Bolt of Linen Cloth*4;Coarse Thread*3
 Blue Linen Vest|55|55|60|77|95|1|R|Bolt of Linen Cloth*3;Coarse Thread*1;Blue Dye*1
 Cloudy Stormsewn Handwraps|55|55|60|62|65|1|R|Bolt of Linen Cloth*4;Coarse Thread*4
 Cloudy Stormsewn Shoes|55|55|60|62|65|1|R|Bolt of Linen Cloth*4;Coarse Thread*3
-Green Linen Bracers|55|55|60|77|95|1|T|Bolt of Linen Cloth*3;Coarse Thread*2;Green Dye*1
 Red Linen Vest|55|55|60|77|95|1|R|Bolt of Linen Cloth*3;Coarse Thread*1;Red Dye*1
-Reinforced Linen Cape|55|55|60|77|95|1|T|Bolt of Linen Cloth*2;Coarse Thread*3
 Azure Stormsewn Leggings|60|60|65|67|70|1|R|Bolt of Linen Cloth*5;Coarse Thread*2
 Azure Stormsewn Vest|60|60|65|67|70|1|R|Bolt of Linen Cloth*5;Coarse Thread*2
-Barbaric Linen Vest|60|60|65|82|100|1|T|Bolt of Linen Cloth*4;Light Leather*1;Fine Thread*1
 Cloudy Stormsewn Leggings|60|60|65|67|70|1|R|Bolt of Linen Cloth*5;Coarse Thread*2
 Cloudy Stormsewn Vest|60|60|65|67|70|1|R|Bolt of Linen Cloth*5;Coarse Thread*2
-Green Linen Shirt|60|60|65|82|100|1|T|Bolt of Linen Cloth*3;Fine Thread*1;Green Dye*1
-Linen Boots|60|60|65|82|100|1|T|Bolt of Linen Cloth*3;Coarse Thread*1;Light Leather*1
+Green Linen Bracers|60|60|60|77|95|1|T|Bolt of Linen Cloth*3;Coarse Thread*2;Green Dye*1
+Reinforced Linen Cape|60|60|60|77|95|1|T|Bolt of Linen Cloth*2;Coarse Thread*3
+Barbaric Linen Vest|65|65|65|82|100|1|T|Bolt of Linen Cloth*4;Light Leather*1;Fine Thread*1
 Blue Linen Robe|65|65|70|87|105|1|R|Bolt of Linen Cloth*4;Coarse Thread*2;Blue Dye*2
-Bolt of Woolen Cloth|65|65|70|77|85|1|T|Wool Cloth*3
-Handstitched Linen Britches|65|65|70|87|105|1|T|Bolt of Linen Cloth*4;Fine Thread*2
+Green Linen Shirt|65|65|65|82|100|1|T|Bolt of Linen Cloth*3;Fine Thread*1;Green Dye*1
+Linen Boots|65|65|65|82|100|1|T|Bolt of Linen Cloth*3;Coarse Thread*1;Light Leather*1
+Bolt of Woolen Cloth|70|70|70|77|85|1|T|Wool Cloth*3
+Handstitched Linen Britches|70|70|70|87|105|1|T|Bolt of Linen Cloth*4;Fine Thread*2
 Red Linen Bag|70|70|75|92|110|1|R|Bolt of Linen Cloth*4;Fine Thread*1;Red Dye*1
-Simple Kilt|70|70|75|92|110|1|T|Bolt of Linen Cloth*4;Fine Thread*1
-Woolen Bag|70|70|75|92|110|1|T|Bolt of Woolen Cloth*3;Fine Thread*1
 Woolen Reagent Bag|70|70|75|92|110|1|R|Bolt of Woolen Cloth*3;Fine Thread*1;Cerulean Dye*1
 Filigreed Flame Gown|75|75|80|80|80|1|R|Bolt of Woolen Cloth*8;Fine Thread*4;Cerulean Dye*2;Fire Oil*2
 Filigreed Pearly Gown|75|75|80|80|80|1|R|Bolt of Woolen Cloth*8;Fine Thread*4;Cerulean Dye*2;Small Lustrous Pearl*2
@@ -72,29 +70,31 @@ Filigreed Shadow Gown|75|75|80|80|80|1|R|Bolt of Woolen Cloth*8;Fine Thread*4;Ce
 Filigreed Shining Gown|75|75|80|80|80|1|R|Bolt of Woolen Cloth*8;Fine Thread*4;Cerulean Dye*2;Pyrite*2
 Filigreed Silky Gown|75|75|80|80|80|1|R|Bolt of Woolen Cloth*8;Fine Thread*4;Cerulean Dye*2;Spider's Silk*2
 Red Woolen Boots|75|75|80|97|115|1|R|Bolt of Woolen Cloth*4;Light Leather*2;Fine Thread*1;Red Dye*2
-Soft-soled Linen Boots|75|75|80|97|115|1|T|Bolt of Linen Cloth*5;Light Leather*2;Fine Thread*1
-Woolen Cape|75|75|80|97|115|1|T|Bolt of Woolen Cloth*1;Fine Thread*1
+Simple Kilt|75|75|75|92|110|1|T|Bolt of Linen Cloth*4;Fine Thread*1
+Woolen Bag|75|75|75|92|110|1|T|Bolt of Woolen Cloth*3;Fine Thread*1
 Flame Boots|80|80|85|102|120|1|R|Bolt of Woolen Cloth*8;Fine Thread*2;Cerulean Dye*2;Fire Oil*1
-Green Woolen Vest|80|80|85|102|120|1|T|Bolt of Woolen Cloth*2;Fine Thread*2;Green Dye*1
-Heavy Woolen Gloves|80|80|85|102|120|1|T|Bolt of Woolen Cloth*3;Fine Thread*1
 Pearly Boots|80|80|85|102|120|1|R|Bolt of Woolen Cloth*8;Fine Thread*2;Cerulean Dye*2;Small Lustrous Pearl*1
 Pristine Boots|80|80|85|102|120|1|R|Bolt of Woolen Cloth*8;Fine Thread*2;Cerulean Dye*2;Pristine Leather*1
 Shadow Boots|80|80|85|102|120|1|R|Bolt of Woolen Cloth*8;Fine Thread*2;Cerulean Dye*2;Shadowgem*1
 Shining Boots|80|80|85|102|120|1|R|Bolt of Woolen Cloth*8;Fine Thread*2;Cerulean Dye*2;Pyrite*1
 Silky Boots|80|80|85|102|120|1|R|Bolt of Woolen Cloth*8;Fine Thread*2;Cerulean Dye*2;Spider's Silk*1
-Gray Woolen Shirt|85|85|90|100|110|1|T|Bolt of Woolen Cloth*2;Fine Thread*1;Gray Dye*1
-Green Woolen Robe|85|85|90|107|125|1|T|Bolt of Woolen Cloth*3;Fine Thread*2;Green Dye*1
+Soft-soled Linen Boots|80|80|80|97|115|1|T|Bolt of Linen Cloth*5;Light Leather*2;Fine Thread*1
+Woolen Cape|80|80|80|97|115|1|T|Bolt of Woolen Cloth*1;Fine Thread*1
+Green Woolen Vest|85|85|85|102|120|1|T|Bolt of Woolen Cloth*2;Fine Thread*2;Green Dye*1
+Heavy Woolen Gloves|85|85|85|102|120|1|T|Bolt of Woolen Cloth*3;Fine Thread*1
 Colorful Kilt|90|90|95|112|130|1|R|Bolt of Woolen Cloth*5;Red Dye*3;Fine Thread*1
-Pearl-clasped Cloak|90|90|95|112|130|1|T|Bolt of Woolen Cloth*3;Fine Thread*2;Small Lustrous Pearl*1
-Woolen Boots|90|90|95|112|130|1|T|Bolt of Woolen Cloth*4;Fine Thread*2;Light Leather*2
+Gray Woolen Shirt|90|90|90|100|110|1|T|Bolt of Woolen Cloth*2;Fine Thread*1;Gray Dye*1
+Green Woolen Robe|90|90|90|107|125|1|T|Bolt of Woolen Cloth*3;Fine Thread*2;Green Dye*1
 Blue Overalls|95|95|100|117|135|1|R|Bolt of Woolen Cloth*4;Fine Thread*2;Blue Dye*2
 Flame Gloves|95|95|100|117|135|1|R|Bolt of Woolen Cloth*6;Fine Thread*4;Cerulean Dye*3;Fire Oil*2
-Green Woolen Bag|95|95|100|117|135|1|R|Bolt of Woolen Cloth*4;Green Dye*1;Fine Thread*1
+Green Woolen Bag|95|95|100|117|135|1|R|Bolt of Woolen Cloth*5;Green Dye*1;Fine Thread*1
+Pearl-clasped Cloak|95|95|95|112|130|1|T|Bolt of Woolen Cloth*3;Fine Thread*2;Small Lustrous Pearl*1
 Pearly Gloves|95|95|100|117|135|1|R|Bolt of Woolen Cloth*6;Fine Thread*4;Cerulean Dye*3;Small Lustrous Pearl*2
 Pristine Gloves|95|95|100|117|135|1|R|Bolt of Woolen Cloth*6;Fine Thread*4;Cerulean Dye*3;Pristine Leather*2
 Shadow Gloves|95|95|100|117|135|1|R|Bolt of Woolen Cloth*6;Fine Thread*4;Cerulean Dye*3;Shadowgem*2
 Shining Gloves|95|95|100|117|135|1|R|Bolt of Woolen Cloth*6;Fine Thread*4;Cerulean Dye*3;Pyrite*2
 Silky Gloves|95|95|100|117|135|1|R|Bolt of Woolen Cloth*6;Fine Thread*4;Cerulean Dye*3;Spider's Silk*2
+Woolen Boots|95|95|95|112|130|1|T|Bolt of Woolen Cloth*4;Fine Thread*2;Light Leather*2
 Filigreed Flame Leggings|100|100|105|105|105|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*2;Fire Oil*4
 Filigreed Pearly Leggings|100|100|105|105|105|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*2;Small Lustrous Pearl*4
 Filigreed Pristine Leggings|100|100|105|105|105|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*2;Pristine Leather*4
@@ -103,25 +103,24 @@ Filigreed Shining Leggings|100|100|105|105|105|1|R|Bolt of Silk Cloth*8;Fine Thr
 Filigreed Silky Leggings|100|100|105|105|105|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*2;Spider's Silk*4
 Gray Woolen Robe|100|100|105|122|140|1|R|Bolt of Woolen Cloth*4;Fine Thread*3;Gray Dye*1
 Heavy Woolen Cloak|100|100|105|122|140|1|R|Bolt of Woolen Cloth*3;Fine Thread*2;Small Lustrous Pearl*2
-Bolt of Silk Cloth|105|105|110|115|120|1|T|Silk Cloth*4
-Double-Stitched Woolen Shoulders|105|105|110|127|145|1|T|Bolt of Woolen Cloth*3;Fine Thread*2
 Flame Sash|105|105|110|127|145|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*3;Fire Oil*3
-Heavy Woolen Pants|105|105|110|127|145|1|T|Bolt of Woolen Cloth*5;Fine Thread*4
 Pearly Sash|105|105|110|127|145|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*3;Small Lustrous Pearl*3
 Pristine Sash|105|105|110|127|145|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*3;Pristine Leather*3
 Shadow Sash|105|105|110|127|145|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*3;Shadowgem*3
 Shining Sash|105|105|110|127|145|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*3;Pyrite*3
 Silky Sash|105|105|110|127|145|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*3;Spider's Silk*3
-Stylish Red Shirt|105|105|110|127|145|1|T|Bolt of Woolen Cloth*3;Red Dye*2;Fine Thread*1
-White Woolen Dress|105|105|110|127|145|1|T|Bolt of Woolen Cloth*3;Bleach*4;Fine Thread*1
+Bolt of Silk Cloth|110|110|110|115|120|1|T|Silk Cloth*4
+Double-Stitched Woolen Shoulders|110|110|110|127|145|1|T|Bolt of Woolen Cloth*3;Fine Thread*2
 Greater Adept's Robe|110|110|115|132|150|1|R|Bolt of Woolen Cloth*5;Fine Thread*3;Red Dye*3
-Red Woolen Bag|110|110|115|132|150|1|R|Bolt of Woolen Cloth*4;Red Dye*1;Fine Thread*1
+Heavy Woolen Pants|110|110|110|127|145|1|T|Bolt of Woolen Cloth*5;Fine Thread*4
+Red Woolen Bag|110|110|115|132|150|1|R|Bolt of Woolen Cloth*5;Red Dye*1;Fine Thread*1
+Stylish Red Shirt|110|110|110|127|145|1|T|Bolt of Woolen Cloth*3;Red Dye*2;Fine Thread*1
+White Woolen Dress|110|110|110|127|145|1|T|Bolt of Woolen Cloth*3;Bleach*4;Fine Thread*1
 Bright Yellow Shirt|115|115|120|125|130|1|R|Bolt of Silk Cloth*1;Yellow Dye*1;Fine Thread*1
 Reinforced Woolen Shoulders|115|115|120|137|155|1|R|Bolt of Woolen Cloth*6;Medium Leather*2;Fine Thread*2
 Stylish Blue Shirt|115|115|120|137|155|1|R|Bolt of Woolen Cloth*4;Blue Dye*2;Gray Dye*1;Fine Thread*1
 Stylish Green Shirt|115|115|120|137|155|1|R|Bolt of Woolen Cloth*4;Green Dye*2;Gray Dye*1;Fine Thread*1
 Flame Circlet|120|120|125|142|160|1|R|Bolt of Silk Cloth*10;Silken Thread*2;Cerulean Dye*4;Fire Oil*4;Silver Bar*1;Greater Astral Essence*2
-Gloves of Meditation|120|120|125|140|155|1|T|Bolt of Woolen Cloth*4;Fine Thread*3;Elixir of Wisdom*1
 Pearly Circlet|120|120|125|142|160|1|R|Bolt of Silk Cloth*10;Silken Thread*2;Cerulean Dye*4;Small Lustrous Pearl*4;Silver Bar*1;Greater Astral Essence*2
 Phoenix Bindings|120|120|125|137|150|1|R|Bolt of Woolen Cloth*6;Flask of Oil*2;Fine Thread*2
 Phoenix Gloves|120|120|125|142|160|1|R|Bolt of Woolen Cloth*4;Iridescent Pearl*1;Fine Thread*4;Bleach*2
@@ -130,8 +129,6 @@ Pristine Circlet|120|120|125|142|160|1|R|Bolt of Silk Cloth*10;Silken Thread*2;C
 Shadow Circlet|120|120|125|142|160|1|R|Bolt of Silk Cloth*10;Silken Thread*2;Cerulean Dye*4;Shadowgem*4;Silver Bar*1;Greater Astral Essence*2
 Shining Circlet|120|120|125|142|160|1|R|Bolt of Silk Cloth*10;Silken Thread*2;Cerulean Dye*4;Pyrite*4;Silver Bar*1;Greater Astral Essence*2
 Silky Circlet|120|120|125|142|160|1|R|Bolt of Silk Cloth*10;Silken Thread*2;Cerulean Dye*4;Spider's Silk*4;Silver Bar*1;Greater Astral Essence*2
-Spidersilk Boots|120|120|125|142|160|1|T|Bolt of Silk Cloth*2;Medium Leather*4;Spider's Silk*4;Iridescent Pearl*1
-Azure Silk Hood|125|125|130|135|140|1|T|Bolt of Silk Cloth*2;Blue Dye*2;Fine Thread*1
 Dark Silk Shirt|125|125|130|135|140|1|R|Bolt of Silk Cloth*2;Gray Dye*2;Fine Thread*1
 Filigreed Flame Circlet|125|125|130|130|130|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*2;Fire Oil*6
 Filigreed Pearly Circlet|125|125|130|130|130|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*2;Small Lustrous Pearl*6
@@ -140,27 +137,27 @@ Filigreed Shadow Circlet|125|125|130|130|130|1|R|Bolt of Silk Cloth*8;Fine Threa
 Filigreed Shining Circlet|125|125|130|130|130|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*2;Pyrite*6
 Filigreed Silky Circlet|125|125|130|130|130|1|R|Bolt of Silk Cloth*8;Fine Thread*4;Cerulean Dye*2;Spider's Silk*6
 Flame Gown|125|125|130|145|160|1|R|Bolt of Silk Cloth*12;Silken Thread*2;Cerulean Dye*6;Fire Oil*6;Silver Bar*2;Greater Astral Essence*2
-Lesser Wizard's Robe|125|125|130|145|160|1|T|Bolt of Silk Cloth*2;Fine Thread*2;Spider's Silk*2
+Gloves of Meditation|125|125|125|140|155|1|T|Bolt of Woolen Cloth*4;Fine Thread*3;Elixir of Wisdom*1
 Pearly Gown|125|125|130|145|160|1|R|Bolt of Silk Cloth*12;Silken Thread*2;Cerulean Dye*6;Small Lustrous Pearl*6;Silver Bar*2;Greater Astral Essence*2
 Pristine Gown|125|125|130|145|160|1|R|Bolt of Silk Cloth*12;Silken Thread*2;Cerulean Dye*6;Pristine Leather*6;Silver Bar*2;Greater Astral Essence*2
 Shadow Gown|125|125|130|145|160|1|R|Bolt of Silk Cloth*12;Silken Thread*2;Cerulean Dye*6;Shadowgem*6;Silver Bar*2;Greater Astral Essence*2
 Shining Gown|125|125|130|145|160|1|R|Bolt of Silk Cloth*12;Silken Thread*2;Cerulean Dye*6;Pyrite*6;Silver Bar*2;Greater Astral Essence*2
 Silky Gown|125|125|130|145|160|1|R|Bolt of Silk Cloth*12;Silken Thread*2;Cerulean Dye*6;Spider's Silk*6;Silver Bar*2;Greater Astral Essence*2
-Azure Silk Pants|130|130|135|150|165|1|T|Bolt of Silk Cloth*4;Blue Dye*2;Fine Thread*3
-Boots of Darkness|130|130|135|150|165|1|T|Bolt of Silk Cloth*3;Medium Leather*2;Shadow Protection Potion*1;Fine Thread*2
-Silk Headband|130|130|135|140|145|1|T|Bolt of Silk Cloth*3;Fine Thread*2
+Spidersilk Boots|125|125|125|142|160|1|T|Bolt of Silk Cloth*2;Medium Leather*4;Spider's Silk*4;Iridescent Pearl*1
+Azure Silk Hood|130|130|130|135|140|1|T|Bolt of Silk Cloth*2;Blue Dye*2;Fine Thread*1
+Lesser Wizard's Robe|130|130|130|145|160|1|T|Bolt of Silk Cloth*2;Fine Thread*2;Spider's Silk*2
 Silk Reagent Bag|130|130|135|137|140|1|R|Bolt of Silk Cloth*3;Heavy Leather*2;Fine Thread*3;Cerulean Dye*3
 Spider Silk Slippers|130|130|135|147|160|1|R|Bolt of Silk Cloth*3;Spider's Silk*1;Fine Thread*2
-White Swashbuckler's Shirt|130|130|135|140|145|1|T|Bolt of Silk Cloth*3;Bleach*2;Silken Thread*1
 Azure Silk Gloves|135|135|140|155|170|1|R|Bolt of Silk Cloth*3;Heavy Leather*2;Blue Dye*2;Fine Thread*2
+Azure Silk Pants|135|135|135|150|165|1|T|Bolt of Silk Cloth*4;Blue Dye*2;Fine Thread*3
+Boots of Darkness|135|135|135|150|165|1|T|Bolt of Silk Cloth*3;Medium Leather*2;Shadow Protection Potion*1;Fine Thread*2
 Hands of Darkness|135|135|140|155|170|1|R|Bolt of Silk Cloth*3;Heavy Leather*2;Shadow Protection Potion*2;Fine Thread*2
-Spinning Wheel|135|135|140|142|145|1|T|Simple Wood*2;Bolt of Silk Cloth*5;Fine Thread*3
-Azure Silk Vest|140|140|145|160|175|1|T|Bolt of Silk Cloth*5;Blue Dye*4
+Silk Headband|135|135|135|140|145|1|T|Bolt of Silk Cloth*3;Fine Thread*2
+Spinning Wheel|135|135|140|140|140|1|T|Simple Wood*2;Bolt of Silk Cloth*5;Fine Thread*3
+White Swashbuckler's Shirt|135|135|135|140|145|1|T|Bolt of Silk Cloth*3;Bleach*2;Silken Thread*1
 Black Slippers|140|140|145|145|145|1|R|Bolt of Mageweave*8;Heavy Silken Thread*4;Magenta Dye*2;Cerulean Dye*2;Black Pearl*2
-Bolt of Mageweave|140|140|145|147|150|1|T|Mageweave Cloth*5
 Fiery Slippers|140|140|145|145|145|1|R|Bolt of Mageweave*8;Heavy Silken Thread*4;Magenta Dye*2;Cerulean Dye*2;Heart of Fire*2
 Flame Leggings|140|140|145|160|175|1|R|Bolt of Silk Cloth*14;Fine Thread*3;Cerulean Dye*8;Fire Oil*8;Silver Bar*2;Greater Astral Essence*3
-Formal White Shirt|140|140|145|150|155|1|T|Bolt of Silk Cloth*3;Bleach*2;Fine Thread*1
 Frothing Slippers|140|140|145|145|145|1|R|Bolt of Mageweave*8;Heavy Silken Thread*4;Magenta Dye*2;Cerulean Dye*2;Globe of Water*2
 Gilded Slippers|140|140|145|145|145|1|R|Bolt of Mageweave*8;Heavy Silken Thread*4;Magenta Dye*2;Cerulean Dye*2;Gold Bar*2
 Golden Slippers|140|140|145|145|145|1|R|Bolt of Mageweave*8;Heavy Silken Thread*4;Magenta Dye*2;Cerulean Dye*2;Golden Pearl*2
@@ -171,47 +168,48 @@ Robes of Arcana|140|140|145|160|175|1|R|Bolt of Silk Cloth*4;Fine Thread*2;Spide
 Shadow Leggings|140|140|145|160|175|1|R|Bolt of Silk Cloth*14;Fine Thread*3;Cerulean Dye*8;Shadowgem*8;Silver Bar*2;Greater Astral Essence*3
 Shining Leggings|140|140|145|160|175|1|R|Bolt of Silk Cloth*14;Fine Thread*3;Cerulean Dye*8;Pyrite*8;Silver Bar*2;Greater Astral Essence*3
 Silky Leggings|140|140|145|160|175|1|R|Bolt of Silk Cloth*14;Fine Thread*3;Cerulean Dye*8;Spider's Silk*8;Silver Bar*2;Greater Astral Essence*3
-Small Silk Pack|140|140|145|160|175|1|T|Bolt of Silk Cloth*3;Heavy Leather*2;Fine Thread*3
 Truefaith Gloves|140|140|145|160|175|1|R|Bolt of Silk Cloth*3;Heavy Leather*2;Healing Potion*4;Fine Thread*1
 White Wedding Dress|140|140|145|150|155|1|R|Bolt of Mageweave*5;Heavy Silken Thread*3;Bleach*1
+Azure Silk Vest|145|145|145|160|175|1|T|Bolt of Silk Cloth*5;Blue Dye*4
+Bolt of Mageweave|145|145|145|147|150|1|T|Mageweave Cloth*5
 Enchanter's Cowl|145|145|150|165|180|1|R|Bolt of Silk Cloth*3;Fine Thread*2;Thick Spider's Silk*2
+Formal White Shirt|145|145|145|150|155|1|T|Bolt of Silk Cloth*3;Bleach*2;Fine Thread*1
 Green Silk Armor|145|145|150|165|180|1|R|Bolt of Silk Cloth*5;Green Dye*2;Silken Thread*1
-Red Swashbuckler's Shirt|145|145|150|155|160|1|T|Bolt of Silk Cloth*3;Red Dye*2;Silken Thread*1
-Earthen Vest|150|150|155|170|185|1|T|Bolt of Silk Cloth*3;Elemental Earth*1;Fine Thread*2
+Small Silk Pack|145|145|145|160|175|1|T|Bolt of Silk Cloth*3;Heavy Leather*2;Fine Thread*3
+Red Swashbuckler's Shirt|150|150|150|155|160|1|T|Bolt of Silk Cloth*3;Red Dye*2;Silken Thread*1
 Shadow Hood|150|150|155|170|185|1|R|Bolt of Silk Cloth*4;Silken Thread*1;Shadow Oil*1
 Tuxedo Jacket|150|150|155|170|185|1|R|Bolt of Mageweave*5;Heavy Silken Thread*3
-Azure Silk Belt|155|155|160|175|190|1|T|Bolt of Silk Cloth*4;Elemental Water*1;Blue Dye*2;Fine Thread*2;Iron Buckle*1
 Azure Silk Cloak|155|155|160|175|190|1|R|Bolt of Silk Cloth*3;Blue Dye*2;Fine Thread*2
 Boots of the Enchanter|155|155|160|175|190|1|R|Bolt of Silk Cloth*4;Silken Thread*1;Thick Spider's Silk*2
-Crimson Silk Belt|155|155|160|175|190|1|T|Bolt of Silk Cloth*4;Iron Buckle*1;Red Dye*2;Silken Thread*1
 Earthen Leggings|155|155|160|175|190|1|R|Bolt of Silk Cloth*4;Elemental Earth*1;Fine Thread*2
-Green Silk Pack|155|155|160|175|190|1|R|Bolt of Silk Cloth*4;Heavy Leather*3;Fine Thread*3;Green Dye*1
+Earthen Vest|155|155|155|170|185|1|T|Bolt of Silk Cloth*3;Elemental Earth*1;Fine Thread*2
+Green Silk Pack|155|155|160|175|190|1|R|Bolt of Silk Cloth*5;Heavy Leather*3;Fine Thread*3;Green Dye*1
 Rich Purple Silk Shirt|155|155|160|165|170|1|R|Bolt of Silk Cloth*4;Purple Dye*1;Silken Thread*1
+Azure Silk Belt|160|160|160|175|190|1|T|Bolt of Silk Cloth*4;Elemental Water*1;Blue Dye*2;Fine Thread*2;Iron Buckle*1
+Crimson Silk Belt|160|160|160|175|190|1|T|Bolt of Silk Cloth*4;Iron Buckle*1;Red Dye*2;Silken Thread*1
 Crimson Silk Cloak|160|160|165|180|195|1|R|Bolt of Silk Cloth*5;Red Dye*2;Fire Oil*2;Silken Thread*1
 Earthen Silk Slippers|160|160|165|180|195|1|R|Bolt of Silk Cloth*4;Elemental Earth*1;Fine Thread*2;Heavy Leather*2
 Green Holiday Shirt|160|160|165|170|175|1|R|Bolt of Silk Cloth*5;Green Dye*4;Silken Thread*1
-Green Silken Shoulders|160|160|165|180|195|1|T|Bolt of Silk Cloth*5;Silken Thread*2
 Spider Belt|160|160|165|180|195|1|R|Bolt of Silk Cloth*4;Thick Spider's Silk*2;Iron Buckle*1
-Black Silk Pack|165|165|170|185|200|1|R|Bolt of Silk Cloth*5;Black Dye*1;Fine Thread*4
-Crimson Silk Vest|165|165|170|180|190|1|T|Bolt of Silk Cloth*4;Red Dye*2;Fine Thread*2
+Black Silk Pack|165|165|170|185|200|1|R|Bolt of Silk Cloth*6;Black Dye*1;Fine Thread*4
 Earthen Silk Hood|165|165|170|185|200|1|R|Bolt of Silk Cloth*4;Elemental Earth*2;Fine Thread*2
+Green Silken Shoulders|165|165|165|180|195|1|T|Bolt of Silk Cloth*5;Silken Thread*2
 Invoker's Cord|165|165|170|185|200|1|R|Bolt of Silk Cloth*3;Shadowgem*1;Fine Thread*1;Gray Dye*1
 Invoker's Mantle|165|165|170|185|200|1|R|Bolt of Silk Cloth*4;Gray Dye*4;Fine Thread*1;Blue Dye*4
-Long Silken Cloak|165|165|170|185|200|1|T|Bolt of Silk Cloth*4;Mana Potion*1;Silken Thread*1
 Azure Shoulders|170|170|175|190|205|1|R|Bolt of Silk Cloth*6;Naga Scale*2;Blue Dye*2;Silken Thread*2
 Black Swashbuckler's Shirt|170|170|175|180|185|1|R|Bolt of Silk Cloth*5;Black Dye*1;Silken Thread*1
 Crimson Silk Shoulders|170|170|175|190|205|1|R|Bolt of Silk Cloth*5;Fire Oil*2;Red Dye*2;Silken Thread*2
-Robe of Power|170|170|175|190|205|1|T|Bolt of Mageweave*2;Elemental Earth*2;Elemental Water*2;Elemental Fire*2;Elemental Air*2;Silken Thread*2
-Crimson Silk Pantaloons|175|175|180|190|200|1|T|Bolt of Silk Cloth*4;Red Dye*2;Silken Thread*2
+Crimson Silk Vest|170|170|170|180|190|1|T|Bolt of Silk Cloth*4;Red Dye*2;Fine Thread*2
+Long Silken Cloak|170|170|170|185|200|1|T|Bolt of Silk Cloth*4;Mana Potion*1;Silken Thread*1
 Earthen Silk Belt|175|175|180|195|210|1|R|Bolt of Silk Cloth*5;Elemental Earth*4;Heavy Leather*4;Iron Buckle*1;Silken Thread*2
 Earthen Silk Gloves|175|175|180|195|210|1|R|Bolt of Silk Cloth*5;Elemental Earth*2;Silken Thread*2
+Robe of Power|175|175|175|190|205|1|T|Bolt of Mageweave*2;Elemental Earth*2;Elemental Water*2;Elemental Fire*2;Elemental Air*2;Silken Thread*2
 Azure Stormsewn Cowl|180|180|185|187|190|1|R|Bolt of Silk Cloth*7;Lesser Mystic Essence*2;Heavy Silken Thread*1;Blue Dye*4
 Azure Stormsewn Epaulets|180|180|185|187|190|1|R|Bolt of Silk Cloth*5;Lesser Mystic Essence*1;Heavy Silken Thread*1;Blue Dye*3
 Black Handwraps|180|180|185|200|215|1|R|Bolt of Mageweave*12;Heavy Silken Thread*4;Magenta Dye*2;Cerulean Dye*1;Black Pearl*4
-Black Mageweave Leggings|180|180|185|200|215|1|T|Bolt of Mageweave*2;Silken Thread*3
-Black Mageweave Vest|180|180|185|200|215|1|T|Bolt of Mageweave*2;Silken Thread*3
 Cloudy Stormsewn Cowl|180|180|185|187|190|1|R|Bolt of Silk Cloth*7;Lesser Mystic Essence*2;Heavy Silken Thread*1;Bleach*8
 Cloudy Stormsewn Epaulets|180|180|185|187|190|1|R|Bolt of Silk Cloth*5;Lesser Mystic Essence*1;Heavy Silken Thread*1;Bleach*6
+Crimson Silk Pantaloons|180|180|180|190|200|1|T|Bolt of Silk Cloth*4;Red Dye*2;Silken Thread*2
 Crimson Silk Robe|180|180|185|200|215|1|R|Bolt of Silk Cloth*8;Elemental Fire*4;Mana Potion*2;Red Dye*4;Silken Thread*1
 Earthen Silk Cuffs|180|180|185|200|215|1|R|Bolt of Silk Cloth*4;Elemental Earth*1;Silken Thread*1
 Earthen Silk Shoulders|180|180|185|200|215|1|R|Bolt of Silk Cloth*6;Elemental Earth*2;Silken Thread*3
@@ -220,16 +218,16 @@ Frothing Handwraps|180|180|185|200|215|1|R|Bolt of Mageweave*12;Heavy Silken Thr
 Gilded Handwraps|180|180|185|200|215|1|R|Bolt of Mageweave*12;Heavy Silken Thread*4;Magenta Dye*2;Cerulean Dye*1;Gold Bar*4
 Golden Handwraps|180|180|185|200|215|1|R|Bolt of Mageweave*12;Heavy Silken Thread*4;Magenta Dye*2;Cerulean Dye*1;Golden Pearl*4
 Icy Cloak|180|180|185|200|215|1|R|Bolt of Mageweave*3;Silken Thread*2;Frost Oil*1;Thick Spider's Silk*2
-Orange Mageweave Shirt|180|180|185|190|195|1|T|Bolt of Mageweave*1;Orange Dye*1;Heavy Silken Thread*1
 Radiant Handwraps|180|180|185|200|215|1|R|Bolt of Mageweave*12;Heavy Silken Thread*4;Magenta Dye*2;Cerulean Dye*1;Large Radiant Shard*4
 Star Belt|180|180|185|200|215|1|R|Bolt of Mageweave*4;Heavy Leather*4;Citrine*1;Iron Buckle*1;Silken Thread*1
 White Bandit Mask|180|180|185|190|195|1|R|Bolt of Mageweave*1;Bleach*1;Heavy Silken Thread*1
-Black Mageweave Robe|185|185|190|205|220|1|T|Bolt of Mageweave*3;Heavy Silken Thread*1
-Crimson Silk Gloves|185|185|190|205|220|1|T|Bolt of Silk Cloth*6;Elemental Fire*2;Fire Oil*2;Thick Leather*2;Red Dye*4;Silken Thread*2
+Black Mageweave Leggings|185|185|185|200|215|1|T|Bolt of Mageweave*2;Silken Thread*3
+Black Mageweave Vest|185|185|185|200|215|1|T|Bolt of Mageweave*2;Silken Thread*3
+Orange Mageweave Shirt|185|185|185|190|195|1|T|Bolt of Mageweave*1;Orange Dye*1;Heavy Silken Thread*1
 Orange Martial Shirt|185|185|190|195|200|1|R|Bolt of Mageweave*2;Orange Dye*2;Heavy Silken Thread*1
-Shadoweave Pants|185|185|190|205|220|1|T|Bolt of Mageweave*3;Shadow Silk*2;Heavy Silken Thread*1
 Black Cord|190|190|195|195|195|1|R|Bolt of Mageweave*28;Heavy Silken Thread*4;Magenta Dye*6;Cerulean Dye*4;Black Pearl*12
-Black Mageweave Gloves|190|190|195|210|225|1|T|Bolt of Mageweave*2;Heavy Silken Thread*2
+Black Mageweave Robe|190|190|190|205|220|1|T|Bolt of Mageweave*3;Heavy Silken Thread*1
+Crimson Silk Gloves|190|190|190|205|220|1|T|Bolt of Silk Cloth*6;Elemental Fire*2;Fire Oil*2;Thick Leather*2;Red Dye*4;Silken Thread*2
 Fiery Cord|190|190|195|195|195|1|R|Bolt of Mageweave*28;Heavy Silken Thread*4;Magenta Dye*6;Cerulean Dye*4;Heart of Fire*12
 Frothing Cord|190|190|195|195|195|1|R|Bolt of Mageweave*28;Heavy Silken Thread*4;Magenta Dye*6;Cerulean Dye*4;Globe of Water*12
 Gilded Cord|190|190|195|195|195|1|R|Bolt of Mageweave*28;Heavy Silken Thread*4;Magenta Dye*6;Cerulean Dye*4;Gold Bar*12
@@ -238,44 +236,44 @@ Lavender Mageweave Shirt|190|190|195|200|205|1|R|Bolt of Mageweave*2;Purple Dye*
 Radiant Cord|190|190|195|195|195|1|R|Bolt of Mageweave*28;Heavy Silken Thread*4;Magenta Dye*6;Cerulean Dye*4;Large Radiant Shard*12
 Red Mageweave Pants|190|190|195|210|225|1|R|Bolt of Mageweave*3;Red Dye*2;Heavy Silken Thread*1
 Red Mageweave Vest|190|190|195|210|225|1|R|Bolt of Mageweave*3;Red Dye*2;Heavy Silken Thread*1
-Shadoweave Robe|190|190|195|210|225|1|T|Bolt of Mageweave*3;Shadow Silk*2;Heavy Silken Thread*1
+Shadoweave Pants|190|190|190|205|220|1|T|Bolt of Mageweave*3;Shadow Silk*2;Heavy Silken Thread*1
+Black Mageweave Gloves|195|195|195|210|225|1|T|Bolt of Mageweave*2;Heavy Silken Thread*2
 Hyperconductive Arcano-Filament|195|195|200|210|220|1|R|Bolt of Mageweave*2;Unstable Microfilament*5;Heavy Silken Thread*5
 Pink Mageweave Shirt|195|195|200|205|210|1|R|Bolt of Mageweave*3;Pink Dye*1;Heavy Silken Thread*1
-Simple Black Dress|195|195|200|205|210|1|T|Bolt of Mageweave*3;Black Dye*1;Heavy Silken Thread*1;Bleach*1
+Shadoweave Robe|195|195|195|210|225|1|T|Bolt of Mageweave*3;Shadow Silk*2;Heavy Silken Thread*1
 Stormcloth Gloves|195|195|200|215|230|1|R|Bolt of Mageweave*3;Globe of Water*2;Heavy Silken Thread*2
 Stormcloth Pants|195|195|200|215|230|1|R|Bolt of Mageweave*4;Globe of Water*2;Heavy Silken Thread*2
-Black Mageweave Boots|200|200|205|220|235|1|T|Bolt of Mageweave*3;Heavy Silken Thread*2;Thick Leather*2
-Black Mageweave Headband|200|200|205|220|235|1|T|Bolt of Mageweave*3;Heavy Silken Thread*2
-Black Mageweave Shoulders|200|200|205|220|235|1|T|Bolt of Mageweave*3;Heavy Silken Thread*2
-Cindercloth Robe|200|200|205|220|235|1|T|Bolt of Mageweave*5;Heart of Fire*2;Heavy Silken Thread*2
-Dreamweave Gloves|200|200|205|220|235|1|T|Bolt of Mageweave*4;Wildvine*4;Heart of the Wild*2;Heavy Silken Thread*2
-Dreamweave Vest|200|200|205|220|235|1|T|Bolt of Mageweave*6;Wildvine*6;Heart of the Wild*2;Heavy Silken Thread*2
 Enchanted Mageweave Pouch|200|200|205|220|235|1|R|Bolt of Mageweave*4;Vision Dust*4;Heavy Silken Thread*2
-Mageweave Bag|200|200|205|220|235|1|T|Bolt of Mageweave*4;Silken Thread*2
 Mageweave Reagent Bag|200|200|205|210|215|1|R|Bolt of Mageweave*4;Heavy Silken Thread*2;Magenta Dye*1;Cerulean Dye*1
 Red Mageweave Gloves|200|200|205|220|235|1|R|Bolt of Mageweave*3;Red Dye*2;Heavy Silken Thread*2
-Shadoweave Gloves|200|200|205|220|235|1|T|Bolt of Mageweave*5;Shadow Silk*5;Heavy Silken Thread*2
+Simple Black Dress|200|200|200|205|210|1|T|Bolt of Mageweave*3;Black Dye*1;Heavy Silken Thread*1;Bleach*1
 Stormcloth Vest|200|200|205|220|235|1|R|Bolt of Mageweave*5;Globe of Water*3;Heavy Silken Thread*2
 Tuxedo Pants|200|200|205|210|215|1|R|Bolt of Mageweave*4;Heavy Silken Thread*3
 Tuxedo Shirt|200|200|205|210|215|1|R|Bolt of Mageweave*4;Heavy Silken Thread*2
-Bolt of Runecloth|205|205|210|212|215|1|T|Runecloth*5
+Black Mageweave Boots|205|205|205|220|235|1|T|Bolt of Mageweave*3;Heavy Silken Thread*2;Thick Leather*2
+Black Mageweave Headband|205|205|205|220|235|1|T|Bolt of Mageweave*3;Heavy Silken Thread*2
+Black Mageweave Shoulders|205|205|205|220|235|1|T|Bolt of Mageweave*3;Heavy Silken Thread*2
+Cindercloth Robe|205|205|205|220|235|1|T|Bolt of Mageweave*5;Heart of Fire*2;Heavy Silken Thread*2
+Dreamweave Gloves|205|205|205|220|235|1|T|Bolt of Mageweave*4;Wildvine*4;Heart of the Wild*2;Heavy Silken Thread*2
+Dreamweave Vest|205|205|205|220|235|1|T|Bolt of Mageweave*6;Wildvine*6;Heart of the Wild*2;Heavy Silken Thread*2
+Mageweave Bag|205|205|205|220|235|1|T|Bolt of Mageweave*4;Silken Thread*2
 Netherflame Shoulders|205|205|210|225|240|1|R|Bolt of Mageweave*16;Heavy Silken Thread*3;Magenta Dye*4;Cerulean Dye*3;Heart of Fire*8;Greater Nether Essence*2
 Netherfroth Shoulders|205|205|210|225|240|1|R|Bolt of Mageweave*16;Heavy Silken Thread*3;Magenta Dye*4;Cerulean Dye*3;Globe of Water*8;Greater Nether Essence*2
 Nethergeld Shoulders|205|205|210|225|240|1|R|Bolt of Mageweave*16;Heavy Silken Thread*3;Magenta Dye*4;Cerulean Dye*3;Gold Bar*8;Greater Nether Essence*2
 Netherlight Shoulders|205|205|210|225|240|1|R|Bolt of Mageweave*16;Heavy Silken Thread*3;Magenta Dye*4;Cerulean Dye*3;Large Radiant Shard*8;Greater Nether Essence*2
 Netherpearl Shoulders|205|205|210|225|240|1|R|Bolt of Mageweave*16;Heavy Silken Thread*3;Magenta Dye*4;Cerulean Dye*3;Black Pearl*8;Greater Nether Essence*2
 Nethershine Shoulders|205|205|210|225|240|1|R|Bolt of Mageweave*16;Heavy Silken Thread*3;Magenta Dye*4;Cerulean Dye*3;Golden Pearl*8;Greater Nether Essence*2
-Red Mageweave Bag|205|205|210|225|240|1|T|Bolt of Mageweave*4;Red Dye*2;Heavy Silken Thread*2
 Red Mageweave Shoulders|205|205|210|225|240|1|R|Bolt of Mageweave*4;Red Dye*2;Heavy Silken Thread*3
-Shadoweave Shoulders|205|205|210|225|240|1|T|Bolt of Mageweave*5;Shadow Silk*4;Heavy Silken Thread*2
+Shadoweave Gloves|205|205|205|220|235|1|T|Bolt of Mageweave*5;Shadow Silk*5;Heavy Silken Thread*2
 Admiral's Hat|210|210|215|230|245|1|R|Bolt of Mageweave*3;Long Elegant Feather*6;Heavy Silken Thread*2
-Cindercloth Boots|210|210|215|230|245|1|T|Bolt of Mageweave*5;Heart of Fire*1;Heavy Silken Thread*3;Thick Leather*2
+Bolt of Runecloth|210|210|210|212|215|1|T|Runecloth*5
+Red Mageweave Bag|210|210|210|225|240|1|T|Bolt of Mageweave*5;Red Dye*2;Heavy Silken Thread*2
 Red Mageweave Headband|210|210|215|230|245|1|R|Bolt of Mageweave*4;Red Dye*2;Heavy Silken Thread*2
-Shadoweave Boots|210|210|215|230|245|1|T|Bolt of Mageweave*6;Shadow Silk*6;Heavy Silken Thread*3;Thick Leather*2
 Shadoweave Mask|210|210|215|230|245|1|R|Bolt of Mageweave*2;Shadow Silk*8;Heavy Silken Thread*2
+Shadoweave Shoulders|210|210|210|225|240|1|T|Bolt of Mageweave*5;Shadow Silk*4;Heavy Silken Thread*2
 Stormcloth Headband|210|210|215|230|245|1|R|Bolt of Mageweave*4;Globe of Water*4;Heavy Silken Thread*2
 Stormcloth Shoulders|210|210|215|230|245|1|R|Bolt of Mageweave*5;Globe of Water*6;Heavy Silken Thread*3
-Dreamweave Circlet|215|215|220|235|250|1|T|Bolt of Mageweave*8;Wildvine*4;Heart of the Wild*2;Heavy Silken Thread*3;Truesilver Bar*1;Jade*1
+Cindercloth Boots|215|215|215|230|245|1|T|Bolt of Mageweave*5;Heart of Fire*1;Heavy Silken Thread*3;Thick Leather*2
 Festival Dress|215|215|220|235|250|1|R|Bolt of Runecloth*4;Firebloom*2;Red Dye*2;Rune Thread*1
 Festival Suit|215|215|220|235|250|1|R|Bolt of Runecloth*4;Firebloom*2;Red Dye*2;Rune Thread*1
 Netherflame Cuffs|215|215|220|235|250|1|R|Bolt of Mageweave*18;Heavy Silken Thread*3;Magenta Dye*6;Cerulean Dye*4;Heart of Fire*10;Greater Nether Essence*4
@@ -284,10 +282,11 @@ Nethergeld Cuffs|215|215|220|235|250|1|R|Bolt of Mageweave*18;Heavy Silken Threa
 Netherlight Cuffs|215|215|220|235|250|1|R|Bolt of Mageweave*18;Heavy Silken Thread*3;Magenta Dye*6;Cerulean Dye*4;Large Radiant Shard*10;Greater Nether Essence*4
 Netherpearl Cuffs|215|215|220|235|250|1|R|Bolt of Mageweave*18;Heavy Silken Thread*3;Magenta Dye*6;Cerulean Dye*4;Black Pearl*10;Greater Nether Essence*4
 Nethershine Cuffs|215|215|220|235|250|1|R|Bolt of Mageweave*18;Heavy Silken Thread*3;Magenta Dye*6;Cerulean Dye*4;Golden Pearl*10;Greater Nether Essence*4
+Shadoweave Boots|215|215|215|230|245|1|T|Bolt of Mageweave*6;Shadow Silk*6;Heavy Silken Thread*3;Thick Leather*2
 Stormcloth Boots|215|215|220|235|250|1|R|Bolt of Mageweave*6;Globe of Water*6;Heavy Silken Thread*3;Thick Leather*2
+Dreamweave Circlet|220|220|220|235|250|1|T|Bolt of Mageweave*8;Wildvine*4;Heart of the Wild*2;Heavy Silken Thread*3;Truesilver Bar*1;Jade*1
 Frostweave Robe|220|220|225|240|255|1|R|Bolt of Runecloth*5;Globe of Water*2;Rune Thread*1
 Frostweave Tunic|220|220|225|240|255|1|R|Bolt of Runecloth*5;Globe of Water*2;Rune Thread*1
-Runecloth Belt|220|220|225|240|255|1|T|Bolt of Runecloth*3;Rune Thread*1
 Black Waistcord|225|225|230|245|260|1|R|Bolt of Runecloth*8;Heavy Silken Thread*4;Magenta Dye*8;Cerulean Dye*5;Black Pearl*12
 Cindercloth Vest|225|225|230|245|260|1|R|Bolt of Runecloth*5;Heart of Fire*3;Rune Thread*1
 Earthenweave Cord|225|225|230|245|260|1|R|Bolt of Runecloth*4;Essence of Earth*2;Rune Thread*1
@@ -300,6 +299,7 @@ Gilded Waistcord|225|225|230|245|260|1|R|Bolt of Runecloth*8;Heavy Silken Thread
 Golden Waistcord|225|225|230|245|260|1|R|Bolt of Runecloth*8;Heavy Silken Thread*4;Magenta Dye*8;Cerulean Dye*5;Golden Pearl*12
 Radiant Waistcord|225|225|230|245|260|1|R|Bolt of Runecloth*8;Heavy Silken Thread*4;Magenta Dye*8;Cerulean Dye*5;Large Radiant Shard*12
 Runecloth Bag|225|225|230|245|260|1|R|Bolt of Runecloth*5;Rugged Leather*2;Rune Thread*1;Magenta Dye*4;Cerulean Dye*2
+Runecloth Belt|225|225|225|240|255|1|T|Bolt of Runecloth*3;Rune Thread*1
 Runecloth Reagent Bag|225|225|230|245|260|1|R|Bolt of Runecloth*5;Rugged Leather*2;Rune Thread*1;Viridian Dye*1
 Runecloth Robe|225|225|230|245|260|1|R|Bolt of Runecloth*5;Ironweb Spider Silk*1;Rune Thread*1
 Runecloth Tunic|225|225|230|245|260|1|R|Bolt of Runecloth*5;Ironweb Spider Silk*1;Rune Thread*1
@@ -343,13 +343,13 @@ Runecloth Pants|250|250|255|270|285|1|R|Bolt of Runecloth*6;Ironweb Spider Silk*
 Brightcloth Pants|255|255|260|275|290|1|R|Bolt of Runecloth*6;Gold Bar*4;Ironweb Spider Silk*1;Rune Thread*1
 Crusader's Knapsack|255|255|260|262|265|1|R|Righteous Orb*1;Bolt of Runecloth*14;Red Dye*8;Ironweb Spider Silk*3
 Earthenweave Leggings|255|255|260|275|290|1|R|Bolt of Runecloth*6;Essence of Earth*2;Rune Thread*1
-Felcloth Bag|255|255|260|275|290|1|T|Felcloth*12;Enchanted Leather*6;Dark Rune*2;Ironweb Spider Silk*4
 Felcloth Hood|255|255|260|275|290|1|R|Bolt of Runecloth*5;Felcloth*4;Rune Thread*1
 Ghostweave Pants|255|255|260|275|290|1|R|Bolt of Runecloth*6;Ghost Dye*4;Rune Thread*1
 Robe of Winter Night|255|255|260|275|290|1|R|Bolt of Runecloth*10;Felcloth*12;Essence of Undeath*4;Essence of Water*4;Rune Thread*1
 Scarlet Augur's Cuffs|255|255|260|282|305|1|R|Bolt of Runecloth*8
 Scarlet Augur's Strap|255|255|260|282|305|1|R|Righteous Orb*1;Bolt of Runecloth*10
 Earthenweave Vest|260|260|265|280|295|1|R|Bolt of Runecloth*8;Essence of Earth*1;Rune Thread*1
+Felcloth Bag|260|260|260|275|290|1|T|Felcloth*12;Enchanted Leather*6;Dark Rune*2;Ironweb Spider Silk*4
 Ghostweave Boots|260|260|265|280|295|1|R|Bolt of Runecloth*4;Ghost Dye*2;Ironweb Spider Silk*1;Rugged Leather*2;Rune Thread*1
 Ghostweave Mantle|260|260|265|280|295|1|R|Bolt of Runecloth*5;Ghost Dye*3;Ironweb Spider Silk*1;Rune Thread*1
 Runecloth Cuffs|260|260|265|280|295|1|R|Bolt of Runecloth*5;Ironweb Spider Silk*1;Rune Thread*1
@@ -373,16 +373,16 @@ Runecloth Shoulders|270|270|275|290|305|1|R|Bolt of Runecloth*7;Ironweb Spider S
 Wizardweave Turban|270|270|275|290|305|1|R|Bolt of Runecloth*6;Dream Dust*4;Star Ruby*1;Rune Thread*1
 Felcloth Shoulders|275|275|280|295|310|1|R|Bolt of Runecloth*7;Felcloth*6;Demonic Rune*4;Rugged Leather*4;Rune Thread*2
 Scarlet Augur's Leggings|275|275|280|292|305|1|R|Blood of Heroes*1;Righteous Orb*1;Bolt of Runecloth*12
-Gordok Ogre Suit|280|280|285|290|295|1|T|Bolt of Runecloth*2;Rugged Leather*4;Ogre Tannin*1;Rune Thread*1
-Mooncloth Boots|280|280|285|300|315|1|T|Bolt of Runecloth*6;Mooncloth*4;Black Pearl*2;Rune Thread*1
 Mooncloth Vest|280|280|285|300|315|1|R|Bolt of Runecloth*6;Mooncloth*4;Rune Thread*1
 Scarlet Augur's Hood|280|280|285|295|305|1|R|Blood of Heroes*1;Righteous Orb*2;Bolt of Runecloth*12
 Scarlet Augur's Mantle|280|280|285|295|305|1|R|Righteous Orb*1;Bolt of Runecloth*10
 Scarlet Augur's Vestments|280|280|285|295|305|1|R|Blood of Heroes*1;Righteous Orb*1;Bolt of Runecloth*12
-Synthetic Gordok Ogre Suit|280|280|285|290|295|1|T|Rugged Leather*4;Bolt of Runecloth*2;Ogre Tannin*1;Rune Thread*1
+Gordok Ogre Suit|285|285|285|290|295|1|T|Bolt of Runecloth*2;Rugged Leather*4;Ogre Tannin*1;Rune Thread*1
+Mooncloth Boots|285|285|285|300|315|1|T|Bolt of Runecloth*6;Mooncloth*4;Black Pearl*2;Rune Thread*1
 Mooncloth Robe|285|285|290|305|320|1|R|Bolt of Runecloth*6;Mooncloth*4;Golden Pearl*2;Rune Thread*2
 Mooncloth Shoulders|285|285|290|305|320|1|R|Bolt of Runecloth*5;Mooncloth*5;Rune Thread*1
 Swarmtender's Gloves|285|285|290|292|295|1|R|Bolt of Runecloth*4;Small Brilliant Shard*1;Essence of Water*3;Rune Thread*6
+Synthetic Gordok Ogre Suit|285|285|285|290|295|1|T|Rugged Leather*4;Bolt of Runecloth*2;Ogre Tannin*1;Rune Thread*1
 Venomspew Gloves|285|285|290|292|295|1|R|Bolt of Runecloth*4;Small Brilliant Shard*1;Essence of Air*3;Rune Thread*6
 Cloak of Warding|290|290|295|310|325|1|R|Bolt of Runecloth*12;Guardian Stone*4;Arcanite Bar*1;Rune Thread*2
 Felcloth Gloves|290|290|295|310|325|1|R|Bolt of Runecloth*12;Felcloth*20;Demonic Rune*6;Essence of Undeath*8;Rune Thread*2

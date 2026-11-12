@@ -1,12 +1,12 @@
 [
  {
-  "date": "2026-11-11",
+  "date": "2026-11-12",
   "build": "1.60.1.70888",
   "professions": [
    {
     "profession": "Alchemy",
     "before": 0,
-    "after": 160,
+    "after": 158,
     "minor": 0,
     "added": [
      {
@@ -970,7 +970,16 @@
       "materials": "Heart of Fire x1"
      }
     ],
-    "removed": [],
+    "removed": [
+     {
+      "name": "Mana Well",
+      "skill": 20
+     },
+     {
+      "name": "Elemental Fire",
+      "skill": 296
+     }
+    ],
     "changed": [
      {
       "name": "Draught of Water Walking",
@@ -979,6 +988,226 @@
      {
       "name": "Elixir of Holy Power",
       "change": "source T → R"
+     },
+     {
+      "name": "Cerulean Dye",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Sulfuric Acid",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Elixir of Minor Strength",
+      "change": "learn 50 → 55; orange 50 → 55"
+     },
+     {
+      "name": "Minor Troll's Blood Elixir",
+      "change": "learn 55 → 60; orange 55 → 60"
+     },
+     {
+      "name": "Minor Mana Potion",
+      "change": "learn 60 → 65; orange 60 → 65"
+     },
+     {
+      "name": "Blackmouth Oil",
+      "change": "learn 75 → 80; orange 75 → 80"
+     },
+     {
+      "name": "Lesser Discolored Healing Potion",
+      "change": "learn 80 → 85; orange 80 → 85"
+     },
+     {
+      "name": "Draught of Tongues",
+      "change": "learn 95 → 100; orange 95 → 100"
+     },
+     {
+      "name": "Draught of Water Breathing",
+      "change": "learn 115 → 120; orange 115 → 120"
+     },
+     {
+      "name": "Elixir of Wisdom",
+      "change": "learn 115 → 120; orange 115 → 120"
+     },
+     {
+      "name": "Magenta Dye",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Swim Speed Potion",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Discolored Healing Potion",
+      "change": "learn 130 → 135; orange 130 → 135"
+     },
+     {
+      "name": "Fermenter",
+      "change": "grey 145 → 140"
+     },
+     {
+      "name": "Lesser Mana Potion",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Fire Oil",
+      "change": "learn 145 → 150; orange 145 → 150"
+     },
+     {
+      "name": "Lesser Troll's Blood Elixir",
+      "change": "learn 145 → 150; orange 145 → 150"
+     },
+     {
+      "name": "Elixir of Lesser Defense",
+      "change": "learn 150 → 155; orange 150 → 155"
+     },
+     {
+      "name": "Elixir of Fire Power",
+      "change": "learn 160 → 165; orange 160 → 165"
+     },
+     {
+      "name": "Elixir of Ogre Strength",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Greater Discolored Healing Potion",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Mana Potion",
+      "change": "learn 175 → 180; orange 175 → 180"
+     },
+     {
+      "name": "Lesser Invisibility Potion",
+      "change": "learn 180 → 185; orange 180 → 185"
+     },
+     {
+      "name": "Elixir of Agility",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Revealing Draught",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Draught of Detect Lesser Invisibility",
+      "change": "learn 210 → 215; orange 210 → 215"
+     },
+     {
+      "name": "Elixir of Defense",
+      "change": "learn 210 → 215; orange 210 → 215"
+     },
+     {
+      "name": "Catseye Draught",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Greater Mana Potion",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Oil of Immolation",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Mildly Irradiated Rejuvenation Potion",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Restorative Potion",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Draught of Greater Water Breathing",
+      "change": "learn 225 → 230; orange 225 → 230"
+     },
+     {
+      "name": "Superior Discolored Healing Potion",
+      "change": "learn 225 → 230; orange 225 → 230"
+     },
+     {
+      "name": "Viridian Dye",
+      "change": "learn 225 → 230; orange 225 → 230"
+     },
+     {
+      "name": "Gold Bar",
+      "change": "learn 235 → 240; orange 235 → 240"
+     },
+     {
+      "name": "Truesilver Bar",
+      "change": "learn 235 → 240; orange 235 → 240"
+     },
+     {
+      "name": "Draught of Detect Undead",
+      "change": "learn 240 → 245; orange 240 → 245"
+     },
+     {
+      "name": "Dreamless Sleep Potion",
+      "change": "learn 240 → 245; orange 240 → 245"
+     },
+     {
+      "name": "Arcane Elixir",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Elixir of Greater Intellect",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Stonescale Oil",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Elixir of Greater Agility",
+      "change": "learn 250 → 255; orange 250 → 255"
+     },
+     {
+      "name": "Elixir of Greater Strength",
+      "change": "learn 255 → 260; orange 255 → 260"
+     },
+     {
+      "name": "Draught of Detect Demon",
+      "change": "learn 260 → 265; orange 260 → 265"
+     },
+     {
+      "name": "Arcanite Bar",
+      "change": "learn 270 → 275; orange 270 → 275"
+     },
+     {
+      "name": "Essence of Air",
+      "change": "learn 270 → 275; orange 270 → 275"
+     },
+     {
+      "name": "Essence of Earth",
+      "change": "learn 270 → 275; orange 270 → 275"
+     },
+     {
+      "name": "Essence of Fire",
+      "change": "learn 270 → 275; orange 270 → 275"
+     },
+     {
+      "name": "Essence of Undeath",
+      "change": "learn 270 → 275; orange 270 → 275"
+     },
+     {
+      "name": "Essence of Water",
+      "change": "learn 270 → 275; orange 270 → 275"
+     },
+     {
+      "name": "Legionite Bar",
+      "change": "learn 270 → 275; orange 270 → 275"
+     },
+     {
+      "name": "Living Essence",
+      "change": "learn 270 → 275; orange 270 → 275"
+     },
+     {
+      "name": "Elixir of Greater Defense",
+      "change": "learn 275 → 280; orange 275 → 280"
+     },
+     {
+      "name": "Greater Dreamless Sleep Potion",
+      "change": "learn 285 → 290; orange 285 → 290"
      }
     ]
    },
@@ -3270,12 +3499,365 @@
      }
     ],
     "removed": [],
-    "changed": []
+    "changed": [
+     {
+      "name": "Faction Banner",
+      "change": "grey 25 → 20"
+     },
+     {
+      "name": "White Linen Shirt",
+      "change": "learn 30 → 35; orange 30 → 35"
+     },
+     {
+      "name": "Brown Linen Vest",
+      "change": "learn 40 → 45; orange 40 → 45"
+     },
+     {
+      "name": "Blue Linen Shirt",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Brown Linen Pants",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Brown Linen Robe",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Heavy Linen Gloves",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Linen Belt",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Red Linen Shirt",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Simple Dress",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Simple Linen Boots",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "White Linen Robe",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Green Linen Bracers",
+      "change": "learn 55 → 60; orange 55 → 60"
+     },
+     {
+      "name": "Reinforced Linen Cape",
+      "change": "learn 55 → 60; orange 55 → 60"
+     },
+     {
+      "name": "Barbaric Linen Vest",
+      "change": "learn 60 → 65; orange 60 → 65"
+     },
+     {
+      "name": "Green Linen Shirt",
+      "change": "learn 60 → 65; orange 60 → 65"
+     },
+     {
+      "name": "Linen Boots",
+      "change": "learn 60 → 65; orange 60 → 65"
+     },
+     {
+      "name": "Bolt of Woolen Cloth",
+      "change": "learn 65 → 70; orange 65 → 70"
+     },
+     {
+      "name": "Handstitched Linen Britches",
+      "change": "learn 65 → 70; orange 65 → 70"
+     },
+     {
+      "name": "Simple Kilt",
+      "change": "learn 70 → 75; orange 70 → 75"
+     },
+     {
+      "name": "Woolen Bag",
+      "change": "learn 70 → 75; orange 70 → 75"
+     },
+     {
+      "name": "Soft-soled Linen Boots",
+      "change": "learn 75 → 80; orange 75 → 80"
+     },
+     {
+      "name": "Woolen Cape",
+      "change": "learn 75 → 80; orange 75 → 80"
+     },
+     {
+      "name": "Green Woolen Vest",
+      "change": "learn 80 → 85; orange 80 → 85"
+     },
+     {
+      "name": "Heavy Woolen Gloves",
+      "change": "learn 80 → 85; orange 80 → 85"
+     },
+     {
+      "name": "Gray Woolen Shirt",
+      "change": "learn 85 → 90; orange 85 → 90"
+     },
+     {
+      "name": "Green Woolen Robe",
+      "change": "learn 85 → 90; orange 85 → 90"
+     },
+     {
+      "name": "Green Woolen Bag",
+      "change": "materials now Bolt of Woolen Cloth x5, Green Dye x1, Fine Thread x1"
+     },
+     {
+      "name": "Pearl-clasped Cloak",
+      "change": "learn 90 → 95; orange 90 → 95"
+     },
+     {
+      "name": "Woolen Boots",
+      "change": "learn 90 → 95; orange 90 → 95"
+     },
+     {
+      "name": "Bolt of Silk Cloth",
+      "change": "learn 105 → 110; orange 105 → 110"
+     },
+     {
+      "name": "Double-Stitched Woolen Shoulders",
+      "change": "learn 105 → 110; orange 105 → 110"
+     },
+     {
+      "name": "Heavy Woolen Pants",
+      "change": "learn 105 → 110; orange 105 → 110"
+     },
+     {
+      "name": "Red Woolen Bag",
+      "change": "materials now Bolt of Woolen Cloth x5, Red Dye x1, Fine Thread x1"
+     },
+     {
+      "name": "Stylish Red Shirt",
+      "change": "learn 105 → 110; orange 105 → 110"
+     },
+     {
+      "name": "White Woolen Dress",
+      "change": "learn 105 → 110; orange 105 → 110"
+     },
+     {
+      "name": "Gloves of Meditation",
+      "change": "learn 120 → 125; orange 120 → 125"
+     },
+     {
+      "name": "Spidersilk Boots",
+      "change": "learn 120 → 125; orange 120 → 125"
+     },
+     {
+      "name": "Azure Silk Hood",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Lesser Wizard's Robe",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Azure Silk Pants",
+      "change": "learn 130 → 135; orange 130 → 135"
+     },
+     {
+      "name": "Boots of Darkness",
+      "change": "learn 130 → 135; orange 130 → 135"
+     },
+     {
+      "name": "Silk Headband",
+      "change": "learn 130 → 135; orange 130 → 135"
+     },
+     {
+      "name": "Spinning Wheel",
+      "change": "grey 145 → 140"
+     },
+     {
+      "name": "White Swashbuckler's Shirt",
+      "change": "learn 130 → 135; orange 130 → 135"
+     },
+     {
+      "name": "Azure Silk Vest",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Bolt of Mageweave",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Formal White Shirt",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Small Silk Pack",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Red Swashbuckler's Shirt",
+      "change": "learn 145 → 150; orange 145 → 150"
+     },
+     {
+      "name": "Earthen Vest",
+      "change": "learn 150 → 155; orange 150 → 155"
+     },
+     {
+      "name": "Green Silk Pack",
+      "change": "materials now Bolt of Silk Cloth x5, Heavy Leather x3, Fine Thread x3, Green Dye x1"
+     },
+     {
+      "name": "Azure Silk Belt",
+      "change": "learn 155 → 160; orange 155 → 160"
+     },
+     {
+      "name": "Crimson Silk Belt",
+      "change": "learn 155 → 160; orange 155 → 160"
+     },
+     {
+      "name": "Black Silk Pack",
+      "change": "materials now Bolt of Silk Cloth x6, Black Dye x1, Fine Thread x4"
+     },
+     {
+      "name": "Green Silken Shoulders",
+      "change": "learn 160 → 165; orange 160 → 165"
+     },
+     {
+      "name": "Crimson Silk Vest",
+      "change": "learn 165 → 170; orange 165 → 170"
+     },
+     {
+      "name": "Long Silken Cloak",
+      "change": "learn 165 → 170; orange 165 → 170"
+     },
+     {
+      "name": "Robe of Power",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Crimson Silk Pantaloons",
+      "change": "learn 175 → 180; orange 175 → 180"
+     },
+     {
+      "name": "Black Mageweave Leggings",
+      "change": "learn 180 → 185; orange 180 → 185"
+     },
+     {
+      "name": "Black Mageweave Vest",
+      "change": "learn 180 → 185; orange 180 → 185"
+     },
+     {
+      "name": "Orange Mageweave Shirt",
+      "change": "learn 180 → 185; orange 180 → 185"
+     },
+     {
+      "name": "Black Mageweave Robe",
+      "change": "learn 185 → 190; orange 185 → 190"
+     },
+     {
+      "name": "Crimson Silk Gloves",
+      "change": "learn 185 → 190; orange 185 → 190"
+     },
+     {
+      "name": "Shadoweave Pants",
+      "change": "learn 185 → 190; orange 185 → 190"
+     },
+     {
+      "name": "Black Mageweave Gloves",
+      "change": "learn 190 → 195; orange 190 → 195"
+     },
+     {
+      "name": "Shadoweave Robe",
+      "change": "learn 190 → 195; orange 190 → 195"
+     },
+     {
+      "name": "Simple Black Dress",
+      "change": "learn 195 → 200; orange 195 → 200"
+     },
+     {
+      "name": "Black Mageweave Boots",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Black Mageweave Headband",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Black Mageweave Shoulders",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Cindercloth Robe",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Dreamweave Gloves",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Dreamweave Vest",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Mageweave Bag",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Shadoweave Gloves",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Bolt of Runecloth",
+      "change": "learn 205 → 210; orange 205 → 210"
+     },
+     {
+      "name": "Red Mageweave Bag",
+      "change": "learn 205 → 210; orange 205 → 210; materials now Bolt of Mageweave x5, Red Dye x2, Heavy Silken Thread x2"
+     },
+     {
+      "name": "Shadoweave Shoulders",
+      "change": "learn 205 → 210; orange 205 → 210"
+     },
+     {
+      "name": "Cindercloth Boots",
+      "change": "learn 210 → 215; orange 210 → 215"
+     },
+     {
+      "name": "Shadoweave Boots",
+      "change": "learn 210 → 215; orange 210 → 215"
+     },
+     {
+      "name": "Dreamweave Circlet",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Runecloth Belt",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Felcloth Bag",
+      "change": "learn 255 → 260; orange 255 → 260"
+     },
+     {
+      "name": "Gordok Ogre Suit",
+      "change": "learn 280 → 285; orange 280 → 285"
+     },
+     {
+      "name": "Mooncloth Boots",
+      "change": "learn 280 → 285; orange 280 → 285"
+     },
+     {
+      "name": "Synthetic Gordok Ogre Suit",
+      "change": "learn 280 → 285; orange 280 → 285"
+     }
+    ]
    },
    {
     "profession": "Leatherworking",
     "before": 0,
-    "after": 435,
+    "after": 434,
     "minor": 0,
     "added": [
      {
@@ -5889,8 +6471,290 @@
       "materials": "Rugged Leather x20, Cured Rugged Hide x2, Felcloth x6, Black Dye x4, Rune Thread x2"
      }
     ],
-    "removed": [],
-    "changed": []
+    "removed": [
+     {
+      "name": "Tanning Rack",
+      "skill": 135
+     }
+    ],
+    "changed": [
+     {
+      "name": "Camp Tent",
+      "change": "grey 25 → 20"
+     },
+     {
+      "name": "Handstitched Leather Pants",
+      "change": "learn 40 → 45; orange 40 → 45"
+     },
+     {
+      "name": "Cured Light Hide",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Handstitched Leather Belt",
+      "change": "learn 50 → 55; orange 50 → 55"
+     },
+     {
+      "name": "Light Leather Quiver",
+      "change": "learn 50 → 55; orange 50 → 55"
+     },
+     {
+      "name": "Small Leather Ammo Pouch",
+      "change": "learn 50 → 55; orange 50 → 55"
+     },
+     {
+      "name": "Embossed Leather Vest",
+      "change": "learn 60 → 65; orange 60 → 65"
+     },
+     {
+      "name": "Embossed Leather Cloak",
+      "change": "learn 65 → 70; orange 65 → 70"
+     },
+     {
+      "name": "Embossed Leather Gloves",
+      "change": "learn 65 → 70; orange 65 → 70"
+     },
+     {
+      "name": "Fine Leather Cloak",
+      "change": "learn 65 → 70; orange 65 → 70"
+     },
+     {
+      "name": "Light Leather Bracers",
+      "change": "learn 70 → 75; orange 70 → 75"
+     },
+     {
+      "name": "Medium Leather",
+      "change": "learn 70 → 75; orange 70 → 75"
+     },
+     {
+      "name": "Embossed Leather Boots",
+      "change": "learn 75 → 80; orange 75 → 80"
+     },
+     {
+      "name": "Embossed Leather Pants",
+      "change": "learn 75 → 80; orange 75 → 80"
+     },
+     {
+      "name": "Fine Leather Belt",
+      "change": "learn 80 → 85; orange 80 → 85"
+     },
+     {
+      "name": "Cured Medium Hide",
+      "change": "learn 85 → 90; orange 85 → 90"
+     },
+     {
+      "name": "Fine Leather Tunic",
+      "change": "learn 85 → 90; orange 85 → 90"
+     },
+     {
+      "name": "Medium Armor Kit",
+      "change": "learn 85 → 90; orange 85 → 90"
+     },
+     {
+      "name": "Gray Leather Boots",
+      "change": "learn 95 → 100; orange 95 → 100"
+     },
+     {
+      "name": "Light Leather Pants",
+      "change": "learn 95 → 100; orange 95 → 100"
+     },
+     {
+      "name": "Dark Leather Cloak",
+      "change": "learn 105 → 110; orange 105 → 110"
+     },
+     {
+      "name": "Dark Leather Pants",
+      "change": "learn 110 → 115; orange 110 → 115"
+     },
+     {
+      "name": "Nimble Leather Gloves",
+      "change": "learn 115 → 120; orange 115 → 120"
+     },
+     {
+      "name": "Toughened Leather Armor",
+      "change": "learn 115 → 120; orange 115 → 120"
+     },
+     {
+      "name": "Dark Leather Belt",
+      "change": "learn 120 → 125; orange 120 → 125"
+     },
+     {
+      "name": "Fletcher's Gloves",
+      "change": "learn 120 → 125; orange 120 → 125"
+     },
+     {
+      "name": "Heavy Leather",
+      "change": "learn 120 → 125; orange 120 → 125"
+     },
+     {
+      "name": "Hillman's Shoulders",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Cured Heavy Hide",
+      "change": "learn 130 → 135; orange 130 → 135"
+     },
+     {
+      "name": "Toughened Leather Gloves",
+      "change": "learn 130 → 135; orange 130 → 135"
+     },
+     {
+      "name": "Heavy Armor Kit",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Heavy Leather Ammo Pouch",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Heavy Quiver",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Hillman's Cloak",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Hillman's Leather Gloves",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Green Leather Belt",
+      "change": "learn 150 → 155; orange 150 → 155"
+     },
+     {
+      "name": "Guardian Pants",
+      "change": "learn 150 → 155; orange 150 → 155"
+     },
+     {
+      "name": "Barbaric Shoulders",
+      "change": "learn 165 → 170; orange 165 → 170"
+     },
+     {
+      "name": "Dusky Leather Armor",
+      "change": "learn 165 → 170; orange 165 → 170"
+     },
+     {
+      "name": "Frost Leather Cloak",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Green Leather Bracers",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Thick Leather",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Dusky Bracers",
+      "change": "learn 175 → 180; orange 175 → 180"
+     },
+     {
+      "name": "Barbaric Harness",
+      "change": "learn 180 → 185; orange 180 → 185"
+     },
+     {
+      "name": "Guardian Gloves",
+      "change": "learn 180 → 185; orange 180 → 185"
+     },
+     {
+      "name": "Dusky Belt",
+      "change": "learn 185 → 190; orange 185 → 190"
+     },
+     {
+      "name": "Thick Armor Kit",
+      "change": "learn 190 → 195; orange 190 → 195"
+     },
+     {
+      "name": "Nightscape Headband",
+      "change": "learn 195 → 200; orange 195 → 200"
+     },
+     {
+      "name": "Nightscape Tunic",
+      "change": "learn 195 → 200; orange 195 → 200"
+     },
+     {
+      "name": "Turtle Scale Bracers",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Turtle Scale Breastplate",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Dragonscale Gauntlets",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Quickdraw Quiver",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Thick Leather Ammo Pouch",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Wolfshead Helm",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Cured Rugged Hide",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Gauntlets of the Sea",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Nightscape Pants",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Rugged Armor Kit",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Turtle Scale Helm",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Nightscape Boots",
+      "change": "learn 225 → 230; orange 225 → 230"
+     },
+     {
+      "name": "Turtle Scale Leggings",
+      "change": "learn 225 → 230; orange 225 → 230"
+     },
+     {
+      "name": "Feathered Breastplate",
+      "change": "learn 240 → 245; orange 240 → 245"
+     },
+     {
+      "name": "Helm of Fire",
+      "change": "learn 240 → 245; orange 240 → 245"
+     },
+     {
+      "name": "Dragonscale Breastplate",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Heavy Scorpid Gauntlet",
+      "change": "learn 265 → 270; orange 265 → 270"
+     },
+     {
+      "name": "Green Dragonscale Gauntlets",
+      "change": "learn 270 → 275; orange 270 → 275"
+     },
+     {
+      "name": "Gordok Ogre Suit",
+      "change": "learn 280 → 285; orange 280 → 285"
+     },
+     {
+      "name": "Synthetic Gordok Ogre Suit",
+      "change": "learn 280 → 285; orange 280 → 285"
+     }
+    ]
    },
    {
     "profession": "Enchanting",
@@ -6902,12 +7766,273 @@
      }
     ],
     "removed": [],
-    "changed": []
+    "changed": [
+     {
+      "name": "Enchanted Lute",
+      "change": "grey 25 → 20"
+     },
+     {
+      "name": "Enchant Chest - Inferior Stamina",
+      "change": "learn 65 → 70; orange 65 → 70"
+     },
+     {
+      "name": "Lesser Magic Wand",
+      "change": "learn 70 → 75; orange 70 → 75"
+     },
+     {
+      "name": "Enchant Chest - Minor Absorption",
+      "change": "learn 85 → 90; orange 85 → 90"
+     },
+     {
+      "name": "Enchant Cloak - Minor Resistance",
+      "change": "learn 90 → 95; orange 90 → 95"
+     },
+     {
+      "name": "Blackfathom Mana Oil",
+      "change": "learn 95 → 100; orange 95 → 100"
+     },
+     {
+      "name": "Enchant Bracer - Minor Stamina",
+      "change": "learn 95 → 100; orange 95 → 100"
+     },
+     {
+      "name": "Enchant Chest - Lesser Stamina",
+      "change": "learn 100 → 105; orange 100 → 105"
+     },
+     {
+      "name": "Enchant Cloak - Minor Protection",
+      "change": "learn 105 → 110; orange 105 → 110"
+     },
+     {
+      "name": "Greater Magic Wand",
+      "change": "learn 105 → 110; orange 105 → 110"
+     },
+     {
+      "name": "Enchant Bracer - Minor Agility",
+      "change": "learn 110 → 115; orange 110 → 115"
+     },
+     {
+      "name": "Enchant Weapon - Minor Striking",
+      "change": "learn 115 → 120; orange 115 → 120"
+     },
+     {
+      "name": "Enchant 2H Weapon - Minor Impact",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Enchant Shield - Minor Stamina",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Runed Silver Rod",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Arcane Salvager",
+      "change": "grey 145 → 140"
+     },
+     {
+      "name": "Enchant Cloak - Lesser Protection",
+      "change": "learn 135 → 140; orange 135 → 140"
+     },
+     {
+      "name": "Enchant Chest - Stamina",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Enchant Cloak - Lesser Fire Resistance",
+      "change": "learn 145 → 150; orange 145 → 150"
+     },
+     {
+      "name": "Enchant Bracer - Lesser Stamina",
+      "change": "learn 150 → 155; orange 150 → 155"
+     },
+     {
+      "name": "Enchant Shield - Lesser Spirit",
+      "change": "learn 150 → 155; orange 150 → 155"
+     },
+     {
+      "name": "Enchant Chest - Lesser Absorption",
+      "change": "learn 160 → 165; orange 160 → 165"
+     },
+     {
+      "name": "Enchant Weapon - Lesser Striking",
+      "change": "learn 160 → 165; orange 160 → 165"
+     },
+     {
+      "name": "Enchant 2H Weapon - Lesser Impact",
+      "change": "learn 165 → 170; orange 165 → 170"
+     },
+     {
+      "name": "Enchant Chest - Intellect",
+      "change": "learn 165 → 170; orange 165 → 170"
+     },
+     {
+      "name": "Enchant Bracer - Lesser Intellect",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Enchant Chest - Minor Stats",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Enchant Cloak - Defense",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Enchant Shield - Lesser Stamina",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Lesser Mystic Wand",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Runed Golden Rod",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Enchant Boots - Lesser Agility",
+      "change": "learn 175 → 180; orange 175 → 180"
+     },
+     {
+      "name": "Enchant Chest - Greater Stamina",
+      "change": "learn 175 → 180; orange 175 → 180"
+     },
+     {
+      "name": "Enchant Bracer - Spirit",
+      "change": "learn 180 → 185; orange 180 → 185"
+     },
+     {
+      "name": "Enchant Boots - Lesser Stamina",
+      "change": "learn 185 → 190; orange 185 → 190"
+     },
+     {
+      "name": "Enchant Bracer - Stamina",
+      "change": "learn 185 → 190; orange 185 → 190"
+     },
+     {
+      "name": "Enchant Cloak - Fire Resistance",
+      "change": "learn 190 → 195; orange 190 → 195"
+     },
+     {
+      "name": "Greater Mystic Wand",
+      "change": "learn 190 → 195; orange 190 → 195"
+     },
+     {
+      "name": "Enchant Bracer - Strength",
+      "change": "learn 195 → 200; orange 195 → 200"
+     },
+     {
+      "name": "Enchant Shield - Spirit",
+      "change": "learn 195 → 200; orange 195 → 200"
+     },
+     {
+      "name": "Enchant Chest - Greater Intellect",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Enchant Weapon - Striking",
+      "change": "learn 210 → 215; orange 210 → 215"
+     },
+     {
+      "name": "Enchant 2H Weapon - Impact",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Enchant Chest - Lesser Stats",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Runed Truesilver Rod",
+      "change": "learn 215 → 220; orange 215 → 220"
+     },
+     {
+      "name": "Enchant Cloak - Greater Defense",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Enchant Cloak - Resistance",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Enchanted Sigil: Innovation",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Enchant Bracer - Intellect",
+      "change": "learn 225 → 230; orange 225 → 230"
+     },
+     {
+      "name": "Enchant Gloves - Agility",
+      "change": "learn 225 → 230; orange 225 → 230"
+     },
+     {
+      "name": "Enchant Boots - Stamina",
+      "change": "learn 230 → 235; orange 230 → 235"
+     },
+     {
+      "name": "Enchant Chest - Superior Stamina",
+      "change": "learn 235 → 240; orange 235 → 240"
+     },
+     {
+      "name": "Enchant Boots - Minor Speed",
+      "change": "learn 240 → 245; orange 240 → 245"
+     },
+     {
+      "name": "Enchant Gloves - Strength",
+      "change": "learn 240 → 245; orange 240 → 245"
+     },
+     {
+      "name": "Enchant Chest - Superior Intellect",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Enchant Shield - Greater Spirit",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Enchanted Leather",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Enchanted Thorium Bar",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Sigil of Living Dreams",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Enchant Boots - Agility",
+      "change": "learn 250 → 255; orange 250 → 255"
+     },
+     {
+      "name": "Enchant 2H Weapon - Greater Impact",
+      "change": "learn 255 → 260; orange 255 → 260"
+     },
+     {
+      "name": "Enchant Bracer - Greater Strength",
+      "change": "learn 255 → 260; orange 255 → 260"
+     },
+     {
+      "name": "Enchant Chest - Stats",
+      "change": "learn 260 → 265; orange 260 → 265"
+     },
+     {
+      "name": "Enchant Weapon - Greater Striking",
+      "change": "learn 260 → 265; orange 260 → 265"
+     },
+     {
+      "name": "Enchant Gloves - Minor Haste",
+      "change": "learn 265 → 270; orange 265 → 270"
+     }
+    ]
    },
    {
     "profession": "First Aid",
     "before": 0,
-    "after": 31,
+    "after": 29,
     "minor": 0,
     "added": [
      {
@@ -7097,13 +8222,83 @@
       "materials": "Huge Venom Sac x1"
      }
     ],
-    "removed": [],
-    "changed": []
+    "removed": [
+     {
+      "name": "Crystal Infused Bandage",
+      "skill": 295
+     },
+     {
+      "name": "Powerful Anti-Venom",
+      "skill": 295
+     }
+    ],
+    "changed": [
+     {
+      "name": "First Aid Kit",
+      "change": "grey 25 → 20"
+     },
+     {
+      "name": "Heavy Linen Bandage",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Minor Healing Potion",
+      "change": "learn 50 → 55; orange 50 → 55"
+     },
+     {
+      "name": "Anti-Venom",
+      "change": "learn 75 → 80; orange 75 → 80"
+     },
+     {
+      "name": "Wool Bandage",
+      "change": "learn 75 → 80; orange 75 → 80"
+     },
+     {
+      "name": "Lesser Healing Potion",
+      "change": "learn 80 → 85; orange 80 → 85"
+     },
+     {
+      "name": "Simple Poultice",
+      "change": "learn 85 → 90; orange 85 → 90"
+     },
+     {
+      "name": "Heavy Wool Bandage",
+      "change": "learn 110 → 115; orange 110 → 115"
+     },
+     {
+      "name": "Woolen Tourniquet",
+      "change": "learn 115 → 120; orange 115 → 120"
+     },
+     {
+      "name": "Healing Potion",
+      "change": "learn 130 → 135; orange 130 → 135"
+     },
+     {
+      "name": "Toxin Study",
+      "change": "grey 145 → 140"
+     },
+     {
+      "name": "Silk Bandage",
+      "change": "learn 145 → 150; orange 145 → 150"
+     },
+     {
+      "name": "Heavy Mageweave Bandage",
+      "change": "learn 235 → 240; orange 235 → 240"
+     },
+     {
+      "name": "Runecloth Bandage",
+      "change": "learn 255 → 260; orange 255 → 260"
+     },
+     {
+      "name": "Heavy Runecloth Bandage",
+      "change": "learn 285 → 290; orange 285 → 290"
+     }
+    ]
    },
    {
     "profession": "Mining",
     "before": 0,
-    "after": 16,
+    "after": 15,
     "minor": 0,
     "added": [
      {
@@ -7203,20 +8398,323 @@
       "materials": "Thorium Bar x5, Dense Stone x2, Truesilver Bar x1"
      }
     ],
-    "removed": [],
-    "changed": []
+    "removed": [
+     {
+      "name": "Heavy Thorium Bar",
+      "skill": 295
+     }
+    ],
+    "changed": [
+     {
+      "name": "Lodestone",
+      "change": "grey 25 → 20"
+     },
+     {
+      "name": "Tin Bar",
+      "change": "learn 45 → 50; orange 45 → 50"
+     },
+     {
+      "name": "Bronze Bar",
+      "change": "learn 60 → 65; orange 60 → 65"
+     },
+     {
+      "name": "Silver Bar",
+      "change": "learn 95 → 100; orange 95 → 100"
+     },
+     {
+      "name": "Iron Bar",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Rock Garden",
+      "change": "grey 145 → 140"
+     },
+     {
+      "name": "Gold Bar",
+      "change": "learn 165 → 170; orange 165 → 170"
+     }
+    ]
    },
    {
     "profession": "Blacksmithing",
     "before": 370,
-    "after": 370,
+    "after": 369,
     "minor": 0,
     "added": [],
-    "removed": [],
+    "removed": [
+     {
+      "name": "Anvil",
+      "skill": 140
+     }
+    ],
     "changed": [
      {
       "name": "Coarse Grinding Stone",
       "change": "grey 75 → 90"
+     },
+     {
+      "name": "Sharpening Wheel",
+      "change": "grey 25 → 20"
+     },
+     {
+      "name": "Coarse Weightstone",
+      "change": "learn 20 → 40; orange 20 → 40"
+     },
+     {
+      "name": "Rough Grinding Stone",
+      "change": "learn 25 → 45; orange 25 → 45"
+     },
+     {
+      "name": "Coarse Grinding Stone",
+      "change": "learn 30 → 50; orange 30 → 50"
+     },
+     {
+      "name": "Copper Mace",
+      "change": "learn 35 → 55; orange 35 → 55"
+     },
+     {
+      "name": "Copper Axe",
+      "change": "learn 40 → 60; orange 40 → 60"
+     },
+     {
+      "name": "Copper Chain Boots",
+      "change": "learn 40 → 60; orange 40 → 60"
+     },
+     {
+      "name": "Copper Claymore",
+      "change": "learn 45 → 65; orange 45 → 65"
+     },
+     {
+      "name": "Copper Dagger",
+      "change": "learn 45 → 65; orange 45 → 65"
+     },
+     {
+      "name": "Copper Battle Axe",
+      "change": "learn 50 → 70; orange 50 → 70"
+     },
+     {
+      "name": "Copper Chain Belt",
+      "change": "learn 50 → 70; orange 50 → 70"
+     },
+     {
+      "name": "Runed Copper Gauntlets",
+      "change": "learn 55 → 75; orange 55 → 75"
+     },
+     {
+      "name": "Runed Copper Pants",
+      "change": "learn 55 → 75; orange 55 → 75"
+     },
+     {
+      "name": "Silver Skeleton Key",
+      "change": "learn 55 → 75; orange 55 → 75"
+     },
+     {
+      "name": "Heavy Copper Maul",
+      "change": "learn 60 → 80; orange 60 → 80"
+     },
+     {
+      "name": "Silver Rod",
+      "change": "learn 60 → 80; orange 60 → 80"
+     },
+     {
+      "name": "Thick War Axe",
+      "change": "learn 65 → 85; orange 65 → 85"
+     },
+     {
+      "name": "Runed Copper Bracers",
+      "change": "learn 70 → 90; orange 70 → 90"
+     },
+     {
+      "name": "Heavy Grinding Stone",
+      "change": "learn 80 → 100; orange 80 → 100"
+     },
+     {
+      "name": "Heavy Weightstone",
+      "change": "learn 80 → 100; orange 80 → 100"
+     },
+     {
+      "name": "Rough Bronze Boots",
+      "change": "learn 80 → 100; orange 80 → 100"
+     },
+     {
+      "name": "Big Bronze Knife",
+      "change": "learn 90 → 110; orange 90 → 110"
+     },
+     {
+      "name": "Heavy Copper Broadsword",
+      "change": "learn 90 → 110; orange 90 → 110"
+     },
+     {
+      "name": "Pearl-handled Dagger",
+      "change": "learn 95 → 115; orange 95 → 115"
+     },
+     {
+      "name": "Rough Bronze Shoulders",
+      "change": "learn 95 → 115; orange 95 → 115"
+     },
+     {
+      "name": "Golden Skeleton Key",
+      "change": "learn 105 → 125; orange 105 → 125"
+     },
+     {
+      "name": "Iron Buckle",
+      "change": "learn 105 → 125; orange 105 → 125"
+     },
+     {
+      "name": "Golden Rod",
+      "change": "learn 110 → 130; orange 110 → 130"
+     },
+     {
+      "name": "Bronze Greatsword",
+      "change": "learn 115 → 135; orange 115 → 135"
+     },
+     {
+      "name": "Heavy Bronze Mace",
+      "change": "learn 115 → 135; orange 115 → 135"
+     },
+     {
+      "name": "Silvered Bronze Boots",
+      "change": "learn 115 → 135; orange 115 → 135"
+     },
+     {
+      "name": "Bronze Battle Axe",
+      "change": "learn 120 → 140; orange 120 → 140"
+     },
+     {
+      "name": "Silvered Bronze Gauntlets",
+      "change": "learn 120 → 140; orange 120 → 140"
+     },
+     {
+      "name": "Bronze Warhammer",
+      "change": "learn 125 → 155; orange 125 → 155"
+     },
+     {
+      "name": "Green Iron Leggings",
+      "change": "learn 135 → 155; orange 135 → 155"
+     },
+     {
+      "name": "Green Iron Bracers",
+      "change": "learn 145 → 165; orange 145 → 165"
+     },
+     {
+      "name": "Green Iron Helm",
+      "change": "learn 150 → 170; orange 150 → 170"
+     },
+     {
+      "name": "Solid Grinding Stone",
+      "change": "learn 155 → 175; orange 155 → 175"
+     },
+     {
+      "name": "Solid Sharpening Stone",
+      "change": "learn 155 → 175; orange 155 → 175"
+     },
+     {
+      "name": "Solid Weightstone",
+      "change": "learn 155 → 175; orange 155 → 175"
+     },
+     {
+      "name": "Truesilver Skeleton Key",
+      "change": "learn 155 → 175; orange 155 → 175"
+     },
+     {
+      "name": "Glinting Steel Dagger",
+      "change": "learn 160 → 180; orange 160 → 180"
+     },
+     {
+      "name": "Green Iron Hauberk",
+      "change": "learn 160 → 180; orange 160 → 180"
+     },
+     {
+      "name": "Truesilver Rod",
+      "change": "learn 160 → 180; orange 160 → 180"
+     },
+     {
+      "name": "Golden Scale Bracers",
+      "change": "learn 165 → 185; orange 165 → 185"
+     },
+     {
+      "name": "Heavy Mithril Gauntlet",
+      "change": "learn 180 → 200; orange 180 → 200"
+     },
+     {
+      "name": "Heavy Mithril Shoulder",
+      "change": "learn 180 → 200; orange 180 → 200"
+     },
+     {
+      "name": "Steel Breastplate",
+      "change": "learn 180 → 200; orange 180 → 200"
+     },
+     {
+      "name": "Mithril Plate Pants",
+      "change": "learn 185 → 205; orange 185 → 205"
+     },
+     {
+      "name": "Heavy Mithril Axe",
+      "change": "learn 190 → 210; orange 190 → 210"
+     },
+     {
+      "name": "Steel Plate Helm",
+      "change": "learn 190 → 210; orange 190 → 210"
+     },
+     {
+      "name": "Truesilver Gauntlets",
+      "change": "learn 200 → 220; orange 200 → 220"
+     },
+     {
+      "name": "Heavy Mithril Breastplate",
+      "change": "learn 205 → 225; orange 205 → 225"
+     },
+     {
+      "name": "Mithril Coif",
+      "change": "learn 205 → 225; orange 205 → 225"
+     },
+     {
+      "name": "Big Black Mace",
+      "change": "learn 210 → 230; orange 210 → 230"
+     },
+     {
+      "name": "Dense Grinding Stone",
+      "change": "learn 210 → 230; orange 210 → 230"
+     },
+     {
+      "name": "Dense Sharpening Stone",
+      "change": "learn 210 → 230; orange 210 → 230"
+     },
+     {
+      "name": "Dense Weightstone",
+      "change": "learn 210 → 230; orange 210 → 230"
+     },
+     {
+      "name": "Heavy Mithril Boots",
+      "change": "learn 210 → 230; orange 210 → 230"
+     },
+     {
+      "name": "The Shatterer",
+      "change": "learn 215 → 235; orange 215 → 235"
+     },
+     {
+      "name": "Truesilver Breastplate",
+      "change": "learn 220 → 240; orange 220 → 240"
+     },
+     {
+      "name": "Phantom Blade",
+      "change": "learn 225 → 245; orange 225 → 245"
+     },
+     {
+      "name": "Arcanite Rod",
+      "change": "learn 230 → 250; orange 230 → 250"
+     },
+     {
+      "name": "Arcanite Skeleton Key",
+      "change": "learn 230 → 250; orange 230 → 250"
+     },
+     {
+      "name": "Blight",
+      "change": "learn 230 → 250; orange 230 → 250"
+     },
+     {
+      "name": "Truesilver Champion",
+      "change": "learn 240 → 260; orange 240 → 260"
      }
     ]
    },
@@ -7508,6 +9006,307 @@
      {
       "name": "Warder's Gloves",
       "change": "vendors pay 66s 20c (was 1g 32s 75c)"
+     }
+    ]
+   },
+   {
+    "profession": "Engineering",
+    "before": 216,
+    "after": 214,
+    "minor": 0,
+    "added": [],
+    "removed": [
+     {
+      "name": "Reagent Bot",
+      "skill": 20
+     },
+     {
+      "name": "Repair Bot",
+      "skill": 140
+     }
+    ],
+    "changed": [
+     {
+      "name": "Handful of Copper Bolts",
+      "change": "learn 30 → 45; orange 30 → 45"
+     },
+     {
+      "name": "Rough Copper Bomb",
+      "change": "learn 51 → 60; orange 51 → 60"
+     },
+     {
+      "name": "Arclight Spanner",
+      "change": "learn 50 → 70; orange 50 → 70"
+     },
+     {
+      "name": "Copper Tube",
+      "change": "learn 75 → 80; orange 75 → 80"
+     },
+     {
+      "name": "Coarse Blasting Powder",
+      "change": "learn 75 → 85; orange 75 → 85"
+     },
+     {
+      "name": "Coarse Dynamite",
+      "change": "learn 85 → 90; orange 85 → 90"
+     },
+     {
+      "name": "Copper Modulator",
+      "change": "learn 90 → 95; orange 90 → 95"
+     },
+     {
+      "name": "Bronze Tube",
+      "change": "learn 100 → 105; orange 100 → 105"
+     },
+     {
+      "name": "Large Copper Bomb",
+      "change": "learn 100 → 105; orange 100 → 105"
+     },
+     {
+      "name": "Silver Contact",
+      "change": "learn 100 → 110; orange 100 → 110"
+     },
+     {
+      "name": "Practice Lock",
+      "change": "learn 110 → 115; orange 110 → 115"
+     },
+     {
+      "name": "Target Dummy",
+      "change": "learn 110 → 115; orange 110 → 115"
+     },
+     {
+      "name": "Small Bronze Bomb",
+      "change": "learn 115 → 120; orange 115 → 120"
+     },
+     {
+      "name": "Heavy Blasting Powder",
+      "change": "learn 120 → 125; orange 120 → 125"
+     },
+     {
+      "name": "Heavy Dynamite",
+      "change": "learn 120 → 125; orange 120 → 125"
+     },
+     {
+      "name": "Whirring Bronze Gizmo",
+      "change": "learn 120 → 125; orange 120 → 125"
+     },
+     {
+      "name": "Deadly Blunderbuss",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Flying Tiger Goggles",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Sandpaper",
+      "change": "learn 125 → 130; orange 125 → 130"
+     },
+     {
+      "name": "Standard Scope",
+      "change": "learn 130 → 135; orange 130 → 135"
+     },
+     {
+      "name": "Big Bronze Bomb",
+      "change": "learn 135 → 140; orange 135 → 140"
+     },
+     {
+      "name": "Bronze Framework",
+      "change": "learn 140 → 145; orange 140 → 145"
+     },
+     {
+      "name": "Aquadynamic Fish Attractor",
+      "change": "learn 145 → 150; orange 145 → 150"
+     },
+     {
+      "name": "Gold Power Core",
+      "change": "learn 145 → 150; orange 145 → 150"
+     },
+     {
+      "name": "Silver-plated Shotgun",
+      "change": "learn 150 → 155; orange 150 → 155"
+     },
+     {
+      "name": "Iron Strut",
+      "change": "learn 155 → 160; orange 155 → 160"
+     },
+     {
+      "name": "Ornate Spyglass",
+      "change": "learn 155 → 160; orange 155 → 160"
+     },
+     {
+      "name": "Gyrochronatom",
+      "change": "learn 165 → 170; orange 165 → 170"
+     },
+     {
+      "name": "Compact Harvest Reaper Kit",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Explosive Sheep",
+      "change": "learn 160 → 175; orange 160 → 175"
+     },
+     {
+      "name": "Green Tinted Goggles",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Gyromatic Micro-Adjustor",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Iron Grenade",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Solid Blasting Powder",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Solid Dynamite",
+      "change": "learn 170 → 175; orange 170 → 175"
+     },
+     {
+      "name": "Advanced Target Dummy",
+      "change": "learn 180 → 185; orange 180 → 185"
+     },
+     {
+      "name": "Big Iron Bomb",
+      "change": "learn 185 → 190; orange 185 → 190"
+     },
+     {
+      "name": "Mithril Tube",
+      "change": "learn 190 → 195; orange 190 → 195"
+     },
+     {
+      "name": "Mechanical Repair Kit",
+      "change": "learn 195 → 200; orange 195 → 200"
+     },
+     {
+      "name": "Unstable Trigger",
+      "change": "learn 195 → 200; orange 195 → 200"
+     },
+     {
+      "name": "Mobile Alarm",
+      "change": "learn 200 → 205; orange 200 → 205"
+     },
+     {
+      "name": "Explosive Arrow",
+      "change": "learn 205 → 210; orange 205 → 210"
+     },
+     {
+      "name": "Hi-Impact Mithril Slugs",
+      "change": "learn 205 → 210; orange 205 → 210"
+     },
+     {
+      "name": "Mithril Casing",
+      "change": "learn 210 → 215; orange 210 → 215"
+     },
+     {
+      "name": "Mithril Frag Bomb",
+      "change": "learn 210 → 215; orange 210 → 215"
+     },
+     {
+      "name": "Fire Goggles",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Hyperconductive Goldwap",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Mithril Blunderbuss",
+      "change": "learn 220 → 225; orange 220 → 225"
+     },
+     {
+      "name": "Hi-Explosive Bomb",
+      "change": "learn 230 → 235; orange 230 → 235"
+     },
+     {
+      "name": "Mithril Gyro-Shot",
+      "change": "learn 240 → 245; orange 240 → 245"
+     },
+     {
+      "name": "Dense Blasting Powder",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Dense Dynamite",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Rose Colored Goggles",
+      "change": "learn 245 → 250; orange 245 → 250"
+     },
+     {
+      "name": "Green Lens",
+      "change": "learn 260 → 265; orange 260 → 265"
+     },
+     {
+      "name": "Salt Shaker",
+      "change": "learn 265 → 270; orange 265 → 270"
+     }
+    ]
+   },
+   {
+    "profession": "Cooking",
+    "before": 129,
+    "after": 129,
+    "minor": 0,
+    "added": [],
+    "removed": [],
+    "changed": [
+     {
+      "name": "Basic Campfire",
+      "change": "learn 1 → 25; orange 1 → 25"
+     },
+     {
+      "name": "Spiced Wolf Meat",
+      "change": "learn 10 → 50; orange 10 → 50"
+     },
+     {
+      "name": "Boiled Clams",
+      "change": "learn 50 → 90; orange 50 → 90"
+     },
+     {
+      "name": "Coyote Steak",
+      "change": "learn 50 → 90; orange 50 → 90"
+     },
+     {
+      "name": "Journeyman Campfire Kit",
+      "change": "grey 105 → 95"
+     },
+     {
+      "name": "Crab Cake",
+      "change": "learn 75 → 115; orange 75 → 115"
+     },
+     {
+      "name": "Dry Pork Ribs",
+      "change": "learn 80 → 120; orange 80 → 120"
+     },
+     {
+      "name": "Cookie's Feast",
+      "change": "grey 150 → 145"
+     },
+     {
+      "name": "Goblin Deviled Clams",
+      "change": "learn 125 → 165; orange 125 → 165"
+     },
+     {
+      "name": "Expert Campfire Kit",
+      "change": "grey 220 → 205"
+     },
+     {
+      "name": "Spinefin Halibut",
+      "change": "learn 170 → 210; orange 170 → 210"
+     },
+     {
+      "name": "Goldthorn Tea",
+      "change": "learn 175 → 215; orange 175 → 215"
+     },
+     {
+      "name": "Spider Sausage",
+      "change": "learn 200 → 240; orange 200 → 240"
      }
     ]
    }
