@@ -13,9 +13,12 @@
   "Copper Dagger": 25,
   "Copper Mace": 15,
   "Copper Shortsword": 25,
+  "Expert Blacksmith": 125,
   "Glowing Copper Boots": 35,
   "Golden Rod": 125,
   "Golden Skeleton Key": 125,
+  "Green Iron Bracers": 140,
+  "Green Iron Leggings": 130,
   "Heavy Bronze Mace": 105,
   "Heavy Copper Broadsword": 70,
   "Heavy Copper Maul": 40,
@@ -29,5 +32,11 @@
   "Silvered Bronze Gauntlets": 110,
   "Strange Copper Boots": 35,
   "Thick War Axe": 45
+ },
+ "Cooking": {
+  "Boiled Clams": 50,
+  "Coyote Steak": 50,
+  "Crab Cake": 75,
+  "Dry Pork Ribs": 80
  }
 }
