@@ -9,7 +9,7 @@ jobs:
         run: |
           cd tools && python3 - <<'PY'
           import sync_recipes as s
-          build = s.newest_build()
+          build = s.newest_build()[0]
           print("OUT build", build)
           t = s.read_tables(build)
           names = {"Anvil", "Repair Bot", "Reagent Bot", "Tanning Rack", "Mana Well", "Iron Buckle"}
