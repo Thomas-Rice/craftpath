@@ -131,8 +131,9 @@ def main():
                 if b[4] == "T" and b[1] >= 300:
                     continue  # learned at 300: no skill-ups left, so not in a route
                 assert a, f"{prof}: {name} lost"
-                if b[4] == "T":  # trainer recipes are learned where they turn yellow
-                    assert a[0] == b[1] and a[1:] == b[1:] or name == "Copper Tube", (name, a, b)
+                if b[4] == "T":  # trainer recipes are learned where they turn yellow (if that leaves skill-ups)
+                    want = b[1] if b[1] < b[2] else b[0]
+                    assert a[0] == want and a[1:] == b[1:] or name == "Copper Tube", (name, a, b)
                     if name == "Copper Tube":
                         assert a[0] == a[1] and a[2] == 112, a  # grey from the client
                     continue
@@ -151,7 +152,7 @@ def main():
         text = open(report, encoding="utf-8").read()
         if os.environ.get("SHOW_REPORT"):
             print(text)
-        assert "Worth a look" in text and "**Copper Tube**: learn 75 → 80; orange 75 → 80; grey 110 → 112" in text, text[:1500]
+        assert "Worth a look" in text and "**Copper Tube**: grey 110 → 112" in text, text[:1500]
         assert "Changes found." in text
         assert "Thorium Shield Wall" in text and "Copper Tube" in text
         assert "Hidden in the client (1)" in text and "Mysterious Gadget" in text

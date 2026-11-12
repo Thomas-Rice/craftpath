@@ -151,11 +151,12 @@ def main():
 
     # Trainer-confirmed learn skill: Copper Tube (data 75) learned at 60 at the trainer.
     eng_tube = R.Load("Engineering").byName["Copper Tube"]
+    tube_learn = eng_tube.learn
     p = plan(lua, ns, "Engineering", 60, 75, learnOverride=lua.table_from({"Copper Tube": 60}),
              prices={"Copper Bar": 100, "Rough Stone": 10000, "Linen Cloth": 10000})
     assert not p.error, p.error
     assert lua_list(p.steps)[0].recipe.name == "Copper Tube", lua_list(p.steps)[0].recipe.name
-    assert eng_tube.learn == 75, "override leaked into the cached data"
+    assert eng_tube.learn == tube_learn and tube_learn > 60, "override leaked into the cached data"
 
     # A trainer list that doesn't include a recipe keeps it out of the route.
     p_all = plan(lua, ns, "Engineering", 1, 300)
@@ -321,8 +322,9 @@ def main():
     assert not eld.canCraft and not eld.hasProfession and eld.learn.how == "auto", eld.learn.how
     assert eld.cost > 10 and eld.profit > 100, (eld.cost, eld.profit)
     assert eld.need == "profession"
-    bronze = found["Bronze Bar"]  # Mining 60, you have 50: level up 10 points first
-    assert bronze.need == "skill" and bronze.skillGap == 10, (bronze.need, bronze.skillGap)
+    bronze = found["Bronze Bar"]  # you have Mining 50: level up to Bronze Bar's skill first
+    gap = R.Load("Mining").byName["Bronze Bar"].learn - 50
+    assert bronze.need == "skill" and bronze.skillGap == gap > 0, (bronze.need, bronze.skillGap, gap)
     print("Profit finder:", {n: round(e.best, 1) for n, e in list(found.items())[:4]})
 
     print("All tests passed.")
