@@ -229,6 +229,8 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.LedgerUI.Toggle()
   elseif msg == "keep" then
     ns.Keep.Toggle()
+  elseif msg == "trainer" then
+    ns.Game.ReadTrainer()
   elseif msg == "perf" then
     ns.perf = not ns.perf
     ns.Print("Timing " .. (ns.perf and "on: open your profession window and anything slow is printed here." or "off."))

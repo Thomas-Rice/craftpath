@@ -397,6 +397,8 @@ def main():
     fire("TRAINER_SHOW")
     assert ns.db.trainer["Engineering"]["Copper Tube"] == 60
     assert seen["Trainer Only Widget"].learn == 140
+    G.SlashCmdList.CRAFTPATH("trainer")  # prints what the trainer window gave
+    assert ns.db.trainerProbe.n == 3 and ns.db.trainerProbe.why == "slash", ns.db.trainerProbe.why
     assert seen["Journeyman Engineering"] is None, "rank training logged as a recipe"
     assert G.__trainerFilter.unavailable == 0 and G.__trainerFilter.used == 0, "trainer filters not restored"
 

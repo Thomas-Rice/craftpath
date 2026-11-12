@@ -397,6 +397,16 @@ local function readTrainer(why)
     if not v then trainerCall({ "SetTrainerServiceTypeFilter", "SetServiceTypeFilter" }, f, 0) end
   end
 end
+-- /cpath trainer: read the open trainer window now and say what happened, in chat.
+function Game.ReadTrainer()
+  local ok, err = pcall(readTrainer, "slash")
+  local p = ns.db.trainerProbe or {}
+  ns.Print(("Trainer check (CraftPath %s): %s"):format(tostring(ns.version), ok and "ran" or ("|cffff5533error: " .. tostring(err) .. "|r")))
+  ns.Print(("Services listed: %s, recipes saved: %s, first: %s"):format(tostring(p.n), tostring(p.saved), tostring(p.first)))
+  for _, e in ipairs(p.errors or {}) do ns.Print("|cffff5533" .. e .. "|r") end
+  if p.cTrainer then ns.Print("C_Trainer: " .. p.cTrainer) end
+end
+
 local function trainerOpened(why)
   readTrainer(why)
   -- the list can arrive a moment after the window opens
