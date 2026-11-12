@@ -9,7 +9,7 @@ jobs:
         run: |
           cd tools && python3 - <<'PY'
           import sync_recipes as s
-          build = s.latest_build() if hasattr(s, "latest_build") else None
+          build = s.newest_build()
           print("OUT build", build)
           t = s.read_tables(build)
           names = {"Anvil", "Repair Bot", "Reagent Bot", "Tanning Rack", "Mana Well", "Iron Buckle"}
