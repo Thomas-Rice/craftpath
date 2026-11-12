@@ -2,7 +2,7 @@
 ## Title: CraftPath
 ## Notes: Cheapest way to level a profession from live auction house prices, with a shopping list. Every crafting profession in WoW: Forever, plus a profit finder.
 ## Author: Thomas Rice
-## Version: 0.10.12
+## Version: 0.10.13
 ## SavedVariables: CraftPathDB
 ## IconTexture: Interface\Icons\Trade_Engineering
 ## AddonCompartmentFunc: CraftPath_OnAddonCompartmentClick

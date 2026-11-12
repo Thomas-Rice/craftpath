@@ -359,18 +359,9 @@ local function readTrainer(why)
   end
   ns.db.trainerProbe = probe
   local function note(step, err) probe.errors[#probe.errors + 1] = step .. ": " .. tostring(err) end
-  -- Show everything the trainer teaches, not just what you can learn right now,
-  -- then put the player's filters back.
-  local filters = {}
-  for _, f in ipairs({ "available", "unavailable", "used" }) do
-    local ok, on = trainerCall({ "GetTrainerServiceTypeFilter", "GetServiceTypeFilter" }, f)
-    if ok then
-      filters[f] = on
-      if not on then trainerCall({ "SetTrainerServiceTypeFilter", "SetServiceTypeFilter" }, f, 1) end
-    else
-      note("filter " .. f, on)
-    end
-  end
+  -- Only read what the trainer window already lists. Changing the window's filters from
+  -- addon code (as versions up to 0.10.12 did) rebuilt the list under the player and could stop
+  -- them learning from the trainer, so the player's filters are never touched.
   local okN, n = trainerCall({ "GetNumTrainerServices", "GetNumServices" })
   if not okN then note("count", n); n = 0 end
   n = tonumber(n) or 0
@@ -393,9 +384,6 @@ local function readTrainer(why)
     if #probe.errors > 5 then break end
   end
   probe.saved = saved
-  for f, v in pairs(filters) do
-    if not v then trainerCall({ "SetTrainerServiceTypeFilter", "SetServiceTypeFilter" }, f, 0) end
-  end
 end
 -- /cpath trainer: read the open trainer window now and say what happened, in chat.
 function Game.ReadTrainer()
