@@ -6,10 +6,20 @@ jobs:
     steps:
       - name: Probe warcraft.wiki.gg
         run: |
-          UA="CraftPath recipe sync (+https://github.com/Thomas-Rice/craftpath)"
-          API="https://warcraft.wiki.gg/api.php"
-          curl -sS -A "$UA" "$API?action=query&list=allpages&apprefix=Forever&aplimit=500&format=json" | python3 -c "
-          import json,sys; d=json.load(sys.stdin); [print('OUT page', p['title']) for p in d['query']['allpages']]"
-          curl -sS -A "$UA" "$API?action=parse&page=Forever_blacksmithing_plans&prop=wikitext&format=json" | python3 -c "
-          import json,sys; t=json.load(sys.stdin)['parse']['wikitext']['*']
-          i=t.find('Iron Buckle'); print('OUT len', len(t)); print('OUT head', repr(t[:1500])); print('OUT around', repr(t[i-600:i+400]))"
+          python3 - <<'PY'
+          import json, re, urllib.request, urllib.parse
+          UA = "CraftPath recipe sync (+https://github.com/Thomas-Rice/craftpath)"
+          pages = {"Blacksmithing": "Forever blacksmithing plans", "Engineering": "Forever engineering schematics",
+                   "Alchemy": "Forever alchemy recipes", "Tailoring": "Forever tailoring patterns",
+                   "Leatherworking": "Forever leatherworking patterns", "Enchanting": "Forever enchanting formulas",
+                   "Cooking": "Forever cooking recipes", "First Aid": "Forever first aid recipes",
+                   "Mining": "Forever mining techniques"}
+          for prof, title in pages.items():
+              url = "https://warcraft.wiki.gg/api.php?action=parse&format=json&prop=wikitext&page=" + urllib.parse.quote(title)
+              t = json.load(urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA})))["parse"]["wikitext"]["*"]
+              n = 0
+              for m in re.finditer(r"^\|\s*\[\[([^\]|]+)(?:\|[^\]]*)?\]\]\s*\|\|\s*(\d+)\s*\|\|.*?\|\|.*?\|\|\s*(.*?)\s*$", t, re.M):
+                  print(f"OUT ROW {prof}|{m.group(1)}|{m.group(2)}|{m.group(3)}")
+                  n += 1
+              print(f"OUT COUNT {prof} {n} rows, {len(t)} chars")
+          PY
