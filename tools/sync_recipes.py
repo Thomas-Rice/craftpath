@@ -247,11 +247,12 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
         from_item = any(p + name in item_names for p in prefixes) or (kept and kept[0] in "RFVGNQ")
         seen = (trainer_levels or {}).get(name)
         wiki = (wiki_levels or {}).get(name)
-        if learn <= 1 and not auto and yellow > 1:
+        if seen and not auto and not from_item:
+            # what the trainer showed in game beats everything, even the client's own number
+            learn, how_learn["game"] = seen, how_learn["game"] + 1
+        elif learn <= 1 and not auto and yellow > 1:
             if from_item and kept_learn:
                 learn = kept_learn
-            elif seen:
-                learn, how_learn["game"] = seen, how_learn["game"] + 1
             elif wiki:
                 learn, how_learn["wiki"] = wiki, how_learn["wiki"] + 1
             elif kept_learn:

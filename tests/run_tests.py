@@ -149,14 +149,15 @@ def main():
     short = [b for b in lua_list(p.shopping) if b.short]
     assert [b.name for b in short] == ["Copper Bar"] and p.short == 1, [b.name for b in short]
 
-    # Trainer-confirmed learn skill: Copper Tube (data 75) learned at 60 at the trainer.
+    # Trainer-confirmed learn skill: Copper Tube learned 15 below what the data says.
     eng_tube = R.Load("Engineering").byName["Copper Tube"]
     tube_learn = eng_tube.learn
-    p = plan(lua, ns, "Engineering", 60, 75, learnOverride=lua.table_from({"Copper Tube": 60}),
+    low = tube_learn - 15
+    p = plan(lua, ns, "Engineering", low, low + 15, learnOverride=lua.table_from({"Copper Tube": low}),
              prices={"Copper Bar": 100, "Rough Stone": 10000, "Linen Cloth": 10000})
     assert not p.error, p.error
     assert lua_list(p.steps)[0].recipe.name == "Copper Tube", lua_list(p.steps)[0].recipe.name
-    assert eng_tube.learn == tube_learn and tube_learn > 60, "override leaked into the cached data"
+    assert eng_tube.learn == tube_learn, "override leaked into the cached data"
 
     # A trainer list that doesn't include a recipe keeps it out of the route.
     p_all = plan(lua, ns, "Engineering", 1, 300)

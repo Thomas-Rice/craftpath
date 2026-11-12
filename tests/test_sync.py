@@ -102,7 +102,7 @@ def main():
         report = os.path.join(tmp, "report.md")
         changes = os.path.join(tmp, "changes.json")
         sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
-                           "--changes", changes])
+                           "--changes", changes, "--trainer-levels", ""])
         items = open(os.path.join(addon, "Data", "Items.lua"), encoding="utf-8").read()
         assert '["Copper Bar"] = 7,' in items, items[:400]
         synced = open(eng, encoding="utf-8").read()
@@ -155,7 +155,7 @@ def main():
 
         # A second run with the same tables reports no changes.
         sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
-                           "--changes", changes])
+                           "--changes", changes, "--trainer-levels", ""])
         assert len(json.load(open(changes, encoding="utf-8"))) == 1  # no new entry without changes
         assert "No recipe changes." in open(report, encoding="utf-8").read()
 
@@ -164,7 +164,7 @@ def main():
         rows = open(path, encoding="utf-8").read().replace(",Copper Bar,0,7", ",Copper Bar,0,5")
         open(path, "w", encoding="utf-8").write(rows)
         sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
-                           "--changes", changes])
+                           "--changes", changes, "--trainer-levels", ""])
         text = open(report, encoding="utf-8").read()
         assert "Changes found." in text and "Copper Bar: vendors pay 5c (was 7c)" in text, text[:800]
         hist = json.load(open(changes, encoding="utf-8"))
