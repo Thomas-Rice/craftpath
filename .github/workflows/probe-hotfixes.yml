@@ -1,0 +1,15 @@
+name: Probe wiki (temporary)
+on: workflow_dispatch
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe warcraft.wiki.gg
+        run: |
+          UA="CraftPath recipe sync (+https://github.com/Thomas-Rice/craftpath)"
+          API="https://warcraft.wiki.gg/api.php"
+          curl -sS -A "$UA" "$API?action=query&list=allpages&apprefix=Forever&aplimit=500&format=json" | python3 -c "
+          import json,sys; d=json.load(sys.stdin); [print('OUT page', p['title']) for p in d['query']['allpages']]"
+          curl -sS -A "$UA" "$API?action=parse&page=Forever_blacksmithing_plans&prop=wikitext&format=json" | python3 -c "
+          import json,sys; t=json.load(sys.stdin)['parse']['wikitext']['*']
+          i=t.find('Iron Buckle'); print('OUT len', len(t)); print('OUT head', repr(t[:1500])); print('OUT around', repr(t[i-600:i+400]))"
