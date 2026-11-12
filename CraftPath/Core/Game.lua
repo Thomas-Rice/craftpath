@@ -414,8 +414,25 @@ local function trainerOpened(why)
 end
 ns.On("TRAINER_SHOW", function() trainerOpened("TRAINER_SHOW") end)
 ns.On("TRAINER_UPDATE", function() readTrainer("TRAINER_UPDATE") end)
+-- In Forever the trainer events don't reliably reach addons, so also watch the trainer window
+-- itself: read when it opens and whenever it refreshes (throttled).
+local lastWindowRead = 0
+local function hookTrainerWindow()
+  local f = _G.ClassTrainerFrame
+  if not f or f.cpTrainerHooked then return end
+  f.cpTrainerHooked = true
+  f:HookScript("OnShow", function() trainerOpened("WINDOW") end)
+  if type(_G.ClassTrainerFrame_Update) == "function" then
+    hooksecurefunc("ClassTrainerFrame_Update", function()
+      local now = GetTime and GetTime() or 0
+      if now - lastWindowRead > 2 then lastWindowRead = now; readTrainer("WINDOW_UPDATE") end
+    end)
+  end
+end
+ns.On("ADDON_LOADED", function(name) if name == "Blizzard_TrainerUI" then hookTrainerWindow() end end)
+ns.On("PLAYER_LOGIN", hookTrainerWindow)
 -- Newer clients open NPC windows through the interaction manager (type 7 = trainer).
 pcall(ns.On, "PLAYER_INTERACTION_MANAGER_FRAME_SHOW", function(kind)
   local trainer = Enum and Enum.PlayerInteractionType and Enum.PlayerInteractionType.Trainer or 7
-  if kind == trainer then trainerOpened("INTERACTION") end
+  if kind == trainer then hookTrainerWindow(); trainerOpened("INTERACTION") end
 end)

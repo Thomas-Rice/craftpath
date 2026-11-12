@@ -73,6 +73,10 @@ function Widget:SetWordWrap(v) self.__wrap = v end
 function Widget:SetScrollChild(c) c.__parent = self; c.__points = { TOPLEFT = { rel = self, relPoint = "TOPLEFT", x = 0 } } end
 function Widget:GetFontString() if not self.__fs then self.__fs = newWidget("FontString"); self.__fs.__parent = self end return self.__fs end
 function Widget:GetScript(k) return self.__scripts[k] end
+function Widget:HookScript(k, fn)
+  local old = self.__scripts[k]
+  self.__scripts[k] = function(...) if old then old(...) end fn(...) end
+end
 function Widget:CreateFontString(_, _, template)
   local fs = newWidget("FontString"); fs.__parent = self; fs.__template = template; return fs
 end
@@ -397,6 +401,12 @@ def main():
     fire("TRAINER_SHOW")
     assert ns.db.trainer["Engineering"]["Copper Tube"] == 60
     assert seen["Trainer Only Widget"].learn == 140
+    # the trainer window itself (Forever doesn't reliably send the trainer events)
+    lua.execute('ClassTrainerFrame = CreateFrame("Frame", "ClassTrainerFrame")')
+    fire("ADDON_LOADED", "Blizzard_TrainerUI")
+    ns.db.trainerProbe = None
+    G.ClassTrainerFrame.Show(G.ClassTrainerFrame)
+    assert ns.db.trainerProbe and ns.db.trainerProbe.why == "WINDOW", "trainer window not watched"
     G.SlashCmdList.CRAFTPATH("trainer")  # prints what the trainer window gave
     assert ns.db.trainerProbe.n == 3 and ns.db.trainerProbe.why == "slash", ns.db.trainerProbe.why
     assert seen["Journeyman Engineering"] is None, "rank training logged as a recipe"
