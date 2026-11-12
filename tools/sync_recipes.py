@@ -196,24 +196,21 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
             continue
 
         kept, kept_learn = existing_sources.get(name, (None, None))
-        # Trainer recipes usually say 1 in the client; the real number is on the trainer NPC,
-        # so keep the number we already have, or estimate it and say so in the report.
+        # Trainer recipes say 1 in the client. In Forever the trainer teaches them at the skill
+        # where they turn yellow (TrivialSkillLineRankLow): Iron Buckle at 125, Mana Well at 20,
+        # checked in game. So learn = yellow, straight from the game data.
         auto = num(r, "AcquireMethod") in (1, 2)
-        estimated = False
+        # Recipes from a recipe item, vendor, faction or quest keep the number we have (the
+        # requirement there is on the recipe item or the vendor, not in these tables).
+        from_item = any(p + name in item_names for p in prefixes) or (kept and kept[0] in "RFVGNQ")
         if learn <= 1 and not auto and yellow > 1:
-            if kept_learn:
-                learn = kept_learn
-            else:
-                learn = max(1, yellow - 5)
-                estimated = True
+            learn = kept_learn if (from_item and kept_learn) else yellow
         if learn >= MAX_SKILL or grey <= learn:
             continue  # can't help reach the cap
         orange = learn
         if yellow <= 0:
             yellow = learn
         green = (max(yellow, learn) + grey) // 2
-        if estimated:
-            problems.append(f"{name}: client gives no trainer skill; learn skill estimated as {learn} (yellow - 5)")
         if kept and kept[0] in "FVGNQ":
             source = kept
         elif any(p + name in item_names for p in prefixes):

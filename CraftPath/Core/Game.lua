@@ -345,6 +345,14 @@ local function readTrainer()
     end
   end
   local n = GetNumTrainerServices() or 0
+  -- What the trainer window gave us last time, so a trainer that records nothing can be looked into.
+  local probe = { t = time(), n = n }
+  if n > 0 then
+    local _, a, b = pcall(GetTrainerServiceInfo, 1)
+    local _, c, d = pcall(GetTrainerServiceSkillReq, 1)
+    probe.first = tostring(a) .. " / " .. tostring(b) .. " / " .. tostring(c) .. " / " .. tostring(d)
+  end
+  ns.db.trainerProbe = probe
   for i = 1, n do
     local ok, name = pcall(GetTrainerServiceInfo, i)
     local ok2, skill, rank = pcall(GetTrainerServiceSkillReq, i)
@@ -359,5 +367,9 @@ local function readTrainer()
     if not v then SetTrainerServiceTypeFilter(f, 0) end
   end
 end
-ns.On("TRAINER_SHOW", readTrainer)
+ns.On("TRAINER_SHOW", function()
+  readTrainer()
+  -- the list can arrive a moment after the window opens
+  if C_Timer and C_Timer.After then C_Timer.After(0.5, readTrainer) end
+end)
 ns.On("TRAINER_UPDATE", readTrainer)

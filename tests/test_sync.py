@@ -93,7 +93,7 @@ def main():
         open(eng, "w", encoding="utf-8").write(text.replace(line, line + "|0"))
         csvs = os.path.join(tmp, "csv")
         os.makedirs(csvs)
-        new = {"name": "Thorium Shield Wall", "learn": 285, "yellow": 300, "grey": 320, "makes": 1, "source": "T",
+        new = {"name": "Thorium Shield Wall", "learn": 285, "yellow": 290, "grey": 320, "makes": 1, "source": "T",
                "reagents": [("Thorium Bar", 20), ("Dense Grinding Stone", 2)], "points": 2}
         secret = {"name": "Mysterious Gadget", "learn": 150, "yellow": 160, "grey": 180, "makes": 1, "source": "A",
                   "reagents": [("Iron Bar", 2), ("Glimmering Hidden Cog", 1)]}
@@ -128,26 +128,32 @@ def main():
         for prof in SKILL_LINES:
             for name, b in before[prof].items():
                 a = after[prof].get(name)
+                if b[4] == "T" and b[1] >= 300:
+                    continue  # learned at 300: no skill-ups left, so not in a route
                 assert a, f"{prof}: {name} lost"
+                if b[4] == "T":  # trainer recipes are learned where they turn yellow
+                    assert a[0] == b[1] and a[1:] == b[1:] or name == "Copper Tube", (name, a, b)
+                    if name == "Copper Tube":
+                        assert a[0] == a[1] and a[2] == 112, a  # grey from the client
+                    continue
                 if name == "Copper Tube":
-                    assert a[0] == 75 and a[2] == 112, a  # learn kept from the old data, grey from the client
+                    assert a[2] == 112, a
                     continue
                 if name == "Rough Blasting Powder":
                     assert a[:-1] == b[:-1] and a[-1] == 0, a  # hand-set "no skill-ups" kept
                     continue
                 assert a == b, f"{prof}: {name}\n before {b}\n after  {a}"
         wall = after["Blacksmithing"]["Thorium Shield Wall"]
-        assert wall[0] == 295 and wall[7] == 2, wall  # new trainer recipe: learn estimated as yellow - 5
+        assert wall[0] == 290 and wall[7] == 2, wall  # new trainer recipe: learned at its yellow skill
         assert after["Engineering"]["Thorium Widget"][5] == "Sovik (Orgrimmar)"  # hand-kept vendor
         assert after["Engineering"]["SAF-T Dynamite"][4] == "F"                 # hand-kept Favor
 
         text = open(report, encoding="utf-8").read()
         if os.environ.get("SHOW_REPORT"):
             print(text)
-        assert "Worth a look" in text and "**Copper Tube**: grey" in text, text[:1500]
+        assert "Worth a look" in text and "**Copper Tube**: learn 75 → 80; orange 75 → 80; grey 110 → 112" in text, text[:1500]
         assert "Changes found." in text
         assert "Thorium Shield Wall" in text and "Copper Tube" in text
-        assert "learn skill estimated as 295" in text
         assert "Hidden in the client (1)" in text and "Mysterious Gadget" in text
         assert "Mysterious Gadget" not in after["Engineering"]
         assert "build = \"1.60.1.99999\"" in open(os.path.join(addon, "Data", "Engineering.lua")).read()
