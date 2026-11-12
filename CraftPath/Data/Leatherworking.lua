@@ -24,13 +24,20 @@ Handstitched Leather Cloak|1|1|40|55|70|1|A|Light Leather*2;Coarse Thread*1
 Handstitched Leather Vest|1|1|40|55|70|1|A|Light Leather*3;Coarse Thread*1
 Light Armor Kit|1|1|30|45|60|1|A|Light Leather*1
 Light Leather|1|1|20|30|40|1|A|Ruined Leather Scraps*3
-Camp Tent|15|15|20|20|20|1|T|Light Leather*5
+Handstitched Leather Pants|15|15|45|60|75|1|T|Light Leather*4;Coarse Thread*1
+Handstitched Leather Belt|25|25|55|70|85|1|T|Light Leather*6;Coarse Thread*1
+Light Leather Quiver|25|25|55|70|85|1|T|Light Leather*4;Coarse Thread*2
+Small Leather Ammo Pouch|25|25|55|70|85|1|T|Light Leather*3;Coarse Thread*4
+Cured Light Hide|30|30|50|60|70|1|T|Light Hide*1;Salt*1
 Black Whelp Slippers|35|35|40|40|40|1|R|Light Leather*12;Cured Light Hide*2;Black Whelp Scale*2
 Dark Leather Boots|35|35|40|40|40|1|R|Light Leather*24;Cured Light Hide*2;Gray Dye*1
+Embossed Leather Vest|35|35|65|80|95|1|T|Light Leather*8;Coarse Thread*4
 Light Leather Reagent Bag|35|35|40|45|50|1|R|Light Leather*8;Cured Light Hide*1;Coarse Thread*3
 Moonglow Boots|35|35|40|40|40|1|R|Light Leather*12;Cured Light Hide*2;Small Lustrous Pearl*1
 Murloc Scale Shoes|35|35|40|40|40|1|R|Light Leather*12;Cured Light Hide*2;Slimy Murloc Scale*4
-Handstitched Leather Pants|45|45|45|60|75|1|T|Light Leather*4;Coarse Thread*1
+Embossed Leather Cloak|40|40|70|85|100|1|T|Light Leather*5;Coarse Thread*2
+Embossed Leather Gloves|40|40|70|85|100|1|T|Light Leather*3;Coarse Thread*2
+Light Leather Bracers|45|45|75|90|105|1|T|Light Leather*6;Coarse Thread*4
 Azure Gustwoven Belt|50|50|55|57|60|1|R|Light Leather*5;Coarse Thread*3
 Azure Gustwoven Bracers|50|50|55|57|60|1|R|Light Leather*4;Coarse Thread*3
 Azure Windraveled Armguards|50|50|55|57|60|1|R|Light Leather*4;Coarse Thread*3
@@ -39,7 +46,9 @@ Cloudy Gustwoven Belt|50|50|55|57|60|1|R|Light Leather*5;Coarse Thread*3
 Cloudy Gustwoven Bracers|50|50|55|57|60|1|R|Light Leather*4;Coarse Thread*3
 Cloudy Windraveled Armguards|50|50|55|57|60|1|R|Light Leather*4;Coarse Thread*3
 Cloudy Windraveled Strap|50|50|55|57|60|1|R|Light Leather*5;Coarse Thread*3
-Cured Light Hide|50|50|50|60|70|1|T|Light Hide*1;Salt*1
+Embossed Leather Boots|50|50|80|95|110|1|T|Light Leather*8;Coarse Thread*5
+Embossed Leather Pants|50|50|80|95|110|1|T|Cured Light Hide*1;Light Leather*6;Coarse Thread*2
+Fine Leather Cloak|50|50|70|85|100|1|T|Light Leather*10;Fine Thread*2
 Azure Gustwoven Boots|55|55|60|62|65|1|R|Light Leather*6;Coarse Thread*3
 Azure Gustwoven Gloves|55|55|60|62|65|1|R|Light Leather*6;Coarse Thread*4
 Azure Windraveled Footwraps|55|55|60|62|65|1|R|Light Leather*6;Coarse Thread*3
@@ -48,10 +57,8 @@ Cloudy Gustwoven Boots|55|55|60|62|65|1|R|Light Leather*6;Coarse Thread*3
 Cloudy Gustwoven Gloves|55|55|60|62|65|1|R|Light Leather*6;Coarse Thread*4
 Cloudy Windraveled Footwraps|55|55|60|62|65|1|R|Light Leather*6;Coarse Thread*3
 Cloudy Windraveled Mitts|55|55|60|62|65|1|R|Light Leather*6;Coarse Thread*4
-Handstitched Leather Belt|55|55|55|70|85|1|T|Light Leather*6;Coarse Thread*1
-Light Leather Quiver|55|55|55|70|85|1|T|Light Leather*4;Coarse Thread*2
+Fine Leather Belt|55|55|85|100|115|1|T|Light Leather*6;Coarse Thread*2
 Rugged Leather Pants|55|55|60|75|90|1|R|Light Leather*5;Coarse Thread*5
-Small Leather Ammo Pouch|55|55|55|70|85|1|T|Light Leather*3;Coarse Thread*4
 Azure Gustwoven Harness|60|60|65|67|70|1|R|Light Leather*7;Cured Light Hide*1;Coarse Thread*2
 Azure Gustwoven Trousers|60|60|65|67|70|1|R|Light Leather*7;Coarse Thread*2
 Azure Windraveled Jerkin|60|60|65|67|70|1|R|Light Leather*7;Cured Light Hide*1;Coarse Thread*2
@@ -60,37 +67,33 @@ Cloudy Gustwoven Harness|60|60|65|67|70|1|R|Light Leather*7;Cured Light Hide*1;C
 Cloudy Gustwoven Trousers|60|60|65|67|70|1|R|Light Leather*7;Coarse Thread*2
 Cloudy Windraveled Jerkin|60|60|65|67|70|1|R|Light Leather*7;Cured Light Hide*1;Coarse Thread*2
 Cloudy Windraveled Pants|60|60|65|67|70|1|R|Light Leather*7;Coarse Thread*2
+Fine Leather Tunic|60|60|90|105|120|1|T|Cured Light Hide*3;Light Leather*6;Coarse Thread*4
 Kodo Hide Bag|60|60|65|80|95|1|R|Thin Kodo Leather*3;Light Leather*4;Coarse Thread*1
-Embossed Leather Vest|65|65|65|80|95|1|T|Light Leather*8;Coarse Thread*4
 White Leather Jerkin|65|65|70|85|100|1|R|Light Leather*8;Coarse Thread*2;Bleach*1
-Embossed Leather Cloak|70|70|70|85|100|1|T|Light Leather*5;Coarse Thread*2
-Embossed Leather Gloves|70|70|70|85|100|1|T|Light Leather*3;Coarse Thread*2
-Fine Leather Cloak|70|70|70|85|100|1|T|Light Leather*10;Fine Thread*2
+Light Leather Pants|70|70|100|115|130|1|T|Light Leather*10;Cured Light Hide*1;Fine Thread*1
 Brawler's Leather Armor|75|75|80|80|80|1|R|Light Leather*16;Cured Light Hide*2;Shadowgem*1
+Cured Medium Hide|75|75|90|97|105|1|T|Medium Hide*1;Salt*1
 Defender's Leather Armor|75|75|80|80|80|1|R|Light Leather*16;Cured Light Hide*2;Elixir of Minor Fortitude*1
 Fine Leather Gloves|75|75|80|95|110|1|R|Cured Light Hide*1;Light Leather*4;Coarse Thread*2
-Light Leather Bracers|75|75|75|90|105|1|T|Light Leather*6;Coarse Thread*4
+Gray Leather Boots|75|75|100|112|125|1|T|Medium Leather*4;Fine Thread*2;Gray Dye*1
+Medium Armor Kit|75|75|90|97|105|1|T|Medium Leather*4;Coarse Thread*1
 Medium Leather|75|75|75|80|85|1|T|Light Leather*4
 Stormrider's Leather Armor|75|75|80|80|80|1|R|Light Leather*16;Cured Light Hide*2;Cerulean Dye*1
 Totemic Leather Armor|75|75|80|80|80|1|R|Light Leather*16;Cured Light Hide*2;Sulfuric Acid*1
 Trapper's Leather Armor|75|75|80|80|80|1|R|Light Leather*16;Cured Light Hide*2;Deviate Scale*1
 Wisdom's Leather Armor|75|75|80|80|80|1|R|Light Leather*16;Cured Light Hide*2;Small Lustrous Pearl*1
-Embossed Leather Boots|80|80|80|95|110|1|T|Light Leather*8;Coarse Thread*5
-Embossed Leather Pants|80|80|80|95|110|1|T|Cured Light Hide*1;Light Leather*6;Coarse Thread*2
 Brawler's Leather Belt|85|85|90|105|120|1|R|Light Leather*10;Cured Light Hide*2;Pristine Leather*2;Coarse Thread*1;Shadowgem*1
+Dark Leather Cloak|85|85|110|122|135|1|T|Medium Leather*8;Fine Thread*1;Gray Dye*1
 Defender's Leather Belt|85|85|90|105|120|1|R|Light Leather*10;Cured Light Hide*2;Pristine Leather*2;Coarse Thread*1;Elixir of Minor Fortitude*1
-Fine Leather Belt|85|85|85|100|115|1|T|Light Leather*6;Coarse Thread*2
 Moonglow Vest|85|85|90|105|120|1|R|Light Leather*6;Cured Light Hide*1;Coarse Thread*4;Small Lustrous Pearl*1
 Stormrider's Leather Belt|85|85|90|105|120|1|R|Light Leather*10;Cured Light Hide*2;Pristine Leather*2;Coarse Thread*1;Cerulean Dye*1
 Totemic Leather Belt|85|85|90|105|120|1|R|Light Leather*10;Cured Light Hide*2;Pristine Leather*2;Coarse Thread*1;Sulfuric Acid*1
 Trapper's Leather Belt|85|85|90|105|120|1|R|Light Leather*10;Cured Light Hide*2;Pristine Leather*2;Coarse Thread*1;Deviate Scale*1
 Wisdom's Leather Belt|85|85|90|105|120|1|R|Light Leather*10;Cured Light Hide*2;Pristine Leather*2;Coarse Thread*1;Small Lustrous Pearl*1
-Cured Medium Hide|90|90|90|97|105|1|T|Medium Hide*1;Salt*1
+Dark Leather Pants|90|90|115|127|140|1|T|Medium Leather*12;Gray Dye*1;Fine Thread*1
 Deviate Scale Cloak|90|90|95|110|125|1|R|Deviate Scale*8;Cured Light Hide*1;Fine Thread*1
 Fine Leather Boots|90|90|95|110|125|1|R|Light Leather*7;Coarse Thread*2
-Fine Leather Tunic|90|90|90|105|120|1|T|Cured Light Hide*3;Light Leather*6;Coarse Thread*4
 Forceful Medium Armor Kit|90|90|95|102|110|1|R|Medium Armor Kit*1;Strange Dust*2;Elixir of Minor Strength*2
-Medium Armor Kit|90|90|90|97|105|1|T|Medium Leather*4;Coarse Thread*1
 Murloc Scale Belt|90|90|95|110|125|1|R|Slimy Murloc Scale*8;Light Leather*6;Fine Thread*1
 Mystic Medium Armor Kit|90|90|95|102|110|1|R|Medium Armor Kit*1;Strange Dust*2;Minor Mana Potion*2
 Black Whelp Cloak|95|95|100|112|125|1|R|Black Whelp Scale*12;Medium Leather*4;Fine Thread*1
@@ -100,45 +103,49 @@ Dark Leather Tunic|95|95|100|112|125|1|R|Medium Leather*6;Fine Thread*1;Gray Dye
 Defender's Leather Gloves|95|95|100|112|125|1|R|Light Leather*12;Cured Light Hide*3;Pristine Leather*2;Fine Thread*1;Elixir of Minor Fortitude*2
 Hillman's Leather Vest|95|95|100|112|125|1|R|Fine Leather Tunic*1;Cured Light Hide*2;Coarse Thread*2
 Murloc Scale Breastplate|95|95|100|115|130|1|R|Slimy Murloc Scale*12;Cured Light Hide*1;Light Leather*8;Fine Thread*1
+Nimble Leather Gloves|95|95|120|132|145|1|T|Elixir of Minor Agility*1;Medium Leather*6;Fine Thread*1
 Stormrider's Leather Gloves|95|95|100|112|125|1|R|Light Leather*12;Cured Light Hide*3;Pristine Leather*2;Fine Thread*1;Cerulean Dye*2
 Totemic Leather Gloves|95|95|100|112|125|1|R|Light Leather*12;Cured Light Hide*3;Pristine Leather*2;Fine Thread*1;Sulfuric Acid*2
+Toughened Leather Armor|95|95|120|132|145|1|T|Medium Leather*10;Cured Light Hide*2;Fine Thread*2
 Trapper's Leather Gloves|95|95|100|112|125|1|R|Light Leather*12;Cured Light Hide*3;Pristine Leather*2;Fine Thread*1;Deviate Scale*2
 Wisdom's Leather Gloves|95|95|100|112|125|1|R|Light Leather*12;Cured Light Hide*3;Pristine Leather*2;Fine Thread*1;Small Lustrous Pearl*2
 Brawler's Leather Pants|100|100|105|105|105|1|R|Medium Leather*8;Cured Light Hide*4;Shadowgem*2
+Dark Leather Belt|100|100|125|137|150|1|T|Fine Leather Belt*1;Cured Medium Hide*1;Fine Thread*2;Gray Dye*1
 Defender's Leather Pants|100|100|105|105|105|1|R|Medium Leather*8;Cured Light Hide*4;Elixir of Minor Fortitude*2
 Deviate Scale Gloves|100|100|105|117|130|1|R|Perfect Deviate Scale*2;Deviate Scale*6;Fine Thread*2
 Fine Leather Pants|100|100|105|117|130|1|R|Medium Leather*8;Bolt of Woolen Cloth*1;Fine Thread*1
-Gray Leather Boots|100|100|100|112|125|1|T|Medium Leather*4;Fine Thread*2;Gray Dye*1
-Light Leather Pants|100|100|100|115|130|1|T|Light Leather*10;Cured Light Hide*1;Fine Thread*1
+Fletcher's Gloves|100|100|125|137|150|1|T|Medium Leather*8;Long Tail Feather*4;Fine Thread*2
 Stormrider's Leather Pants|100|100|105|105|105|1|R|Medium Leather*8;Cured Light Hide*4;Cerulean Dye*2
 Totemic Leather Pants|100|100|105|105|105|1|R|Medium Leather*8;Cured Light Hide*4;Sulfuric Acid*2
 Trapper's Leather Pants|100|100|105|105|105|1|R|Medium Leather*8;Cured Light Hide*4;Deviate Scale*2
 Wisdom's Leather Pants|100|100|105|105|105|1|R|Medium Leather*8;Cured Light Hide*4;Small Lustrous Pearl*2
 Brawler's Leather Boots|105|105|110|122|135|1|R|Light Leather*14;Cured Light Hide*4;Pristine Leather*3;Fine Thread*1;Shadowgem*3
 Defender's Leather Boots|105|105|110|122|135|1|R|Light Leather*14;Cured Light Hide*4;Pristine Leather*3;Fine Thread*1;Elixir of Minor Fortitude*3
+Hillman's Shoulders|105|105|130|142|155|1|T|Cured Medium Hide*1;Medium Leather*4;Fine Thread*1
 Stormrider's Leather Boots|105|105|110|122|135|1|R|Light Leather*14;Cured Light Hide*4;Pristine Leather*3;Fine Thread*1;Cerulean Dye*3
 Totemic Leather Boots|105|105|110|122|135|1|R|Light Leather*14;Cured Light Hide*4;Pristine Leather*3;Fine Thread*1;Sulfuric Acid*3
 Trapper's Leather Boots|105|105|110|122|135|1|R|Light Leather*14;Cured Light Hide*4;Pristine Leather*3;Fine Thread*1;Deviate Scale*3
 Wisdom's Leather Boots|105|105|110|122|135|1|R|Light Leather*14;Cured Light Hide*4;Pristine Leather*3;Fine Thread*1;Small Lustrous Pearl*3
-Dark Leather Cloak|110|110|110|122|135|1|T|Medium Leather*8;Fine Thread*1;Gray Dye*1
 Deviate Scale Belt|110|110|115|127|140|1|R|Perfect Deviate Scale*10;Deviate Scale*10;Fine Thread*2
-Dark Leather Pants|115|115|115|127|140|1|T|Medium Leather*12;Gray Dye*1;Fine Thread*1
+Toughened Leather Gloves|110|110|135|147|160|1|T|Medium Leather*4;Cured Medium Hide*2;Elixir of Lesser Defense*2;Spider's Silk*2;Fine Thread*2
 Red Whelp Gloves|115|115|120|132|145|1|R|Red Whelp Scale*6;Medium Leather*4;Fine Thread*1
 Brawler's Leather Hood|120|120|125|137|150|1|R|Medium Leather*8;Cured Medium Hide*2;Pristine Leather*4;Fine Thread*2;Shadowgem*4
 Defender's Leather Hood|120|120|125|137|150|1|R|Medium Leather*8;Cured Medium Hide*2;Pristine Leather*4;Fine Thread*2;Elixir of Minor Fortitude*4
 Heavy Leather Ball|120|120|125|130|135|1|R|Heavy Leather*2;Fine Thread*1
 Hillman's Belt|120|120|125|137|150|1|R|Medium Leather*8;Elixir of Wisdom*1;Fine Thread*2
-Nimble Leather Gloves|120|120|120|132|145|1|T|Elixir of Minor Agility*1;Medium Leather*6;Fine Thread*1
+Hillman's Leather Gloves|120|120|145|157|170|1|T|Medium Leather*14;Fine Thread*4
 Stormrider's Leather Hood|120|120|125|137|150|1|R|Medium Leather*8;Cured Medium Hide*2;Pristine Leather*4;Fine Thread*2;Cerulean Dye*4
 Totemic Leather Hood|120|120|125|137|150|1|R|Medium Leather*8;Cured Medium Hide*2;Pristine Leather*4;Fine Thread*2;Sulfuric Acid*4
-Toughened Leather Armor|120|120|120|132|145|1|T|Medium Leather*10;Cured Light Hide*2;Fine Thread*2
 Trapper's Leather Hood|120|120|125|137|150|1|R|Medium Leather*8;Cured Medium Hide*2;Pristine Leather*4;Fine Thread*2;Deviate Scale*4
 Wisdom's Leather Hood|120|120|125|137|150|1|R|Medium Leather*8;Cured Medium Hide*2;Pristine Leather*4;Fine Thread*2;Small Lustrous Pearl*4
 Brawler's Leather Helm|125|125|130|130|130|1|R|Medium Leather*12;Cured Medium Hide*2;Shadowgem*3
-Dark Leather Belt|125|125|125|137|150|1|T|Fine Leather Belt*1;Cured Medium Hide*1;Fine Thread*2;Gray Dye*1
+Cured Heavy Hide|125|125|135|140|145|1|T|Heavy Hide*1;Salt*3
 Defender's Leather Helm|125|125|130|130|130|1|R|Medium Leather*12;Cured Medium Hide*2;Elixir of Minor Fortitude*3
-Fletcher's Gloves|125|125|125|137|150|1|T|Medium Leather*8;Long Tail Feather*4;Fine Thread*2
+Heavy Armor Kit|125|125|145|155|165|1|T|Heavy Leather*5;Fine Thread*1
 Heavy Leather|125|125|125|130|135|1|T|Medium Leather*5
+Heavy Leather Ammo Pouch|125|125|145|155|165|1|T|Heavy Leather*8;Fine Thread*2
+Heavy Quiver|125|125|145|155|165|1|T|Heavy Leather*8;Fine Thread*2
+Hillman's Cloak|125|125|145|155|165|1|T|Heavy Leather*5;Fine Thread*2
 Stormrider's Leather Helm|125|125|130|130|130|1|R|Medium Leather*12;Cured Medium Hide*2;Cerulean Dye*3
 Totemic Leather Helm|125|125|130|130|130|1|R|Medium Leather*12;Cured Medium Hide*2;Sulfuric Acid*3
 Trapper's Leather Helm|125|125|130|130|130|1|R|Medium Leather*12;Cured Medium Hide*2;Deviate Scale*3
@@ -148,31 +155,27 @@ Defender's Leather Tunic|130|130|135|147|160|1|R|Medium Leather*10;Cured Medium 
 Earthen Leather Shoulders|130|130|135|147|160|1|R|Medium Leather*6;Elemental Earth*1;Fine Thread*2
 Herbalist's Gloves|130|130|135|147|160|1|R|Medium Leather*8;Kingsblood*4;Fine Thread*2
 Hillman's Leather Boots|130|130|135|147|160|1|R|Cured Medium Hide*1;Medium Leather*6;Fine Thread*1
-Hillman's Shoulders|130|130|130|142|155|1|T|Cured Medium Hide*1;Medium Leather*4;Fine Thread*1
 Stormrider's Leather Tunic|130|130|135|147|160|1|R|Medium Leather*10;Cured Medium Hide*3;Pristine Leather*6;Fine Thread*3;Cerulean Dye*6
 Totemic Leather Tunic|130|130|135|147|160|1|R|Medium Leather*10;Cured Medium Hide*3;Pristine Leather*6;Fine Thread*3;Sulfuric Acid*6
 Trapper's Leather Tunic|130|130|135|147|160|1|R|Medium Leather*10;Cured Medium Hide*3;Pristine Leather*6;Fine Thread*3;Deviate Scale*6
 Wisdom's Leather Tunic|130|130|135|147|160|1|R|Medium Leather*10;Cured Medium Hide*3;Pristine Leather*6;Fine Thread*3;Small Lustrous Pearl*6
-Cured Heavy Hide|135|135|135|140|145|1|T|Heavy Hide*1;Salt*3
 Dark Leather Gloves|135|135|140|152|165|1|R|Fine Leather Gloves*1;Cured Medium Hide*1;Fine Thread*1;Gray Dye*1
 Dark Leather Shoulders|135|135|140|152|165|1|R|Medium Leather*12;Elixir of Lesser Agility*1;Gray Dye*1;Fine Thread*2
+Green Leather Belt|135|135|155|165|175|1|T|Cured Heavy Hide*1;Heavy Leather*5;Fine Thread*1;Green Dye*1;Iron Buckle*1
+Guardian Pants|135|135|155|165|175|1|T|Heavy Leather*12;Bolt of Silk Cloth*2;Fine Thread*2
 Pilferer's Gloves|135|135|140|152|165|1|R|Medium Leather*10;Lucky Charm*2;Fine Thread*2
-Toughened Leather Gloves|135|135|135|147|160|1|T|Medium Leather*4;Cured Medium Hide*2;Elixir of Lesser Defense*2;Spider's Silk*2;Fine Thread*2
 Heavy Earthen Gloves|140|140|145|157|170|1|R|Medium Leather*12;Elemental Earth*2;Bolt of Woolen Cloth*2;Fine Thread*2
 Barbaric Gloves|145|145|150|160|170|1|R|Heavy Leather*6;Large Fang*2;Fine Thread*1
 Brawler's Leather Legguards|145|145|150|160|170|1|R|Medium Leather*12;Cured Medium Hide*4;Pristine Leather*8;Fine Thread*3;Shadowgem*8
 Defender's Leather Kilt|145|145|150|160|170|1|R|Medium Leather*12;Cured Medium Hide*4;Pristine Leather*8;Fine Thread*3;Elixir of Minor Fortitude*8
 Green Leather Armor|145|145|150|160|170|1|R|Heavy Leather*9;Green Dye*2;Fine Thread*4
-Heavy Armor Kit|145|145|145|155|165|1|T|Heavy Leather*5;Fine Thread*1
-Heavy Leather Ammo Pouch|145|145|145|155|165|1|T|Heavy Leather*8;Fine Thread*2
-Heavy Quiver|145|145|145|155|165|1|T|Heavy Leather*8;Fine Thread*2
-Hillman's Cloak|145|145|145|155|165|1|T|Heavy Leather*5;Fine Thread*2
-Hillman's Leather Gloves|145|145|145|157|170|1|T|Medium Leather*14;Fine Thread*4
 Stormrider's Leather Kilt|145|145|150|160|170|1|R|Medium Leather*12;Cured Medium Hide*4;Pristine Leather*8;Fine Thread*3;Cerulean Dye*8
 Totemic Leather Leggings|145|145|150|160|170|1|R|Medium Leather*12;Cured Medium Hide*4;Pristine Leather*8;Fine Thread*3;Sulfuric Acid*8
 Trapper's Leather Legguards|145|145|150|160|170|1|R|Medium Leather*12;Cured Medium Hide*4;Pristine Leather*8;Fine Thread*3;Deviate Scale*8
 Wisdom's Leather Leggings|145|145|150|160|170|1|R|Medium Leather*12;Cured Medium Hide*4;Pristine Leather*8;Fine Thread*3;Small Lustrous Pearl*8
 Barbaric Bracers|150|150|155|165|175|1|R|Heavy Leather*8;Cured Heavy Hide*2;Small Lustrous Pearl*4;Raptor Hide*1;Large Fang*4
+Barbaric Shoulders|150|150|170|180|190|1|T|Heavy Leather*8;Cured Heavy Hide*1;Fine Thread*2
+Dusky Leather Armor|150|150|170|180|190|1|T|Heavy Leather*10;Shadow Oil*1;Fine Thread*2
 Forceful Heavy Armor Kit|150|150|155|165|175|1|R|Heavy Armor Kit*1;Soul Dust*2;Elixir of Giant Growth*2
 Mender's Leather Belt|150|150|155|155|155|1|R|Heavy Leather*8;Cured Medium Hide*2;Iridescent Pearl*1
 Mystic Heavy Armor Kit|150|150|155|165|175|1|R|Heavy Armor Kit*1;Soul Dust*2;Lesser Mana Potion*2
@@ -183,22 +186,22 @@ Skycaller's Leather Belt|150|150|155|155|155|1|R|Heavy Leather*8;Cured Medium Hi
 Stalker's Leather Belt|150|150|155|155|155|1|R|Heavy Leather*8;Cured Medium Hide*2;Elemental Air*1
 Warden's Leather Belt|150|150|155|155|155|1|R|Heavy Leather*8;Cured Medium Hide*2;Elemental Earth*1
 Dusky Leather Leggings|155|155|160|170|180|1|R|Heavy Leather*10;Black Dye*1;Fine Thread*2
-Green Leather Belt|155|155|155|165|175|1|T|Cured Heavy Hide*1;Heavy Leather*5;Fine Thread*1;Green Dye*1;Iron Buckle*1
-Guardian Pants|155|155|155|165|175|1|T|Heavy Leather*12;Bolt of Silk Cloth*2;Fine Thread*2
+Frost Leather Cloak|155|155|175|185|195|1|T|Heavy Leather*6;Elemental Earth*2;Elemental Water*2;Fine Thread*2
+Green Leather Bracers|155|155|175|185|195|1|T|Cured Heavy Hide*2;Heavy Leather*6;Green Dye*1;Fine Thread*1
 Raptor Hide Belt|155|155|160|170|180|1|R|Raptor Hide*4;Heavy Leather*4;Fine Thread*2
 Raptor Hide Harness|155|155|160|170|180|1|R|Raptor Hide*6;Heavy Leather*4;Fine Thread*2
 Barbaric Leggings|160|160|165|175|185|1|R|Heavy Leather*10;Fine Thread*2;Moss Agate*1
+Dusky Bracers|160|160|180|190|200|1|T|Heavy Leather*16;Black Dye*1;Silken Thread*2
 Guardian Belt|160|160|165|175|185|1|R|Cured Heavy Hide*2;Heavy Leather*4;Fine Thread*1;Iron Buckle*1
 Thick Murloc Armor|160|160|165|175|185|1|R|Thick Murloc Scale*12;Cured Heavy Hide*1;Heavy Leather*10;Fine Thread*3
+Barbaric Harness|165|165|185|195|205|1|T|Heavy Leather*14;Fine Thread*2;Iron Buckle*1
 Green Whelp Armor|165|165|170|180|190|1|R|Green Whelp Scale*4;Heavy Leather*10;Fine Thread*2
 Guardian Armor|165|165|170|180|190|1|R|Cured Heavy Hide*2;Heavy Leather*12;Shadow Oil*1;Fine Thread*2
-Barbaric Shoulders|170|170|170|180|190|1|T|Heavy Leather*8;Cured Heavy Hide*1;Fine Thread*2
-Cured Thick Hide|170|170|175|175|175|1|T|Thick Hide*1;Deeprock Salt*1
-Dusky Leather Armor|170|170|170|180|190|1|T|Heavy Leather*10;Shadow Oil*1;Fine Thread*2
-Frost Leather Cloak|175|175|175|185|195|1|T|Heavy Leather*6;Elemental Earth*2;Elemental Water*2;Fine Thread*2
+Guardian Gloves|165|165|185|195|205|1|T|Heavy Leather*4;Cured Heavy Hide*1;Silken Thread*1
+Dusky Belt|170|170|190|200|210|1|T|Heavy Leather*10;Bolt of Silk Cloth*2;Black Dye*2;Iron Buckle*1
 Gem-studded Leather Belt|175|175|180|190|200|1|R|Cured Heavy Hide*4;Iridescent Pearl*2;Jade*2;Citrine*1;Fine Thread*1
-Green Leather Bracers|175|175|175|185|195|1|T|Cured Heavy Hide*2;Heavy Leather*6;Green Dye*1;Fine Thread*1
 Guardian Cloak|175|175|180|190|200|1|R|Heavy Leather*14;Bolt of Silk Cloth*2;Silken Thread*2
+Thick Armor Kit|175|175|195|205|215|1|T|Thick Leather*5;Silken Thread*1
 Thick Leather|175|175|175|177|180|1|T|Heavy Leather*6
 Azure Gustwoven Hood|180|180|185|187|190|1|R|Heavy Leather*15;Cured Heavy Hide*3;Heavy Silken Thread*1;Blue Dye*4
 Azure Gustwoven Spaulders|180|180|185|187|190|1|R|Heavy Leather*12;Cured Heavy Hide*2;Heavy Silken Thread*1;Blue Dye*3
@@ -208,17 +211,17 @@ Cloudy Gustwoven Hood|180|180|185|187|190|1|R|Heavy Leather*15;Cured Heavy Hide*
 Cloudy Gustwoven Spaulders|180|180|185|187|190|1|R|Heavy Leather*12;Cured Heavy Hide*2;Heavy Silken Thread*1;Bleach*6
 Cloudy Windraveled Cover|180|180|185|187|190|1|R|Heavy Leather*15;Cured Heavy Hide*3;Heavy Silken Thread*1;Bleach*8
 Cloudy Windraveled Drapes|180|180|185|187|190|1|R|Heavy Leather*12;Cured Heavy Hide*2;Heavy Silken Thread*1;Bleach*6
-Dusky Bracers|180|180|180|190|200|1|T|Heavy Leather*16;Black Dye*1;Silken Thread*2
 Gloves of the Greatfather|180|180|185|195|205|1|R|Heavy Leather*8;Elemental Earth*4;Silken Thread*1
 Green Whelp Bracers|180|180|185|195|205|1|R|Green Whelp Scale*6;Heavy Leather*8;Silken Thread*2
 Murloc Scale Bracers|180|180|185|195|205|1|R|Thick Murloc Scale*16;Cured Heavy Hide*1;Heavy Leather*14;Silken Thread*1
+Nightscape Headband|180|180|200|210|220|1|T|Thick Leather*5;Silken Thread*2
+Nightscape Tunic|180|180|200|210|220|1|T|Thick Leather*7;Silken Thread*2
 Shadowskin Gloves|180|180|185|195|205|1|R|Thick Leather*6;Shadowcat Hide*8;Black Pearl*2;Cured Heavy Hide*2;Shadowgem*4;Heavy Silken Thread*1
-Barbaric Harness|185|185|185|195|205|1|T|Heavy Leather*14;Fine Thread*2;Iron Buckle*1
-Guardian Gloves|185|185|185|195|205|1|T|Heavy Leather*4;Cured Heavy Hide*1;Silken Thread*1
 Guardian Leather Bracers|185|185|190|200|210|1|R|Heavy Leather*6;Cured Heavy Hide*2;Silken Thread*1
+Turtle Scale Bracers|185|185|205|215|225|1|T|Thick Leather*8;Turtle Scale*12;Heavy Silken Thread*1
+Turtle Scale Breastplate|185|185|205|215|225|1|T|Thick Leather*6;Turtle Scale*12;Heavy Silken Thread*1
 Barbaric Belt|190|190|195|205|215|1|R|Heavy Leather*6;Cured Heavy Hide*2;Coarse Gorilla Hair*2;Great Rage Potion*1;Silken Thread*1;Iron Buckle*1
 Comfortable Leather Hat|190|190|195|205|215|1|R|Heavy Leather*12;Cured Heavy Hide*2;Silken Thread*2
-Dusky Belt|190|190|190|200|210|1|T|Heavy Leather*10;Bolt of Silk Cloth*2;Black Dye*2;Iron Buckle*1
 Dusky Boots|190|190|195|205|215|1|R|Heavy Leather*8;Shadowcat Hide*2;Shadow Oil*1;Silken Thread*2
 Mender's Leather Gloves|190|190|195|205|215|1|R|Heavy Leather*16;Cured Heavy Hide*2;Pristine Hide*2;Silken Thread*2;Iridescent Pearl*2;Pristine Leather*1
 Prowler's Leather Gloves|190|190|195|205|215|1|R|Heavy Leather*16;Cured Heavy Hide*2;Pristine Hide*2;Silken Thread*2;Jade*2;Pristine Leather*1
@@ -229,28 +232,29 @@ Stalker's Leather Gloves|190|190|195|205|215|1|R|Heavy Leather*16;Cured Heavy Hi
 Swift Boots|190|190|195|205|215|1|R|Heavy Leather*10;Swiftness Potion*2;Thick Spider's Silk*2;Silken Thread*1
 Warden's Leather Gloves|190|190|195|205|215|1|R|Heavy Leather*16;Cured Heavy Hide*2;Pristine Hide*2;Silken Thread*2;Elemental Earth*2;Pristine Leather*1
 Faintly Glowing Leather|195|195|200|210|220|1|R|Cured Thick Hide*1;Irradiated Leather Scraps*5
-Thick Armor Kit|195|195|195|205|215|1|T|Thick Leather*5;Silken Thread*1
 Turtle Scale Gloves|195|195|200|210|220|1|R|Thick Leather*6;Turtle Scale*8;Heavy Silken Thread*1
 Forceful Thick Armor Kit|200|200|205|215|225|1|R|Thick Armor Kit*1;Vision Dust*2;Elixir of Ogre Strength*2
 Mender's Leather Shoes|200|200|205|205|205|1|R|Heavy Leather*8;Cured Medium Hide*2;Iridescent Pearl*2
 Mender's Mail Boots|200|200|205|205|205|1|R|Heavy Leather*8;Cured Medium Hide*2;Iridescent Pearl*2
 Mystic Thick Armor Kit|200|200|205|215|225|1|R|Thick Armor Kit*1;Vision Dust*2;Mana Potion*2
-Nightscape Headband|200|200|200|210|220|1|T|Thick Leather*5;Silken Thread*2
 Nightscape Shoulders|200|200|205|215|225|1|R|Thick Leather*8;Mageweave Cloth*6;Silken Thread*3
-Nightscape Tunic|200|200|200|210|220|1|T|Thick Leather*7;Silken Thread*2
 Prowler's Leather Shoes|200|200|205|205|205|1|R|Heavy Leather*8;Cured Medium Hide*2;Jade*2
+Quickdraw Quiver|200|200|220|230|240|1|T|Thick Leather*12;Cured Thick Hide*1;Elixir of Agility*1;Silken Thread*4
 Skirmisher's Mail Boots|200|200|205|205|205|1|R|Heavy Leather*8;Cured Medium Hide*2;Citrine*2
 Skulker's Leather Shoes|200|200|205|205|205|1|R|Heavy Leather*8;Cured Medium Hide*2;Spider's Silk*2
 Skycaller's Leather Shoes|200|200|205|205|205|1|R|Heavy Leather*8;Cured Medium Hide*2;Elemental Water*2
 Skycaller's Mail Boots|200|200|205|205|205|1|R|Heavy Leather*8;Cured Medium Hide*2;Elemental Water*2
 Stalker's Mail Boots|200|200|205|205|205|1|R|Heavy Leather*8;Cured Medium Hide*2;Elemental Air*2
+Thick Leather Ammo Pouch|200|200|220|230|240|1|T|Thick Leather*10;Cured Thick Hide*1;Elixir of Defense*1;Silken Thread*6
 Warden's Leather Shoes|200|200|205|205|205|1|R|Heavy Leather*8;Cured Medium Hide*2;Elemental Earth*2
 Big Voodoo Robe|205|205|210|220|230|1|R|Thick Leather*10;Flask of Mojo*4;Heavy Silken Thread*1
-Turtle Scale Bracers|205|205|205|215|225|1|T|Thick Leather*8;Turtle Scale*12;Heavy Silken Thread*1
-Turtle Scale Breastplate|205|205|205|215|225|1|T|Thick Leather*6;Turtle Scale*12;Heavy Silken Thread*1
+Nightscape Pants|205|205|225|235|245|1|T|Thick Leather*14;Silken Thread*4
+Turtle Scale Helm|205|205|225|235|245|1|T|Thick Leather*14;Turtle Scale*24;Heavy Silken Thread*1
 Big Voodoo Mask|210|210|215|225|235|1|R|Thick Leather*8;Flask of Mojo*6;Heavy Silken Thread*1
+Nightscape Boots|210|210|230|240|250|1|T|Thick Leather*16;Heavy Silken Thread*2
 Tough Scorpid Bracers|210|210|215|225|235|1|R|Thick Leather*10;Scorpid Scale*4;Silken Thread*2
 Tough Scorpid Breastplate|210|210|215|225|235|1|R|Thick Leather*12;Scorpid Scale*12;Silken Thread*4
+Turtle Scale Leggings|210|210|230|240|250|1|T|Thick Leather*14;Turtle Scale*28;Heavy Silken Thread*1
 Wild Leather Shoulders|210|210|215|225|235|1|R|Thick Leather*10;Wildvine*1;Cured Thick Hide*1
 Mender's Mail Bracers|215|215|220|230|240|1|R|Thick Leather*12;Cured Heavy Hide*4;Pristine Hide*6;Heavy Silken Thread*2;Iridescent Pearl*4;Pristine Leather*3
 Mender's Mail Shoulders|215|215|220|230|240|1|R|Thick Leather*10;Cured Heavy Hide*3;Pristine Hide*4;Silken Thread*2;Iridescent Pearl*3;Pristine Leather*2
@@ -263,31 +267,24 @@ Stalker's Mail Shoulders|215|215|220|230|240|1|R|Thick Leather*10;Cured Heavy Hi
 Tough Scorpid Gloves|215|215|220|230|240|1|R|Thick Leather*6;Scorpid Scale*8;Silken Thread*2
 Wild Leather Helmet|215|215|220|230|240|1|R|Thick Leather*10;Wildvine*2;Cured Thick Hide*1
 Wild Leather Vest|215|215|220|230|240|1|R|Thick Leather*12;Wildvine*2;Cured Thick Hide*1
-Dragonscale Gauntlets|220|220|220|230|240|1|T|Thick Leather*24;Worn Dragonscale*12;Heavy Silken Thread*4;Cured Thick Hide*2
 Glowing Gneuro-Linked Cowl|220|220|225|230|235|1|R|Hyperconductive Arcano-Filament*1;Cured Thick Hide*5;Silken Thread*2;Faintly Glowing Leather*5
 Nightscape Cloak|220|220|225|235|245|1|R|Thick Leather*12;Silken Thread*4
-Quickdraw Quiver|220|220|220|230|240|1|T|Thick Leather*12;Cured Thick Hide*1;Elixir of Agility*1;Silken Thread*4
-Rugged Leather|220|220|225|225|225|1|T|Thick Leather*6
-Thick Leather Ammo Pouch|220|220|220|230|240|1|T|Thick Leather*10;Cured Thick Hide*1;Elixir of Defense*1;Silken Thread*6
-Wolfshead Helm|220|220|220|230|240|1|T|Thick Leather*18;Thick Wolfhide*2;Wicked Claw*8;Heavy Silken Thread*4;Cured Thick Hide*2
 Big Voodoo Pants|225|225|230|240|250|1|R|Thick Leather*10;Flask of Big Mojo*6;Heavy Silken Thread*2
 Cured Rugged Hide|225|225|225|230|235|2|T|Rugged Hide*1;Refined Deeprock Salt*1
-Gauntlets of the Sea|225|225|225|235|245|1|T|Thick Leather*20;Globe of Water*8;Core of Earth*2;Cured Thick Hide*1;Heavy Silken Thread*4
+Dragonscale Gauntlets|225|225|220|232|240|1|T|Thick Leather*24;Worn Dragonscale*12;Heavy Silken Thread*4;Cured Thick Hide*2
 Mender's Leather Shoulders|225|225|230|240|250|1|R|Thick Leather*10;Cured Heavy Hide*3;Pristine Hide*4;Silken Thread*2;Iridescent Pearl*3;Pristine Leather*2
-Nightscape Pants|225|225|225|235|245|1|T|Thick Leather*14;Silken Thread*4
 Prowler's Leather Shoulders|225|225|230|240|250|1|R|Thick Leather*10;Cured Heavy Hide*3;Pristine Hide*4;Silken Thread*2;Jade*3;Pristine Leather*2
 Rugged Armor Kit|225|225|225|235|245|1|T|Rugged Leather*5
 Skulker's Leather Shoulder|225|225|230|240|250|1|R|Thick Leather*10;Cured Heavy Hide*3;Pristine Hide*4;Silken Thread*2;Spider's Silk*3;Pristine Leather*2
 Skycaller's Leather Shoulders|225|225|230|240|250|1|R|Thick Leather*10;Cured Heavy Hide*3;Pristine Hide*4;Silken Thread*2;Elemental Water*3;Pristine Leather*2
 Tough Scorpid Boots|225|225|230|240|250|1|R|Thick Leather*12;Scorpid Scale*12;Silken Thread*6
-Turtle Scale Helm|225|225|225|235|245|1|T|Thick Leather*14;Turtle Scale*24;Heavy Silken Thread*1
 Warden's Leather Shoulders|225|225|230|240|250|1|R|Thick Leather*10;Cured Heavy Hide*3;Pristine Hide*4;Silken Thread*2;Elemental Earth*3;Pristine Leather*2
+Wolfshead Helm|225|225|220|232|240|1|T|Thick Leather*18;Thick Wolfhide*2;Wicked Claw*8;Heavy Silken Thread*4;Cured Thick Hide*2
 Big Voodoo Cloak|230|230|235|245|255|1|R|Thick Leather*14;Flask of Big Mojo*4;Heavy Silken Thread*2
 Forceful Rugged Armor Kit|230|230|235|245|255|1|R|Rugged Armor Kit*1;Dream Dust*2;Elixir of Greater Strength*2;Pristine Scale*1;Fel Hide*1
+Gauntlets of the Sea|230|230|225|237|245|1|T|Thick Leather*20;Globe of Water*8;Core of Earth*2;Cured Thick Hide*1;Heavy Silken Thread*4
 Mystic Rugged Armor Kit|230|230|235|245|255|1|R|Rugged Armor Kit*1;Dream Dust*2;Major Mana Potion*2;Pristine Scale*1;Fel Hide*1
-Nightscape Boots|230|230|230|240|250|1|T|Thick Leather*16;Heavy Silken Thread*2
 Tough Scorpid Shoulders|230|230|235|245|255|1|R|Thick Leather*12;Scorpid Scale*16;Heavy Silken Thread*2
-Turtle Scale Leggings|230|230|230|240|250|1|T|Thick Leather*14;Turtle Scale*28;Heavy Silken Thread*1
 Tough Scorpid Leggings|235|235|240|250|260|1|R|Thick Leather*14;Scorpid Scale*8;Heavy Silken Thread*2
 Wild Leather Boots|235|235|240|250|260|1|R|Thick Leather*14;Wildvine*4;Cured Thick Hide*2
 Mender's Leather Bracers|240|240|245|255|265|1|R|Thick Leather*12;Cured Heavy Hide*4;Pristine Hide*6;Heavy Silken Thread*2;Iridescent Pearl*4;Pristine Leather*3
@@ -299,13 +296,12 @@ Warden's Leather Bracers|240|240|245|255|265|1|R|Thick Leather*12;Cured Heavy Hi
 Wild Leather Cloak|240|240|245|255|265|1|R|Thick Leather*16;Wildvine*2;Cured Thick Hide*2
 Wild Leather Leggings|240|240|245|255|265|1|R|Thick Leather*16;Wildvine*2;Cured Thick Hide*2
 Charged Scorpid Belt|245|245|250|260|270|1|R|Rugged Leather*6;Heavy Scorpid Scale*6;Rune Thread*1
-Feathered Breastplate|245|245|245|255|265|1|T|Thick Leather*40;Jet Black Feather*40;Black Pearl*2;Cured Thick Hide*4;Heavy Silken Thread*4
 Heavy Scorpid Bracers|245|245|250|260|270|1|R|Rugged Leather*4;Heavy Scorpid Scale*4;Rune Thread*1
-Helm of Fire|245|245|245|255|265|1|T|Thick Leather*40;Heart of Fire*8;Core of Earth*4;Cured Thick Hide*2;Heavy Silken Thread*4
 Supple Scorpid Boots|245|245|250|260|270|1|R|Rugged Leather*12;Heavy Scorpid Scale*4;Rune Thread*1
 Blue Suede Shoes|250|250|255|265|275|1|R|Rugged Leather*8;Rune Thread*1;Blue Dye*1
-Dragonscale Breastplate|250|250|250|260|270|1|T|Thick Leather*40;Worn Dragonscale*30;Heavy Silken Thread*4;Cured Thick Hide*4
+Feathered Breastplate|250|250|245|257|265|1|T|Thick Leather*40;Jet Black Feather*40;Black Pearl*2;Cured Thick Hide*4;Heavy Silken Thread*4
 Green Dragonscale Breastplate|250|250|255|265|275|1|R|Rugged Leather*20;Green Dragonscale*25;Rune Thread*2
+Helm of Fire|250|250|245|257|265|1|T|Thick Leather*40;Heart of Fire*8;Core of Earth*4;Cured Thick Hide*2;Heavy Silken Thread*4
 Mender's Leather Boots|250|250|255|265|275|1|R|Thick Leather*16;Cured Thick Hide*2;Pristine Hide*8;Heavy Silken Thread*2;Iridescent Pearl*6;Pristine Leather*4
 Mender's Leather Gauntlets|250|250|255|255|255|1|R|Thick Leather*16;Cured Thick Hide*2;Iridescent Pearl*4
 Mender's Mail Gauntlets|250|250|255|255|255|1|R|Thick Leather*16;Cured Thick Hide*2;Iridescent Pearl*4
@@ -329,6 +325,7 @@ Wicked Leather Gauntlets|250|250|255|265|275|1|R|Rugged Leather*8;Black Dye*1;Ru
 Blue Suede Gloves|255|255|260|270|280|1|R|Rugged Leather*8;Rune Thread*1;Blue Dye*1
 Charged Scorpid Helm|255|255|260|270|280|1|R|Rugged Leather*4;Heavy Scorpid Scale*6;Rune Thread*1;Elemental Air*2
 Chimeric Gloves|255|255|260|270|280|1|R|Rugged Leather*6;Chimera Leather*6;Rune Thread*1
+Dragonscale Breastplate|255|255|250|262|270|1|T|Thick Leather*40;Worn Dragonscale*30;Heavy Silken Thread*4;Cured Thick Hide*4
 Heavy Scorpid Vest|255|255|260|270|280|1|R|Rugged Leather*6;Heavy Scorpid Scale*6;Rune Thread*1
 Scarlet Huntsman's Clasp|255|255|260|282|305|1|R|Righteous Orb*1;Heavy Scorpid Scale*10
 Scarlet Huntsman's Wristguards|255|255|260|282|305|1|R|Heavy Scorpid Scale*8
@@ -363,6 +360,7 @@ Stormshroud Pants|265|265|270|280|290|1|R|Rugged Leather*16;Essence of Water*2;E
 Supple Scorpid Bracers|265|265|270|280|290|1|R|Rugged Leather*7;Heavy Scorpid Scale*2;Rune Thread*1
 Warbear Harness|265|265|270|280|290|1|R|Rugged Leather*28;Warbear Leather*12;Rune Thread*1
 Warden's Leather Waistguard|265|265|270|280|290|1|R|Rugged Leather*12;Cured Thick Hide*4;Pristine Hide*10;Heavy Silken Thread*2;Elemental Earth*8;Pristine Leather*5
+Black Dragonscale Shoulders|270|270|310|320|330|1|R|Rugged Leather*44;Black Dragonscale*45;Enchanted Leather*2;Cured Rugged Hide*1;Rune Thread*1
 Blue Suede Pants|270|270|275|285|295|1|R|Rugged Leather*14;Rune Thread*1;Blue Dye*3;Cured Rugged Hide*1
 Charged Scorpid Bracers|270|270|275|285|295|1|R|Rugged Leather*2;Heavy Scorpid Scale*4;Rune Thread*1;Elemental Air*2
 Charged Scorpid Gauntlets|270|270|275|285|295|1|R|Rugged Leather*4;Heavy Scorpid Scale*8;Rune Thread*1;Elemental Air*2
@@ -379,7 +377,6 @@ Blue Dragonscale Breastplate|275|275|280|290|300|1|R|Rugged Leather*28;Blue Drag
 Blue Suede Shoulders|275|275|280|290|300|1|R|Rugged Leather*10;Rune Thread*1;Blue Dye*2
 Charged Scorpid Vest|275|275|280|290|300|1|R|Rugged Leather*6;Heavy Scorpid Scale*12;Rune Thread*1;Elemental Air*2
 Frostsaber Leggings|275|275|280|290|300|1|R|Rugged Leather*6;Frostsaber Leather*8;Rune Thread*1
-Green Dragonscale Gauntlets|275|275|275|285|295|1|T|Rugged Leather*20;Green Dragonscale*30;Cured Rugged Hide*1;Rune Thread*2
 Heavy Scorpid Leggings|275|275|280|290|300|1|R|Rugged Leather*8;Heavy Scorpid Scale*12;Rune Thread*1
 Living Green Dragonscale Breastplate|275|275|280|290|300|1|R|Rugged Leather*20;Green Dragonscale*25;Rune Thread*2
 Living Leggings|275|275|280|290|300|1|R|Rugged Leather*16;Living Essence*6;Cured Rugged Hide*1;Rune Thread*1
@@ -398,6 +395,7 @@ Blue Suede Armor|280|280|285|295|305|1|R|Rugged Leather*14;Cured Rugged Hide*2;R
 Chimeric Vest|280|280|285|295|305|1|R|Rugged Leather*10;Chimera Leather*10;Rune Thread*1
 Dawn Treaders|280|280|285|295|305|1|R|Rugged Leather*30;Guardian Stone*2;Essence of Water*4;Cured Rugged Hide*2;Rune Thread*2
 Devilsaur Gauntlets|280|280|285|295|305|1|R|Rugged Leather*30;Devilsaur Leather*8;Rune Thread*1
+Green Dragonscale Gauntlets|280|280|275|287|295|1|T|Rugged Leather*20;Green Dragonscale*30;Cured Rugged Hide*1;Rune Thread*2
 Heavy Timbermaw Belt|280|280|285|295|305|1|R|Rugged Leather*12;Essence of Earth*3;Living Essence*3;Rune Thread*1
 Ironfeather Breastplate|280|280|285|295|305|1|R|Rugged Leather*40;Ironfeather*120;Jade*1;Cured Rugged Hide*1;Rune Thread*1
 Might of the Timbermaw|280|280|285|295|305|1|R|Rugged Leather*30;Powerful Mojo*2;Living Essence*4;Cured Rugged Hide*2;Rune Thread*2
@@ -420,8 +418,12 @@ Gordok Ogre Suit|285|285|285|290|295|1|T|Rugged Leather*4;Bolt of Runecloth*2;Og
 Heavy Scorpid Helm|285|285|290|300|310|1|R|Rugged Leather*8;Heavy Scorpid Scale*12;Cured Rugged Hide*1;Rune Thread*1
 Helm of the Great Chief|285|285|290|300|310|1|R|Rugged Leather*40;Enchanted Leather*4;Jet Black Feather*60;Large Opal*6;Huge Emerald*2;Rune Thread*1
 Hivethrasher's Claws|285|285|290|292|295|1|R|Rugged Leather*12;Enchanted Leather*3;Essence of Earth*3;Rune Thread*6
+Honed Blue Dragonscale Breastplate|285|285|305|315|325|1|R|Rugged Leather*28;Blue Dragonscale*30;Cured Rugged Hide*1;Rune Thread*1
 Living Green Dragonscale Leggings|285|285|290|300|310|1|R|Rugged Leather*20;Green Dragonscale*25;Rune Thread*1
+Masterwork Volcanic Breastplate|285|285|305|315|325|1|R|Rugged Leather*8;Essence of Fire*1;Essence of Earth*1;Rune Thread*1
 Masterwork Volcanic Leggings|285|285|290|300|310|1|R|Rugged Leather*6;Essence of Fire*1;Core of Earth*1;Rune Thread*1
+Runic Leather Armor|285|285|305|315|325|1|R|Rugged Leather*22;Enchanted Leather*4;Runecloth*16;Cured Rugged Hide*1;Rune Thread*2
+Runic Leather Shoulders|285|285|305|315|325|1|R|Rugged Leather*16;Enchanted Leather*4;Runecloth*18;Cured Rugged Hide*1;Rune Thread*2
 Scalegut Clenchers|285|285|290|292|295|1|R|Heavy Scorpid Scale*5;Enchanted Leather*3;Essence of Fire*3;Rune Thread*6
 Storm Gauntlets|285|285|290|300|310|1|R|Rugged Leather*20;Enchanted Leather*4;Essence of Water*4;Blue Sapphire*4;Rune Thread*1
 Stormshroud Shoulders|285|285|290|300|310|1|R|Rugged Leather*12;Essence of Water*3;Essence of Air*3;Enchanted Leather*2;Rune Thread*1
@@ -431,24 +433,37 @@ Tooled Leather Bracers|285|285|290|300|310|1|R|Rugged Leather*10;Rune Thread*1;O
 Wicked Leather Shoulders|285|285|290|300|310|1|R|Rugged Leather*12;Rune Thread*1;Black Dye*1;Cured Rugged Hide*1
 Bileblister Boots|290|290|295|297|300|1|R|Rugged Leather*15;Enchanted Leather*3;Essence of Air*3;Rune Thread*6
 Bileblister Girdle|290|290|295|297|300|1|R|Rugged Leather*18;Enchanted Leather*3;Essence of Air*3;Rune Thread*6
+Black Dragonscale Leggings|290|290|310|320|330|1|R|Rugged Leather*40;Black Dragonscale*60;Enchanted Leather*4;Cured Rugged Hide*1;Rune Thread*2
 Blue Suede Bracers|290|290|295|305|315|1|R|Rugged Leather*10;Rune Thread*1;Blue Dye*1
 Broodwatcher's Belt|290|290|295|297|300|1|R|Heavy Scorpid Scale*7;Enchanted Leather*3;Essence of Water*3;Rune Thread*6
 Broodwatcher's Treaders|290|290|295|297|300|1|R|Heavy Scorpid Scale*6;Enchanted Leather*3;Essence of Water*3;Rune Thread*6
+Devilcore Gauntlets|290|290|310|320|330|1|R|Rugged Leather*30;Devilsaur Leather*8;Rune Thread*1;Essence of Fire*8
+Devilsaur Leggings|290|290|310|320|330|1|R|Rugged Leather*30;Devilsaur Leather*14;Cured Rugged Hide*1;Rune Thread*1
+Frostsaber Tunic|290|290|310|320|330|1|R|Rugged Leather*12;Frostsaber Leather*12;Cured Rugged Hide*1;Rune Thread*2
+Girdle of Insight|290|290|310|320|330|1|R|Rugged Leather*12;Powerful Mojo*12;Cured Rugged Hide*2;Rune Thread*4
+Hardened Black Dragonscale Breastplate|290|290|310|320|330|1|R|Rugged Leather*40;Black Dragonscale*60;Cured Rugged Hide*1;Rune Thread*2
 Hivethrasher's Boots|290|290|295|297|300|1|R|Rugged Leather*15;Enchanted Leather*3;Essence of Earth*3;Rune Thread*6
 Hivethrasher's Girdle|290|290|295|297|300|1|R|Rugged Leather*18;Enchanted Leather*3;Essence of Earth*3;Rune Thread*6
 Invulnerable Mail|290|290|295|302|310|1|R|Pristine Leather*20;Enchanted Leather*30;Huge Emerald*6;Azerothian Diamond*6;Pristine Scale*10;Rune Thread*2
+Living Breastplate|290|290|310|320|330|1|R|Rugged Leather*16;Living Essence*8;Mooncloth*2;Cured Rugged Hide*1;Rune Thread*2
+Mongoose Boots|290|290|310|320|330|1|R|Rugged Leather*12;Essence of Air*6;Black Diamond*4;Cured Rugged Hide*2;Rune Thread*4
+Red Dragonscale Breastplate|290|290|310|320|330|1|R|Rugged Leather*40;Red Dragonscale*30;Rune Thread*1
 Runic Leather Pants|290|290|295|305|315|1|R|Rugged Leather*18;Runecloth*12;Enchanted Leather*2;Rune Thread*1
 Scalegut Belt|290|290|295|297|300|1|R|Heavy Scorpid Scale*7;Enchanted Leather*3;Essence of Fire*3;Rune Thread*6
 Scalegut Treaders|290|290|295|297|300|1|R|Heavy Scorpid Scale*6;Enchanted Leather*3;Essence of Fire*3;Rune Thread*6
+Stormshroud Gloves|290|290|310|320|330|1|R|Enchanted Leather*6;Essence of Water*4;Essence of Air*4;Cured Rugged Hide*2;Ironweb Spider Silk*2
+Swift Flight Bracers|290|290|310|320|330|1|R|Rugged Leather*12;Larval Acid*8;Ironfeather*60;Cured Rugged Hide*4;Rune Thread*4
 Tooled Leather Epaulets|290|290|295|305|315|1|R|Rugged Leather*12;Rune Thread*1;Orange Dye*1;Cured Rugged Hide*1
 Wicked Leather Belt|290|290|295|305|315|1|R|Rugged Leather*14;Black Dye*2;Rune Thread*2
 Blue Suede Hat|295|295|300|310|320|1|R|Rugged Leather*16;Rune Thread*1;Blue Dye*4
 Charged Scorpid Boots|295|295|300|310|320|1|R|Rugged Leather*12;Heavy Scorpid Scale*14;Rune Thread*1;Elemental Air*2
+Corehound Boots|295|295|315|325|335|1|R|Core Leather*20;Fiery Core*6;Lava Core*2;Rune Thread*2
 Heavy Scorpid Shoulders|295|295|300|310|320|1|R|Rugged Leather*14;Heavy Scorpid Scale*14;Cured Rugged Hide*1;Rune Thread*2
 Heavy Timbermaw Boots|295|295|300|310|320|1|R|Rugged Leather*20;Essence of Earth*6;Living Essence*6;Rune Thread*1
+Honed Blue Dragonscale Shoulders|295|295|315|325|335|1|R|Rugged Leather*28;Blue Dragonscale*30;Enchanted Leather*2;Cured Rugged Hide*1;Rune Thread*1
 Living Green Dragonscale Gauntlets|295|295|300|310|320|1|R|Rugged Leather*20;Green Dragonscale*25;Rune Thread*1
-Sewing Machine|295|295|300|300|300|1|T|Undeath Engine*1;Rugged Leather*5;Rune Thread*1
 Supple Scorpid Sabatons|295|295|300|310|320|1|R|Rugged Leather*20;Heavy Scorpid Scale*10;Rune Thread*1
+Timbermaw Brawlers|295|295|315|325|335|1|R|Enchanted Leather*8;Powerful Mojo*6;Living Essence*6;Cured Rugged Hide*2;Ironweb Spider Silk*2
 Tooled Leather Pants|295|295|300|310|320|1|R|Rugged Leather*18;Rune Thread*1;Orange Dye*1;Cured Rugged Hide*1
 Volcanic Shoulders|295|295|300|310|320|1|R|Rugged Leather*10;Essence of Fire*1;Essence of Earth*1;Rune Thread*2
 Wicked Leather Armor|295|295|300|310|320|1|R|Rugged Leather*20;Cured Rugged Hide*2;Felcloth*6;Black Dye*4;Rune Thread*2

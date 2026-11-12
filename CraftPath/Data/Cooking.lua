@@ -27,6 +27,7 @@ Herb Baked Egg|1|1|45|65|85|1|A|Small Egg*1;Mild Spices*1
 Roasted Boar Meat|1|1|45|65|85|1|A|Chunk of Boar Meat*1
 Slitherskin Mackerel|1|1|45|65|85|1|V:Zansoa (Durotar)|Raw Slitherskin Mackerel*1
 Kaldorei Spider Kabob|10|10|50|70|90|1|Q:Recipe of the Kaldorei|Small Spider Leg*1
+Spiced Wolf Meat|10|10|50|70|90|1|T|Stringy Wolf Meat*1;Mild Spices*1
 Scorpid Surprise|20|20|60|80|100|1|V:Grimtak (Durotar)|Scorpid Stinger*1
 Basic Campfire|25|25|25|50|75|1|A|Simple Wood*1|0
 Beer Basted Boar Ribs|25|25|60|80|100|1|R|Crag Boar Rib*1;Rhapsody Malt*1
@@ -39,27 +40,28 @@ Roasted Kodo Meat|35|35|75|95|115|2|R|Kodo Meat*1;Mild Spices*1
 Critter Cookie|40|40|80|82|85|1|R|Simple Flour*5
 Gingerbread Cookie|40|40|45|65|85|1|R|Small Egg*1;Holiday Spices*1
 Smoked Bear Meat|40|40|80|100|120|1|V:Andrew Hilbert (Silverpine Forest)|Bear Meat*1
+Boiled Clams|50|50|90|110|130|1|T|Clam Meat*1;Refreshing Spring Water*1
+Coyote Steak|50|50|90|110|130|1|T|Coyote Meat*1
 Fillet of Frenzy|50|50|90|110|130|2|R|Soft Frenzy Flesh*1;Mild Spices*1
 Goretusk Liver Pie|50|50|90|110|130|1|R|Goretusk Liver*1;Mild Spices*1
 Loch Frenzy Delight|50|50|90|110|130|1|R|Raw Loch Frenzy*1;Mild Spices*1
 Longjaw Mud Snapper|50|50|90|110|130|1|V:Harn Longcast (Mulgore)|Raw Longjaw Mud Snapper*1
 Rainbow Fin Albacore|50|50|90|110|130|1|V:Shankys (Orgrimmar)|Raw Rainbow Fin Albacore*1
-Spiced Wolf Meat|50|50|50|70|90|1|T|Stringy Wolf Meat*1;Mild Spices*1
 Strider Stew|50|50|90|110|130|2|V:Tari'qa (The Barrens)|Strider Meat*1;Shiny Red Apple*1
 Blood Sausage|60|60|100|120|140|2|R|Bear Meat*1;Boar Intestines*1;Spider Ichor*1
 Thistle Tea|60|60|100|120|140|1|R|Swiftthistle*1;Refreshing Spring Water*1
 Egg Nog|70|70|75|95|115|1|R|Small Egg*1;Ice Cold Milk*1;Holiday Spirits*1;Holiday Spices*1
 Breakfast Omelette|75|75|80|87|95|1|R|Small Egg*1;Mild Spices*4
+Crab Cake|75|75|115|135|155|1|T|Crawler Meat*1;Mild Spices*1
 Twice-Spiced Raptor Slice|75|75|115|132|150|1|R|Raptor Flesh*1;Mild Spices*2
 Westfall Stew|75|75|115|135|155|1|R|Stringy Vulture Meat*1;Murloc Eye*1;Goretusk Snout*1
 Crocolisk Steak|80|80|120|140|160|1|R|Crocolisk Meat*1;Mild Spices*1
+Dry Pork Ribs|80|80|120|140|160|1|T|Boar Ribs*1;Mild Spices*1
 Smoked Sagefish|80|80|120|140|160|1|R|Raw Sagefish*1;Mild Spices*1
 Cooked Crab Claw|85|85|125|145|165|1|V:Kendor Kabonka (Stormwind City)|Crawler Claw*1;Mild Spices*1
 Savory Deviate Delight|85|85|125|145|165|1|R|Deviate Fish*1;Mild Spices*1
 Savory Whimsyfin Delight|85|85|125|145|165|1|R|Whimsyfin*1;Mild Spices*1
-Boiled Clams|90|90|90|110|130|1|T|Clam Meat*1;Refreshing Spring Water*1
 Clam Chowder|90|90|130|150|170|1|R|Clam Meat*1;Ice Cold Milk*1;Mild Spices*1
-Coyote Steak|90|90|90|110|130|1|T|Coyote Meat*1
 Dig Rat Stew|90|90|130|150|170|2|R|Dig Rat*1
 Journeyman Campfire Kit|90|90|95|95|95|1|R|Star Wood*1
 Murloc Fin Soup|90|90|130|150|170|1|R|Murloc Fin*2;Hot Spices*1
@@ -73,18 +75,16 @@ Big Bear Steak|110|110|150|170|190|1|R|Big Bear Meat*1;Hot Spices*1
 Gooey Spider Cake|110|110|150|170|190|1|R|Gooey Spider Leg*2;Hot Spices*1
 Lean Venison|110|110|150|170|190|2|R|Stag Meat*1;Mild Spices*4
 Succulent Pork Ribs|110|110|130|150|170|1|R|Boar Ribs*2;Hot Spices*1
-Crab Cake|115|115|115|135|155|1|T|Crawler Meat*1;Mild Spices*1
 Crocolisk Gumbo|120|120|160|180|200|1|R|Tender Crocolisk Meat*1;Hot Spices*1
-Dry Pork Ribs|120|120|120|140|160|1|T|Boar Ribs*1;Mild Spices*1
 Hot Lion Chops|125|125|175|195|215|1|V:Zargh (The Barrens)|Lion Meat*1;Hot Spices*1
 Lean Wolf Steak|125|125|165|185|205|1|R|Lean Wolf Flank*1;Mild Spices*1
 Mrrggl Smrrthle|125|125|135|140|145|1|R|Melon Juice*1;Hot Spices*2;Murloc Fin*1
 Root Tea|125|125|155|170|185|1|R|Melon Juice*1;Liferoot*2
 Curiously Tasty Omelet|130|130|170|190|210|1|V:Keena (Arathi Highlands)|Raptor Egg*1;Hot Spices*1
 Cookie's Feast|140|140|145|145|145|1|R|Mystery Meat*2;Heavy Kodo Meat*1;Soothing Spices*1
+Goblin Deviled Clams|150|150|165|185|205|1|T|Tangy Clam Meat*1;Hot Spices*1
 Heavy Crocolisk Stew|150|150|160|180|200|1|R|Tender Crocolisk Meat*2;Soothing Spices*1
 Tasty Lion Steak|150|150|190|210|230|1|R|Lion Meat*2;Soothing Spices*1
-Goblin Deviled Clams|165|165|165|185|205|1|T|Tangy Clam Meat*1;Hot Spices*1
 Barbecued Buzzard Wing|175|175|215|235|255|1|R|Buzzard Wing*1;Hot Spices*1
 Bear Brisket|175|175|200|210|220|1|R|Big Bear Meat*2;Hot Spices*3
 Carrion Surprise|175|175|215|235|255|1|R|Mystery Meat*1;Hot Spices*1
@@ -107,6 +107,7 @@ Dragonbreath Chili|200|200|240|260|280|1|R|Mystery Meat*1;Small Flame Sac*1;Hot 
 Expert Campfire Kit|200|200|205|205|205|1|R|Thick Logs*1
 Heavy Kodo Stew|200|200|240|260|280|2|R|Heavy Kodo Meat*2;Soothing Spices*1;Refreshing Spring Water*1
 Spicy Smoothie|200|200|215|220|225|1|R|Moonberry Juice*1;Soothing Spices*3;Small Flame Sac*1
+Spider Sausage|200|200|240|260|280|1|T|White Spider Meat*2
 Sunny Tea|200|200|220|235|250|1|R|Moonberry Juice*1;Sungrass*2
 Spinefin Halibut|210|210|210|215|220|1|T|Raw Spinefin Halibut*1
 Goldthorn Tea|215|215|215|235|255|4|T|Goldthorn*1;Refreshing Spring Water*1
@@ -122,7 +123,6 @@ Tender Wolf Steak|225|225|265|285|305|1|V:Dirge Quikcleave (Tanaris)|Tender Wolf
 Undermine Clam Chowder|225|225|265|285|305|2|V:Jabbey (Tanaris)|Zesty Clam Meat*2;Hot Spices*1;Ice Cold Milk*1
 Grilled Squid|240|240|280|300|320|1|R|Raw Winter Squid*1;Soothing Spices*1
 Hot Smoked Bass|240|240|280|300|320|1|R|Raw Summer Bass*1;Hot Spices*2
-Spider Sausage|240|240|240|260|280|1|T|White Spider Meat*2
 Filet o' Flank|250|250|260|270|280|2|R|Red Wolf Meat*2;Holy Salts*1
 Nightfin Soup|250|250|290|310|330|1|V:Gikkix (Tanaris)|Raw Nightfin Snapper*1;Refreshing Spring Water*1
 Poached Sunscale Salmon|250|250|290|310|330|1|V:Gikkix (Tanaris)|Raw Sunscale Salmon*1
@@ -147,6 +147,5 @@ Flank au Poivre|280|280|285|300|315|1|R|Red Wolf Meat*3;Soothing Spices*3
 Grand Lobster Banquet|285|285|290|300|310|1|R|Darkclaw Lobster*12;Turtle Meat*4;Buzzard Wing*3;Exquisite Spices*1
 Smoked Desert Dumplings|285|285|325|345|365|1|Q:Desert Recipe|Sandworm Meat*1;Soothing Spices*1
 Specklefin Feast|285|285|290|300|310|1|R|Raw Spotted Yellowtail*12;Raptor Flesh*4;Raw Rockscale Cod*3;Exquisite Spices*1
-Iron Oven|295|295|300|300|300|1|T|Simple Flour*10;Refreshing Spring Water*5;Soothing Spices*4
 ]],
 }
