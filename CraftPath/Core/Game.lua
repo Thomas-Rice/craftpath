@@ -333,26 +333,30 @@ ns.On("MERCHANT_UPDATE", readMerchant)
 
 -- Trainers show the real skill needed to learn each recipe; the client tables only
 -- give an estimate for some trainer recipes.
-local function readTrainer()
+local function readTrainer(why)
+  -- What the game offered, saved every time, so a trainer that records nothing can be looked into.
+  local probe = { t = time(), why = why, version = ns.version,
+    api = ("GetNumTrainerServices=%s GetTrainerServiceInfo=%s GetTrainerServiceSkillReq=%s C_Trainer=%s"):format(
+      type(GetNumTrainerServices), type(GetTrainerServiceInfo), type(GetTrainerServiceSkillReq), type(_G.C_Trainer)) }
+  ns.db.trainerProbe = probe
   if not GetNumTrainerServices or not GetTrainerServiceSkillReq then return end
   -- Show everything the trainer teaches, not just what you can learn right now,
   -- then put the player's filters back.
-  local saved = {}
+  local filters = {}
   if SetTrainerServiceTypeFilter and GetTrainerServiceTypeFilter then
     for _, f in ipairs({ "available", "unavailable", "used" }) do
-      saved[f] = GetTrainerServiceTypeFilter(f)
-      if not saved[f] then SetTrainerServiceTypeFilter(f, 1) end
+      filters[f] = GetTrainerServiceTypeFilter(f)
+      if not filters[f] then SetTrainerServiceTypeFilter(f, 1) end
     end
   end
   local n = GetNumTrainerServices() or 0
-  -- What the trainer window gave us last time, so a trainer that records nothing can be looked into.
-  local probe = { t = time(), n = n }
+  probe.n = n
   if n > 0 then
     local _, a, b = pcall(GetTrainerServiceInfo, 1)
     local _, c, d = pcall(GetTrainerServiceSkillReq, 1)
     probe.first = tostring(a) .. " / " .. tostring(b) .. " / " .. tostring(c) .. " / " .. tostring(d)
   end
-  ns.db.trainerProbe = probe
+  local saved = 0
   for i = 1, n do
     local ok, name = pcall(GetTrainerServiceInfo, i)
     local ok2, skill, rank = pcall(GetTrainerServiceSkillReq, i)
@@ -360,16 +364,24 @@ local function readTrainer()
     if ok and ok2 and name and skill and rank and ns.RawData[skill] and not name:find(skill, 1, true) then
       ns.db.trainer[skill] = ns.db.trainer[skill] or {}
       ns.db.trainer[skill][name] = rank
+      saved = saved + 1
       noteUnknown(skill, name, { trainer = true, learn = rank })
     end
   end
-  for f, v in pairs(saved) do
+  probe.saved = saved
+  for f, v in pairs(filters) do
     if not v then SetTrainerServiceTypeFilter(f, 0) end
   end
 end
-ns.On("TRAINER_SHOW", function()
-  readTrainer()
+local function trainerOpened(why)
+  readTrainer(why)
   -- the list can arrive a moment after the window opens
-  if C_Timer and C_Timer.After then C_Timer.After(0.5, readTrainer) end
+  if C_Timer and C_Timer.After then C_Timer.After(0.5, function() readTrainer(why .. "+0.5s") end) end
+end
+ns.On("TRAINER_SHOW", function() trainerOpened("TRAINER_SHOW") end)
+ns.On("TRAINER_UPDATE", function() readTrainer("TRAINER_UPDATE") end)
+-- Newer clients open NPC windows through the interaction manager (type 7 = trainer).
+pcall(ns.On, "PLAYER_INTERACTION_MANAGER_FRAME_SHOW", function(kind)
+  local trainer = Enum and Enum.PlayerInteractionType and Enum.PlayerInteractionType.Trainer or 7
+  if kind == trainer then trainerOpened("INTERACTION") end
 end)
-ns.On("TRAINER_UPDATE", readTrainer)
