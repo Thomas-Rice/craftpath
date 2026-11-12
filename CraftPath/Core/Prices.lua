@@ -34,7 +34,7 @@ function Prices.BeginScan()
 end
 
 function Prices.Record(name, unitPrice, quantity, itemID)
-  if not name or not unitPrice or unitPrice <= 0 then return end
+  if not name or name == "" or not unitPrice or unitPrice <= 0 then return end
   local db = ns.db
   local scan = db.scanId
   local e = db.prices[name]

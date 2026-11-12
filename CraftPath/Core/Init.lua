@@ -77,6 +77,9 @@ ns.On("ADDON_LOADED", function(name)
   if name ~= addonName then return end
   CraftPathDB = CraftPathDB or {}
   applyDefaults(CraftPathDB, DEFAULTS)
+  -- Full scans before 0.10.12 saved every uncached item under an empty name; drop it.
+  CraftPathDB.prices[""], CraftPathDB.ids[""] = nil, nil
+  if CraftPathDB.history then CraftPathDB.history[""] = nil end
   ns.db = CraftPathDB
   if ns.Shopping then ns.Shopping.InstallHooks() end
   if ns.OnLoaded then ns.OnLoaded() end

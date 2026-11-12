@@ -243,6 +243,9 @@ readFullScan = function()
     local stop = math.min(total, i + 400)
     for idx = i, stop - 1 do
       local name, _, count, _, _, _, _, _, _, buyout, _, _, _, _, _, _, itemID = C_AuctionHouse.GetReplicateItemInfo(idx)
+      -- Items the client hasn't cached come back with an empty name, not nil. Treat it as
+      -- missing, or every such item gets saved under "" and overwrites the others.
+      if name == "" then name = nil end
       if itemID and buyout and buyout > 0 and count and count > 0 then
         local unit = buyout / count
         local b = best[itemID]
@@ -263,7 +266,7 @@ readFullScan = function()
       -- moment. Only say "done" once every name is in (or after a minute), so a /reload
       -- straight after the message saves everything.
       local nameOf = {}
-      for n, id in pairs(ns.db.ids) do nameOf[id] = n end
+      for n, id in pairs(ns.db.ids) do if n ~= "" then nameOf[id] = n end end
       local named, waiting, missed = 0, 0, 0
       local finished, looping = false, true
       local function finish()
@@ -279,7 +282,7 @@ readFullScan = function()
         local name = b.name or nameOf[itemID]
         if not name and C_Item and C_Item.GetItemNameByID then
           local ok, n = pcall(C_Item.GetItemNameByID, itemID)
-          if ok then name = n end
+          if ok and n ~= "" then name = n end
         end
         if name then
           ns.Prices.Record(name, b.unit, b.qty, itemID); named = named + 1
@@ -288,7 +291,7 @@ readFullScan = function()
           local item = Item:CreateFromItemID(itemID)
           item:ContinueOnItemLoad(function()
             local n = item:GetItemName()
-            if n then ns.Prices.Record(n, b.unit, b.qty, itemID); named = named + 1 else missed = missed + 1 end
+            if n and n ~= "" then ns.Prices.Record(n, b.unit, b.qty, itemID); named = named + 1 else missed = missed + 1 end
             waiting = waiting - 1
             if waiting % 100 == 0 then setStatus(("Loading item names: %d left…"):format(waiting)) end
             if waiting <= 0 and not looping then finish() end
