@@ -333,44 +333,68 @@ ns.On("MERCHANT_UPDATE", readMerchant)
 
 -- Trainers show the real skill needed to learn each recipe; the client tables only
 -- give an estimate for some trainer recipes.
+-- Calls the first trainer function that exists: the old globals, or C_Trainer in newer clients.
+local function trainerCall(names, ...)
+  for _, n in ipairs(names) do
+    local f = _G.C_Trainer and _G.C_Trainer[n] or _G[n]
+    if type(f) == "function" then
+      local res = { n = 0 }
+      local function pack(...) res.n = select("#", ...); for i = 1, res.n do res[i] = (select(i, ...)) end end
+      pack(pcall(f, ...))
+      if res[1] then return true, unpack(res, 2, res.n) end
+      return false, res[2]
+    end
+  end
+  return false, "missing"
+end
+
 local function readTrainer(why)
   -- What the game offered, saved every time, so a trainer that records nothing can be looked into.
-  local probe = { t = time(), why = why, version = ns.version,
-    api = ("GetNumTrainerServices=%s GetTrainerServiceInfo=%s GetTrainerServiceSkillReq=%s C_Trainer=%s"):format(
-      type(GetNumTrainerServices), type(GetTrainerServiceInfo), type(GetTrainerServiceSkillReq), type(_G.C_Trainer)) }
+  local probe = { t = time(), why = why, version = ns.version, errors = {} }
+  if type(_G.C_Trainer) == "table" then
+    local keys = {}
+    for k in pairs(_G.C_Trainer) do keys[#keys + 1] = k end
+    table.sort(keys)
+    probe.cTrainer = table.concat(keys, " ")
+  end
   ns.db.trainerProbe = probe
-  if not GetNumTrainerServices or not GetTrainerServiceSkillReq then return end
+  local function note(step, err) probe.errors[#probe.errors + 1] = step .. ": " .. tostring(err) end
   -- Show everything the trainer teaches, not just what you can learn right now,
   -- then put the player's filters back.
   local filters = {}
-  if SetTrainerServiceTypeFilter and GetTrainerServiceTypeFilter then
-    for _, f in ipairs({ "available", "unavailable", "used" }) do
-      filters[f] = GetTrainerServiceTypeFilter(f)
-      if not filters[f] then SetTrainerServiceTypeFilter(f, 1) end
+  for _, f in ipairs({ "available", "unavailable", "used" }) do
+    local ok, on = trainerCall({ "GetTrainerServiceTypeFilter", "GetServiceTypeFilter" }, f)
+    if ok then
+      filters[f] = on
+      if not on then trainerCall({ "SetTrainerServiceTypeFilter", "SetServiceTypeFilter" }, f, 1) end
+    else
+      note("filter " .. f, on)
     end
   end
-  local n = GetNumTrainerServices() or 0
+  local okN, n = trainerCall({ "GetNumTrainerServices", "GetNumServices" })
+  if not okN then note("count", n); n = 0 end
+  n = tonumber(n) or 0
   probe.n = n
-  if n > 0 then
-    local _, a, b = pcall(GetTrainerServiceInfo, 1)
-    local _, c, d = pcall(GetTrainerServiceSkillReq, 1)
-    probe.first = tostring(a) .. " / " .. tostring(b) .. " / " .. tostring(c) .. " / " .. tostring(d)
-  end
   local saved = 0
   for i = 1, n do
-    local ok, name = pcall(GetTrainerServiceInfo, i)
-    local ok2, skill, rank = pcall(GetTrainerServiceSkillReq, i)
+    local ok, name = trainerCall({ "GetTrainerServiceInfo", "GetServiceInfo" }, i)
+    local ok2, skill, rank = trainerCall({ "GetTrainerServiceSkillReq", "GetServiceSkillReq" }, i)
+    if type(name) == "table" then name = name.name end -- newer APIs return a table
+    if i == 1 then probe.first = tostring(name) .. " / " .. tostring(skill) .. " / " .. tostring(rank) end
+    if not ok then note("info " .. i, name) elseif not ok2 then note("skill " .. i, skill) end
     -- Skip rank training such as "Journeyman Engineering".
-    if ok and ok2 and name and skill and rank and ns.RawData[skill] and not name:find(skill, 1, true) then
+    if ok and ok2 and type(name) == "string" and skill and tonumber(rank) and ns.RawData[skill]
+      and not name:find(skill, 1, true) then
       ns.db.trainer[skill] = ns.db.trainer[skill] or {}
-      ns.db.trainer[skill][name] = rank
+      ns.db.trainer[skill][name] = tonumber(rank)
       saved = saved + 1
-      noteUnknown(skill, name, { trainer = true, learn = rank })
+      noteUnknown(skill, name, { trainer = true, learn = tonumber(rank) })
     end
+    if #probe.errors > 5 then break end
   end
   probe.saved = saved
   for f, v in pairs(filters) do
-    if not v then SetTrainerServiceTypeFilter(f, 0) end
+    if not v then trainerCall({ "SetTrainerServiceTypeFilter", "SetServiceTypeFilter" }, f, 0) end
   end
 end
 local function trainerOpened(why)
