@@ -1,64 +1,43 @@
 {
- "updated": "2026-11-11T14:50:05+00:00",
+ "updated": "2026-11-12T17:18:43+00:00",
  "note": "Lowest buyout from the site owner's CraftPath scans (Horde). Prices change constantly; the addon uses your own live scan.",
  "prices": {
-  "9-60 Battery Pack": {
-   "p": 8000,
-   "t": 1794307954,
-   "q": 124
-  },
-  "Accurate Scope": {
-   "p": 6000,
-   "t": 1794307954,
-   "q": 280
-  },
   "Advanced Target Dummy": {
-   "p": 5300,
-   "t": 1794307954,
-   "q": 356
+   "p": 4294,
+   "t": 1794471234,
+   "q": 185
   },
   "Anti-Venom": {
-   "p": 198,
-   "t": 1794387509,
-   "q": 963
-  },
-  "Anvil": {
-   "p": 1000,
-   "t": 1794307954,
-   "q": 68
+   "p": 28,
+   "t": 1794503923,
+   "q": 915,
+   "low": 28,
+   "med": 28,
+   "high": 198,
+   "days": 2
   },
   "Aquadynamic Fish Attractor": {
-   "p": 170,
-   "t": 1794389596,
-   "q": 599,
+   "p": 342,
+   "t": 1794488284,
+   "q": 3587,
    "low": 170,
-   "med": 170,
-   "high": 183,
-   "days": 2
+   "med": 183,
+   "high": 342,
+   "days": 3
   },
   "Aquamarine": {
-   "p": 1055,
-   "t": 1794389596,
-   "q": 167,
-   "low": 1053,
+   "p": 1135,
+   "t": 1794503923,
+   "q": 386,
+   "low": 1000,
    "med": 1053,
    "high": 1200,
-   "days": 2
-  },
-  "Arcane Crystal": {
-   "p": 200000,
-   "t": 1794307954,
-   "q": 36
+   "days": 3
   },
   "Arcane Elixir": {
-   "p": 4541,
-   "t": 1794307954,
-   "q": 2152
-  },
-  "Arcane Salvager": {
-   "p": 6690,
-   "t": 1794307954,
-   "q": 120
+   "p": 1498,
+   "t": 1794488284,
+   "q": 527
   },
   "Arcanite Bar": {
    "p": 379996,
@@ -66,13 +45,13 @@
    "q": 32
   },
   "Arclight Spanner": {
-   "p": 200,
-   "t": 1794390495,
-   "q": 149,
-   "low": 200,
+   "p": 170,
+   "t": 1794503923,
+   "q": 136,
+   "low": 170,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Arthas' Tears": {
    "p": 1348,
@@ -83,179 +62,65 @@
    "high": 1925,
    "days": 2
   },
-  "Azerothian Diamond": {
-   "p": 59090,
-   "t": 1794307954,
-   "q": 48
-  },
-  "Azerothium Bar": {
-   "p": 124600,
-   "t": 1794307954,
-   "q": 12
-  },
-  "Azure Gustwoven Bracers": {
-   "p": 1100,
-   "t": 1794307954,
-   "q": 4
-  },
-  "Azure Gustwoven Gloves": {
-   "p": 2000,
-   "t": 1794307954,
-   "q": 4
-  },
-  "Azure Shoulders": {
-   "p": 3900,
-   "t": 1794307954,
-   "q": 16
-  },
-  "Azure Silk Belt": {
-   "p": 9000,
-   "t": 1794307954,
-   "q": 60
-  },
-  "Azure Silk Cloak": {
-   "p": 2900,
-   "t": 1794307954,
-   "q": 84
-  },
-  "Azure Silk Gloves": {
-   "p": 4900,
-   "t": 1794307954,
-   "q": 40
-  },
   "Azure Silk Hood": {
-   "p": 900,
-   "t": 1794389596,
-   "q": 154
+   "p": 997,
+   "t": 1794471234,
+   "q": 168,
+   "low": 900,
+   "med": 900,
+   "high": 997,
+   "days": 2
   },
   "Azure Silk Pants": {
-   "p": 1500,
-   "t": 1794389596,
-   "q": 60
+   "p": 1499,
+   "t": 1794503923,
+   "q": 120,
+   "low": 1499,
+   "med": 1499,
+   "high": 1500,
+   "days": 2
   },
   "Azure Silk Vest": {
    "p": 2000,
    "t": 1794389596,
    "q": 61
   },
-  "Azure Skyforged Chain": {
-   "p": 1500,
-   "t": 1794307954,
-   "q": 12
-  },
-  "Azure Skyforged Chainmail": {
-   "p": 2500,
-   "t": 1794307954,
-   "q": 28
-  },
-  "Azure Skyforged Gauntlets": {
-   "p": 2000,
-   "t": 1794307954,
-   "q": 28
-  },
-  "Azure Skyforged Greaves": {
-   "p": 2000,
-   "t": 1794307954,
-   "q": 24
-  },
-  "Azure Skyforged Legguards": {
-   "p": 9000,
-   "t": 1794307954,
-   "q": 12
-  },
-  "Azure Skyforged Wristguards": {
-   "p": 9000,
-   "t": 1794307954,
-   "q": 28
-  },
-  "Azure Windraveled Armguards": {
-   "p": 1800,
-   "t": 1794307954,
-   "q": 4
-  },
-  "Azure Windraveled Mitts": {
-   "p": 1900,
-   "t": 1794307954,
-   "q": 12
-  },
-  "Azure Windraveled Strap": {
-   "p": 1500,
-   "t": 1794307954,
-   "q": 8
-  },
-  "Barbaric Belt": {
-   "p": 17900,
-   "t": 1794307954,
-   "q": 56
-  },
   "Barbaric Bracers": {
-   "p": 39000,
-   "t": 1794307954,
-   "q": 16
-  },
-  "Barbaric Gloves": {
-   "p": 2000,
-   "t": 1794343024,
-   "q": 61
+   "p": 19900,
+   "t": 1794488284,
+   "q": 31
   },
   "Barbaric Harness": {
    "p": 3100,
    "t": 1794389596,
    "q": 92
   },
-  "Barbaric Iron Boots": {
-   "p": 11900,
-   "t": 1794307954,
-   "q": 28
-  },
-  "Barbaric Iron Breastplate": {
-   "p": 16000,
-   "t": 1794307954,
-   "q": 36
-  },
-  "Barbaric Iron Gloves": {
-   "p": 33000,
-   "t": 1794307954,
-   "q": 24
-  },
-  "Barbaric Iron Helm": {
-   "p": 9900,
-   "t": 1794307954,
-   "q": 128
-  },
-  "Barbaric Iron Shoulders": {
-   "p": 8600,
-   "t": 1794307954,
-   "q": 128
-  },
   "Barbaric Leggings": {
-   "p": 3300,
-   "t": 1794383619,
-   "q": 115
-  },
-  "Barbaric Linen Vest": {
-   "p": 300,
-   "t": 1794337156,
-   "q": 105
+   "p": 3380,
+   "t": 1794488284,
+   "q": 107,
+   "low": 3300,
+   "med": 3300,
+   "high": 3380,
+   "days": 2
   },
   "Barbaric Shoulders": {
-   "p": 2700,
-   "t": 1794389596,
-   "q": 175,
+   "p": 2650,
+   "t": 1794503923,
+   "q": 386,
    "low": 2600,
    "med": 2600,
    "high": 2700,
-   "days": 2
-  },
-  "Barbecued Buzzard Wing": {
-   "p": 599,
-   "t": 1794307954,
-   "q": 1620
+   "days": 3
   },
   "Basic Campfire Kit": {
-   "p": 67,
-   "t": 1794345595,
-   "q": 733
+   "p": 69,
+   "t": 1794503923,
+   "q": 229,
+   "low": 65,
+   "med": 65,
+   "high": 67,
+   "days": 2
   },
   "Bauxite": {
    "p": 744,
@@ -272,72 +137,51 @@
    "days": 2
   },
   "Bear Meat": {
-   "p": 60,
-   "t": 1794389596,
-   "q": 2015,
+   "p": 37,
+   "t": 1794503923,
+   "q": 852,
    "low": 32,
    "med": 32,
-   "high": 32,
-   "days": 2
+   "high": 34,
+   "days": 3
   },
   "Big Bear Meat": {
-   "p": 100,
-   "t": 1794389596,
-   "q": 619
+   "p": 90,
+   "t": 1794503923,
+   "q": 2391,
+   "low": 90,
+   "med": 90,
+   "high": 92,
+   "days": 2
   },
   "Big Bear Steak": {
    "p": 125,
-   "t": 1794389596,
-   "q": 1023,
-   "low": 125,
+   "t": 1794503923,
+   "q": 1031,
+   "low": 124,
    "med": 125,
    "high": 125,
-   "days": 2
-  },
-  "Big Bronze Bomb": {
-   "p": 540,
-   "t": 1794307955,
-   "q": 2748
+   "days": 3
   },
   "Big Bronze Knife": {
    "p": 2400,
    "t": 1794383619,
    "q": 26
   },
-  "Big Iron Bomb": {
-   "p": 999,
-   "t": 1794307955,
-   "q": 768
-  },
-  "Big Voodoo Cloak": {
-   "p": 10000,
-   "t": 1794307955,
-   "q": 40
-  },
-  "Big Voodoo Mask": {
-   "p": 9800,
-   "t": 1794307955,
-   "q": 104
-  },
   "Big Voodoo Pants": {
-   "p": 39900,
-   "t": 1794307955,
-   "q": 40
+   "p": 11100,
+   "t": 1794488284,
+   "q": 11
   },
-  "Big Voodoo Robe": {
-   "p": 15500,
-   "t": 1794307955,
-   "q": 24
+  "Black Diamond": {
+   "p": 454,
+   "t": 1794503923,
+   "q": 558
   },
   "Black Dragonscale": {
    "p": 8822,
    "t": 1794387509,
    "q": 12
-  },
-  "Black Dye": {
-   "p": 900,
-   "t": 1794307955,
-   "q": 68
   },
   "Black Lotus": {
    "p": 200000,
@@ -349,50 +193,19 @@
    "t": 1794383619,
    "q": 20
   },
-  "Black Mageweave Gloves": {
-   "p": 3800,
-   "t": 1794345595,
-   "q": 44
-  },
-  "Black Mageweave Headband": {
-   "p": 28200,
-   "t": 1794307955,
-   "q": 32
-  },
-  "Black Mageweave Leggings": {
-   "p": 5000,
-   "t": 1794345595,
-   "q": 35
-  },
-  "Black Mageweave Robe": {
-   "p": 9000,
-   "t": 1794307955,
-   "q": 60
-  },
-  "Black Mageweave Shoulders": {
-   "p": 18300,
-   "t": 1794307955,
-   "q": 24
-  },
   "Black Mageweave Vest": {
    "p": 5500,
    "t": 1794387509,
    "q": 61
   },
   "Black Pearl": {
-   "p": 1690,
-   "t": 1794389596,
-   "q": 565
-  },
-  "Black Silk Pack": {
-   "p": 5600,
-   "t": 1794307955,
-   "q": 232
-  },
-  "Black Swashbuckler's Shirt": {
-   "p": 39900,
-   "t": 1794307955,
-   "q": 12
+   "p": 1986,
+   "t": 1794503923,
+   "q": 1199,
+   "low": 1690,
+   "med": 1690,
+   "high": 1986,
+   "days": 2
   },
   "Black Vitriol": {
    "p": 1003,
@@ -400,24 +213,23 @@
    "q": 177
   },
   "Black Whelp Scale": {
-   "p": 1510,
-   "t": 1794307955,
-   "q": 2624
+   "p": 298,
+   "t": 1794488284,
+   "q": 510
   },
   "Blackmouth Oil": {
-   "p": 499,
-   "t": 1794387509,
-   "q": 581
+   "p": 624,
+   "t": 1794488284,
+   "q": 650,
+   "low": 499,
+   "med": 499,
+   "high": 624,
+   "days": 2
   },
   "Blacksmith Hammer": {
    "p": 100,
-   "t": 1794389596,
-   "q": 28
-  },
-  "Blank Parchment": {
-   "p": 200,
-   "t": 1794307955,
-   "q": 4
+   "t": 1794488284,
+   "q": 60
   },
   "Bleach": {
    "p": 25,
@@ -429,44 +241,22 @@
    "days": 2
   },
   "Blindweed": {
-   "p": 1899,
-   "t": 1794345595,
-   "q": 939
-  },
-  "Blood Sausage": {
-   "p": 100,
-   "t": 1794307955,
-   "q": 796
-  },
-  "Blue Dragonscale": {
-   "p": 40000,
-   "t": 1794307956,
-   "q": 4
+   "p": 839,
+   "t": 1794471234,
+   "q": 305,
+   "low": 810,
+   "med": 810,
+   "high": 839,
+   "days": 2
   },
   "Blue Dye": {
-   "p": 108,
-   "t": 1794387509,
-   "q": 816
-  },
-  "Blue Glittering Axe": {
-   "p": 30000,
-   "t": 1794307956,
-   "q": 12
-  },
-  "Blue Linen Robe": {
-   "p": 300,
-   "t": 1794345595,
-   "q": 56
-  },
-  "Blue Linen Shirt": {
-   "p": 200,
-   "t": 1794307956,
-   "q": 152
-  },
-  "Blue Linen Vest": {
-   "p": 300,
-   "t": 1794343024,
-   "q": 158
+   "p": 57,
+   "t": 1794488284,
+   "q": 357,
+   "low": 57,
+   "med": 57,
+   "high": 108,
+   "days": 2
   },
   "Blue Overalls": {
    "p": 2000,
@@ -491,66 +281,41 @@
    "high": 1100,
    "days": 2
   },
-  "Blue Sapphire": {
-   "p": 69998,
-   "t": 1794307956,
-   "q": 60
-  },
-  "Blue Suede Gloves": {
-   "p": 30000,
-   "t": 1794307956,
-   "q": 20
-  },
-  "Blue Suede Shoes": {
-   "p": 14500,
-   "t": 1794307956,
-   "q": 16
-  },
-  "Blueprint: Repair Bot": {
-   "p": 9500,
-   "t": 1794345595,
-   "q": 27
-  },
   "Boar Intestines": {
    "p": 18,
-   "t": 1794389596,
-   "q": 1057,
+   "t": 1794503923,
+   "q": 1749,
    "low": 18,
    "med": 18,
    "high": 18,
-   "days": 2
+   "days": 3
   },
   "Boar Ribs": {
-   "p": 335,
-   "t": 1794383619,
-   "q": 272,
-   "low": 335,
+   "p": 379,
+   "t": 1794503923,
+   "q": 1163,
+   "low": 311,
    "med": 335,
    "high": 344,
-   "days": 2
+   "days": 3
   },
   "Boiled Clams": {
    "p": 20,
-   "t": 1794389596,
-   "q": 1397,
+   "t": 1794503923,
+   "q": 2621,
    "low": 20,
    "med": 20,
    "high": 20,
-   "days": 2
+   "days": 3
   },
   "Bolt of Linen Cloth": {
-   "p": 89,
-   "t": 1794389596,
-   "q": 2038,
+   "p": 50,
+   "t": 1794503923,
+   "q": 3401,
    "low": 48,
-   "med": 48,
+   "med": 50,
    "high": 52,
-   "days": 2
-  },
-  "Bolt of Mageweave": {
-   "p": 2550,
-   "t": 1794343024,
-   "q": 651
+   "days": 3
   },
   "Bolt of Runecloth": {
    "p": 3698,
@@ -561,30 +326,14 @@
    "high": 3941,
    "days": 2
   },
-  "Bolt of Silk Cloth": {
-   "p": 820,
-   "t": 1794343024,
-   "q": 1447
-  },
   "Bolt of Woolen Cloth": {
-   "p": 342,
-   "t": 1794343024,
-   "q": 1143
-  },
-  "Boots of the Enchanter": {
-   "p": 3800,
-   "t": 1794307956,
-   "q": 88
-  },
-  "Bottle of Dalaran Noir": {
-   "p": 120,
-   "t": 1794307956,
-   "q": 672
-  },
-  "Bottled Screams": {
-   "p": 37600,
-   "t": 1794307956,
-   "q": 12
+   "p": 426,
+   "t": 1794503923,
+   "q": 2647,
+   "low": 342,
+   "med": 342,
+   "high": 426,
+   "days": 2
   },
   "Breath of Wind": {
    "p": 1488,
@@ -592,51 +341,40 @@
    "q": 45
   },
   "Briarthorn": {
-   "p": 105,
-   "t": 1794389596,
-   "q": 567,
-   "low": 92,
+   "p": 90,
+   "t": 1794488284,
+   "q": 4642,
+   "low": 90,
    "med": 92,
    "high": 99,
-   "days": 2
-  },
-  "Bright-Eye Goggles": {
-   "p": 4200,
-   "t": 1794307956,
-   "q": 12
+   "days": 3
   },
   "Brilliant Smallfish": {
-   "p": 17,
-   "t": 1794345595,
-   "q": 1267
-  },
-  "Briny Seafood Stew": {
-   "p": 3987,
-   "t": 1794307956,
-   "q": 2632
+   "p": 27,
+   "t": 1794471234,
+   "q": 998,
+   "low": 17,
+   "med": 17,
+   "high": 27,
+   "days": 2
   },
   "Bristle Whisker Catfish": {
-   "p": 10,
-   "t": 1794389596,
-   "q": 1430,
-   "low": 10,
+   "p": 9,
+   "t": 1794503923,
+   "q": 1995,
+   "low": 9,
    "med": 10,
    "high": 12,
-   "days": 2
-  },
-  "Bronze Axe": {
-   "p": 1200,
-   "t": 1794343024,
-   "q": 45
+   "days": 3
   },
   "Bronze Bar": {
-   "p": 282,
-   "t": 1794390434,
-   "q": 16067,
-   "low": 181,
+   "p": 164,
+   "t": 1794503923,
+   "q": 19544,
+   "low": 164,
    "med": 181,
    "high": 186,
-   "days": 2
+   "days": 3
   },
   "Bronze Battle Axe": {
    "p": 4800,
@@ -648,11 +386,6 @@
    "t": 1794389596,
    "q": 130
   },
-  "Bronze Greatsword": {
-   "p": 7300,
-   "t": 1794307956,
-   "q": 452
-  },
   "Bronze Mace": {
    "p": 1500,
    "t": 1794383619,
@@ -662,15 +395,10 @@
    "high": 3100,
    "days": 2
   },
-  "Bronze Shortsword": {
-   "p": 1300,
-   "t": 1794307956,
-   "q": 408
-  },
   "Bronze Tube": {
-   "p": 409,
-   "t": 1794307956,
-   "q": 1180
+   "p": 774,
+   "t": 1794471234,
+   "q": 795
   },
   "Bronze Warhammer": {
    "p": 1600,
@@ -682,168 +410,131 @@
    "days": 2
   },
   "Brown Linen Pants": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 166,
-   "low": 200,
+   "p": 140,
+   "t": 1794503923,
+   "q": 197,
+   "low": 140,
    "med": 200,
    "high": 300,
-   "days": 2
+   "days": 3
   },
   "Brown Linen Robe": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 125,
-   "low": 200,
+   "p": 150,
+   "t": 1794503923,
+   "q": 104,
+   "low": 150,
    "med": 200,
    "high": 300,
-   "days": 2
+   "days": 3
   },
   "Brown Linen Shirt": {
    "p": 100,
-   "t": 1794387509,
-   "q": 91,
+   "t": 1794471234,
+   "q": 66,
    "low": 100,
    "med": 100,
    "high": 100,
-   "days": 2
-  },
-  "Brown Linen Vest": {
-   "p": 100,
-   "t": 1794337156,
-   "q": 84
+   "days": 3
   },
   "Bruiseweed": {
-   "p": 121,
-   "t": 1794389596,
-   "q": 4361,
-   "low": 80,
+   "p": 79,
+   "t": 1794503923,
+   "q": 5568,
+   "low": 79,
    "med": 80,
    "high": 113,
-   "days": 2
+   "days": 3
   },
   "Buzzard Wing": {
-   "p": 346,
-   "t": 1794389596,
-   "q": 278
-  },
-  "Camp Tent": {
-   "p": 265,
-   "t": 1794389596,
-   "q": 1378,
-   "low": 246,
-   "med": 246,
-   "high": 265,
+   "p": 288,
+   "t": 1794488284,
+   "q": 578,
+   "low": 288,
+   "med": 288,
+   "high": 310,
    "days": 2
   },
   "Carrion Surprise": {
-   "p": 396,
-   "t": 1794337156,
-   "q": 213
+   "p": 379,
+   "t": 1794471234,
+   "q": 270
   },
   "Catseye Draught": {
-   "p": 1300,
-   "t": 1794389596,
-   "q": 934
-  },
-  "Catseye Ultra Goggles": {
-   "p": 9900,
-   "t": 1794307956,
-   "q": 24
-  },
-  "Cerulean Dye": {
-   "p": 4197,
-   "t": 1794345595,
-   "q": 310
-  },
-  "Charred Wolf Meat": {
-   "p": 9,
-   "t": 1794389596,
-   "q": 960
-  },
-  "Chimera Leather": {
-   "p": 20000,
-   "t": 1794307956,
-   "q": 4
-  },
-  "Chunk of Boar Meat": {
-   "p": 202,
-   "t": 1794387509,
-   "q": 2684
-  },
-  "Citrine": {
-   "p": 823,
-   "t": 1794389596,
-   "q": 315
-  },
-  "Clam Meat": {
-   "p": 189,
-   "t": 1794389596,
-   "q": 315,
-   "low": 145,
-   "med": 145,
-   "high": 188,
+   "p": 1428,
+   "t": 1794500230,
+   "q": 1105,
+   "low": 1300,
+   "med": 1300,
+   "high": 1428,
    "days": 2
   },
-  "Cleric's Elixir": {
-   "p": 4100,
-   "t": 1794307956,
-   "q": 40
-  },
-  "Cloudy Gustwoven Belt": {
-   "p": 1900,
-   "t": 1794307956,
-   "q": 20
-  },
-  "Cloudy Gustwoven Bracers": {
-   "p": 1100,
-   "t": 1794307956,
-   "q": 60
-  },
-  "Cloudy Gustwoven Gloves": {
-   "p": 2000,
-   "t": 1794307956,
-   "q": 216
-  },
-  "Cloudy Skyforged Chain": {
-   "p": 1500,
-   "t": 1794307956,
-   "q": 20
-  },
-  "Cloudy Skyforged Chainmail": {
-   "p": 2500,
-   "t": 1794307956,
-   "q": 28
-  },
-  "Cloudy Skyforged Gauntlets": {
-   "p": 9000,
-   "t": 1794307956,
-   "q": 24
-  },
-  "Cloudy Skyforged Greaves": {
-   "p": 2000,
-   "t": 1794307956,
-   "q": 24
-  },
-  "Cloudy Skyforged Legguards": {
-   "p": 2500,
-   "t": 1794307956,
+  "Catseye Ultra Goggles": {
+   "p": 16900,
+   "t": 1794500230,
    "q": 12
   },
-  "Cloudy Skyforged Wristguards": {
-   "p": 9000,
-   "t": 1794307956,
-   "q": 16
+  "Cerulean Dye": {
+   "p": 4599,
+   "t": 1794503923,
+   "q": 680,
+   "low": 3900,
+   "med": 3900,
+   "high": 4599,
+   "days": 2
+  },
+  "Charred Wolf Meat": {
+   "p": 8,
+   "t": 1794488284,
+   "q": 838,
+   "low": 8,
+   "med": 8,
+   "high": 9,
+   "days": 2
+  },
+  "Chunk of Boar Meat": {
+   "p": 184,
+   "t": 1794503923,
+   "q": 3045,
+   "low": 169,
+   "med": 169,
+   "high": 201,
+   "days": 2
+  },
+  "Citrine": {
+   "p": 822,
+   "t": 1794488284,
+   "q": 991,
+   "low": 822,
+   "med": 822,
+   "high": 823,
+   "days": 2
+  },
+  "Clam Meat": {
+   "p": 116,
+   "t": 1794503923,
+   "q": 1041,
+   "low": 116,
+   "med": 145,
+   "high": 188,
+   "days": 3
   },
   "Coal": {
-   "p": 499,
-   "t": 1794387509,
-   "q": 735
+   "p": 594,
+   "t": 1794471234,
+   "q": 231,
+   "low": 499,
+   "med": 499,
+   "high": 594,
+   "days": 2
   },
   "Coarse Blasting Powder": {
-   "p": 42,
-   "t": 1794389596,
-   "q": 601
+   "p": 40,
+   "t": 1794488284,
+   "q": 819,
+   "low": 39,
+   "med": 39,
+   "high": 40,
+   "days": 2
   },
   "Coarse Dynamite": {
    "p": 75,
@@ -851,32 +542,40 @@
    "q": 293
   },
   "Coarse Gorilla Hair": {
-   "p": 639,
-   "t": 1794389596,
-   "q": 360
+   "p": 609,
+   "t": 1794503923,
+   "q": 951,
+   "low": 609,
+   "med": 609,
+   "high": 639,
+   "days": 2
   },
   "Coarse Grinding Stone": {
-   "p": 175,
-   "t": 1794387509,
-   "q": 1905,
-   "low": 116,
+   "p": 106,
+   "t": 1794488284,
+   "q": 1536,
+   "low": 106,
    "med": 116,
    "high": 175,
-   "days": 2
+   "days": 3
   },
   "Coarse Sharpening Stone": {
-   "p": 57,
-   "t": 1794387509,
-   "q": 1855,
+   "p": 58,
+   "t": 1794503923,
+   "q": 1000,
    "low": 57,
-   "med": 57,
+   "med": 58,
    "high": 72,
-   "days": 2
+   "days": 3
   },
   "Coarse Stone": {
-   "p": 30,
-   "t": 1794345595,
-   "q": 10294
+   "p": 33,
+   "t": 1794503923,
+   "q": 10998,
+   "low": 30,
+   "med": 30,
+   "high": 33,
+   "days": 2
   },
   "Coarse Thread": {
    "p": 14,
@@ -888,105 +587,58 @@
    "days": 2
   },
   "Coarse Weightstone": {
-   "p": 65,
-   "t": 1794389596,
-   "q": 1726
-  },
-  "Colorful Kilt": {
-   "p": 2500,
-   "t": 1794307956,
-   "q": 172
-  },
-  "Comfortable Leather Hat": {
-   "p": 10200,
-   "t": 1794307956,
-   "q": 60
-  },
-  "Compact Harvest Reaper Kit": {
-   "p": 7495,
-   "t": 1794307956,
-   "q": 36
-  },
-  "Cooked Crab Claw": {
-   "p": 171,
-   "t": 1794307957,
-   "q": 2532
-  },
-  "Cooked Glossy Mightfish": {
-   "p": 800,
-   "t": 1794307957,
-   "q": 3176
-  },
-  "Cookie's Feast": {
-   "p": 2199,
-   "t": 1794345595,
-   "q": 152
-  },
-  "Copper Axe": {
-   "p": 300,
-   "t": 1794307957,
-   "q": 24
-  },
-  "Copper Bar": {
-   "p": 201,
-   "t": 1794389596,
-   "q": 6844,
-   "low": 160,
-   "med": 160,
-   "high": 175,
+   "p": 44,
+   "t": 1794503923,
+   "q": 1878,
+   "low": 44,
+   "med": 44,
+   "high": 65,
    "days": 2
   },
+  "Copper Bar": {
+   "p": 180,
+   "t": 1794503923,
+   "q": 7659,
+   "low": 160,
+   "med": 175,
+   "high": 180,
+   "days": 3
+  },
   "Copper Battle Axe": {
-   "p": 2000,
-   "t": 1794387509,
-   "q": 66
+   "p": 2500,
+   "t": 1794503923,
+   "q": 7,
+   "low": 1000,
+   "med": 1000,
+   "high": 2000,
+   "days": 2
   },
   "Copper Bracers": {
    "p": 100,
-   "t": 1794389596,
-   "q": 301,
+   "t": 1794488284,
+   "q": 195,
    "low": 100,
    "med": 100,
    "high": 100,
-   "days": 2
+   "days": 3
   },
   "Copper Chain Belt": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 1255,
+   "p": 117,
+   "t": 1794503923,
+   "q": 859,
    "low": 100,
-   "med": 100,
+   "med": 117,
    "high": 200,
-   "days": 2
-  },
-  "Copper Chain Boots": {
-   "p": 200,
-   "t": 1794337156,
-   "q": 113
+   "days": 3
   },
   "Copper Chain Pants": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 965,
-   "low": 200,
+   "p": 111,
+   "t": 1794503923,
+   "q": 723,
+   "low": 111,
    "med": 200,
    "high": 200,
-   "days": 2
-  },
-  "Copper Chain Vest": {
-   "p": 500,
-   "t": 1794307957,
-   "q": 12
-  },
-  "Copper Claymore": {
-   "p": 1500,
-   "t": 1794330963,
-   "q": 12
-  },
-  "Copper Dagger": {
-   "p": 1000,
-   "t": 1794330980,
-   "q": 75
+   "days": 3
   },
   "Copper Mace": {
    "p": 200,
@@ -994,87 +646,81 @@
    "q": 5
   },
   "Copper Modulator": {
-   "p": 397,
-   "t": 1794389596,
-   "q": 201,
+   "p": 577,
+   "t": 1794503923,
+   "q": 387,
    "low": 396,
-   "med": 396,
+   "med": 577,
    "high": 600,
-   "days": 2
+   "days": 3
   },
   "Copper Ore": {
-   "p": 190,
-   "t": 1794389596,
-   "q": 5136,
+   "p": 179,
+   "t": 1794503923,
+   "q": 8415,
    "low": 92,
-   "med": 92,
-   "high": 150,
-   "days": 2
+   "med": 150,
+   "high": 170,
+   "days": 3
   },
   "Copper Rod": {
    "p": 100,
-   "t": 1794389596,
-   "q": 1041,
+   "t": 1794503923,
+   "q": 961,
    "low": 100,
    "med": 100,
    "high": 100,
-   "days": 2
-  },
-  "Copper Shortsword": {
-   "p": 300,
-   "t": 1794343024,
-   "q": 21
+   "days": 3
   },
   "Copper Tube": {
-   "p": 350,
-   "t": 1794389596,
-   "q": 494,
-   "low": 348,
+   "p": 219,
+   "t": 1794503923,
+   "q": 1763,
+   "low": 219,
    "med": 348,
    "high": 354,
-   "days": 2
+   "days": 3
   },
   "Core of Earth": {
-   "p": 687,
-   "t": 1794389596,
-   "q": 161,
-   "low": 687,
+   "p": 500,
+   "t": 1794488284,
+   "q": 227,
+   "low": 500,
    "med": 687,
    "high": 887,
-   "days": 2
+   "days": 3
   },
   "Coyote Meat": {
-   "p": 1260,
-   "t": 1794307957,
-   "q": 1900
-  },
-  "Coyote Steak": {
-   "p": 599,
-   "t": 1794307957,
-   "q": 1272
+   "p": 1619,
+   "t": 1794488284,
+   "q": 708
   },
   "Crab Cake": {
-   "p": 100,
-   "t": 1794383619,
-   "q": 614,
-   "low": 100,
+   "p": 99,
+   "t": 1794488284,
+   "q": 317,
+   "low": 99,
    "med": 100,
    "high": 185,
-   "days": 2
+   "days": 3
   },
   "Crafted Heavy Shot": {
    "p": 1,
-   "t": 1794387509,
-   "q": 40495
-  },
-  "Crafted Light Shot": {
-   "p": 1,
-   "t": 1794389596,
-   "q": 188267,
+   "t": 1794503923,
+   "q": 50665,
    "low": 1,
    "med": 1,
    "high": 1,
    "days": 2
+  },
+  "Crafted Light Shot": {
+   "p": 1,
+   "t": 1794503923,
+   "q": 165150,
+   "low": 1,
+   "med": 1,
+   "high": 1,
+   "days": 3
   },
   "Crafted Solid Shot": {
    "p": 3,
@@ -1085,63 +731,33 @@
    "high": 5,
    "days": 2
   },
-  "Craftsman's Monocle": {
-   "p": 15500,
-   "t": 1794307957,
-   "q": 84
-  },
-  "Crag Boar Rib": {
-   "p": 199,
-   "t": 1794307957,
-   "q": 460
-  },
-  "Crawler Claw": {
-   "p": 15,
-   "t": 1794337156,
-   "q": 1212
-  },
   "Crawler Meat": {
-   "p": 539,
-   "t": 1794389596,
-   "q": 70,
+   "p": 419,
+   "t": 1794488284,
+   "q": 198,
    "low": 304,
-   "med": 304,
+   "med": 343,
    "high": 539,
-   "days": 2
-  },
-  "Crimson Silk Belt": {
-   "p": 2500,
-   "t": 1794307957,
-   "q": 160
-  },
-  "Crimson Silk Cloak": {
-   "p": 4900,
-   "t": 1794307957,
-   "q": 44
+   "days": 3
   },
   "Crimson Silk Pantaloons": {
    "p": 2500,
    "t": 1794387509,
    "q": 91
   },
-  "Crimson Silk Shoulders": {
-   "p": 3900,
-   "t": 1794307957,
-   "q": 36
-  },
   "Crimson Silk Vest": {
    "p": 2100,
-   "t": 1794307957,
-   "q": 208
+   "t": 1794471234,
+   "q": 115
   },
   "Crisp Spider Meat": {
    "p": 50,
-   "t": 1794389596,
-   "q": 10595,
-   "low": 50,
+   "t": 1794503923,
+   "q": 17441,
+   "low": 20,
    "med": 50,
    "high": 50,
-   "days": 2
+   "days": 3
   },
   "Crispy Bat Wing": {
    "p": 100,
@@ -1149,14 +765,9 @@
    "q": 294
   },
   "Crispy Lizard Tail": {
-   "p": 131,
-   "t": 1794307957,
-   "q": 468
-  },
-  "Crocolisk Gumbo": {
-   "p": 200,
-   "t": 1794307957,
-   "q": 340
+   "p": 125,
+   "t": 1794471234,
+   "q": 330
   },
   "Crocolisk Meat": {
    "p": 34,
@@ -1167,207 +778,143 @@
    "high": 41,
    "days": 2
   },
-  "Crocolisk Steak": {
-   "p": 110,
-   "t": 1794307957,
-   "q": 432
-  },
   "Crude Scope": {
    "p": 125,
-   "t": 1794387509,
-   "q": 116
-  },
-  "Crystal Vial": {
-   "p": 444,
-   "t": 1794307957,
-   "q": 20
+   "t": 1794488284,
+   "q": 213,
+   "low": 125,
+   "med": 125,
+   "high": 125,
+   "days": 2
   },
   "Cured Heavy Hide": {
-   "p": 2300,
-   "t": 1794389596,
-   "q": 1733
+   "p": 1200,
+   "t": 1794471234,
+   "q": 328,
+   "low": 1200,
+   "med": 1200,
+   "high": 2300,
+   "days": 2
   },
   "Cured Light Hide": {
-   "p": 142,
-   "t": 1794389596,
-   "q": 1015,
-   "low": 135,
+   "p": 121,
+   "t": 1794503923,
+   "q": 1480,
+   "low": 121,
    "med": 135,
    "high": 161,
-   "days": 2
+   "days": 3
   },
   "Cured Medium Hide": {
    "p": 394,
    "t": 1794389596,
    "q": 3512
   },
-  "Cured Rugged Hide": {
-   "p": 209897,
-   "t": 1794307957,
-   "q": 40
-  },
-  "Cured Thick Hide": {
-   "p": 1100,
-   "t": 1794337156,
-   "q": 948
-  },
-  "Curiously Tasty Omelet": {
-   "p": 169,
-   "t": 1794345595,
-   "q": 901
-  },
-  "Dark Iron Ore": {
-   "p": 2587,
-   "t": 1794307957,
-   "q": 808
-  },
   "Dark Leather Belt": {
-   "p": 800,
-   "t": 1794389596,
-   "q": 585,
+   "p": 700,
+   "t": 1794488284,
+   "q": 625,
    "low": 700,
    "med": 700,
    "high": 800,
-   "days": 2
+   "days": 3
   },
   "Dark Leather Cloak": {
-   "p": 500,
-   "t": 1794389596,
-   "q": 1099,
+   "p": 408,
+   "t": 1794503923,
+   "q": 811,
    "low": 400,
-   "med": 400,
+   "med": 408,
    "high": 500,
-   "days": 2
-  },
-  "Dark Leather Gloves": {
-   "p": 1000,
-   "t": 1794307957,
-   "q": 36
+   "days": 3
   },
   "Dark Leather Pants": {
-   "p": 1100,
-   "t": 1794389596,
-   "q": 237,
-   "low": 1100,
+   "p": 1089,
+   "t": 1794503923,
+   "q": 418,
+   "low": 1089,
    "med": 1100,
    "high": 1100,
-   "days": 2
+   "days": 3
   },
   "Dark Leather Shoulders": {
-   "p": 2700,
-   "t": 1794389596,
-   "q": 46,
+   "p": 2858,
+   "t": 1794503923,
+   "q": 66,
    "low": 2400,
-   "med": 2400,
-   "high": 2700,
-   "days": 2
+   "med": 2700,
+   "high": 2858,
+   "days": 3
   },
   "Dark Leather Tunic": {
-   "p": 1300,
-   "t": 1794307957,
-   "q": 84
-  },
-  "Dark Rune": {
-   "p": 153100,
-   "t": 1794307957,
-   "q": 40
+   "p": 1000,
+   "t": 1794488284,
+   "q": 52
   },
   "Dark Silk Shirt": {
-   "p": 2600,
-   "t": 1794307957,
-   "q": 160
-  },
-  "Darkclaw Lobster": {
-   "p": 4900,
-   "t": 1794307957,
-   "q": 804
-  },
-  "Dazzling Mithril Rapier": {
-   "p": 19900,
-   "t": 1794307957,
-   "q": 8
+   "p": 1700,
+   "t": 1794503923,
+   "q": 11
   },
   "Deadly Blunderbuss": {
-   "p": 2500,
-   "t": 1794389596,
-   "q": 268,
+   "p": 2587,
+   "t": 1794503923,
+   "q": 246,
    "low": 2500,
-   "med": 2500,
+   "med": 2587,
    "high": 2800,
-   "days": 2
-  },
-  "Deadly Bronze Poniard": {
-   "p": 5500,
-   "t": 1794307957,
-   "q": 264
-  },
-  "Deadly Scope": {
-   "p": 22000,
-   "t": 1794307957,
-   "q": 176
+   "days": 3
   },
   "Deeprock Salt": {
-   "p": 250,
-   "t": 1794389596,
-   "q": 596
-  },
-  "Dense Grinding Stone": {
-   "p": 7999,
-   "t": 1794307957,
-   "q": 92
+   "p": 260,
+   "t": 1794503923,
+   "q": 1669,
+   "low": 249,
+   "med": 249,
+   "high": 260,
+   "days": 2
   },
   "Dense Sharpening Stone": {
-   "p": 3100,
-   "t": 1794307957,
-   "q": 348
+   "p": 950,
+   "t": 1794503923,
+   "q": 1232
   },
   "Dense Stone": {
-   "p": 755,
-   "t": 1794389596,
-   "q": 3625
+   "p": 435,
+   "t": 1794503923,
+   "q": 5879,
+   "low": 435,
+   "med": 435,
+   "high": 755,
+   "days": 2
   },
   "Dense Weightstone": {
-   "p": 3999,
-   "t": 1794307957,
-   "q": 184
+   "p": 1177,
+   "t": 1794503923,
+   "q": 1407
   },
   "Deviate Fish": {
-   "p": 190,
-   "t": 1794389596,
-   "q": 2387,
+   "p": 217,
+   "t": 1794503923,
+   "q": 5844,
    "low": 160,
-   "med": 160,
-   "high": 182,
-   "days": 2
+   "med": 182,
+   "high": 217,
+   "days": 3
   },
   "Deviate Scale": {
-   "p": 22,
-   "t": 1794389596,
-   "q": 1433,
+   "p": 25,
+   "t": 1794488284,
+   "q": 793,
    "low": 21,
-   "med": 21,
-   "high": 23,
-   "days": 2
+   "med": 23,
+   "high": 25,
+   "days": 3
   },
   "Deviate Scale Belt": {
    "p": 12900,
    "t": 1794389596,
    "q": 63
-  },
-  "Deviate Scale Cloak": {
-   "p": 700,
-   "t": 1794307957,
-   "q": 88
-  },
-  "Deviate Scale Gloves": {
-   "p": 1500,
-   "t": 1794307957,
-   "q": 168
-  },
-  "Devilsaur Leather": {
-   "p": 13097,
-   "t": 1794337156,
-   "q": 499
   },
   "Dig Rat": {
    "p": 290,
@@ -1379,63 +926,36 @@
    "days": 2
   },
   "Dig Rat Stew": {
-   "p": 90,
-   "t": 1794389596,
-   "q": 574
+   "p": 74,
+   "t": 1794488284,
+   "q": 237,
+   "low": 74,
+   "med": 74,
+   "high": 90,
+   "days": 2
   },
   "Discolored Healing Potion": {
-   "p": 438,
-   "t": 1794389596,
-   "q": 167
-  },
-  "Discombobulator Ray": {
-   "p": 9900,
-   "t": 1794307957,
-   "q": 20
+   "p": 422,
+   "t": 1794471234,
+   "q": 32,
+   "low": 422,
+   "med": 422,
+   "high": 438,
+   "days": 2
   },
   "Double-Stitched Woolen Shoulders": {
-   "p": 500,
-   "t": 1794389596,
-   "q": 439,
+   "p": 408,
+   "t": 1794503923,
+   "q": 783,
    "low": 400,
    "med": 400,
    "high": 500,
-   "days": 2
-  },
-  "Dragonbreath Chili": {
-   "p": 2294,
-   "t": 1794307957,
-   "q": 1628
-  },
-  "Dragonscale Gauntlets": {
-   "p": 60000,
-   "t": 1794307957,
-   "q": 20
-  },
-  "Draught of Detect Demon": {
-   "p": 1499,
-   "t": 1794307957,
-   "q": 24
-  },
-  "Draught of Detect Lesser Invisibility": {
-   "p": 449,
-   "t": 1794307957,
-   "q": 300
-  },
-  "Draught of Detect Undead": {
-   "p": 2000,
-   "t": 1794307957,
-   "q": 248
-  },
-  "Draught of Dream Vision": {
-   "p": 10000,
-   "t": 1794307957,
-   "q": 80
+   "days": 3
   },
   "Draught of Greater Water Breathing": {
-   "p": 8555,
-   "t": 1794307957,
-   "q": 632
+   "p": 2384,
+   "t": 1794488284,
+   "q": 210
   },
   "Draught of Water Breathing": {
    "p": 1696,
@@ -1443,9 +963,13 @@
    "q": 1212
   },
   "Dream Dust": {
-   "p": 1899,
-   "t": 1794389596,
-   "q": 70
+   "p": 3115,
+   "t": 1794503923,
+   "q": 2337,
+   "low": 1899,
+   "med": 1899,
+   "high": 3115,
+   "days": 2
   },
   "Dreamfoil": {
    "p": 3611,
@@ -1456,133 +980,51 @@
    "high": 3611,
    "days": 2
   },
-  "Dreamless Sleep Potion": {
-   "p": 4090,
-   "t": 1794307957,
-   "q": 476
-  },
-  "Dreamweave Circlet": {
-   "p": 59900,
-   "t": 1794307957,
-   "q": 56
-  },
   "Dreamweave Gloves": {
    "p": 20000,
    "t": 1794387509,
    "q": 34
-  },
-  "Dreamweave Vest": {
-   "p": 38900,
-   "t": 1794307957,
-   "q": 88
-  },
-  "Dry Pork Ribs": {
-   "p": 105,
-   "t": 1794307957,
-   "q": 2568
-  },
-  "Dusky Belt": {
-   "p": 3500,
-   "t": 1794307958,
-   "q": 16
-  },
-  "Dusky Boots": {
-   "p": 12900,
-   "t": 1794307958,
-   "q": 60
-  },
-  "Dusky Bracers": {
-   "p": 2500,
-   "t": 1794307958,
-   "q": 244
   },
   "Dusky Leather Armor": {
    "p": 4500,
    "t": 1794389596,
    "q": 59
   },
-  "Dusky Leather Leggings": {
-   "p": 3700,
-   "t": 1794307958,
-   "q": 200
-  },
-  "EZ-Thro Copper Bomb XL": {
-   "p": 1399,
-   "t": 1794330980,
-   "q": 82
-  },
-  "EZ-Thro Wrap": {
-   "p": 864,
-   "t": 1794307958,
-   "q": 928
-  },
-  "Earthen Leather Shoulders": {
-   "p": 2200,
-   "t": 1794307958,
-   "q": 308
-  },
-  "Earthen Leggings": {
-   "p": 4500,
-   "t": 1794307958,
-   "q": 44
-  },
-  "Earthen Silk Belt": {
-   "p": 19000,
-   "t": 1794307958,
-   "q": 12
-  },
-  "Earthen Silk Cuffs": {
-   "p": 4300,
-   "t": 1794307958,
-   "q": 68
-  },
-  "Earthen Silk Gloves": {
-   "p": 3200,
-   "t": 1794307958,
-   "q": 52
-  },
-  "Earthen Silk Hood": {
-   "p": 7900,
-   "t": 1794307958,
-   "q": 84
-  },
-  "Earthen Silk Slippers": {
-   "p": 13300,
-   "t": 1794307958,
-   "q": 48
-  },
-  "Earthen Vest": {
-   "p": 3100,
-   "t": 1794307958,
-   "q": 168
-  },
   "Earthroot": {
-   "p": 106,
-   "t": 1794389596,
-   "q": 558,
+   "p": 128,
+   "t": 1794488284,
+   "q": 1635,
    "low": 60,
-   "med": 60,
-   "high": 89,
-   "days": 2
+   "med": 89,
+   "high": 128,
+   "days": 3
   },
   "Elemental Air": {
-   "p": 1760,
-   "t": 1794389596,
-   "q": 311
-  },
-  "Elemental Earth": {
-   "p": 1860,
-   "t": 1794389596,
-   "q": 298,
-   "low": 1425,
-   "med": 1425,
-   "high": 1860,
+   "p": 3296,
+   "t": 1794488284,
+   "q": 254,
+   "low": 1450,
+   "med": 1450,
+   "high": 1760,
    "days": 2
   },
+  "Elemental Earth": {
+   "p": 2644,
+   "t": 1794503923,
+   "q": 534,
+   "low": 1425,
+   "med": 1860,
+   "high": 2385,
+   "days": 3
+  },
   "Elemental Fire": {
-   "p": 2800,
-   "t": 1794345595,
-   "q": 304
+   "p": 3699,
+   "t": 1794503923,
+   "q": 623,
+   "low": 2800,
+   "med": 2800,
+   "high": 2900,
+   "days": 2
   },
   "Elemental Water": {
    "p": 881,
@@ -1604,97 +1046,64 @@
    "q": 747
   },
   "Elixir of Fire Power": {
-   "p": 35,
-   "t": 1794389596,
-   "q": 926,
+   "p": 95,
+   "t": 1794503923,
+   "q": 837,
    "low": 35,
-   "med": 35,
-   "high": 37,
-   "days": 2
-  },
-  "Elixir of Fortitude": {
-   "p": 4192,
-   "t": 1794307958,
-   "q": 244
+   "med": 37,
+   "high": 95,
+   "days": 3
   },
   "Elixir of Giant Growth": {
-   "p": 397,
-   "t": 1794387509,
-   "q": 739
-  },
-  "Elixir of Greater Agility": {
-   "p": 3474,
-   "t": 1794307958,
-   "q": 2152
+   "p": 388,
+   "t": 1794503923,
+   "q": 1187,
+   "low": 388,
+   "med": 388,
+   "high": 397,
+   "days": 2
   },
   "Elixir of Greater Defense": {
-   "p": 3299,
-   "t": 1794337156,
-   "q": 284
-  },
-  "Elixir of Greater Fortitude": {
-   "p": 19899,
-   "t": 1794307958,
-   "q": 28
+   "p": 1747,
+   "t": 1794488284,
+   "q": 182
   },
   "Elixir of Greater Intellect": {
-   "p": 1587,
-   "t": 1794307958,
-   "q": 368
-  },
-  "Elixir of Greater Strength": {
-   "p": 8993,
-   "t": 1794307958,
-   "q": 596
-  },
-  "Elixir of Holy Power": {
-   "p": 14000,
-   "t": 1794307958,
-   "q": 36
-  },
-  "Elixir of Intellect": {
-   "p": 440,
-   "t": 1794307958,
-   "q": 632
-  },
-  "Elixir of Lesser Agility": {
-   "p": 757,
-   "t": 1794345595,
-   "q": 273
+   "p": 1287,
+   "t": 1794488284,
+   "q": 390
   },
   "Elixir of Lesser Defense": {
-   "p": 495,
-   "t": 1794307958,
-   "q": 1244
+   "p": 468,
+   "t": 1794488284,
+   "q": 75
   },
   "Elixir of Lesser Fortitude": {
-   "p": 599,
-   "t": 1794343024,
-   "q": 310
-  },
-  "Elixir of Lesser Intellect": {
-   "p": 593,
-   "t": 1794307958,
-   "q": 1820
-  },
-  "Elixir of Lesser Spirit": {
-   "p": 688,
-   "t": 1794307958,
-   "q": 1276
+   "p": 517,
+   "t": 1794503923,
+   "q": 102,
+   "low": 517,
+   "med": 517,
+   "high": 599,
+   "days": 2
   },
   "Elixir of Minor Agility": {
-   "p": 700,
-   "t": 1794387509,
-   "q": 528
+   "p": 764,
+   "t": 1794503923,
+   "q": 452,
+   "low": 640,
+   "med": 640,
+   "high": 750,
+   "days": 2
   },
   "Elixir of Minor Defense": {
    "p": 5,
-   "t": 1794389596,
-   "q": 1954,
+   "t": 1794503923,
+   "q": 1782,
    "low": 5,
    "med": 5,
    "high": 5,
-   "days": 2
+   "days": 3
   },
   "Elixir of Minor Force": {
    "p": 27,
@@ -1706,27 +1115,22 @@
    "days": 2
   },
   "Elixir of Minor Fortitude": {
-   "p": 29,
-   "t": 1794389596,
-   "q": 192,
-   "low": 26,
+   "p": 23,
+   "t": 1794503923,
+   "q": 583,
+   "low": 23,
    "med": 26,
    "high": 27,
-   "days": 2
-  },
-  "Elixir of Minor Spirit": {
-   "p": 220,
-   "t": 1794307958,
-   "q": 768
+   "days": 3
   },
   "Elixir of Minor Strength": {
-   "p": 178,
-   "t": 1794389596,
-   "q": 819,
+   "p": 246,
+   "t": 1794503923,
+   "q": 844,
    "low": 107,
-   "med": 107,
-   "high": 178,
-   "days": 2
+   "med": 178,
+   "high": 197,
+   "days": 3
   },
   "Elixir of Ogre Strength": {
    "p": 291,
@@ -1737,29 +1141,19 @@
    "high": 287,
    "days": 2
   },
-  "Elixir of Shadow Power": {
-   "p": 19000,
-   "t": 1794307958,
-   "q": 48
-  },
   "Elixir of Spirit": {
    "p": 500,
    "t": 1794389596,
    "q": 272
   },
-  "Elixir of Strength": {
-   "p": 6898,
-   "t": 1794307958,
-   "q": 452
-  },
   "Elixir of Wisdom": {
-   "p": 120,
-   "t": 1794389596,
-   "q": 877,
-   "low": 104,
+   "p": 102,
+   "t": 1794503923,
+   "q": 594,
+   "low": 102,
    "med": 104,
    "high": 120,
-   "days": 2
+   "days": 3
   },
   "Embossed Leather Boots": {
    "p": 400,
@@ -1767,27 +1161,22 @@
    "q": 158
   },
   "Embossed Leather Cloak": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 656,
-   "low": 200,
+   "p": 120,
+   "t": 1794503923,
+   "q": 687,
+   "low": 120,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Embossed Leather Gloves": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 3383,
+   "p": 100,
+   "t": 1794503923,
+   "q": 1893,
    "low": 100,
    "med": 100,
    "high": 100,
-   "days": 2
-  },
-  "Embossed Leather Pants": {
-   "p": 400,
-   "t": 1794345595,
-   "q": 203
+   "days": 3
   },
   "Embossed Leather Vest": {
    "p": 200,
@@ -1795,54 +1184,23 @@
    "q": 107
   },
   "Empty Vial": {
-   "p": 5,
-   "t": 1794345595,
-   "q": 5434
+   "p": 8,
+   "t": 1794503923,
+   "q": 1929,
+   "low": 5,
+   "med": 5,
+   "high": 7,
+   "days": 2
   },
   "Enchanted Leather": {
    "p": 24000,
    "t": 1794389596,
    "q": 47
   },
-  "Enchanted Lute": {
-   "p": 179,
-   "t": 1794383619,
-   "q": 225
-  },
   "Enchanted Mageweave Pouch": {
    "p": 19500,
    "t": 1794389596,
    "q": 27
-  },
-  "Enchanted Thorium Bar": {
-   "p": 29900,
-   "t": 1794307958,
-   "q": 4
-  },
-  "Enchanter's Cowl": {
-   "p": 7300,
-   "t": 1794307958,
-   "q": 396
-  },
-  "Engineer's Ink": {
-   "p": 4900,
-   "t": 1794307958,
-   "q": 128
-  },
-  "Essence of Air": {
-   "p": 60000,
-   "t": 1794307958,
-   "q": 8
-  },
-  "Essence of Anarchy": {
-   "p": 39900,
-   "t": 1794307958,
-   "q": 12
-  },
-  "Essence of Earth": {
-   "p": 35599,
-   "t": 1794307958,
-   "q": 20
   },
   "Essence of Fire": {
    "p": 16676,
@@ -1854,115 +1212,64 @@
    "days": 2
   },
   "Essence of Undeath": {
-   "p": 101600,
-   "t": 1794307958,
-   "q": 16
-  },
-  "Essence of Water": {
-   "p": 159800,
-   "t": 1794307958,
-   "q": 72
+   "p": 9085,
+   "t": 1794503923,
+   "q": 161
   },
   "Explosive Sheep": {
    "p": 1000,
    "t": 1794387509,
    "q": 157
   },
-  "Ez-Thro Dynamite": {
-   "p": 467,
-   "t": 1794307958,
-   "q": 320
-  },
-  "Faction Banner": {
-   "p": 74,
-   "t": 1794337156,
-   "q": 208
-  },
   "Fadeleaf": {
-   "p": 610,
-   "t": 1794389596,
-   "q": 798,
+   "p": 685,
+   "t": 1794471234,
+   "q": 1803,
    "low": 610,
-   "med": 610,
-   "high": 625,
-   "days": 2
-  },
-  "Fel Crystal": {
-   "p": 284600,
-   "t": 1794307958,
-   "q": 4
-  },
-  "Fel Hide": {
-   "p": 151200,
-   "t": 1794307958,
-   "q": 4
+   "med": 625,
+   "high": 685,
+   "days": 3
   },
   "Felcloth": {
-   "p": 8000,
-   "t": 1794389596,
-   "q": 362,
-   "low": 8000,
+   "p": 4949,
+   "t": 1794503923,
+   "q": 194,
+   "low": 4949,
    "med": 8000,
    "high": 11997,
-   "days": 2
-  },
-  "Fermenter": {
-   "p": 1087,
-   "t": 1794389596,
-   "q": 228
-  },
-  "Filet of Redgill": {
-   "p": 149,
-   "t": 1794307958,
-   "q": 4920
+   "days": 3
   },
   "Fine Leather Belt": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 943,
-   "low": 300,
+   "p": 205,
+   "t": 1794503923,
+   "q": 990,
+   "low": 205,
    "med": 300,
    "high": 300,
-   "days": 2
+   "days": 3
   },
   "Fine Leather Boots": {
    "p": 300,
-   "t": 1794387509,
-   "q": 150,
+   "t": 1794471234,
+   "q": 162,
    "low": 300,
    "med": 300,
    "high": 300,
-   "days": 2
+   "days": 3
   },
   "Fine Leather Cloak": {
-   "p": 300,
-   "t": 1794345595,
-   "q": 235
-  },
-  "Fine Leather Gloves": {
-   "p": 500,
-   "t": 1794345595,
-   "q": 67
+   "p": 250,
+   "t": 1794503923,
+   "q": 131,
+   "low": 250,
+   "med": 250,
+   "high": 300,
+   "days": 2
   },
   "Fine Leather Pants": {
    "p": 1600,
    "t": 1794383619,
    "q": 177
-  },
-  "Fine Leather Tunic": {
-   "p": 600,
-   "t": 1794345595,
-   "q": 46
-  },
-  "Fine Thread": {
-   "p": 124,
-   "t": 1794343024,
-   "q": 4953
-  },
-  "Fire Goggles": {
-   "p": 55200,
-   "t": 1794307958,
-   "q": 12
   },
   "Fire Oil": {
    "p": 109,
@@ -1973,195 +1280,137 @@
    "high": 109,
    "days": 2
   },
-  "Fire Protection Potion": {
-   "p": 2400,
-   "t": 1794307958,
-   "q": 484
-  },
   "Firebloom": {
-   "p": 1155,
-   "t": 1794383619,
-   "q": 264,
-   "low": 1155,
+   "p": 1010,
+   "t": 1794488284,
+   "q": 638,
+   "low": 1010,
    "med": 1155,
    "high": 1210,
-   "days": 2
+   "days": 3
   },
   "Firefin Snapper": {
-   "p": 80,
-   "t": 1794389596,
-   "q": 1814,
-   "low": 79,
+   "p": 69,
+   "t": 1794471234,
+   "q": 3112,
+   "low": 69,
    "med": 79,
    "high": 92,
-   "days": 2
-  },
-  "First Aid Kit": {
-   "p": 19,
-   "t": 1794345595,
-   "q": 337
-  },
-  "Flame Deflector": {
-   "p": 3600,
-   "t": 1794307958,
-   "q": 20
+   "days": 3
   },
   "Flash Bomb": {
-   "p": 1499,
-   "t": 1794307958,
-   "q": 184
+   "p": 2072,
+   "t": 1794503923,
+   "q": 110
   },
   "Flask of Big Mojo": {
-   "p": 663,
-   "t": 1794389596,
-   "q": 345
+   "p": 531,
+   "t": 1794488284,
+   "q": 219,
+   "low": 500,
+   "med": 500,
+   "high": 663,
+   "days": 2
   },
   "Flask of Mojo": {
-   "p": 250,
-   "t": 1794345595,
-   "q": 657
+   "p": 269,
+   "t": 1794503923,
+   "q": 73,
+   "low": 250,
+   "med": 250,
+   "high": 250,
+   "days": 2
   },
   "Flask of Oil": {
-   "p": 38,
-   "t": 1794389596,
-   "q": 538
+   "p": 25,
+   "t": 1794488284,
+   "q": 337,
+   "low": 24,
+   "med": 24,
+   "high": 38,
+   "days": 2
   },
   "Fletcher's Gloves": {
    "p": 700,
-   "t": 1794387509,
-   "q": 88
+   "t": 1794488284,
+   "q": 51,
+   "low": 700,
+   "med": 700,
+   "high": 700,
+   "days": 2
   },
   "Flying Tiger Goggles": {
-   "p": 500,
-   "t": 1794387509,
-   "q": 247,
-   "low": 500,
+   "p": 479,
+   "t": 1794488284,
+   "q": 188,
+   "low": 479,
    "med": 500,
+   "high": 500,
+   "days": 3
+  },
+  "Formula: Enchant 2H Weapon - Lesser Spirit": {
+   "p": 399,
+   "t": 1794503923,
+   "q": 56,
+   "low": 300,
+   "med": 300,
    "high": 500,
    "days": 2
   },
-  "Forceful Heavy Armor Kit": {
-   "p": 1839,
-   "t": 1794345595,
-   "q": 66
-  },
-  "Forceful Medium Armor Kit": {
-   "p": 734,
-   "t": 1794343024,
-   "q": 143
-  },
-  "Forceful Thick Armor Kit": {
-   "p": 9999,
-   "t": 1794307958,
-   "q": 520
-  },
-  "Formal White Shirt": {
-   "p": 900,
-   "t": 1794307958,
-   "q": 224
-  },
-  "Formula: Enchant 2H Weapon - Lesser Intellect": {
-   "p": 900,
-   "t": 1794307958,
-   "q": 100
-  },
-  "Formula: Enchant 2H Weapon - Lesser Spirit": {
-   "p": 500,
-   "t": 1794389596,
-   "q": 21
-  },
-  "Formula: Enchant Boots - Greater Stamina": {
-   "p": 19800,
-   "t": 1794307958,
-   "q": 84
-  },
   "Formula: Enchant Boots - Lesser Spirit": {
-   "p": 1200,
-   "t": 1794345595,
-   "q": 85
-  },
-  "Formula: Enchant Boots - Minor Agility": {
-   "p": 300,
-   "t": 1794343024,
-   "q": 30
-  },
-  "Formula: Enchant Boots - Spirit": {
-   "p": 35500,
-   "t": 1794307958,
-   "q": 56
-  },
-  "Formula: Enchant Bracer - Deflection": {
-   "p": 9000,
-   "t": 1794307958,
-   "q": 20
-  },
-  "Formula: Enchant Bracer - Greater Intellect": {
-   "p": 279900,
-   "t": 1794307958,
-   "q": 8
-  },
-  "Formula: Enchant Bracer - Greater Spirit": {
-   "p": 3500,
-   "t": 1794307958,
-   "q": 92
-  },
-  "Formula: Enchant Bracer - Greater Stamina": {
-   "p": 2300,
-   "t": 1794307958,
-   "q": 128
-  },
-  "Formula: Enchant Bracer - Lesser Spirit": {
-   "p": 900,
-   "t": 1794387509,
-   "q": 34,
-   "low": 300,
-   "med": 300,
-   "high": 900,
+   "p": 1000,
+   "t": 1794503923,
+   "q": 60,
+   "low": 1000,
+   "med": 1000,
+   "high": 1200,
    "days": 2
   },
+  "Formula: Enchant Boots - Minor Agility": {
+   "p": 400,
+   "t": 1794488284,
+   "q": 38,
+   "low": 300,
+   "med": 300,
+   "high": 400,
+   "days": 2
+  },
+  "Formula: Enchant Bracer - Lesser Spirit": {
+   "p": 350,
+   "t": 1794488284,
+   "q": 12,
+   "low": 300,
+   "med": 350,
+   "high": 900,
+   "days": 3
+  },
   "Formula: Enchant Bracer - Lesser Strength": {
-   "p": 2300,
-   "t": 1794307958,
-   "q": 220
+   "p": 2900,
+   "t": 1794471234,
+   "q": 47
   },
   "Formula: Enchant Bracer - Minor Spirit": {
    "p": 200,
-   "t": 1794389596,
-   "q": 40
-  },
-  "Formula: Enchant Bracer - Minor Strength": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 93,
+   "t": 1794488284,
+   "q": 30,
    "low": 200,
    "med": 200,
    "high": 200,
    "days": 2
   },
-  "Formula: Enchant Bracer - Superior Spirit": {
-   "p": 15000,
-   "t": 1794307958,
-   "q": 52
-  },
-  "Formula: Enchant Chest - Lesser Intellect": {
-   "p": 2500,
-   "t": 1794345595,
-   "q": 46
+  "Formula: Enchant Bracer - Minor Strength": {
+   "p": 200,
+   "t": 1794471234,
+   "q": 46,
+   "low": 200,
+   "med": 200,
+   "high": 200,
+   "days": 3
   },
   "Formula: Enchant Chest - Minor Intellect": {
    "p": 600,
    "t": 1794389596,
    "q": 58
-  },
-  "Formula: Enchant Cloak - Greater Resistance": {
-   "p": 2000000,
-   "t": 1794307958,
-   "q": 4
-  },
-  "Formula: Enchant Cloak - Lesser Agility": {
-   "p": 2900,
-   "t": 1794345595,
-   "q": 38
   },
   "Formula: Enchant Cloak - Lesser Shadow Resistance": {
    "p": 600,
@@ -2172,99 +1421,68 @@
    "high": 600,
    "days": 2
   },
-  "Formula: Enchant Gloves - Advanced Herbalism": {
-   "p": 19000,
-   "t": 1794307958,
-   "q": 28
-  },
   "Formula: Enchant Gloves - Advanced Mining": {
-   "p": 7900,
-   "t": 1794387509,
-   "q": 98
+   "p": 1100,
+   "t": 1794488284,
+   "q": 34,
+   "low": 1100,
+   "med": 1100,
+   "high": 7900,
+   "days": 2
   },
   "Formula: Enchant Gloves - Fishing": {
-   "p": 800,
-   "t": 1794345595,
-   "q": 155
-  },
-  "Formula: Enchant Gloves - Greater Agility": {
-   "p": 900000,
-   "t": 1794307958,
-   "q": 28
-  },
-  "Formula: Enchant Gloves - Herbalism": {
-   "p": 1300,
-   "t": 1794345595,
-   "q": 44
-  },
-  "Formula: Enchant Gloves - Mining": {
-   "p": 14000,
-   "t": 1794307958,
-   "q": 12
-  },
-  "Formula: Enchant Gloves - Riding Skill": {
-   "p": 191700,
-   "t": 1794307958,
-   "q": 40
+   "p": 798,
+   "t": 1794503923,
+   "q": 132,
+   "low": 798,
+   "med": 798,
+   "high": 800,
+   "days": 2
   },
   "Formula: Enchant Gloves - Skinning": {
    "p": 1000,
-   "t": 1794389596,
-   "q": 67
-  },
-  "Formula: Enchant Shield - Frost Resistance": {
-   "p": 99900,
-   "t": 1794307958,
-   "q": 28
-  },
-  "Formula: Enchant Shield - Lesser Block": {
-   "p": 49400,
-   "t": 1794307958,
-   "q": 24
-  },
-  "Formula: Enchant Shield - Lesser Protection": {
-   "p": 200,
-   "t": 1794383619,
-   "q": 32
-  },
-  "Formula: Enchant Shield - Stamina": {
-   "p": 1900,
-   "t": 1794387509,
-   "q": 50
-  },
-  "Formula: Enchant Weapon - Demonslaying": {
-   "p": 2000,
-   "t": 1794307958,
-   "q": 68
-  },
-  "Formula: Enchant Weapon - Lesser Beastslayer": {
-   "p": 1000,
-   "t": 1794389596,
-   "q": 42
-  },
-  "Formula: Enchant Weapon - Lesser Elemental Slayer": {
-   "p": 800,
-   "t": 1794345595,
-   "q": 80
-  },
-  "Formula: Enchant Weapon - Minor Beastslayer": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 91,
-   "low": 200,
-   "med": 200,
-   "high": 200,
+   "t": 1794503923,
+   "q": 52,
+   "low": 1000,
+   "med": 1000,
+   "high": 1000,
    "days": 2
   },
-  "Formula: Lesser Wizard Oil": {
-   "p": 5000,
-   "t": 1794307958,
-   "q": 40
+  "Formula: Enchant Shield - Lesser Protection": {
+   "p": 222,
+   "t": 1794503923,
+   "q": 70,
+   "low": 200,
+   "med": 200,
+   "high": 222,
+   "days": 2
   },
-  "Formula: Minor Mana Oil": {
-   "p": 4900,
-   "t": 1794307958,
-   "q": 64
+  "Formula: Enchant Shield - Stamina": {
+   "p": 1200,
+   "t": 1794471234,
+   "q": 27,
+   "low": 1200,
+   "med": 1200,
+   "high": 1900,
+   "days": 2
+  },
+  "Formula: Enchant Weapon - Lesser Beastslayer": {
+   "p": 800,
+   "t": 1794503923,
+   "q": 93,
+   "low": 800,
+   "med": 800,
+   "high": 1000,
+   "days": 2
+  },
+  "Formula: Enchant Weapon - Minor Beastslayer": {
+   "p": 149,
+   "t": 1794503923,
+   "q": 78,
+   "low": 149,
+   "med": 200,
+   "high": 200,
+   "days": 3
   },
   "Formula: Minor Wizard Oil": {
    "p": 800,
@@ -2286,9 +1504,13 @@
    "q": 26
   },
   "Frilled Lichen": {
-   "p": 1896,
-   "t": 1794345595,
-   "q": 522
+   "p": 2170,
+   "t": 1794503923,
+   "q": 1758,
+   "low": 1797,
+   "med": 1797,
+   "high": 2000,
+   "days": 2
   },
   "Frost Leather Cloak": {
    "p": 2400,
@@ -2296,107 +1518,82 @@
    "q": 27
   },
   "Frost Oil": {
-   "p": 3244,
-   "t": 1794389596,
-   "q": 753
+   "p": 2720,
+   "t": 1794471234,
+   "q": 667,
+   "low": 2720,
+   "med": 2720,
+   "high": 3244,
+   "days": 2
   },
   "Frost Protection Potion": {
-   "p": 3588,
-   "t": 1794389596,
-   "q": 197
-  },
-  "Frost Tiger Blade": {
-   "p": 36000,
-   "t": 1794307959,
-   "q": 24
+   "p": 2300,
+   "t": 1794503923,
+   "q": 307,
+   "low": 2300,
+   "med": 2300,
+   "high": 3588,
+   "days": 2
   },
   "Fused Wiring": {
-   "p": 1200,
-   "t": 1794389596,
-   "q": 169,
+   "p": 1748,
+   "t": 1794488284,
+   "q": 221,
    "low": 1200,
-   "med": 1200,
-   "high": 1500,
-   "days": 2
+   "med": 1500,
+   "high": 1748,
+   "days": 3
   },
   "Gem-studded Leather Belt": {
-   "p": 11300,
-   "t": 1794387509,
-   "q": 37
-  },
-  "Ghost Dye": {
-   "p": 44500,
-   "t": 1794307959,
-   "q": 128
-  },
-  "Ghost Mushroom": {
-   "p": 3500,
-   "t": 1794337156,
-   "q": 184
-  },
-  "Giant Clam Meat": {
-   "p": 400,
-   "t": 1794307959,
-   "q": 1400
-  },
-  "Giant Clam Scorcho": {
-   "p": 708,
-   "t": 1794307959,
-   "q": 676
-  },
-  "Giant Egg": {
-   "p": 3400,
-   "t": 1794389596,
-   "q": 437,
-   "low": 2829,
-   "med": 2829,
-   "high": 3800,
+   "p": 6800,
+   "t": 1794471234,
+   "q": 15,
+   "low": 6800,
+   "med": 6800,
+   "high": 11300,
    "days": 2
   },
-  "Gilded Handwraps": {
-   "p": 65000,
-   "t": 1794307959,
-   "q": 4
+  "Ghost Mushroom": {
+   "p": 3997,
+   "t": 1794503923,
+   "q": 800
   },
-  "Glinting Steel Dagger": {
-   "p": 18000,
-   "t": 1794307959,
-   "q": 36
+  "Giant Clam Meat": {
+   "p": 290,
+   "t": 1794503923,
+   "q": 496
+  },
+  "Giant Egg": {
+   "p": 2296,
+   "t": 1794503923,
+   "q": 665,
+   "low": 2296,
+   "med": 2829,
+   "high": 3800,
+   "days": 3
   },
   "Globe of Water": {
-   "p": 22900,
-   "t": 1794345595,
-   "q": 121
+   "p": 8999,
+   "t": 1794488284,
+   "q": 218,
+   "low": 8999,
+   "med": 8999,
+   "high": 22900,
+   "days": 2
   },
   "Gloves of Meditation": {
    "p": 900,
-   "t": 1794387509,
-   "q": 322
+   "t": 1794471234,
+   "q": 143,
+   "low": 900,
+   "med": 900,
+   "high": 900,
+   "days": 2
   },
   "Gnomish Cloaking Device": {
-   "p": 20000,
-   "t": 1794307959,
-   "q": 32
-  },
-  "Gnomish Harm Prevention Belt": {
-   "p": 39900,
-   "t": 1794307959,
-   "q": 4
-  },
-  "Gnomish Net-o-Matic Projector": {
-   "p": 39900,
-   "t": 1794307959,
-   "q": 8
-  },
-  "Gnomish Rocket Boots": {
-   "p": 99900,
-   "t": 1794307959,
-   "q": 4
-  },
-  "Gnomish Shrink Ray": {
-   "p": 64900,
-   "t": 1794307959,
-   "q": 20
+   "p": 17500,
+   "t": 1794471234,
+   "q": 3
   },
   "Gnomish Universal Remote": {
    "p": 8200,
@@ -2405,70 +1602,63 @@
   },
   "Goblin Deviled Clams": {
    "p": 95,
-   "t": 1794389596,
-   "q": 3012,
+   "t": 1794503923,
+   "q": 5070,
    "low": 95,
    "med": 95,
    "high": 95,
-   "days": 2
-  },
-  "Goblin Jumper Cables": {
-   "p": 20000,
-   "t": 1794307959,
-   "q": 28
+   "days": 3
   },
   "Goblin Land Mine": {
-   "p": 8500,
-   "t": 1794307959,
-   "q": 228
+   "p": 2000,
+   "t": 1794503923,
+   "q": 83
   },
   "Goblin Rocket Fuel": {
    "p": 2587,
    "t": 1794383619,
    "q": 602
   },
-  "Goblin Sapper Charge": {
-   "p": 17099,
-   "t": 1794343024,
-   "q": 78
-  },
   "Gold Bar": {
-   "p": 778,
-   "t": 1794389596,
-   "q": 114,
+   "p": 811,
+   "t": 1794503923,
+   "q": 1659,
    "low": 644,
-   "med": 644,
-   "high": 775,
-   "days": 2
+   "med": 775,
+   "high": 811,
+   "days": 3
   },
   "Gold Ore": {
-   "p": 778,
-   "t": 1794345595,
-   "q": 1114
+   "p": 600,
+   "t": 1794488284,
+   "q": 868,
+   "low": 600,
+   "med": 600,
+   "high": 777,
+   "days": 2
   },
   "Gold Power Core": {
-   "p": 599,
-   "t": 1794389596,
-   "q": 1573
-  },
-  "Golden Iron Destroyer": {
-   "p": 18800,
-   "t": 1794307959,
-   "q": 64
+   "p": 384,
+   "t": 1794488284,
+   "q": 1317,
+   "low": 384,
+   "med": 384,
+   "high": 599,
+   "days": 2
   },
   "Golden Pearl": {
-   "p": 41099,
-   "t": 1794307959,
-   "q": 296
+   "p": 29519,
+   "t": 1794488284,
+   "q": 249
   },
   "Golden Rod": {
-   "p": 700,
-   "t": 1794383619,
-   "q": 97,
+   "p": 757,
+   "t": 1794488284,
+   "q": 330,
    "low": 700,
    "med": 700,
-   "high": 700,
-   "days": 2
+   "high": 757,
+   "days": 3
   },
   "Golden Sansam": {
    "p": 1433,
@@ -2479,30 +1669,10 @@
    "high": 1877,
    "days": 2
   },
-  "Golden Scale Boots": {
-   "p": 24400,
-   "t": 1794307959,
-   "q": 4
-  },
   "Golden Scale Bracers": {
-   "p": 1800,
-   "t": 1794307959,
-   "q": 228
-  },
-  "Golden Scale Coif": {
-   "p": 9900,
-   "t": 1794307959,
-   "q": 100
-  },
-  "Golden Scale Cuirass": {
-   "p": 30300,
-   "t": 1794307959,
-   "q": 8
-  },
-  "Golden Scale Leggings": {
-   "p": 5600,
-   "t": 1794307959,
-   "q": 68
+   "p": 2100,
+   "t": 1794488284,
+   "q": 40
   },
   "Golden Scale Shoulders": {
    "p": 10800,
@@ -2515,39 +1685,27 @@
    "q": 148
   },
   "Goldthorn": {
-   "p": 489,
-   "t": 1794389596,
-   "q": 2180
-  },
-  "Goldthorn Tea": {
-   "p": 1158,
-   "t": 1794307959,
-   "q": 2280
-  },
-  "Golem Heart": {
-   "p": 557600,
-   "t": 1794307959,
-   "q": 20
+   "p": 467,
+   "t": 1794488284,
+   "q": 1453,
+   "low": 467,
+   "med": 467,
+   "high": 489,
+   "days": 2
   },
   "Golem Isospring": {
-   "p": 22,
-   "t": 1794307959,
-   "q": 184
+   "p": 45,
+   "t": 1794503923,
+   "q": 269
   },
   "Gooey Spider Leg": {
-   "p": 14,
-   "t": 1794345595,
-   "q": 1448
-  },
-  "Goretusk Liver": {
-   "p": 39,
-   "t": 1794345595,
-   "q": 325
-  },
-  "Goretusk Snout": {
-   "p": 99,
-   "t": 1794345595,
-   "q": 320
+   "p": 18,
+   "t": 1794503923,
+   "q": 820,
+   "low": 12,
+   "med": 12,
+   "high": 14,
+   "days": 2
   },
   "Grave Moss": {
    "p": 599,
@@ -2564,148 +1722,114 @@
    "days": 2
   },
   "Gray Leather Boots": {
-   "p": 400,
-   "t": 1794389596,
-   "q": 1342,
-   "low": 400,
+   "p": 309,
+   "t": 1794503923,
+   "q": 1223,
+   "low": 305,
    "med": 400,
    "high": 400,
-   "days": 2
+   "days": 3
   },
   "Gray Woolen Robe": {
    "p": 1400,
    "t": 1794383619,
    "q": 32
   },
-  "Gray Woolen Shirt": {
-   "p": 200,
-   "t": 1794307959,
-   "q": 184
-  },
   "Great Rage Potion": {
    "p": 239,
    "t": 1794389596,
    "q": 1478
   },
-  "Greater Adept's Robe": {
-   "p": 2500,
-   "t": 1794307959,
-   "q": 124
-  },
   "Greater Astral Essence": {
-   "p": 1594,
-   "t": 1794389596,
-   "q": 1275
-  },
-  "Greater Discolored Healing Potion": {
-   "p": 580,
-   "t": 1794307959,
-   "q": 656
-  },
-  "Greater Eternal Essence": {
-   "p": 37388,
-   "t": 1794307959,
-   "q": 96
+   "p": 1250,
+   "t": 1794488284,
+   "q": 810,
+   "low": 1250,
+   "med": 1250,
+   "high": 1594,
+   "days": 2
   },
   "Greater Healing Potion": {
-   "p": 519,
-   "t": 1794389596,
-   "q": 521,
-   "low": 500,
+   "p": 400,
+   "t": 1794488284,
+   "q": 2269,
+   "low": 400,
    "med": 500,
    "high": 550,
-   "days": 2
-  },
-  "Greater Mageblood Elixir": {
-   "p": 19899,
-   "t": 1794307959,
-   "q": 148
+   "days": 3
   },
   "Greater Magic Essence": {
-   "p": 274,
-   "t": 1794389596,
-   "q": 2914,
-   "low": 274,
+   "p": 280,
+   "t": 1794503923,
+   "q": 1265,
+   "low": 250,
    "med": 274,
    "high": 289,
-   "days": 2
+   "days": 3
   },
   "Greater Magic Wand": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 891,
+   "p": 215,
+   "t": 1794503923,
+   "q": 591,
    "low": 200,
    "med": 200,
    "high": 300,
-   "days": 2
+   "days": 3
   },
   "Greater Mana Potion": {
-   "p": 889,
-   "t": 1794389596,
-   "q": 650,
-   "low": 709,
+   "p": 533,
+   "t": 1794488284,
+   "q": 668,
+   "low": 533,
    "med": 709,
    "high": 958,
-   "days": 2
+   "days": 3
   },
   "Greater Mender's Potion": {
-   "p": 210,
-   "t": 1794345595,
-   "q": 528
-  },
-  "Greater Mystic Essence": {
-   "p": 3683,
-   "t": 1794389596,
-   "q": 677,
-   "low": 1990,
-   "med": 1990,
-   "high": 3683,
+   "p": 74,
+   "t": 1794488284,
+   "q": 658,
+   "low": 74,
+   "med": 74,
+   "high": 210,
    "days": 2
   },
+  "Greater Mystic Essence": {
+   "p": 1980,
+   "t": 1794503923,
+   "q": 843,
+   "low": 1980,
+   "med": 1990,
+   "high": 3683,
+   "days": 3
+  },
   "Greater Mystic Wand": {
-   "p": 4000,
-   "t": 1794307959,
-   "q": 272
+   "p": 2100,
+   "t": 1794488284,
+   "q": 89
   },
   "Greater Nether Essence": {
-   "p": 10988,
-   "t": 1794383619,
-   "q": 108
-  },
-  "Greater Spellblasting Potion": {
-   "p": 5000,
-   "t": 1794307959,
-   "q": 20
-  },
-  "Greater Stoneshield Potion": {
-   "p": 29000,
-   "t": 1794307959,
-   "q": 80
+   "p": 9094,
+   "t": 1794488284,
+   "q": 201,
+   "low": 9094,
+   "med": 9094,
+   "high": 10988,
+   "days": 2
   },
   "Green Dragonscale": {
-   "p": 531,
-   "t": 1794345595,
-   "q": 421
+   "p": 500,
+   "t": 1794503923,
+   "q": 631,
+   "low": 500,
+   "med": 500,
+   "high": 531,
+   "days": 2
   },
   "Green Dye": {
-   "p": 100,
-   "t": 1794307959,
-   "q": 5788
-  },
-  "Green Firework": {
-   "p": 1100,
-   "t": 1794307959,
-   "q": 3236
-  },
-  "Green Iron Boots": {
-   "p": 2800,
-   "t": 1794307959,
-   "q": 8
-  },
-  "Green Iron Bracers": {
-   "p": 1500,
-   "t": 1794307959,
-   "q": 464
+   "p": 116,
+   "t": 1794503923,
+   "q": 641
   },
   "Green Iron Gauntlets": {
    "p": 1600,
@@ -2717,80 +1841,52 @@
    "t": 1794389596,
    "q": 74
   },
-  "Green Iron Helm": {
-   "p": 7700,
-   "t": 1794307959,
-   "q": 248
-  },
   "Green Iron Leggings": {
    "p": 3100,
-   "t": 1794307959,
-   "q": 48
+   "t": 1794471234,
+   "q": 77
   },
   "Green Iron Shoulders": {
-   "p": 3600,
-   "t": 1794383619,
-   "q": 91
+   "p": 2788,
+   "t": 1794503923,
+   "q": 75,
+   "low": 2788,
+   "med": 2788,
+   "high": 3600,
+   "days": 2
   },
   "Green Leather Armor": {
-   "p": 7900,
-   "t": 1794307959,
-   "q": 140
-  },
-  "Green Leather Belt": {
-   "p": 1600,
-   "t": 1794307959,
-   "q": 116
+   "p": 3700,
+   "t": 1794471234,
+   "q": 52
   },
   "Green Leather Bracers": {
-   "p": 2100,
-   "t": 1794307959,
-   "q": 188
-  },
-  "Green Linen Bracers": {
-   "p": 300,
-   "t": 1794307959,
-   "q": 120
+   "p": 2000,
+   "t": 1794471234,
+   "q": 77
   },
   "Green Linen Shirt": {
    "p": 100,
-   "t": 1794387509,
-   "q": 32
+   "t": 1794471234,
+   "q": 38,
+   "low": 100,
+   "med": 100,
+   "high": 100,
+   "days": 2
   },
   "Green Power Crystal": {
-   "p": 1300,
-   "t": 1794387509,
-   "q": 550
-  },
-  "Green Silk Armor": {
-   "p": 4700,
-   "t": 1794307959,
-   "q": 156
+   "p": 877,
+   "t": 1794488284,
+   "q": 673,
+   "low": 877,
+   "med": 877,
+   "high": 1300,
+   "days": 2
   },
   "Green Silk Pack": {
    "p": 4500,
    "t": 1794389596,
    "q": 80
-  },
-  "Green Silken Shoulders": {
-   "p": 3000,
-   "t": 1794307959,
-   "q": 184
-  },
-  "Green Tinted Goggles": {
-   "p": 2100,
-   "t": 1794307959,
-   "q": 244
-  },
-  "Green Whelp Armor": {
-   "p": 8900,
-   "t": 1794307959,
-   "q": 24
-  },
-  "Green Whelp Bracers": {
-   "p": 16000,
-   "t": 1794307959,
-   "q": 56
   },
   "Green Whelp Scale": {
    "p": 887,
@@ -2816,50 +1912,15 @@
    "t": 1794383619,
    "q": 796
   },
-  "Guardian Armor": {
-   "p": 6000,
-   "t": 1794307959,
-   "q": 4
-  },
-  "Guardian Belt": {
-   "p": 3000,
-   "t": 1794307959,
-   "q": 112
-  },
-  "Guardian Cloak": {
-   "p": 8500,
-   "t": 1794307959,
-   "q": 68
-  },
-  "Guardian Gloves": {
-   "p": 1900,
-   "t": 1794343024,
-   "q": 274
-  },
-  "Guardian Leather Bracers": {
-   "p": 2900,
-   "t": 1794307959,
-   "q": 116
-  },
-  "Guardian Pants": {
-   "p": 3000,
-   "t": 1794307959,
-   "q": 32
-  },
   "Guardian Stone": {
-   "p": 215100,
-   "t": 1794307959,
-   "q": 8
+   "p": 149800,
+   "t": 1794488284,
+   "q": 42
   },
   "Gyrochronatom": {
    "p": 1000,
    "t": 1794387509,
    "q": 601
-  },
-  "Gyromatic Micro-Adjustor": {
-   "p": 2200,
-   "t": 1794307959,
-   "q": 388
   },
   "Handful of Copper Bolts": {
    "p": 219,
@@ -2867,28 +1928,27 @@
    "q": 200
   },
   "Handstitched Leather Belt": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 251,
-   "low": 200,
+   "p": 145,
+   "t": 1794503923,
+   "q": 188,
+   "low": 120,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Handstitched Leather Boots": {
    "p": 100,
    "t": 1794389596,
    "q": 143
   },
-  "Handstitched Leather Bracers": {
-   "p": 100,
-   "t": 1794307960,
-   "q": 232
-  },
   "Handstitched Leather Cloak": {
    "p": 100,
-   "t": 1794387509,
-   "q": 179
+   "t": 1794471234,
+   "q": 225,
+   "low": 100,
+   "med": 100,
+   "high": 100,
+   "days": 2
   },
   "Handstitched Leather Pants": {
    "p": 200,
@@ -2900,124 +1960,90 @@
    "days": 2
   },
   "Handstitched Leather Vest": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 658,
+   "p": 125,
+   "t": 1794488284,
+   "q": 650,
    "low": 100,
-   "med": 100,
+   "med": 125,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Handstitched Linen Britches": {
-   "p": 300,
-   "t": 1794345595,
-   "q": 237
-  },
-  "Hard Gold Boots": {
-   "p": 14500,
-   "t": 1794307960,
-   "q": 20
-  },
-  "Hard Gold Bracers": {
-   "p": 9900,
-   "t": 1794307960,
-   "q": 56
-  },
-  "Hard Gold Cuirass": {
-   "p": 8900,
-   "t": 1794307960,
-   "q": 12
-  },
-  "Hard Gold Pauldrons": {
-   "p": 12100,
-   "t": 1794307960,
-   "q": 8
-  },
-  "Hardened Iron Shortsword": {
-   "p": 8000,
-   "t": 1794307960,
-   "q": 84
+   "p": 249,
+   "t": 1794488284,
+   "q": 161,
+   "low": 249,
+   "med": 249,
+   "high": 300,
+   "days": 2
   },
   "Healing Potion": {
-   "p": 114,
-   "t": 1794389596,
-   "q": 859,
-   "low": 100,
+   "p": 95,
+   "t": 1794503923,
+   "q": 1035,
+   "low": 83,
    "med": 100,
    "high": 122,
-   "days": 2
+   "days": 3
   },
   "Heart of Fire": {
-   "p": 2032,
-   "t": 1794389596,
-   "q": 351,
-   "low": 2032,
+   "p": 1100,
+   "t": 1794471234,
+   "q": 138,
+   "low": 1100,
    "med": 2032,
    "high": 5554,
-   "days": 2
+   "days": 3
   },
   "Heart of the Wild": {
-   "p": 488,
-   "t": 1794389596,
-   "q": 760
+   "p": 400,
+   "t": 1794503923,
+   "q": 320,
+   "low": 400,
+   "med": 400,
+   "high": 488,
+   "days": 2
   },
   "Heavy Armor Kit": {
    "p": 650,
-   "t": 1794389596,
-   "q": 599,
+   "t": 1794488284,
+   "q": 534,
    "low": 650,
    "med": 650,
    "high": 650,
-   "days": 2
+   "days": 3
   },
   "Heavy Blasting Powder": {
-   "p": 408,
-   "t": 1794389596,
-   "q": 1948
-  },
-  "Heavy Bronze Mace": {
-   "p": 4200,
-   "t": 1794307960,
-   "q": 32
-  },
-  "Heavy Copper Broadsword": {
-   "p": 3800,
-   "t": 1794330980,
-   "q": 32
-  },
-  "Heavy Copper Maul": {
-   "p": 1600,
-   "t": 1794330980,
-   "q": 31
+   "p": 400,
+   "t": 1794488284,
+   "q": 1272,
+   "low": 397,
+   "med": 397,
+   "high": 400,
+   "days": 2
   },
   "Heavy Crocolisk Stew": {
    "p": 378,
    "t": 1794387509,
    "q": 327
   },
-  "Heavy Dynamite": {
-   "p": 486,
-   "t": 1794307960,
-   "q": 904
-  },
-  "Heavy Earthen Gloves": {
-   "p": 4500,
-   "t": 1794307960,
-   "q": 124
-  },
   "Heavy Grinding Stone": {
-   "p": 947,
-   "t": 1794387509,
-   "q": 407,
-   "low": 947,
+   "p": 920,
+   "t": 1794471234,
+   "q": 469,
+   "low": 920,
    "med": 947,
    "high": 949,
-   "days": 2
+   "days": 3
   },
   "Heavy Hide": {
-   "p": 1980,
-   "t": 1794389596,
-   "q": 1433
+   "p": 998,
+   "t": 1794471234,
+   "q": 712,
+   "low": 998,
+   "med": 998,
+   "high": 1800,
+   "days": 2
   },
   "Heavy Kodo Meat": {
    "p": 690,
@@ -3028,102 +2054,46 @@
    "high": 1055,
    "days": 2
   },
-  "Heavy Kodo Stew": {
-   "p": 1900,
-   "t": 1794307960,
-   "q": 24
-  },
   "Heavy Leather": {
-   "p": 220,
-   "t": 1794389596,
-   "q": 4052,
-   "low": 197,
+   "p": 196,
+   "t": 1794503923,
+   "q": 7987,
+   "low": 175,
    "med": 197,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Heavy Leather Ammo Pouch": {
    "p": 1400,
    "t": 1794389596,
    "q": 115
   },
-  "Heavy Leather Ball": {
-   "p": 799,
-   "t": 1794307960,
-   "q": 152
-  },
   "Heavy Linen Bandage": {
-   "p": 19,
-   "t": 1794389596,
-   "q": 8715,
+   "p": 20,
+   "t": 1794503923,
+   "q": 13956,
    "low": 19,
-   "med": 19,
+   "med": 20,
    "high": 20,
-   "days": 2
+   "days": 3
   },
   "Heavy Linen Gloves": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 117
-  },
-  "Heavy Mageweave Bandage": {
-   "p": 1300,
-   "t": 1794307960,
-   "q": 488
-  },
-  "Heavy Mithril Axe": {
-   "p": 18700,
-   "t": 1794307960,
-   "q": 36
-  },
-  "Heavy Mithril Boots": {
-   "p": 12500,
-   "t": 1794307960,
-   "q": 8
-  },
-  "Heavy Mithril Breastplate": {
-   "p": 16000,
-   "t": 1794307960,
-   "q": 16
-  },
-  "Heavy Mithril Gauntlet": {
-   "p": 4300,
-   "t": 1794307960,
-   "q": 344
-  },
-  "Heavy Mithril Pants": {
-   "p": 7700,
-   "t": 1794307960,
-   "q": 84
-  },
-  "Heavy Mithril Shoulder": {
-   "p": 14500,
-   "t": 1794307960,
-   "q": 76
-  },
-  "Heavy Quiver": {
-   "p": 1400,
-   "t": 1794307960,
-   "q": 240
-  },
-  "Heavy Scorpid Scale": {
-   "p": 800,
-   "t": 1794307960,
-   "q": 4
-  },
-  "Heavy Silk Bandage": {
-   "p": 399,
-   "t": 1794387509,
-   "q": 748,
-   "low": 399,
-   "med": 399,
-   "high": 400,
+   "p": 148,
+   "t": 1794488284,
+   "q": 214,
+   "low": 148,
+   "med": 148,
+   "high": 200,
    "days": 2
   },
-  "Heavy Silken Thread": {
-   "p": 2030,
-   "t": 1794307960,
-   "q": 188
+  "Heavy Silk Bandage": {
+   "p": 400,
+   "t": 1794503923,
+   "q": 3363,
+   "low": 399,
+   "med": 400,
+   "high": 400,
+   "days": 3
   },
   "Heavy Stock": {
    "p": 2999,
@@ -3131,47 +2101,36 @@
    "q": 72
   },
   "Heavy Stone": {
-   "p": 221,
-   "t": 1794345595,
-   "q": 7483
-  },
-  "Heavy Thorium Ore": {
-   "p": 80600,
-   "t": 1794307960,
-   "q": 172
+   "p": 346,
+   "t": 1794488284,
+   "q": 2580,
+   "low": 221,
+   "med": 221,
+   "high": 343,
+   "days": 2
   },
   "Heavy Weightstone": {
-   "p": 342,
-   "t": 1794389596,
-   "q": 1396,
+   "p": 365,
+   "t": 1794503923,
+   "q": 2266,
    "low": 342,
-   "med": 342,
+   "med": 365,
    "high": 450,
-   "days": 2
+   "days": 3
   },
   "Heavy Wool Bandage": {
    "p": 57,
-   "t": 1794389596,
-   "q": 3797,
+   "t": 1794503923,
+   "q": 5570,
    "low": 57,
    "med": 57,
    "high": 57,
-   "days": 2
+   "days": 3
   },
   "Heavy Woolen Cloak": {
    "p": 1100,
    "t": 1794389596,
    "q": 28
-  },
-  "Heavy Woolen Gloves": {
-   "p": 300,
-   "t": 1794345595,
-   "q": 92
-  },
-  "Heavy Woolen Pants": {
-   "p": 800,
-   "t": 1794307960,
-   "q": 100
   },
   "Herb Baked Egg": {
    "p": 237,
@@ -3182,146 +2141,69 @@
    "high": 237,
    "days": 2
   },
-  "Herbalist's Gloves": {
-   "p": 3000,
-   "t": 1794307960,
-   "q": 324
-  },
-  "Hi-Explosive Bomb": {
-   "p": 2000,
-   "t": 1794307960,
-   "q": 540
-  },
   "Hi-Impact Mithril Slugs": {
    "p": 5,
    "t": 1794389596,
    "q": 54048
   },
-  "Hillman's Belt": {
-   "p": 800,
-   "t": 1794307960,
-   "q": 172
-  },
   "Hillman's Cloak": {
-   "p": 1100,
-   "t": 1794345595,
-   "q": 699
-  },
-  "Hillman's Leather Boots": {
-   "p": 1400,
-   "t": 1794307960,
-   "q": 124
-  },
-  "Hillman's Leather Gloves": {
-   "p": 1100,
-   "t": 1794389596,
-   "q": 364,
-   "low": 1100,
-   "med": 1100,
+   "p": 1028,
+   "t": 1794488284,
+   "q": 471,
+   "low": 1028,
+   "med": 1028,
    "high": 1100,
    "days": 2
   },
-  "Hillman's Leather Vest": {
-   "p": 4000,
-   "t": 1794307960,
-   "q": 116
+  "Hillman's Leather Gloves": {
+   "p": 1046,
+   "t": 1794503923,
+   "q": 661,
+   "low": 1046,
+   "med": 1100,
+   "high": 1100,
+   "days": 3
   },
   "Hillman's Shoulders": {
-   "p": 1000,
-   "t": 1794389596,
-   "q": 1242,
+   "p": 820,
+   "t": 1794503923,
+   "q": 518,
    "low": 800,
-   "med": 800,
+   "med": 820,
    "high": 900,
-   "days": 2
+   "days": 3
   },
   "Holy Protection Potion": {
    "p": 82,
    "t": 1794389596,
    "q": 308
   },
-  "Hoof-Shaped Foot Pedal": {
-   "p": 30000,
-   "t": 1794307960,
-   "q": 20
-  },
-  "Hot Lion Chops": {
-   "p": 491,
-   "t": 1794307960,
-   "q": 6104
-  },
-  "Hot Spices": {
-   "p": 99,
-   "t": 1794307960,
-   "q": 6884
-  },
-  "Hot Wolf Ribs": {
-   "p": 390,
-   "t": 1794307960,
-   "q": 1464
-  },
-  "Huge Emerald": {
-   "p": 50100,
-   "t": 1794307960,
-   "q": 36
-  },
-  "Huge Venom Sac": {
-   "p": 4900,
-   "t": 1794307960,
-   "q": 60
-  },
   "Ice Cold Milk": {
-   "p": 35,
-   "t": 1794389596,
-   "q": 478
-  },
-  "Ice Deflector": {
-   "p": 10000,
-   "t": 1794307960,
-   "q": 12
-  },
-  "Icecap": {
-   "p": 10000,
-   "t": 1794307960,
-   "q": 80
+   "p": 18,
+   "t": 1794488284,
+   "q": 219,
+   "low": 18,
+   "med": 18,
+   "high": 35,
+   "days": 2
   },
   "Ichor of Undeath": {
-   "p": 966,
-   "t": 1794389596,
-   "q": 566,
-   "low": 966,
+   "p": 400,
+   "t": 1794488284,
+   "q": 157,
+   "low": 400,
    "med": 966,
    "high": 1200,
-   "days": 2
-  },
-  "Icy Cloak": {
-   "p": 27900,
-   "t": 1794307960,
-   "q": 96
-  },
-  "Illusion Dust": {
-   "p": 9950,
-   "t": 1794307960,
-   "q": 440
-  },
-  "Invisibility Potion": {
-   "p": 16500,
-   "t": 1794307961,
-   "q": 132
-  },
-  "Iridescent Hammer": {
-   "p": 6500,
-   "t": 1794307960,
-   "q": 92
+   "days": 3
   },
   "Iridescent Pearl": {
-   "p": 899,
-   "t": 1794389596,
-   "q": 437,
-   "low": 899,
+   "p": 829,
+   "t": 1794503923,
+   "q": 458,
+   "low": 800,
    "med": 899,
    "high": 1065,
-   "days": 2
+   "days": 3
   },
   "Iron Bar": {
    "p": 281,
@@ -3329,19 +2211,22 @@
    "q": 5493
   },
   "Iron Buckle": {
-   "p": 127,
-   "t": 1794387509,
-   "q": 1106
-  },
-  "Iron Counterweight": {
-   "p": 1000,
-   "t": 1794307960,
-   "q": 692
+   "p": 111,
+   "t": 1794488284,
+   "q": 380,
+   "low": 111,
+   "med": 111,
+   "high": 127,
+   "days": 2
   },
   "Iron Grenade": {
-   "p": 330,
-   "t": 1794389596,
-   "q": 3072
+   "p": 211,
+   "t": 1794471234,
+   "q": 1315,
+   "low": 211,
+   "med": 211,
+   "high": 330,
+   "days": 2
   },
   "Iron Ore": {
    "p": 233,
@@ -3362,9 +2247,13 @@
    "days": 2
   },
   "Iron Strut": {
-   "p": 1211,
-   "t": 1794383619,
-   "q": 319
+   "p": 844,
+   "t": 1794471234,
+   "q": 78,
+   "low": 844,
+   "med": 844,
+   "high": 1211,
+   "days": 2
   },
   "Ironfeather": {
    "p": 321,
@@ -3375,24 +2264,14 @@
    "high": 503,
    "days": 2
   },
-  "Ironforge Breastplate": {
-   "p": 4200,
-   "t": 1794307961,
-   "q": 16
-  },
-  "Ironweb Spider Silk": {
-   "p": 12000,
-   "t": 1794307960,
-   "q": 352
-  },
   "Jade": {
-   "p": 709,
-   "t": 1794389596,
-   "q": 476,
+   "p": 700,
+   "t": 1794503923,
+   "q": 710,
    "low": 698,
-   "med": 698,
+   "med": 700,
    "high": 700,
-   "days": 2
+   "days": 3
   },
   "Jade Serpentblade": {
    "p": 10800,
@@ -3400,67 +2279,67 @@
    "q": 9
   },
   "Jet Black Feather": {
-   "p": 866,
-   "t": 1794383619,
-   "q": 1608,
-   "low": 866,
+   "p": 189,
+   "t": 1794471234,
+   "q": 847,
+   "low": 189,
    "med": 866,
    "high": 5376,
-   "days": 2
-  },
-  "Journeyman Campfire Kit": {
-   "p": 4699,
-   "t": 1794307961,
-   "q": 36
-  },
-  "Jungle Stew": {
-   "p": 449,
-   "t": 1794307961,
-   "q": 2208
-  },
-  "Kaldorei Spider Kabob": {
-   "p": 40,
-   "t": 1794307961,
-   "q": 3084
+   "days": 3
   },
   "Khadgar's Whisker": {
-   "p": 374,
-   "t": 1794389596,
-   "q": 1783
-  },
-  "Kingsblood": {
-   "p": 115,
-   "t": 1794383619,
-   "q": 576,
-   "low": 77,
-   "med": 77,
-   "high": 115,
+   "p": 199,
+   "t": 1794503923,
+   "q": 2709,
+   "low": 199,
+   "med": 199,
+   "high": 360,
    "days": 2
   },
+  "Kingsblood": {
+   "p": 198,
+   "t": 1794471234,
+   "q": 9370,
+   "low": 77,
+   "med": 115,
+   "high": 198,
+   "days": 3
+  },
   "Kodo Hide Bag": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 96
+   "p": 299,
+   "t": 1794471234,
+   "q": 126,
+   "low": 299,
+   "med": 299,
+   "high": 300,
+   "days": 2
   },
   "Kodo Meat": {
-   "p": 38,
-   "t": 1794345595,
-   "q": 454
+   "p": 34,
+   "t": 1794488284,
+   "q": 187,
+   "low": 30,
+   "med": 30,
+   "high": 38,
+   "days": 2
   },
   "Large Brilliant Shard": {
-   "p": 80015,
-   "t": 1794383619,
-   "q": 138
-  },
-  "Large Copper Bomb": {
-   "p": 180,
-   "t": 1794330980,
-   "q": 46
+   "p": 44397,
+   "t": 1794471234,
+   "q": 241,
+   "low": 44397,
+   "med": 44397,
+   "high": 80015,
+   "days": 2
   },
   "Large Fang": {
-   "p": 91,
-   "t": 1794389596,
-   "q": 668
+   "p": 90,
+   "t": 1794471234,
+   "q": 810,
+   "low": 90,
+   "med": 90,
+   "high": 91,
+   "days": 2
   },
   "Large Glimmering Shard": {
    "p": 3340,
@@ -3468,52 +2347,41 @@
    "q": 413
   },
   "Large Glowing Shard": {
-   "p": 4268,
-   "t": 1794389596,
-   "q": 222,
-   "low": 3778,
+   "p": 3044,
+   "t": 1794488284,
+   "q": 244,
+   "low": 3044,
    "med": 3778,
    "high": 4268,
-   "days": 2
-  },
-  "Large Opal": {
-   "p": 16500,
-   "t": 1794307961,
-   "q": 68
+   "days": 3
   },
   "Large Radiant Shard": {
    "p": 15538,
    "t": 1794383619,
    "q": 80
   },
-  "Large Raw Mightfish": {
-   "p": 3000,
-   "t": 1794307961,
-   "q": 100
-  },
-  "Large Seaforium Charge": {
-   "p": 3500,
-   "t": 1794307961,
-   "q": 212
-  },
   "Large Venom Sac": {
-   "p": 199,
-   "t": 1794389596,
-   "q": 254,
+   "p": 185,
+   "t": 1794503923,
+   "q": 560,
    "low": 185,
    "med": 185,
    "high": 190,
-   "days": 2
+   "days": 3
+  },
+  "Larval Acid": {
+   "p": 30000,
+   "t": 1794387509,
+   "q": 63
   },
   "Leaded Vial": {
-   "p": 48,
-   "t": 1794345595,
-   "q": 1651
-  },
-  "Lean Venison": {
-   "p": 400,
-   "t": 1794307961,
-   "q": 3880
+   "p": 49,
+   "t": 1794503923,
+   "q": 3129,
+   "low": 48,
+   "med": 48,
+   "high": 49,
+   "days": 2
   },
   "Lean Wolf Flank": {
    "p": 123,
@@ -3524,96 +2392,73 @@
    "high": 123,
    "days": 2
   },
-  "Lean Wolf Steak": {
-   "p": 371,
-   "t": 1794307961,
-   "q": 800
-  },
   "Leather Tourniquet": {
-   "p": 155,
-   "t": 1794387509,
-   "q": 157
-  },
-  "Lesser Arcane Elixir": {
-   "p": 587,
-   "t": 1794343024,
-   "q": 742
-  },
-  "Lesser Astral Essence": {
-   "p": 528,
-   "t": 1794389596,
-   "q": 648,
-   "low": 528,
-   "med": 528,
-   "high": 790,
+   "p": 125,
+   "t": 1794488284,
+   "q": 136,
+   "low": 125,
+   "med": 125,
+   "high": 155,
    "days": 2
   },
-  "Lesser Cleric's Elixir": {
-   "p": 808,
-   "t": 1794307961,
-   "q": 816
-  },
-  "Lesser Discolored Healing Potion": {
-   "p": 100,
-   "t": 1794307961,
-   "q": 296
+  "Lesser Astral Essence": {
+   "p": 413,
+   "t": 1794503923,
+   "q": 1065,
+   "low": 413,
+   "med": 528,
+   "high": 790,
+   "days": 3
   },
   "Lesser Eternal Essence": {
    "p": 8495,
    "t": 1794387509,
    "q": 110
   },
-  "Lesser Frenzy Potion": {
-   "p": 224,
-   "t": 1794307961,
-   "q": 368
-  },
   "Lesser Healing Potion": {
    "p": 25,
-   "t": 1794389596,
-   "q": 949,
+   "t": 1794503923,
+   "q": 1355,
    "low": 25,
    "med": 25,
    "high": 25,
-   "days": 2
+   "days": 3
   },
   "Lesser Invisibility Potion": {
-   "p": 697,
-   "t": 1794343024,
-   "q": 198
-  },
-  "Lesser Mageblood Elixir": {
-   "p": 544,
-   "t": 1794307961,
-   "q": 2336
+   "p": 520,
+   "t": 1794503923,
+   "q": 642,
+   "low": 520,
+   "med": 520,
+   "high": 697,
+   "days": 2
   },
   "Lesser Magic Essence": {
-   "p": 108,
-   "t": 1794389596,
-   "q": 2023
+   "p": 111,
+   "t": 1794503923,
+   "q": 3921,
+   "low": 98,
+   "med": 98,
+   "high": 106,
+   "days": 2
   },
   "Lesser Magic Wand": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 1982,
-   "low": 200,
+   "p": 118,
+   "t": 1794503923,
+   "q": 1340,
+   "low": 110,
    "med": 200,
    "high": 200,
-   "days": 2
-  },
-  "Lesser Mana Oil": {
-   "p": 5000,
-   "t": 1794307961,
-   "q": 108
+   "days": 3
   },
   "Lesser Mana Potion": {
-   "p": 50,
-   "t": 1794389596,
-   "q": 390,
-   "low": 50,
+   "p": 35,
+   "t": 1794488284,
+   "q": 1589,
+   "low": 35,
    "med": 50,
    "high": 58,
-   "days": 2
+   "days": 3
   },
   "Lesser Mender's Potion": {
    "p": 489,
@@ -3621,75 +2466,49 @@
    "q": 37
   },
   "Lesser Moonstone": {
-   "p": 631,
-   "t": 1794389596,
-   "q": 569,
+   "p": 630,
+   "t": 1794471234,
+   "q": 831,
    "low": 600,
    "med": 600,
-   "high": 600,
-   "days": 2
+   "high": 630,
+   "days": 3
   },
   "Lesser Mystic Essence": {
-   "p": 1210,
-   "t": 1794389596,
-   "q": 742,
+   "p": 750,
+   "t": 1794488284,
+   "q": 953,
    "low": 687,
-   "med": 687,
+   "med": 750,
    "high": 1209,
-   "days": 2
-  },
-  "Lesser Mystic Wand": {
-   "p": 4700,
-   "t": 1794307961,
-   "q": 220
+   "days": 3
   },
   "Lesser Nether Essence": {
-   "p": 4199,
-   "t": 1794389596,
-   "q": 416
-  },
-  "Lesser Spellblasting Potion": {
-   "p": 248,
-   "t": 1794307961,
-   "q": 748
-  },
-  "Lesser Stoneshield Potion": {
-   "p": 553,
-   "t": 1794307961,
-   "q": 640
+   "p": 2763,
+   "t": 1794503923,
+   "q": 393,
+   "low": 2763,
+   "med": 2763,
+   "high": 4199,
+   "days": 2
   },
   "Lesser Troll's Blood Elixir": {
-   "p": 289,
-   "t": 1794389596,
-   "q": 463,
-   "low": 280,
+   "p": 194,
+   "t": 1794503923,
+   "q": 870,
+   "low": 194,
    "med": 280,
    "high": 283,
-   "days": 2
-  },
-  "Lesser Wizard Oil": {
-   "p": 1500,
-   "t": 1794307961,
-   "q": 764
-  },
-  "Lesser Wizard's Robe": {
-   "p": 1400,
-   "t": 1794345595,
-   "q": 74
-  },
-  "Lich's Index Finger": {
-   "p": 39900,
-   "t": 1794307961,
-   "q": 48
+   "days": 3
   },
   "Liferoot": {
-   "p": 245,
-   "t": 1794389596,
-   "q": 1890,
-   "low": 242,
+   "p": 218,
+   "t": 1794488284,
+   "q": 5565,
+   "low": 218,
    "med": 242,
    "high": 242,
-   "days": 2
+   "days": 3
   },
   "Light Armor Kit": {
    "p": 15,
@@ -3701,77 +2520,67 @@
    "days": 2
   },
   "Light Hide": {
-   "p": 84,
-   "t": 1794389596,
-   "q": 1039,
-   "low": 80,
+   "p": 81,
+   "t": 1794488284,
+   "q": 1164,
+   "low": 66,
    "med": 80,
    "high": 84,
-   "days": 2
+   "days": 3
   },
   "Light Leather": {
-   "p": 47,
-   "t": 1794389596,
-   "q": 5983,
+   "p": 44,
+   "t": 1794503923,
+   "q": 11797,
    "low": 31,
-   "med": 31,
+   "med": 42,
    "high": 43,
-   "days": 2
+   "days": 3
   },
   "Light Leather Bracers": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 313,
-   "low": 200,
+   "p": 130,
+   "t": 1794503923,
+   "q": 196,
+   "low": 130,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Light Leather Pants": {
-   "p": 600,
-   "t": 1794389596,
-   "q": 521,
-   "low": 600,
+   "p": 599,
+   "t": 1794503923,
+   "q": 560,
+   "low": 599,
    "med": 600,
    "high": 600,
-   "days": 2
+   "days": 3
   },
   "Light Leather Quiver": {
    "p": 100,
-   "t": 1794389596,
-   "q": 545,
+   "t": 1794488284,
+   "q": 383,
    "low": 100,
    "med": 100,
    "high": 100,
-   "days": 2
-  },
-  "Light Leather Reagent Bag": {
-   "p": 800,
-   "t": 1794307961,
-   "q": 164
-  },
-  "Limited Invulnerability Potion": {
-   "p": 8999,
-   "t": 1794307961,
-   "q": 104
+   "days": 3
   },
   "Linen Bag": {
    "p": 200,
-   "t": 1794389596,
-   "q": 806,
+   "t": 1794503923,
+   "q": 826,
    "low": 200,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Linen Bandage": {
-   "p": 10,
-   "t": 1794389596,
-   "q": 5514,
+   "p": 30,
+   "t": 1794488284,
+   "q": 2701,
    "low": 10,
    "med": 10,
-   "high": 10,
-   "days": 2
+   "high": 30,
+   "days": 3
   },
   "Linen Belt": {
    "p": 100,
@@ -3783,9 +2592,9 @@
    "days": 2
   },
   "Linen Boots": {
-   "p": 200,
-   "t": 1794307961,
-   "q": 40
+   "p": 248,
+   "t": 1794503923,
+   "q": 154
   },
   "Linen Cloak": {
    "p": 100,
@@ -3793,22 +2602,22 @@
    "q": 61
   },
   "Linen Cloth": {
-   "p": 27,
-   "t": 1794389596,
-   "q": 5815,
+   "p": 22,
+   "t": 1794503923,
+   "q": 24515,
    "low": 22,
    "med": 22,
    "high": 22,
-   "days": 2
+   "days": 3
   },
   "Linen Reagent Bag": {
    "p": 500,
-   "t": 1794389596,
-   "q": 253,
+   "t": 1794503923,
+   "q": 296,
    "low": 500,
    "med": 500,
    "high": 500,
-   "days": 2
+   "days": 3
   },
   "Lion Meat": {
    "p": 120,
@@ -3830,84 +2639,82 @@
    "q": 493
   },
   "Long Elegant Feather": {
-   "p": 8150,
-   "t": 1794345595,
-   "q": 451
+   "p": 6250,
+   "t": 1794488284,
+   "q": 201,
+   "low": 6250,
+   "med": 6250,
+   "high": 8150,
+   "days": 2
   },
   "Long Silken Cloak": {
-   "p": 3600,
-   "t": 1794307961,
-   "q": 524
+   "p": 2600,
+   "t": 1794471234,
+   "q": 46
   },
   "Long Tail Feather": {
-   "p": 302,
-   "t": 1794389596,
-   "q": 1215,
-   "low": 302,
+   "p": 303,
+   "t": 1794503923,
+   "q": 1975,
+   "low": 300,
    "med": 302,
    "high": 302,
-   "days": 2
+   "days": 3
   },
   "Longjaw Mud Snapper": {
-   "p": 20,
-   "t": 1794389596,
-   "q": 3578,
+   "p": 16,
+   "t": 1794503923,
+   "q": 4770,
    "low": 14,
-   "med": 14,
+   "med": 15,
    "high": 19,
-   "days": 2
+   "days": 3
   },
   "Lucky Charm": {
-   "p": 1900,
-   "t": 1794389596,
-   "q": 49
+   "p": 1733,
+   "t": 1794488284,
+   "q": 100,
+   "low": 1733,
+   "med": 1733,
+   "high": 1900,
+   "days": 2
   },
   "Magenta Dye": {
-   "p": 5895,
-   "t": 1794383619,
-   "q": 290,
-   "low": 3996,
+   "p": 3919,
+   "t": 1794503923,
+   "q": 712,
+   "low": 3919,
    "med": 3996,
    "high": 5895,
-   "days": 2
+   "days": 3
   },
   "Mageroyal": {
-   "p": 58,
-   "t": 1794389596,
-   "q": 1121,
-   "low": 42,
+   "p": 40,
+   "t": 1794488284,
+   "q": 7376,
+   "low": 40,
    "med": 42,
    "high": 47,
-   "days": 2
+   "days": 3
   },
   "Mageweave Bag": {
    "p": 10000,
    "t": 1794383619,
    "q": 155
   },
-  "Mageweave Bandage": {
-   "p": 435,
-   "t": 1794343024,
-   "q": 538
-  },
   "Mageweave Cloth": {
-   "p": 421,
-   "t": 1794389596,
-   "q": 4854,
+   "p": 643,
+   "t": 1794488284,
+   "q": 9635,
    "low": 251,
-   "med": 251,
-   "high": 419,
-   "days": 2
-  },
-  "Mageweave Reagent Bag": {
-   "p": 30000,
-   "t": 1794307962,
-   "q": 88
+   "med": 419,
+   "high": 525,
+   "days": 3
   },
   "Magic Resistance Potion": {
-   "p": 1295,
-   "t": 1794307962,
-   "q": 596
+   "p": 374,
+   "t": 1794488284,
+   "q": 120
   },
   "Major Healing Potion": {
    "p": 7541,
@@ -3915,63 +2722,54 @@
    "q": 106
   },
   "Major Mana Potion": {
-   "p": 15500,
-   "t": 1794343024,
-   "q": 41
-  },
-  "Maker's Spark": {
-   "p": 100000,
-   "t": 1794307962,
-   "q": 12
+   "p": 7498,
+   "t": 1794503923,
+   "q": 258,
+   "low": 7498,
+   "med": 7498,
+   "high": 15500,
+   "days": 2
   },
   "Malachite": {
    "p": 15,
-   "t": 1794389596,
-   "q": 1375,
+   "t": 1794503923,
+   "q": 3695,
    "low": 15,
    "med": 15,
    "high": 15,
-   "days": 2
+   "days": 3
   },
   "Mana Potion": {
-   "p": 273,
-   "t": 1794389596,
-   "q": 446
-  },
-  "Mana Well": {
-   "p": 58,
-   "t": 1794389596,
-   "q": 584
-  },
-  "Manual: Clever Poultice": {
-   "p": 9900,
-   "t": 1794307962,
-   "q": 24
+   "p": 208,
+   "t": 1794503923,
+   "q": 1126,
+   "low": 208,
+   "med": 208,
+   "high": 273,
+   "days": 2
   },
   "Manual: Greater Healing Potion": {
-   "p": 500,
-   "t": 1794345595,
-   "q": 199
+   "p": 399,
+   "t": 1794503923,
+   "q": 366,
+   "low": 399,
+   "med": 399,
+   "high": 500,
+   "days": 2
   },
   "Manual: Heavy Silk Bandage": {
-   "p": 3200,
-   "t": 1794389596,
-   "q": 175
-  },
-  "Manual: Leather Tourniquet": {
-   "p": 39900,
-   "t": 1794307962,
-   "q": 16
+   "p": 2700,
+   "t": 1794471234,
+   "q": 222,
+   "low": 2700,
+   "med": 2700,
+   "high": 3000,
+   "days": 2
   },
   "Manual: Mageweave Bandage": {
    "p": 5700,
    "t": 1794389596,
    "q": 132
-  },
-  "Manual: Potent Anti-Venom": {
-   "p": 1600,
-   "t": 1794307962,
-   "q": 88
   },
   "Manual: Strong Anti-Venom": {
    "p": 1800,
@@ -3984,9 +2782,9 @@
    "q": 42
   },
   "Manual: Superior Poultice": {
-   "p": 1600,
-   "t": 1794307962,
-   "q": 120
+   "p": 1599,
+   "t": 1794488284,
+   "q": 31
   },
   "Manual: Surgical Tourniquet": {
    "p": 22500,
@@ -3998,88 +2796,68 @@
    "t": 1794389596,
    "q": 447
   },
-  "Massive Iron Axe": {
-   "p": 30000,
-   "t": 1794307962,
-   "q": 56
-  },
   "Meaty Bat Wing": {
-   "p": 94,
-   "t": 1794345595,
-   "q": 724
+   "p": 100,
+   "t": 1794488284,
+   "q": 29,
+   "low": 94,
+   "med": 94,
+   "high": 100,
+   "days": 2
   },
   "Mechanical Repair Kit": {
-   "p": 9999,
-   "t": 1794383619,
-   "q": 42
-  },
-  "Mechanical Squirrel Box": {
-   "p": 800,
-   "t": 1794307962,
-   "q": 20
+   "p": 3535,
+   "t": 1794471234,
+   "q": 137,
+   "low": 3535,
+   "med": 3535,
+   "high": 9999,
+   "days": 2
   },
   "Medium Armor Kit": {
-   "p": 255,
-   "t": 1794389596,
-   "q": 101,
+   "p": 270,
+   "t": 1794503923,
+   "q": 690,
    "low": 210,
-   "med": 210,
-   "high": 214,
-   "days": 2
+   "med": 214,
+   "high": 270,
+   "days": 3
   },
   "Medium Hide": {
-   "p": 295,
-   "t": 1794389596,
-   "q": 1950
-  },
-  "Medium Leather": {
-   "p": 96,
-   "t": 1794390477,
-   "q": 16692,
-   "low": 75,
-   "med": 75,
-   "high": 95,
+   "p": 228,
+   "t": 1794503923,
+   "q": 1229,
+   "low": 215,
+   "med": 215,
+   "high": 288,
    "days": 2
   },
+  "Medium Leather": {
+   "p": 90,
+   "t": 1794503923,
+   "q": 13244,
+   "low": 75,
+   "med": 90,
+   "high": 95,
+   "days": 3
+  },
   "Melon Juice": {
-   "p": 85,
-   "t": 1794389596,
-   "q": 322
-  },
-  "Mender's Potion": {
-   "p": 7499,
-   "t": 1794307962,
-   "q": 28
-  },
-  "Mighty Iron Hammer": {
-   "p": 11100,
-   "t": 1794307962,
-   "q": 56
-  },
-  "Mild Spices": {
-   "p": 3,
-   "t": 1794343024,
-   "q": 4776
+   "p": 69,
+   "t": 1794488284,
+   "q": 105,
+   "low": 65,
+   "med": 65,
+   "high": 69,
+   "days": 2
   },
   "Minor Arcane Elixir": {
-   "p": 45,
-   "t": 1794345595,
-   "q": 649
-  },
-  "Minor Cleric's Elixir": {
-   "p": 170,
-   "t": 1794343024,
-   "q": 111
-  },
-  "Minor Discolored Healing Potion": {
-   "p": 40,
-   "t": 1794345595,
-   "q": 152
-  },
-  "Minor Frenzy Potion": {
-   "p": 125,
-   "t": 1794307962,
-   "q": 468
+   "p": 74,
+   "t": 1794503923,
+   "q": 1443,
+   "low": 45,
+   "med": 45,
+   "high": 74,
+   "days": 2
   },
   "Minor Healing Potion": {
    "p": 5,
@@ -4091,14 +2869,9 @@
    "days": 2
   },
   "Minor Mageblood Elixir": {
-   "p": 208,
-   "t": 1794307962,
-   "q": 120
-  },
-  "Minor Magic Resistance Potion": {
-   "p": 54,
-   "t": 1794307962,
-   "q": 840
+   "p": 199,
+   "t": 1794488284,
+   "q": 374
   },
   "Minor Mana Oil": {
    "p": 500,
@@ -4106,158 +2879,106 @@
    "q": 221
   },
   "Minor Mana Potion": {
-   "p": 21,
-   "t": 1794389596,
-   "q": 801,
-   "low": 19,
+   "p": 15,
+   "t": 1794503923,
+   "q": 849,
+   "low": 15,
    "med": 19,
    "high": 21,
-   "days": 2
+   "days": 3
   },
   "Minor Mender's Potion": {
-   "p": 292,
-   "t": 1794307962,
-   "q": 532
+   "p": 186,
+   "t": 1794471234,
+   "q": 44
   },
   "Minor Recombobulator": {
-   "p": 9000,
-   "t": 1794307962,
-   "q": 84
+   "p": 6900,
+   "t": 1794503923,
+   "q": 119
   },
   "Minor Rejuvenation Potion": {
    "p": 15,
-   "t": 1794389596,
-   "q": 603,
+   "t": 1794503923,
+   "q": 701,
    "low": 15,
    "med": 15,
    "high": 15,
-   "days": 2
-  },
-  "Minor Spellblasting Potion": {
-   "p": 85,
-   "t": 1794307962,
-   "q": 1028
+   "days": 3
   },
   "Minor Troll's Blood Elixir": {
-   "p": 79,
-   "t": 1794389596,
-   "q": 495,
+   "p": 100,
+   "t": 1794503923,
+   "q": 508,
    "low": 79,
-   "med": 79,
-   "high": 85,
-   "days": 2
+   "med": 85,
+   "high": 100,
+   "days": 3
   },
   "Minor Wizard Oil": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 506,
+   "p": 268,
+   "t": 1794503923,
+   "q": 569,
    "low": 200,
-   "med": 200,
+   "med": 268,
    "high": 300,
-   "days": 2
+   "days": 3
   },
   "Mithril Bar": {
-   "p": 810,
-   "t": 1794345595,
-   "q": 4556
-  },
-  "Mithril Blunderbuss": {
-   "p": 22200,
-   "t": 1794307962,
-   "q": 28
-  },
-  "Mithril Casing": {
-   "p": 2200,
-   "t": 1794307962,
-   "q": 420
+   "p": 997,
+   "t": 1794471234,
+   "q": 2100,
+   "low": 810,
+   "med": 810,
+   "high": 997,
+   "days": 2
   },
   "Mithril Frag Bomb": {
    "p": 2500,
    "t": 1794389596,
    "q": 128
   },
-  "Mithril Gyro-Shot": {
-   "p": 100,
-   "t": 1794307962,
-   "q": 11200
-  },
   "Mithril Head Trout": {
-   "p": 160,
-   "t": 1794389596,
-   "q": 3254,
-   "low": 103,
+   "p": 100,
+   "t": 1794471234,
+   "q": 2406,
+   "low": 100,
    "med": 103,
    "high": 160,
-   "days": 2
-  },
-  "Mithril Heavy-bore Rifle": {
-   "p": 27100,
-   "t": 1794307962,
-   "q": 4
+   "days": 3
   },
   "Mithril Ore": {
-   "p": 705,
-   "t": 1794345595,
-   "q": 8191
+   "p": 1013,
+   "t": 1794488284,
+   "q": 9638,
+   "low": 634,
+   "med": 634,
+   "high": 1013,
+   "days": 2
   },
   "Mithril Plate Pants": {
    "p": 10000,
    "t": 1794383619,
    "q": 25
   },
-  "Mithril Shield Spike": {
-   "p": 4090,
-   "t": 1794307962,
-   "q": 124
-  },
   "Mithril Spurs": {
-   "p": 1500,
-   "t": 1794337156,
-   "q": 93
-  },
-  "Mithril Tube": {
-   "p": 2599,
-   "t": 1794307962,
-   "q": 544
-  },
-  "Mithril Warhammer": {
-   "p": 27500,
-   "t": 1794307962,
-   "q": 32
+   "p": 1497,
+   "t": 1794471234,
+   "q": 444
   },
   "Moonberry Juice": {
    "p": 500,
    "t": 1794389596,
    "q": 73
   },
-  "Mooncloth": {
-   "p": 299900,
-   "t": 1794307962,
-   "q": 16
-  },
-  "Moonsight Rifle": {
-   "p": 6500,
-   "t": 1794307962,
-   "q": 148
-  },
-  "Moonsteel Broadsword": {
-   "p": 22800,
-   "t": 1794307962,
-   "q": 196
-  },
-  "Morrowgrain": {
-   "p": 8800,
-   "t": 1794307962,
-   "q": 44
-  },
   "Moss Agate": {
-   "p": 613,
-   "t": 1794389596,
-   "q": 376,
+   "p": 700,
+   "t": 1794503923,
+   "q": 755,
    "low": 435,
-   "med": 435,
-   "high": 589,
-   "days": 2
+   "med": 589,
+   "high": 650,
+   "days": 3
   },
   "Mote of Magic": {
    "p": 9,
@@ -4273,63 +2994,41 @@
    "high": 6570,
    "days": 2
   },
-  "Mrrggl Smrrthle": {
-   "p": 249,
-   "t": 1794307962,
-   "q": 576
-  },
   "Murloc Eye": {
-   "p": 389,
-   "t": 1794383619,
-   "q": 152,
+   "p": 479,
+   "t": 1794471234,
+   "q": 768,
    "low": 147,
-   "med": 147,
-   "high": 389,
-   "days": 2
+   "med": 389,
+   "high": 479,
+   "days": 3
   },
   "Murloc Fin": {
-   "p": 43,
-   "t": 1794389596,
-   "q": 324
-  },
-  "Murloc Fin Soup": {
-   "p": 4000,
-   "t": 1794307962,
-   "q": 40
-  },
-  "Murloc Scale Belt": {
-   "p": 1400,
-   "t": 1794345595,
-   "q": 34
-  },
-  "Murloc Scale Bracers": {
-   "p": 33500,
-   "t": 1794307962,
-   "q": 4
-  },
-  "Murloc Scale Breastplate": {
-   "p": 2500,
-   "t": 1794307962,
-   "q": 40
-  },
-  "Mystery Meat": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 1580,
-   "low": 100,
-   "med": 100,
-   "high": 200,
+   "p": 41,
+   "t": 1794471234,
+   "q": 139,
+   "low": 38,
+   "med": 38,
+   "high": 41,
    "days": 2
   },
-  "Mystery Stew": {
-   "p": 500,
-   "t": 1794307962,
-   "q": 28
+  "Mystery Meat": {
+   "p": 122,
+   "t": 1794503923,
+   "q": 1967,
+   "low": 100,
+   "med": 122,
+   "high": 200,
+   "days": 3
   },
   "Mystic Heavy Armor Kit": {
-   "p": 1194,
-   "t": 1794387509,
-   "q": 260
+   "p": 925,
+   "t": 1794471234,
+   "q": 20,
+   "low": 925,
+   "med": 925,
+   "high": 1194,
+   "days": 2
   },
   "Mystic Medium Armor Kit": {
    "p": 615,
@@ -4340,19 +3039,14 @@
    "high": 615,
    "days": 2
   },
-  "Mystic Thick Armor Kit": {
-   "p": 7600,
-   "t": 1794307962,
-   "q": 660
-  },
   "Naga Scale": {
    "p": 150,
-   "t": 1794389596,
-   "q": 962,
-   "low": 150,
+   "t": 1794488284,
+   "q": 1818,
+   "low": 145,
    "med": 150,
    "high": 150,
-   "days": 2
+   "days": 3
   },
   "Nature Protection Potion": {
    "p": 325,
@@ -4360,134 +3054,68 @@
    "q": 187
   },
   "Nightcrawlers": {
-   "p": 82,
-   "t": 1794390488,
-   "q": 511,
+   "p": 91,
+   "t": 1794471234,
+   "q": 79,
    "low": 59,
-   "med": 59,
-   "high": 72,
-   "days": 2
-  },
-  "Nightfin Soup": {
-   "p": 1491,
-   "t": 1794307962,
-   "q": 1624
-  },
-  "Nightscape Boots": {
-   "p": 12900,
-   "t": 1794307962,
-   "q": 212
-  },
-  "Nightscape Cloak": {
-   "p": 27800,
-   "t": 1794307962,
-   "q": 160
+   "med": 72,
+   "high": 91,
+   "days": 3
   },
   "Nightscape Headband": {
-   "p": 3500,
-   "t": 1794387509,
-   "q": 152,
+   "p": 3900,
+   "t": 1794488284,
+   "q": 73,
    "low": 3500,
-   "med": 3500,
-   "high": 3700,
-   "days": 2
-  },
-  "Nightscape Pants": {
-   "p": 10000,
-   "t": 1794307962,
-   "q": 276
-  },
-  "Nightscape Shoulders": {
-   "p": 10000,
-   "t": 1794307962,
-   "q": 4
-  },
-  "Nightscape Tunic": {
-   "p": 5600,
-   "t": 1794307962,
-   "q": 264
+   "med": 3700,
+   "high": 3900,
+   "days": 3
   },
   "Nimble Leather Gloves": {
-   "p": 600,
-   "t": 1794389596,
-   "q": 365,
-   "low": 600,
+   "p": 580,
+   "t": 1794503923,
+   "q": 454,
+   "low": 580,
    "med": 600,
    "high": 600,
-   "days": 2
-  },
-  "No Slip SAF-T Padding": {
-   "p": 29900,
-   "t": 1794307962,
-   "q": 84
+   "days": 3
   },
   "Novice's Practice Wand": {
    "p": 100,
-   "t": 1794387509,
-   "q": 118,
+   "t": 1794503923,
+   "q": 103,
    "low": 100,
    "med": 100,
    "high": 100,
-   "days": 2
+   "days": 3
   },
   "Oil of Immolation": {
-   "p": 3494,
-   "t": 1794389596,
-   "q": 294
-  },
-  "Oily Blackmouth": {
-   "p": 236,
-   "t": 1794389596,
-   "q": 1839,
-   "low": 149,
-   "med": 149,
-   "high": 221,
+   "p": 798,
+   "t": 1794471234,
+   "q": 206,
+   "low": 798,
+   "med": 798,
+   "high": 3494,
    "days": 2
   },
-  "Orange Dye": {
-   "p": 600,
-   "t": 1794307962,
-   "q": 40
-  },
-  "Orange Mageweave Shirt": {
-   "p": 2100,
-   "t": 1794307962,
-   "q": 104
+  "Oily Blackmouth": {
+   "p": 263,
+   "t": 1794503923,
+   "q": 5256,
+   "low": 149,
+   "med": 221,
+   "high": 242,
+   "days": 3
   },
   "Ornate Spyglass": {
    "p": 1400,
    "t": 1794389596,
    "q": 92
   },
-  "Parachute Cloak": {
-   "p": 57100,
-   "t": 1794307963,
-   "q": 8
-  },
-  "Pattern: Admiral's Hat": {
-   "p": 4500,
-   "t": 1794345595,
-   "q": 19
-  },
-  "Pattern: Azure Shoulders": {
-   "p": 400,
-   "t": 1794345595,
-   "q": 52
-  },
-  "Pattern: Barbaric Belt": {
-   "p": 12400,
-   "t": 1794343024,
-   "q": 23
-  },
   "Pattern: Barbaric Gloves": {
-   "p": 600,
-   "t": 1794307963,
-   "q": 64
-  },
-  "Pattern: Big Bag of Enchantment": {
-   "p": 1500000,
-   "t": 1794307963,
-   "q": 4
+   "p": 550,
+   "t": 1794503923,
+   "q": 46
   },
   "Pattern: Big Voodoo Cloak": {
    "p": 1400,
@@ -4495,168 +3123,61 @@
    "q": 11
   },
   "Pattern: Big Voodoo Mask": {
-   "p": 1100,
-   "t": 1794307963,
-   "q": 44
+   "p": 1300,
+   "t": 1794471234,
+   "q": 50
   },
   "Pattern: Big Voodoo Pants": {
-   "p": 1600,
-   "t": 1794307963,
-   "q": 40
-  },
-  "Pattern: Big Voodoo Robe": {
-   "p": 1100,
-   "t": 1794307963,
-   "q": 72
-  },
-  "Pattern: Black Cord": {
-   "p": 5500,
-   "t": 1794307963,
-   "q": 56
-  },
-  "Pattern: Black Gloves": {
-   "p": 23300,
-   "t": 1794307963,
-   "q": 24
-  },
-  "Pattern: Black Silk Pack": {
-   "p": 500,
-   "t": 1794307963,
-   "q": 136
-  },
-  "Pattern: Black Whelp Cloak": {
-   "p": 9100,
-   "t": 1794307963,
-   "q": 16
-  },
-  "Pattern: Black Whelp Tunic": {
-   "p": 3900,
-   "t": 1794307963,
-   "q": 24
-  },
-  "Pattern: Blue Linen Robe": {
-   "p": 500,
-   "t": 1794307963,
-   "q": 56
-  },
-  "Pattern: Blue Linen Vest": {
-   "p": 600,
-   "t": 1794307963,
-   "q": 72
+   "p": 1400,
+   "t": 1794503923,
+   "q": 21
   },
   "Pattern: Blue Overalls": {
    "p": 1700,
    "t": 1794387509,
    "q": 33
   },
-  "Pattern: Blue Suede Gloves": {
-   "p": 100000,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Blue Suede Shoes": {
-   "p": 54600,
-   "t": 1794307963,
-   "q": 24
-  },
   "Pattern: Boots of the Enchanter": {
-   "p": 300,
-   "t": 1794343024,
-   "q": 62
-  },
-  "Pattern: Brawler's Leather Armor": {
-   "p": 6000,
-   "t": 1794307963,
-   "q": 36
-  },
-  "Pattern: Brawler's Leather Helm": {
-   "p": 22000,
-   "t": 1794345595,
-   "q": 51
+   "p": 299,
+   "t": 1794488284,
+   "q": 40,
+   "low": 299,
+   "med": 299,
+   "high": 300,
+   "days": 2
   },
   "Pattern: Brawler's Leather Pants": {
    "p": 4900,
    "t": 1794387509,
    "q": 15
   },
-  "Pattern: Brightcloth Cloak": {
-   "p": 5000,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Brightcloth Gloves": {
-   "p": 20000,
-   "t": 1794307963,
-   "q": 40
-  },
   "Pattern: Brightcloth Robe": {
    "p": 4900,
    "t": 1794383619,
    "q": 7
   },
-  "Pattern: Charged Scorpid Helm": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 40
-  },
   "Pattern: Charged Scorpid Vest": {
-   "p": 20000,
-   "t": 1794307963,
-   "q": 16
-  },
-  "Pattern: Chimeric Boots": {
-   "p": 16100,
-   "t": 1794307963,
-   "q": 16
-  },
-  "Pattern: Chimeric Leggings": {
-   "p": 50000,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Chimeric Vest": {
-   "p": 8300,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Cindercloth Gloves": {
-   "p": 20000,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Cindercloth Pants": {
-   "p": 250000,
-   "t": 1794307963,
-   "q": 4
+   "p": 7000,
+   "t": 1794471234,
+   "q": 11
   },
   "Pattern: Colorful Kilt": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 19,
-   "low": 300,
+   "p": 288,
+   "t": 1794503923,
+   "q": 48,
+   "low": 288,
    "med": 300,
    "high": 300,
-   "days": 2
-  },
-  "Pattern: Comfortable Leather Hat": {
-   "p": 50000,
-   "t": 1794307963,
-   "q": 60
-  },
-  "Pattern: Crimson Silk Shoulders": {
-   "p": 500,
-   "t": 1794337156,
-   "q": 52
+   "days": 3
   },
   "Pattern: Dark Leather Gloves": {
    "p": 500,
-   "t": 1794345595,
-   "q": 30
-  },
-  "Pattern: Dark Leather Shoulders": {
-   "p": 1500,
-   "t": 1794307963,
-   "q": 32
+   "t": 1794471234,
+   "q": 17,
+   "low": 500,
+   "med": 500,
+   "high": 500,
+   "days": 2
   },
   "Pattern: Dark Leather Tunic": {
    "p": 400,
@@ -4664,9 +3185,13 @@
    "q": 85
   },
   "Pattern: Defender's Leather Armor": {
-   "p": 2400,
-   "t": 1794343024,
-   "q": 40
+   "p": 2399,
+   "t": 1794503923,
+   "q": 43,
+   "low": 2399,
+   "med": 2399,
+   "high": 2400,
+   "days": 2
   },
   "Pattern: Defender's Leather Helm": {
    "p": 8900,
@@ -4684,98 +3209,50 @@
   },
   "Pattern: Deviate Scale Belt": {
    "p": 500,
-   "t": 1794345595,
-   "q": 88
+   "t": 1794503923,
+   "q": 78,
+   "low": 500,
+   "med": 500,
+   "high": 500,
+   "days": 2
   },
   "Pattern: Deviate Scale Cloak": {
    "p": 800,
-   "t": 1794307963,
-   "q": 136
+   "t": 1794471234,
+   "q": 35
   },
-  "Pattern: Deviate Scale Gloves": {
-   "p": 1400,
-   "t": 1794307963,
-   "q": 32
-  },
-  "Pattern: Devilsaur Gauntlets": {
-   "p": 908300,
-   "t": 1794307963,
-   "q": 28
-  },
-  "Pattern: Dusky Boots": {
-   "p": 20000,
-   "t": 1794307963,
-   "q": 32
+  "Pattern: Devilsaur Leggings": {
+   "p": 219900,
+   "t": 1794488284,
+   "q": 22
   },
   "Pattern: Dusky Leather Leggings": {
-   "p": 900,
-   "t": 1794343024,
-   "q": 40
-  },
-  "Pattern: Earthen Leggings": {
-   "p": 2200,
-   "t": 1794307963,
-   "q": 56
-  },
-  "Pattern: Earthen Silk Belt": {
-   "p": 400,
-   "t": 1794307963,
-   "q": 36
-  },
-  "Pattern: Earthen Silk Cuffs": {
-   "p": 600,
-   "t": 1794307963,
-   "q": 128
+   "p": 700,
+   "t": 1794488284,
+   "q": 14,
+   "low": 700,
+   "med": 700,
+   "high": 900,
+   "days": 2
   },
   "Pattern: Earthen Silk Gloves": {
    "p": 400,
-   "t": 1794383619,
-   "q": 47
+   "t": 1794488284,
+   "q": 95,
+   "low": 400,
+   "med": 400,
+   "high": 400,
+   "days": 2
   },
-  "Pattern: Earthen Silk Hood": {
-   "p": 5000,
-   "t": 1794307963,
-   "q": 12
-  },
-  "Pattern: Earthenweave Cord": {
-   "p": 4400,
-   "t": 1794307963,
-   "q": 48
-  },
-  "Pattern: Earthenweave Mantle": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 20
-  },
-  "Pattern: Enchanted Mageweave Pouch": {
-   "p": 4700,
-   "t": 1794307963,
-   "q": 48
-  },
-  "Pattern: Felcloth Boots": {
-   "p": 7600,
-   "t": 1794307963,
-   "q": 8
+  "Pattern: Earthenweave Boots": {
+   "p": 4900,
+   "t": 1794488284,
+   "q": 10
   },
   "Pattern: Felcloth Robe": {
-   "p": 30000,
-   "t": 1794307963,
-   "q": 8
-  },
-  "Pattern: Felcloth Shoulders": {
-   "p": 82600,
-   "t": 1794307963,
-   "q": 8
-  },
-  "Pattern: Fiery Cord": {
-   "p": 1900,
-   "t": 1794307963,
-   "q": 40
-  },
-  "Pattern: Fiery Gloves": {
-   "p": 25000,
-   "t": 1794307963,
-   "q": 8
+   "p": 16600,
+   "t": 1794471234,
+   "q": 9
   },
   "Pattern: Filigreed Flame Circlet": {
    "p": 700,
@@ -4788,29 +3265,23 @@
    "q": 15
   },
   "Pattern: Filigreed Flame Leggings": {
-   "p": 600,
-   "t": 1794389596,
-   "q": 17
+   "p": 500,
+   "t": 1794471234,
+   "q": 6,
+   "low": 500,
+   "med": 500,
+   "high": 500,
+   "days": 2
   },
   "Pattern: Filigreed Pearly Circlet": {
    "p": 900,
    "t": 1794389596,
    "q": 33
   },
-  "Pattern: Filigreed Pearly Gown": {
-   "p": 700,
-   "t": 1794345595,
-   "q": 43
-  },
   "Pattern: Filigreed Pearly Leggings": {
-   "p": 600,
-   "t": 1794307963,
-   "q": 100
-  },
-  "Pattern: Filigreed Pristine Circlet": {
-   "p": 2000,
-   "t": 1794307963,
-   "q": 124
+   "p": 599,
+   "t": 1794503923,
+   "q": 12
   },
   "Pattern: Filigreed Pristine Gown": {
    "p": 900,
@@ -4822,44 +3293,41 @@
    "days": 2
   },
   "Pattern: Filigreed Pristine Leggings": {
-   "p": 800,
-   "t": 1794343024,
-   "q": 62
+   "p": 1100,
+   "t": 1794471234,
+   "q": 21,
+   "low": 800,
+   "med": 800,
+   "high": 1100,
+   "days": 2
   },
   "Pattern: Filigreed Shadow Circlet": {
-   "p": 9000,
-   "t": 1794307963,
-   "q": 76
+   "p": 8097,
+   "t": 1794471234,
+   "q": 11
   },
   "Pattern: Filigreed Shadow Gown": {
-   "p": 3800,
-   "t": 1794389596,
-   "q": 33
-  },
-  "Pattern: Filigreed Shadow Leggings": {
-   "p": 2900,
-   "t": 1794307963,
-   "q": 84
-  },
-  "Pattern: Filigreed Shining Circlet": {
-   "p": 800,
-   "t": 1794307963,
-   "q": 140
+   "p": 1800,
+   "t": 1794471234,
+   "q": 13,
+   "low": 1800,
+   "med": 1800,
+   "high": 3800,
+   "days": 2
   },
   "Pattern: Filigreed Shining Gown": {
    "p": 500,
-   "t": 1794343024,
-   "q": 60
-  },
-  "Pattern: Filigreed Shining Leggings": {
-   "p": 800,
-   "t": 1794345595,
-   "q": 60
+   "t": 1794488284,
+   "q": 13,
+   "low": 500,
+   "med": 500,
+   "high": 500,
+   "days": 2
   },
   "Pattern: Filigreed Silky Circlet": {
-   "p": 1900,
-   "t": 1794307963,
-   "q": 44
+   "p": 1200,
+   "t": 1794471234,
+   "q": 9
   },
   "Pattern: Filigreed Silky Gown": {
    "p": 800,
@@ -4871,68 +3339,41 @@
    "days": 2
   },
   "Pattern: Filigreed Silky Leggings": {
-   "p": 700,
-   "t": 1794307963,
-   "q": 52
+   "p": 1100,
+   "t": 1794503923,
+   "q": 32
   },
   "Pattern: Fine Leather Boots": {
-   "p": 100,
-   "t": 1794345595,
-   "q": 149
+   "p": 185,
+   "t": 1794503923,
+   "q": 73,
+   "low": 100,
+   "med": 100,
+   "high": 185,
+   "days": 2
   },
   "Pattern: Fine Leather Gloves": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 24,
-   "low": 200,
+   "p": 180,
+   "t": 1794503923,
+   "q": 52,
+   "low": 180,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Pattern: Fine Leather Pants": {
    "p": 400,
-   "t": 1794345595,
-   "q": 75
-  },
-  "Pattern: Forceful Heavy Armor Kit": {
-   "p": 5800,
-   "t": 1794345595,
-   "q": 54
+   "t": 1794471234,
+   "q": 16,
+   "low": 400,
+   "med": 400,
+   "high": 400,
+   "days": 2
   },
   "Pattern: Forceful Medium Armor Kit": {
-   "p": 700,
-   "t": 1794307963,
+   "p": 759,
+   "t": 1794503923,
    "q": 16
-  },
-  "Pattern: Forceful Rugged Armor Kit": {
-   "p": 10000,
-   "t": 1794345595,
-   "q": 30
-  },
-  "Pattern: Frostsaber Gloves": {
-   "p": 30000,
-   "t": 1794307963,
-   "q": 20
-  },
-  "Pattern: Frostweave Gloves": {
-   "p": 29900,
-   "t": 1794307963,
-   "q": 40
-  },
-  "Pattern: Frostweave Robe": {
-   "p": 9500,
-   "t": 1794343024,
-   "q": 16
-  },
-  "Pattern: Frostweave Tunic": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 56
-  },
-  "Pattern: Frothing Cord": {
-   "p": 3000,
-   "t": 1794307963,
-   "q": 76
   },
   "Pattern: Frothing Gloves": {
    "p": 10000,
@@ -4940,44 +3381,23 @@
    "q": 7
   },
   "Pattern: Gem-studded Leather Belt": {
-   "p": 11000,
-   "t": 1794307963,
-   "q": 56
-  },
-  "Pattern: Gilded Cord": {
-   "p": 2200,
-   "t": 1794307963,
-   "q": 36
-  },
-  "Pattern: Gilded Gloves": {
-   "p": 41200,
-   "t": 1794307963,
-   "q": 16
-  },
-  "Pattern: Gilded Handwraps": {
-   "p": 19900,
-   "t": 1794307963,
-   "q": 36
+   "p": 3000,
+   "t": 1794488284,
+   "q": 20
   },
   "Pattern: Golden Cord": {
    "p": 2300,
    "t": 1794383619,
    "q": 13
   },
-  "Pattern: Golden Gloves": {
-   "p": 65000,
-   "t": 1794307963,
-   "q": 16
-  },
   "Pattern: Gray Woolen Robe": {
-   "p": 200,
-   "t": 1794343024,
-   "q": 62
-  },
-  "Pattern: Greater Adept's Robe": {
-   "p": 1000,
-   "t": 1794307963,
-   "q": 28
+   "p": 180,
+   "t": 1794503923,
+   "q": 50,
+   "low": 180,
+   "med": 180,
+   "high": 200,
+   "days": 2
   },
   "Pattern: Green Dragonscale Breastplate": {
    "p": 44500,
@@ -4986,52 +3406,46 @@
   },
   "Pattern: Green Silk Armor": {
    "p": 300,
-   "t": 1794345595,
-   "q": 24
-  },
-  "Pattern: Green Silk Pack": {
-   "p": 300,
-   "t": 1794337156,
-   "q": 53
+   "t": 1794503923,
+   "q": 38,
+   "low": 300,
+   "med": 300,
+   "high": 300,
+   "days": 2
   },
   "Pattern: Green Whelp Armor": {
    "p": 600,
-   "t": 1794307963,
-   "q": 100
+   "t": 1794471234,
+   "q": 36
   },
   "Pattern: Green Woolen Bag": {
-   "p": 200,
-   "t": 1794383619,
-   "q": 50,
+   "p": 400,
+   "t": 1794488284,
+   "q": 8,
    "low": 200,
    "med": 200,
-   "high": 200,
-   "days": 2
+   "high": 400,
+   "days": 3
   },
   "Pattern: Guardian Armor": {
-   "p": 500,
-   "t": 1794307963,
-   "q": 28
-  },
-  "Pattern: Guardian Belt": {
-   "p": 2900,
-   "t": 1794343024,
-   "q": 34
+   "p": 600,
+   "t": 1794503923,
+   "q": 32
   },
   "Pattern: Guardian Cloak": {
-   "p": 600,
-   "t": 1794307963,
-   "q": 52
+   "p": 440,
+   "t": 1794488284,
+   "q": 37
   },
   "Pattern: Guardian Leather Bracers": {
    "p": 800,
-   "t": 1794307963,
-   "q": 32
+   "t": 1794488284,
+   "q": 16
   },
   "Pattern: Hands of Darkness": {
    "p": 300,
-   "t": 1794337156,
-   "q": 51
+   "t": 1794503923,
+   "q": 30
   },
   "Pattern: Heavy Earthen Gloves": {
    "p": 600,
@@ -5042,52 +3456,37 @@
    "high": 600,
    "days": 2
   },
-  "Pattern: Heavy Leather Ball": {
-   "p": 2500,
-   "t": 1794307963,
-   "q": 24
-  },
-  "Pattern: Heavy Scorpid Belt": {
-   "p": 17600,
-   "t": 1794307963,
-   "q": 4
-  },
   "Pattern: Heavy Woolen Cloak": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 41,
-   "low": 200,
+   "p": 178,
+   "t": 1794503923,
+   "q": 100,
+   "low": 178,
    "med": 200,
    "high": 200,
-   "days": 2
-  },
-  "Pattern: Herbalist's Gloves": {
-   "p": 29200,
-   "t": 1794307963,
-   "q": 40
+   "days": 3
   },
   "Pattern: Hillman's Belt": {
    "p": 400,
-   "t": 1794389596,
-   "q": 24,
+   "t": 1794471234,
+   "q": 27,
    "low": 400,
    "med": 400,
    "high": 400,
-   "days": 2
+   "days": 3
   },
   "Pattern: Hillman's Leather Boots": {
-   "p": 2400,
-   "t": 1794307963,
-   "q": 60
+   "p": 1300,
+   "t": 1794471234,
+   "q": 12
   },
   "Pattern: Hillman's Leather Vest": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 84,
-   "low": 200,
+   "p": 180,
+   "t": 1794503923,
+   "q": 116,
+   "low": 180,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Pattern: Icy Cloak": {
    "p": 2500,
@@ -5095,89 +3494,23 @@
    "q": 29
   },
   "Pattern: Ironfeather Breastplate": {
-   "p": 8800,
-   "t": 1794345595,
-   "q": 22
-  },
-  "Pattern: Ironfeather Shoulders": {
-   "p": 28000,
-   "t": 1794307963,
-   "q": 16
+   "p": 6500,
+   "t": 1794488284,
+   "q": 35,
+   "low": 6500,
+   "med": 6500,
+   "high": 8800,
+   "days": 2
   },
   "Pattern: Kodo Hide Bag": {
    "p": 4000,
    "t": 1794389596,
    "q": 25
   },
-  "Pattern: Lavender Mageweave Shirt": {
-   "p": 8400,
-   "t": 1794307963,
-   "q": 8
-  },
-  "Pattern: Linen Reagent Bag": {
-   "p": 200,
-   "t": 1794307963,
-   "q": 196
-  },
-  "Pattern: Living Leggings": {
-   "p": 7600,
-   "t": 1794307963,
-   "q": 16
-  },
-  "Pattern: Mender's Leather Gauntlets": {
-   "p": 46100,
-   "t": 1794307963,
-   "q": 20
-  },
-  "Pattern: Mender's Leather Shoes": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 24
-  },
-  "Pattern: Mender's Mail Boots": {
-   "p": 9600,
-   "t": 1794307963,
-   "q": 52
-  },
-  "Pattern: Mender's Mail Gauntlets": {
-   "p": 76100,
-   "t": 1794307963,
-   "q": 12
-  },
   "Pattern: Mooncloth Bag": {
-   "p": 391100,
-   "t": 1794307963,
-   "q": 24
-  },
-  "Pattern: Mooncloth Vest": {
-   "p": 91300,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Moonglow Vest": {
-   "p": 59900,
-   "t": 1794307963,
-   "q": 12
-  },
-  "Pattern: Mystic Heavy Armor Kit": {
-   "p": 8000,
-   "t": 1794307963,
-   "q": 92
-  },
-  "Pattern: Mystic Medium Armor Kit": {
-   "p": 200,
-   "t": 1794307963,
-   "q": 20
-  },
-  "Pattern: Nightscape Cloak": {
-   "p": 140000,
-   "t": 1794307963,
-   "q": 8
-  },
-  "Pattern: Orange Martial Shirt": {
-   "p": 7500,
-   "t": 1794307963,
-   "q": 24
+   "p": 159800,
+   "t": 1794488284,
+   "q": 27
   },
   "Pattern: Phoenix Gloves": {
    "p": 200,
@@ -5190,43 +3523,17 @@
   },
   "Pattern: Phoenix Pants": {
    "p": 200,
-   "t": 1794389596,
-   "q": 33
+   "t": 1794471234,
+   "q": 22,
+   "low": 200,
+   "med": 200,
+   "high": 200,
+   "days": 2
   },
   "Pattern: Pilferer's Gloves": {
    "p": 700,
    "t": 1794387509,
    "q": 19
-  },
-  "Pattern: Pink Mageweave Shirt": {
-   "p": 5000,
-   "t": 1794307963,
-   "q": 12
-  },
-  "Pattern: Prowler's Leather Shoes": {
-   "p": 13300,
-   "t": 1794307963,
-   "q": 40
-  },
-  "Pattern: Radiant Cord": {
-   "p": 1900,
-   "t": 1794307963,
-   "q": 56
-  },
-  "Pattern: Radiant Gloves": {
-   "p": 12500,
-   "t": 1794307963,
-   "q": 24
-  },
-  "Pattern: Raptor Hide Belt": {
-   "p": 4000,
-   "t": 1794307963,
-   "q": 56
-  },
-  "Pattern: Raptor Hide Harness": {
-   "p": 49900,
-   "t": 1794307963,
-   "q": 16
   },
   "Pattern: Red Linen Bag": {
    "p": 400,
@@ -5235,12 +3542,12 @@
   },
   "Pattern: Red Linen Robe": {
    "p": 100,
-   "t": 1794389596,
-   "q": 101,
+   "t": 1794488284,
+   "q": 73,
    "low": 100,
    "med": 100,
    "high": 100,
-   "days": 2
+   "days": 3
   },
   "Pattern: Red Linen Vest": {
    "p": 100,
@@ -5251,209 +3558,81 @@
    "high": 100,
    "days": 2
   },
-  "Pattern: Red Mageweave Gloves": {
-   "p": 1500,
-   "t": 1794307963,
-   "q": 56
-  },
-  "Pattern: Red Mageweave Headband": {
-   "p": 1900,
-   "t": 1794307963,
-   "q": 68
-  },
-  "Pattern: Red Mageweave Pants": {
-   "p": 1300,
-   "t": 1794345595,
-   "q": 38
-  },
-  "Pattern: Red Mageweave Shoulders": {
-   "p": 1900,
-   "t": 1794307963,
-   "q": 60
-  },
   "Pattern: Red Mageweave Vest": {
-   "p": 1300,
-   "t": 1794307963,
-   "q": 96
-  },
-  "Pattern: Red Whelp Gloves": {
-   "p": 39900,
-   "t": 1794307963,
-   "q": 20
-  },
-  "Pattern: Red Woolen Bag": {
-   "p": 200,
-   "t": 1794343024,
-   "q": 23
+   "p": 1299,
+   "t": 1794488284,
+   "q": 21
   },
   "Pattern: Red Woolen Boots": {
+   "p": 155,
+   "t": 1794503923,
+   "q": 78,
+   "low": 155,
+   "med": 200,
+   "high": 200,
+   "days": 3
+  },
+  "Pattern: Reinforced Woolen Shoulders": {
    "p": 200,
-   "t": 1794389596,
-   "q": 60,
+   "t": 1794503923,
+   "q": 49,
    "low": 200,
    "med": 200,
    "high": 200,
    "days": 2
   },
-  "Pattern: Reinforced Woolen Shoulders": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 24
-  },
-  "Pattern: Rich Purple Silk Shirt": {
-   "p": 35800,
-   "t": 1794307963,
-   "q": 52
-  },
   "Pattern: Robes of Arcana": {
-   "p": 325000,
-   "t": 1794307963,
-   "q": 28
-  },
-  "Pattern: Rugged Leather Pants": {
-   "p": 200,
-   "t": 1794345595,
-   "q": 107
-  },
-  "Pattern: Runecloth Bag": {
-   "p": 400000,
-   "t": 1794307963,
-   "q": 32
-  },
-  "Pattern: Runecloth Headband": {
-   "p": 229400,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Runecloth Tunic": {
-   "p": 29900,
-   "t": 1794307963,
-   "q": 28
-  },
-  "Pattern: Runic Leather Belt": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Runic Leather Bracers": {
-   "p": 16100,
-   "t": 1794307963,
+   "p": 190000,
+   "t": 1794471234,
    "q": 8
   },
-  "Pattern: Runic Leather Gauntlets": {
-   "p": 24900,
-   "t": 1794307963,
-   "q": 20
-  },
-  "Pattern: Shadow Hood": {
-   "p": 4000,
-   "t": 1794307963,
-   "q": 36
-  },
-  "Pattern: Shadowskin Gloves": {
-   "p": 4900,
-   "t": 1794307963,
-   "q": 36
-  },
-  "Pattern: Skirmisher's Mail Boots": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 52
-  },
-  "Pattern: Skirmisher's Mail Gauntlets": {
-   "p": 30000,
-   "t": 1794307963,
-   "q": 20
+  "Pattern: Rugged Leather Pants": {
+   "p": 199,
+   "t": 1794488284,
+   "q": 64,
+   "low": 199,
+   "med": 199,
+   "high": 200,
+   "days": 2
   },
   "Pattern: Skulker's Leather Gauntlets": {
    "p": 49900,
    "t": 1794383619,
    "q": 11
   },
-  "Pattern: Skulker's Leather Shoes": {
-   "p": 13000,
-   "t": 1794307963,
-   "q": 48
-  },
-  "Pattern: Skycaller's Leather Gauntlets": {
-   "p": 30000,
-   "t": 1794307963,
-   "q": 8
-  },
   "Pattern: Skycaller's Leather Shoes": {
    "p": 2200,
    "t": 1794389596,
    "q": 9
   },
-  "Pattern: Skycaller's Mail Boots": {
-   "p": 4800,
-   "t": 1794307963,
-   "q": 64
-  },
-  "Pattern: Skycaller's Mail Gauntlets": {
-   "p": 26100,
-   "t": 1794307963,
-   "q": 20
-  },
-  "Pattern: Soul Pouch": {
-   "p": 20000,
-   "t": 1794307963,
-   "q": 16
-  },
   "Pattern: Spider Belt": {
-   "p": 5500,
-   "t": 1794307963,
-   "q": 240
+   "p": 400,
+   "t": 1794488284,
+   "q": 26
   },
   "Pattern: Spider Silk Slippers": {
-   "p": 300,
-   "t": 1794343024,
-   "q": 23
+   "p": 299,
+   "t": 1794503923,
+   "q": 51,
+   "low": 299,
+   "med": 299,
+   "high": 300,
+   "days": 2
   },
   "Pattern: Stalker's Mail Boots": {
    "p": 3500,
    "t": 1794383619,
    "q": 14
   },
-  "Pattern: Stalker's Mail Gauntlets": {
-   "p": 99900,
-   "t": 1794307963,
-   "q": 8
-  },
   "Pattern: Star Belt": {
-   "p": 11000,
-   "t": 1794307963,
-   "q": 12
-  },
-  "Pattern: Stormcloth Boots": {
-   "p": 22400,
-   "t": 1794307963,
-   "q": 12
-  },
-  "Pattern: Stormcloth Headband": {
-   "p": 4900,
-   "t": 1794307963,
-   "q": 12
-  },
-  "Pattern: Stormcloth Pants": {
-   "p": 7700,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Stormcloth Shoulders": {
-   "p": 13100,
-   "t": 1794307963,
-   "q": 4
+   "p": 16500,
+   "t": 1794471234,
+   "q": 6
   },
   "Pattern: Stormrider's Leather Armor": {
-   "p": 1000,
-   "t": 1794337156,
-   "q": 29
-  },
-  "Pattern: Stormrider's Leather Helm": {
-   "p": 1400,
-   "t": 1794345595,
-   "q": 62
+   "p": 950,
+   "t": 1794488284,
+   "q": 17
   },
   "Pattern: Stormrider's Leather Pants": {
    "p": 1000,
@@ -5465,13 +3644,13 @@
    "days": 2
   },
   "Pattern: Stylish Blue Shirt": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 56,
-   "low": 200,
+   "p": 150,
+   "t": 1794503923,
+   "q": 78,
+   "low": 150,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Pattern: Stylish Green Shirt": {
    "p": 200,
@@ -5482,135 +3661,59 @@
    "high": 200,
    "days": 2
   },
-  "Pattern: Supple Scorpid Belt": {
-   "p": 65000,
-   "t": 1794307963,
-   "q": 16
-  },
-  "Pattern: Supple Scorpid Boots": {
-   "p": 9900,
-   "t": 1794307963,
-   "q": 8
-  },
-  "Pattern: Supple Scorpid Leggings": {
-   "p": 30000,
-   "t": 1794307963,
-   "q": 40
-  },
-  "Pattern: Supple Scorpid Shoulders": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Swift Boots": {
-   "p": 1500,
-   "t": 1794307963,
-   "q": 256
-  },
-  "Pattern: Tooled Leather Belt": {
-   "p": 14600,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Tooled Leather Boots": {
-   "p": 100000,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Totemic Leather Armor": {
-   "p": 1200,
-   "t": 1794337156,
-   "q": 33
-  },
   "Pattern: Totemic Leather Helm": {
-   "p": 1600,
-   "t": 1794345595,
-   "q": 24
+   "p": 1300,
+   "t": 1794471234,
+   "q": 5,
+   "low": 1300,
+   "med": 1300,
+   "high": 1600,
+   "days": 2
   },
   "Pattern: Totemic Leather Pants": {
-   "p": 1500,
-   "t": 1794345595,
-   "q": 16
-  },
-  "Pattern: Tough Scorpid Boots": {
-   "p": 1300,
-   "t": 1794307963,
-   "q": 44
-  },
-  "Pattern: Tough Scorpid Bracers": {
-   "p": 1900,
-   "t": 1794343024,
-   "q": 42
+   "p": 2000,
+   "t": 1794488284,
+   "q": 26,
+   "low": 1500,
+   "med": 1500,
+   "high": 2000,
+   "days": 2
   },
   "Pattern: Tough Scorpid Breastplate": {
-   "p": 7000,
-   "t": 1794387509,
-   "q": 51
+   "p": 1000,
+   "t": 1794488284,
+   "q": 20,
+   "low": 1000,
+   "med": 1000,
+   "high": 7000,
+   "days": 2
   },
   "Pattern: Tough Scorpid Gloves": {
-   "p": 7000,
-   "t": 1794383619,
-   "q": 56
-  },
-  "Pattern: Tough Scorpid Helm": {
-   "p": 2200,
-   "t": 1794307963,
-   "q": 72
-  },
-  "Pattern: Tough Scorpid Leggings": {
    "p": 1500,
-   "t": 1794337156,
-   "q": 38
-  },
-  "Pattern: Tough Scorpid Shoulders": {
-   "p": 1700,
-   "t": 1794307963,
-   "q": 36
-  },
-  "Pattern: Trapper's Leather Armor": {
-   "p": 3000,
-   "t": 1794343024,
-   "q": 20
-  },
-  "Pattern: Trapper's Leather Helm": {
-   "p": 2300,
-   "t": 1794307963,
-   "q": 56
+   "t": 1794471234,
+   "q": 63,
+   "low": 1500,
+   "med": 1500,
+   "high": 7000,
+   "days": 2
   },
   "Pattern: Trapper's Leather Pants": {
-   "p": 3500,
-   "t": 1794387509,
-   "q": 30
+   "p": 2700,
+   "t": 1794471234,
+   "q": 14,
+   "low": 2700,
+   "med": 2700,
+   "high": 3500,
+   "days": 2
   },
   "Pattern: Truefaith Gloves": {
    "p": 300,
-   "t": 1794345595,
-   "q": 84
-  },
-  "Pattern: Tuxedo Jacket": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 20
-  },
-  "Pattern: Tuxedo Pants": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 24
-  },
-  "Pattern: Tuxedo Shirt": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 16
-  },
-  "Pattern: Volcanic Leggings": {
-   "p": 25300,
-   "t": 1794307963,
-   "q": 16
-  },
-  "Pattern: Warden's Leather Shoes": {
-   "p": 7900,
-   "t": 1794307963,
-   "q": 36
+   "t": 1794503923,
+   "q": 56,
+   "low": 300,
+   "med": 300,
+   "high": 300,
+   "days": 2
   },
   "Pattern: White Bandit Mask": {
    "p": 4000,
@@ -5618,108 +3721,77 @@
    "q": 38
   },
   "Pattern: White Leather Jerkin": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 44,
-   "low": 200,
+   "p": 194,
+   "t": 1794503923,
+   "q": 84,
+   "low": 194,
    "med": 200,
    "high": 200,
-   "days": 2
-  },
-  "Pattern: Wicked Leather Bracers": {
-   "p": 49000,
-   "t": 1794307963,
-   "q": 40
-  },
-  "Pattern: Wicked Leather Headband": {
-   "p": 29900,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Pattern: Wildthorn Mail": {
-   "p": 15000,
-   "t": 1794307963,
-   "q": 52
+   "days": 3
   },
   "Pattern: Wisdom's Leather Armor": {
-   "p": 900,
-   "t": 1794389596,
-   "q": 19,
+   "p": 1000,
+   "t": 1794503923,
+   "q": 30,
    "low": 900,
-   "med": 900,
+   "med": 1000,
    "high": 1000,
-   "days": 2
-  },
-  "Pattern: Wisdom's Leather Helm": {
-   "p": 1700,
-   "t": 1794307963,
-   "q": 88
+   "days": 3
   },
   "Pattern: Wisdom's Leather Pants": {
-   "p": 800,
-   "t": 1794383619,
-   "q": 9,
+   "p": 1200,
+   "t": 1794488284,
+   "q": 48,
    "low": 800,
-   "med": 800,
-   "high": 900,
-   "days": 2
-  },
-  "Pattern: Woolen Reagent Bag": {
-   "p": 200,
-   "t": 1794307963,
-   "q": 68
+   "med": 900,
+   "high": 1200,
+   "days": 3
   },
   "Patterned Bronze Bracers": {
-   "p": 600,
-   "t": 1794389596,
-   "q": 623,
-   "low": 600,
+   "p": 539,
+   "t": 1794503923,
+   "q": 741,
+   "low": 539,
    "med": 600,
    "high": 600,
-   "days": 2
+   "days": 3
   },
   "Peace Tea": {
-   "p": 400,
-   "t": 1794307963,
-   "q": 644
+   "p": 555,
+   "t": 1794471234,
+   "q": 9
   },
   "Peacebloom": {
-   "p": 64,
-   "t": 1794389596,
-   "q": 4276,
+   "p": 42,
+   "t": 1794503923,
+   "q": 10034,
    "low": 31,
-   "med": 31,
+   "med": 42,
    "high": 49,
-   "days": 2
+   "days": 3
   },
   "Pearl-clasped Cloak": {
-   "p": 500,
-   "t": 1794383619,
-   "q": 25
-  },
-  "Pearl-handled Dagger": {
-   "p": 4000,
-   "t": 1794307963,
-   "q": 88
-  },
-  "Perfect Deviate Scale": {
-   "p": 1170,
-   "t": 1794389596,
-   "q": 330,
-   "low": 1000,
-   "med": 1000,
-   "high": 1066,
+   "p": 400,
+   "t": 1794488284,
+   "q": 29,
+   "low": 400,
+   "med": 400,
+   "high": 500,
    "days": 2
   },
-  "Phoenix Bindings": {
-   "p": 12400,
-   "t": 1794307963,
-   "q": 32
+  "Perfect Deviate Scale": {
+   "p": 1030,
+   "t": 1794488284,
+   "q": 193,
+   "low": 995,
+   "med": 1000,
+   "high": 1066,
+   "days": 3
   },
   "Phoenix Gloves": {
-   "p": 1700,
-   "t": 1794307963,
-   "q": 28
+   "p": 700,
+   "t": 1794503923,
+   "q": 30
   },
   "Phoenix Pants": {
    "p": 3700,
@@ -5727,396 +3799,271 @@
    "q": 113
   },
   "Pilferer's Gloves": {
-   "p": 6200,
-   "t": 1794343024,
-   "q": 38
-  },
-  "Pincer Bites": {
-   "p": 197,
-   "t": 1794307963,
-   "q": 436
-  },
-  "Pink Dye": {
-   "p": 2100,
-   "t": 1794307963,
-   "q": 44
+   "p": 5400,
+   "t": 1794471234,
+   "q": 82,
+   "low": 5400,
+   "med": 5400,
+   "high": 6200,
+   "days": 2
   },
   "Pitchblende": {
-   "p": 7201,
-   "t": 1794343024,
-   "q": 135
-  },
-  "Plaguebloom": {
-   "p": 8600,
-   "t": 1794345595,
-   "q": 69
+   "p": 9786,
+   "t": 1794471234,
+   "q": 213,
+   "low": 7201,
+   "med": 7201,
+   "high": 9786,
+   "days": 2
   },
   "Plain Ol' Paletusk": {
    "p": 541,
    "t": 1794389596,
    "q": 1123
   },
-  "Plans: Barbaric Iron Boots": {
-   "p": 28000,
-   "t": 1794307963,
-   "q": 12
-  },
-  "Plans: Barbaric Iron Breastplate": {
-   "p": 11000,
-   "t": 1794307963,
-   "q": 32
-  },
-  "Plans: Barbaric Iron Shoulders": {
-   "p": 26000,
-   "t": 1794307963,
-   "q": 20
-  },
   "Plans: Blue Glittering Axe": {
    "p": 2000,
-   "t": 1794383619,
-   "q": 27
+   "t": 1794471234,
+   "q": 23,
+   "low": 2000,
+   "med": 2000,
+   "high": 2000,
+   "days": 2
   },
   "Plans: Copper Chain Vest": {
    "p": 100,
-   "t": 1794389596,
-   "q": 82,
+   "t": 1794503923,
+   "q": 77,
    "low": 100,
    "med": 100,
    "high": 100,
-   "days": 2
-  },
-  "Plans: Dark Iron Sunderer": {
-   "p": 250000,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Plans: Dazzling Mithril Rapier": {
-   "p": 3900,
-   "t": 1794307963,
-   "q": 76
+   "days": 3
   },
   "Plans: Deadly Bronze Poniard": {
-   "p": 400,
-   "t": 1794389596,
-   "q": 65,
-   "low": 400,
+   "p": 380,
+   "t": 1794503923,
+   "q": 91,
+   "low": 380,
    "med": 400,
    "high": 400,
-   "days": 2
+   "days": 3
   },
   "Plans: Frost Tiger Blade": {
-   "p": 1400,
-   "t": 1794337156,
-   "q": 80
+   "p": 1300,
+   "t": 1794503923,
+   "q": 33
   },
   "Plans: Gemmed Copper Gauntlets": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 20,
+   "p": 189,
+   "t": 1794488284,
+   "q": 48,
    "low": 100,
-   "med": 100,
+   "med": 189,
    "high": 300,
-   "days": 2
+   "days": 3
   },
   "Plans: Golden Iron Destroyer": {
-   "p": 1000,
-   "t": 1794307963,
-   "q": 144
-  },
-  "Plans: Golden Scale Boots": {
-   "p": 19900,
-   "t": 1794307963,
-   "q": 24
+   "p": 950,
+   "t": 1794503923,
+   "q": 62
   },
   "Plans: Golden Scale Cuirass": {
    "p": 1100,
-   "t": 1794307963,
-   "q": 68
-  },
-  "Plans: Golden Scale Leggings": {
-   "p": 900,
-   "t": 1794345595,
-   "q": 76
-  },
-  "Plans: Golden Scale Shoulders": {
-   "p": 9800,
-   "t": 1794307963,
-   "q": 36
-  },
-  "Plans: Green Iron Boots": {
-   "p": 900,
-   "t": 1794307963,
-   "q": 12
-  },
-  "Plans: Green Iron Gauntlets": {
-   "p": 1500,
-   "t": 1794307963,
-   "q": 108
+   "t": 1794471234,
+   "q": 11
   },
   "Plans: Green Iron Shoulders": {
-   "p": 1200,
-   "t": 1794387509,
-   "q": 12
-  },
-  "Plans: Hardened Iron Shortsword": {
-   "p": 4000,
-   "t": 1794307963,
-   "q": 4
+   "p": 1000,
+   "t": 1794503923,
+   "q": 44,
+   "low": 1000,
+   "med": 1000,
+   "high": 1200,
+   "days": 2
   },
   "Plans: Heavy Mithril Helm": {
    "p": 2600,
    "t": 1794383619,
    "q": 7
   },
-  "Plans: Heavy Mithril Pants": {
-   "p": 1600,
-   "t": 1794307963,
-   "q": 60
-  },
   "Plans: Iridescent Hammer": {
    "p": 500,
-   "t": 1794343024,
-   "q": 74
+   "t": 1794503923,
+   "q": 36,
+   "low": 500,
+   "med": 500,
+   "high": 500,
+   "days": 2
   },
   "Plans: Iron Counterweight": {
-   "p": 900,
-   "t": 1794307963,
-   "q": 40
+   "p": 800,
+   "t": 1794503923,
+   "q": 35
   },
   "Plans: Iron Shield Spike": {
-   "p": 900,
-   "t": 1794343024,
-   "q": 36
-  },
-  "Plans: Ironforge Breastplate": {
-   "p": 49900,
-   "t": 1794307963,
-   "q": 4
+   "p": 1500,
+   "t": 1794503923,
+   "q": 44,
+   "low": 900,
+   "med": 900,
+   "high": 1250,
+   "days": 2
   },
   "Plans: Jade Serpentblade": {
-   "p": 1100,
-   "t": 1794307963,
-   "q": 76
-  },
-  "Plans: Mighty Iron Hammer": {
-   "p": 600,
-   "t": 1794337156,
-   "q": 86
-  },
-  "Plans: Mithril Plate Shoulders": {
-   "p": 12200,
-   "t": 1794307963,
-   "q": 16
-  },
-  "Plans: Mithril Shield Spike": {
-   "p": 12100,
-   "t": 1794307963,
-   "q": 60
+   "p": 1000,
+   "t": 1794503923,
+   "q": 20
   },
   "Plans: Mithril Spurs": {
-   "p": 4400,
-   "t": 1794389596,
-   "q": 30
+   "p": 9900,
+   "t": 1794503923,
+   "q": 58,
+   "low": 4400,
+   "med": 4400,
+   "high": 9900,
+   "days": 2
   },
   "Plans: Polished Steel Boots": {
    "p": 1100,
-   "t": 1794383619,
-   "q": 16
-  },
-  "Plans: Radiant Boots": {
-   "p": 30000,
-   "t": 1794307963,
-   "q": 8
+   "t": 1794471234,
+   "q": 17,
+   "low": 1100,
+   "med": 1100,
+   "high": 1100,
+   "days": 2
   },
   "Plans: Radiant Breastplate": {
    "p": 5500,
    "t": 1794383619,
    "q": 11
   },
-  "Plans: Radiant Leggings": {
-   "p": 1505100,
-   "t": 1794307963,
-   "q": 4
-  },
   "Plans: Runed Copper Breastplate": {
-   "p": 200,
-   "t": 1794343024,
-   "q": 74
-  },
-  "Plans: Runed Mithril Hammer": {
-   "p": 12000,
-   "t": 1794307963,
-   "q": 12
-  },
-  "Plans: Searing Golden Blade": {
-   "p": 40400,
-   "t": 1794307963,
-   "q": 16
+   "p": 180,
+   "t": 1794503923,
+   "q": 52,
+   "low": 180,
+   "med": 180,
+   "high": 200,
+   "days": 2
   },
   "Plans: Shadow Crescent Axe": {
-   "p": 1300,
-   "t": 1794307963,
-   "q": 72
+   "p": 1250,
+   "t": 1794488284,
+   "q": 22
   },
   "Plans: Silvered Bronze Breastplate": {
    "p": 400,
    "t": 1794389596,
    "q": 59
   },
-  "Plans: Silvered Bronze Leggings": {
-   "p": 900,
-   "t": 1794307963,
-   "q": 92
-  },
   "Plans: Silvered Bronze Shoulders": {
    "p": 400,
-   "t": 1794389596,
-   "q": 47,
+   "t": 1794503923,
+   "q": 59,
    "low": 400,
    "med": 400,
    "high": 400,
-   "days": 2
-  },
-  "Plans: Steel Weapon Chain": {
-   "p": 109400,
-   "t": 1794337156,
-   "q": 13
-  },
-  "Plans: Thorium Armor": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 20
-  },
-  "Plans: Thorium Belt": {
-   "p": 54600,
-   "t": 1794307963,
-   "q": 28
-  },
-  "Plans: Thorium Bracers": {
-   "p": 12400,
-   "t": 1794307963,
-   "q": 28
-  },
-  "Plans: Thorium Shield Spike": {
-   "p": 2499900,
-   "t": 1794307963,
-   "q": 4
-  },
-  "Portable Bronze Mortar": {
-   "p": 8700,
-   "t": 1794307963,
-   "q": 84
-  },
-  "Potion of Beast Slaying": {
-   "p": 10000,
-   "t": 1794307963,
-   "q": 456
-  },
-  "Potion of Predatory Senses": {
-   "p": 9900,
-   "t": 1794307963,
-   "q": 8
-  },
-  "Powerful Mojo": {
-   "p": 15000,
-   "t": 1794307963,
-   "q": 16
+   "days": 3
   },
   "Practice Lock": {
    "p": 100,
-   "t": 1794389596,
-   "q": 603,
+   "t": 1794503923,
+   "q": 516,
    "low": 100,
    "med": 100,
    "high": 100,
-   "days": 2
+   "days": 3
   },
   "Pristine Hide": {
-   "p": 259,
-   "t": 1794389596,
-   "q": 2943
+   "p": 255,
+   "t": 1794503923,
+   "q": 3164,
+   "low": 255,
+   "med": 255,
+   "high": 259,
+   "days": 2
   },
   "Pristine Leather": {
-   "p": 500,
-   "t": 1794389596,
-   "q": 829,
-   "low": 400,
+   "p": 398,
+   "t": 1794503923,
+   "q": 2697,
+   "low": 398,
    "med": 400,
    "high": 500,
-   "days": 2
+   "days": 3
   },
   "Pristine Scale": {
-   "p": 20100,
-   "t": 1794389596,
-   "q": 196
-  },
-  "Purple Dye": {
-   "p": 1500,
-   "t": 1794307963,
-   "q": 60
+   "p": 9883,
+   "t": 1794488284,
+   "q": 131,
+   "low": 9868,
+   "med": 9868,
+   "high": 20100,
+   "days": 2
   },
   "Purple Lotus": {
-   "p": 598,
-   "t": 1794389596,
-   "q": 394
+   "p": 535,
+   "t": 1794503923,
+   "q": 1628,
+   "low": 506,
+   "med": 506,
+   "high": 598,
+   "days": 2
   },
   "Pyrite": {
-   "p": 122,
-   "t": 1794389596,
-   "q": 749,
+   "p": 196,
+   "t": 1794503923,
+   "q": 673,
    "low": 122,
-   "med": 122,
-   "high": 139,
-   "days": 2
-  },
-  "Quickdraw Quiver": {
-   "p": 9700,
-   "t": 1794307963,
-   "q": 360
+   "med": 139,
+   "high": 179,
+   "days": 3
   },
   "Rage Potion": {
-   "p": 635,
-   "t": 1794307963,
-   "q": 3796
+   "p": 49,
+   "t": 1794488284,
+   "q": 130
   },
   "Rainbow Fin Albacore": {
-   "p": 39,
-   "t": 1794345595,
-   "q": 696
+   "p": 27,
+   "t": 1794471234,
+   "q": 621,
+   "low": 27,
+   "med": 27,
+   "high": 39,
+   "days": 2
   },
   "Raptor Egg": {
-   "p": 75,
-   "t": 1794389596,
-   "q": 1788
+   "p": 92,
+   "t": 1794488284,
+   "q": 2414,
+   "low": 75,
+   "med": 75,
+   "high": 92,
+   "days": 2
   },
   "Raptor Flesh": {
-   "p": 239,
-   "t": 1794307964,
-   "q": 4908
+   "p": 266,
+   "t": 1794488284,
+   "q": 1236
   },
   "Raptor Hide": {
-   "p": 284,
-   "t": 1794389596,
-   "q": 452
-  },
-  "Raptor Hide Belt": {
-   "p": 1700,
-   "t": 1794307964,
-   "q": 156
-  },
-  "Raptor Rouladen": {
-   "p": 1399,
-   "t": 1794307964,
-   "q": 216
+   "p": 222,
+   "t": 1794503923,
+   "q": 2849,
+   "low": 215,
+   "med": 215,
+   "high": 220,
+   "days": 2
   },
   "Raw Brilliant Smallfish": {
-   "p": 97,
-   "t": 1794389596,
-   "q": 4711,
-   "low": 87,
+   "p": 83,
+   "t": 1794503923,
+   "q": 2601,
+   "low": 83,
    "med": 87,
    "high": 97,
-   "days": 2
+   "days": 3
   },
   "Raw Bristle Whisker Catfish": {
    "p": 42,
@@ -6128,28 +4075,31 @@
    "days": 2
   },
   "Raw Glossy Mightfish": {
-   "p": 423,
-   "t": 1794389596,
-   "q": 879
-  },
-  "Raw Greater Sagefish": {
-   "p": 297,
-   "t": 1794389596,
-   "q": 847,
-   "low": 196,
-   "med": 196,
-   "high": 297,
+   "p": 439,
+   "t": 1794488284,
+   "q": 418,
+   "low": 423,
+   "med": 423,
+   "high": 439,
    "days": 2
   },
-  "Raw Loch Frenzy": {
-   "p": 199,
-   "t": 1794307964,
-   "q": 12
+  "Raw Greater Sagefish": {
+   "p": 168,
+   "t": 1794488284,
+   "q": 2066,
+   "low": 168,
+   "med": 196,
+   "high": 297,
+   "days": 3
   },
   "Raw Longjaw Mud Snapper": {
-   "p": 12,
-   "t": 1794389596,
-   "q": 6745
+   "p": 10,
+   "t": 1794503923,
+   "q": 5262,
+   "low": 7,
+   "med": 7,
+   "high": 8,
+   "days": 2
   },
   "Raw Mithril Head Trout": {
    "p": 98,
@@ -6161,138 +4111,104 @@
    "days": 2
   },
   "Raw Nightfin Snapper": {
-   "p": 497,
-   "t": 1794389596,
-   "q": 763
-  },
-  "Raw Plated Armorfish": {
-   "p": 3000,
-   "t": 1794307964,
-   "q": 468
+   "p": 490,
+   "t": 1794503923,
+   "q": 2259,
+   "low": 477,
+   "med": 477,
+   "high": 490,
+   "days": 2
   },
   "Raw Rainbow Fin Albacore": {
-   "p": 20,
-   "t": 1794389596,
-   "q": 2300,
+   "p": 30,
+   "t": 1794471234,
+   "q": 2191,
    "low": 20,
-   "med": 20,
-   "high": 25,
-   "days": 2
+   "med": 25,
+   "high": 30,
+   "days": 3
   },
   "Raw Redgill": {
-   "p": 30,
-   "t": 1794343024,
-   "q": 1115
+   "p": 10,
+   "t": 1794503923,
+   "q": 2684,
+   "low": 10,
+   "med": 10,
+   "high": 30,
+   "days": 2
   },
   "Raw Rockscale Cod": {
-   "p": 19,
-   "t": 1794389596,
-   "q": 4518,
-   "low": 8,
+   "p": 5,
+   "t": 1794471234,
+   "q": 2746,
+   "low": 5,
    "med": 8,
    "high": 13,
-   "days": 2
+   "days": 3
   },
   "Raw Sagefish": {
-   "p": 278,
-   "t": 1794389596,
-   "q": 1313,
-   "low": 55,
+   "p": 47,
+   "t": 1794488284,
+   "q": 2130,
+   "low": 47,
    "med": 55,
    "high": 65,
-   "days": 2
+   "days": 3
   },
   "Raw Slitherskin Mackerel": {
-   "p": 53,
-   "t": 1794307964,
-   "q": 15916
-  },
-  "Raw Spinefin Halibut": {
-   "p": 223,
-   "t": 1794337156,
-   "q": 166
+   "p": 42,
+   "t": 1794503923,
+   "q": 2195
   },
   "Raw Spotted Yellowtail": {
-   "p": 51,
-   "t": 1794389596,
-   "q": 2840,
-   "low": 51,
+   "p": 40,
+   "t": 1794488284,
+   "q": 4416,
+   "low": 40,
    "med": 51,
    "high": 59,
-   "days": 2
+   "days": 3
   },
   "Raw Sunscale Salmon": {
-   "p": 155,
-   "t": 1794337156,
-   "q": 3296
-  },
-  "Raw Whitescale Salmon": {
-   "p": 3000,
-   "t": 1794307964,
-   "q": 400
+   "p": 269,
+   "t": 1794503923,
+   "q": 4525
   },
   "Raw Winter Squid": {
-   "p": 233,
-   "t": 1794389596,
-   "q": 1014
-  },
-  "Razor Arrow": {
-   "p": 3,
-   "t": 1794343024,
-   "q": 42716
-  },
-  "Reagent Bot": {
-   "p": 390,
-   "t": 1794383619,
-   "q": 245
-  },
-  "Recipe: Baked Salmon": {
-   "p": 40000,
-   "t": 1794307964,
-   "q": 16
-  },
-  "Recipe: Beer Basted Boar Ribs": {
-   "p": 8800,
-   "t": 1794307964,
-   "q": 8
-  },
-  "Recipe: Blood Sausage": {
-   "p": 15500,
-   "t": 1794307964,
-   "q": 4
+   "p": 400,
+   "t": 1794488284,
+   "q": 1377,
+   "low": 233,
+   "med": 233,
+   "high": 400,
+   "days": 2
   },
   "Recipe: Brilliant Smallfish": {
    "p": 200,
-   "t": 1794387509,
-   "q": 203,
+   "t": 1794471234,
+   "q": 232,
    "low": 200,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Recipe: Bristle Whisker Catfish": {
-   "p": 1300,
-   "t": 1794389596,
-   "q": 82
-  },
-  "Recipe: Clam Chowder": {
-   "p": 19900,
-   "t": 1794307964,
-   "q": 8
-  },
-  "Recipe: Cleric's Elixir": {
-   "p": 11900,
-   "t": 1794389596,
-   "q": 16,
-   "low": 1800,
-   "med": 1800,
-   "high": 3300,
+   "p": 1400,
+   "t": 1794488284,
+   "q": 58,
+   "low": 1300,
+   "med": 1300,
+   "high": 1400,
    "days": 2
   },
-  "Recipe: Cooked Crab Claw": {
-   "p": 10000,
-   "t": 1794307964,
-   "q": 24
+  "Recipe: Cleric's Elixir": {
+   "p": 4900,
+   "t": 1794471234,
+   "q": 19,
+   "low": 1800,
+   "med": 3300,
+   "high": 4900,
+   "days": 3
   },
   "Recipe: Cooked Glossy Mightfish": {
    "p": 20000,
@@ -6308,104 +4224,79 @@
    "high": 300,
    "days": 2
   },
-  "Recipe: Crispy Lizard Tail": {
-   "p": 900,
-   "t": 1794337156,
-   "q": 37
-  },
   "Recipe: Crocolisk Gumbo": {
-   "p": 14900,
-   "t": 1794307964,
-   "q": 8
-  },
-  "Recipe: Crocolisk Steak": {
-   "p": 9700,
-   "t": 1794307964,
-   "q": 8
+   "p": 9900,
+   "t": 1794503923,
+   "q": 13
   },
   "Recipe: Curiously Tasty Omelet": {
-   "p": 2400,
-   "t": 1794389596,
-   "q": 61
+   "p": 2850,
+   "t": 1794488284,
+   "q": 77,
+   "low": 2400,
+   "med": 2400,
+   "high": 2850,
+   "days": 2
   },
   "Recipe: Dig Rat Stew": {
-   "p": 1800,
-   "t": 1794307964,
-   "q": 104
-  },
-  "Recipe: Dragonbreath Chili": {
-   "p": 6500,
-   "t": 1794307964,
-   "q": 64
-  },
-  "Recipe: Draught of Dream Vision": {
-   "p": 48000,
-   "t": 1794307964,
-   "q": 8
-  },
-  "Recipe: Elixir of Fortitude": {
-   "p": 16500,
-   "t": 1794307964,
-   "q": 40
+   "p": 1200,
+   "t": 1794503923,
+   "q": 21
   },
   "Recipe: Elixir of Giant Growth": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 92
+   "p": 260,
+   "t": 1794503923,
+   "q": 78,
+   "low": 260,
+   "med": 260,
+   "high": 300,
+   "days": 2
   },
   "Recipe: Elixir of Intellect": {
-   "p": 8400,
-   "t": 1794383619,
-   "q": 67
+   "p": 500,
+   "t": 1794503923,
+   "q": 30,
+   "low": 499,
+   "med": 499,
+   "high": 8400,
+   "days": 2
   },
   "Recipe: Elixir of Lesser Agility": {
-   "p": 1000,
-   "t": 1794389596,
-   "q": 22
+   "p": 899,
+   "t": 1794471234,
+   "q": 18,
+   "low": 899,
+   "med": 899,
+   "high": 1000,
+   "days": 2
   },
   "Recipe: Elixir of Lesser Fortitude": {
-   "p": 800,
-   "t": 1794307964,
-   "q": 52
+   "p": 700,
+   "t": 1794503923,
+   "q": 37
   },
   "Recipe: Elixir of Minor Agility": {
-   "p": 700,
-   "t": 1794387509,
-   "q": 44
+   "p": 600,
+   "t": 1794488284,
+   "q": 27,
+   "low": 600,
+   "med": 600,
+   "high": 700,
+   "days": 2
   },
   "Recipe: Elixir of Minor Spirit": {
    "p": 400,
    "t": 1794383619,
    "q": 19
   },
-  "Recipe: Elixir of Shadow Power": {
-   "p": 19800,
-   "t": 1794307964,
-   "q": 20
-  },
   "Recipe: Elixir of Spirit": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 26,
-   "low": 300,
+   "p": 200,
+   "t": 1794503923,
+   "q": 49,
+   "low": 200,
    "med": 300,
    "high": 300,
-   "days": 2
-  },
-  "Recipe: Elixir of the Mongoose": {
-   "p": 89900,
-   "t": 1794307964,
-   "q": 116
-  },
-  "Recipe: Filet of Redgill": {
-   "p": 14000,
-   "t": 1794307964,
-   "q": 28
-  },
-  "Recipe: Fillet of Frenzy": {
-   "p": 19900,
-   "t": 1794307964,
-   "q": 8
+   "days": 3
   },
   "Recipe: Free Action Potion": {
    "p": 2300,
@@ -6422,21 +4313,6 @@
    "t": 1794383619,
    "q": 17
   },
-  "Recipe: Goblin Rocket Fuel": {
-   "p": 34800,
-   "t": 1794307964,
-   "q": 92
-  },
-  "Recipe: Gooey Spider Cake": {
-   "p": 17900,
-   "t": 1794307964,
-   "q": 4
-  },
-  "Recipe: Goretusk Liver Pie": {
-   "p": 8900,
-   "t": 1794307964,
-   "q": 8
-  },
   "Recipe: Great Rage Potion": {
    "p": 3300,
    "t": 1794383619,
@@ -6446,169 +4322,52 @@
    "high": 3300,
    "days": 2
   },
-  "Recipe: Greater Arcane Elixir": {
-   "p": 507600,
-   "t": 1794307964,
-   "q": 4
-  },
   "Recipe: Greater Stoneshield Potion": {
    "p": 199900,
    "t": 1794383619,
    "q": 8
   },
-  "Recipe: Grilled Squid": {
-   "p": 32300,
-   "t": 1794307964,
-   "q": 28
-  },
-  "Recipe: Heavy Crocolisk Stew": {
-   "p": 5800,
-   "t": 1794307964,
-   "q": 108
-  },
-  "Recipe: Hot Smoked Bass": {
-   "p": 24900,
-   "t": 1794307964,
-   "q": 4
-  },
-  "Recipe: Invisibility Potion": {
-   "p": 2900,
-   "t": 1794345595,
-   "q": 32
-  },
-  "Recipe: Kaldorei Spider Kabob": {
-   "p": 29900,
-   "t": 1794307964,
-   "q": 20
-  },
-  "Recipe: Lesser Frenzy Potion": {
-   "p": 700,
-   "t": 1794337156,
-   "q": 27
-  },
-  "Recipe: Lesser Mender's Potion": {
-   "p": 800,
-   "t": 1794307964,
-   "q": 88
-  },
-  "Recipe: Lesser Spellblasting Potion": {
-   "p": 900,
-   "t": 1794307964,
-   "q": 80
-  },
-  "Recipe: Lesser Stoneshield Potion": {
-   "p": 1000,
-   "t": 1794345595,
-   "q": 31
-  },
-  "Recipe: Limited Invulnerability Potion": {
-   "p": 32200,
-   "t": 1794307964,
-   "q": 152
-  },
-  "Recipe: Lobster Stew": {
-   "p": 48000,
-   "t": 1794307964,
-   "q": 8
-  },
-  "Recipe: Loch Frenzy Delight": {
-   "p": 19900,
-   "t": 1794307964,
-   "q": 12
-  },
   "Recipe: Longjaw Mud Snapper": {
    "p": 600,
-   "t": 1794387509,
-   "q": 114,
+   "t": 1794488284,
+   "q": 125,
    "low": 600,
    "med": 600,
    "high": 600,
-   "days": 2
-  },
-  "Recipe: Magic Resistance Potion": {
-   "p": 1700,
-   "t": 1794307964,
-   "q": 88
-  },
-  "Recipe: Mightfish Steak": {
-   "p": 48500,
-   "t": 1794307964,
-   "q": 24
-  },
-  "Recipe: Minor Cleric's Elixir": {
-   "p": 1100,
-   "t": 1794307964,
-   "q": 60
-  },
-  "Recipe: Minor Frenzy Potion": {
-   "p": 1000,
-   "t": 1794307964,
-   "q": 96
-  },
-  "Recipe: Minor Mageblood Elixir": {
-   "p": 9900,
-   "t": 1794307964,
-   "q": 12
+   "days": 3
   },
   "Recipe: Minor Magic Resistance Potion": {
-   "p": 400,
-   "t": 1794343024,
-   "q": 44
+   "p": 300,
+   "t": 1794471234,
+   "q": 28,
+   "low": 300,
+   "med": 300,
+   "high": 400,
+   "days": 2
   },
   "Recipe: Minor Mender's Potion": {
    "p": 1000,
    "t": 1794389596,
    "q": 10
   },
-  "Recipe: Minor Spellblasting Potion": {
-   "p": 1200,
-   "t": 1794337156,
-   "q": 11
-  },
   "Recipe: Mithril Head Trout": {
-   "p": 6300,
-   "t": 1794307964,
-   "q": 56
-  },
-  "Recipe: Monster Omelet": {
-   "p": 15000,
-   "t": 1794307964,
-   "q": 12
-  },
-  "Recipe: Murloc Fin Soup": {
-   "p": 9800,
-   "t": 1794307964,
-   "q": 24
-  },
-  "Recipe: Nightfin Soup": {
-   "p": 32600,
-   "t": 1794307964,
-   "q": 8
-  },
-  "Recipe: Philosopher's Stone": {
-   "p": 10000,
-   "t": 1794307964,
-   "q": 20
+   "p": 2672,
+   "t": 1794488284,
+   "q": 67
   },
   "Recipe: Pincer Bites": {
-   "p": 1000,
-   "t": 1794307964,
-   "q": 44
-  },
-  "Recipe: Poached Sunscale Salmon": {
-   "p": 37300,
-   "t": 1794307964,
-   "q": 12
-  },
-  "Recipe: Potion of Predatory Senses": {
-   "p": 28000,
-   "t": 1794307964,
-   "q": 4
+   "p": 2200,
+   "t": 1794488284,
+   "q": 32
   },
   "Recipe: Rage Potion": {
-   "p": 700,
-   "t": 1794387509,
-   "q": 18
+   "p": 900,
+   "t": 1794503923,
+   "q": 25,
+   "low": 700,
+   "med": 700,
+   "high": 850,
+   "days": 2
   },
   "Recipe: Rainbow Fin Albacore": {
    "p": 600,
@@ -6619,233 +4378,102 @@
    "high": 600,
    "days": 2
   },
-  "Recipe: Redridge Goulash": {
-   "p": 12700,
-   "t": 1794307964,
-   "q": 8
-  },
-  "Recipe: Roasted Kodo Meat": {
-   "p": 900,
-   "t": 1794307964,
-   "q": 84
-  },
   "Recipe: Rockscale Cod": {
-   "p": 2400,
-   "t": 1794343024,
-   "q": 64
-  },
-  "Recipe: Sagefish Delight": {
-   "p": 2900,
-   "t": 1794307964,
-   "q": 72
-  },
-  "Recipe: Savory Deviate Delight": {
-   "p": 9000,
-   "t": 1794345595,
-   "q": 83
-  },
-  "Recipe: Savory Whimsyfin Delight": {
-   "p": 43100,
-   "t": 1794307964,
-   "q": 48
-  },
-  "Recipe: Scorpid Surprise": {
-   "p": 800,
-   "t": 1794307964,
-   "q": 120
-  },
-  "Recipe: Seasoned Wolf Kabob": {
-   "p": 13000,
-   "t": 1794307964,
-   "q": 8
-  },
-  "Recipe: Skywall Souffle": {
-   "p": 900,
-   "t": 1794307964,
-   "q": 32
-  },
-  "Recipe: Slitherskin Mackerel": {
-   "p": 300,
-   "t": 1794387509,
-   "q": 84
-  },
-  "Recipe: Smoked Bear Meat": {
-   "p": 500,
-   "t": 1794307964,
-   "q": 88
-  },
-  "Recipe: Smoked Sagefish": {
-   "p": 2200,
-   "t": 1794307964,
-   "q": 116
-  },
-  "Recipe: Soothing Turtle Bisque": {
-   "p": 600,
-   "t": 1794389596,
-   "q": 178,
-   "low": 600,
-   "med": 600,
-   "high": 600,
+   "p": 2500,
+   "t": 1794471234,
+   "q": 33,
+   "low": 2400,
+   "med": 2400,
+   "high": 2500,
    "days": 2
   },
-  "Recipe: Spiced Chili Crab": {
-   "p": 9900,
-   "t": 1794307964,
-   "q": 36
+  "Recipe: Sagefish Delight": {
+   "p": 2500,
+   "t": 1794503923,
+   "q": 13
   },
-  "Recipe: Spotted Yellowtail": {
-   "p": 24000,
-   "t": 1794337339,
-   "q": 25
-  },
-  "Recipe: Strider Stew": {
-   "p": 900,
-   "t": 1794307964,
-   "q": 132
-  },
-  "Recipe: Succulent Pork Ribs": {
-   "p": 20000,
-   "t": 1794307964,
-   "q": 4
-  },
-  "Recipe: Superior Frenzy Potion": {
-   "p": 400000,
-   "t": 1794307964,
-   "q": 4
-  },
-  "Recipe: Superior Mana Potion": {
+  "Recipe: Savory Deviate Delight": {
    "p": 15000,
-   "t": 1794307964,
-   "q": 28
+   "t": 1794488284,
+   "q": 108,
+   "low": 8000,
+   "med": 8000,
+   "high": 15000,
+   "days": 2
   },
-  "Recipe: Superior Mender's Potion": {
-   "p": 44500,
-   "t": 1794307964,
-   "q": 8
+  "Recipe: Skywall Souffle": {
+   "p": 1300,
+   "t": 1794488284,
+   "q": 13
+  },
+  "Recipe: Slitherskin Mackerel": {
+   "p": 400,
+   "t": 1794503923,
+   "q": 299,
+   "low": 300,
+   "med": 300,
+   "high": 400,
+   "days": 2
+  },
+  "Recipe: Soothing Turtle Bisque": {
+   "p": 545,
+   "t": 1794503923,
+   "q": 242,
+   "low": 545,
+   "med": 600,
+   "high": 600,
+   "days": 3
   },
   "Recipe: Swiftness Potion": {
    "p": 2200,
    "t": 1794387509,
    "q": 66
   },
-  "Recipe: Tender Wolf Steak": {
-   "p": 12800,
-   "t": 1794307964,
-   "q": 32
-  },
-  "Recipe: Troll's Blood Elixir": {
-   "p": 1500,
-   "t": 1794307964,
-   "q": 124
-  },
-  "Recipe: Westfall Stew": {
-   "p": 9800,
-   "t": 1794307964,
-   "q": 12
-  },
   "Recipe: Wildvine Potion": {
    "p": 2000,
-   "t": 1794387509,
-   "q": 75
-  },
-  "Red Dye": {
-   "p": 63,
-   "t": 1794389596,
-   "q": 274
-  },
-  "Red Firework": {
-   "p": 100,
-   "t": 1794307964,
-   "q": 1008
-  },
-  "Red Linen Bag": {
-   "p": 400,
-   "t": 1794389596,
-   "q": 540,
-   "low": 400,
-   "med": 400,
-   "high": 400,
+   "t": 1794503923,
+   "q": 61,
+   "low": 1998,
+   "med": 1998,
+   "high": 2000,
    "days": 2
   },
-  "Red Linen Robe": {
-   "p": 200,
-   "t": 1794307964,
-   "q": 200
+  "Red Dye": {
+   "p": 77,
+   "t": 1794503923,
+   "q": 2235,
+   "low": 63,
+   "med": 63,
+   "high": 77,
+   "days": 2
   },
-  "Red Linen Shirt": {
-   "p": 200,
-   "t": 1794307964,
-   "q": 100
+  "Red Linen Bag": {
+   "p": 370,
+   "t": 1794503923,
+   "q": 1462,
+   "low": 365,
+   "med": 400,
+   "high": 400,
+   "days": 3
   },
   "Red Linen Vest": {
    "p": 300,
    "t": 1794389596,
    "q": 28
   },
-  "Red Mageweave Bag": {
-   "p": 19900,
-   "t": 1794307964,
-   "q": 96
-  },
-  "Red Mageweave Gloves": {
-   "p": 16000,
-   "t": 1794307964,
-   "q": 8
-  },
-  "Red Mageweave Headband": {
-   "p": 11800,
-   "t": 1794337156,
-   "q": 16
-  },
-  "Red Mageweave Pants": {
-   "p": 12800,
-   "t": 1794307964,
-   "q": 36
-  },
-  "Red Mageweave Shoulders": {
-   "p": 12000,
-   "t": 1794307964,
-   "q": 20
-  },
-  "Red Mageweave Vest": {
-   "p": 13000,
-   "t": 1794307964,
-   "q": 4
-  },
   "Red Power Crystal": {
    "p": 500,
    "t": 1794389596,
    "q": 512
   },
-  "Red Swashbuckler's Shirt": {
-   "p": 1400,
-   "t": 1794307964,
-   "q": 96
-  },
-  "Red Whelp Gloves": {
-   "p": 55000,
-   "t": 1794307964,
-   "q": 16
-  },
-  "Red Whelp Scale": {
-   "p": 3000,
-   "t": 1794307964,
-   "q": 196
-  },
   "Red Wolf Meat": {
-   "p": 222,
-   "t": 1794345595,
-   "q": 1483
-  },
-  "Red Woolen Bag": {
-   "p": 700,
-   "t": 1794345595,
-   "q": 148
-  },
-  "Red Woolen Boots": {
-   "p": 2300,
-   "t": 1794307964,
-   "q": 188
+   "p": 210,
+   "t": 1794503923,
+   "q": 3008,
+   "low": 209,
+   "med": 209,
+   "high": 210,
+   "days": 2
   },
   "Red-speckled Mushroom": {
    "p": 6,
@@ -6853,162 +4481,159 @@
    "q": 114
   },
   "Refined Deeprock Salt": {
-   "p": 260000,
-   "t": 1794307964,
-   "q": 24
+   "p": 214890,
+   "t": 1794503923,
+   "q": 12
   },
   "Refreshing Spring Water": {
-   "p": 12,
-   "t": 1794389596,
-   "q": 1420
+   "p": 15,
+   "t": 1794503923,
+   "q": 7146,
+   "low": 8,
+   "med": 8,
+   "high": 10,
+   "days": 2
   },
   "Reinforced Linen Cape": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 599,
-   "low": 200,
+   "p": 128,
+   "t": 1794488284,
+   "q": 609,
+   "low": 128,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Reinforced Woolen Shoulders": {
    "p": 1800,
    "t": 1794387509,
    "q": 81
   },
-  "Repair Bot": {
-   "p": 2365,
-   "t": 1794307964,
-   "q": 348
-  },
-  "Rich Purple Silk Shirt": {
-   "p": 9900,
-   "t": 1794307964,
-   "q": 24
-  },
   "Righteous Orb": {
    "p": 299999,
    "t": 1794383619,
    "q": 8
   },
-  "Roast Raptor": {
-   "p": 370,
-   "t": 1794307964,
-   "q": 2020
-  },
   "Roasted Boar Meat": {
-   "p": 129,
-   "t": 1794389596,
-   "q": 793,
-   "low": 105,
+   "p": 72,
+   "t": 1794488284,
+   "q": 1516,
+   "low": 72,
    "med": 105,
    "high": 129,
-   "days": 2
-  },
-  "Roasted Kodo Meat": {
-   "p": 92,
-   "t": 1794345595,
-   "q": 1116
-  },
-  "Robes of Arcana": {
-   "p": 18000,
-   "t": 1794307964,
-   "q": 160
+   "days": 3
   },
   "Rock Garden": {
-   "p": 1438,
-   "t": 1794387509,
-   "q": 62
+   "p": 1100,
+   "t": 1794471234,
+   "q": 35,
+   "low": 1100,
+   "med": 1100,
+   "high": 1438,
+   "days": 2
   },
   "Rockscale Cod": {
-   "p": 29,
-   "t": 1794389596,
-   "q": 3392
-  },
-  "Root Tea": {
-   "p": 790,
-   "t": 1794307965,
-   "q": 628
+   "p": 15,
+   "t": 1794488284,
+   "q": 987,
+   "low": 15,
+   "med": 15,
+   "high": 29,
+   "days": 2
   },
   "Rosecap": {
-   "p": 1800,
-   "t": 1794343024,
-   "q": 1556
+   "p": 1752,
+   "t": 1794503923,
+   "q": 1197,
+   "low": 1752,
+   "med": 1752,
+   "high": 1800,
+   "days": 2
   },
   "Rough Blasting Powder": {
-   "p": 25,
-   "t": 1794389596,
-   "q": 6801
+   "p": 15,
+   "t": 1794503923,
+   "q": 5318,
+   "low": 15,
+   "med": 15,
+   "high": 18,
+   "days": 2
   },
   "Rough Boomstick": {
-   "p": 300,
-   "t": 1794343024,
-   "q": 171
-  },
-  "Rough Bronze Boots": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 274,
-   "low": 300,
-   "med": 300,
+   "p": 240,
+   "t": 1794503923,
+   "q": 87,
+   "low": 240,
+   "med": 240,
    "high": 300,
    "days": 2
   },
+  "Rough Bronze Boots": {
+   "p": 300,
+   "t": 1794488284,
+   "q": 172,
+   "low": 300,
+   "med": 300,
+   "high": 300,
+   "days": 3
+  },
   "Rough Bronze Cuirass": {
-   "p": 700,
-   "t": 1794389596,
-   "q": 323,
-   "low": 600,
+   "p": 598,
+   "t": 1794503923,
+   "q": 328,
+   "low": 598,
    "med": 600,
    "high": 700,
-   "days": 2
+   "days": 3
   },
   "Rough Bronze Leggings": {
-   "p": 600,
-   "t": 1794389596,
-   "q": 1675,
-   "low": 600,
+   "p": 576,
+   "t": 1794503923,
+   "q": 1052,
+   "low": 575,
    "med": 600,
+   "high": 600,
+   "days": 3
+  },
+  "Rough Bronze Shoulders": {
+   "p": 550,
+   "t": 1794488284,
+   "q": 89,
+   "low": 550,
+   "med": 550,
    "high": 600,
    "days": 2
   },
-  "Rough Bronze Shoulders": {
-   "p": 600,
-   "t": 1794389596,
-   "q": 179
-  },
   "Rough Copper Bomb": {
    "p": 60,
-   "t": 1794330980,
-   "q": 774
-  },
-  "Rough Copper Chain Boots": {
-   "p": 1900,
-   "t": 1794330980,
-   "q": 25
+   "t": 1794503923,
+   "q": 1048
   },
   "Rough Copper Vest": {
-   "p": 200,
-   "t": 1794345595,
-   "q": 194
+   "p": 199,
+   "t": 1794471234,
+   "q": 85,
+   "low": 199,
+   "med": 199,
+   "high": 200,
+   "days": 2
   },
   "Rough Dynamite": {
    "p": 30,
-   "t": 1794387509,
-   "q": 1157,
+   "t": 1794503923,
+   "q": 767,
    "low": 30,
    "med": 30,
    "high": 30,
-   "days": 2
+   "days": 3
   },
   "Rough Grinding Stone": {
    "p": 6,
-   "t": 1794390467,
-   "q": 6504,
+   "t": 1794503923,
+   "q": 5894,
    "low": 5,
-   "med": 5,
+   "med": 6,
    "high": 6,
-   "days": 2
+   "days": 3
   },
   "Rough Sharpening Stone": {
    "p": 5,
@@ -7016,13 +4641,13 @@
    "q": 3030
   },
   "Rough Stone": {
-   "p": 9,
-   "t": 1794390467,
-   "q": 12257,
-   "low": 6,
+   "p": 5,
+   "t": 1794503923,
+   "q": 11429,
+   "low": 5,
    "med": 6,
    "high": 6,
-   "days": 2
+   "days": 3
   },
   "Rough Weightstone": {
    "p": 3,
@@ -7040,9 +4665,13 @@
    "q": 62
   },
   "Rugged Hide": {
-   "p": 9100,
-   "t": 1794345595,
-   "q": 363
+   "p": 700,
+   "t": 1794488284,
+   "q": 460,
+   "low": 700,
+   "med": 700,
+   "high": 9100,
+   "days": 2
   },
   "Rugged Leather": {
    "p": 1493,
@@ -7053,71 +4682,51 @@
    "high": 1493,
    "days": 2
   },
-  "Rugged Leather Pants": {
-   "p": 300,
-   "t": 1794307965,
-   "q": 160
-  },
   "Ruined Leather Scraps": {
-   "p": 13,
-   "t": 1794389596,
-   "q": 10294,
+   "p": 11,
+   "t": 1794503923,
+   "q": 8078,
    "low": 10,
-   "med": 10,
+   "med": 11,
    "high": 13,
-   "days": 2
-  },
-  "Rune Thread": {
-   "p": 4800,
-   "t": 1794307965,
-   "q": 124
+   "days": 3
   },
   "Runecloth": {
-   "p": 719,
-   "t": 1794389596,
-   "q": 6551,
+   "p": 833,
+   "t": 1794488284,
+   "q": 2294,
    "low": 719,
-   "med": 719,
-   "high": 799,
-   "days": 2
+   "med": 799,
+   "high": 833,
+   "days": 3
   },
   "Runecloth Bag": {
    "p": 60800,
    "t": 1794389596,
    "q": 56
   },
-  "Runecloth Bandage": {
-   "p": 2000,
-   "t": 1794307965,
-   "q": 108
-  },
   "Runecloth Belt": {
    "p": 11800,
    "t": 1794387509,
    "q": 46
   },
-  "Runecloth Reagent Bag": {
-   "p": 78600,
-   "t": 1794307965,
-   "q": 100
-  },
   "Runed Copper Belt": {
-   "p": 300,
-   "t": 1794389596,
+   "p": 234,
+   "t": 1794488284,
    "q": 971,
-   "low": 300,
+   "low": 234,
    "med": 300,
    "high": 300,
-   "days": 2
+   "days": 3
   },
   "Runed Copper Bracers": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 240,
-   "low": 300,
+   "p": 230,
+   "t": 1794503923,
+   "q": 138,
+   "low": 230,
    "med": 300,
    "high": 300,
-   "days": 2
+   "days": 3
   },
   "Runed Copper Breastplate": {
    "p": 1300,
@@ -7125,122 +4734,65 @@
    "q": 7
   },
   "Runed Copper Gauntlets": {
-   "p": 200,
-   "t": 1794389596,
-   "q": 493,
-   "low": 200,
+   "p": 114,
+   "t": 1794503923,
+   "q": 426,
+   "low": 114,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Runed Copper Pants": {
-   "p": 400,
-   "t": 1794330980,
-   "q": 18
-  },
-  "SAF-T Bronze Bomb": {
-   "p": 16905,
-   "t": 1794307965,
-   "q": 12
-  },
-  "SAF-T Copper Bomb": {
-   "p": 280,
-   "t": 1794337156,
-   "q": 63
-  },
-  "SAF-T Dynamite": {
-   "p": 119,
-   "t": 1794307965,
-   "q": 764
-  },
-  "SAF-T Jumbo Dynamite": {
-   "p": 4595,
-   "t": 1794307965,
-   "q": 68
-  },
-  "SAF-T Tabs": {
-   "p": 10100,
-   "t": 1794307965,
-   "q": 4
+   "p": 500,
+   "t": 1794503923,
+   "q": 30
   },
   "Sagefish Delight": {
-   "p": 387,
-   "t": 1794389596,
-   "q": 2118
+   "p": 169,
+   "t": 1794488284,
+   "q": 963,
+   "low": 169,
+   "med": 169,
+   "high": 387,
+   "days": 2
   },
   "Salt": {
-   "p": 55,
-   "t": 1794389596,
-   "q": 329
-  },
-  "Salt Shaker": {
-   "p": 115000,
-   "t": 1794307965,
-   "q": 64
+   "p": 70,
+   "t": 1794488284,
+   "q": 2143,
+   "low": 55,
+   "med": 55,
+   "high": 70,
+   "days": 2
   },
   "Sandpaper": {
    "p": 2022,
    "t": 1794387509,
    "q": 90
   },
-  "Sandworm Meat": {
-   "p": 3300,
-   "t": 1794307965,
-   "q": 44
-  },
   "Savory Deviate Delight": {
-   "p": 213,
-   "t": 1794389596,
-   "q": 3692,
+   "p": 236,
+   "t": 1794503923,
+   "q": 3790,
    "low": 211,
    "med": 211,
-   "high": 211,
-   "days": 2
-  },
-  "Savory Stag Sliders": {
-   "p": 1997,
-   "t": 1794307965,
-   "q": 164
+   "high": 236,
+   "days": 3
   },
   "Savory Whimsyfin Delight": {
-   "p": 1500,
-   "t": 1794307965,
-   "q": 1436
-  },
-  "Schematic: Blue Firework": {
-   "p": 19900,
-   "t": 1794307965,
-   "q": 4
-  },
-  "Schematic: Bright-Eye Goggles": {
-   "p": 500,
-   "t": 1794337156,
-   "q": 42
+   "p": 895,
+   "t": 1794488284,
+   "q": 1317
   },
   "Schematic: Catseye Ultra Goggles": {
    "p": 900,
-   "t": 1794307965,
-   "q": 36
-  },
-  "Schematic: Craftsman's Monocle": {
-   "p": 9800,
-   "t": 1794307965,
-   "q": 24
+   "t": 1794500230,
+   "q": 50
   },
   "Schematic: EZ-Thro Bronze Mortar": {
    "p": 2400,
    "t": 1794387509,
    "q": 12
-  },
-  "Schematic: EZ-Thro Copper Bomb XL": {
-   "p": 49900,
-   "t": 1794330980,
-   "q": 4
-  },
-  "Schematic: EZ-Thro Tru-Trigger": {
-   "p": 8000,
-   "t": 1794307965,
-   "q": 48
   },
   "Schematic: EZ-Thro Wrap": {
    "p": 33000,
@@ -7248,44 +4800,23 @@
    "q": 7
   },
   "Schematic: Flame Deflector": {
-   "p": 99900,
-   "t": 1794307965,
-   "q": 12
-  },
-  "Schematic: Flash Bomb": {
-   "p": 30000,
-   "t": 1794307965,
-   "q": 4
-  },
-  "Schematic: Goblin Jumper Cables XL": {
-   "p": 1006100,
-   "t": 1794307965,
-   "q": 4
+   "p": 50000,
+   "t": 1794503923,
+   "q": 9
   },
   "Schematic: Goblin Land Mine": {
-   "p": 900,
-   "t": 1794389596,
-   "q": 60
-  },
-  "Schematic: Goblin Rocket Boots": {
-   "p": 89000,
-   "t": 1794307965,
-   "q": 8
+   "p": 699,
+   "t": 1794471234,
+   "q": 36,
+   "low": 699,
+   "med": 699,
+   "high": 900,
+   "days": 2
   },
   "Schematic: Large Seaforium Charge": {
    "p": 800,
    "t": 1794389596,
    "q": 18
-  },
-  "Schematic: Master Engineer's Goggles": {
-   "p": 50000,
-   "t": 1794307965,
-   "q": 4
-  },
-  "Schematic: Mechanical Dragonling": {
-   "p": 19000,
-   "t": 1794307965,
-   "q": 20
   },
   "Schematic: Mithril Heavy-bore Rifle": {
    "p": 900,
@@ -7294,126 +4825,73 @@
   },
   "Schematic: Moonsight Rifle": {
    "p": 400,
-   "t": 1794389596,
-   "q": 49
-  },
-  "Schematic: No Slip SAF-T Padding": {
-   "p": 44900,
-   "t": 1794307965,
-   "q": 4
-  },
-  "Schematic: Parachute Cloak": {
-   "p": 1800,
-   "t": 1794307965,
-   "q": 164
-  },
-  "Schematic: Portable Bronze Mortar": {
-   "p": 500,
-   "t": 1794383619,
-   "q": 24
-  },
-  "Schematic: Red Firework": {
-   "p": 2200,
-   "t": 1794307965,
-   "q": 16
-  },
-  "Schematic: SAF-T Bomb": {
-   "p": 2100,
-   "t": 1794307965,
-   "q": 116
-  },
-  "Schematic: SAF-T Bronze Bomb": {
-   "p": 3100,
-   "t": 1794307965,
-   "q": 64
-  },
-  "Schematic: SAF-T Copper Bomb": {
-   "p": 29900,
-   "t": 1794330980,
-   "q": 2
-  },
-  "Schematic: SAF-T Dynamite": {
-   "p": 19900,
-   "t": 1794345595,
-   "q": 4
-  },
-  "Schematic: SAF-T Jumbo Dynamite": {
-   "p": 2000,
-   "t": 1794307965,
-   "q": 28
-  },
-  "Schematic: SAF-T Tabs": {
-   "p": 49900,
-   "t": 1794307965,
-   "q": 24
-  },
-  "Schematic: Shadow Goggles": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 90,
-   "low": 300,
-   "med": 300,
-   "high": 300,
+   "t": 1794471234,
+   "q": 47,
+   "low": 400,
+   "med": 400,
+   "high": 400,
    "days": 2
   },
+  "Schematic: Portable Bronze Mortar": {
+   "p": 470,
+   "t": 1794503923,
+   "q": 64,
+   "low": 470,
+   "med": 470,
+   "high": 500,
+   "days": 2
+  },
+  "Schematic: SAF-T Bomb": {
+   "p": 1000,
+   "t": 1794471234,
+   "q": 21
+  },
+  "Schematic: Shadow Goggles": {
+   "p": 294,
+   "t": 1794503923,
+   "q": 96,
+   "low": 294,
+   "med": 300,
+   "high": 300,
+   "days": 3
+  },
   "Schematic: Shafety Sheep": {
-   "p": 2300,
-   "t": 1794389596,
-   "q": 10
+   "p": 1299,
+   "t": 1794503923,
+   "q": 21,
+   "low": 1299,
+   "med": 1299,
+   "high": 2300,
+   "days": 2
   },
   "Schematic: Small Seaforium Charge": {
    "p": 200,
-   "t": 1794387509,
-   "q": 97,
+   "t": 1794503923,
+   "q": 104,
    "low": 200,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Schematic: Sniper Scope": {
-   "p": 40500,
-   "t": 1794337156,
-   "q": 10
+   "p": 29900,
+   "t": 1794488284,
+   "q": 16
   },
   "Schematic: Spellpower Goggles Xtreme": {
-   "p": 48900,
-   "t": 1794307965,
-   "q": 104
-  },
-  "Schematic: Spellpower Goggles Xtreme Plus": {
-   "p": 350000,
-   "t": 1794307965,
-   "q": 20
-  },
-  "Schematic: Thorium Grenade": {
-   "p": 34600,
-   "t": 1794307965,
-   "q": 20
+   "p": 4500,
+   "t": 1794503923,
+   "q": 23
   },
   "Schematic: Thorium Rifle": {
-   "p": 30000,
-   "t": 1794307965,
-   "q": 12
-  },
-  "Schematic: Thorium Shells": {
-   "p": 107600,
-   "t": 1794307965,
-   "q": 12
-  },
-  "Schematic: Thorium Widget": {
-   "p": 30000,
-   "t": 1794307965,
-   "q": 24
+   "p": 4000,
+   "t": 1794503923,
+   "q": 37
   },
   "Schematic: Tru-Trigger Frag Bomb": {
-   "p": 3000,
-   "t": 1794307965,
-   "q": 52
-  },
-  "Schematic: Unsanctified Grenade": {
-   "p": 7700,
-   "t": 1794307965,
-   "q": 24
+   "p": 1800,
+   "t": 1794471234,
+   "q": 40
   },
   "Scorpid Scale": {
    "p": 1404,
@@ -7425,23 +4903,22 @@
    "days": 2
   },
   "Scorpid Stinger": {
-   "p": 28,
-   "t": 1794387509,
-   "q": 299,
+   "p": 30,
+   "t": 1794488284,
+   "q": 594,
    "low": 27,
-   "med": 27,
-   "high": 28,
-   "days": 2
-  },
-  "Scorpid Surprise": {
-   "p": 13,
-   "t": 1794345595,
-   "q": 498
+   "med": 28,
+   "high": 30,
+   "days": 3
   },
   "Scroll of Protection": {
-   "p": 45,
-   "t": 1794389596,
-   "q": 106
+   "p": 30,
+   "t": 1794471234,
+   "q": 75,
+   "low": 30,
+   "med": 30,
+   "high": 45,
+   "days": 2
   },
   "Scroll of Strength II": {
    "p": 350,
@@ -7452,237 +4929,142 @@
    "high": 487,
    "days": 2
   },
-  "Seasoned Wolf Kabob": {
-   "p": 393,
-   "t": 1794307965,
-   "q": 3512
-  },
-  "Shadow Crescent Axe": {
-   "p": 37000,
-   "t": 1794307966,
-   "q": 4
-  },
-  "Shadow Goggles": {
-   "p": 1100,
-   "t": 1794345595,
-   "q": 86
-  },
-  "Shadow Hood": {
-   "p": 9000,
-   "t": 1794307966,
-   "q": 76
-  },
-  "Shadow Oil": {
-   "p": 6500,
-   "t": 1794307966,
-   "q": 252
-  },
   "Shadow Protection Potion": {
-   "p": 813,
-   "t": 1794343024,
-   "q": 108
+   "p": 798,
+   "t": 1794471234,
+   "q": 571,
+   "low": 798,
+   "med": 798,
+   "high": 813,
+   "days": 2
   },
   "Shadow Silk": {
-   "p": 1009,
-   "t": 1794389596,
-   "q": 140
+   "p": 1011,
+   "t": 1794503923,
+   "q": 395,
+   "low": 1000,
+   "med": 1000,
+   "high": 1011,
+   "days": 2
   },
   "Shadowcat Hide": {
    "p": 250,
    "t": 1794389596,
    "q": 319
   },
-  "Shadoweave Boots": {
-   "p": 70000,
-   "t": 1794307966,
-   "q": 12
-  },
-  "Shadoweave Gloves": {
-   "p": 70000,
-   "t": 1794307966,
-   "q": 8
-  },
-  "Shadoweave Pants": {
-   "p": 70000,
-   "t": 1794307966,
-   "q": 8
-  },
-  "Shadoweave Robe": {
-   "p": 70000,
-   "t": 1794307966,
-   "q": 8
-  },
-  "Shadoweave Shoulders": {
-   "p": 50000,
-   "t": 1794307966,
-   "q": 20
-  },
   "Shadowgem": {
-   "p": 264,
-   "t": 1794389596,
-   "q": 555,
+   "p": 266,
+   "t": 1794503923,
+   "q": 1299,
    "low": 254,
-   "med": 254,
+   "med": 260,
    "high": 260,
-   "days": 2
-  },
-  "Shadowskin Gloves": {
-   "p": 29000,
-   "t": 1794307966,
-   "q": 32
+   "days": 3
   },
   "Sharp Claw": {
-   "p": 45,
-   "t": 1794389596,
-   "q": 643,
+   "p": 48,
+   "t": 1794488284,
+   "q": 499,
    "low": 43,
-   "med": 43,
-   "high": 45,
-   "days": 2
-  },
-  "Sharpening Wheel": {
-   "p": 150,
-   "t": 1794343024,
-   "q": 208
+   "med": 45,
+   "high": 48,
+   "days": 3
   },
   "Shining Silver Breastplate": {
    "p": 9000,
    "t": 1794383619,
    "q": 35
   },
-  "Shiny Red Apple": {
-   "p": 14,
-   "t": 1794307966,
-   "q": 20008
-  },
   "Silk Bandage": {
    "p": 200,
-   "t": 1794389596,
-   "q": 3203,
-   "low": 200,
+   "t": 1794503923,
+   "q": 6676,
+   "low": 199,
    "med": 200,
    "high": 200,
-   "days": 2
+   "days": 3
   },
   "Silk Cloth": {
-   "p": 197,
-   "t": 1794389596,
-   "q": 8172,
+   "p": 190,
+   "t": 1794503923,
+   "q": 15293,
    "low": 89,
-   "med": 89,
+   "med": 190,
    "high": 196,
-   "days": 2
+   "days": 3
   },
   "Silk Headband": {
    "p": 1900,
    "t": 1794389596,
    "q": 89
   },
-  "Silk Reagent Bag": {
-   "p": 19800,
-   "t": 1794307966,
-   "q": 36
-  },
-  "Silken Thread": {
-   "p": 592,
-   "t": 1794307966,
-   "q": 376
-  },
   "Silver Bar": {
-   "p": 250,
-   "t": 1794390453,
-   "q": 6740,
+   "p": 290,
+   "t": 1794503923,
+   "q": 3687,
    "low": 250,
-   "med": 250,
+   "med": 290,
    "high": 305,
-   "days": 2
+   "days": 3
   },
   "Silver Contact": {
-   "p": 61,
-   "t": 1794389596,
-   "q": 3829
+   "p": 29,
+   "t": 1794488284,
+   "q": 1244,
+   "low": 28,
+   "med": 28,
+   "high": 61,
+   "days": 2
   },
   "Silver Ore": {
-   "p": 680,
-   "t": 1794389596,
-   "q": 598,
-   "low": 598,
+   "p": 500,
+   "t": 1794503923,
+   "q": 2367,
+   "low": 497,
    "med": 598,
    "high": 689,
-   "days": 2
+   "days": 3
   },
   "Silver Rod": {
-   "p": 400,
-   "t": 1794389596,
-   "q": 464,
-   "low": 400,
+   "p": 300,
+   "t": 1794503923,
+   "q": 479,
+   "low": 249,
    "med": 400,
    "high": 400,
-   "days": 2
-  },
-  "Silver Skeleton Key": {
-   "p": 50,
-   "t": 1794343024,
-   "q": 928
-  },
-  "Silver-plated Shotgun": {
-   "p": 2400,
-   "t": 1794343024,
-   "q": 56
+   "days": 3
   },
   "Silvered Bronze Boots": {
-   "p": 1000,
-   "t": 1794345595,
-   "q": 261
-  },
-  "Silvered Bronze Breastplate": {
-   "p": 3500,
-   "t": 1794307966,
-   "q": 80
+   "p": 990,
+   "t": 1794488284,
+   "q": 226,
+   "low": 990,
+   "med": 990,
+   "high": 1000,
+   "days": 2
   },
   "Silvered Bronze Gauntlets": {
    "p": 1000,
    "t": 1794389596,
    "q": 139
   },
-  "Silvered Bronze Leggings": {
-   "p": 4000,
-   "t": 1794307966,
-   "q": 60
-  },
-  "Silvered Bronze Shoulders": {
-   "p": 1800,
-   "t": 1794307966,
-   "q": 160
-  },
   "Silverleaf": {
-   "p": 19,
-   "t": 1794389596,
-   "q": 6400,
+   "p": 17,
+   "t": 1794503923,
+   "q": 7984,
    "low": 14,
-   "med": 14,
+   "med": 17,
    "high": 17,
-   "days": 2
-  },
-  "Simple Black Dress": {
-   "p": 50000,
-   "t": 1794307966,
-   "q": 4
-  },
-  "Simple Dress": {
-   "p": 200,
-   "t": 1794307966,
-   "q": 12
-  },
-  "Simple Flour": {
-   "p": 100,
-   "t": 1794307966,
-   "q": 260
+   "days": 3
   },
   "Simple Kilt": {
-   "p": 200,
-   "t": 1794387509,
-   "q": 200
+   "p": 179,
+   "t": 1794488284,
+   "q": 172,
+   "low": 179,
+   "med": 179,
+   "high": 200,
+   "days": 2
   },
   "Simple Linen Boots": {
    "p": 300,
@@ -7696,8 +5078,8 @@
   },
   "Simple Poultice": {
    "p": 28,
-   "t": 1794307966,
-   "q": 2676
+   "t": 1794488284,
+   "q": 717
   },
   "Simple Wood": {
    "p": 48,
@@ -7705,18 +5087,18 @@
    "q": 1672
   },
   "Skywall Souffle": {
-   "p": 200,
-   "t": 1794307966,
-   "q": 12
+   "p": 886,
+   "t": 1794503923,
+   "q": 233
   },
   "Slimy Murloc Scale": {
-   "p": 100,
-   "t": 1794387509,
-   "q": 1149,
+   "p": 117,
+   "t": 1794488284,
+   "q": 1039,
    "low": 100,
-   "med": 100,
+   "med": 115,
    "high": 115,
-   "days": 2
+   "days": 3
   },
   "Slimy Smoothie": {
    "p": 199,
@@ -7724,14 +5106,14 @@
    "q": 421
   },
   "Slitherskin Mackerel": {
-   "p": 21,
-   "t": 1794307966,
-   "q": 7452
+   "p": 23,
+   "t": 1794503923,
+   "q": 1917
   },
   "Small Brilliant Shard": {
-   "p": 10500,
-   "t": 1794337156,
-   "q": 26
+   "p": 6290,
+   "t": 1794503923,
+   "q": 108
   },
   "Small Bronze Bomb": {
    "p": 249,
@@ -7739,83 +5121,86 @@
    "q": 158
   },
   "Small Egg": {
-   "p": 230,
-   "t": 1794389596,
-   "q": 198,
-   "low": 229,
+   "p": 184,
+   "t": 1794503923,
+   "q": 2042,
+   "low": 184,
    "med": 229,
    "high": 237,
-   "days": 2
+   "days": 3
   },
   "Small Flame Sac": {
-   "p": 1300,
-   "t": 1794307966,
-   "q": 1496
+   "p": 1019,
+   "t": 1794471234,
+   "q": 632
   },
   "Small Glimmering Shard": {
-   "p": 329,
-   "t": 1794383619,
-   "q": 252
+   "p": 240,
+   "t": 1794503923,
+   "q": 509,
+   "low": 240,
+   "med": 240,
+   "high": 329,
+   "days": 2
   },
   "Small Glowing Shard": {
-   "p": 2077,
-   "t": 1794389596,
-   "q": 767,
-   "low": 1202,
+   "p": 918,
+   "t": 1794503923,
+   "q": 331,
+   "low": 918,
    "med": 1202,
    "high": 2077,
-   "days": 2
+   "days": 3
   },
   "Small Leather Ammo Pouch": {
    "p": 100,
-   "t": 1794389596,
-   "q": 367,
+   "t": 1794471234,
+   "q": 280,
    "low": 100,
    "med": 100,
    "high": 100,
-   "days": 2
+   "days": 3
   },
   "Small Lustrous Pearl": {
-   "p": 230,
-   "t": 1794389596,
-   "q": 875,
+   "p": 300,
+   "t": 1794503923,
+   "q": 1827,
    "low": 230,
-   "med": 230,
+   "med": 240,
    "high": 301,
-   "days": 2
+   "days": 3
   },
   "Small Radiant Shard": {
    "p": 5999,
    "t": 1794387509,
    "q": 243
   },
-  "Small Seaforium Charge": {
-   "p": 200,
-   "t": 1794307966,
-   "q": 600
-  },
   "Small Silk Pack": {
-   "p": 2700,
-   "t": 1794389596,
-   "q": 538,
-   "low": 2500,
+   "p": 2100,
+   "t": 1794503923,
+   "q": 1204,
+   "low": 2100,
    "med": 2500,
    "high": 2800,
-   "days": 2
+   "days": 3
   },
   "Small Spider Leg": {
    "p": 3,
-   "t": 1794389596,
-   "q": 4649,
+   "t": 1794503923,
+   "q": 2155,
    "low": 3,
    "med": 3,
    "high": 3,
-   "days": 2
+   "days": 3
   },
   "Small Venom Sac": {
-   "p": 93,
-   "t": 1794343024,
-   "q": 561
+   "p": 349,
+   "t": 1794471234,
+   "q": 383,
+   "low": 93,
+   "med": 93,
+   "high": 349,
+   "days": 2
   },
   "Smoked Bear Meat": {
    "p": 35,
@@ -7823,62 +5208,27 @@
    "q": 695
   },
   "Smoked Sagefish": {
-   "p": 83,
-   "t": 1794389596,
-   "q": 2277,
+   "p": 51,
+   "t": 1794488284,
+   "q": 1213,
    "low": 50,
-   "med": 50,
+   "med": 51,
    "high": 83,
-   "days": 2
-  },
-  "Sniper Scope": {
-   "p": 34500,
-   "t": 1794307966,
-   "q": 36
+   "days": 3
   },
   "Soft Frenzy Flesh": {
-   "p": 20,
-   "t": 1794307966,
-   "q": 140
-  },
-  "Soft-soled Linen Boots": {
-   "p": 400,
-   "t": 1794307966,
-   "q": 360
-  },
-  "Solid Blasting Powder": {
-   "p": 644,
-   "t": 1794307966,
-   "q": 3108
-  },
-  "Solid Dynamite": {
-   "p": 699,
-   "t": 1794307966,
-   "q": 1088
-  },
-  "Solid Grinding Stone": {
-   "p": 1000,
-   "t": 1794307966,
-   "q": 684
-  },
-  "Solid Iron Maul": {
-   "p": 23300,
-   "t": 1794307966,
-   "q": 28
+   "p": 39,
+   "t": 1794503923,
+   "q": 113
   },
   "Solid Sharpening Stone": {
-   "p": 369,
-   "t": 1794387509,
-   "q": 1242,
-   "low": 310,
+   "p": 300,
+   "t": 1794503923,
+   "q": 1669,
+   "low": 300,
    "med": 310,
    "high": 380,
-   "days": 2
-  },
-  "Solid Stone": {
-   "p": 199,
-   "t": 1794345595,
-   "q": 5603
+   "days": 3
   },
   "Solid Weightstone": {
    "p": 349,
@@ -7909,44 +5259,23 @@
    "t": 1794387509,
    "q": 33
   },
-  "Spellblasting Potion": {
-   "p": 821,
-   "t": 1794307966,
-   "q": 324
-  },
-  "Spellpower Goggles Xtreme": {
-   "p": 42000,
-   "t": 1794307966,
-   "q": 12
-  },
-  "Spiced Chili Crab": {
-   "p": 2199,
-   "t": 1794337156,
-   "q": 95
-  },
   "Spiced Wolf Meat": {
    "p": 90,
-   "t": 1794389596,
-   "q": 247,
+   "t": 1794471234,
+   "q": 163,
    "low": 90,
    "med": 90,
    "high": 90,
-   "days": 2
-  },
-  "Spider Belt": {
-   "p": 9000,
-   "t": 1794307966,
-   "q": 64
+   "days": 3
   },
   "Spider Ichor": {
-   "p": 16,
-   "t": 1794345595,
-   "q": 2786
-  },
-  "Spider Sausage": {
-   "p": 435,
-   "t": 1794307966,
-   "q": 1564
+   "p": 19,
+   "t": 1794488284,
+   "q": 882,
+   "low": 14,
+   "med": 14,
+   "high": 18,
+   "days": 2
   },
   "Spider Silk Slippers": {
    "p": 4300,
@@ -7954,23 +5283,22 @@
    "q": 29
   },
   "Spider's Silk": {
-   "p": 699,
-   "t": 1794389596,
-   "q": 471
-  },
-  "Spidersilk Boots": {
-   "p": 6200,
-   "t": 1794389596,
-   "q": 126,
-   "low": 6200,
-   "med": 6200,
-   "high": 7800,
+   "p": 1380,
+   "t": 1794471234,
+   "q": 326,
+   "low": 650,
+   "med": 650,
+   "high": 1380,
    "days": 2
   },
-  "Spinning Wheel": {
-   "p": 5922,
-   "t": 1794307966,
-   "q": 212
+  "Spidersilk Boots": {
+   "p": 5300,
+   "t": 1794488284,
+   "q": 19,
+   "low": 4500,
+   "med": 6200,
+   "high": 7800,
+   "days": 3
   },
   "Spotted Yellowtail": {
    "p": 128,
@@ -7978,83 +5306,68 @@
    "q": 3118
   },
   "Stag Meat": {
-   "p": 100,
-   "t": 1794345595,
-   "q": 900
+   "p": 150,
+   "t": 1794503923,
+   "q": 2097,
+   "low": 100,
+   "med": 100,
+   "high": 150,
+   "days": 2
   },
   "Standard Scope": {
    "p": 600,
-   "t": 1794389596,
-   "q": 244
-  },
-  "Star Belt": {
-   "p": 17600,
-   "t": 1794307967,
-   "q": 56
+   "t": 1794503923,
+   "q": 319,
+   "low": 599,
+   "med": 599,
+   "high": 600,
+   "days": 2
   },
   "Star Ruby": {
-   "p": 4998,
-   "t": 1794389596,
-   "q": 211
-  },
-  "Star Wood": {
-   "p": 4597,
-   "t": 1794307967,
-   "q": 196
+   "p": 5723,
+   "t": 1794503923,
+   "q": 609,
+   "low": 4998,
+   "med": 4998,
+   "high": 5723,
+   "days": 2
   },
   "Steel Bar": {
-   "p": 1384,
-   "t": 1794307967,
-   "q": 13396
-  },
-  "Steel Breastplate": {
-   "p": 12200,
-   "t": 1794307967,
-   "q": 40
+   "p": 817,
+   "t": 1794471234,
+   "q": 613
   },
   "Steel Plate Helm": {
-   "p": 5200,
-   "t": 1794387509,
-   "q": 86
-  },
-  "Steel Spear": {
-   "p": 35400,
-   "t": 1794307967,
-   "q": 20
-  },
-  "Steel Weapon Chain": {
-   "p": 59000,
-   "t": 1794307967,
-   "q": 20
-  },
-  "Sterling Silver Boots": {
-   "p": 2500,
-   "t": 1794307967,
-   "q": 36
-  },
-  "Sterling Silver Breastplate": {
-   "p": 9800,
-   "t": 1794307967,
-   "q": 36
+   "p": 4032,
+   "t": 1794503923,
+   "q": 122,
+   "low": 4032,
+   "med": 4032,
+   "high": 5200,
+   "days": 2
   },
   "Stonescale Eel": {
-   "p": 298,
-   "t": 1794389596,
-   "q": 484
+   "p": 175,
+   "t": 1794503923,
+   "q": 5607,
+   "low": 170,
+   "med": 170,
+   "high": 175,
+   "days": 2
   },
   "Stonescale Oil": {
-   "p": 769,
-   "t": 1794337156,
-   "q": 875
+   "p": 497,
+   "t": 1794503923,
+   "q": 605
   },
   "Strange Dust": {
-   "p": 89,
-   "t": 1794389596,
-   "q": 5724,
-   "low": 89,
+   "p": 92,
+   "t": 1794503923,
+   "q": 7646,
+   "low": 85,
    "med": 89,
    "high": 89,
-   "days": 2
+   "days": 3
   },
   "Stranglekelp": {
    "p": 300,
@@ -8065,15 +5378,14 @@
    "high": 397,
    "days": 2
   },
-  "Stranglethorn Seed": {
-   "p": 844,
-   "t": 1794307967,
-   "q": 920
-  },
   "Stranglevine": {
-   "p": 14897,
-   "t": 1794389596,
-   "q": 184
+   "p": 9399,
+   "t": 1794488284,
+   "q": 240,
+   "low": 9399,
+   "med": 9399,
+   "high": 14897,
+   "days": 2
   },
   "Strider Meat": {
    "p": 23,
@@ -8086,42 +5398,31 @@
   },
   "Strider Stew": {
    "p": 25,
-   "t": 1794383619,
-   "q": 2429
+   "t": 1794503923,
+   "q": 333,
+   "low": 25,
+   "med": 25,
+   "high": 25,
+   "days": 2
   },
   "Stringy Vulture Meat": {
    "p": 17,
-   "t": 1794307967,
-   "q": 3496
+   "t": 1794503923,
+   "q": 2295
   },
   "Stringy Wolf Meat": {
-   "p": 150,
-   "t": 1794389596,
-   "q": 638,
+   "p": 180,
+   "t": 1794503923,
+   "q": 1966,
    "low": 150,
-   "med": 150,
+   "med": 180,
    "high": 197,
-   "days": 2
-  },
-  "Strong Anti-Venom": {
-   "p": 69,
-   "t": 1794307967,
-   "q": 1996
+   "days": 3
   },
   "Strong Flux": {
    "p": 2249,
    "t": 1794387509,
    "q": 162
-  },
-  "Stylish Blue Shirt": {
-   "p": 500,
-   "t": 1794307967,
-   "q": 44
-  },
-  "Stylish Green Shirt": {
-   "p": 500,
-   "t": 1794307967,
-   "q": 16
   },
   "Stylish Red Shirt": {
    "p": 300,
@@ -8129,61 +5430,54 @@
    "q": 62
   },
   "Sulfuric Acid": {
-   "p": 425,
-   "t": 1794389596,
-   "q": 614,
+   "p": 400,
+   "t": 1794488284,
+   "q": 543,
    "low": 399,
-   "med": 399,
+   "med": 400,
    "high": 423,
-   "days": 2
+   "days": 3
   },
   "Sungrass": {
-   "p": 990,
-   "t": 1794383619,
-   "q": 156,
+   "p": 1345,
+   "t": 1794503923,
+   "q": 1623,
    "low": 990,
-   "med": 990,
-   "high": 1255,
-   "days": 2
-  },
-  "Superior Discolored Healing Potion": {
-   "p": 4298,
-   "t": 1794307967,
-   "q": 456
+   "med": 1255,
+   "high": 1345,
+   "days": 3
   },
   "Superior Healing Potion": {
-   "p": 1098,
-   "t": 1794389596,
-   "q": 256
+   "p": 1030,
+   "t": 1794471234,
+   "q": 446,
+   "low": 1030,
+   "med": 1030,
+   "high": 1098,
+   "days": 2
   },
   "Superior Mana Potion": {
-   "p": 4897,
-   "t": 1794307967,
-   "q": 348
+   "p": 3700,
+   "t": 1794503923,
+   "q": 270
   },
   "Sweet Nectar": {
-   "p": 150,
-   "t": 1794383619,
-   "q": 142
-  },
-  "Swift Boots": {
-   "p": 5700,
-   "t": 1794343024,
-   "q": 63
-  },
-  "Swiftness Potion": {
-   "p": 416,
-   "t": 1794345595,
-   "q": 1378
+   "p": 149,
+   "t": 1794488284,
+   "q": 261,
+   "low": 130,
+   "med": 130,
+   "high": 150,
+   "days": 2
   },
   "Swiftthistle": {
-   "p": 665,
-   "t": 1794389596,
-   "q": 2335,
+   "p": 672,
+   "t": 1794488284,
+   "q": 2380,
    "low": 525,
-   "med": 525,
-   "high": 665,
-   "days": 2
+   "med": 665,
+   "high": 672,
+   "days": 3
   },
   "Swim Speed Potion": {
    "p": 170,
@@ -8195,39 +5489,45 @@
    "days": 2
   },
   "Swollen Venom Sac": {
-   "p": 1499,
-   "t": 1794387509,
-   "q": 116
+   "p": 500,
+   "t": 1794488284,
+   "q": 135,
+   "low": 500,
+   "med": 500,
+   "high": 1499,
+   "days": 2
   },
   "Tangy Clam Meat": {
-   "p": 53,
-   "t": 1794345595,
-   "q": 1653
-  },
-  "Tanning Rack": {
-   "p": 1090,
-   "t": 1794343024,
-   "q": 269
+   "p": 44,
+   "t": 1794503923,
+   "q": 5837,
+   "low": 44,
+   "med": 44,
+   "high": 45,
+   "days": 2
   },
   "Target Dummy": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 203
+   "p": 700,
+   "t": 1794503923,
+   "q": 111,
+   "low": 300,
+   "med": 300,
+   "high": 700,
+   "days": 2
   },
   "Tasty Lion Steak": {
-   "p": 598,
-   "t": 1794307967,
-   "q": 696
-  },
-  "Tasty Raptor Bites": {
-   "p": 99,
-   "t": 1794345595,
-   "q": 1103
+   "p": 688,
+   "t": 1794503923,
+   "q": 925
   },
   "Tender Crab Meat": {
-   "p": 1189,
-   "t": 1794389596,
-   "q": 957
+   "p": 989,
+   "t": 1794471234,
+   "q": 549,
+   "low": 989,
+   "med": 989,
+   "high": 1189,
+   "days": 2
   },
   "Tender Crocolisk Meat": {
    "p": 67,
@@ -8243,62 +5543,37 @@
    "high": 300,
    "days": 2
   },
-  "Tender Wolf Steak": {
-   "p": 990,
-   "t": 1794307967,
-   "q": 2116
-  },
-  "Thick Armor Kit": {
-   "p": 1158,
-   "t": 1794337156,
-   "q": 120
-  },
-  "Thick Hide": {
-   "p": 519,
-   "t": 1794389596,
-   "q": 212,
-   "low": 510,
-   "med": 510,
-   "high": 519,
-   "days": 2
-  },
   "Thick Leather": {
-   "p": 600,
-   "t": 1794389596,
-   "q": 883,
+   "p": 625,
+   "t": 1794471234,
+   "q": 3770,
    "low": 465,
-   "med": 465,
-   "high": 517,
-   "days": 2
+   "med": 517,
+   "high": 625,
+   "days": 3
   },
   "Thick Leather Ammo Pouch": {
    "p": 2600,
    "t": 1794389596,
    "q": 121
   },
-  "Thick Murloc Armor": {
-   "p": 15000,
-   "t": 1794307967,
-   "q": 20
-  },
   "Thick Murloc Scale": {
-   "p": 500,
-   "t": 1794389596,
-   "q": 262,
+   "p": 540,
+   "t": 1794471234,
+   "q": 374,
    "low": 500,
    "med": 500,
-   "high": 500,
-   "days": 2
+   "high": 540,
+   "days": 3
   },
   "Thick Spider's Silk": {
-   "p": 750,
-   "t": 1794389596,
-   "q": 277
-  },
-  "Thick War Axe": {
-   "p": 2000,
-   "t": 1794307967,
-   "q": 52
+   "p": 753,
+   "t": 1794503923,
+   "q": 643,
+   "low": 750,
+   "med": 750,
+   "high": 751,
+   "days": 2
   },
   "Thick Wolfhide": {
    "p": 1100,
@@ -8310,23 +5585,22 @@
    "days": 2
   },
   "Thin Kodo Leather": {
-   "p": 49,
-   "t": 1794389596,
-   "q": 921,
+   "p": 47,
+   "t": 1794488284,
+   "q": 472,
    "low": 35,
-   "med": 35,
+   "med": 47,
    "high": 47,
-   "days": 2
+   "days": 3
   },
   "Thistle Tea": {
-   "p": 790,
-   "t": 1794387509,
-   "q": 780
-  },
-  "Thorium Bar": {
-   "p": 2999,
-   "t": 1794307967,
-   "q": 404
+   "p": 703,
+   "t": 1794488284,
+   "q": 540,
+   "low": 680,
+   "med": 680,
+   "high": 790,
+   "days": 2
   },
   "Thorium Ore": {
    "p": 1200,
@@ -8334,9 +5608,13 @@
    "q": 2543
   },
   "Thunder Lizard Tail": {
-   "p": 100,
-   "t": 1794345595,
-   "q": 627
+   "p": 190,
+   "t": 1794471234,
+   "q": 659,
+   "low": 100,
+   "med": 100,
+   "high": 190,
+   "days": 2
   },
   "Tiger Meat": {
    "p": 300,
@@ -8344,109 +5622,54 @@
    "q": 1644
   },
   "Tigerseye": {
-   "p": 120,
-   "t": 1794391062,
-   "q": 889,
-   "low": 106,
+   "p": 121,
+   "t": 1794503923,
+   "q": 301,
+   "low": 100,
    "med": 106,
    "high": 106,
-   "days": 2
+   "days": 3
   },
   "Tin Bar": {
-   "p": 178,
-   "t": 1794389596,
-   "q": 2471,
-   "low": 125,
+   "p": 119,
+   "t": 1794503923,
+   "q": 6051,
+   "low": 119,
    "med": 125,
    "high": 134,
-   "days": 2
+   "days": 3
   },
   "Tin Ore": {
-   "p": 159,
-   "t": 1794389596,
-   "q": 2661,
-   "low": 118,
+   "p": 110,
+   "t": 1794503923,
+   "q": 7537,
+   "low": 110,
    "med": 118,
    "high": 119,
-   "days": 2
-  },
-  "Tooled Leather Boots": {
-   "p": 19600,
-   "t": 1794307967,
-   "q": 16
-  },
-  "Tooled Leather Bracers": {
-   "p": 34400,
-   "t": 1794307967,
-   "q": 36
-  },
-  "Tough Condor Meat": {
-   "p": 2400,
-   "t": 1794307968,
-   "q": 440
-  },
-  "Tough Scorpid Boots": {
-   "p": 59900,
-   "t": 1794307967,
-   "q": 12
-  },
-  "Tough Scorpid Bracers": {
-   "p": 25500,
-   "t": 1794307967,
-   "q": 48
-  },
-  "Tough Scorpid Breastplate": {
-   "p": 59900,
-   "t": 1794307967,
-   "q": 16
-  },
-  "Tough Scorpid Gloves": {
-   "p": 22900,
-   "t": 1794307967,
-   "q": 32
-  },
-  "Tough Scorpid Shoulders": {
-   "p": 63500,
-   "t": 1794307967,
-   "q": 4
+   "days": 3
   },
   "Toughened Leather Armor": {
-   "p": 800,
-   "t": 1794389596,
-   "q": 150,
-   "low": 800,
+   "p": 780,
+   "t": 1794503923,
+   "q": 195,
+   "low": 780,
    "med": 800,
    "high": 800,
-   "days": 2
+   "days": 3
   },
   "Toughened Leather Gloves": {
-   "p": 3200,
-   "t": 1794389596,
-   "q": 60,
-   "low": 3200,
+   "p": 2499,
+   "t": 1794488284,
+   "q": 113,
+   "low": 2499,
    "med": 3200,
    "high": 4400,
-   "days": 2
-  },
-  "Toxin Study": {
-   "p": 5898,
-   "t": 1794307967,
-   "q": 204
-  },
-  "Triage Tea": {
-   "p": 3500,
-   "t": 1794307967,
-   "q": 40
+   "days": 3
   },
   "Troll's Blood Elixir": {
-   "p": 498,
-   "t": 1794337156,
-   "q": 453
-  },
-  "Truefaith Gloves": {
-   "p": 2500,
-   "t": 1794345595,
-   "q": 64
+   "p": 450,
+   "t": 1794503923,
+   "q": 911
   },
   "Truesilver Bar": {
    "p": 2498,
@@ -8457,113 +5680,62 @@
    "high": 2498,
    "days": 2
   },
-  "Truesilver Breastplate": {
-   "p": 250000,
-   "t": 1794307967,
-   "q": 8
-  },
-  "Truesilver Gauntlets": {
-   "p": 130000,
-   "t": 1794307967,
-   "q": 4
-  },
   "Truesilver Ore": {
-   "p": 1477,
-   "t": 1794307967,
-   "q": 1796
+   "p": 1459,
+   "t": 1794488284,
+   "q": 1305
   },
   "Truesilver Rod": {
    "p": 2200,
    "t": 1794389596,
    "q": 72
   },
-  "Truesilver Skeleton Key": {
-   "p": 1500,
-   "t": 1794307967,
-   "q": 112
-  },
   "Turtle Meat": {
-   "p": 295,
-   "t": 1794408605,
-   "q": 908,
-   "low": 295,
+   "p": 233,
+   "t": 1794503923,
+   "q": 1414,
+   "low": 233,
    "med": 295,
    "high": 465,
-   "days": 2
+   "days": 3
   },
   "Turtle Scale": {
-   "p": 3295,
-   "t": 1794307967,
-   "q": 5288
-  },
-  "Turtle Scale Bracers": {
-   "p": 20900,
-   "t": 1794307967,
-   "q": 52
+   "p": 1350,
+   "t": 1794503923,
+   "q": 1730
   },
   "Turtle Scale Breastplate": {
    "p": 29700,
    "t": 1794383619,
    "q": 41
   },
-  "Turtle Scale Helm": {
-   "p": 58900,
-   "t": 1794307967,
-   "q": 4
-  },
-  "Turtle Scale Leggings": {
-   "p": 69900,
-   "t": 1794307967,
-   "q": 4
-  },
-  "Tuxedo Jacket": {
-   "p": 40000,
-   "t": 1794307967,
-   "q": 44
-  },
-  "Tuxedo Pants": {
-   "p": 18000,
-   "t": 1794307967,
-   "q": 60
-  },
-  "Twice-Spiced Raptor Slice": {
-   "p": 94,
-   "t": 1794345595,
-   "q": 1030
-  },
-  "Twisted Nether Wand": {
-   "p": 25000,
-   "t": 1794307968,
-   "q": 8
+  "Turtle Scale Gloves": {
+   "p": 26600,
+   "t": 1794488284,
+   "q": 17
   },
   "Undermine Clam Chowder": {
-   "p": 190,
-   "t": 1794387509,
-   "q": 408
-  },
-  "Unstable Trigger": {
-   "p": 1499,
-   "t": 1794307968,
-   "q": 336
-  },
-  "Venomous Smoothie": {
-   "p": 434,
-   "t": 1794307968,
-   "q": 216
+   "p": 117,
+   "t": 1794488284,
+   "q": 221,
+   "low": 117,
+   "med": 117,
+   "high": 190,
+   "days": 2
   },
   "Viridian Dye": {
-   "p": 29800,
-   "t": 1794307968,
-   "q": 344
+   "p": 18997,
+   "t": 1794503923,
+   "q": 341
   },
   "Vision Dust": {
-   "p": 838,
-   "t": 1794389596,
-   "q": 2130,
-   "low": 838,
+   "p": 765,
+   "t": 1794471234,
+   "q": 1989,
+   "low": 765,
    "med": 838,
    "high": 975,
-   "days": 2
+   "days": 3
   },
   "Volatile Rum": {
    "p": 488,
@@ -8574,45 +5746,10 @@
    "high": 600,
    "days": 2
   },
-  "Warbear Leather": {
-   "p": 20000,
-   "t": 1794307968,
-   "q": 84
-  },
   "Weak Flux": {
    "p": 110,
    "t": 1794389596,
    "q": 150
-  },
-  "Westfall Stew": {
-   "p": 1000,
-   "t": 1794307969,
-   "q": 516
-  },
-  "Whimsyfin": {
-   "p": 1000,
-   "t": 1794307969,
-   "q": 164
-  },
-  "Whirring Bronze Gizmo": {
-   "p": 336,
-   "t": 1794307969,
-   "q": 1032
-  },
-  "White Bandit Mask": {
-   "p": 6000,
-   "t": 1794307969,
-   "q": 104
-  },
-  "White Leather Jerkin": {
-   "p": 300,
-   "t": 1794307969,
-   "q": 36
-  },
-  "White Linen Robe": {
-   "p": 300,
-   "t": 1794343024,
-   "q": 141
   },
   "White Linen Shirt": {
    "p": 200,
@@ -8620,24 +5757,13 @@
    "q": 61
   },
   "White Spider Meat": {
-   "p": 250,
-   "t": 1794389596,
-   "q": 1041
-  },
-  "White Swashbuckler's Shirt": {
-   "p": 4900,
-   "t": 1794307969,
-   "q": 40
-  },
-  "White Wedding Dress": {
-   "p": 52200,
-   "t": 1794307969,
-   "q": 4
-  },
-  "White Woolen Dress": {
-   "p": 500,
-   "t": 1794307969,
-   "q": 204
+   "p": 191,
+   "t": 1794471234,
+   "q": 765,
+   "low": 191,
+   "med": 191,
+   "high": 250,
+   "days": 2
   },
   "Wicked Claw": {
    "p": 585,
@@ -8653,16 +5779,6 @@
    "t": 1794383619,
    "q": 19
   },
-  "Wicked Leather Gauntlets": {
-   "p": 13000,
-   "t": 1794307969,
-   "q": 164
-  },
-  "Wicked Mithril Blade": {
-   "p": 59900,
-   "t": 1794307969,
-   "q": 4
-  },
   "Wild Steelbloom": {
    "p": 140,
    "t": 1794387909,
@@ -8673,94 +5789,68 @@
    "days": 2
   },
   "Wildvine": {
-   "p": 77,
-   "t": 1794389596,
-   "q": 865,
-   "low": 77,
+   "p": 85,
+   "t": 1794503923,
+   "q": 2931,
+   "low": 66,
    "med": 77,
    "high": 148,
-   "days": 2
-  },
-  "Wildvine Potion": {
-   "p": 3390,
-   "t": 1794307969,
-   "q": 652
+   "days": 3
   },
   "Wintersbite": {
-   "p": 1670,
-   "t": 1794307969,
-   "q": 1436
-  },
-  "Wolfshead Helm": {
-   "p": 49900,
-   "t": 1794307969,
-   "q": 8
-  },
-  "Wooden Stock": {
-   "p": 209,
-   "t": 1794307969,
-   "q": 780
+   "p": 999,
+   "t": 1794503923,
+   "q": 1464
   },
   "Wool Bandage": {
    "p": 28,
-   "t": 1794389596,
-   "q": 6423,
+   "t": 1794503923,
+   "q": 10898,
    "low": 28,
    "med": 28,
    "high": 28,
-   "days": 2
+   "days": 3
   },
   "Wool Cloth": {
-   "p": 134,
-   "t": 1794389596,
-   "q": 4060,
+   "p": 129,
+   "t": 1794503923,
+   "q": 16620,
    "low": 96,
-   "med": 96,
-   "high": 111,
-   "days": 2
+   "med": 111,
+   "high": 129,
+   "days": 3
   },
   "Woolen Bag": {
-   "p": 500,
-   "t": 1794389596,
-   "q": 643,
-   "low": 400,
+   "p": 355,
+   "t": 1794503923,
+   "q": 670,
+   "low": 355,
    "med": 400,
    "high": 500,
-   "days": 2
-  },
-  "Woolen Boots": {
-   "p": 700,
-   "t": 1794337156,
-   "q": 45
+   "days": 3
   },
   "Woolen Cape": {
-   "p": 300,
-   "t": 1794389596,
-   "q": 468,
+   "p": 219,
+   "t": 1794503923,
+   "q": 945,
    "low": 200,
    "med": 200,
-   "high": 200,
-   "days": 2
+   "high": 219,
+   "days": 3
   },
   "Woolen Reagent Bag": {
-   "p": 5900,
-   "t": 1794307969,
-   "q": 1072
-  },
-  "Woolen Tourniquet": {
-   "p": 69,
-   "t": 1794307969,
-   "q": 368
+   "p": 6997,
+   "t": 1794488284,
+   "q": 94
   },
   "Worn Dragonscale": {
-   "p": 510,
-   "t": 1794345595,
-   "q": 224
-  },
-  "Yellow Dye": {
-   "p": 322,
-   "t": 1794307969,
-   "q": 460
+   "p": 590,
+   "t": 1794503923,
+   "q": 836,
+   "low": 500,
+   "med": 500,
+   "high": 510,
+   "days": 2
   },
   "Yellow Power Crystal": {
    "p": 975,
@@ -8768,26 +5858,38 @@
    "q": 432
   },
   "Zesty Clam Meat": {
-   "p": 124,
-   "t": 1794389596,
-   "q": 1103
+   "p": 98,
+   "t": 1794471234,
+   "q": 1068,
+   "low": 98,
+   "med": 98,
+   "high": 124,
+   "days": 2
   }
  },
  "vendor": {
   "Aquadynamic Fish Attractor": 225,
   "Black Dye": 1000,
-  "Blacksmith Hammer": 17,
+  "Blacksmith Hammer": 18,
+  "Blank Parchment": 500,
   "Bleach": 25,
   "Blue Dye": 50,
+  "Bottle of Dalaran Noir": 45,
+  "Bronze Tube": 800,
   "Bruiseweed": 100,
-  "Coal": 450,
+  "Coal": 500,
+  "Coarse Blasting Powder": 48,
   "Coarse Thread": 10,
+  "Copper Modulator": 200,
   "Copper Rod": 112,
+  "Copper Tube": 480,
   "Crystal Vial": 450,
   "Demonic Figurine": 10000,
-  "Elemental Flux": 135000,
+  "Elemental Flux": 150000,
   "Empty Vial": 3,
+  "Engineer's Ink": 2000,
   "Fine Thread": 100,
+  "Flagon of Dwarven Honeymead": 1350,
   "Formula: Enchant 2H Weapon - Lesser Intellect": 450,
   "Formula: Enchant Boots - Minor Agility": 900,
   "Formula: Enchant Bracer - Lesser Strength": 2250,
@@ -8799,18 +5901,18 @@
   "Gray Dye": 350,
   "Green Dye": 100,
   "Heavy Silken Thread": 2000,
-  "Heavy Stock": 1800,
-  "Hot Spices": 40,
-  "Ice Cold Milk": 25,
+  "Heavy Stock": 2000,
+  "Hot Spices": 36,
+  "Ice Cold Milk": 22,
   "Imbued Vial": 5400,
   "Kingsblood": 120,
   "Leaded Vial": 36,
   "Lesser Magic Essence": 720,
   "Maple Seed": 200,
-  "Melon Juice": 100,
-  "Mild Spices": 2,
-  "Moonberry Juice": 400,
-  "Morning Glory Dew": 800,
+  "Melon Juice": 90,
+  "Mild Spices": 1,
+  "Moonberry Juice": 360,
+  "Morning Glory Dew": 720,
   "Mote of Magic": 9,
   "Nightcrawlers": 90,
   "Orange Dye": 1000,
@@ -8833,39 +5935,45 @@
   "Raw Spotted Yellowtail": 72,
   "Razor Arrow": 1,
   "Recipe: Brilliant Smallfish": 40,
-  "Recipe: Bristle Whisker Catfish": 1200,
+  "Recipe: Bristle Whisker Catfish": 1080,
   "Recipe: Cooked Glossy Mightfish": 16000,
   "Recipe: Crispy Lizard Tail": 360,
   "Recipe: Filet of Redgill": 16000,
   "Recipe: Free Action Potion": 1620,
   "Recipe: Giant Clam Scorcho": 5000,
   "Recipe: Hot Smoked Bass": 16000,
-  "Recipe: Longjaw Mud Snapper": 400,
+  "Recipe: Longjaw Mud Snapper": 360,
   "Recipe: Mithril Head Trout": 1980,
   "Recipe: Rainbow Fin Albacore": 400,
   "Recipe: Rockscale Cod": 1980,
-  "Recipe: Sagefish Delight": 5000,
+  "Recipe: Sagefish Delight": 4500,
   "Recipe: Shadow Oil": 1500,
-  "Recipe: Smoked Sagefish": 500,
+  "Recipe: Smoked Sagefish": 450,
   "Recipe: Strider Stew": 396,
   "Red Dye": 50,
-  "Refreshing Spring Water": 5,
+  "Red-speckled Mushroom": 25,
+  "Refreshing Spring Water": 4,
+  "Rough Blasting Powder": 16,
   "Rune Thread": 5000,
   "Salt": 45,
-  "Shiny Red Apple": 5,
+  "Schematic: Gnomish Universal Remote": 1200,
+  "Schematic: Lovingly Crafted Boomstick": 1000,
+  "Shiny Red Apple": 4,
   "Silken Thread": 500,
-  "Simple Flour": 200,
-  "Simple Wood": 38,
-  "Soothing Spices": 160,
-  "Star Wood": 4500,
+  "Silver Contact": 100,
+  "Simple Flour": 180,
+  "Simple Wood": 35,
+  "Skin of Dwarven Stout": 108,
+  "Soothing Spices": 144,
+  "Star Wood": 4050,
   "Strange Dust": 720,
   "Stranglethorn Seed": 400,
-  "Strong Flux": 1800,
-  "Sweet Nectar": 200,
-  "Thick Logs": 200000,
-  "Weak Flux": 90,
+  "Strong Flux": 2000,
+  "Sweet Nectar": 180,
+  "Thick Logs": 180000,
+  "Weak Flux": 100,
   "Wild Steelbloom": 200,
-  "Wooden Stock": 180,
+  "Wooden Stock": 200,
   "Yellow Dye": 500
  }
 }
