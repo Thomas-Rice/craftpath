@@ -1,1 +1,33 @@
-{}
+{
+ "Blacksmithing": {
+  "Big Bronze Knife": 80,
+  "Bronze Axe": 90,
+  "Bronze Battle Axe": 110,
+  "Bronze Greatsword": 105,
+  "Bronze Mace": 85,
+  "Bronze Shortsword": 95,
+  "Bronze Warhammer": 100,
+  "Copper Axe": 20,
+  "Copper Battle Axe": 30,
+  "Copper Claymore": 25,
+  "Copper Dagger": 25,
+  "Copper Mace": 15,
+  "Copper Shortsword": 25,
+  "Glowing Copper Boots": 35,
+  "Golden Rod": 125,
+  "Golden Skeleton Key": 125,
+  "Heavy Bronze Mace": 105,
+  "Heavy Copper Broadsword": 70,
+  "Heavy Copper Maul": 40,
+  "Iron Buckle": 125,
+  "Patterned Bronze Bracers": 95,
+  "Pearl-handled Dagger": 85,
+  "Rough Bronze Cuirass": 80,
+  "Rough Bronze Shoulders": 85,
+  "Shining Silver Breastplate": 120,
+  "Silvered Bronze Boots": 105,
+  "Silvered Bronze Gauntlets": 110,
+  "Strange Copper Boots": 35,
+  "Thick War Axe": 45
+ }
+}

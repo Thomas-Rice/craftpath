@@ -131,12 +131,6 @@ def main():
                 if b[4] == "T" and b[1] >= 300:
                     continue  # learned at 300: no skill-ups left, so not in a route
                 assert a, f"{prof}: {name} lost"
-                if b[4] == "T":  # trainer recipes are learned where they turn yellow (if that leaves skill-ups)
-                    want = b[1] if b[1] < b[2] else b[0]
-                    assert a[0] == want and a[1:] == b[1:] or name == "Copper Tube", (name, a, b)
-                    if name == "Copper Tube":
-                        assert a[0] == a[1] and a[2] == 112, a  # grey from the client
-                    continue
                 if name == "Copper Tube":
                     assert a[2] == 112, a
                     continue
@@ -145,7 +139,7 @@ def main():
                     continue
                 assert a == b, f"{prof}: {name}\n before {b}\n after  {a}"
         wall = after["Blacksmithing"]["Thorium Shield Wall"]
-        assert wall[0] == 290 and wall[7] == 2, wall  # new trainer recipe: learned at its yellow skill
+        assert wall[0] == 290 and wall[7] == 2, wall  # new trainer recipe, level unknown: its yellow skill
         assert after["Engineering"]["Thorium Widget"][5] == "Sovik (Orgrimmar)"  # hand-kept vendor
         assert after["Engineering"]["SAF-T Dynamite"][4] == "F"                 # hand-kept Favor
 
@@ -177,11 +171,21 @@ def main():
         vend = [p for p in hist[0]["professions"] if p["profession"] == "Vendor prices"]
         assert vend and vend[0]["changed"][0]["name"] == "Copper Bar", hist[0]
         assert '["Copper Bar"] = 5,' in open(os.path.join(addon, "Data", "Items.lua"), encoding="utf-8").read()
-        # A level recorded at a trainer in game wins over the yellow-skill guess.
+        # The wiki's trainer level is used for trainer recipes (not for recipe-item ones).
+        wl = os.path.join(tmp, "wiki.json")
+        json.dump({"Engineering": {"Copper Tube": 60, "Harvester Override Signalcaster": 1}}, open(wl, "w"))
+        sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
+                           "--changes", changes, "--wiki-levels", wl])
+        en = open(os.path.join(addon, "Data", "Engineering.lua"), encoding="utf-8").read()
+        assert "\nCopper Tube|60|60|" in en, [l for l in en.splitlines() if l.startswith("Copper Tube|")]
+        assert "\nHarvester Override Signalcaster|60|" in en  # recipe item: keeps its own level
+        assert "1 from the wiki" in open(report, encoding="utf-8").read()
+
+        # A level recorded at a trainer in game wins over the wiki and the yellow-skill guess.
         tl = os.path.join(tmp, "trainer-levels.json")
         json.dump({"Blacksmithing": {"Thorium Shield Wall": 285}}, open(tl, "w"))
         sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
-                           "--changes", changes, "--trainer-levels", tl])
+                           "--changes", changes, "--trainer-levels", tl, "--wiki-levels", wl])
         bs = open(os.path.join(addon, "Data", "Blacksmithing.lua"), encoding="utf-8").read()
         assert "\nThorium Shield Wall|285|285|290|" in bs, [l for l in bs.splitlines() if "Shield Wall" in l]
         print("Sync test passed:", {p: len(after[p]) for p in after})

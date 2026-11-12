@@ -59,6 +59,45 @@ DEFAULT_EXCLUDE = {
 }
 
 
+# The skill each trainer recipe is taught at isn't in the client data. warcraft.wiki.gg's
+# Forever recipe tables have it, and matched all 29 Blacksmithing levels read at a trainer
+# in game (Nov 2026). Levels recorded in game (data/trainer-levels.json) still come first.
+WIKI_API = "https://warcraft.wiki.gg/api.php?action=parse&format=json&prop=wikitext&page="
+WIKI_PAGES = {
+    "Engineering": "Forever engineering schematics", "Blacksmithing": "Forever blacksmithing plans",
+    "Cooking": "Forever cooking recipes", "Alchemy": "Forever alchemy recipes",
+    "Tailoring": "Forever tailoring patterns", "Leatherworking": "Forever leatherworking patterns",
+    "Enchanting": "Forever enchanting formulas", "First Aid": "Forever first aid recipes",
+    "Mining": "Forever mining techniques",
+}
+WIKI_ROW = re.compile(r"^\|\s*\[\[([^\]|]+)(?:\|([^\]]*))?\]\]\s*\|\|\s*(\d+)\s*\|\|", re.M)
+
+
+def parse_wiki_levels(wikitext):
+    """Recipe name -> skill from a wiki recipe table ("| [[Name]] || 125 || ...")."""
+    out = {}
+    for m in WIKI_ROW.finditer(wikitext):
+        name = (m.group(2) or m.group(1)).strip()
+        out.setdefault(name, int(m.group(3)))
+    return out
+
+
+def wiki_levels(profs):
+    """{profession: {recipe: skill}} from the wiki; a page that can't be read is left out."""
+    import urllib.parse
+    out, notes = {}, []
+    for prof in profs:
+        title = WIKI_PAGES.get(prof)
+        if not title:
+            continue
+        try:
+            data = json.loads(fetch(WIKI_API + urllib.parse.quote(title)))
+            out[prof] = parse_wiki_levels(data["parse"]["wikitext"]["*"])
+        except Exception as e:  # the wiki being down mustn't stop a sync
+            notes.append(f"Couldn't read the wiki page '{title}' ({e}); kept the trainer levels we had.")
+    return out, notes
+
+
 def fetch(url):
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=120) as r:
@@ -154,7 +193,9 @@ def parse_existing_full(path, addon=ADDON):
     return out
 
 
-def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclude, trainer_levels=None):
+def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclude, trainer_levels=None,
+                     wiki_levels=None, how_learn=None):
+    how_learn = how_learn if how_learn is not None else {"game": 0, "wiki": 0, "kept": 0, "guess": 0}
     spell_name = {num(r, "ID"): r.get("Name_lang", "") for r in tables["SpellName"]}
     item_name = {num(r, "ID"): r.get("Display_lang", "") for r in tables["ItemSparse"]}
     item_names = set(item_name.values())
@@ -197,25 +238,27 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
             continue
 
         kept, kept_learn = existing_sources.get(name, (None, None))
-        # Trainer recipes say 1 in the client; the real number is on the trainer NPC.
-        # 1. A level recorded at a trainer in game (data/trainer-levels.json) wins.
-        # 2. Otherwise assume the trainer teaches it where it turns yellow, as in Forever
-        #    (Iron Buckle 125, Mana Well 20, checked in game). Guessing high is safe: a guess
-        #    that's too low has the route ask for a recipe you can't learn yet.
-        # 3. Unless that leaves no skill-ups (yellow = grey, e.g. smelting), then keep what we had.
-        # Recipes from recipe items, vendors, factions and quests keep their own number.
+        # Trainer recipes say 1 in the client; the real number is on the trainer NPC. In order:
+        # a level recorded at a trainer in game, the wiki's Forever tables, the number we had,
+        # and last the yellow skill (never too low: a guess that's too low has the route ask
+        # for a recipe you can't learn yet). Recipes from recipe items, vendors, factions and
+        # quests keep their own number.
         auto = num(r, "AcquireMethod") in (1, 2)
         from_item = any(p + name in item_names for p in prefixes) or (kept and kept[0] in "RFVGNQ")
         seen = (trainer_levels or {}).get(name)
-        if seen and not auto and not from_item:
-            learn = seen
-        elif learn <= 1 and not auto and yellow > 1:
+        wiki = (wiki_levels or {}).get(name)
+        if learn <= 1 and not auto and yellow > 1:
             if from_item and kept_learn:
                 learn = kept_learn
-            elif yellow < grey:
-                learn = yellow
+            elif seen:
+                learn, how_learn["game"] = seen, how_learn["game"] + 1
+            elif wiki:
+                learn, how_learn["wiki"] = wiki, how_learn["wiki"] + 1
+            elif kept_learn:
+                learn, how_learn["kept"] = kept_learn, how_learn["kept"] + 1
             else:
-                learn = kept_learn or max(1, yellow - 5)
+                learn, how_learn["guess"] = yellow, how_learn["guess"] + 1
+                problems.append(f"{name}: no trainer level known; assumed {learn} (its yellow skill)")
         if learn >= MAX_SKILL or grey <= learn:
             continue  # can't help reach the cap
         orange = learn
@@ -468,6 +511,8 @@ def main(argv=None):
     ap.add_argument("--report", default=os.path.join(HERE, "..", "recipe-sync-report.md"))
     ap.add_argument("--addon-dir", default=ADDON, help="CraftPath folder to update (default: this repo's)")
     ap.add_argument("--changes", default=CHANGES, help="website change-history JSON to add this run to")
+    ap.add_argument("--wiki-levels", help="JSON {profession: {recipe: skill}} to use instead of reading the wiki "
+                    "(tests); with --csv-dir and without this, the wiki isn't read")
     ap.add_argument("--trainer-levels", default=TRAINER_LEVELS,
                     help="skill each trainer recipe is taught at, recorded in game (export_prices.py writes it)")
     args = ap.parse_args(argv)
@@ -484,6 +529,12 @@ def main(argv=None):
     else:
         build, product = newest_build()
     tables = read_tables(build=None if args.csv_dir else build, csv_dir=args.csv_dir)
+    wiki, wiki_notes = {}, []
+    if args.wiki_levels:
+        with open(args.wiki_levels, encoding="utf-8") as fh:
+            wiki = json.load(fh)
+    elif not args.csv_dir:
+        wiki, wiki_notes = wiki_levels(PROFESSIONS)
 
     report = [f"# Recipe sync: Forever build {build} ({product})", ""]
     changed_any = False
@@ -494,8 +545,9 @@ def main(argv=None):
         before_full = parse_existing_full(path, addon)
         before_sources = parse_existing(path, addon)
         before_lines = parse_lines(path)
+        how_learn = {"game": 0, "wiki": 0, "kept": 0, "guess": 0}
         recipes, problems, hidden = build_profession(tables, prof, skill_line, prefixes, before_sources, DEFAULT_EXCLUDE,
-                                                     trainer_levels.get(prof))
+                                                     trainer_levels.get(prof), wiki.get(prof), how_learn)
         # Hand-set "gives no skill-ups" (points 0) wins over the game data, which can still list
         # skill-ups for a recipe that no longer gives them in game (e.g. Basic Campfire).
         for n, f in before_full.items():
@@ -526,6 +578,8 @@ def main(argv=None):
             sec.append(f"\n{len(found['minor'])} recipes only had their green skill move, which doesn't affect routes.")
         if not (found["added"] or found["removed"] or found["big"] or found["minor"]):
             sec.append("\nNo changes.")
+        sec.append(f"\nTrainer levels: {how_learn['game']} recorded in game, {how_learn['wiki']} from the wiki, "
+                   f"{how_learn['kept']} kept from before, {how_learn['guess']} assumed.")
         if hidden:
             sec.append(f"\n### Hidden in the client ({len(hidden)})")
             sec.append("Recipes the client ships with names or reagents still hidden. They join the data "
@@ -548,6 +602,8 @@ def main(argv=None):
         sections.append(f"## Vendor prices\n\n{len(prices)} items changed price:\n"
                         + "\n".join(f"- {c['name']}: {c['change']}" for c in prices[:200]) + "\n")
     report.insert(1, "Changes found." if changed_any else "No recipe changes.")
+    if wiki_notes:
+        look.extend(wiki_notes)
     report.append("| Profession | Before | After | New | Removed | Changed | Minor |")
     report.append("|---|---|---|---|---|---|---|")
     report.extend(summary_rows)

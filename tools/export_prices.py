@@ -84,6 +84,7 @@ def main(argv=None):
         "prices": dict(sorted(prices.items())),
         "vendor": dict(sorted(vendor.items())),
     }
+    print(export_trainer_levels(db))  # whatever happens to the prices below
     # Safety: a scan that stopped early would wipe most of the site's prices.
     if os.path.exists(OUT) and "--force" not in argv:
         with open(OUT, encoding="utf-8") as fh:
@@ -95,7 +96,6 @@ def main(argv=None):
     with open(OUT, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(out, fh, indent=1, ensure_ascii=False)
         fh.write("\n")
-    print(export_trainer_levels(db))
     print(f"Wrote {os.path.relpath(OUT)}: {len(prices)} auction prices, {len(vendor)} vendor prices, "
           f"newest {out['updated']}; left out {dropped} not seen in the last 36 hours")
 
