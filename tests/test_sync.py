@@ -176,6 +176,13 @@ def main():
         vend = [p for p in hist[0]["professions"] if p["profession"] == "Vendor prices"]
         assert vend and vend[0]["changed"][0]["name"] == "Copper Bar", hist[0]
         assert '["Copper Bar"] = 5,' in open(os.path.join(addon, "Data", "Items.lua"), encoding="utf-8").read()
+        # A level recorded at a trainer in game wins over the yellow-skill guess.
+        tl = os.path.join(tmp, "trainer-levels.json")
+        json.dump({"Blacksmithing": {"Thorium Shield Wall": 285}}, open(tl, "w"))
+        sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
+                           "--changes", changes, "--trainer-levels", tl])
+        bs = open(os.path.join(addon, "Data", "Blacksmithing.lua"), encoding="utf-8").read()
+        assert "\nThorium Shield Wall|285|285|290|" in bs, [l for l in bs.splitlines() if "Shield Wall" in l]
         print("Sync test passed:", {p: len(after[p]) for p in after})
     finally:
         shutil.rmtree(tmp)

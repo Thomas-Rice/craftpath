@@ -3,7 +3,8 @@
     python3 tools/export_prices.py "D:/World of Warcraft/_forever_/WTF/Account/<ACCOUNT>/SavedVariables/CraftPath.lua"
 
 Only prices of items the recipes use (materials, tools and recipe items) are exported, with the
-time each was scanned. Nothing about the character (purchases, known recipes, bags) leaves the file.
+time each was scanned. Also adds the skill each trainer recipe is taught at, as recorded at
+trainers in game, to data/trainer-levels.json (the recipe sync uses it). Nothing about the character (purchases, known recipes, bags) leaves the file.
 """
 import datetime
 import json
@@ -15,6 +16,7 @@ from lupa import lua51
 HERE = os.path.dirname(os.path.abspath(__file__))
 ADDON = os.path.join(HERE, "..", "CraftPath")
 OUT = os.path.join(HERE, "..", "data", "prices.json")
+TRAINER_OUT = os.path.join(HERE, "..", "data", "trainer-levels.json")
 from luafiles import pure_files  # noqa: E402
 FILES = pure_files()
 
@@ -93,8 +95,31 @@ def main(argv=None):
     with open(OUT, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(out, fh, indent=1, ensure_ascii=False)
         fh.write("\n")
+    print(export_trainer_levels(db))
     print(f"Wrote {os.path.relpath(OUT)}: {len(prices)} auction prices, {len(vendor)} vendor prices, "
           f"newest {out['updated']}; left out {dropped} not seen in the last 36 hours")
+
+
+def export_trainer_levels(db, path=TRAINER_OUT):
+    """Merges the trainer levels this character has seen into data/trainer-levels.json. The game
+    shows them at the trainer and the client data doesn't have them."""
+    levels = {}
+    if os.path.exists(path):
+        with open(path, encoding="utf-8") as fh:
+            levels = json.load(fh)
+    added = 0
+    for prof, recipes in (db.trainer or {}).items():
+        for name, rank in (recipes or {}).items():
+            if rank and int(rank) > 0 and levels.setdefault(prof, {}).get(name) != int(rank):
+                levels[prof][name] = int(rank)
+                added += 1
+    if not added:
+        return "Trainer levels: nothing new."
+    levels = {p: dict(sorted(v.items())) for p, v in sorted(levels.items())}
+    with open(path, "w", encoding="utf-8", newline="\n") as fh:
+        json.dump(levels, fh, indent=1, ensure_ascii=False)
+        fh.write("\n")
+    return f"Trainer levels: {added} new or changed in {os.path.relpath(path)}."
 
 
 if __name__ == "__main__":

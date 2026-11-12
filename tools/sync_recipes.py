@@ -31,6 +31,7 @@ BUILDS_URL = "https://wago.tools/api/builds"
 # useHotfixes=1: the tables with Blizzard's hotfixes applied (what the game client actually
 # uses). Without it wago returns the data as shipped in the build, which misses hotfixes such
 # as the Nov 2026 vendor price cuts and skill-up changes.
+TRAINER_LEVELS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "trainer-levels.json")
 CSV_URL = "https://wago.tools/db2/{table}/csv?build={build}&useHotfixes=1"
 TABLES = ["SkillLineAbility", "SpellName", "SpellReagents", "SpellEffect", "ItemSparse"]
 
@@ -153,7 +154,7 @@ def parse_existing_full(path, addon=ADDON):
     return out
 
 
-def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclude):
+def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclude, trainer_levels=None):
     spell_name = {num(r, "ID"): r.get("Name_lang", "") for r in tables["SpellName"]}
     item_name = {num(r, "ID"): r.get("Display_lang", "") for r in tables["ItemSparse"]}
     item_names = set(item_name.values())
@@ -196,15 +197,25 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
             continue
 
         kept, kept_learn = existing_sources.get(name, (None, None))
-        # Trainer recipes say 1 in the client. In Forever the trainer teaches them at the skill
-        # where they turn yellow (TrivialSkillLineRankLow): Iron Buckle at 125, Mana Well at 20,
-        # checked in game. So learn = yellow, straight from the game data.
+        # Trainer recipes say 1 in the client; the real number is on the trainer NPC.
+        # 1. A level recorded at a trainer in game (data/trainer-levels.json) wins.
+        # 2. Otherwise assume the trainer teaches it where it turns yellow, as in Forever
+        #    (Iron Buckle 125, Mana Well 20, checked in game). Guessing high is safe: a guess
+        #    that's too low has the route ask for a recipe you can't learn yet.
+        # 3. Unless that leaves no skill-ups (yellow = grey, e.g. smelting), then keep what we had.
+        # Recipes from recipe items, vendors, factions and quests keep their own number.
         auto = num(r, "AcquireMethod") in (1, 2)
-        # Recipes from a recipe item, vendor, faction or quest keep the number we have (the
-        # requirement there is on the recipe item or the vendor, not in these tables).
         from_item = any(p + name in item_names for p in prefixes) or (kept and kept[0] in "RFVGNQ")
-        if learn <= 1 and not auto and yellow > 1:
-            learn = kept_learn if (from_item and kept_learn) else yellow
+        seen = (trainer_levels or {}).get(name)
+        if seen and not auto and not from_item:
+            learn = seen
+        elif learn <= 1 and not auto and yellow > 1:
+            if from_item and kept_learn:
+                learn = kept_learn
+            elif yellow < grey:
+                learn = yellow
+            else:
+                learn = kept_learn or max(1, yellow - 5)
         if learn >= MAX_SKILL or grey <= learn:
             continue  # can't help reach the cap
         orange = learn
@@ -457,7 +468,13 @@ def main(argv=None):
     ap.add_argument("--report", default=os.path.join(HERE, "..", "recipe-sync-report.md"))
     ap.add_argument("--addon-dir", default=ADDON, help="CraftPath folder to update (default: this repo's)")
     ap.add_argument("--changes", default=CHANGES, help="website change-history JSON to add this run to")
+    ap.add_argument("--trainer-levels", default=TRAINER_LEVELS,
+                    help="skill each trainer recipe is taught at, recorded in game (export_prices.py writes it)")
     args = ap.parse_args(argv)
+    trainer_levels = {}
+    if args.trainer_levels and os.path.exists(args.trainer_levels):
+        with open(args.trainer_levels, encoding="utf-8") as fh:
+            trainer_levels = json.load(fh)
     addon = args.addon_dir
 
     if args.csv_dir:
@@ -477,7 +494,8 @@ def main(argv=None):
         before_full = parse_existing_full(path, addon)
         before_sources = parse_existing(path, addon)
         before_lines = parse_lines(path)
-        recipes, problems, hidden = build_profession(tables, prof, skill_line, prefixes, before_sources, DEFAULT_EXCLUDE)
+        recipes, problems, hidden = build_profession(tables, prof, skill_line, prefixes, before_sources, DEFAULT_EXCLUDE,
+                                                     trainer_levels.get(prof))
         # Hand-set "gives no skill-ups" (points 0) wins over the game data, which can still list
         # skill-ups for a recipe that no longer gives them in game (e.g. Basic Campfire).
         for n, f in before_full.items():
