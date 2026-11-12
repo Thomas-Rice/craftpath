@@ -149,14 +149,22 @@ def main():
     short = [b for b in lua_list(p.shopping) if b.short]
     assert [b.name for b in short] == ["Copper Bar"] and p.short == 1, [b.name for b in short]
 
-    # Trainer-confirmed learn skill: Copper Tube learned 15 below what the data says.
-    eng_tube = R.Load("Engineering").byName["Copper Tube"]
-    tube_learn = eng_tube.learn
+    # Trainer-confirmed learn skill: a trainer recipe learned 15 below what the data says. Pick
+    # one whose materials make nothing else learnable nearby, and put only those on sale: the
+    # route can only use it if the override counts.
+    eng = R.Load("Engineering")
+    allr = lua_list(eng.list)
+    def mats_of(r): return {g.name for g in lua_list(r.reagents)}
+    eng_tube = next(r for r in allr if r.source == "T" and r.learn >= 40 and not any(
+        o.name != r.name and o.learn <= r.learn + 10 and mats_of(o) <= mats_of(r) for o in allr))
+    tube_learn, tube = eng_tube.learn, eng_tube.name
     low = tube_learn - 15
-    p = plan(lua, ns, "Engineering", low, low + 15, learnOverride=lua.table_from({"Copper Tube": low}),
-             prices={"Copper Bar": 100, "Rough Stone": 10000, "Linen Cloth": 10000})
-    assert not p.error, p.error
-    assert lua_list(p.steps)[0].recipe.name == "Copper Tube", lua_list(p.steps)[0].recipe.name
+    mats = {n: 100 for n in mats_of(eng_tube)}
+    def tube_route(override):
+        q = plan(lua, ns, "Engineering", low, low + 10, learnOverride=lua.table_from(override), prices=mats)
+        return [st.recipe.name for st in lua_list(q.steps)] if not q.error else []
+    assert tube not in tube_route({}), tube + " used before its level"
+    assert tube in tube_route({tube: low}), (tube, tube_route({tube: low}))
     assert eng_tube.learn == tube_learn, "override leaked into the cached data"
 
     # A trainer list that doesn't include a recipe keeps it out of the route.
@@ -208,13 +216,14 @@ def main():
         assert widget and widget[0].learnWhere.npc == npc, (faction, [st.recipe.name for st in lua_list(p.steps)])
     # Merchant's Favor plans name the faction's Favor vendor and the Favor cost.
     cheap_belt = {"Bronze Bar": 1, "Rough Stone": 1, "Strange Dust": 1}
-    p = plan(lua, ns, "Blacksmithing", 80, 85, prices=cheap_belt, faction="Horde")
+    no_cuirass = lua.table_from({"Rough Bronze Cuirass": 90})  # a cheaper trainer recipe at 80, kept out
+    p = plan(lua, ns, "Blacksmithing", 80, 85, prices=cheap_belt, faction="Horde", learnOverride=no_cuirass)
     favor = [l for l in lua_list(p.learn) if l.how == "favor"]
     assert favor, [st.recipe.name for st in lua_list(p.steps)]
     assert favor[0].where.npc == "Gor'mak" and favor[0].favor == 30, (favor[0].where.npc, favor[0].favor)
     assert "Durotar Supply and Logistics" in favor[0].where.where
     assert p.favorTotal >= 30
-    p = plan(lua, ns, "Blacksmithing", 80, 85, prices=cheap_belt, faction="Alliance")
+    p = plan(lua, ns, "Blacksmithing", 80, 85, prices=cheap_belt, faction="Alliance", learnOverride=no_cuirass)
     assert [l for l in lua_list(p.learn) if l.how == "favor"][0].where.npc == "Stondry Darkhammer"
 
     # Cooking: full route, quest recipes, rank items and the fire note.

@@ -19,18 +19,16 @@ ns.RawData["First Aid"] = {
   tools = {  },
   recipes = [[
 Linen Bandage|1|1|30|45|60|1|A|Linen Cloth*1
-First Aid Kit|15|15|20|20|20|1|T|Linen Bandage*3;Refreshing Spring Water*1
-Heavy Linen Bandage|50|50|50|75|100|1|T|Linen Cloth*2
-Minor Healing Potion|55|55|55|75|95|1|T|Empty Vial*1;Mild Spices*1;Peacebloom*1
+Minor Healing Potion|1|1|55|75|95|1|T|Empty Vial*1;Mild Spices*1;Peacebloom*1
+Heavy Linen Bandage|40|40|50|75|100|1|T|Linen Cloth*2
+Lesser Healing Potion|55|55|85|105|125|1|T|Empty Vial*1;Mild Spices*2;Briarthorn*1
 Anti-Venom|80|80|80|115|150|3|T|Small Venom Sac*1
 Wool Bandage|80|80|80|115|150|1|T|Wool Cloth*1
-Lesser Healing Potion|85|85|85|105|125|1|T|Empty Vial*1;Mild Spices*2;Briarthorn*1
 Simple Poultice|90|90|90|125|160|3|T|Spider Ichor*1;Mild Spices*1;Bottle of Dalaran Noir*1
+Healing Potion|110|110|135|155|175|1|T|Leaded Vial*1;Hot Spices*1;Bruiseweed*1
 Heavy Wool Bandage|115|115|115|150|185|1|T|Wool Cloth*2
 Woolen Tourniquet|120|120|120|155|190|1|T|Wool Cloth*2;Fine Thread*2
 Strong Anti-Venom|125|125|130|165|200|3|R|Large Venom Sac*1
-Healing Potion|135|135|135|155|175|1|T|Leaded Vial*1;Hot Spices*1;Bruiseweed*1
-Toxin Study|135|135|140|140|140|1|T|Anti-Venom*1;Mageweave Bandage*2;Simple Wood*2
 Silk Bandage|150|150|150|180|210|1|T|Silk Cloth*1
 Clever Poultice|155|155|160|190|220|3|R|Murloc Fin*1;Soothing Spices*1;Thunder Ale*1
 Greater Healing Potion|170|170|175|195|215|1|R|Leaded Vial*1;Hot Spices*3;Liferoot*1
@@ -46,6 +44,5 @@ Surgical Tourniquet|275|275|280|310|340|1|R|Rugged Leather*2;Runecloth*2;Heavy S
 Major Healing Potion|285|285|290|310|330|1|R|Crystal Vial*1;Soothing Spices*3;Golden Sansam*1
 Heavy Runecloth Bandage|290|290|290|320|350|1|T|Runecloth*2
 Powerful Poultice|290|290|295|325|355|3|R|Essence of Water*1;Hot Spices*1;Flagon of Dwarven Honeymead*1
-Plague Doctor's Laboratory|295|295|300|300|300|1|T|Simple Wood*2;Strong Anti-Venom*2;Heavy Runecloth Bandage*5
 ]],
 }
