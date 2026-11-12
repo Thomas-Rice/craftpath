@@ -255,6 +255,9 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
                 learn = kept_learn
             elif wiki:
                 learn, how_learn["wiki"] = wiki, how_learn["wiki"] + 1
+                if wiki > yellow:  # taught after it's already yellow: unusual, may be a wiki slip
+                    problems.append(f"{name}: the wiki says it's taught at {wiki}, above its yellow skill "
+                                    f"({yellow}); a visit to the trainer would confirm")
             elif kept_learn:
                 learn, how_learn["kept"] = kept_learn, how_learn["kept"] + 1
             else:
