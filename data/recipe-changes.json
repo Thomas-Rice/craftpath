@@ -1,5 +1,40 @@
 [
  {
+  "date": "2026-11-13",
+  "build": "1.60.1.70938",
+  "professions": [
+   {
+    "profession": "Cooking",
+    "before": 128,
+    "after": 128,
+    "minor": 0,
+    "added": [],
+    "removed": [],
+    "changed": [
+     {
+      "name": "Goblin Deviled Clams",
+      "change": "learn 150 → 125; orange 150 → 125"
+     }
+    ]
+   },
+   {
+    "profession": "Vendor prices",
+    "kind": "items",
+    "before": 1,
+    "after": 1,
+    "minor": 0,
+    "added": [],
+    "removed": [],
+    "changed": [
+     {
+      "name": "9-60 Battery Pack",
+      "change": "vendors pay 10s (was 25s)"
+     }
+    ]
+   }
+  ]
+ },
+ {
   "date": "2026-11-12",
   "build": "1.60.1.70888",
   "professions": [
