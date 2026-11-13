@@ -23,20 +23,26 @@
   "Heavy Copper Broadsword": 70,
   "Heavy Copper Maul": 40,
   "Iron Buckle": 125,
+  "Justicar's Belt": 150,
+  "Officer's Belt": 150,
   "Patterned Bronze Bracers": 95,
   "Pearl-handled Dagger": 85,
+  "Prefect's Belt": 150,
   "Rough Bronze Cuirass": 80,
   "Rough Bronze Shoulders": 85,
+  "Sentinel's Belt": 150,
   "Shining Silver Breastplate": 120,
   "Silvered Bronze Boots": 105,
   "Silvered Bronze Gauntlets": 110,
   "Strange Copper Boots": 35,
-  "Thick War Axe": 45
+  "Thick War Axe": 45,
+  "Warder's Belt": 150
  },
  "Cooking": {
   "Boiled Clams": 50,
   "Coyote Steak": 50,
   "Crab Cake": 75,
-  "Dry Pork Ribs": 80
+  "Dry Pork Ribs": 80,
+  "Goblin Deviled Clams": 125
  }
 }
