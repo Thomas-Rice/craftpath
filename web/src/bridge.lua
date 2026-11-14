@@ -177,6 +177,7 @@ function CP_Profit(optsJson)
       cost = e.cost, price = e.price, sale = e.sale, profit = e.profit, safeProfit = e.safeProfit,
       vendorSell = e.vendorSell, vendorProfit = e.vendorProfit, margin = e.margin, listed = e.listed,
       swings = e.swings, stats = e.stats, materials = e.materials, payback = e.payback,
+      cooldown = e.cooldown, cooldownText = e.cooldownText, cdGroup = e.cdGroup,
       learnHow = l.how, learnCost = e.learnCost, learnWhere = l.where, learnItem = l.item, source = e.recipe.source,
     }
   end

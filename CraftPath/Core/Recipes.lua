@@ -74,6 +74,9 @@ function Recipes.Load(profession)
       local lines = (line:sub(1, 5) == "@SET ") and expandSet(line, ns.RawData.Sets) or { line }
       for _, l in ipairs(lines) do
         local r = parseLine(l, profession)
+        -- Crafts you can only make once in a while (Transmute: Arcanite, Mooncloth...).
+        local cd = ((ns.RawData.Cooldowns or {})[profession] or {})[r.name]
+        if cd then r.cooldown, r.cdGroup = cd[1], cd[2] ~= "" and cd[2] or nil end
         if byName[r.name] then error("CraftPath: duplicate recipe " .. r.name) end
         r.index = #list + 1
         list[r.index] = r
@@ -94,6 +97,27 @@ function Recipes.Professions()
   table.sort(out)
   return out
 end
+
+-- "2 days", "4 days", "10 min": how long a cooldown is, in words.
+function Recipes.CooldownText(seconds)
+  if not seconds or seconds <= 0 then return nil end
+  if seconds >= 86400 * 6.5 then
+    local w = math.floor(seconds / (86400 * 7) + 0.5)
+    return w == 1 and "a week" or (w .. " weeks")
+  end
+  if seconds >= 86400 * 0.9 then
+    local d = math.floor(seconds / 86400 + 0.5)
+    return d == 1 and "a day" or (d .. " days")
+  end
+  if seconds >= 3600 then
+    local h = math.floor(seconds / 3600 + 0.5)
+    return h == 1 and "an hour" or (h .. " hours")
+  end
+  return math.max(1, math.floor(seconds / 60 + 0.5)) .. " min"
+end
+
+-- A cooldown long enough that a levelling route can't lean on it (an hour or more).
+Recipes.LONG_COOLDOWN = 3600
 
 -- Every item name the profession's recipes use, for targeted auction house scans.
 function Recipes.AllReagents(profession)

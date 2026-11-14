@@ -335,6 +335,15 @@ def main():
     bronze = found["Bronze Bar"]  # you have Mining 50: level up to Bronze Bar's skill first
     gap = R.Load("Mining").byName["Bronze Bar"].learn - 50
     assert bronze.need == "skill" and bronze.skillGap == gap > 0, (bronze.need, bronze.skillGap, gap)
+    # Crafts with a long cooldown (Transmute: Arcanite, one every 2 days) stay out of routes,
+    # with a note; the profit finder still lists them, saying how often you can make one.
+    arc = R.Load("Alchemy").byName["Arcanite Bar"]
+    assert arc.cooldown and arc.cooldown >= 86400 and arc.cdGroup, (arc.cooldown, arc.cdGroup)
+    arc_prices = dict(SAMPLE_PRICES, **{"Thorium Bar": 100, "Arcane Crystal": 100})
+    p = plan(lua, ns, "Alchemy", 275, 285, prices=arc_prices)
+    assert "Arcanite Bar" not in [st.recipe.name for st in lua_list(p.steps)]
+    assert any("Arcanite Bar" in n and "cooldown" in n for n in lua_list(p.notes)), lua_list(p.notes)
+    assert ns.Recipes.CooldownText(169200) == "2 days" and ns.Recipes.CooldownText(600) == "10 min"
     print("Profit finder:", {n: round(e.best, 1) for n, e in list(found.items())[:4]})
 
     print("All tests passed.")

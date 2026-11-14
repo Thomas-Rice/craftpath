@@ -226,6 +226,11 @@ local function tipFor(e)
     if e.learn and e.learn.where and e.learn.where.note then t[#t + 1] = e.learn.where.note end
     if e.payback then t[#t + 1] = ("Pays for itself after %d crafts."):format(e.payback) end
   end
+  if e.cooldown then
+    t[#t + 1] = ("|cffffd100Cooldown: one craft every %s%s, so this is a profit per %s, not per batch.|r"):format(
+      ns.Recipes.CooldownText(e.cooldown), e.cdGroup and (" (shared with all " .. e.cdGroup:gsub(" %- .*", "") .. "s)") or "",
+      ns.Recipes.CooldownText(e.cooldown))
+  end
   t[#t + 1] = "Click: search the auction house"
   return t
 end
@@ -238,6 +243,7 @@ local function rowFor(e)
       or "|cff33ff33vendor|r"
   end
   if e.swings then notes[#notes + 1] = "|cffff9933swings|r" end
+  if e.cooldownText then notes[#notes + 1] = "|cffffd100cd " .. e.cooldownText:gsub("^an? ", "1 ") .. "|r" end
   if e.levelsYou then notes[#notes + 1] = "|cff66ccffskill|r" end
   local name = e.name .. (e.makes > 1 and ("|cff999999 ×" .. e.makes .. "|r") or "")
   if not e.canCraft then
@@ -250,6 +256,7 @@ local function rowFor(e)
       notes = { "|cff999999learn: " .. tag .. "|r" }
     end
     name = "|cffbbbbbb" .. name .. "|r"
+    if e.cooldownText then notes[#notes + 1] = "|cffffd100cd " .. e.cooldownText:gsub("^an? ", "1 ") .. "|r" end
   end
   local function green(v) return v and (v > 0 and ("|cff33ff33" .. short(v) .. "|r") or short(v)) or "—" end
   return {

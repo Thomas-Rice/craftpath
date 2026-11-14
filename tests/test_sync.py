@@ -61,6 +61,12 @@ def make_csvs(ns, out, extra=None, change=None, hidden_reagent=None):
               ["ID", "SkillLine", "Spell", "MinSkillLineRank", "AcquireMethod", "TrivialSkillLineRankHigh",
                "TrivialSkillLineRankLow", "NumSkillUps"], sla)
     write_csv(os.path.join(out, "SpellName.csv"), ["ID", "Name_lang"], names)
+    # Crafting cooldowns: Copper Tube gets a shared 2-day one, Handful of Copper Bolts its own 10 min.
+    sid = {n: i for i, n in names}
+    write_csv(os.path.join(out, "SpellCooldowns.csv"), ["ID", "CategoryRecoveryTime", "RecoveryTime", "SpellID"],
+              [[1, 169200000, 0, sid["Copper Tube"]], [2, 0, 600000, sid["Handful of Copper Bolts"]]])
+    write_csv(os.path.join(out, "SpellCategories.csv"), ["ID", "Category", "SpellID"], [[1, 310, sid["Copper Tube"]]])
+    write_csv(os.path.join(out, "SpellCategory.csv"), ["ID", "Name_lang"], [[310, "Transmute - Alchemy"]])
     write_csv(os.path.join(out, "SpellReagents.csv"),
               ["ID", "SpellID"] + [f"Reagent_{i}" for i in range(8)] + [f"ReagentCount_{i}" for i in range(8)], reagents)
     write_csv(os.path.join(out, "SpellEffect.csv"),
@@ -188,6 +194,9 @@ def main():
                            "--changes", changes, "--trainer-levels", tl, "--wiki-levels", wl])
         bs = open(os.path.join(addon, "Data", "Blacksmithing.lua"), encoding="utf-8").read()
         assert "\nThorium Shield Wall|285|285|290|" in bs, [l for l in bs.splitlines() if "Shield Wall" in l]
+        cds = open(os.path.join(addon, "Data", "Cooldowns.lua"), encoding="utf-8").read()
+        assert '["Copper Tube"] = { 169200, "Transmute - Alchemy" },' in cds, cds
+        assert '["Handful of Copper Bolts"] = { 600, "" },' in cds, cds
         print("Sync test passed:", {p: len(after[p]) for p in after})
     finally:
         shutil.rmtree(tmp)

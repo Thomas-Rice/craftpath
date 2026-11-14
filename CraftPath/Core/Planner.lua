@@ -165,6 +165,12 @@ function Planner.Learner(opts, list)
     local cached = learnInfo[r]
     if cached ~= nil then return cached.cost, cached end
     local info = { cost = nil }
+    if r.cooldown and r.cooldown >= Recipes.LONG_COOLDOWN and not opts.allowCooldowns then
+      -- one craft every day or more: no good for levelling, or for making materials in bulk
+      info.how = "cooldown"
+      learnInfo[r] = info
+      return nil, info
+    end
     if known[r.name] then
       info.cost, info.how = 0, "known"
     elseif r.source == "A" then
@@ -702,6 +708,32 @@ function Planner.AddRankNotes(plan)
   end
   local data = Recipes.Load(plan.profession)
   if data and data.needsFire then table.insert(plan.notes, 1, ns.RawData.FireNote) end
+  if data then
+    -- Crafts with a cooldown: long ones are left out of the route; short ones slow it down.
+    local long, groups = {}, {}
+    for _, r in ipairs(data.list) do
+      if r.cooldown and r.cooldown >= Recipes.LONG_COOLDOWN and r.grey > plan.from and r.learn < plan.to then
+        long[#long + 1] = r.name
+        groups[Recipes.CooldownText(r.cooldown)] = true
+      end
+    end
+    if #long > 0 then
+      table.sort(long)
+      local shown = #long > 4 and (table.concat({ unpack(long, 1, 4) }, ", ") .. " and " .. (#long - 4) .. " more")
+        or table.concat(long, ", ")
+      plan.notes[#plan.notes + 1] = ("Not used: %s. They have a cooldown (one craft every %s), too slow for levelling."):format(
+        shown, table.concat((function() local t = {} for k in pairs(groups) do t[#t + 1] = k end table.sort(t) return t end)(), " or "))
+    end
+    for _, st in ipairs(plan.steps or {}) do
+      local r = st.recipe
+      if r.cooldown and r.cooldown > 0 then
+        st.cooldown = r.cooldown
+        local waits = math.max(0, math.ceil(st.crafts or 0) - 1) * r.cooldown
+        plan.notes[#plan.notes + 1] = ("%s has a %s cooldown between crafts: the %d crafts take at least %s."):format(
+          r.name, Recipes.CooldownText(r.cooldown), math.ceil(st.crafts or 0), Recipes.CooldownText(waits) or "no time")
+      end
+    end
+  end
 end
 
 -- Explains why the route stops: which recipes would work at this skill and what's unpriced.

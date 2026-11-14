@@ -10,6 +10,7 @@
 
 Data\Shared.lua
 Data\Items.lua
+Data\Cooldowns.lua
 Data\Engineering.lua
 Data\Blacksmithing.lua
 Data\Cooking.lua

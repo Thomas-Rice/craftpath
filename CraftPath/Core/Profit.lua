@@ -40,6 +40,7 @@ function Profit.Find(opts)
       local learner = ns.Planner.Learner({
         profession = p.prof, ahPrice = ahPrice, vendorPrice = vendorPrice, known = p.known or {},
         faction = opts.faction, allowFavor = opts.allowFavor, vendorWhere = opts.vendorWhere,
+        allowCooldowns = true, -- one craft a day can still be worth it; the result says so
       }, data.list)
       for _, r in ipairs(data.list) do
         local knownIt
@@ -125,6 +126,8 @@ function Profit.Find(opts)
             known = it.known, canCraft = it.canCraft and true or false, skill = it.skill,
             hasProfession = it.skill ~= nil, materials = mats,
             levelsYou = it.skill and Recipes.SkillUpChance(r, it.skill) > 0 or false,
+            -- one craft every N seconds; cdGroup = a cooldown shared with other recipes (transmutes)
+            cooldown = r.cooldown, cdGroup = r.cdGroup, cooldownText = Recipes.CooldownText(r.cooldown),
           }
           if not it.canCraft then
             local learnCost, info = it.learner(r)

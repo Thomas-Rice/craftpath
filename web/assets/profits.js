@@ -84,6 +84,7 @@ function card(e, idx) {
   if (e.vendorProfit > 0) badges.push(`<span class="badge vendor">vendor pays more</span>`);
   if (e.vendorProfit > 0 && e.price != null && e.vendorProfit >= (e.safeProfit ?? -1e12)) badges.push(`<span class="badge vendor">best sold to a vendor</span>`);
   if (e.swings) badges.push(`<span class="badge short">price swings</span>`);
+  if (e.cooldownText) badges.push(`<span class="badge short" title="One craft every ${esc(e.cooldownText)}${e.cdGroup ? ", shared with every transmute" : ""}: the profit is per craft, not per batch.">one every ${esc(e.cooldownText.replace(/^an? /, ""))}</span>`);
   if (e.listed > 40) badges.push(`<span class="badge">${e.listed} listed</span>`);
   const mats = arr(e.materials).map((m) => `<div class="mat"><span class="mq">${m.qty}×</span><span>${esc(m.name)} <span class="muted">(${m.how === "craft" ? "craft it" : m.how === "vendor" ? "vendor" : "auction house"})</span></span><span class="mp">${money(m.unit * m.qty)}</span></div>`).join("");
   const st = e.stats;
