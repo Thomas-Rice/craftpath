@@ -655,7 +655,15 @@ def main(argv=None):
             details.append(f"<details><summary>{prof} raw lines</summary>\n\n```\n" + "\n".join(detail_lines) + "\n```\n</details>")
         sections.append("\n".join(sec) + "\n")
     if tables.get("SpellCooldowns"):
-        print(f"Cooldowns.lua: {write_cooldowns(addon, cooldown_by_prof, build)} crafts with a cooldown.")
+        cd_path = os.path.join(addon, "Data", "Cooldowns.lua")
+        cd_body = lambda: "".join(l for l in open(cd_path, encoding="utf-8") if not l.startswith("--")) \
+            if os.path.exists(cd_path) else ""
+        old_cd = cd_body()
+        n_cd = write_cooldowns(addon, cooldown_by_prof, build)
+        print(f"Cooldowns.lua: {n_cd} crafts with a cooldown.")
+        if cd_body() != old_cd:
+            changed_any = True
+            sections.append(f"## Cooldowns\n\n{n_cd} crafts have a cooldown; the list changed (see Data/Cooldowns.lua).\n")
     msg, prices = write_items(addon, tables, item_names, build)
     print(msg)
     if prices:
