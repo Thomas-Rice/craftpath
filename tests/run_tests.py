@@ -342,7 +342,7 @@ def main():
     arc_prices = dict(SAMPLE_PRICES, **{"Thorium Bar": 100, "Arcane Crystal": 100})
     p = plan(lua, ns, "Alchemy", 275, 285, prices=arc_prices)
     assert "Arcanite Bar" not in [st.recipe.name for st in lua_list(p.steps)]
-    assert any("Arcanite Bar" in n and "cooldown" in n for n in lua_list(p.notes)), lua_list(p.notes)
+    assert any("Arcanite Bar" in n and "cooldown" in n for n in lua_list(p.notes)), (p.error, lua_list(p.notes))
     assert ns.Recipes.CooldownText(169200) == "2 days" and ns.Recipes.CooldownText(600) == "10 min"
     print("Profit finder:", {n: round(e.best, 1) for n, e in list(found.items())[:4]})
 

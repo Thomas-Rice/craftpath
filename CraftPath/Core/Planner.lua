@@ -455,11 +455,13 @@ planOnce = function(opts, ownedFactor)
   if best[to] == INF then
     local reached = from
     for s = from, to do if best[s] < INF then reached = s end end
-    return {
+    local failed = {
       error = ("No priced recipe can take you past skill %d."):format(reached),
       blocked = Planner.Blockers(list, reached, unitCost, learnCost, bonus),
-      reached = reached, from = from, to = to, notes = notes,
+      reached = reached, from = from, to = to, notes = notes, profession = opts.profession,
     }
+    Planner.CooldownNotes(failed)
+    return failed
   end
 
   -- Rebuild the route, then merge neighbouring stretches of the same recipe.
@@ -708,6 +710,13 @@ function Planner.AddRankNotes(plan)
   end
   local data = Recipes.Load(plan.profession)
   if data and data.needsFire then table.insert(plan.notes, 1, ns.RawData.FireNote) end
+  Planner.CooldownNotes(plan)
+end
+
+-- Crafts with a cooldown: long ones are left out of the route (say which); short ones slow it down.
+function Planner.CooldownNotes(plan)
+  local data = Recipes.Load(plan.profession)
+  plan.notes = plan.notes or {}
   if data then
     -- Crafts with a cooldown: long ones are left out of the route; short ones slow it down.
     local long, groups = {}, {}
@@ -719,7 +728,7 @@ function Planner.AddRankNotes(plan)
     end
     if #long > 0 then
       table.sort(long)
-      local shown = #long > 4 and (table.concat({ unpack(long, 1, 4) }, ", ") .. " and " .. (#long - 4) .. " more")
+      local shown = #long > 4 and (table.concat({ long[1], long[2], long[3], long[4] }, ", ") .. " and " .. (#long - 4) .. " more")
         or table.concat(long, ", ")
       plan.notes[#plan.notes + 1] = ("Not used: %s. They have a cooldown (one craft every %s), too slow for levelling."):format(
         shown, table.concat((function() local t = {} for k in pairs(groups) do t[#t + 1] = k end table.sort(t) return t end)(), " or "))
