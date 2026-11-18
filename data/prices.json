@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T10:36:20+00:00",
+ "updated": "2026-11-18T16:01:50+00:00",
  "note": "Lowest buyout from the site owner's CraftPath scans (Horde). Prices change constantly; the addon uses your own live scan.",
  "prices": {
   "9-60 Battery Pack": {
@@ -2987,10 +2987,10 @@
    "days": 4
   },
   "Draught of Water Walking": {
-   "p": 1300,
-   "t": 1794993729,
-   "q": 1989,
-   "low": 1300,
+   "p": 1249,
+   "t": 1795017710,
+   "q": 1114,
+   "low": 1249,
    "med": 2174,
    "high": 19998,
    "days": 4
@@ -12752,10 +12752,10 @@
    "days": 4
   },
   "Recipe: Draught of Water Walking": {
-   "p": 60022,
-   "t": 1794993729,
-   "q": 21,
-   "low": 60022,
+   "p": 42199,
+   "t": 1795017710,
+   "q": 17,
+   "low": 42199,
    "med": 155400,
    "high": 880000,
    "days": 4
@@ -17719,7 +17719,7 @@
   }
  },
  "vendor": {
-  "Aquadynamic Fish Attractor": 225,
+  "Aquadynamic Fish Attractor": 250,
   "Black Dye": 900,
   "Blacksmith Hammer": 17,
   "Blank Parchment": 450,
@@ -17766,7 +17766,7 @@
   "Moonberry Juice": 360,
   "Morning Glory Dew": 720,
   "Mote of Magic": 9,
-  "Nightcrawlers": 90,
+  "Nightcrawlers": 100,
   "Orange Dye": 900,
   "Pattern: Barbaric Leggings": 585,
   "Pattern: Black Swashbuckler's Shirt": 1500,
@@ -17815,6 +17815,7 @@
   "Recipe: Sagefish Delight": 4500,
   "Recipe: Shadow Oil": 1350,
   "Recipe: Smoked Sagefish": 450,
+  "Recipe: Spiced Chili Crab": 10800,
   "Recipe: Strider Stew": 396,
   "Recipe: Tender Wolf Steak": 12000,
   "Red Dye": 45,
