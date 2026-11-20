@@ -154,8 +154,17 @@ local function bagSlot(b)
   end
 end
 
+-- Our marks live in these tables, not as fields on the game's own buttons and frames: writing to
+-- a Blizzard frame from an addon can "taint" it, and then the game blocks actions such as using
+-- an item from your bags ("CraftPath has been blocked from an action").
+local markOf = setmetatable({}, { __mode = "k" })    -- item button -> mark texture
+local warningOf = setmetatable({}, { __mode = "k" }) -- auction sell frame -> warning text
+local ahHooked = false
+function Keep.MarkOf(b) return markOf[b] end
+function Keep.WarningOf(f) return warningOf[f] end
+
 local function mark(b, prof, e)
-  local t = b.cpKeep
+  local t = markOf[b]
   if not prof then
     if t then t:Hide(); t.border:Hide() end
     return
@@ -170,14 +179,14 @@ local function mark(b, prof, e)
     t:SetPoint("CENTER", border, "CENTER")
     t:SetTexCoord(0.08, 0.92, 0.08, 0.92)
     t.border = border
-    b.cpKeep = t
+    markOf[b] = t
   end
   t:SetTexture(ICONS[prof] or "Interface\\Icons\\INV_Misc_Note_01")
   t:Show(); t.border:Show()
 end
 
 local function updateButton(b)
-  if not b or not b.GetID then return end
+  if type(b) ~= "table" or not b.GetID then return end
   local bag, slot = bagSlot(b)
   if not bag or not slot then return end
   local name = itemName(bag, slot)
@@ -194,7 +203,8 @@ local function eachButton(fn)
     if f and f:IsShown() and f.EnumerateValidItems then
       local ok, iter, state, start = pcall(f.EnumerateValidItems, f)
       if ok and iter then
-        for _, b in iter, state, start do fn(b) end
+        -- bag frames give (index, button); the newer bank panel gives the button first
+        for k, v in iter, state, start do fn(type(v) == "table" and v or k) end
       end
     end
   end
@@ -231,14 +241,14 @@ end
 
 local function sellWarning(frame, location)
   if not frame then return end
-  local w = frame.cpKeepWarning
+  local w = warningOf[frame]
   if not w then
     w = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     w:SetPoint("BOTTOMLEFT", frame, "TOPLEFT", 8, 4)
     w:SetPoint("RIGHT", frame, "RIGHT", -8, 0)
     w:SetJustifyH("LEFT")
     w:SetTextColor(1, 0.35, 0.25)
-    frame.cpKeepWarning = w
+    warningOf[frame] = w
   end
   local name = nameAt(location)
   local e = name and Keep.For(name)
@@ -253,8 +263,8 @@ end
 
 local function hookAuctionHouse()
   local ah = _G.AuctionHouseFrame
-  if not ah or ah.cpKeepHooked then return end
-  ah.cpKeepHooked = true
+  if not ah or ahHooked then return end
+  ahHooked = true
   for _, key in ipairs({ "ItemSellFrame", "CommoditiesSellFrame" }) do
     local f = ah[key]
     if type(f) == "table" and f.SetItem then

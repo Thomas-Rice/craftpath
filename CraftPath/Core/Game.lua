@@ -405,10 +405,11 @@ ns.On("TRAINER_UPDATE", function() readTrainer("TRAINER_UPDATE") end)
 -- In Forever the trainer events don't reliably reach addons, so also watch the trainer window
 -- itself: read when it opens and whenever it refreshes (throttled).
 local lastWindowRead = 0
+local trainerHooked = false -- kept here, not on the game's frame (see Keep.lua: taint)
 local function hookTrainerWindow()
   local f = _G.ClassTrainerFrame
-  if not f or f.cpTrainerHooked then return end
-  f.cpTrainerHooked = true
+  if not f or trainerHooked then return end
+  trainerHooked = true
   f:HookScript("OnShow", function() trainerOpened("WINDOW") end)
   if type(_G.ClassTrainerFrame_Update) == "function" then
     hooksecurefunc("ClassTrainerFrame_Update", function()

@@ -216,7 +216,12 @@ local bankButton = newWidget("Button")
 function bankButton:GetBankTabID() return 6 end
 function bankButton:GetContainerSlotID() return 3 end
 BankPanel.__buttons = { bankButton }
-function BankPanel:EnumerateValidItems() return ipairs(self.__buttons) end
+-- like the game's frame pools: (button, true), button first
+function BankPanel:EnumerateValidItems()
+  local active = {}
+  for _, b in ipairs(self.__buttons) do active[b] = true end
+  return pairs(active)
+end
 C_Container = {
   GetContainerItemInfo = function(bag, slot)
     local n = __bag[bag] and __bag[bag][slot]
@@ -675,9 +680,9 @@ def main():
     G.BankPanel.__shown = True
     fire("BAG_UPDATE_DELAYED"); G.__runTimers()
     b1, b2 = G.ContainerFrameCombinedBags.__buttons[1], G.ContainerFrameCombinedBags.__buttons[2]
-    assert b1.cpKeep and b1.cpKeep.__shown, "needed item in bags not marked"
-    assert not b2.cpKeep or not b2.cpKeep.__shown, "unneeded item marked"
-    assert G.BankPanel.__buttons[1].cpKeep.__shown, "needed item in the bank not marked"
+    assert ns.Keep.MarkOf(b1) and ns.Keep.MarkOf(b1).__shown, "needed item in bags not marked"
+    assert not ns.Keep.MarkOf(b2) or not ns.Keep.MarkOf(b2).__shown, "unneeded item marked"
+    assert ns.Keep.MarkOf(G.BankPanel.__buttons[1]).__shown, "needed item in the bank not marked"
     # tooltip line
     G.__itemNames[777001] = item
     tip = G.CreateFrame("GameTooltip"); lines = []
@@ -688,9 +693,9 @@ def main():
     fire("AUCTION_HOUSE_SHOW"); G.__runTimers()
     sell = G.AuctionHouseFrame.ItemSellFrame
     sell.SetItem(sell, lua.table_from({"name": item}))
-    assert sell.cpKeepWarning.__shown and item in sell.cpKeepWarning.__text
+    assert ns.Keep.WarningOf(sell).__shown and item in ns.Keep.WarningOf(sell).__text
     sell.SetItem(sell, lua.table_from({"name": "Hearthstone"}))
-    assert not sell.cpKeepWarning.__shown
+    assert not ns.Keep.WarningOf(sell).__shown
     # vendor: selling it prints a warning
     G.MerchantFrame.__shown = True
     before = len(G.__chat)
@@ -699,9 +704,9 @@ def main():
     G.MerchantFrame.__shown = False
     # cleared slot loses its mark; turning it off hides marks
     fire("BAG_UPDATE_DELAYED"); G.__runTimers()
-    assert not b1.cpKeep.__shown
+    assert not ns.Keep.MarkOf(b1).__shown
     G.SlashCmdList.CRAFTPATH("keep"); G.__runTimers()
-    assert not G.BankPanel.__buttons[1].cpKeep.__shown
+    assert not ns.Keep.MarkOf(G.BankPanel.__buttons[1]).__shown
     G.SlashCmdList.CRAFTPATH("keep")
 
     # ---- Mailbox stock counts as owned, from the last visit ----
