@@ -800,6 +800,14 @@ def main():
     keep = ns.Keep.Build(True)
     assert keep["Copper Ore"] and "smelted into Copper Bar" in ns.Keep.Text(keep["Copper Ore"]), "ore not kept"
     print("Ore counts as bars:", cb[0].qty, "Copper Bar needed,", cb[0].have, "owned incl. ore")
+    # Profits: is your ore worth more smelted? 30 Copper Ore at 10c, bars at 25c -> smelt.
+    keep_prices = {n: ns.db.prices[n] for n in ("Copper Ore", "Copper Bar")}
+    ns.db.prices["Copper Ore"] = lua.table_from({"p": 10, "t": G.time(), "q": 500})
+    ns.db.prices["Copper Bar"] = lua.table_from({"p": 25, "t": G.time(), "q": 300})
+    rows = lua_list(ns.ProfitUI.OreRows())
+    cu = [r for r in rows if "Copper Ore" in r[1]]
+    assert cu and "smelt" in cu[0][7] and cu[0].gain > 0, [(r[1], r[7]) for r in rows]
+    for n, v in keep_prices.items(): ns.db.prices[n] = v
     lua.execute("C_Item.GetItemCount = __origCount")
 
     # ---- TradeSkillMaster as an optional source: prices for unscanned items, sale rates ----

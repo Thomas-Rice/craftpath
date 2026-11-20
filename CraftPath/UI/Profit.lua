@@ -297,6 +297,55 @@ local function keyOf(e)
   return math.max(e.safeProfit or -math.huge, e.vendorProfit or -math.huge)
 end
 
+-- Ore you have (bags, bank, mailbox) that you can smelt: is it worth more as ore or as bars?
+-- Both priced at what you'd get on the auction house (the lower of now and this week's low,
+-- after the 5% cut). Returns rows for the window, or an empty list.
+local function safeSale(name)
+  local p = ns.Prices.AH(name)
+  if not p then return nil end
+  local st = ns.Prices.Stats(name)
+  if st and st.low and st.low < p then p = st.low end
+  return p * 0.95
+end
+
+function UI.OreRows()
+  local out = {}
+  if not (ns.Game.Smelt and ns.Game.GetSkill("Mining")) then return out end
+  local data = ns.Recipes.Load("Mining")
+  local seen = {}
+  for _, r in ipairs(data and data.list or {}) do
+    local sm = ns.Game.Smelt(r.name)
+    if sm and not seen[sm.ore] then
+      seen[sm.ore] = true
+      local have = ns.Game.Owned(sm.ore)
+      local bars = math.floor(have / sm.per) * sm.makes
+      local ore, bar = safeSale(sm.ore), safeSale(r.name)
+      if bars > 0 and (ore or bar) then
+        local used = math.floor(have / sm.per) * sm.per
+        local asOre = ore and ore * used or nil
+        local asBars = bar and bar * bars or nil
+        local gain = asOre and asBars and (asBars - asOre) or nil
+        local verdict
+        if gain and gain > 0 then verdict = "|cff33ff33smelt|r"
+        elseif gain then verdict = "|cffffffffsell ore|r"
+        else verdict = asBars and "|cff999999no ore price|r" or "|cff999999no bar price|r" end
+        out[#out + 1] = {
+          ("%d %s"):format(used, sm.ore), short(asOre), short(asBars),
+          gain and (gain > 0 and ("|cff33ff33+" .. short(gain) .. "|r") or short(gain)) or "—", "",
+          tostring(ns.Prices.Listed(r.name) or "?"), verdict, item = r.name, gain = gain or -math.huge,
+          tip = { ("%d %s → %d %s"):format(used, sm.ore, bars, r.name),
+            ("Sold as ore: %s (%s each)"):format(asOre and Money(asOre) or "no price", ore and Money(ore) or "?"),
+            ("Smelted and sold as bars: %s (%s each)"):format(asBars and Money(asBars) or "no price", bar and Money(bar) or "?"),
+            "Prices are what you'd get after the auction cut, at the lower of today's price and this week's low.",
+            "Click: search the auction house for the bars" },
+        }
+      end
+    end
+  end
+  table.sort(out, function(a, b) return a.gain > b.gain end)
+  return out
+end
+
 function UI.Refresh()
   if not frame or not frame:IsShown() then return end
   local s = settings()
@@ -339,6 +388,14 @@ function UI.Refresh()
       if i > MAX_ROWS_SHOWN then break end
       out[#out + 1] = rowFor(e)
     end
+  end
+  -- Your ore: worth smelting before you sell it?
+  local ore = UI.OreRows()
+  if #ore > 0 then
+    out[#out + 1] = { "" }
+    out[#out + 1] = { "|cffffd100Your ore: smelt it or sell it?|r", "|cff999999As ore|r", "|cff999999As bars|r",
+      "|cffffd100Smelting|r", "", "|cff999999Listed|r", "" }
+    for _, row in ipairs(ore) do out[#out + 1] = row end
   end
   -- Your professions: recipes you could add by learning them, or by levelling up first.
   section("Learn the recipe: you have the skill", groups.learn)
