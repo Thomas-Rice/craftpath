@@ -377,3 +377,12 @@ code { font: .86em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; bac
 .notes li.good { background: rgba(69, 210, 106, .1); border-color: rgba(69, 210, 106, .35); }
 .sellback { color: #9ff0b4; }
 .profit-word { font-size: .7em; color: #9ff0b4; font-weight: 500; }
+
+/* Profits: smelt your ore or sell it? */
+.smelt h2 { margin-top: 0; }
+.table-wrap { overflow-x: auto; margin-top: 12px; }
+.smelt table { width: 100%; border-collapse: collapse; font-size: .9rem; min-width: 480px; }
+.smelt th { text-align: left; font-weight: 600; color: var(--muted, #a99fbf); border-bottom: 1px solid rgba(255, 255, 255, .12); padding: 6px 8px; }
+.smelt td { padding: 6px 8px; border-bottom: 1px solid rgba(255, 255, 255, .06); }
+.smelt .num { text-align: right; white-space: nowrap; }
+.badge.good { background: rgba(69, 210, 106, .18); color: #9ff0b4; }

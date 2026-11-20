@@ -67,6 +67,15 @@
     <div id="error" class="panel error" hidden></div>
     <div class="profit-list" id="list"></div>
 
+    <section class="panel smelt" id="smelt" hidden>
+      <h2>Smelt your ore or sell it?</h2>
+      <p class="muted">What a stack of 20 ore sells for as it is, and as the bars it makes, after the auction house's 5% cut (at the lower of today's price and this week's low). Smelting needs the Mining skill shown.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Ore</th><th>Mining</th><th class="num">20 as ore</th><th class="num">As bars</th><th class="num">Smelting</th><th></th></tr></thead>
+        <tbody id="smeltRows"></tbody>
+      </table></div>
+    </section>
+
     <section class="panel addon">
       <h2>Your realm, your recipes</h2>
       <p>The <a href="./#download">CraftPath addon</a> has the same profit finder in game: type <code>/cpath profit</code>. It uses your own auction house scan, knows which recipes you've learned, and keeps a week of prices to tell a steady profit from a one-day spike.</p>

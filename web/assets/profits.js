@@ -147,6 +147,30 @@ function render() {
     `<label class="skill">${esc(p)} skill <input type="number" min="1" max="300" inputmode="numeric" data-skill="${esc(p)}" value="${skills[p] || ""}" placeholder="?"></label>`).join("");
 }
 
+// Smelt or sell: a stack of 20 ore as ore vs as bars, per the site's prices.
+function renderSmelt(smelts) {
+  const sale = (n) => {
+    const e = snapshot.prices[n]; if (!e || !e.p) return null;
+    return Math.min(e.p, e.low || e.p) * 0.95;
+  };
+  const rows = arr(smelts).map((s) => {
+    const ore = sale(s.ore), bar = sale(s.bar);
+    const used = Math.floor(20 / s.per) * s.per; // ore that goes into whole smelts
+    const asOre = ore == null ? null : ore * used;
+    const asBars = bar == null ? null : bar * Math.floor(20 / s.per) * s.makes;
+    return { ...s, asOre, asBars, gain: asOre != null && asBars != null ? asBars - asOre : null };
+  }).filter((r) => r.asOre != null || r.asBars != null)
+    .sort((a, b) => (b.gain ?? -1e12) - (a.gain ?? -1e12));
+  if (!rows.length) return;
+  $("smeltRows").innerHTML = rows.map((r) => `<tr>
+    <td>${esc(r.ore)} <span class="muted">→ ${esc(r.bar)}</span></td><td>${r.learn}</td>
+    <td class="num">${money(r.asOre)}</td><td class="num">${money(r.asBars)}</td>
+    <td class="num">${r.gain == null ? "—" : r.gain > 0 ? "+" + money(r.gain) : pm(r.gain)}</td>
+    <td>${r.gain == null ? `<span class="muted">no price</span>` : r.gain > 0 ? `<span class="badge good">smelt</span>` : `<span class="badge">sell the ore</span>`}</td>
+  </tr>`).join("");
+  $("smelt").hidden = false;
+}
+
 $("skills").addEventListener("change", (ev) => {
   const el = ev.target.closest("[data-skill]"); if (!el) return;
   const v = Math.round(+el.value);
@@ -184,6 +208,7 @@ async function main() {
     $("priceNote").innerHTML = $("priceNote2").innerHTML = `Prices from an auction house scan on <strong>${d}</strong> (Horde). Your realm will differ a little.`;
     $("loading").hidden = true;
     render();
+    renderSmelt(eng.data().smelts);
   } catch (err) {
     $("loading").hidden = true; $("error").hidden = false;
     $("error").textContent = "The profit finder couldn't load: " + err.message;

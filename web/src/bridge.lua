@@ -148,6 +148,14 @@ function CP_Data()
     local d = ns.Recipes.Load(prof)
     out.professions[prof] = { count = #d.list, reagents = ns.Recipes.AllReagents(prof), build = ns.RawData[prof].build }
   end
+  -- Smelts that take one ore (for "smelt it or sell it?")
+  out.smelts = {}
+  for _, r in ipairs(ns.Recipes.Load("Mining").list) do
+    local g = r.reagents
+    if #g == 1 and g[1].name:find(" Ore$") then
+      out.smelts[#out.smelts + 1] = { bar = r.name, ore = g[1].name, per = g[1].qty, makes = r.makes, learn = r.learn }
+    end
+  end
   return json.encode(out)
 end
 
