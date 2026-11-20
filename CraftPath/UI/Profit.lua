@@ -325,17 +325,19 @@ function UI.OreRows()
         local asOre = ore and ore * used or nil
         local asBars = bar and bar * bars or nil
         local gain = asOre and asBars and (asBars - asOre) or nil
+        local maxOre = bar and bar * sm.makes / sm.per or nil -- most you can pay per ore and break even
         local verdict
         if gain and gain > 0 then verdict = "|cff33ff33smelt|r"
         elseif gain then verdict = "|cffffffffsell ore|r"
         else verdict = asBars and "|cff999999no ore price|r" or "|cff999999no bar price|r" end
         out[#out + 1] = {
           ("%d %s"):format(used, sm.ore), short(asOre), short(asBars),
-          gain and (gain > 0 and ("|cff33ff33+" .. short(gain) .. "|r") or short(gain)) or "—", "",
+          gain and (gain > 0 and ("|cff33ff33+" .. short(gain) .. "|r") or short(gain)) or "—", short(maxOre),
           tostring(ns.Prices.Listed(r.name) or "?"), verdict, item = r.name, gain = gain or -math.huge,
           tip = { ("%d %s → %d %s"):format(used, sm.ore, bars, r.name),
             ("Sold as ore: %s (%s each)"):format(asOre and Money(asOre) or "no price", ore and Money(ore) or "?"),
             ("Smelted and sold as bars: %s (%s each)"):format(asBars and Money(asBars) or "no price", bar and Money(bar) or "?"),
+            ("|cffffd100To buy ore and smelt it for profit, pay under %s each.|r"):format(maxOre and Money(maxOre) or "?"),
             "Prices are what you'd get after the auction cut, at the lower of today's price and this week's low.",
             "Click: search the auction house for the bars" },
         }
@@ -394,7 +396,7 @@ function UI.Refresh()
   if #ore > 0 then
     out[#out + 1] = { "" }
     out[#out + 1] = { "|cffffd100Your ore: smelt it or sell it?|r", "|cff999999As ore|r", "|cff999999As bars|r",
-      "|cffffd100Smelting|r", "", "|cff999999Listed|r", "" }
+      "|cffffd100Smelting|r", "|cff999999Buy ore <|r", "|cff999999Listed|r", "" }
     for _, row in ipairs(ore) do out[#out + 1] = row end
   end
   -- Your professions: recipes you could add by learning them, or by levelling up first.

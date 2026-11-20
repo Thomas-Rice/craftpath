@@ -807,6 +807,8 @@ def main():
     rows = lua_list(ns.ProfitUI.OreRows())
     cu = [r for r in rows if "Copper Ore" in r[1]]
     assert cu and "smelt" in cu[0][7] and cu[0].gain > 0, [(r[1], r[7]) for r in rows]
+    assert cu[0][5] and cu[0][5] != "—", cu[0][5]  # buy ore under (25c bar x 0.95 = ~24c)
+    assert any("pay under" in t for t in lua_list(cu[0].tip)), lua_list(cu[0].tip)
     for n, v in keep_prices.items(): ns.db.prices[n] = v
     lua.execute("C_Item.GetItemCount = __origCount")
 

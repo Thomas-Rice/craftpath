@@ -158,14 +158,18 @@ function renderSmelt(smelts) {
     const used = Math.floor(20 / s.per) * s.per; // ore that goes into whole smelts
     const asOre = ore == null ? null : ore * used;
     const asBars = bar == null ? null : bar * Math.floor(20 / s.per) * s.makes;
-    return { ...s, asOre, asBars, gain: asOre != null && asBars != null ? asBars - asOre : null };
+    // the most you can pay for one ore and still break even when you sell the bars
+    const maxOre = bar == null ? null : (bar * s.makes) / s.per;
+    return { ...s, asOre, asBars, maxOre, gain: asOre != null && asBars != null ? asBars - asOre : null };
   }).filter((r) => r.asOre != null || r.asBars != null)
     .sort((a, b) => (b.gain ?? -1e12) - (a.gain ?? -1e12));
   if (!rows.length) return;
+  // .filter above keeps rows with a bar price or an ore price
   $("smeltRows").innerHTML = rows.map((r) => `<tr>
     <td>${esc(r.ore)} <span class="muted">→ ${esc(r.bar)}</span></td><td>${r.learn}</td>
     <td class="num">${money(r.asOre)}</td><td class="num">${money(r.asBars)}</td>
     <td class="num">${r.gain == null ? "—" : r.gain > 0 ? "+" + money(r.gain) : pm(r.gain)}</td>
+    <td class="num">${money(r.maxOre)}</td>
     <td>${r.gain == null ? `<span class="muted">no price</span>` : r.gain > 0 ? `<span class="badge good">smelt</span>` : `<span class="badge">sell the ore</span>`}</td>
   </tr>`).join("");
   $("smelt").hidden = false;
