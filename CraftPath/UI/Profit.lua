@@ -15,9 +15,9 @@ local COLS = {
   w = { 206, 68, 68, 68, 68, 42, 62 },
   right = { false, true, true, true, true, true, false },
 }
-local SORTS = { "safe", "profit", "vendor", "margin" }
+local SORTS = { "safe", "profit", "vendor", "margin", "daily" }
 local SORT_LABEL = { safe = "Sort: safe profit", profit = "Sort: profit now", vendor = "Sort: vendor profit",
-  margin = "Sort: margin %" }
+  margin = "Sort: margin %", daily = "Sort: sells most" }
 
 local frame, rows, widgets = nil, {}, {}
 local results, computing = nil, false
@@ -94,6 +94,7 @@ local function findOpts()
     includeUnknown = true, -- the window filters; one pass covers both views
     ahPrice = ns.Prices.AH, vendorPrice = ns.Prices.Vendor, sellPrice = sellPrice,
     listed = ns.Prices.Listed, stats = ns.Prices.Stats,
+    sales = ns.TSM and ns.TSM.Sales or nil,
     faction = UnitFactionGroup and UnitFactionGroup("player") or nil,
     allowFavor = settings().allowFavor,
     vendorWhere = function(item) return ns.db.vendorWhere[item] end,
@@ -226,6 +227,15 @@ local function tipFor(e)
     if e.learn and e.learn.where and e.learn.where.note then t[#t + 1] = e.learn.where.note end
     if e.payback then t[#t + 1] = ("Pays for itself after %d crafts."):format(e.payback) end
   end
+  if e.sales then
+    local d, r = e.sales.perDay, e.sales.rate
+    t[#t + 1] = ("TSM, across Forever: %s sold a day%s."):format(
+      d and (d >= 10 and math.floor(d + 0.5) or math.floor(d * 10 + 0.5) / 10) or "?",
+      r and (", " .. math.floor(r * 100 + 0.5) .. "% of listings sell") or "")
+    if d and d < 1 then t[#t + 1] = "|cffff9933Sells less than once a day: expect to wait, or relist.|r" end
+  end
+  local src = ns.Prices.Source and ns.Prices.Source(e.name)
+  if src and src ~= "scan" then t[#t + 1] = "|cff999999Sale price from " .. src .. " (not in your scans this week).|r" end
   if e.cooldown then
     t[#t + 1] = ("|cffffd100Cooldown: one craft every %s%s, so this is a profit per %s, not per batch.|r"):format(
       ns.Recipes.CooldownText(e.cooldown), e.cdGroup and (" (shared with all " .. e.cdGroup:gsub(" %- .*", "") .. "s)") or "",
@@ -243,6 +253,11 @@ local function rowFor(e)
       or "|cff33ff33vendor|r"
   end
   if e.swings then notes[#notes + 1] = "|cffff9933swings|r" end
+  if e.sales and e.sales.perDay then
+    local d = e.sales.perDay
+    notes[#notes + 1] = (d >= 5 and "|cff33ff33" or d >= 1 and "|cffffffff" or "|cffff9933")
+      .. (d >= 10 and math.floor(d + 0.5) or math.floor(d * 10 + 0.5) / 10) .. "/day|r"
+  end
   if e.cooldownText then notes[#notes + 1] = "|cffffd100cd " .. e.cooldownText:gsub("^an? ", "1 ") .. "|r" end
   if e.levelsYou then notes[#notes + 1] = "|cff66ccffskill|r" end
   local name = e.name .. (e.makes > 1 and ("|cff999999 ×" .. e.makes .. "|r") or "")
@@ -272,6 +287,13 @@ local function keyOf(e)
   if s == "profit" then return e.profit or e.vendorProfit or -math.huge end
   if s == "margin" then return e.margin or -math.huge end
   if s == "vendor" then return e.vendorProfit or -math.huge end
+  if s == "daily" then
+    -- profit you could make in a day if you sold your share: safe profit x sold a day (TSM)
+    local each = e.safeProfit or e.profit
+    local perDay = e.sales and e.sales.perDay
+    if not each or each <= 0 or not perDay then return -math.huge end
+    return each * math.min(perDay, 20)
+  end
   return math.max(e.safeProfit or -math.huge, e.vendorProfit or -math.huge)
 end
 

@@ -167,7 +167,12 @@ function ns.ResaleValue(mode)
     if mode == "auction" then
       local p = ns.Prices.AH(name)
       local listed = ns.Prices.Listed(name) or 0
-      if p and listed >= ns.RESALE_MIN_LISTED then
+      -- Only count on selling what actually sells: enough listed and, if TSM knows, sold
+      -- at least once a day across the region.
+      local sales = ns.TSM and ns.TSM.Sales(name)
+      local sells = listed >= ns.RESALE_MIN_LISTED
+      if sales and sales.perDay then sells = sales.perDay >= 1 end
+      if p and sells then
         local st = ns.Prices.Stats(name)
         if st and st.low and st.low < p then p = st.low end
         p = p * 0.95 * ns.RESALE_AH_FACTOR
@@ -232,6 +237,8 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.LedgerUI.Toggle()
   elseif msg == "keep" then
     ns.Keep.Toggle()
+  elseif msg == "tsm" or msg:match("^tsm ") then
+    ns.TSM.Slash(msg:sub(5))
   elseif msg == "trainer" then
     ns.Game.ReadTrainer()
   elseif msg == "perf" then

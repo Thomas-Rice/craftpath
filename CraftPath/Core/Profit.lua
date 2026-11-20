@@ -21,6 +21,7 @@ Profit.SWING = 0.25       -- (high - low) / median above this = "prices jump aro
 --                (skill nil = you don't have the profession)
 --   includeUnknown  true to also list recipes you don't know / professions you don't have
 --   ahPrice(name), vendorPrice(name), sellPrice(name), listed(name), stats(name) -> {low, median, high, days}
+--   sales(name) -> { perDay = sold a day across the region, rate = share of listings that sell } (optional)
 --   faction, allowFavor
 -- Returns a list sorted by profit, best first: see the fields set in `entry` below.
 function Profit.Find(opts)
@@ -30,6 +31,7 @@ function Profit.Find(opts)
   local sellPrice = opts.sellPrice or function(n) return itemSell[n] end
   local listed = opts.listed or function() return nil end
   local stats = opts.stats or function() return nil end
+  local sales = opts.sales or function() return nil end
   local cut = 1 - Profit.AH_CUT
 
   -- Who can make what: recipes of every listed profession, and whether you can craft them now.
@@ -121,7 +123,7 @@ function Profit.Find(opts)
             cost = cost, price = price, sale = sale, profit = profit, safeProfit = safe,
             vendorSell = vend, vendorProfit = vendorProfit,
             margin = (profit and cost > 0) and profit / cost or nil,
-            listed = listed(r.name), stats = st,
+            listed = listed(r.name), stats = st, sales = sales(r.name),
             swings = st and st.median and st.median > 0 and st.days >= 2 and (st.high - st.low) / st.median > Profit.SWING or false,
             known = it.known, canCraft = it.canCraft and true or false, skill = it.skill,
             hasProfession = it.skill ~= nil, materials = mats,

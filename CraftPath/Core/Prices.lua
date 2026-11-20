@@ -6,11 +6,19 @@ local Prices = ns.Prices
 
 local MAX_AGE = 7 * 24 * 3600 -- ignore auction prices older than a week
 
+-- Your own scan's price from the last week; without one, TradeSkillMaster's (if installed).
 function Prices.AH(name)
   local e = ns.db and ns.db.prices[name]
-  if not e or not e.p then return nil end
-  if time() - (e.t or 0) > MAX_AGE then return nil end
-  return e.p
+  if e and e.p and time() - (e.t or 0) <= MAX_AGE then return e.p end
+  if ns.TSM then return (ns.TSM.Price(name)) end
+  return nil
+end
+
+-- Where Prices.AH's number comes from: "scan", a TSM description, or nil.
+function Prices.Source(name)
+  local e = ns.db and ns.db.prices[name]
+  if e and e.p and time() - (e.t or 0) <= MAX_AGE then return "scan" end
+  if ns.TSM then return select(2, ns.TSM.Price(name)) end
 end
 
 -- How many were listed in the last scan that saw the item.

@@ -797,6 +797,47 @@ def main():
     print("Ore counts as bars:", cb[0].qty, "Copper Bar needed,", cb[0].have, "owned incl. ore")
     lua.execute("C_Item.GetItemCount = __origCount")
 
+    # ---- TradeSkillMaster as an optional source: prices for unscanned items, sale rates ----
+    assert not ns.TSM.Available() and ns.TSM.Sales("Copper Bar") is None
+    lua.execute("""
+      __tsmCalls = 0
+      TSM_API = { GetCustomPriceValue = function(src, item)
+        __tsmCalls = __tsmCalls + 1
+        local v = ({ ["i:9999"] = { DBMinBuyout = 4321, DBRegionSoldPerDay = 0.4, DBRegionSaleRate = 0.05 },
+                     ["i:2840"] = { DBMarket = 77, DBRegionSoldPerDay = 120, DBRegionSaleRate = 0.42 } })[item]
+        return v and v[src] or nil
+      end }
+    """)
+    ns.db.ids["Never Scanned Gizmo"] = 9999
+    ns.db.ids["Copper Bar"] = 2840
+    ns.TSM.Forget()
+    assert ns.TSM.Available()
+    assert ns.Prices.AH("Never Scanned Gizmo") == 4321 and ns.Prices.Source("Never Scanned Gizmo") == "TSM realm lowest"
+    own = ns.Prices.AH("Copper Bar")
+    assert own and own != 77 and ns.Prices.Source("Copper Bar") == "scan", (own, ns.Prices.Source("Copper Bar"))  # own scan wins
+    sales = ns.TSM.Sales("Copper Bar")
+    assert sales.perDay == 120 and abs(sales.rate - 0.42) < 1e-9
+    calls = G.__tsmCalls
+    ns.TSM.Sales("Copper Bar"); assert G.__tsmCalls == calls, "TSM answers should be cached"
+    # selling back on the AH needs it to sell at least once a day (when TSM knows)
+    ns.db.prices["Never Scanned Gizmo"] = lua.table_from({"p": 5000, "t": G.time(), "q": 50})
+    resale = ns.ResaleValue("auction")
+    v, how = resale("Never Scanned Gizmo")
+    assert how != "ah", (v, how)  # 50 listed, but only 0.4 sold a day
+    # the Profits window with sale rates, sorted by what sells
+    ns.db.settings.profitSort = "daily"
+    G.SlashCmdList.CRAFTPATH("profit"); G.__runTimers()
+    assert G.CraftPathProfitFrame.__shown
+    check_layout(G, "CraftPathProfitFrame")
+    G.SlashCmdList.CRAFTPATH("profit")
+    ns.db.settings.profitSort = "safe"
+    G.SlashCmdList.CRAFTPATH("tsm copper bar")
+    G.SlashCmdList.CRAFTPATH("tsm off")
+    assert ns.Prices.AH("Never Scanned Gizmo") == 5000 and ns.TSM.Sales("Copper Bar") is None
+    G.SlashCmdList.CRAFTPATH("tsm on")
+    ns.db.prices["Never Scanned Gizmo"] = None
+    lua.execute("TSM_API = nil"); ns.TSM.Forget()
+
     # Slash command and closing the AH.
     G.SlashCmdList.CRAFTPATH("help")
     fire("AUCTION_HOUSE_CLOSED")

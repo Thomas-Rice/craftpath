@@ -66,6 +66,7 @@ Options:
 Commands:
 - `/cpath scan`: full scan
 - `/cpath list`: materials scan
+- `/cpath tsm [on|off|item]`: TradeSkillMaster as an extra source (prices for items you haven't scanned, and how many sell a day across the region); your own scans come first, and nothing from TSM goes to the website
 - `/cpath history`: CraftPath History: what you've bought, sold and crafted, and what made a profit
 - `/cpath reset`: clear prices
 - `/cpath perf`: print anything that takes a noticeable time (for lag reports)
