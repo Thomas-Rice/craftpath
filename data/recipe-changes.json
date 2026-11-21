@@ -1,5 +1,49 @@
 [
  {
+  "date": "2026-11-21",
+  "build": "1.60.1.71037",
+  "professions": [
+   {
+    "profession": "Leatherworking",
+    "before": 449,
+    "after": 450,
+    "minor": 0,
+    "added": [
+     {
+      "name": "Centaur Hoofwarmers",
+      "skill": 170,
+      "source": "recipe item",
+      "materials": "Thick Leather x12, Heavy Silken Thread x2"
+     }
+    ],
+    "removed": [],
+    "changed": []
+   },
+   {
+    "profession": "Mining",
+    "before": 15,
+    "after": 12,
+    "minor": 0,
+    "added": [],
+    "removed": [
+     {
+      "name": "Truesilver Bar",
+      "skill": 225
+     },
+     {
+      "name": "Thorium Bar",
+      "skill": 245
+     },
+     {
+      "name": "Azerothium Bar",
+      "skill": 270
+     }
+    ],
+    "changed": []
+   }
+  ]
+ },
+ {
   "date": "2026-11-13",
   "build": "1.60.1.70938",
   "professions": [
