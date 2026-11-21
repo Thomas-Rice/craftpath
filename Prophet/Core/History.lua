@@ -7,10 +7,12 @@
 --   vsell   things sold to a vendor
 --   craft   each craft: what it made, and the market value of the materials used
 --   skill   profession skill-ups
--- Events are kept for each character in CraftPathDB.ledger (the newest 8000), and running
+-- Events are kept for each character in ProphetDB.ledger (the newest 8000), and running
 -- totals per item are kept forever, so the Items view still adds up after old events go.
 
-local _, ns = ...
+-- Prophet runs on CraftPath's shared core (prices, recipes, game state, the profit engine),
+-- which CraftPath exposes as CraftPathAPI. Prophet's own data is ns.pdb (ProphetDB).
+local ns = CraftPathAPI
 ns.Ledger = ns.Ledger or {}
 local Ledger = ns.Ledger
 
@@ -22,7 +24,7 @@ end
 Ledger.CharKey = charKey
 
 local function store()
-  local db = ns.db
+  local db = ns.pdb
   db.ledger = db.ledger or {}
   local l = db.ledger
   l.events = l.events or {}
@@ -44,7 +46,7 @@ end
 
 -- kind, item name, quantity, gold (copper: + money in, - money out or material value used), extra fields
 function Ledger.Add(kind, name, qty, gold, extra)
-  if not ns.db or not name then return end
+  if not ns.pdb or not name then return end
   local l = store()
   local ev = { t = time(), k = kind, n = name, q = qty or 1, g = math.floor((gold or 0) + 0.5), ch = charKey() }
   if extra then for k, v in pairs(extra) do ev[k] = v end end

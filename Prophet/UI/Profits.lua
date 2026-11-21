@@ -1,8 +1,10 @@
--- CraftPath Profits: its own window listing what you can craft today, at today's prices,
--- for a profit. Opens with /cpath profit, the Profits button on the planner, or the minimap
--- addon menu. Uses the same prices and recipe data as the planner (Core/Profit.lua does the maths).
+-- Prophet Profits: what you can craft today, at today's prices, for a profit, and whether
+-- to smelt your ore or sell it. Opens with /prophet (or /cprofit), the History window's
+-- button, or the minimap addon menu. Uses the same prices and recipe data as the planner (Core/Profit.lua does the maths).
 
-local _, ns = ...
+-- Prophet runs on CraftPath's shared core (prices, recipes, game state, the profit engine),
+-- which CraftPath exposes as CraftPathAPI. Prophet's own data is ns.pdb (ProphetDB).
+local ns = CraftPathAPI
 ns.ProfitUI = {}
 local UI = ns.ProfitUI
 
@@ -22,7 +24,7 @@ local SORT_LABEL = { safe = "Sort: safe profit", profit = "Sort: profit now", ve
 local frame, rows, widgets = nil, {}, {}
 local results, computing = nil, false
 
-local function settings() return ns.db.settings end
+local function settings() return ns.pdb.settings end
 local Money = function(c) return ns.Prices.Money(c) end
 
 local function short(c)
@@ -413,7 +415,7 @@ end
 ---------------------------------------------------------------------------
 
 local function create()
-  frame = CreateFrame("Frame", "CraftPathProfitFrame", UIParent, "BasicFrameTemplateWithInset")
+  frame = CreateFrame("Frame", "ProphetFrame", UIParent, "BasicFrameTemplateWithInset")
   frame:SetSize(W, H)
   frame:SetPoint("CENTER", 40, -20)
   frame:SetMovable(true)
@@ -423,10 +425,10 @@ local function create()
   frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
   frame:SetClampedToScreen(true)
   frame:SetFrameStrata("HIGH")
-  tinsert(UISpecialFrames, "CraftPathProfitFrame")
-  if frame.TitleText then frame.TitleText:SetText("CraftPath Profits — what to craft today") end
+  tinsert(UISpecialFrames, "ProphetFrame")
+  if frame.TitleText then frame.TitleText:SetText("Prophet — what to craft today for a profit") end
 
-  -- Row 1 (y -30): show unknown, sort, refresh          12 ... 300 | 340 ... 646
+  -- Row 1 (y -30): show unknown, history, sort, refresh   12 ... 250 | 260 ... 350 | 408 ... 646
   widgets.unknown = checkbox(frame, "Show other professions", "profitUnknown",
     "Also list profitable crafts from professions you don't have. Recipes you could learn in your own professions are always shown, below the ones you can craft now.")
   widgets.unknown:SetPoint("TOPLEFT", 12, -30)
@@ -436,6 +438,9 @@ local function create()
     UI.Refresh()
   end, "Sort", "Safe profit: at the lowest price of the last week (the default, it allows for prices moving). Profit now: at today's lowest price. Vendor profit: selling to a vendor. Margin: profit as a share of the cost.")
   widgets.sort:SetPoint("TOPRIGHT", -112, -30)
+  widgets.history = button(frame, "History", 90, function() if ns.LedgerUI then ns.LedgerUI.Toggle() end end,
+    "Prophet History", "What you've bought, sold and crafted, and what made you a profit.")
+  widgets.history:SetPoint("TOPRIGHT", -258, -30)
   widgets.refresh = button(frame, "Refresh", 90, function() UI.Recompute() end,
     "Refresh", "Work the list out again from your latest prices. Scan the auction house from the planner for fresh prices.")
   widgets.refresh:SetPoint("TOPRIGHT", -14, -30)
@@ -466,7 +471,7 @@ local function create()
 end
 
 function UI.Toggle()
-  if not ns.db then return end
+  if not ns.pdb then return end
   if not frame then create() end
   frame:SetShown(not frame:IsShown())
 end

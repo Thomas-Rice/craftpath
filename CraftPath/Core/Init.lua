@@ -26,7 +26,7 @@ local DEFAULTS = {
     from = 1, to = 300, useMySkill = true, capToLevel = true,
     allowRecipeItems = true, allowFavor = true, spec = "none", overtimeRank = 0,
     openWithAH = true, tooltip = true, maxOverPct = 25, craftHelper = true, useOwned = true, markBags = true,
-    profitUnknown = false, profitSort = "safe",
+    profitUnknown = false, profitSort = "safe", -- kept for older Prophet data; Prophet has its own now
     resale = "vendor", -- selling what you craft while levelling: "off", "vendor", or "auction" (vendor + AH)
   },
 }
@@ -231,10 +231,10 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.db.settings.craftHelper = not ns.db.settings.craftHelper
     ns.Print("Crafting helper " .. (ns.db.settings.craftHelper and "on" or "off") .. ".")
     ns.CraftHelper.Update()
-  elseif msg == "profit" or msg == "profits" then
-    ns.ProfitUI.Toggle()
-  elseif msg == "history" or msg == "ledger" then
-    ns.LedgerUI.Toggle()
+  elseif msg == "profit" or msg == "profits" or msg == "history" or msg == "ledger" then
+    -- these live in the Prophet addon now
+    local ui = (msg == "history" or msg == "ledger") and ns.LedgerUI or ns.ProfitUI
+    if ui then ui.Toggle() else ns.Print("Profits and History are in the Prophet addon, which runs alongside CraftPath. Install it from craftpath.pages.dev.") end
   elseif msg == "keep" then
     ns.Keep.Toggle()
   elseif msg == "tsm" or msg:match("^tsm ") then
@@ -253,8 +253,8 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.Print("/cpath list — scan just the items on your shopping list")
     ns.Print("/cpath craft — turn the crafting helper (beside the profession window) on or off")
     ns.Print("/cpath keep — turn marking of items you need in your bags and bank on or off")
-    ns.Print("/cpath profit — CraftPath Profits: what to craft today for a profit (also /cprofit)")
-    ns.Print("/cpath history — what you've bought, sold and crafted, and what made a profit")
+    ns.Print("/cpath tsm on|off|<item> — TradeSkillMaster prices and sale rates")
+    ns.Print("Profits and History: the Prophet addon (/prophet)")
     ns.Print("/cpath reset — forget all auction prices")
     ns.Print("/cpath perf — print anything that takes a noticeable time (for lag reports)")
   else
@@ -266,5 +266,6 @@ function CraftPath_OnAddonCompartmentClick()
   ns.UI.Toggle()
 end
 
-SLASH_CRAFTPATHPROFIT1 = "/cprofit"
-SlashCmdList.CRAFTPATHPROFIT = function() if ns.ProfitUI then ns.ProfitUI.Toggle() end end
+-- CraftPath's shared core (prices, recipes, game state, the planner and profit engines) for
+-- companion addons such as Prophet. Load after CraftPath (## RequiredDeps: CraftPath).
+CraftPathAPI = ns

@@ -46,7 +46,17 @@ Open your profession window and CraftPath opens a panel beside it. The panel sho
 
 ## Install
 
-Copy the `CraftPath` folder into `World of Warcraft/_forever_/Interface/AddOns/` (or your Forever client's `Interface/AddOns`), then `/reload`.
+Copy the `CraftPath` folder into `World of Warcraft/_forever_/Interface/AddOns/` (or your Forever client's `Interface/AddOns`), then restart the game.
+
+## Prophet (profits)
+
+The profit side lives in a companion addon, **Prophet** (the `Prophet` folder), so CraftPath stays about levelling. Prophet runs on CraftPath's price scans and recipe data (CraftPath exposes them as `CraftPathAPI`), so it needs CraftPath installed; CraftPath works without it.
+
+- **Profits** (`/prophet`, or `/cprofit`): what you can craft today for a profit, after the auction cut and allowing for prices moving; recipes you could learn; with TradeSkillMaster, how many sell a day.
+- **Smelt it or sell it?**: the ore you have, worth as ore or as bars, and the most to pay for ore to smelt for profit.
+- **History** (`/prophet history`): what you've bought, sold and crafted, with auction sales read from your mail, and the profit by item.
+
+Its data is in its own saved variables (`ProphetDB`); history recorded by older CraftPath versions moves over the first time it loads.
 
 ## Use
 
@@ -67,7 +77,6 @@ Commands:
 - `/cpath scan`: full scan
 - `/cpath list`: materials scan
 - `/cpath tsm [on|off|item]`: TradeSkillMaster as an extra source (prices for items you haven't scanned, and how many sell a day across the region); your own scans come first, and nothing from TSM goes to the website
-- `/cpath history`: CraftPath History: what you've bought, sold and crafted, and what made a profit
 - `/cpath reset`: clear prices
 - `/cpath perf`: print anything that takes a noticeable time (for lag reports)
 - `/cpath help`

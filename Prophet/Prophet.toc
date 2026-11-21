@@ -1,0 +1,16 @@
+## Interface: 16001, 120100
+## Title: Prophet
+## Notes: What to craft today for a profit, at today's auction house prices; smelt your ore or sell it; and a history of what you've bought, sold and crafted. A companion to CraftPath.
+## Author: Thomas Rice
+## Version: 1.0.0
+## RequiredDeps: CraftPath
+## OptionalDeps: TradeSkillMaster, TradeSkillMaster_AppHelper
+## SavedVariables: ProphetDB
+## IconTexture: Interface\Icons\INV_Misc_Coin_02
+## AddonCompartmentFunc: Prophet_OnAddonCompartmentClick
+## Category: Professions
+
+Core\Init.lua
+Core\History.lua
+UI\Profits.lua
+UI\History.lua

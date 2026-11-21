@@ -46,6 +46,10 @@ async function main() {
       document.getElementById("dlMeta").textContent = `Version ${s.version} · free · works for Horde and Alliance`;
       document.getElementById("dlLink").textContent = `Download CraftPath ${s.version}`;
     }
+    if (s.prophetVersion) {
+      document.getElementById("pdlMeta").textContent = `Version ${s.prophetVersion} · CraftPath's companion addon · free`;
+      document.getElementById("pdlLink").textContent = `Download Prophet ${s.prophetVersion}`;
+    }
   } catch {
     /* the static cards still link to the planner */
   }

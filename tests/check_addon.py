@@ -356,6 +356,13 @@ def main():
     for rel in files:
         with open(os.path.join(ROOT, rel), encoding="utf-8") as fh:
             loader(fh.read(), "@" + rel)("CraftPath", ns)
+    # Prophet, the profit companion, loads after CraftPath and runs on its core (CraftPathAPI).
+    proot = os.path.join(ROOT, "..", "Prophet")
+    ptoc = open(os.path.join(proot, "Prophet.toc"), encoding="utf-8").read().splitlines()
+    assert any(l.startswith("## RequiredDeps: CraftPath") for l in ptoc)
+    for rel in [l.strip().replace("\\", "/") for l in ptoc if l.strip() and not l.startswith("##")]:
+        with open(os.path.join(proot, rel), encoding="utf-8") as fh:
+            loader(fh.read(), "@Prophet/" + rel)("Prophet", lua.table())
 
     G = lua.globals()
     fire = G.__fire
@@ -369,6 +376,17 @@ def main():
 
     fire("ADDON_LOADED", "CraftPath")
     assert ns.db is not None, "saved variables not set up"
+    assert lua.eval("function(a, b) return rawequal(a, b) end")(G.CraftPathAPI, ns), "core not exposed"
+    # Moving to Prophet: History and its settings come over from CraftPath's saved data, once.
+    ns.db.ledger = lua.table_from({"events": lua.table_from({1: lua.table_from(
+        {"t": 1, "k": "sell", "n": "Old Sale", "q": 1, "g": 500, "ch": "Me-Realm"})})})
+    ns.db.settings.profitSort = "vendor"
+    fire("ADDON_LOADED", "Prophet")
+    assert ns.pdb is not None and lua.eval("function(a, b) return rawequal(a, b) end")(G.ProphetDB, ns.pdb), "no ProphetDB"
+    assert ns.pdb.ledger.events[1].n == "Old Sale" and ns.db.ledger is None, "History wasn't moved to Prophet"
+    assert ns.pdb.settings.profitSort == "vendor"
+    ns.pdb.settings.profitSort = "safe"
+    ns.pdb.ledger = None
 
     # Opening the AH docks the window and plans with no prices (expect a clean error).
     fire("AUCTION_HOUSE_SHOW")
@@ -655,18 +673,18 @@ def main():
     ns.db.settings.profession = "Engineering"
 
     # ---- CraftPath Profits window ----
-    G.SlashCmdList.CRAFTPATH("profit")
-    assert G.CraftPathProfitFrame.__shown
+    G.SlashCmdList.PROPHET("")
+    assert G.ProphetFrame.__shown
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
     assert any("you can craft now" in t for t in texts), [t for t in texts if "rofit" in t][:5]
-    check_layout(G, "CraftPathProfitFrame")
-    ns.db.settings.profitUnknown = True
+    check_layout(G, "ProphetFrame")
+    ns.pdb.settings.profitUnknown = True
     ns.ProfitUI.Recompute()
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
     assert any("Professions you don't have" in t for t in texts), "other professions section missing"
-    check_layout(G, "CraftPathProfitFrame")
-    G.SlashCmdList.CRAFTPATHPROFIT()
-    assert not G.CraftPathProfitFrame.__shown
+    check_layout(G, "ProphetFrame")
+    G.SlashCmdList.CRAFTPATH("profit")  # the old command still opens it when Prophet is installed
+    assert not G.ProphetFrame.__shown
     fire("TRADE_SKILL_CLOSE")
 
     # ---- Keep marks: items your routes need, in bags and bank ----
@@ -764,19 +782,19 @@ def main():
     powder = summ["items"]["Rough Blasting Powder"]
     assert powder.made >= 1 and powder.sold >= 6 and powder.profit is not None
     # the window: every view, inside its width
-    G.SlashCmdList.CRAFTPATH("history")
-    assert G.CraftPathLedgerFrame.__shown
+    G.SlashCmdList.PROPHET("history")
+    assert G.ProphetHistoryFrame.__shown
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
     assert any("Net gold" in t for t in texts) and any("Rough Blasting Powder" in t for t in texts)
-    check_layout(G, "CraftPathLedgerFrame")
+    check_layout(G, "ProphetHistoryFrame")
     for tab in ("Items", "History"):
         t = [f for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if f.__text == tab and f.__kind == "Button"][-1]
         t.Click(t)
-        check_layout(G, "CraftPathLedgerFrame")
+        check_layout(G, "ProphetHistoryFrame")
     texts = [f.__text for f in [G.__frames[i] for i in range(1, len(G.__frames) + 1)] if isinstance(f.__text, str)]
     assert any("Skill-up" in t for t in texts) and any("Sold (AH)" in t for t in texts)
-    G.SlashCmdList.CRAFTPATH("history")
-    assert not G.CraftPathLedgerFrame.__shown
+    G.SlashCmdList.PROPHET("history")
+    assert not G.ProphetHistoryFrame.__shown
 
     # ---- Ore you can smelt counts as bars (Mining 90: Copper yes, Iron needs 125) ----
     lua.execute("""
@@ -840,12 +858,12 @@ def main():
     v, how = resale("Never Scanned Gizmo")
     assert how != "ah", (v, how)  # 50 listed, but only 0.4 sold a day
     # the Profits window with sale rates, sorted by what sells
-    ns.db.settings.profitSort = "daily"
-    G.SlashCmdList.CRAFTPATH("profit"); G.__runTimers()
-    assert G.CraftPathProfitFrame.__shown
-    check_layout(G, "CraftPathProfitFrame")
-    G.SlashCmdList.CRAFTPATH("profit")
-    ns.db.settings.profitSort = "safe"
+    ns.pdb.settings.profitSort = "daily"
+    G.SlashCmdList.PROPHET(""); G.__runTimers()
+    assert G.ProphetFrame.__shown
+    check_layout(G, "ProphetFrame")
+    G.SlashCmdList.PROPHET("")
+    ns.pdb.settings.profitSort = "safe"
     G.SlashCmdList.CRAFTPATH("tsm copper bar")
     G.SlashCmdList.CRAFTPATH("tsm off")
     assert ns.Prices.AH("Never Scanned Gizmo") == 5000 and ns.TSM.Sales("Copper Bar") is None

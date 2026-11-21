@@ -49,24 +49,29 @@ def main():
     for name in ("prices.json", "recipe-changes.json"):
         copy(os.path.join(ROOT, "data", name), os.path.join(OUT, "data", name))
 
-    # The addon itself, ready to unzip into Interface\AddOns.
-    toc = open(os.path.join(ROOT, "CraftPath", "CraftPath.toc"), encoding="utf-8").read()
-    version = re.search(r"## Version:\s*(\S+)", toc).group(1)
+    # The addons themselves, ready to unzip into Interface\AddOns: CraftPath and its
+    # companion Prophet (which needs CraftPath).
+    versions = {}
     os.makedirs(os.path.join(OUT, "download"), exist_ok=True)
-    zpath = os.path.join(OUT, "download", "CraftPath.zip")
-    with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
-        for d, _, files in os.walk(os.path.join(ROOT, "CraftPath")):
-            for f in sorted(files):
-                if f.endswith((".pyc",)) or "__pycache__" in d:
-                    continue
-                full = os.path.join(d, f)
-                z.write(full, os.path.relpath(full, ROOT))
-    shutil.copyfile(zpath, os.path.join(OUT, "download", f"CraftPath-{version}.zip"))
+    for addon in ("CraftPath", "Prophet"):
+        toc = open(os.path.join(ROOT, addon, addon + ".toc"), encoding="utf-8").read()
+        versions[addon] = re.search(r"## Version:\s*(\S+)", toc).group(1)
+        zpath = os.path.join(OUT, "download", addon + ".zip")
+        with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
+            for d, _, files in os.walk(os.path.join(ROOT, addon)):
+                for f in sorted(files):
+                    if f.endswith((".pyc",)) or "__pycache__" in d:
+                        continue
+                    full = os.path.join(d, f)
+                    z.write(full, os.path.relpath(full, ROOT))
+        shutil.copyfile(zpath, os.path.join(OUT, "download", f"{addon}-{versions[addon]}.zip"))
+    version = versions["CraftPath"]
 
     # Headline costs for the homepage, from the same planner and prices.
     stats = subprocess.run(["node", os.path.join(HERE, "site_stats.mjs")], capture_output=True, text=True, check=True, cwd=ROOT)
     summary = json.loads(stats.stdout)
     summary["version"] = version
+    summary["prophetVersion"] = versions["Prophet"]
     with open(os.path.join(OUT, "data", "summary.json"), "w", encoding="utf-8") as fh:
         json.dump(summary, fh, indent=1)
 

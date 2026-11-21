@@ -52,6 +52,7 @@ jobs:
         run: |
           python tests/run_tests.py
           python tests/check_addon.py
+          python tests/check_alone.py
           python tests/test_sync.py
           npm ci && python tests/test_web.py
 

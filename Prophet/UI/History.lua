@@ -1,11 +1,13 @@
--- CraftPath History: what you've bought, sold and crafted, and what it made you.
--- Opens with /cpath history (or /cpath ledger) and the History buttons. Core/Ledger.lua records.
+-- Prophet History: what you've bought, sold and crafted, and what it made you.
+-- Opens with /prophet history and the History button in Profits. Core/History.lua records.
 --
 -- Summary  money in and out, net, crafting profit, skill-ups, best and worst items
 -- Items    per item: made, bought, sold, average cost, average sale, profit
 -- History  every event, newest first
 
-local _, ns = ...
+-- Prophet runs on CraftPath's shared core (prices, recipes, game state, the profit engine),
+-- which CraftPath exposes as CraftPathAPI. Prophet's own data is ns.pdb (ProphetDB).
+local ns = CraftPathAPI
 ns.LedgerUI = {}
 local UI = ns.LedgerUI
 
@@ -33,7 +35,7 @@ local KIND_LABEL = {
 local frame, rows, widgets = nil, {}, {}
 local view = "summary"
 
-local function settings() return ns.db.settings end
+local function settings() return ns.pdb.settings end
 local Money = function(c) return ns.Prices.Money(c) end
 
 local function short(c)
@@ -276,7 +278,7 @@ end
 ---------------------------------------------------------------------------
 
 local function create()
-  frame = CreateFrame("Frame", "CraftPathLedgerFrame", UIParent, "BasicFrameTemplateWithInset")
+  frame = CreateFrame("Frame", "ProphetHistoryFrame", UIParent, "BasicFrameTemplateWithInset")
   frame:SetSize(W, H)
   frame:SetPoint("CENTER", -40, 10)
   frame:SetMovable(true)
@@ -286,8 +288,8 @@ local function create()
   frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
   frame:SetClampedToScreen(true)
   frame:SetFrameStrata("HIGH")
-  tinsert(UISpecialFrames, "CraftPathLedgerFrame")
-  if frame.TitleText then frame.TitleText:SetText("CraftPath History — what you've bought, sold and crafted") end
+  tinsert(UISpecialFrames, "ProphetHistoryFrame")
+  if frame.TitleText then frame.TitleText:SetText("Prophet History — what you've bought, sold and crafted") end
 
   -- Row 1 (y -30): view tabs   12 ... 300 | period, this character   ... 626
   widgets.tabs = {}
@@ -340,13 +342,13 @@ local function create()
 end
 
 function UI.Toggle()
-  if not ns.db then return end
+  if not ns.pdb then return end
   if not frame then create() end
   frame:SetShown(not frame:IsShown())
 end
 
 function UI.Show(which)
-  if not ns.db then return end
+  if not ns.pdb then return end
   if not frame then create() end
   if which then view = which end
   frame:Show()
