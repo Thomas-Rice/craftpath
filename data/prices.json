@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T12:56:06+00:00",
+ "updated": "2026-11-20T19:08:08+00:00",
  "note": "Lowest buyout from the site owner's CraftPath scans (Horde). Prices change constantly; the addon uses your own live scan.",
  "prices": {
   "9-60 Battery Pack": {
@@ -4295,11 +4295,11 @@
    "days": 2
   },
   "Filet of Redgill": {
-   "p": 90,
-   "t": 1795179366,
-   "q": 5140,
+   "p": 69,
+   "t": 1795201688,
+   "q": 18126,
    "low": 15,
-   "med": 78,
+   "med": 69,
    "high": 100,
    "days": 5
   },
@@ -6541,11 +6541,11 @@
    "days": 5
   },
   "Heavy Grinding Stone": {
-   "p": 999,
-   "t": 1795179366,
-   "q": 1580,
+   "p": 900,
+   "t": 1795194911,
+   "q": 5556,
    "low": 865,
-   "med": 999,
+   "med": 900,
    "high": 2222,
    "days": 5
   },
@@ -6577,30 +6577,30 @@
    "days": 5
   },
   "Heavy Leather": {
-   "p": 300,
-   "t": 1795179366,
-   "q": 6222,
+   "p": 250,
+   "t": 1795195040,
+   "q": 14933,
    "low": 187,
    "med": 219,
-   "high": 300,
+   "high": 247,
    "days": 5
   },
   "Heavy Leather Ammo Pouch": {
-   "p": 1000,
-   "t": 1795179366,
-   "q": 95,
+   "p": 999,
+   "t": 1795195040,
+   "q": 106,
    "low": 999,
    "med": 1225,
    "high": 1299,
    "days": 5
   },
   "Heavy Leather Ball": {
-   "p": 1396,
-   "t": 1795179366,
-   "q": 204,
+   "p": 1380,
+   "t": 1795195040,
+   "q": 173,
    "low": 749,
    "med": 899,
-   "high": 1396,
+   "high": 1380,
    "days": 5
   },
   "Heavy Linen Bandage": {
@@ -6802,10 +6802,10 @@
    "days": 5
   },
   "Heavy Stone": {
-   "p": 303,
-   "t": 1795179366,
-   "q": 5453,
-   "low": 300,
+   "p": 237,
+   "t": 1795194913,
+   "q": 2984,
+   "low": 237,
    "med": 320,
    "high": 379,
    "days": 5
@@ -6829,9 +6829,9 @@
    "days": 5
   },
   "Heavy Weightstone": {
-   "p": 900,
-   "t": 1795179366,
-   "q": 821,
+   "p": 400,
+   "t": 1795194911,
+   "q": 8190,
    "low": 363,
    "med": 384,
    "high": 430,
@@ -7765,9 +7765,9 @@
    "days": 5
   },
   "Lesser Moonstone": {
-   "p": 669,
-   "t": 1795179366,
-   "q": 1198,
+   "p": 608,
+   "t": 1795195052,
+   "q": 1414,
    "low": 599,
    "med": 600,
    "high": 699,
@@ -8946,8 +8946,8 @@
   },
   "Moonsteel Broadsword": {
    "p": 19876,
-   "t": 1795179366,
-   "q": 108,
+   "t": 1795194924,
+   "q": 36,
    "low": 17500,
    "med": 19876,
    "high": 23700,
@@ -10759,11 +10759,11 @@
    "days": 5
   },
   "Pattern: Heavy Leather Ball": {
-   "p": 3200,
-   "t": 1795179366,
-   "q": 7,
+   "p": 2500,
+   "t": 1795195040,
+   "q": 11,
    "low": 2199,
-   "med": 3200,
+   "med": 2523,
    "high": 3994,
    "days": 5
   },
@@ -13372,9 +13372,9 @@
    "days": 5
   },
   "Raw Redgill": {
-   "p": 10,
-   "t": 1795179366,
-   "q": 8785,
+   "p": 21,
+   "t": 1795201688,
+   "q": 32025,
    "low": 8,
    "med": 11,
    "high": 60,
@@ -13750,11 +13750,11 @@
    "days": 5
   },
   "Recipe: Filet of Redgill": {
-   "p": 22200,
-   "t": 1795179366,
-   "q": 32,
+   "p": 20223,
+   "t": 1795201688,
+   "q": 48,
    "low": 18900,
-   "med": 22200,
+   "med": 20223,
    "high": 24498,
    "days": 5
   },
@@ -16959,10 +16959,10 @@
    "days": 5
   },
   "Steel Bar": {
-   "p": 839,
-   "t": 1795179366,
-   "q": 6181,
-   "low": 839,
+   "p": 825,
+   "t": 1795194864,
+   "q": 12074,
+   "low": 825,
    "med": 845,
    "high": 887,
    "days": 5
@@ -18819,6 +18819,7 @@
   "Pink Dye": 2250,
   "Plans: Hardened Iron Shortsword": 2700,
   "Plans: Massive Iron Axe": 4400,
+  "Plans: Moonsteel Broadsword": 4400,
   "Purple Dye": 2250,
   "Raw Bristle Whisker Catfish": 36,
   "Raw Longjaw Mud Snapper": 18,
@@ -18827,6 +18828,7 @@
   "Raw Spinefin Halibut": 2880,
   "Raw Spotted Yellowtail": 72,
   "Razor Arrow": 1,
+  "Recipe: Baked Salmon": 18000,
   "Recipe: Brilliant Smallfish": 40,
   "Recipe: Bristle Whisker Catfish": 1080,
   "Recipe: Carrion Surprise": 4500,
@@ -18838,12 +18840,15 @@
   "Recipe: Giant Clam Scorcho": 5000,
   "Recipe: Heavy Crocolisk Stew": 1800,
   "Recipe: Hot Smoked Bass": 16000,
+  "Recipe: Hot Wolf Ribs": 4500,
   "Recipe: Jungle Stew": 2700,
+  "Recipe: Lobster Stew": 18000,
   "Recipe: Longjaw Mud Snapper": 360,
-  "Recipe: Mithril Head Trout": 1980,
+  "Recipe: Mightfish Steak": 18000,
+  "Recipe: Mithril Head Trout": 2200,
   "Recipe: Rainbow Fin Albacore": 400,
   "Recipe: Roast Raptor": 4500,
-  "Recipe: Rockscale Cod": 1980,
+  "Recipe: Rockscale Cod": 2200,
   "Recipe: Sagefish Delight": 4500,
   "Recipe: Shadow Oil": 1350,
   "Recipe: Smoked Sagefish": 450,

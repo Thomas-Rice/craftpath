@@ -14,16 +14,24 @@
   "Copper Mace": 15,
   "Copper Shortsword": 25,
   "Expert Blacksmith": 125,
+  "Glinting Steel Dagger": 155,
   "Glowing Copper Boots": 35,
   "Golden Rod": 125,
+  "Golden Scale Bracers": 160,
   "Golden Skeleton Key": 125,
   "Green Iron Bracers": 140,
+  "Green Iron Hauberk": 155,
+  "Green Iron Helm": 145,
   "Green Iron Leggings": 130,
   "Heavy Bronze Mace": 105,
   "Heavy Copper Broadsword": 70,
   "Heavy Copper Maul": 40,
+  "Heavy Mithril Axe": 185,
+  "Heavy Mithril Gauntlet": 180,
+  "Heavy Mithril Shoulder": 180,
   "Iron Buckle": 125,
   "Justicar's Belt": 150,
+  "Mithril Plate Pants": 185,
   "Officer's Belt": 150,
   "Patterned Bronze Bracers": 95,
   "Pearl-handled Dagger": 85,
@@ -34,8 +42,15 @@
   "Shining Silver Breastplate": 120,
   "Silvered Bronze Boots": 105,
   "Silvered Bronze Gauntlets": 110,
+  "Solid Grinding Stone": 175,
+  "Solid Sharpening Stone": 175,
+  "Solid Weightstone": 175,
+  "Steel Breastplate": 175,
+  "Steel Plate Helm": 190,
   "Strange Copper Boots": 35,
   "Thick War Axe": 45,
+  "Truesilver Rod": 175,
+  "Truesilver Skeleton Key": 175,
   "Warder's Belt": 150
  },
  "Cooking": {
@@ -43,6 +58,13 @@
   "Coyote Steak": 50,
   "Crab Cake": 75,
   "Dry Pork Ribs": 80,
-  "Goblin Deviled Clams": 125
+  "Goblin Deviled Clams": 125,
+  "Spider Sausage": 200
+ },
+ "Mining": {
+  "Azerothium Bar": 275,
+  "Heavy Thorium Bar": 300,
+  "Thorium Bar": 250,
+  "Truesilver Bar": 230
  }
 }
