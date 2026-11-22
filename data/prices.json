@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T19:08:08+00:00",
+ "updated": "2026-11-21T19:20:50+00:00",
  "note": "Lowest buyout from the site owner's CraftPath scans (Horde). Prices change constantly; the addon uses your own live scan.",
  "prices": {
   "9-60 Battery Pack": {
@@ -127,11 +127,6 @@
    "med": 1780000,
    "high": 1799997,
    "days": 5
-  },
-  "Arcanite Skeleton Key": {
-   "p": 251000,
-   "t": 1795120782,
-   "q": 1
   },
   "Arclight Spanner": {
    "p": 300,
@@ -1074,15 +1069,6 @@
    "med": 2499,
    "high": 4644,
    "days": 5
-  },
-  "Blue Dragonscale Breastplate": {
-   "p": 300000,
-   "t": 1795120782,
-   "q": 1,
-   "low": 300000,
-   "med": 300000,
-   "high": 300000,
-   "days": 2
   },
   "Blue Dragonscale Shoulders": {
    "p": 540000,
@@ -2291,15 +2277,6 @@
    "high": 1989,
    "days": 5
   },
-  "Copper Axe": {
-   "p": 200,
-   "t": 1795120782,
-   "q": 3,
-   "low": 200,
-   "med": 700,
-   "high": 700,
-   "days": 3
-  },
   "Copper Bar": {
    "p": 257,
    "t": 1795179366,
@@ -2308,15 +2285,6 @@
    "med": 240,
    "high": 258,
    "days": 5
-  },
-  "Copper Battle Axe": {
-   "p": 3500,
-   "t": 1795120782,
-   "q": 50,
-   "low": 1500,
-   "med": 2896,
-   "high": 4875,
-   "days": 4
   },
   "Copper Bracers": {
    "p": 129,
@@ -3520,15 +3488,6 @@
    "high": 87800,
    "days": 4
   },
-  "Earthenweave Leggings": {
-   "p": 52100,
-   "t": 1795120782,
-   "q": 3,
-   "low": 52100,
-   "med": 104400,
-   "high": 110000,
-   "days": 3
-  },
   "Earthenweave Mantle": {
    "p": 38700,
    "t": 1795179366,
@@ -4302,15 +4261,6 @@
    "med": 69,
    "high": 100,
    "days": 5
-  },
-  "Fillet of Frenzy": {
-   "p": 98,
-   "t": 1795120782,
-   "q": 317,
-   "low": 98,
-   "med": 449,
-   "high": 690,
-   "days": 4
   },
   "Fine Leather Belt": {
    "p": 495,
@@ -5104,15 +5054,6 @@
    "high": 3999,
    "days": 5
   },
-  "Frostsaber Leggings": {
-   "p": 29900,
-   "t": 1795120782,
-   "q": 2,
-   "low": 29900,
-   "med": 29900,
-   "high": 65600,
-   "days": 2
-  },
   "Frostweave Gloves": {
    "p": 74589,
    "t": 1795179366,
@@ -5193,15 +5134,6 @@
    "med": 4500,
    "high": 7100,
    "days": 5
-  },
-  "Ghostweave Belt": {
-   "p": 18700,
-   "t": 1795120782,
-   "q": 2,
-   "low": 18700,
-   "med": 18700,
-   "high": 74900,
-   "days": 2
   },
   "Ghostweave Boots": {
    "p": 47595,
@@ -8052,15 +7984,6 @@
    "high": 1897,
    "days": 5
   },
-  "Loch Frenzy Delight": {
-   "p": 280,
-   "t": 1795120782,
-   "q": 19,
-   "low": 280,
-   "med": 297,
-   "high": 800,
-   "days": 3
-  },
   "Lodestone": {
    "p": 499,
    "t": 1795179366,
@@ -8920,20 +8843,6 @@
    "med": 594000,
    "high": 649988,
    "days": 5
-  },
-  "Mooncloth Shoulders": {
-   "p": 2253800,
-   "t": 1795120782,
-   "q": 1,
-   "low": 2003800,
-   "med": 2003800,
-   "high": 2253800,
-   "days": 2
-  },
-  "Moonglow Vest": {
-   "p": 3000,
-   "t": 1795120782,
-   "q": 3
   },
   "Moonsight Rifle": {
    "p": 9000,
@@ -9984,15 +9893,6 @@
    "high": 129099,
    "days": 5
   },
-  "Pattern: Dusky Boots": {
-   "p": 13000,
-   "t": 1795120782,
-   "q": 3,
-   "low": 10898,
-   "med": 10900,
-   "high": 14900,
-   "days": 4
-  },
   "Pattern: Dusky Leather Leggings": {
    "p": 1049,
    "t": 1795179366,
@@ -10046,15 +9946,6 @@
    "med": 4000,
    "high": 10000,
    "days": 5
-  },
-  "Pattern: Earthen Silk Shoulders": {
-   "p": 9700,
-   "t": 1795120782,
-   "q": 10,
-   "low": 9700,
-   "med": 13509,
-   "high": 14900,
-   "days": 3
   },
   "Pattern: Earthen Silk Slippers": {
    "p": 9500,
@@ -11638,15 +11529,6 @@
    "high": 20000,
    "days": 5
   },
-  "Pattern: Stormcloth Pants": {
-   "p": 19999,
-   "t": 1795120782,
-   "q": 2,
-   "low": 10000,
-   "med": 10000,
-   "high": 19999,
-   "days": 2
-  },
   "Pattern: Stormcloth Shoulders": {
    "p": 2999,
    "t": 1795179366,
@@ -11853,11 +11735,6 @@
    "med": 95089,
    "high": 169900,
    "days": 4
-  },
-  "Pattern: Tooled Leather Pants": {
-   "p": 294708,
-   "t": 1795120782,
-   "q": 1
   },
   "Pattern: Totemic Leather Armor": {
    "p": 19900,
@@ -12352,15 +12229,6 @@
    "low": 10000,
    "med": 14400,
    "high": 23900,
-   "days": 5
-  },
-  "Pitchblende": {
-   "p": 3043,
-   "t": 1795179366,
-   "q": 1052,
-   "low": 1440,
-   "med": 1998,
-   "high": 3938,
    "days": 5
   },
   "Plaguebloom": {
@@ -14937,15 +14805,6 @@
    "high": 2298,
    "days": 5
   },
-  "Rugged Leather Pants": {
-   "p": 499,
-   "t": 1795120782,
-   "q": 7,
-   "low": 350,
-   "med": 499,
-   "high": 700,
-   "days": 4
-  },
   "Ruined Leather Scraps": {
    "p": 32,
    "t": 1795179366,
@@ -16638,11 +16497,6 @@
    "high": 66,
    "days": 5
   },
-  "Snake Burst Firework": {
-   "p": 400,
-   "t": 1795120782,
-   "q": 80
-  },
   "Sniper Scope": {
    "p": 13099,
    "t": 1795179366,
@@ -16939,15 +16793,6 @@
    "med": 4200,
    "high": 4899,
    "days": 5
-  },
-  "Steam Tonk Controller": {
-   "p": 29933,
-   "t": 1795120782,
-   "q": 10,
-   "low": 29933,
-   "med": 29933,
-   "high": 49999,
-   "days": 2
   },
   "Steaming Stag Steak": {
    "p": 1292,
@@ -18048,13 +17893,13 @@
    "days": 4
   },
   "Truesilver Bar": {
-   "p": 1858,
-   "t": 1795179366,
-   "q": 858,
+   "p": 1395,
+   "t": 1795288850,
+   "q": 3429,
    "low": 1350,
-   "med": 1648,
+   "med": 1395,
    "high": 1689,
-   "days": 5
+   "days": 6
   },
   "Truesilver Breastplate": {
    "p": 116400,
@@ -18081,15 +17926,6 @@
    "low": 47404,
    "med": 49600,
    "high": 53500,
-   "days": 5
-  },
-  "Truesilver Ore": {
-   "p": 1683,
-   "t": 1795179366,
-   "q": 4582,
-   "low": 1096,
-   "med": 1232,
-   "high": 1469,
    "days": 5
   },
   "Truesilver Rod": {
@@ -18766,10 +18602,10 @@
   "Copper Modulator": 200,
   "Copper Rod": 112,
   "Copper Tube": 480,
-  "Crystal Vial": 450,
+  "Crystal Vial": 500,
   "Demonic Figurine": 9000,
   "Elemental Flux": 135000,
-  "Empty Vial": 3,
+  "Empty Vial": 4,
   "Engineer's Ink": 1800,
   "Fine Thread": 90,
   "Flagon of Dwarven Honeymead": 1350,
@@ -18789,7 +18625,7 @@
   "Ice Cold Milk": 22,
   "Imbued Vial": 5400,
   "Kingsblood": 108,
-  "Leaded Vial": 36,
+  "Leaded Vial": 40,
   "Lesser Magic Essence": 720,
   "Mageroyal": 72,
   "Maple Seed": 180,
@@ -18867,10 +18703,10 @@
   "Silken Thread": 450,
   "Silver Contact": 100,
   "Simple Flour": 180,
-  "Simple Wood": 35,
+  "Simple Wood": 38,
   "Skin of Dwarven Stout": 108,
   "Soothing Spices": 144,
-  "Star Wood": 4050,
+  "Star Wood": 4500,
   "Strange Dust": 720,
   "Stranglethorn Seed": 360,
   "Strong Flux": 1800,
