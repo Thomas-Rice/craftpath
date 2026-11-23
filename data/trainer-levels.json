@@ -64,6 +64,9 @@
  "Mining": {
   "Azerothium Bar": 275,
   "Heavy Thorium Bar": 300,
+  "Smelt Azerothium": 275,
+  "Smelt Heavy Thorium": 300,
+  "Smelt Thorium": 250,
   "Thorium Bar": 250,
   "Truesilver Bar": 230
  }
