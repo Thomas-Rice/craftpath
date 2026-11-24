@@ -81,6 +81,7 @@ ns.On("ADDON_LOADED", function(name)
   CraftPathDB.prices[""], CraftPathDB.ids[""] = nil, nil
   if CraftPathDB.history then CraftPathDB.history[""] = nil end
   ns.db = CraftPathDB
+  ns.Prices.CheckVendorStock()
   if ns.Shopping then ns.Shopping.InstallHooks() end
   if ns.OnLoaded then ns.OnLoaded() end
 end)

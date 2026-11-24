@@ -289,16 +289,19 @@ pcall(ns.On, "NEW_RECIPE_LEARNED", learned) -- not every client has this event
 local function readMerchant()
   local n = GetMerchantNumItems and GetMerchantNumItems() or 0
   for i = 1, n do
-    local name, price, qty, extended
+    local name, price, qty, extended, avail
     if C_MerchantFrame and C_MerchantFrame.GetItemInfo then
       local ok, info = pcall(C_MerchantFrame.GetItemInfo, i)
-      if ok and info then name, price, qty, extended = info.name, info.price, info.stackCount, info.hasExtendedCost end
+      if ok and info then
+        name, price, qty, extended, avail = info.name, info.price, info.stackCount, info.hasExtendedCost, info.numAvailable
+      end
     elseif GetMerchantItemInfo then
-      local nm, _, pr, q, _, _, _, ext = GetMerchantItemInfo(i)
-      name, price, qty, extended = nm, pr, q, ext
+      local nm, _, pr, q, na, _, _, ext = GetMerchantItemInfo(i)
+      name, price, qty, extended, avail = nm, pr, q, ext, na
     end
     if name and price and price > 0 and not extended then
-      ns.Prices.RecordVendor(name, price / math.max(1, qty or 1))
+      -- numAvailable -1 = always in stock; 0 or more = a limited supply that restocks slowly
+      ns.Prices.RecordVendor(name, price / math.max(1, qty or 1), avail and avail >= 0)
     end
     -- Remember who sells recipes and where, to tell you later.
     if name then

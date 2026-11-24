@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-24T15:57:05+00:00",
+ "updated": "2026-11-23T16:55:51+00:00",
  "note": "Lowest buyout from the site owner's CraftPath scans (Horde). Prices change constantly; the addon uses your own live scan.",
  "prices": {
   "9-60 Battery Pack": {
@@ -7259,13 +7259,13 @@
    "days": 4
   },
   "Iron Shield Spike": {
-   "p": 999,
-   "t": 1795535825,
-   "q": 621,
+   "p": 1185,
+   "t": 1795426388,
+   "q": 125,
    "low": 649,
-   "med": 699,
+   "med": 649,
    "high": 1185,
-   "days": 5
+   "days": 4
   },
   "Iron Strut": {
    "p": 1079,
@@ -8731,13 +8731,13 @@
    "days": 2
   },
   "Mithril Shield Spike": {
-   "p": 8808,
-   "t": 1795535825,
-   "q": 375,
+   "p": 6898,
+   "t": 1795426388,
+   "q": 50,
    "low": 5398,
-   "med": 6898,
-   "high": 8808,
-   "days": 5
+   "med": 6000,
+   "high": 7700,
+   "days": 4
   },
   "Mithril Shortsword": {
    "p": 26000,
@@ -12546,13 +12546,13 @@
    "days": 4
   },
   "Plans: Iron Shield Spike": {
-   "p": 1495,
-   "t": 1795535825,
-   "q": 96,
-   "low": 1495,
+   "p": 3980,
+   "t": 1795426388,
+   "q": 60,
+   "low": 1880,
    "med": 3230,
    "high": 6475,
-   "days": 5
+   "days": 4
   },
   "Plans: Ironforge Breastplate": {
    "p": 97519,
@@ -12582,13 +12582,13 @@
    "days": 4
   },
   "Plans: Mithril Shield Spike": {
-   "p": 9500,
-   "t": 1795535825,
-   "q": 33,
+   "p": 11000,
+   "t": 1795426388,
+   "q": 22,
    "low": 8700,
-   "med": 9500,
+   "med": 9495,
    "high": 11100,
-   "days": 5
+   "days": 4
   },
   "Plans: Mithril Spurs": {
    "p": 11999,
@@ -12798,13 +12798,13 @@
    "days": 4
   },
   "Plans: Thorium Shield Spike": {
-   "p": 770000,
-   "t": 1795535825,
-   "q": 3,
+   "p": 709896,
+   "t": 1795426388,
+   "q": 5,
    "low": 696969,
-   "med": 770000,
+   "med": 709896,
    "high": 899999,
-   "days": 5
+   "days": 4
   },
   "Plans: Volcanic Hammer": {
    "p": 14555,
@@ -17586,13 +17586,13 @@
    "days": 4
   },
   "Thorium Shield Spike": {
-   "p": 85196,
-   "t": 1795535825,
-   "q": 183,
+   "p": 87797,
+   "t": 1795426388,
+   "q": 36,
    "low": 78999,
-   "med": 85196,
+   "med": 81088,
    "high": 89790,
-   "days": 5
+   "days": 4
   },
   "Thorium Tube": {
    "p": 7297,
@@ -18528,28 +18528,18 @@
   }
  },
  "vendor": {
-  "Aquadynamic Fish Attractor": 250,
   "Black Dye": 900,
-  "Blacksmith Hammer": 17,
+  "Blacksmith Hammer": 18,
   "Blank Parchment": 450,
   "Bleach": 23,
   "Blue Dye": 45,
-  "Bottle of Dalaran Noir": 50,
-  "Bronze Tube": 800,
-  "Bruiseweed": 100,
-  "Coal": 450,
-  "Coarse Blasting Powder": 48,
   "Coarse Thread": 9,
-  "Copper Modulator": 200,
   "Copper Rod": 112,
-  "Copper Tube": 480,
   "Crystal Vial": 500,
-  "Demonic Figurine": 9000,
-  "Elemental Flux": 135000,
-  "Empty Vial": 3,
+  "Elemental Flux": 150000,
+  "Empty Vial": 4,
   "Engineer's Ink": 1800,
   "Fine Thread": 90,
-  "Flagon of Dwarven Honeymead": 1500,
   "Formula: Enchant 2H Weapon - Lesser Intellect": 450,
   "Formula: Enchant Boots - Minor Agility": 900,
   "Formula: Enchant Bracer - Lesser Strength": 2250,
@@ -18564,17 +18554,11 @@
   "Heavy Stock": 1800,
   "Hot Spices": 36,
   "Ice Cold Milk": 22,
-  "Imbued Vial": 5400,
-  "Kingsblood": 108,
-  "Leaded Vial": 36,
-  "Lesser Magic Essence": 720,
-  "Mageroyal": 72,
-  "Maple Seed": 180,
+  "Leaded Vial": 40,
   "Melon Juice": 90,
   "Mild Spices": 1,
   "Moonberry Juice": 360,
   "Morning Glory Dew": 720,
-  "Mote of Magic": 9,
   "Nightcrawlers": 90,
   "Orange Dye": 900,
   "Pattern: Barbaric Leggings": 585,
@@ -18598,12 +18582,6 @@
   "Plans: Massive Iron Axe": 4400,
   "Plans: Moonsteel Broadsword": 4400,
   "Purple Dye": 2250,
-  "Raw Bristle Whisker Catfish": 36,
-  "Raw Longjaw Mud Snapper": 18,
-  "Raw Rockscale Cod": 72,
-  "Raw Slitherskin Mackerel": 18,
-  "Raw Spinefin Halibut": 2880,
-  "Raw Spotted Yellowtail": 72,
   "Razor Arrow": 1,
   "Recipe: Baked Salmon": 18000,
   "Recipe: Brilliant Smallfish": 40,
@@ -18634,28 +18612,21 @@
   "Recipe: Strider Stew": 396,
   "Recipe: Tender Wolf Steak": 12000,
   "Red Dye": 45,
-  "Red-speckled Mushroom": 25,
   "Refreshing Spring Water": 4,
-  "Rough Blasting Powder": 16,
   "Rune Thread": 4500,
   "Salt": 45,
   "Schematic: Gnomish Universal Remote": 1200,
   "Schematic: Lovingly Crafted Boomstick": 1000,
   "Shiny Red Apple": 4,
   "Silken Thread": 450,
-  "Silver Contact": 100,
   "Simple Flour": 180,
   "Simple Wood": 35,
-  "Skin of Dwarven Stout": 120,
   "Soothing Spices": 144,
   "Star Wood": 4050,
-  "Strange Dust": 720,
-  "Stranglethorn Seed": 360,
-  "Strong Flux": 1800,
+  "Strong Flux": 2000,
   "Sweet Nectar": 180,
   "Thick Logs": 180000,
-  "Weak Flux": 90,
-  "Wild Steelbloom": 200,
+  "Weak Flux": 100,
   "Wooden Stock": 180,
   "Yellow Dye": 450
  }

@@ -407,10 +407,27 @@ def main():
     assert ns.Prices.AH("Thorium Bar") == 300
     assert ns.db.prices["Star Ruby"].none
 
+    # Saved vendor prices from before stock was checked are dropped unless always stocked.
+    ns.db.vendor["Mageroyal"] = 72
+    ns.db.vendorStockChecked = None
+    ns.Prices.CheckVendorStock()
+    assert ns.Prices.Vendor("Mageroyal") is None and ns.db.vendorStockChecked
     # Merchant prices replace the vendor estimates.
     fire("MERCHANT_SHOW")
     assert ns.Prices.Vendor("Weak Flux") == 95
     assert ns.Prices.Vendor("Schematic: Thorium Widget") == 4500
+    # A merchant with only a few (herb vendors): remembered, not planned on.
+    lua.execute("""
+      __oldMerchantInfo = C_MerchantFrame.GetItemInfo
+      C_MerchantFrame.GetItemInfo = function(i)
+        if i == 1 then return { name = "Mageroyal", price = 72, stackCount = 1, numAvailable = 3 } end
+        return __oldMerchantInfo(i)
+      end
+    """)
+    fire("MERCHANT_SHOW")
+    assert ns.db.vendorLimited["Mageroyal"] and ns.Prices.Vendor("Mageroyal") is None
+    lua.execute("C_MerchantFrame.GetItemInfo = __oldMerchantInfo")
+    fire("MERCHANT_SHOW")
     where = ns.db.vendorWhere["Plans: Secret Forever Hammer"]
     assert where.npc == "Sovik" and where.where == "Orgrimmar, Valley of Honor", (where.npc, where.where)
 

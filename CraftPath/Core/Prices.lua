@@ -27,8 +27,40 @@ function Prices.Listed(name)
   return e and e.p and e.q or nil
 end
 
+-- A vendor price CraftPath can plan on: a merchant who always has it. Some merchants sell only
+-- a few of an item at a time (herbs such as Mageroyal at 72c); those are remembered but not
+-- planned on, or the shopping list would send you to a vendor for 70 when they have 3.
+-- Recipes (patterns, plans, ...) are bought once, so a limited supply doesn't matter for them.
+local function isRecipeItem(name)
+  for _, prefixes in pairs(ns.RawData.RecipePrefixes or {}) do
+    for _, pre in ipairs(prefixes) do
+      if name:sub(1, #pre) == pre then return true end
+    end
+  end
+  return false
+end
+Prices.IsRecipeItem = isRecipeItem
+
 function Prices.Vendor(name)
-  return ns.db and ns.db.vendor[name]
+  local v = ns.db and ns.db.vendor[name]
+  if not v then return nil end
+  if ns.db.vendorLimited and ns.db.vendorLimited[name] and not isRecipeItem(name) then return nil end
+  return v
+end
+
+-- Prices seen before CraftPath checked for limited stock (before 0.14.1) can't be trusted for
+-- items it doesn't already know vendors always stock: forget them, and the next visit to that
+-- merchant records them again, properly.
+function Prices.CheckVendorStock()
+  local db = ns.db
+  if db.vendorStockChecked then return end
+  db.vendorLimited = db.vendorLimited or {}
+  local always = ns.RawData.VendorItems or {}
+  local goods = ns.RawData.VendorGoods or {}
+  for name in pairs(db.vendor) do
+    if not always[name] and not goods[name] and not isRecipeItem(name) then db.vendor[name] = nil end
+  end
+  db.vendorStockChecked = true
 end
 
 function Prices.Info(name)
@@ -112,8 +144,12 @@ function Prices.RecordNone(name)
   ns.db.prices[name] = { p = nil, t = time(), scan = ns.db.scanId, none = true }
 end
 
-function Prices.RecordVendor(name, unitPrice)
-  if name and unitPrice and unitPrice > 0 then ns.db.vendor[name] = unitPrice end
+-- limited = the merchant only has a few (numAvailable >= 0): remembered, but not planned on.
+function Prices.RecordVendor(name, unitPrice, limited)
+  if not (name and unitPrice and unitPrice > 0) then return end
+  ns.db.vendorLimited = ns.db.vendorLimited or {}
+  ns.db.vendor[name] = unitPrice
+  ns.db.vendorLimited[name] = limited and true or nil
 end
 
 function Prices.AgeText(name)

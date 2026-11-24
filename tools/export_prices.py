@@ -41,7 +41,15 @@ def wanted_items():
             names.add(r.name)  # intermediate crafts can be bought too
             for k in range(1, len(prefixes) + 1):
                 names.add(prefixes[k] + r.name)
-    return names
+    always = set()  # items CraftPath knows vendors always stock
+    for tbl in ("VendorItems", "VendorGoods"):
+        t = ns.RawData[tbl]
+        if t:
+            always.update(t.keys())
+    prefixes = []
+    for prof in ns.RawData.RecipePrefixes.values():
+        prefixes.extend(prof[i] for i in range(1, len(prof) + 1))
+    return names, always, tuple(prefixes)
 
 
 def main(argv=None):
@@ -53,7 +61,7 @@ def main(argv=None):
     with open(args[0], encoding="utf-8") as fh:
         lua.execute(fh.read())
     db = lua.globals().CraftPathDB
-    names = wanted_items()
+    names, always, recipe_prefixes = wanted_items()
     # Only recent prices: anything not seen in the 36 hours before the newest price is no
     # longer listed, and old prices mislead. (Full and targeted scans both count.)
     newest_seen = max((int(e.t or 0) for e in (db.prices or {}).values() if e.p), default=0)
@@ -68,7 +76,14 @@ def main(argv=None):
             if e.q:
                 prices[name]["q"] = int(e.q)
             newest = max(newest, int(e.t or 0))
-    vendor = {n: int(p) for n, p in (db.vendor or {}).items() if n in names}
+    # Vendor prices the planner can count on: not merchants with only a few in stock (flagged
+    # since 0.14.1), and, from saved data older than that, only items known to be always stocked.
+    limited = set((db.vendorLimited or {}).keys())
+    checked = bool(db.vendorStockChecked)
+    # Recipes are bought once, so a limited supply doesn't matter for them.
+    vendor = {n: int(p) for n, p in (db.vendor or {}).items()
+              if n in names and (n.startswith(recipe_prefixes)
+                                 or (n not in limited and (checked or n in always)))}
     # Last week's daily lows, so the website can show a "safe" profit like the addon.
     today = newest // 86400 if newest else 0
     for name, h in (db.history or {}).items():
