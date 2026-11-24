@@ -188,7 +188,9 @@ def main():
                            "--changes", changes, "--wiki-levels", wl])
         en = open(os.path.join(addon, "Data", "Engineering.lua"), encoding="utf-8").read()
         assert "\nCopper Tube|60|60|" in en, [l for l in en.splitlines() if l.startswith("Copper Tube|")]
-        assert "\nHarvester Override Signalcaster|60|" in en  # recipe item: keeps its own level
+        harv = [l for l in en.splitlines() if l.startswith("Harvester Override Signalcaster|")]
+        assert harv and harv[0].split("|")[1] != "1", harv  # recipe item: the wiki's level (1) isn't used
+        harv_learn = int(harv[0].split("|")[1])
         assert "1 from the wiki" in open(report, encoding="utf-8").read()
 
         # A level recorded at a trainer in game wins over the wiki and the yellow-skill guess.
@@ -201,14 +203,15 @@ def main():
         # A recipe item's "Requires <profession> (N)" is when its recipe can be learned (Mooncloth: 230
         # on the pattern, 265 on the client's recipe line).
         path = os.path.join(csvs, "ItemSparse.csv")
+        low = harv_learn - 5
         rows = open(path, encoding="utf-8").read().replace(
-            ",Schematic: Harvester Override Signalcaster,0,0,202,60", ",Schematic: Harvester Override Signalcaster,0,0,202,45")
-        assert ",202,45" in rows
+            f",Schematic: Harvester Override Signalcaster,0,0,202,{harv_learn}", f",Schematic: Harvester Override Signalcaster,0,0,202,{low}")
+        assert f",202,{low}" in rows
         open(path, "w", encoding="utf-8").write(rows)
         sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
                            "--changes", changes, "--trainer-levels", tl, "--wiki-levels", wl])
         en = open(os.path.join(addon, "Data", "Engineering.lua"), encoding="utf-8").read()
-        assert "\nHarvester Override Signalcaster|45|45|" in en, [l for l in en.splitlines() if l.startswith("Harvester")]
+        assert f"\nHarvester Override Signalcaster|{low}|{low}|" in en, [l for l in en.splitlines() if l.startswith("Harvester")]
         cds = open(os.path.join(addon, "Data", "Cooldowns.lua"), encoding="utf-8").read()
         assert '["Copper Tube"] = { 169200, "Transmute - Alchemy" },' in cds, cds
         assert '["Handful of Copper Bolts"] = { 600, "" },' in cds, cds

@@ -276,8 +276,12 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
             else:
                 learn, how_learn["guess"] = yellow, how_learn["guess"] + 1
                 problems.append(f"{name}: no trainer level known; assumed {learn} (its yellow skill)")
-        if learn >= MAX_SKILL or grey <= learn:
+        if not from_item and (learn >= MAX_SKILL or grey <= learn):
             continue  # can't help reach the cap
+        if learn > MAX_SKILL:
+            continue
+        # Recipe items learned at the top (Plans: Elemental Sharpening Stone needs 300) give no
+        # skill but are kept: the profit finder still wants them.
         orange = learn
         if yellow <= 0:
             yellow = learn
