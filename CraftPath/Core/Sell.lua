@@ -8,7 +8,7 @@ ns.Sell = ns.Sell or {}
 local Sell = ns.Sell
 
 -- The auction has to beat the vendor by this much to be worth listing (time, deposit, risk).
-local MIN_GAIN, MIN_GAIN_SHARE = 500, 0.2 -- 5 silver, or 20% over the vendor price
+local MIN_GAIN, MIN_GAIN_SHARE = 100, 0.2 -- at least 1 silver each and 20% over the vendor price
 
 -- What to do with one of these. nil if it isn't something your professions craft.
 --   { how = "keep" | "auction" | "vendor" | "none", vendor = copper, auction = copper you'd

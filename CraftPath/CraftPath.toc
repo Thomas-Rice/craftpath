@@ -2,7 +2,7 @@
 ## Title: CraftPath
 ## Notes: Cheapest way to level a profession from live auction house prices, with a shopping list. Every crafting profession in WoW: Forever. Profits are in its companion addon, Prophet.
 ## Author: Thomas Rice
-## Version: 0.15.0
+## Version: 0.15.1
 ## OptionalDeps: TradeSkillMaster, TradeSkillMaster_AppHelper
 ## SavedVariables: CraftPathDB
 ## IconTexture: Interface\Icons\Trade_Engineering
