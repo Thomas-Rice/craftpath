@@ -44,5 +44,6 @@ Surgical Tourniquet|275|275|280|310|340|1|R|Rugged Leather*2;Runecloth*2;Heavy S
 Major Healing Potion|285|285|290|310|330|1|R|Crystal Vial*1;Soothing Spices*3;Golden Sansam*1
 Heavy Runecloth Bandage|290|290|290|320|350|1|T|Runecloth*2
 Powerful Poultice|290|290|295|325|355|3|R|Essence of Water*1;Hot Spices*1;Flagon of Dwarven Honeymead*1
+Dense Runecloth Bandage|300|300|315|327|340|1|R|Heavy Runecloth Bandage*2
 ]],
 }
