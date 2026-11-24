@@ -80,6 +80,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           { echo "**New run: Forever build ${{ steps.sync.outputs.build }}** ([run log](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}))"; echo; cat recipe-sync-report.md; } > comment.md
+          # GitHub comments are capped at 65536 characters; a big report links to the run instead
+          if [ "$(wc -c < comment.md)" -gt 60000 ]; then head -c 60000 comment.md > c2.md; printf '\n\n…cut short: the full report is in the run log.\n' >> c2.md; mv c2.md comment.md; fi
           gh pr comment "${{ steps.cpr.outputs.pull-request-number }}" --body-file comment.md
 
       - name: Fail the run if the tests failed
