@@ -25,7 +25,7 @@ def write_csv(path, header, rows):
 
 
 def make_csvs(ns, out, extra=None, change=None, hidden_reagent=None):
-    items, item_rows = {}, []
+    items, item_rows, item_req = {}, [], {}
 
     def item(name):
         if name not in items:
@@ -56,7 +56,9 @@ def make_csvs(ns, out, extra=None, change=None, hidden_reagent=None):
             reagents.append(row)
             effects.append([len(effects) + 1, spell, 0, sync_recipes.CREATE_ITEM, item(r["name"]), float(r["makes"])])
             if r["source"] in ("R", "V"):
-                item(sync_recipes.PROFESSIONS[prof][1][0] + r["name"])
+                ri = sync_recipes.PROFESSIONS[prof][1][0] + r["name"]
+                item(ri)
+                item_req[ri] = (line, r["learn"])  # "Requires <profession> (N)" on the recipe item
     write_csv(os.path.join(out, "SkillLineAbility.csv"),
               ["ID", "SkillLine", "Spell", "MinSkillLineRank", "AcquireMethod", "TrivialSkillLineRankHigh",
                "TrivialSkillLineRankLow", "NumSkillUps"], sla)
@@ -73,8 +75,10 @@ def make_csvs(ns, out, extra=None, change=None, hidden_reagent=None):
               ["ID", "SpellID", "EffectIndex", "Effect", "EffectItemType", "EffectBasePointsF"], effects)
     if hidden_reagent:  # the client ships this item with no name yet
         item_rows = [[i, "" if n == hidden_reagent else n] for i, n in item_rows]
-    item_rows = [[i, n, 40 if n == "Empty Vial" else 0, 7 if n == "Copper Bar" else 0] for i, n in item_rows]
-    write_csv(os.path.join(out, "ItemSparse.csv"), ["ID", "Display_lang", "BuyPrice", "SellPrice"], item_rows)
+    item_rows = [[i, n, 40 if n == "Empty Vial" else 0, 7 if n == "Copper Bar" else 0] + list(item_req.get(n, (0, 0)))
+                 for i, n in item_rows]
+    write_csv(os.path.join(out, "ItemSparse.csv"),
+              ["ID", "Display_lang", "BuyPrice", "SellPrice", "RequiredSkill", "RequiredSkillRank"], item_rows)
 
 
 def snapshot(ns, prof):
@@ -194,6 +198,17 @@ def main():
                            "--changes", changes, "--trainer-levels", tl, "--wiki-levels", wl])
         bs = open(os.path.join(addon, "Data", "Blacksmithing.lua"), encoding="utf-8").read()
         assert "\nThorium Shield Wall|285|285|290|" in bs, [l for l in bs.splitlines() if "Shield Wall" in l]
+        # A recipe item's "Requires <profession> (N)" is when its recipe can be learned (Mooncloth: 230
+        # on the pattern, 265 on the client's recipe line).
+        path = os.path.join(csvs, "ItemSparse.csv")
+        rows = open(path, encoding="utf-8").read().replace(
+            ",Schematic: Harvester Override Signalcaster,0,0,202,60", ",Schematic: Harvester Override Signalcaster,0,0,202,45")
+        assert ",202,45" in rows
+        open(path, "w", encoding="utf-8").write(rows)
+        sync_recipes.main(["--csv-dir", csvs, "--build", "1.60.1.99999", "--report", report, "--addon-dir", addon,
+                           "--changes", changes, "--trainer-levels", tl, "--wiki-levels", wl])
+        en = open(os.path.join(addon, "Data", "Engineering.lua"), encoding="utf-8").read()
+        assert "\nHarvester Override Signalcaster|45|45|" in en, [l for l in en.splitlines() if l.startswith("Harvester")]
         cds = open(os.path.join(addon, "Data", "Cooldowns.lua"), encoding="utf-8").read()
         assert '["Copper Tube"] = { 169200, "Transmute - Alchemy" },' in cds, cds
         assert '["Handful of Copper Bolts"] = { 600, "" },' in cds, cds

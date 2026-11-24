@@ -204,6 +204,9 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
     spell_name = {num(r, "ID"): r.get("Name_lang", "") for r in tables["SpellName"]}
     item_name = {num(r, "ID"): r.get("Display_lang", "") for r in tables["ItemSparse"]}
     item_names = set(item_name.values())
+    # The skill a recipe item (pattern, plans, ...) asks for is when you can learn the recipe.
+    item_skill = {r.get("Display_lang", ""): num(r, "RequiredSkillRank") for r in tables["ItemSparse"]
+                  if num(r, "RequiredSkill") == skill_line and num(r, "RequiredSkillRank") > 0}
     reagents_by_spell = {}
     for r in tables["SpellReagents"]:
         regs = []
@@ -246,13 +249,18 @@ def build_profession(tables, prof, skill_line, prefixes, existing_sources, exclu
         # Trainer recipes say 1 in the client; the real number is on the trainer NPC. In order:
         # a level recorded at a trainer in game, the wiki's Forever tables, the number we had,
         # and last the yellow skill (never too low: a guess that's too low has the route ask
-        # for a recipe you can't learn yet). Recipes from recipe items, vendors, factions and
-        # quests keep their own number.
+        # for a recipe you can't learn yet). Recipes from recipe items use the skill the item
+        # asks for; vendors, factions and quests keep their own number.
         auto = num(r, "AcquireMethod") in (1, 2)
         from_item = any(p + name in item_names for p in prefixes) or (kept and kept[0] in "RFVGNQ")
         seen = (trainer_levels or {}).get(name)
         wiki = (wiki_levels or {}).get(name)
-        if seen and not auto and not from_item:
+        item_req = next((item_skill[p + name] for p in prefixes if p + name in item_skill), None)
+        if item_req and from_item and not auto:
+            # learned from a recipe item: the item's "Requires <profession> (N)" (Mooncloth: 230,
+            # though the client's recipe line says 265)
+            learn = item_req
+        elif seen and not auto and not from_item:
             # what the trainer showed in game beats everything, even the client's own number
             learn, how_learn["game"] = seen, how_learn["game"] + 1
         elif learn <= 1 and not auto and yellow > 1:
