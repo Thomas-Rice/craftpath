@@ -1,0 +1,19 @@
+name: probe
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 - <<'PY'
+          import sys, json, urllib.parse
+          sys.path.insert(0, "tools")
+          import sync_recipes as s
+          for t in ["Forever alchemy recipes"]:
+              w = json.loads(s.fetch(s.WIKI_API + urllib.parse.quote(t)))["parse"]["wikitext"]["*"]
+              print("PAGE", len(w))
+              for l in w.splitlines()[:50]: print("ROW", l)
+              for l in w.splitlines():
+                  if "ost" in l or "rain" in l: print("COST", l)
+          PY
