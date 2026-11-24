@@ -1,0 +1,23 @@
+name: probe
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 - <<'PY'
+          import sys, csv, io
+          sys.path.insert(0, "tools")
+          import sync_recipes as s
+          b = s.newest_build()
+          print("BUILD", b)
+          url = s.CSV_URL.format(table="ItemSparse", build=b[0]) if "{table}" in s.CSV_URL else None
+          print("URL", url)
+          data = s.fetch(url).decode("utf-8")
+          rows = list(csv.DictReader(io.StringIO(data)))
+          print("HDR", [k for k in rows[0].keys() if "kill" in k or "Req" in k])
+          for r in rows:
+              if r["ID"] in ("14526", "14627", "10302", "13477"):
+                  print("ROW", r["ID"], r.get("Display_lang"), {k: v for k, v in r.items() if "kill" in k})
+          PY
