@@ -845,6 +845,25 @@ def main():
     assert cu[0][5] and cu[0][5] != "—", cu[0][5]  # buy ore under (25c bar x 0.95 = ~24c)
     assert any("pay under" in t for t in lua_list(cu[0].tip)), lua_list(cu[0].tip)
     for n, v in keep_prices.items(): ns.db.prices[n] = v
+    # What to do with crafts in your bags: auction (sells, clearly beats the vendor) or vendor.
+    lua.execute("""
+      local inner = C_Item.GetItemCount
+      C_Item.GetItemCount = function(n, bank)
+        if n == "Handful of Copper Bolts" then return 40 end
+        if n == "Rough Blasting Powder" then return 30 end
+        return inner(n, bank)
+      end
+    """)
+    saved_p = {n: ns.db.prices[n] for n in ("Handful of Copper Bolts", "Rough Blasting Powder")}
+    ns.db.prices["Handful of Copper Bolts"] = lua.table_from({"p": 5000, "t": G.time(), "q": 40})
+    ns.db.prices["Rough Blasting Powder"] = lua.table_from({"p": 30, "t": G.time(), "q": 900})
+    advice = {a.name: a for a in lua_list(ns.Sell.InBags("Engineering"))}
+    bolts, powder = advice["Handful of Copper Bolts"], advice["Rough Blasting Powder"]
+    assert bolts.sellHow == "auction" and bolts.auction == int(5000 * 0.95), (bolts.sellHow, bolts.auction)  # route may keep some
+    assert powder.how in ("vendor", "keep"), powder.how
+    assert ("auction" in ns.Sell.Text(bolts)), ns.Sell.Text(bolts)
+    ns.Sell.Report()
+    for n, v in saved_p.items(): ns.db.prices[n] = v
     lua.execute("C_Item.GetItemCount = __origCount")
 
     # ---- TradeSkillMaster as an optional source: prices for unscanned items, sale rates ----

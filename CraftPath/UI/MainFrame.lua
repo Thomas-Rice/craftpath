@@ -331,6 +331,32 @@ local function buildRoute(plan)
       out[#out + 1] = { "", ("|cff33ff33Selling what you make gets back %s (net %s).|r"):format(Money(plan.resaleTotal), net(plan.netTotal)) }
     end
   end
+  -- What you've already made: keep it for a later step, auction it, or sell it to a vendor.
+  local made = ns.Sell and ns.Sell.InBags(plan.profession) or {}
+  if #made > 0 then
+    local M = Money
+    out[#out + 1] = columns("In bags", "Your crafts: keep, auction or vendor?", "", "Worth")
+    for _, a in ipairs(made) do
+      local verdict, worth
+      if a.how == "keep" then
+        verdict = "|cff33bbffkeep " .. a.keep.qty .. "|r" .. ((a.spare or 0) > 0 and (", " .. (a.sellHow == "auction" and "auction" or "vendor") .. " " .. a.spare) or "")
+        worth = (a.spare or 0) > 0 and (a.sellHow == "auction" and a.auction or a.vendor) and M((a.sellHow == "auction" and a.auction or a.vendor) * a.spare) or ""
+      elseif a.how == "auction" then
+        verdict, worth = "|cff33ff33auction|r", M(a.auction * a.count)
+      elseif a.how == "vendor" then
+        verdict, worth = "vendor", M(a.vendor * a.count)
+      else
+        verdict, worth = grey("no value"), ""
+      end
+      out[#out + 1] = { tostring(a.count), a.name, verdict, worth, item = a.name,
+        tip = { a.name, ns.Sell.Text(a),
+          a.auction and ("Auction house: %s now%s; about %s each after the cut at this week's low."):format(
+            M(ns.Prices.AH(a.name) or 0), a.perDay and (", ~" .. math.floor(a.perDay + 0.5) .. " sell a day") or
+            (" (" .. (a.listed or 0) .. " listed)"), M(a.auction)) or "Not worth listing: too few sell, or no auction price.",
+          "Click: search the auction house" } }
+    end
+    out[#out + 1] = { "" }
+  end
   out[#out + 1] = columns("Skill", "Recipe  (click to open in the crafting helper)", "Crafts", "Step total")
   out[#out + 1] = { grey("    Materials"), grey("Need"), grey("Bags"), grey("Bank"), grey("Mail"), "|cffffd100Buy|r", grey("Cost"),
     layout = SHOP_LAYOUT }
@@ -794,6 +820,13 @@ function ns.OnLoaded()
     local keep = ns.Keep and ns.Keep.For(name)
     if keep then
       tooltip:AddDoubleLine("|cff33bbffCraftPath|r keep", keep.qty .. " (" .. ns.Keep.Text(keep) .. ")", 1, 1, 1, 1, 0.82, 0)
+    end
+    -- Something you craft: auction it or sell it to a vendor?
+    local advice = ns.Sell and not keep and ns.Sell.Advice(name)
+    if advice and advice.how == "auction" then
+      tooltip:AddDoubleLine("|cff33bbffCraftPath|r sell", "auction it, ~" .. Money(advice.auction) .. " each", 1, 1, 1, 0.2, 1, 0.2)
+    elseif advice and advice.how == "vendor" then
+      tooltip:AddDoubleLine("|cff33bbffCraftPath|r sell", "to a vendor", 1, 1, 1, 1, 1, 1)
     end
     if not settings().tooltip then return end
     local e = ns.Prices.Info(name)

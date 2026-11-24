@@ -76,6 +76,7 @@ Options:
 Commands:
 - `/cpath scan`: full scan
 - `/cpath list`: materials scan
+- `/cpath sell`: what to do with the crafts in your bags: keep (a later step needs it), auction it (it sells, and for clearly more than a vendor pays) or sell it to a vendor. The same advice is at the top of the Route tab and in item tooltips.
 - `/cpath tsm [on|off|item]`: TradeSkillMaster as an extra source (prices for items you haven't scanned, and how many sell a day across the region); your own scans come first, and nothing from TSM goes to the website
 - `/cpath reset`: clear prices
 - `/cpath perf`: print anything that takes a noticeable time (for lag reports)

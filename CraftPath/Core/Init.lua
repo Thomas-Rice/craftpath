@@ -240,6 +240,8 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.Keep.Toggle()
   elseif msg == "tsm" or msg:match("^tsm ") then
     ns.TSM.Slash(msg:sub(5))
+  elseif msg == "sell" then
+    ns.Sell.Report()
   elseif msg == "trainer" then
     ns.Game.ReadTrainer()
   elseif msg == "perf" then
@@ -254,6 +256,7 @@ SlashCmdList.CRAFTPATH = function(msg)
     ns.Print("/cpath list — scan just the items on your shopping list")
     ns.Print("/cpath craft — turn the crafting helper (beside the profession window) on or off")
     ns.Print("/cpath keep — turn marking of items you need in your bags and bank on or off")
+    ns.Print("/cpath sell — what to do with the crafts in your bags: keep, auction or vendor")
     ns.Print("/cpath tsm on|off|<item> — TradeSkillMaster prices and sale rates")
     ns.Print("Profits and History: the Prophet addon (/prophet)")
     ns.Print("/cpath reset — forget all auction prices")
