@@ -125,3 +125,32 @@ ns.On("MERCHANT_SHOW", function()
     ns.Print(("%d of your crafts are worth more on the auction house than here. /cpath sell lists them."):format(n))
   end
 end)
+
+-- A snapshot of what you have, saved when you reload or log out (CraftPathDB.stock), so the
+-- advice can also be worked out outside the game. Only items your professions craft or use,
+-- and only counts: { [character] = { t = time, items = { [name] = { bags, bank, mail } } } }.
+function Sell.SaveStock()
+  if not ns.db then return end
+  local names = {}
+  for _, prof in ipairs(ns.Recipes.Professions()) do
+    if (ns.Game.GetSkill(prof) or 0) > 0 then
+      local data = ns.Recipes.Load(prof)
+      for _, r in ipairs(data and data.list or {}) do
+        names[r.name] = true
+        for _, g in ipairs(r.reagents) do names[g.name] = true end
+      end
+    end
+  end
+  local items = {}
+  for name in pairs(names) do
+    local bags = ns.Game.Bags(name)
+    local bank = math.max(0, ns.Game.BagsAndBank(name) - bags)
+    local mail = ns.Game.Mail(name)
+    if bags + bank + mail > 0 then items[name] = { bags, bank, mail } end
+  end
+  ns.db.stock = ns.db.stock or {}
+  ns.db.stock[ns.Ledger and ns.Ledger.CharKey and ns.Ledger.CharKey()
+    or ((UnitName and UnitName("player") or "?") .. "-" .. (GetRealmName and GetRealmName() or ""))] = { t = time(), items = items }
+end
+
+ns.On("PLAYER_LOGOUT", function() pcall(Sell.SaveStock) end) -- also fires on /reload

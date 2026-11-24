@@ -863,6 +863,9 @@ def main():
     assert powder.how in ("vendor", "keep"), powder.how
     assert ("auction" in ns.Sell.Text(bolts)), ns.Sell.Text(bolts)
     ns.Sell.Report()
+    fire("PLAYER_LOGOUT")  # saves a snapshot of what you have, for advice outside the game
+    snap = lua.eval("function(t) local _, v = next(t) return v end")(ns.db.stock)
+    assert snap["items"]["Rough Blasting Powder"][1] == 30 and snap.t, snap["items"]["Rough Blasting Powder"]
     for n, v in saved_p.items(): ns.db.prices[n] = v
     lua.execute("C_Item.GetItemCount = __origCount")
 
