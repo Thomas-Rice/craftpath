@@ -1,5 +1,63 @@
 [
  {
+  "date": "2026-11-24",
+  "build": "1.60.1.71091",
+  "professions": [
+   {
+    "profession": "Alchemy",
+    "before": 164,
+    "after": 164,
+    "minor": 0,
+    "added": [],
+    "removed": [],
+    "changed": [
+     {
+      "name": "Elixir of Minor Strength",
+      "change": "learn 55 → 15; orange 55 → 15"
+     },
+     {
+      "name": "Minor Troll's Blood Elixir",
+      "change": "learn 60 → 15; orange 60 → 15"
+     },
+     {
+      "name": "Minor Mana Potion",
+      "change": "learn 65 → 25; orange 65 → 25"
+     },
+     {
+      "name": "Draught of Water Breathing",
+      "change": "learn 120 → 90; orange 120 → 90"
+     },
+     {
+      "name": "Lesser Troll's Blood Elixir",
+      "change": "learn 150 → 125; orange 150 → 125"
+     },
+     {
+      "name": "Elixir of Lesser Defense",
+      "change": "learn 155 → 130; orange 155 → 130"
+     },
+     {
+      "name": "Elixir of Fire Power",
+      "change": "learn 165 → 140; orange 165 → 140"
+     }
+    ]
+   },
+   {
+    "profession": "Leatherworking",
+    "before": 450,
+    "after": 449,
+    "minor": 0,
+    "added": [],
+    "removed": [
+     {
+      "name": "Centaur Hoofwarmers",
+      "skill": 170
+     }
+    ],
+    "changed": []
+   }
+  ]
+ },
+ {
   "date": "2026-11-21",
   "build": "1.60.1.71037",
   "professions": [
