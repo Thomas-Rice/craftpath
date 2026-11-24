@@ -507,6 +507,16 @@ def main():
     plan = ns.MakePlan()
     ns.Shopping.Start(plan)
     run = ns.Shopping.Get()
+    # The route changing while you buy: something it now needs that the list lacks is added.
+    skill = ns.Game.GetSkill(plan.profession)
+    skill = (skill[0] if isinstance(skill, tuple) else skill) or 0
+    later = {g.name for st in lua_list(plan.steps) if st.to > skill for g in lua_list(st.recipe.reagents)}
+    gone = [b.name for b in lua_list(plan.shopping) if b.buy > b.have and b.source == "ah" and b.name in later
+            and ns.Game.Owned(b.name) == 0][-1]
+    run["items"][gone] = None
+    order = lua_list(run["order"])
+    run["order"] = lua.table_from({i + 1: n for i, n in enumerate([n for n in order if n != gone])})
+    assert ns.Shopping.TopUp(plan) == 1 and run["items"][gone].added, gone
     first, e = ns.Shopping.NextToBuy()
     assert first and e.source == "ah", first
     need = ns.Shopping.Left(first)

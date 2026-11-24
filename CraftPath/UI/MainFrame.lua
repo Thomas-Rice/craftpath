@@ -250,7 +250,8 @@ local function buildRun(run)
     local left = ns.Shopping.Left(name)
     local doneRow = left == 0 or ns.db.done[name]
     local label = doneRow and ("|cff777777" .. name .. " |TInterface\\RaidFrame\\ReadyCheck-Ready:12|t|r")
-      or (run.skipped[name] and ("|cff999999" .. name .. " (skipped)|r")) or name
+      or (run.skipped[name] and ("|cff999999" .. name .. " (skipped)|r"))
+      or (e.added and (name .. " |cff33ff33new|r")) or name
     local toBuy = e.need - e.have
     local avg = e.bought > 0 and (e.spent / e.bought) or nil
     local over = avg and e.unit > 0 and math.floor((avg / e.unit - 1) * 100 + 0.5) or 0
@@ -263,7 +264,7 @@ local function buildRun(run)
       tip = { name,
         ("Need %d, had %d at the start, bought %d, %d left to buy"):format(e.need, e.have, e.bought, left),
         ("Now: %d in bags, %d in bank, %d in mailbox"):format(bags, bank, mail),
-        ("Planned %s each"):format(Money(e.unit)),
+        e.added and "|cff33ff33Added since you started buying: the route now needs it.|r" or ("Planned %s each"):format(Money(e.unit)),
         avg and ("Paid %s on average (%s in total)"):format(Money(avg), Money(e.spent)) or "Nothing bought yet",
         e.source == "vendor" and "Buy this from a vendor (right-click to tick off)" or "Click: search the auction house",
         "Right-click: tick off" },
@@ -433,6 +434,7 @@ local function buildRoute(plan)
 
   out[#out + 1] = { "" }
   local run = ns.Shopping.Get()
+  if run then ns.Shopping.TopUp(plan) end
   out[#out + 1] = { run and "|cffffd100Buying now|r" or "|cffffd100Shopping list for the whole route|r" }
   local shop = run and buildRun(run) or (plan.shopping and buildShopping(plan)) or {}
   for _, row in ipairs(shop) do

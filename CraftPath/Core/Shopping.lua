@@ -31,6 +31,42 @@ function Shopping.Start(plan)
   wipe(ns.db.done)
 end
 
+-- The route can change while you're buying (new prices, recipe data, trainer levels):
+-- materials the plan now needs for steps you haven't done yet, which the list doesn't have,
+-- are added to it ("added since you started"). Items the plan now buys somewhere else
+-- (auction house instead of a vendor) follow the plan. Quantities already on the list stay.
+function Shopping.TopUp(plan)
+  local s = Shopping.Get()
+  if not (s and plan and plan.steps and plan.profession == s.profession) then return 0 end
+  local skill = ns.Game and ns.Game.GetSkill(plan.profession) or plan.from
+  local want = {}
+  for _, st in ipairs(plan.steps) do
+    if st.to > (skill or 0) then
+      local crafts = math.ceil(st.crafts or 0)
+      for _, g in ipairs(st.recipe.reagents) do want[g.name] = (want[g.name] or 0) + g.qty * crafts end
+    end
+  end
+  local byName = {}
+  for _, b in ipairs(plan.shopping or {}) do byName[b.name] = b end
+  local added = 0
+  for name, qty in pairs(want) do
+    local b = byName[name]
+    local e = s.items[name]
+    if b and not e and b.buy > 0 then
+      local have = math.max(0, math.min(qty, ns.Game and ns.Game.Owned(name) or 0))
+      if qty - have > 0 then
+        s.items[name] = { need = qty, have = have, unit = b.unit, source = b.source, bought = 0, spent = 0,
+          added = time() }
+        s.order[#s.order + 1] = name
+        added = added + 1
+      end
+    elseif b and e and e.source ~= b.source and e.bought == 0 then
+      e.source, e.unit = b.source, b.unit
+    end
+  end
+  return added
+end
+
 function Shopping.Stop()
   ns.db.shop = nil
 end
