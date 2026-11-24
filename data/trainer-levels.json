@@ -1,4 +1,26 @@
 {
+ "Alchemy": {
+  "Blackmouth Oil": 80,
+  "Cerulean Dye": 40,
+  "Draught of Water Breathing": 90,
+  "Elixir of Fire Power": 140,
+  "Elixir of Lesser Defense": 130,
+  "Elixir of Minor Fortitude": 50,
+  "Elixir of Minor Strength": 15,
+  "Elixir of Wisdom": 90,
+  "Expert Alchemist": 125,
+  "Fire Oil": 130,
+  "Journeyman Alchemist": 50,
+  "Lesser Mana Potion": 120,
+  "Lesser Troll's Blood Elixir": 125,
+  "Magenta Dye": 120,
+  "Mana Well": 20,
+  "Minor Mana Potion": 25,
+  "Minor Rejuvenation Potion": 40,
+  "Minor Troll's Blood Elixir": 15,
+  "Sulfuric Acid": 40,
+  "Swim Speed Potion": 100
+ },
  "Blacksmithing": {
   "Big Bronze Knife": 80,
   "Bronze Axe": 90,
