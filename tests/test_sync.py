@@ -202,5 +202,35 @@ def main():
         shutil.rmtree(tmp)
 
 
+def test_trainer_costs():
+    """export_prices merges trainer fees (keeping the highest) and writes the Lua table the
+    planner reads, with a fee-by-level curve from recipes (not ranks)."""
+    import json
+    from lupa import lua51
+    import export_prices
+    tmp = tempfile.mkdtemp()
+    try:
+        js, lua_path, lv = (os.path.join(tmp, n) for n in ("costs.json", "TrainerCosts.lua", "levels.json"))
+        json.dump({"Alchemy": {"Fire Oil": 900}}, open(js, "w"))
+        json.dump({"Alchemy": {"Fire Oil": 130, "Elixir of Wisdom": 90}}, open(lv, "w"))
+        lua = lua51.LuaRuntime(unpack_returned_tuples=True)
+        db = lua.eval('{ trainerCost = { Alchemy = { ["Fire Oil"] = 800, ["Elixir of Wisdom"] = 500,'
+                      ' ["Artisan Alchemist"] = 50000 } }, trainer = { Alchemy = { ["Stonescale Oil"] = 250 } } }')
+        msg = export_prices.export_trainer_costs(db, js, lua_path, lv)
+        assert "2 new" in msg, msg
+        costs = json.load(open(js))
+        assert costs["Alchemy"] == {"Artisan Alchemist": 50000, "Elixir of Wisdom": 500, "Fire Oil": 900}, costs
+        ns = lua.table()
+        lua.execute("return function(src) return assert(loadstring(src)) end")(open(lua_path).read())("CraftPath", ns)
+        assert ns.RawData.TrainerCosts.Alchemy["Artisan Alchemist"] == 50000
+        curve = [(p[1], p[2]) for p in lua_list(ns.RawData.TrainerCostByLevel)]
+        assert curve == [(90, 500), (130, 900)], curve
+        assert export_prices.export_trainer_costs(db, js, lua_path, lv) == "Trainer fees: nothing new."
+        print("Trainer cost export test passed")
+    finally:
+        shutil.rmtree(tmp)
+
+
 if __name__ == "__main__":
     main()
+    test_trainer_costs()

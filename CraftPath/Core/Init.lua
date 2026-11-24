@@ -15,6 +15,7 @@ local DEFAULTS = {
   known = {},       -- [profession] = { [recipeName] = true }
   recipeIDs = {},   -- [profession] = { [recipeName] = recipeID } from the profession window
   trainer = {},     -- [profession] = { [recipeName] = skill needed, as the trainer shows it }
+  trainerCost = {}, -- [profession] = { [recipe or rank name] = copper the trainer charges }
   seen = {},        -- [profession] = { [recipeName] = {...} } recipes the game has that the data lacks
   done = {},        -- [itemName] = true  (ticked off the shopping list)
   purchases = {},   -- log of auction house purchases { t, item, qty, total }
@@ -202,6 +203,7 @@ function ns.MakePlan(override)
     known = ns.db.known[prof] or {},
     learnOverride = ns.db.trainer[prof],
     trainerOffers = ns.db.trainer[prof],
+    trainerCosts = ns.db.trainerCost and ns.db.trainerCost[prof],
     allowRecipeItems = s.allowRecipeItems, allowFavor = s.allowFavor,
     spec = (s.spec ~= "none") and s.spec or nil,
     bonus = 0.04 * (tonumber(s.overtimeRank) or 0),

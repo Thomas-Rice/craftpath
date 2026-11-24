@@ -2,7 +2,7 @@
 ## Title: Prophet
 ## Notes: What to craft today for a profit, at today's auction house prices; smelt your ore or sell it; and a history of what you've bought, sold and crafted. A companion to CraftPath.
 ## Author: Thomas Rice
-## Version: 1.0.0
+## Version: 1.1.0
 ## RequiredDeps: CraftPath
 ## OptionalDeps: TradeSkillMaster, TradeSkillMaster_AppHelper
 ## SavedVariables: ProphetDB

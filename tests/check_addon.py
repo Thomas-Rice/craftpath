@@ -192,6 +192,8 @@ function SetTrainerServiceTypeFilter(f, v) __trainerFilter[f] = v end
 function GetNumTrainerServices() return 3 end
 function GetTrainerServiceInfo(i) return ({ "Copper Tube", "Journeyman Engineering", "Trainer Only Widget" })[i] end
 function GetTrainerServiceSkillReq(i) return "Engineering", ({ 60, 50, 140 })[i] end
+function GetTrainerServiceCost(i) return ({ 450, 50000, 0 })[i] end
+function BuyTrainerService(i) end
 C_MerchantFrame = { GetItemInfo = function(i)
   return ({ { name = "Weak Flux", price = 95, stackCount = 1 }, { name = "Schematic: Thorium Widget", price = 4500, stackCount = 1 },
     { name = "Plans: Secret Forever Hammer", price = 9000, stackCount = 1 } })[i]
@@ -451,6 +453,21 @@ def main():
     assert ns.db.trainerProbe.n == 3 and ns.db.trainerProbe.why == "slash", ns.db.trainerProbe.why
     assert seen["Journeyman Engineering"] is None, "rank training logged as a recipe"
     assert G.__trainerFilter.unavailable == 0 and G.__trainerFilter.used == 0, "trainer filters not restored"
+    # What the trainer charges is saved (recipes and ranks), and paying goes in Prophet's history.
+    fees = ns.db.trainerCost["Engineering"]
+    assert fees["Copper Tube"] == 450 and fees["Journeyman Engineering"] == 50000, dict(fees)
+    assert fees["Trainer Only Widget"] is None, "a free line was saved as a fee"
+    assert ns.db.trainerProbe.costs == 2
+    ns.Ledger.Events()  # makes the ledger tables
+    before = len(lua_list(ns.pdb.ledger.events))
+    G.BuyTrainerService(2)
+    G.BuyTrainerService(2)  # the same line twice without a new read: recorded once
+    evs = lua_list(ns.pdb.ledger.events)
+    assert len(evs) == before + 1, (before, len(evs))
+    tr = evs[-1]
+    assert tr.k == "train" and tr.n == "Journeyman Engineering" and tr.g == -50000 and tr.p == "Engineering", (tr.k, tr.n, tr.g)
+    s = ns.Ledger.Summarise(lua.table_from([tr]))
+    assert s.spend.train == 50000 and s.moneyOut == 50000 and s.training["Engineering"] == 50000
 
     # A plan item for a recipe CraftPath doesn't know, seen on the AH.
     G.__itemNames[777777] = "Plans: Secret Forever Hammer"

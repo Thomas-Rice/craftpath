@@ -351,6 +351,11 @@ local function trainerCall(names, ...)
   return false, "missing"
 end
 
+-- The trainer's lines as last read: [index] = { name, skill, cost }. Kept here, not on the
+-- game's frames (see Keep.lua: taint).
+local services = {}
+local function wipe(t) for k in pairs(t) do t[k] = nil end end
+
 local function readTrainer(why)
   -- What the game offered, saved every time, so a trainer that records nothing can be looked into.
   local probe = { t = time(), why = why, version = ns.version, errors = {} }
@@ -369,13 +374,28 @@ local function readTrainer(why)
   if not okN then note("count", n); n = 0 end
   n = tonumber(n) or 0
   probe.n = n
-  local saved = 0
+  local saved, costs = 0, 0
+  wipe(services)
   for i = 1, n do
     local ok, name = trainerCall({ "GetTrainerServiceInfo", "GetServiceInfo" }, i)
     local ok2, skill, rank = trainerCall({ "GetTrainerServiceSkillReq", "GetServiceSkillReq" }, i)
+    local ok3, cost = trainerCall({ "GetTrainerServiceCost", "GetServiceCost" }, i)
     if type(name) == "table" then name = name.name end -- newer APIs return a table
-    if i == 1 then probe.first = tostring(name) .. " / " .. tostring(skill) .. " / " .. tostring(rank) end
+    if type(cost) == "table" then cost = cost.moneyCost or cost.cost end
+    cost = ok3 and tonumber(cost) or nil
+    if i == 1 then probe.first = tostring(name) .. " / " .. tostring(skill) .. " / " .. tostring(rank) .. " / " .. tostring(cost) end
     if not ok then note("info " .. i, name) elseif not ok2 then note("skill " .. i, skill) end
+    -- What each line costs, recipes and ranks alike ("Artisan Alchemist"), for the planner and
+    -- so a purchase can be put in Prophet's history.
+    if ok and ok2 and type(name) == "string" and skill and ns.RawData[skill] then
+      services[i] = { name = name, skill = skill, cost = cost }
+      if cost and cost > 0 then
+        ns.db.trainerCost = ns.db.trainerCost or {}
+        ns.db.trainerCost[skill] = ns.db.trainerCost[skill] or {}
+        ns.db.trainerCost[skill][name] = cost
+        costs = costs + 1
+      end
+    end
     -- Skip rank training such as "Journeyman Engineering".
     if ok and ok2 and type(name) == "string" and skill and tonumber(rank) and ns.RawData[skill]
       and not name:find(skill, 1, true) then
@@ -386,14 +406,15 @@ local function readTrainer(why)
     end
     if #probe.errors > 5 then break end
   end
-  probe.saved = saved
+  probe.saved, probe.costs = saved, costs
 end
 -- /cpath trainer: read the open trainer window now and say what happened, in chat.
 function Game.ReadTrainer()
   local ok, err = pcall(readTrainer, "slash")
   local p = ns.db.trainerProbe or {}
   ns.Print(("Trainer check (CraftPath %s): %s"):format(tostring(ns.version), ok and "ran" or ("|cffff5533error: " .. tostring(err) .. "|r")))
-  ns.Print(("Services listed: %s, recipes saved: %s, first: %s"):format(tostring(p.n), tostring(p.saved), tostring(p.first)))
+  ns.Print(("Services listed: %s, recipes saved: %s, costs saved: %s, first: %s"):format(
+    tostring(p.n), tostring(p.saved), tostring(p.costs), tostring(p.first)))
   for _, e in ipairs(p.errors or {}) do ns.Print("|cffff5533" .. e .. "|r") end
   if p.cTrainer then ns.Print("C_Trainer: " .. p.cTrainer) end
 end
@@ -421,7 +442,25 @@ local function hookTrainerWindow()
     end)
   end
 end
-ns.On("ADDON_LOADED", function(name) if name == "Blizzard_TrainerUI" then hookTrainerWindow() end end)
+-- Paying the trainer: put it in Prophet's history (when Prophet is installed). The line is
+-- looked up from the last read, because the list changes once it's learned.
+local buyHooked = false
+local function hookTrainerBuy()
+  if buyHooked or type(_G.BuyTrainerService) ~= "function" then return end
+  buyHooked = true
+  hooksecurefunc("BuyTrainerService", function(index)
+    local i = tonumber(index)
+    local s = i and services[i]
+    if not s then return end
+    services[i] = nil -- one record per purchase
+    if ns.Ledger and ns.Ledger.Add then
+      ns.Ledger.Add("train", s.name, 1, -(s.cost or 0), { p = s.skill })
+    end
+  end)
+end
+Game.HookTrainerBuy = hookTrainerBuy
+ns.On("PLAYER_LOGIN", hookTrainerBuy)
+ns.On("ADDON_LOADED", function(name) if name == "Blizzard_TrainerUI" then hookTrainerWindow(); hookTrainerBuy() end end)
 ns.On("PLAYER_LOGIN", hookTrainerWindow)
 -- Newer clients open NPC windows through the interaction manager (type 7 = trainer).
 pcall(ns.On, "PLAYER_INTERACTION_MANAGER_FRAME_SHOW", function(kind)

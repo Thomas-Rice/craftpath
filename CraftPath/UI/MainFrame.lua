@@ -213,8 +213,11 @@ local function learnText(l)
     local cost = l.favor and (l.favor .. " Merchant's Favor") or "Merchant's Favor"
     return ("%s from %s"):format(cost, who or "the Merchant's Favor vendor") .. " (may need reputation)"
   end
-  if w and w.trainer then return "Learn from " .. who end
-  if l.how == "trainer" then return who and ("Learn from " .. who) or "Learn from your trainer" end
+  local fee = l.fee == "estimate" and " (fee estimated)" or (l.how == "trainer" or l.how == "rank") and not l.fee
+    and " (fee not recorded yet)" or ""
+  if l.how == "rank" then return "Train the rank at your trainer" .. fee end
+  if w and w.trainer then return "Learn from " .. who .. fee end
+  if l.how == "trainer" then return (who and ("Learn from " .. who) or "Learn from your trainer") .. fee end
   local item = l.item or l.recipe
   if who then
     local est = l.how == "vendor-est" and " (price is a guess until you visit)" or ""
@@ -460,9 +463,13 @@ local function buildNotes(plan)
   end
   for _, n in ipairs(plan.notes or {}) do out[#out + 1] = { "", n } end
   if plan.learn and #plan.learn > 0 then
-    out[#out + 1] = header(plan.favorTotal and ("Recipes to get (%d Merchant's Favor in total)"):format(plan.favorTotal) or "Recipes to get")
+    local head = "Recipes and training to get"
+    if plan.trainerTotal and plan.trainerTotal > 0 then head = head .. " (trainer fees " .. Money(plan.trainerTotal) .. ")" end
+    if plan.favorTotal then head = head .. (" (%d Merchant's Favor)"):format(plan.favorTotal) end
+    out[#out + 1] = header(head)
     for _, l in ipairs(plan.learn) do
-      out[#out + 1] = { "@" .. l.at, l.recipe, "", l.cost > 0 and Money(l.cost) or (l.favor and (l.favor .. " Favor") or ""),
+      out[#out + 1] = { "@" .. l.at, l.recipe, "", l.cost > 0 and ((l.fee == "estimate" and "~" or "") .. Money(l.cost))
+        or (l.favor and (l.favor .. " Favor") or ""),
         tip = { l.recipe, learnText(l), l.where and l.where.note or nil } }
       out[#out + 1] = { "", "|cff999999    " .. learnText(l) .. "|r" }
     end
@@ -542,7 +549,7 @@ function UI.Refresh()
         plan.from, plan.to, Money(plan.total), Money(plan.resaleTotal), plan.netTotal < 0
           and ("|cff33ff33+" .. Money(-plan.netTotal) .. " profit|r") or Money(plan.netTotal), short))
     else
-      widgets.summary:SetText(("Skill %d to %d   Buy: %s   Recipes: %s   |cffffd100Total: %s|r%s"):format(
+      widgets.summary:SetText(("Skill %d to %d   Buy: %s   Recipes and training: %s   |cffffd100Total: %s|r%s"):format(
         plan.from, plan.to, Money(plan.buyTotal), Money(plan.learnTotal), Money(plan.total), short))
     end
   else

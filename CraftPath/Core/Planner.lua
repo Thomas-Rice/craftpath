@@ -126,6 +126,37 @@ function Planner.PlanStock(opts)
   end  return best
 end
 
+-- Trainer fees. What a trainer charges is read when you open the trainer: this character's
+-- (opts.trainerCosts) first, then everyone's that has been published (RawData.TrainerCosts).
+-- A recipe nobody has recorded yet is estimated from recorded recipes at a similar skill level.
+-- Returns copper and "seen" or "estimate", or nil when there is nothing to go on.
+function Planner.TrainerFee(prof, name, learn, own)
+  local c = own and own[name] or ((ns.RawData.TrainerCosts or {})[prof] or {})[name]
+  if c then return c, "seen" end
+  local pts = ns.RawData.TrainerCostByLevel
+  if not (learn and pts and #pts > 0) then return nil end
+  local lo, hi
+  for _, p in ipairs(pts) do
+    if p[1] <= learn then lo = p end
+    if p[1] >= learn and not hi then hi = p end
+  end
+  lo, hi = lo or hi, hi or lo
+  local est = lo[2]
+  if hi[1] > lo[1] then est = lo[2] + (hi[2] - lo[2]) * (learn - lo[1]) / (hi[1] - lo[1]) end
+  return math.floor(est + 0.5), "estimate"
+end
+
+-- Fee for a rank ("Artisan"): the trainer lists it as e.g. "Artisan Alchemist".
+function Planner.RankFee(prof, rank, own)
+  local prefix = rank .. " "
+  for _, t in ipairs({ own or {}, (ns.RawData.TrainerCosts or {})[prof] or {} }) do
+    for name, c in pairs(t) do
+      if name:sub(1, #prefix) == prefix then return c end
+    end
+  end
+  return nil
+end
+
 -- How to get each recipe and what it costs to learn: known, automatic, trainer, Favor, quest,
 -- or a recipe item from a vendor or the auction house, with where to find it. Returns
 -- learnCost(r) -> cost (nil = can't be learned now), info. Used by the planner and the profit finder.
@@ -161,6 +192,10 @@ function Planner.Learner(opts, list)
   local vendorTable = (ns.RawData.RecipeVendors or {})[opts.profession] or {}
   local favorVendors = (ns.RawData.FavorVendors or {})[opts.profession] or {}
   local faction = opts.faction
+  local function trainerFee(r)
+    local c, how = Planner.TrainerFee(opts.profession, r.name, r.learn, opts.trainerCosts)
+    return c or 0, how
+  end
   local function learnCost(r)
     local cached = learnInfo[r]
     if cached ~= nil then return cached.cost, cached end
@@ -179,16 +214,17 @@ function Planner.Learner(opts, list)
       if trainerMax and r.learn <= trainerMax and not trainerOffers[r.name] then
         info.how = "not at trainer" -- in the client data, but trainers don't teach it (yet)
       else
-        info.cost, info.how = 0, "trainer"
+        info.how = "trainer"
+        info.cost, info.fee = trainerFee(r)
       end
     elseif r.source == "F" then
       if allowFavor then info.cost, info.how = 0, "favor" end
     elseif r.source == "Q" then
       info.cost, info.how = 0, "quest"
     elseif r.source == "G" then
-      if opts.spec == "goblin" then info.cost, info.how = 0, "trainer" end
+      if opts.spec == "goblin" then info.how = "trainer"; info.cost, info.fee = trainerFee(r) end
     elseif r.source == "N" then
-      if opts.spec == "gnomish" then info.cost, info.how = 0, "trainer" end
+      if opts.spec == "gnomish" then info.how = "trainer"; info.cost, info.fee = trainerFee(r) end
     elseif allowRecipeItems then
       -- R or V: buy the recipe item. Cheapest of vendor / auction house.
       for _, pre in ipairs(prefixes) do
@@ -539,6 +575,7 @@ planOnce = function(opts, ownedFactor)
     st.learnItem = info.item
     st.learnWhere = info.where
     st.learnFavor = info.favor
+    st.learnFee = info.fee
     if lc > 0 and not learned[r] then
       learned[r] = true
       st.learnCost = lc
@@ -557,6 +594,7 @@ planOnce = function(opts, ownedFactor)
     expectedGold = total,
   }
   Planner.BuildShoppingList(plan, data, unitCost, opts.owned, opts.listed)
+  Planner.AddTrainerFees(plan, opts.trainerCosts)
   Planner.AddRankNotes(plan)
   -- What selling the crafted items gets back, and the gold that leaves after that.
   local back = 0
@@ -657,7 +695,7 @@ function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
     inv[r.name] = (inv[r.name] or 0) + st.crafts * r.makes
     if st.learnCost or st.learnHow == "favor" or st.learnHow == "quest" or st.learnHow == "vendor-est" or st.learnWhere then
       learn[#learn + 1] = { recipe = r.name, cost = st.learnCost or 0, how = st.learnHow, item = st.learnItem,
-        where = st.learnWhere, favor = st.learnFavor, at = st.from }
+        where = st.learnWhere, favor = st.learnFavor, at = st.from, fee = st.learnFee }
       if st.learnFavor then plan.favorTotal = (plan.favorTotal or 0) + st.learnFavor end
     end
   end
@@ -694,6 +732,54 @@ function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
   plan.buyTotal = total
   plan.learnTotal = learnTotal
   plan.total = total + learnTotal
+end
+
+-- Trainer fees in the totals: ranks the route passes (Journeyman, Expert...) are added to the
+-- recipes to get. Recipe fees are already in it (learnCost). Counts what nobody has recorded yet.
+function Planner.AddTrainerFees(plan, own)
+  local prof = plan.profession
+  plan.learn = plan.learn or {}
+  local fees, unknown = 0, {}
+  for _, rank in ipairs(ns.RawData.Ranks) do
+    local prevCap = rank.cap - 75
+    local needed = rank.trainAt > 1 and plan.from <= prevCap and plan.to > prevCap or (rank.trainAt <= 1 and plan.from <= 1)
+    if needed then
+      local c = Planner.RankFee(prof, rank.name, own)
+      table.insert(plan.learn, { recipe = rank.name .. " " .. prof, cost = c or 0, how = "rank",
+        fee = c and "seen" or nil, at = math.max(rank.trainAt, plan.from) })
+      if c then fees = fees + c else unknown[#unknown + 1] = rank.name end
+    end
+  end
+  table.sort(plan.learn, function(a, b) if a.at ~= b.at then return a.at < b.at end return a.recipe < b.recipe end)
+  local recipes, estimated = 0, 0
+  for _, l in ipairs(plan.learn) do
+    if l.how == "trainer" then
+      fees = fees + (l.cost or 0)
+      if l.fee == "estimate" then estimated = estimated + 1 elseif not l.fee then recipes = recipes + 1 end
+    end
+  end
+  -- trainer recipes with no fee at all aren't in the learn list (cost 0): count them from the steps
+  local seen = {}
+  for _, st in ipairs(plan.steps or {}) do
+    if st.learnHow == "trainer" and not st.learnFee and not seen[st.recipe.name] then
+      seen[st.recipe.name] = true
+      recipes = recipes + 1
+    end
+  end
+  local rankTotal = 0
+  for _, l in ipairs(plan.learn) do if l.how == "rank" then rankTotal = rankTotal + (l.cost or 0) end end
+  plan.learnTotal = (plan.learnTotal or 0) + rankTotal
+  plan.total = (plan.total or 0) + rankTotal
+  plan.trainerTotal = fees
+  plan.trainerUnknown = recipes + #unknown
+  plan.trainerEstimated = estimated
+  if plan.trainerUnknown > 0 or estimated > 0 then
+    plan.notes = plan.notes or {}
+    local bits = {}
+    if plan.trainerUnknown > 0 then bits[#bits + 1] = plan.trainerUnknown .. " not recorded yet (counted as free)" end
+    if estimated > 0 then bits[#bits + 1] = estimated .. " estimated from similar recipes" end
+    plan.notes[#plan.notes + 1] = ("Trainer fees: %s. Open the trainer with CraftPath on and they're saved."):format(table.concat(bits, ", "))
+  end
 end
 
 function Planner.AddRankNotes(plan)

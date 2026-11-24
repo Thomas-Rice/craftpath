@@ -7,6 +7,7 @@
 --   vsell   things sold to a vendor
 --   craft   each craft: what it made, and the market value of the materials used
 --   skill   profession skill-ups
+--   train   paying a trainer for a recipe or rank (p = profession)
 -- Events are kept for each character in ProphetDB.ledger (the newest 8000), and running
 -- totals per item are kept forever, so the Items view still adds up after old events go.
 
@@ -52,7 +53,7 @@ function Ledger.Add(kind, name, qty, gold, extra)
   if extra then for k, v in pairs(extra) do ev[k] = v end end
   l.events[#l.events + 1] = ev
   if #l.events > MAX_EVENTS then table.remove(l.events, 1) end
-  local it = kind ~= "skill" and itemTotals(name)
+  local it = kind ~= "skill" and kind ~= "train" and itemTotals(name)
   if kind == "craft" then
     it.made = it.made + ev.q; it.madeCost = it.madeCost - ev.g
   elseif kind == "buy" or kind == "vbuy" then
@@ -80,8 +81,8 @@ end
 -- Summary of a list of events: money in/out by kind, crafting, skill-ups, and per-item results.
 -- Profit on an item = what it sold for, minus what making (or buying) the sold ones cost.
 function Ledger.Summarise(events)
-  local s = { income = { sell = 0, vsell = 0 }, spend = { buy = 0, vbuy = 0 }, crafts = 0, craftValue = 0,
-    skills = {}, items = {} }
+  local s = { income = { sell = 0, vsell = 0 }, spend = { buy = 0, vbuy = 0, train = 0 }, crafts = 0, craftValue = 0,
+    skills = {}, items = {}, training = {} }
   local function item(n)
     local e = s.items[n]
     if not e then
@@ -102,6 +103,10 @@ function Ledger.Summarise(events)
       s.craftValue = s.craftValue - ev.g
       local e = item(ev.n); e.made = e.made + ev.q; e.madeCost = e.madeCost - ev.g
       e.profession = ev.p or e.profession
+    elseif ev.k == "train" then
+      s.spend.train = s.spend.train - ev.g
+      local p = ev.p or "?"
+      s.training[p] = (s.training[p] or 0) - ev.g
     elseif ev.k == "skill" then
       local k = s.skills[ev.n]
       if not k then k = { name = ev.n, from = ev.from or ev.q - 1, to = ev.q }; s.skills[ev.n] = k end
@@ -110,7 +115,7 @@ function Ledger.Summarise(events)
     end
   end
   s.moneyIn = s.income.sell + s.income.vsell
-  s.moneyOut = s.spend.buy + s.spend.vbuy
+  s.moneyOut = s.spend.buy + s.spend.vbuy + s.spend.train
   s.net = s.moneyIn - s.moneyOut
   -- Per item: average cost of one (made, else bought), and profit on the ones sold.
   local list = {}

@@ -122,7 +122,7 @@ function whereText(w) {
 const HOW = {
   auto: "Learned automatically", trainer: "Trainer", known: "Already known", favor: "Merchant's Favor",
   vendor: "Vendor", "vendor-est": "Vendor (price estimated)", ah: "Auction house", quest: "Quest reward",
-  "not at trainer": "Not at your trainer", "other faction": "Other faction only",
+  "not at trainer": "Not at your trainer", "other faction": "Other faction only", rank: "Rank training",
 };
 
 function learnLine(how, cost, where, favor, item) {
@@ -134,6 +134,13 @@ function learnLine(how, cost, where, favor, item) {
   const w = whereText(where);
   if (w) t += `<div class="where">${w}</div>`;
   return t;
+}
+
+function feeNote(l) {
+  if (l.how !== "trainer" && l.how !== "rank") return "";
+  if (l.fee === "estimate") return ` <span class="muted">(fee estimated from similar recipes)</span>`;
+  if (!l.fee) return ` <span class="muted">(fee not recorded yet)</span>`;
+  return "";
 }
 
 function render(plan) {
@@ -226,8 +233,8 @@ function render(plan) {
   $("learn").innerHTML = learn.map((l) => `
     <div class="line learnline">
       <span class="qty">${l.at ?? ""}</span>
-      <span class="item">${esc(l.recipe)}<div class="where">${learnLine(l.how, null, l.where, l.favor, l.item)}</div></span>
-      <span class="total">${l.cost ? money(l.cost) : l.favor ? "Favor" : "free"}</span>
+      <span class="item">${esc(l.recipe)}<div class="where">${learnLine(l.how, null, l.where, l.favor, l.item)}${feeNote(l)}</div></span>
+      <span class="total">${l.cost ? (l.fee === "estimate" ? "~" : "") + money(l.cost) : l.favor ? "Favor" : (l.how === "rank" ? "?" : "free")}</span>
     </div>`).join("");
   $("learnTotal").innerHTML = money(plan.learnTotal);
 

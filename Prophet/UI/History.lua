@@ -29,7 +29,7 @@ local PERIOD_LABEL = { today = "Today", week = "Last 7 days", month = "Last 30 d
 local KIND_LABEL = {
   buy = "|cffff9933Bought (AH)|r", vbuy = "|cffff9933Bought (vendor)|r",
   sell = "|cff33ff33Sold (AH)|r", vsell = "|cff33ff33Sold (vendor)|r",
-  craft = "|cff66ccffCrafted|r", skill = "|cffffd100Skill-up|r",
+  craft = "|cff66ccffCrafted|r", skill = "|cffffd100Skill-up|r", train = "|cffff9933Trainer|r",
 }
 
 local frame, rows, widgets = nil, {}, {}
@@ -173,6 +173,11 @@ local function summaryRows(s)
   line("Sold to vendors", signed(s.income.vsell))
   line("Bought on the auction house", short(-s.spend.buy))
   line("Bought from vendors", short(-s.spend.vbuy))
+  if s.spend.train > 0 then
+    local tip = { "Trainers", "Recipes and ranks you paid a trainer for." }
+    for p, g in pairs(s.training) do tip[#tip + 1] = p .. ": " .. Money(g) end
+    line("Paid to trainers", short(-s.spend.train), tip)
+  end
   line("|cffffffffNet gold|r", signed(s.net), { "Net gold", "Everything sold minus everything bought in this period." })
   gap()
   head("Crafting")

@@ -106,6 +106,7 @@ Forever is new, so recipes are still being added. CraftPath keeps up in two ways
 - **From the game itself (as you play).**
   - Opening a profession window logs any recipe the game shows that CraftPath's data lacks, with its reagents.
   - Opening a trainer records the real skill each recipe needs; the planner uses these over the data's estimates.
+  - It also records what the trainer charges for each recipe and rank. Routes count these fees (ranks the route passes included); a fee nobody has recorded is estimated from recipes at a similar skill, or flagged. `tools/export_prices.py` publishes them to `data/trainer-costs.json` and `CraftPath/Data/TrainerCosts.lua`, and Prophet logs each payment to a trainer.
   - Logged recipes are listed on the Notes tab.
 
 To run the sync by hand: `python3 tools/sync_recipes.py` (or `--build 1.60.1.70790`).

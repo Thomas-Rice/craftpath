@@ -175,6 +175,39 @@ def main():
     p = plan(lua, ns, "Engineering", 1, 300, trainerOffers=lua.table_from(offers))
     assert victim not in {st.recipe.name for st in lua_list(p.steps)}, victim
 
+    # Trainer fees: recorded fees count, ranks the route passes are added, the rest is flagged.
+    base = plan(lua, ns, "Engineering", 1, 300)
+    assert base.trainerUnknown > 0 and any("Trainer fees" in n for n in lua_list(base.notes)), "unrecorded fees not flagged"
+    ranks = [l for l in lua_list(base.learn) if l.how == "rank"]
+    assert [l.recipe for l in ranks] == ["Apprentice Engineering", "Journeyman Engineering", "Expert Engineering",
+                                       "Artisan Engineering"], [l.recipe for l in ranks]
+    used_t = [st for st in lua_list(base.steps) if st.learnHow == "trainer"]
+    fee_name = used_t[0].recipe.name
+    own = lua.table_from({fee_name: 1234, "Artisan Engineer": 50000, "Expert Engineer": 10000})
+    p = plan(lua, ns, "Engineering", 1, 300, trainerCosts=own)
+    learn = {l.recipe: l for l in lua_list(p.learn)}
+    lc = ns.Planner.Learner(lua.table_from({"profession": "Engineering", "trainerCosts": own}))
+    rec = [r for r in lua_list(R.Load("Engineering").list) if r.name == fee_name][0]
+    assert lc(rec)[0] == 1234 and lc(rec)[1].fee == "seen"
+    if fee_name in {st.recipe.name for st in lua_list(p.steps)}:  # the fee can make another recipe cheaper
+        assert learn[fee_name].cost == 1234 and learn[fee_name].fee == "seen", fee_name
+    assert learn["Artisan Engineering"].cost == 50000 and learn["Expert Engineering"].cost == 10000
+    assert p.trainerTotal >= 60000, p.trainerTotal
+    assert p.learnTotal - base.learnTotal >= 60000, (p.learnTotal, base.learnTotal)
+    assert p.total - p.buyTotal == p.learnTotal
+    # A route starting past a rank doesn't pay for it again.
+    late = plan(lua, ns, "Engineering", 160, 300, trainerCosts=own)
+    assert [l.recipe for l in lua_list(late.learn) if l.how == "rank"] == ["Artisan Engineering"]
+    # Unrecorded recipes are estimated from recorded fees at a similar level.
+    ns.RawData.TrainerCostByLevel = lua.table_from([lua.table_from([50, 1000]), lua.table_from([150, 3000])])
+    fee, how = ns.Planner.TrainerFee("Engineering", "Nobody Recorded This", 100, None)
+    assert (fee, how) == (2000, "estimate"), (fee, how)
+    assert ns.Planner.TrainerFee("Engineering", "X", 10, None)[0] == 1000  # below the first point
+    assert ns.Planner.TrainerFee("Engineering", "X", 250, None)[0] == 3000  # above the last
+    est = plan(lua, ns, "Engineering", 1, 300)
+    assert est.trainerEstimated > 0 and est.trainerTotal > 0
+    ns.RawData.TrainerCostByLevel = lua.table_from([])
+
     # Recipes that give 2 points per craft need half the crafts.
     r2 = lua.table_from({"name": "X", "learn": 1, "yellow": 50, "grey": 100, "points": 2})
     assert R.PointsPerCraft(r2, 10, 0) == 2
