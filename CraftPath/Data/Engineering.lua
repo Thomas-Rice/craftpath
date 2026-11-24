@@ -30,8 +30,8 @@ Copper Tube|50|50|80|95|110|1|T|Copper Bar*2;Weak Flux*1
 Rough Boomstick|50|50|80|95|110|1|T|Copper Tube*1;Handful of Copper Bolts*1;Wooden Stock*1
 SAF-T Copper Bomb|55|55|55|60|65|1|F|Copper Bar*1;Handful of Copper Bolts*1;Rough Blasting Powder*2;Linen Cloak*1;SAF-T Tabs*2
 Crude Scope|60|60|90|105|120|1|T|Copper Tube*1;Malachite*1;Handful of Copper Bolts*1
-Harvester Override Signalcaster|60|60|65|72|80|1|R|Golem Isospring*4;Copper Modulator*2;Crude Scope*1
 Copper Modulator|65|65|95|110|125|1|T|Handful of Copper Bolts*2;Copper Bar*1;Linen Cloth*2
+Harvester Override Signalcaster|65|65|65|72|80|1|R|Golem Isospring*4;Copper Modulator*2;Crude Scope*1
 Coarse Blasting Powder|75|75|85|90|95|1|T|Coarse Stone*1
 Coarse Dynamite|75|75|90|97|105|2|T|Coarse Blasting Powder*3;Linen Cloth*1
 Crafted Heavy Shot|75|75|85|90|95|200|T|Coarse Blasting Powder*1;Copper Bar*1
@@ -48,11 +48,11 @@ Bronze Tube|105|105|105|130|155|1|T|Bronze Bar*2;Weak Flux*1
 Deadly Blunderbuss|105|105|130|142|155|1|T|Copper Tube*2;Handful of Copper Bolts*4;Wooden Stock*1;Medium Leather*2
 Large Copper Bomb|105|105|105|130|155|3|T|Copper Bar*3;Coarse Blasting Powder*4;Silver Contact*1
 Standard Scope|110|110|135|147|160|1|T|Bronze Tube*1;Moss Agate*1
-9-60 Battery Pack|120|120|125|135|145|1|R|Cerulean Dye*1;Pyrite*1;Iron Bar*1
 Lovingly Crafted Boomstick|120|120|145|157|170|1|R|Bronze Tube*2;Handful of Copper Bolts*2;Heavy Stock*1;Moss Agate*3
 Sandpaper|120|120|130|142|155|1|T|Bauxite*2;Bolt of Linen Cloth*1
 Shadow Goggles|120|120|145|157|170|1|R|Medium Leather*4;Shadowgem*2
 Small Bronze Bomb|120|120|120|145|170|2|T|Coarse Blasting Powder*4;Bronze Bar*2;Silver Contact*1;Wool Cloth*1
+9-60 Battery Pack|125|125|125|135|145|1|R|Cerulean Dye*1;Pyrite*1;Iron Bar*1
 Crafted Solid Shot|125|125|125|135|145|200|T|Heavy Blasting Powder*1;Bronze Bar*1
 Flame Deflector|125|125|125|150|175|1|R|Whirring Bronze Gizmo*1;Small Flame Sac*1
 Gnomish Universal Remote|125|125|150|162|175|1|R|Bronze Bar*6;Whirring Bronze Gizmo*1;Flask of Oil*2;Tigerseye*1;Malachite*1
@@ -66,12 +66,14 @@ Small White Rocket|125|125|125|137|150|5|R|Coarse Blasting Powder*1;Medium Leath
 Small Yellow Rocket|125|125|125|137|150|5|R|Coarse Blasting Powder*1;Medium Leather*1
 Whirring Bronze Gizmo|125|125|125|150|175|1|T|Bronze Bar*2;Wool Cloth*1
 EZ-Thro Copper Bomb XL|130|130|130|155|180|1|F|Copper Bar*3;Coarse Blasting Powder*4;Silver Contact*1;EZ-Thro Wrap*1
+Goblin Rocket Boots|130|130|245|255|265|1|G|Black Mageweave Boots*1;Mithril Tube*2;Heavy Leather*4;Goblin Rocket Fuel*2;Unstable Trigger*1
 Silver-plated Shotgun|130|130|155|167|180|1|T|Bronze Tube*2;Whirring Bronze Gizmo*2;Heavy Stock*1;Silver Bar*3
 Ornate Spyglass|135|135|160|172|185|1|T|Bronze Tube*2;Whirring Bronze Gizmo*2;Copper Modulator*1;Moss Agate*1
 Shredder Autosalvage Unit|135|135|135|140|145|1|R|Bronze Framework*1;Whirring Bronze Gizmo*2;Heavy Leather*1
 Big Bronze Bomb|140|140|140|165|190|3|T|Heavy Blasting Powder*2;Bronze Bar*3;Silver Contact*1
 Hoof-Shaped Foot Pedal|140|140|150|155|160|1|R|Iron Strut*3;Bronze Framework*2;Gyrochronatom*1;Gold Power Core*1;Heavy Leather*4
 Minor Recombobulator|140|140|165|177|190|1|R|Bronze Tube*1;Whirring Bronze Gizmo*2;Medium Leather*2;Moss Agate*1
+Repair Bot|140|140|140|140|140|1|R|Whirring Bronze Gizmo*2;Bronze Tube*1;Heavy Leather*1
 Bronze Framework|145|145|145|170|195|1|T|Bronze Bar*2;Medium Leather*1;Wool Cloth*1
 Moonsight Rifle|145|145|170|182|195|1|R|Bronze Tube*3;Whirring Bronze Gizmo*3;Heavy Stock*1;Lesser Moonstone*2
 No Slip SAF-T Padding|145|145|145|147|150|1|F|Heavy Leather*1;Magenta Dye*1
@@ -116,24 +118,24 @@ EZ-Thro Fireproof Fuse|190|190|190|192|195|1|F|Silver Contact*1;Pristine Hide*1
 Snowmaster 9000|190|190|190|210|230|1|R|Mithril Bar*8;Gyrochronatom*4;Snowball*4;Frost Oil*1
 Goblin Land Mine|195|195|215|225|235|1|R|Heavy Blasting Powder*3;Iron Bar*2;Gyrochronatom*1
 Mithril Tube|195|195|195|215|235|1|T|Mithril Bar*3
-Polished Truesilver Gears|195|195|200|210|220|1|R|Truesilver Bar*1;Pile of Tarnished Gears*5
 EZ-Thro Grenade|200|200|200|220|240|1|R|Iron Bar*1;Heavy Blasting Powder*1;Silk Cloth*1;EZ-Thro Fireproof Fuse*1
 Ez-Thro Dynamite II|200|200|200|210|220|1|R|Solid Blasting Powder*1;Silk Cloth*1;EZ-Thro Fireproof Fuse*1
 Gnomish Cloaking Device|200|200|220|230|240|1|N|Gyrochronatom*4;Jade*2;Lesser Moonstone*2;Citrine*2;Fused Wiring*1
 Goblin Sapper Charge|200|200|205|225|245|1|G|Mageweave Cloth*1;Solid Blasting Powder*3;Unstable Trigger*1
 Large Seaforium Charge|200|200|200|220|240|1|R|Solid Blasting Powder*2;Heavy Leather*2;Refreshing Spring Water*1
-Lil' Smoky|200|200|205|205|205|1|R|Core of Earth*1;Gyrochronatom*2;Fused Wiring*1;Mithril Bar*2;Truesilver Bar*1
 Mechanical Dragonling|200|200|220|230|240|1|R|Bronze Framework*1;Iron Strut*4;Gyrochronatom*4;Citrine*2;Fused Wiring*1
 Mechanical Repair Kit|200|200|200|220|240|1|T|Mithril Bar*1;Mageweave Cloth*1;Solid Blasting Powder*1
-Pet Bombling|200|200|205|207|210|1|R|Big Iron Bomb*1;Heart of Fire*1;Fused Wiring*1;Mithril Bar*6
 Plans: Inlaid Mithril Cylinder|200|200|205|205|205|1|N|Blank Parchment*1;Engineer's Ink*1
+Polished Truesilver Gears|200|200|200|210|220|1|R|Truesilver Bar*1;Pile of Tarnished Gears*5
 Recipe: Goblin Rocket Fuel|200|200|205|205|205|1|G|Blank Parchment*1;Engineer's Ink*1
-Soul Vessel|200|200|205|210|215|1|R|Shadowgem*4;Black Vitriol*1;Demonic Figurine*1
 Unstable Trigger|200|200|200|220|240|1|T|Mithril Bar*1;Mageweave Cloth*1;Solid Blasting Powder*1
 Fire Goggles|205|205|225|235|245|1|T|Green Tinted Goggles*1;Citrine*2;Elemental Fire*2;Heavy Leather*4
 Goblin Mining Helmet|205|205|225|235|245|1|G|Mithril Bar*8;Citrine*1;Elemental Earth*4
+Lil' Smoky|205|205|205|205|205|1|R|Core of Earth*1;Gyrochronatom*2;Fused Wiring*1;Mithril Bar*2;Truesilver Bar*1
 Mithril Blunderbuss|205|205|225|235|245|1|T|Mithril Tube*1;Unstable Trigger*1;Heavy Stock*1;Mithril Bar*4;Elemental Fire*2
 Mobile Alarm|205|205|205|225|245|1|T|Mithril Tube*1;Unstable Trigger*1;Mithril Bar*4
+Pet Bombling|205|205|205|207|210|1|R|Big Iron Bomb*1;Heart of Fire*1;Fused Wiring*1;Mithril Bar*6
+Soul Vessel|205|205|205|210|215|1|R|Shadowgem*4;Black Vitriol*1;Demonic Figurine*1
 Deadly Scope|210|210|230|240|250|1|R|Mithril Tube*1;Aquamarine*2;Thick Leather*2
 Explosive Arrow|210|210|210|230|250|100|T|Razor Arrow*100;Solid Blasting Powder*2;Mithril Bar*2
 Hi-Impact Mithril Slugs|210|210|210|230|250|200|T|Mithril Bar*1;Solid Blasting Powder*1
@@ -141,11 +143,11 @@ Mithril Casing|215|215|215|235|255|1|T|Mithril Bar*3
 Mithril Frag Bomb|215|215|215|235|255|3|T|Mithril Casing*1;Unstable Trigger*1;Solid Blasting Powder*1
 SAF-T Bomb|215|215|215|230|245|1|R|Iron Bar*3;Heavy Blasting Powder*3;Silver Contact*1;SAF-T Casing*1
 SAF-T Casing|215|215|215|217|220|1|R|Mithril Casing*1;Heavy Leather*1
+Catseye Ultra Goggles|220|220|240|250|260|1|R|Thick Leather*4;Aquamarine*2;Catseye Draught*1
 Gnomish Shrink Ray|220|220|225|235|245|1|N|Mithril Tube*1;Unstable Trigger*1;Mithril Bar*4;Flask of Mojo*4;Jade*2
 Goblin Construction Helmet|220|220|225|235|245|1|G|Mithril Bar*8;Citrine*1;Elemental Fire*4
 Goblin Mortar|220|220|225|235|245|1|G|Mithril Tube*2;Mithril Bar*4;Solid Blasting Powder*5;Gold Power Core*1;Elemental Fire*1
 Mithril Heavy-bore Rifle|220|220|240|250|260|1|R|Mithril Tube*2;Unstable Trigger*1;Heavy Stock*1;Mithril Bar*6;Citrine*2
-Whirling Truesilver Gearwall|220|220|225|232|240|1|R|Low-Background Truesilver Plates*3;Polished Truesilver Gears*5;Faintly Glowing Leather*2;Mithril Casing*2;Gyrochronatom*2;Mithril Bar*15
 Blue Rocket Cluster|225|225|225|237|250|5|R|Solid Blasting Powder*1;Thick Leather*1
 Compact Critter Carrier|225|225|230|232|235|1|F|Heavy Leather*10;Mithril Tube*10;Greater Nether Essence*2;Gold Power Core*1
 Emergency Field Cloak|225|225|245|255|265|1|F|Gnomish Cloaking Device*1;SAF-T Casing*1
@@ -161,6 +163,7 @@ Parachute Cloak|225|225|245|255|265|1|R|Bolt of Mageweave*4;Shadow Silk*2;Unstab
 Purple Rocket Cluster|225|225|225|237|250|5|R|Solid Blasting Powder*1;Thick Leather*1
 Red Rocket Cluster|225|225|225|237|250|5|R|Solid Blasting Powder*1;Thick Leather*1
 Spellpower Goggles Xtreme|225|225|245|255|265|1|R|Thick Leather*4;Star Ruby*2
+Whirling Truesilver Gearwall|225|225|225|232|240|1|R|Low-Background Truesilver Plates*3;Polished Truesilver Gears*5;Faintly Glowing Leather*2;Mithril Casing*2;Gyrochronatom*2;Mithril Bar*15
 White Rocket Cluster|225|225|225|237|250|5|R|Solid Blasting Powder*1;Thick Leather*1
 Yellow Rocket Cluster|225|225|225|237|250|5|R|Solid Blasting Powder*1;Thick Leather*1
 Deepdive Helmet|230|230|250|260|270|1|R|Mithril Bar*8;Mithril Casing*1;Truesilver Bar*1;Tigerseye*4;Malachite*4
@@ -169,13 +172,11 @@ Goblin "Boom" Box|230|230|235|245|255|1|G|Mithril Casing*1;Solid Blasting Powder
 Rose Colored Goggles|230|230|250|260|270|1|T|Thick Leather*6;Star Ruby*2
 Satchel of Iron Bombs|230|230|235|237|240|1|F|Big Iron Bomb*20;Thick Leather*6;Gyrochronatom*1
 The Big One|230|230|235|255|275|2|G|Mithril Casing*1;Goblin Rocket Fuel*1;Solid Dynamite*6;Unstable Trigger*1
-Catseye Ultra Goggles|235|235|240|250|260|1|R|Thick Leather*4;Aquamarine*2;Catseye Draught*1
 Gnomish Ham Radio|235|235|240|250|260|1|N|Mithril Casing*1;Mithril Bar*2;Gyrochronatom*1;Unstable Trigger*1
 Goblin Radio|235|235|240|250|260|1|G|Mithril Casing*1;Mithril Bar*2;Gyrochronatom*1;Unstable Trigger*1
 Hi-Explosive Bomb|235|235|235|255|275|4|T|Mithril Casing*2;Unstable Trigger*1;Solid Blasting Powder*2
 EZ-Thro Tru-Trigger|240|240|240|242|245|1|R|Truesilver Bar*1;Viridian Dye*1
 Gnomish Rocket Boots|240|240|245|255|265|1|N|Black Mageweave Boots*1;Mithril Tube*2;Heavy Leather*4;Solid Blasting Powder*8;Gyrochronatom*4
-Goblin Rocket Boots|240|240|245|255|265|1|G|Black Mageweave Boots*1;Mithril Tube*2;Heavy Leather*4;Goblin Rocket Fuel*2;Unstable Trigger*1
 Sniper Scope|240|240|260|270|280|1|R|Mithril Tube*1;Star Ruby*1;Truesilver Bar*2
 Tru-Trigger Frag Bomb|240|240|240|260|280|1|R|Mithril Casing*1;Unstable Trigger*1;Solid Blasting Powder*1;EZ-Thro Tru-Trigger*1
 Gnomish Battle Chicken|245|245|250|260|270|1|N|Mithril Casing*1;Truesilver Bar*6;Mithril Bar*6;Inlaid Mithril Cylinder*2;Gold Power Core*1;Jade*2
@@ -188,24 +189,26 @@ Gnomish Army Knife|250|250|250|252|255|1|F|Mithril Casing*1;Gold Power Core*1;Th
 Gnomish Mind Control Cap|250|250|255|265|275|1|N|Mithril Bar*10;Truesilver Bar*4;Gold Power Core*1;Star Ruby*2;Mageweave Cloth*4
 Mithril Mechanical Dragonling|250|250|270|280|290|1|R|Mithril Bar*14;Heart of Fire*4;Truesilver Bar*4;Inlaid Mithril Cylinder*2;Goblin Rocket Fuel*2;Star Ruby*2
 Pop-Up Shrub|250|250|255|257|260|1|R|Thorium Widget*1;Unstable Trigger*1;Bronze Framework*1
+SAF-T Disposable Parachute|250|250|270|280|290|1|R|Parachute Cloak*1;SAF-T Casing*1
 Salt Shaker|250|250|270|280|290|1|T|Mithril Casing*1;Thorium Bar*6;Gold Power Core*1;Unstable Trigger*4
 Snake Burst Firework|250|250|250|260|270|4|R|Dense Blasting Powder*2;Runecloth*2;Deeprock Salt*1
 Gnomish Death Ray|255|255|260|270|280|1|N|Mithril Tube*2;Unstable Trigger*1;Essence of Undeath*1;Ichor of Undeath*4;Inlaid Mithril Cylinder*1
 Goblin Dragon Gun|255|255|260|270|280|1|G|Mithril Tube*2;Goblin Rocket Fuel*4;Mithril Bar*6;Truesilver Bar*6;Unstable Trigger*1
 Tinkerbox|255|255|260|270|280|1|R|Mithril Casing*1;Gold Power Core*2
-World Enlarger|255|255|260|265|270|1|N|Mithril Casing*1;Thorium Widget*2;Gold Power Core*1;Unstable Trigger*1;Citrine*1
 Goblin Rocket Helmet|260|260|265|275|285|1|G|Goblin Construction Helmet*1;Goblin Rocket Fuel*4;Mithril Bar*4;Unstable Trigger*1
+Gyrofreeze Ice Reflector|260|260|280|290|300|1|R|Thorium Widget*6;Truesilver Transformer*2;Blue Sapphire*2;Essence of Fire*4;Frost Oil*2;Icecap*4
 Thorium Grenade|260|260|280|290|300|3|V:Sovik (Orgrimmar)|Thorium Widget*1;Thorium Bar*3;Dense Blasting Powder*3;Runecloth*3
 Thorium Rifle|260|260|280|290|300|1|R|Mithril Tube*2;Mithril Casing*2;Thorium Widget*2;Thorium Bar*4;Deadly Scope*1
 Thorium Widget|260|260|280|290|300|1|V:Sovik (Orgrimmar)|Thorium Bar*3;Runecloth*1
 Truesilver Transformer|260|260|270|275|280|1|R|Truesilver Bar*2;Elemental Earth*2;Elemental Air*1
+Unsanctified Grenade|260|260|280|290|300|3|R|Truesilver Transformer*1;Enchanted Thorium Bar*2;Dense Blasting Powder*3;Runecloth*2
+World Enlarger|260|260|260|265|270|1|N|Mithril Casing*1;Thorium Widget*2;Gold Power Core*1;Unstable Trigger*1;Citrine*1
+Gnomish Alarm-O-Bot|265|265|275|280|285|1|N|Thorium Bar*4;Thorium Widget*2;Rugged Leather*4;Star Ruby*1;Fused Wiring*1
+Goblin Jumper Cables XL|265|265|285|295|305|1|G|Thorium Widget*2;Truesilver Transformer*2;Fused Wiring*2;Ironweb Spider Silk*2;Star Ruby*2
 Lifelike Mechanical Toad|265|265|285|295|305|1|R|Living Essence*1;Thorium Widget*4;Gold Power Core*1;Rugged Leather*1
-SAF-T Disposable Parachute|265|265|270|280|290|1|R|Parachute Cloak*1;SAF-T Casing*1
-Gnomish Alarm-O-Bot|270|270|275|280|285|1|N|Thorium Bar*4;Thorium Widget*2;Rugged Leather*4;Star Ruby*1;Fused Wiring*1
 Spellpower Goggles Xtreme Plus|270|270|290|300|310|1|R|Spellpower Goggles Xtreme*1;Star Ruby*4;Enchanted Leather*2;Runecloth*8
 Cluster Launcher|275|275|295|305|315|1|R|Inlaid Mithril Cylinder*3;Goblin Rocket Fuel*3;Truesilver Transformer*1;Mithril Casing*1
 Dark Iron Rifle|275|275|295|305|315|1|R|Thorium Tube*2;Dark Iron Bar*6;Deadly Scope*2;Blue Sapphire*2;Large Opal*2;Rugged Leather*4
-Gyrofreeze Ice Reflector|275|275|280|290|300|1|R|Thorium Widget*6;Truesilver Transformer*2;Blue Sapphire*2;Essence of Fire*4;Frost Oil*2;Icecap*4
 Large Blue Rocket Cluster|275|275|275|280|285|5|R|Dense Blasting Powder*1;Rugged Leather*1
 Large Green Rocket Cluster|275|275|275|280|285|5|R|Dense Blasting Powder*1;Rugged Leather*1
 Large Purple Rocket Cluster|275|275|275|280|285|5|R|Dense Blasting Powder*1;Rugged Leather*1
@@ -220,9 +223,7 @@ SAF-T Clever Dynamite|275|275|275|285|295|1|R|Dense Blasting Powder*2;Runecloth*
 SAF-T Tube|275|275|275|277|280|1|R|Thorium Bar*1;Azerothium Bar*1
 Steam Tonk Controller|275|275|295|305|315|1|R|Thorium Widget*2;Mithril Casing*1;Gold Power Core*1
 Thorium Tube|275|275|295|305|315|1|V:Xizzer Fizzbolt (Winterspring)|Thorium Bar*6
-Unsanctified Grenade|275|275|280|290|300|3|R|Truesilver Transformer*1;Enchanted Thorium Bar*2;Dense Blasting Powder*3;Runecloth*2
 Dimensional Ripper - Everlook|280|280|285|295|305|1|G|Mithril Bar*10;Truesilver Transformer*1;Heart of Fire*4;Star Ruby*2;The Big One*1
-Goblin Jumper Cables XL|280|280|285|295|305|1|G|Thorium Widget*2;Truesilver Transformer*2;Fused Wiring*2;Ironweb Spider Silk*2;Star Ruby*2
 Ultrasafe Transporter: Gadgetzan|280|280|285|295|305|1|N|Mithril Bar*12;Truesilver Transformer*2;Core of Earth*4;Globe of Water*2;Aquamarine*4;Inlaid Mithril Cylinder*1
 Dark Iron Bomb|285|285|305|315|325|3|R|Thorium Widget*2;Dark Iron Bar*1;Dense Blasting Powder*3;Runecloth*3
 Delicate Arcanite Converter|285|285|305|315|325|1|R|Arcanite Bar*1;Ironweb Spider Silk*1
@@ -233,6 +234,30 @@ Thorium Shells|285|285|305|315|325|200|R|Thorium Bar*2;Dense Blasting Powder*1
 Hyper-Radiant Flame Reflector|290|290|310|320|330|1|R|Dark Iron Bar*4;Truesilver Transformer*3;Essence of Water*6;Star Ruby*4;Azerothian Diamond*2
 Master Engineer's Goggles|290|290|310|320|330|1|R|Fire Goggles*1;Huge Emerald*2;Enchanted Leather*4
 Voice Amplification Modulator|290|290|310|320|330|1|R|Delicate Arcanite Converter*2;Gold Power Core*1;Thorium Widget*1;Large Opal*1
-Anarchist's Workbench|295|295|300|300|300|1|R|Essence of Anarchy*1;Thorium Widget*2
+Anarchist's Workbench|300|300|300|300|300|1|R|Essence of Anarchy*1;Thorium Widget*2
+Arcane Bomb|300|300|320|330|340|3|R|Delicate Arcanite Converter*1;Thorium Bar*3;Runecloth*1
+Arcanite Dragonling|300|300|320|330|340|1|R|Mithril Mechanical Dragonling*1;Delicate Arcanite Converter*8;Enchanted Thorium Bar*10;Thorium Widget*6;Gold Power Core*4;Enchanted Leather*6
+Biznicks 247x128 Accurascope|300|300|320|330|340|1|R|Lava Core*2;Essence of Earth*2;Delicate Arcanite Converter*4;Dark Iron Bar*6;Thorium Tube*1
+Bloodvine Goggles|300|300|320|330|340|1|R|Bloodvine*4;Souldarite*5;Delicate Arcanite Converter*2;Powerful Mojo*8;Enchanted Leather*4
+Bloodvine Lens|300|300|320|330|340|1|R|Bloodvine*5;Souldarite*5;Delicate Arcanite Converter*1;Powerful Mojo*8;Enchanted Leather*4
+Core Marksman Rifle|300|300|320|330|340|1|R|Fiery Core*4;Lava Core*2;Arcanite Bar*6;Delicate Arcanite Converter*2;Thorium Tube*2
+EZ and SAF Field Transporter: Mt. Hyjal|300|300|320|330|340|1|R|Dimensional Transporter - Mt. Hyjal*1;EZ-Thro Shell*1;SAF-T Tube*1
+EZ-Thro Dark Bomb|300|300|320|330|340|1|R|Thorium Widget*2;Dark Iron Bar*1;Dense Blasting Powder*3;Runecloth*3;EZ-Thro Shell*1
+EZ-Thro Field Transporter: Gadgetzan|300|300|320|330|340|1|R|Ultrasafe Transporter: Gadgetzan*1;EZ-Thro Shell*1
+EZ-Thro Mana Bomb|300|300|320|330|340|1|R|Delicate Arcanite Converter*1;Thorium Bar*3;Runecloth*1;EZ-Thro Shell*1
+Field Repair Bot 74A|300|300|320|330|340|1|R|Thorium Bar*12;Rugged Leather*4;Fused Wiring*1;Elemental Earth*2;Elemental Fire*1
+Flawless Arcanite Rifle|300|300|320|330|340|1|R|Arcanite Bar*10;Thorium Tube*2;Essence of Fire*2;Essence of Earth*2;Azerothian Diamond*2;Enchanted Leather*2
+Force Reactive Disk|300|300|320|330|340|1|R|Arcanite Bar*6;Delicate Arcanite Converter*2;Essence of Air*8;Living Essence*12;Essence of Earth*8
+Gnomish Poultryizer|300|300|320|330|340|1|R|Illusion Dust*10;Large Brilliant Shard*2;Azerothium Bar*2;Legionite Bar*2
+Hyper Deluxe Sniper Rifle Mk XVII|300|300|310|317|325|1|R|Malleable Essence of Nature*4;Legionite Bar*2;Heavy Thorium Bar*10;Azerothian Diamond*1
+SAF-T Emergency Ripper: Everlook|300|300|320|330|340|1|R|Dimensional Ripper - Everlook*1;SAF-T Tube*2
+SAF-T Ultra Precision Scope|300|300|310|317|325|1|R|Legionite Bar*1;Heavy Thorium Bar*12
+Semisafe Transporter: New Avalon|300|300|305|305|305|1|R|Delicate Arcanite Converter*1;Truesilver Transformer*2;Unstable Trigger*1;Mithril Casing*2;Goblin Rocket Helmet*2;Righteous Orb*1
+Stealthman 52|300|300|320|330|340|1|R|Essence of Air*6;Illusion Dust*6;Torbernite*2;Legionite Bar*2;Marefoil*4
+Swiftfeather Arrow|300|300|310|315|320|200|R|Heavy Thorium Bar*8;Light Feather*5;Elemental Air*1
+Swiftstrike Shot|300|300|310|315|320|200|R|Heavy Thorium Bar*8;Dense Stone*8;Elemental Earth*1
+Ultra-Flash Shadow Reflector|300|300|320|330|340|1|R|Dark Iron Bar*8;Truesilver Transformer*4;Living Essence*6;Essence of Undeath*4;Azerothian Diamond*2;Large Opal*2
+Ultralight Goblin Glider|300|300|320|330|340|1|R|Viridian Dye*2;Azerothium Bar*2;Pristine Scale*8;Thorium Bar*8
+Ultrasafe Rechargeable Battery|300|300|320|330|340|1|R|Sulfuric Acid*2;Pitchblende*1;Viridian Dye*1;Thorium Bar*3;Mithril Bar*1;Death Lotus*1
 ]],
 }

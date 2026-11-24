@@ -23,6 +23,7 @@ Basic Campfire Kit|1|1|1|3|5|1|A|Simple Wood*1
 Brilliant Smallfish|1|1|45|65|85|1|V:Harn Longcast (Mulgore)|Raw Brilliant Smallfish*1
 Charred Wolf Meat|1|1|45|65|85|1|A|Stringy Wolf Meat*1
 Crispy Bat Wing|1|1|45|65|85|1|V:Abigail Shiel (Tirisfal Glades)|Meaty Bat Wing*1;Mild Spices*1
+Gingerbread Cookie|1|1|45|65|85|1|R|Small Egg*1;Holiday Spices*1
 Herb Baked Egg|1|1|45|65|85|1|A|Small Egg*1;Mild Spices*1
 Roasted Boar Meat|1|1|45|65|85|1|A|Chunk of Boar Meat*1
 Slitherskin Mackerel|1|1|45|65|85|1|V:Zansoa (Durotar)|Raw Slitherskin Mackerel*1
@@ -35,10 +36,10 @@ Peace Tea|25|25|30|37|45|1|R|Refreshing Spring Water*1;Peacebloom*2
 Skywall Souffle|25|25|30|37|45|1|R|Small Egg*2;Simple Flour*1
 Tasty Raptor Bites|25|25|35|55|75|1|R|Raptor Egg*1;Mild Spices*4
 Venomous Smoothie|25|25|30|37|45|1|R|Refreshing Spring Water*1;Mild Spices*1;Small Venom Sac*1
+Egg Nog|35|35|75|95|115|1|R|Small Egg*1;Ice Cold Milk*1;Holiday Spirits*1;Holiday Spices*1
 Pincer Bites|35|35|40|47|55|1|R|Crawler Claw*1;Simple Flour*1
 Roasted Kodo Meat|35|35|75|95|115|2|R|Kodo Meat*1;Mild Spices*1
 Critter Cookie|40|40|80|82|85|1|R|Simple Flour*5
-Gingerbread Cookie|40|40|45|65|85|1|R|Small Egg*1;Holiday Spices*1
 Smoked Bear Meat|40|40|80|100|120|1|V:Andrew Hilbert (Silverpine Forest)|Bear Meat*1
 Boiled Clams|50|50|90|110|130|1|T|Clam Meat*1;Refreshing Spring Water*1
 Coyote Steak|50|50|90|110|130|1|T|Coyote Meat*1
@@ -50,7 +51,6 @@ Rainbow Fin Albacore|50|50|90|110|130|1|V:Shankys (Orgrimmar)|Raw Rainbow Fin Al
 Strider Stew|50|50|90|110|130|2|V:Tari'qa (The Barrens)|Strider Meat*1;Shiny Red Apple*1
 Blood Sausage|60|60|100|120|140|2|R|Bear Meat*1;Boar Intestines*1;Spider Ichor*1
 Thistle Tea|60|60|100|120|140|1|R|Swiftthistle*1;Refreshing Spring Water*1
-Egg Nog|70|70|75|95|115|1|R|Small Egg*1;Ice Cold Milk*1;Holiday Spirits*1;Holiday Spices*1
 Breakfast Omelette|75|75|80|87|95|1|R|Small Egg*1;Mild Spices*4
 Crab Cake|75|75|115|135|155|1|T|Crawler Meat*1;Mild Spices*1
 Twice-Spiced Raptor Slice|75|75|115|132|150|1|R|Raptor Flesh*1;Mild Spices*2
@@ -134,6 +134,7 @@ Baked Salmon|275|275|315|335|355|1|R|Raw Whitescale Salmon*1;Soothing Spices*1
 Bat Hachee|275|275|280|295|310|1|R|Meaty Bat Wing*3;Soothing Spices*2
 Bear Bruscitti|275|275|280|295|310|1|R|Big Bear Meat*3;Soothing Spices*3
 Clam Linguine|275|275|280|295|310|1|R|Zesty Clam Meat*3;Soothing Spices*4
+Flank au Poivre|275|275|285|300|315|1|R|Red Wolf Meat*3;Soothing Spices*3
 Lobster Stew|275|275|315|335|355|1|R|Darkclaw Lobster*1;Refreshing Spring Water*1
 Mightfish Steak|275|275|315|335|355|1|R|Large Raw Mightfish*1;Hot Spices*1;Soothing Spices*1
 Prehistoric Pulled Raptor|275|275|280|295|310|1|R|Raptor Flesh*3;Soothing Spices*4
@@ -143,9 +144,11 @@ Soaring Pamplona|275|275|280|295|310|1|R|Buzzard Wing*3;Soothing Spices*3
 Steaming Stag Steak|275|275|280|295|310|1|R|Stag Meat*3;Soothing Spices*4
 Sweetpaw Jam|275|275|280|282|285|1|R|Hyjal Berries*3;Soothing Spices*1
 Swiftstrike Steak|275|275|280|295|310|1|R|Tiger Meat*3;Soothing Spices*2
-Flank au Poivre|280|280|285|300|315|1|R|Red Wolf Meat*3;Soothing Spices*3
-Grand Lobster Banquet|285|285|290|300|310|1|R|Darkclaw Lobster*12;Turtle Meat*4;Buzzard Wing*3;Exquisite Spices*1
+Grand Lobster Banquet|280|280|290|300|310|1|R|Darkclaw Lobster*12;Turtle Meat*4;Buzzard Wing*3;Exquisite Spices*1
+Specklefin Feast|280|280|290|300|310|1|R|Raw Spotted Yellowtail*12;Raptor Flesh*4;Raw Rockscale Cod*3;Exquisite Spices*1
 Smoked Desert Dumplings|285|285|325|345|365|1|Q:Desert Recipe|Sandworm Meat*1;Soothing Spices*1
-Specklefin Feast|285|285|290|300|310|1|R|Raw Spotted Yellowtail*12;Raptor Flesh*4;Raw Rockscale Cod*3;Exquisite Spices*1
+Darkclaw Bisque|300|300|325|345|365|1|R|Darkclaw Lobster*1;Drinkable Stratholme Holy Water*1
+Dirge's Kickin' Chimaerok Chops|300|300|325|345|365|5|R|Hot Spices*1;Goblin Rocket Fuel*1;Deeprock Salt*1;Chimaerok Tenderloin*1
+Smoked Redgill|300|300|325|345|365|1|R|Raw Redgill*1
 ]],
 }
