@@ -127,12 +127,15 @@ function Planner.PlanStock(opts)
 end
 
 -- Trainer fees. What a trainer charges is read when you open the trainer: this character's
--- (opts.trainerCosts) first, then everyone's that has been published (RawData.TrainerCosts).
--- A recipe nobody has recorded yet is estimated from recorded recipes at a similar skill level.
--- Returns copper and "seen" or "estimate", or nil when there is nothing to go on.
+-- (opts.trainerCosts) first, then everyone's that has been published (RawData.TrainerCosts), then
+-- WoW Classic's fee for the recipe, which Forever charges too (RawData.TrainerCostsClassic).
+-- A recipe with none of those (new in Forever) is estimated from recipes at a similar skill.
+-- Returns copper and "seen", "classic" or "estimate", or nil when there is nothing to go on.
 function Planner.TrainerFee(prof, name, learn, own)
   local c = own and own[name] or ((ns.RawData.TrainerCosts or {})[prof] or {})[name]
   if c then return c, "seen" end
+  c = ((ns.RawData.TrainerCostsClassic or {})[prof] or {})[name]
+  if c then return c, "classic" end
   local pts = ns.RawData.TrainerCostByLevel
   if not (learn and pts and #pts > 0) then return nil end
   local lo, hi
@@ -149,9 +152,11 @@ end
 -- Fee for a rank ("Artisan"): the trainer lists it as e.g. "Artisan Alchemist".
 function Planner.RankFee(prof, rank, own)
   local prefix = rank .. " "
-  for _, t in ipairs({ own or {}, (ns.RawData.TrainerCosts or {})[prof] or {} }) do
-    for name, c in pairs(t) do
-      if name:sub(1, #prefix) == prefix then return c end
+  local tables = { { own or {}, "seen" }, { (ns.RawData.TrainerCosts or {})[prof] or {}, "seen" },
+    { (ns.RawData.TrainerCostsClassic or {})[prof] or {}, "classic" } }
+  for _, t in ipairs(tables) do
+    for name, c in pairs(t[1]) do
+      if name:sub(1, #prefix) == prefix then return c, t[2] end
     end
   end
   return nil
@@ -379,15 +384,18 @@ planOnce = function(opts, ownedFactor)
     if producers[name] and not visiting[name] then
       visiting[name] = true
       for _, r in ipairs(producers[name]) do
-        local lc = learnCost(r)
-        if s >= r.learn and lc == 0 then
+        local lc, li = learnCost(r)
+        -- a trainer fee doesn't stop a recipe making materials; the fee goes in the totals
+        if s >= r.learn and lc and (lc == 0 or li.how == "trainer") then
           local total = 0
           for _, g in ipairs(r.reagents) do
             total = total + g.qty * (unitCost(g.name, s, visiting))
             if total == INF then break end
           end
           local per = total / r.makes
-          if per < best.cost then best = { cost = per, how = "craft", recipe = r } end
+          if per < best.cost then
+            best = { cost = per, how = "craft", recipe = r, fee = lc > 0 and lc or nil, feeHow = li.fee }
+          end
           -- (owning some already is handled when the shopping list uses your stock first)
         end
       end
@@ -658,6 +666,9 @@ function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
       crafted[name] = crafted[name] or { name = name, crafts = 0, makes = r.makes, fromStock = 0 }
       if not crafted[name].listed then crafted[name].listed = true; order[#order + 1] = name end
       crafted[name].crafts = crafted[name].crafts + n
+      if how.fee and not crafted[name].fee then
+        crafted[name].fee, crafted[name].feeHow, crafted[name].recipe, crafted[name].at = how.fee, how.feeHow, r.name, s
+      end
       for _, g in ipairs(r.reagents) do acquire(g.name, n * g.qty, s) end
       inv[name] = (inv[name] or 0) + n * r.makes - qty
     else
@@ -718,8 +729,19 @@ function Planner.BuildShoppingList(plan, data, unitCost, owned, listed)
   table.sort(list, function(x, y) if x.total ~= y.total then return x.total > y.total end return x.name < y.name end)
 
   local craftList = {}
+  local inLearn = {}
+  for _, l in ipairs(learn) do inLearn[l.recipe] = true end
+  for _, st in ipairs(plan.steps) do inLearn[st.recipe.name] = true end -- the route pays for these itself
   for _, name in ipairs(order) do
-    if crafted[name].crafts > 0 then craftList[#craftList + 1] = crafted[name] end
+    local c = crafted[name]
+    if c.crafts > 0 then
+      craftList[#craftList + 1] = c
+      -- materials you craft from a trainer recipe: its fee
+      if c.fee and not inLearn[c.recipe] then
+        inLearn[c.recipe] = true
+        learn[#learn + 1] = { recipe = c.recipe, cost = c.fee, how = "trainer", fee = c.feeHow, at = c.at or plan.from }
+      end
+    end
   end
 
   local learnTotal = 0
@@ -744,9 +766,9 @@ function Planner.AddTrainerFees(plan, own)
     local prevCap = rank.cap - 75
     local needed = rank.trainAt > 1 and plan.from <= prevCap and plan.to > prevCap or (rank.trainAt <= 1 and plan.from <= 1)
     if needed then
-      local c = Planner.RankFee(prof, rank.name, own)
+      local c, src = Planner.RankFee(prof, rank.name, own)
       table.insert(plan.learn, { recipe = rank.name .. " " .. prof, cost = c or 0, how = "rank",
-        fee = c and "seen" or nil, at = math.max(rank.trainAt, plan.from) })
+        fee = src, at = math.max(rank.trainAt, plan.from) })
       if c then fees = fees + c else unknown[#unknown + 1] = rank.name end
     end
   end

@@ -1,0 +1,1693 @@
+{
+ "_source": "Trainer fees from WoW Classic 1.12 (cmangos classic-db, npc_trainer and npc_trainer_template, https://github.com/cmangos/classic-db), matched to Forever recipes by the item each recipe makes. Forever charges the Classic fees for these (checked against gold spent levelling Alchemy, Nov 2026). Fees recorded at trainers in game (data/trainer-costs.json) take priority. Values: copper, and the skill Classic teaches it at.",
+ "Alchemy": {
+  "Apprentice Alchemist": [
+   10,
+   0
+  ],
+  "Arcane Elixir": [
+   9000,
+   235
+  ],
+  "Artisan Alchemist": [
+   45000,
+   200
+  ],
+  "Blackmouth Oil": [
+   225,
+   80
+  ],
+  "Catseye Draught": [
+   7200,
+   200
+  ],
+  "Draught of Detect Demon": [
+   12600,
+   250
+  ],
+  "Draught of Detect Undead": [
+   4500,
+   230
+  ],
+  "Draught of Greater Water Breathing": [
+   9000,
+   215
+  ],
+  "Draught of Water Breathing": [
+   405,
+   90
+  ],
+  "Dreamless Sleep Potion": [
+   9000,
+   230
+  ],
+  "Elixir of Agility": [
+   5850,
+   185
+  ],
+  "Elixir of Defense": [
+   6750,
+   195
+  ],
+  "Elixir of Fire Power": [
+   2700,
+   140
+  ],
+  "Elixir of Greater Agility": [
+   18000,
+   240
+  ],
+  "Elixir of Greater Intellect": [
+   18000,
+   235
+  ],
+  "Elixir of Lesser Defense": [
+   1800,
+   130
+  ],
+  "Elixir of Minor Fortitude": [
+   225,
+   50
+  ],
+  "Elixir of Wisdom": [
+   450,
+   90
+  ],
+  "Expert Alchemist": [
+   5000,
+   125
+  ],
+  "Fire Oil": [
+   900,
+   130
+  ],
+  "Greater Mana Potion": [
+   8100,
+   205
+  ],
+  "Journeyman Alchemist": [
+   450,
+   50
+  ],
+  "Lesser Invisibility Potion": [
+   4500,
+   165
+  ],
+  "Lesser Mana Potion": [
+   1350,
+   120
+  ],
+  "Lesser Troll's Blood Elixir": [
+   1350,
+   125
+  ],
+  "Mana Potion": [
+   4500,
+   160
+  ],
+  "Minor Mana Potion": [
+   100,
+   25
+  ],
+  "Minor Rejuvenation Potion": [
+   135,
+   40
+  ],
+  "Minor Troll's Blood Elixir": [
+   50,
+   15
+  ],
+  "Oil of Immolation": [
+   7200,
+   205
+  ],
+  "Stonescale Oil": [
+   13500,
+   250
+  ],
+  "Swim Speed Potion": [
+   900,
+   100
+  ],
+  "Troll's Blood Elixir": [
+   2880,
+   180
+  ]
+ },
+ "Blacksmithing": {
+  "Apprentice Blacksmith": [
+   9,
+   0
+  ],
+  "Arcanite Rod": [
+   10000,
+   275
+  ],
+  "Arcanite Skeleton Key": [
+   10000,
+   275
+  ],
+  "Artisan Blacksmith": [
+   50000,
+   200
+  ],
+  "Big Black Mace": [
+   15000,
+   230
+  ],
+  "Big Bronze Knife": [
+   600,
+   100
+  ],
+  "Blight": [
+   10000,
+   250
+  ],
+  "Bronze Axe": [
+   180,
+   115
+  ],
+  "Bronze Battle Axe": [
+   450,
+   135
+  ],
+  "Bronze Greatsword": [
+   450,
+   130
+  ],
+  "Bronze Mace": [
+   180,
+   110
+  ],
+  "Bronze Shortsword": [
+   180,
+   120
+  ],
+  "Bronze Warhammer": [
+   225,
+   125
+  ],
+  "Coarse Grinding Stone": [
+   225,
+   75
+  ],
+  "Coarse Weightstone": [
+   90,
+   65
+  ],
+  "Copper Axe": [
+   45,
+   20
+  ],
+  "Copper Battle Axe": [
+   225,
+   35
+  ],
+  "Copper Chain Belt": [
+   90,
+   35
+  ],
+  "Copper Chain Boots": [
+   45,
+   20
+  ],
+  "Copper Chain Pants": [
+   50,
+   1
+  ],
+  "Copper Claymore": [
+   90,
+   30
+  ],
+  "Copper Dagger": [
+   90,
+   30
+  ],
+  "Copper Mace": [
+   45,
+   15
+  ],
+  "Copper Shortsword": [
+   45,
+   25
+  ],
+  "Dense Grinding Stone": [
+   10000,
+   250
+  ],
+  "Dense Sharpening Stone": [
+   10000,
+   250
+  ],
+  "Dense Weightstone": [
+   10000,
+   250
+  ],
+  "Expert Blacksmith": [
+   4500,
+   125
+  ],
+  "Glinting Steel Dagger": [
+   6750,
+   180
+  ],
+  "Golden Rod": [
+   225,
+   150
+  ],
+  "Golden Scale Bracers": [
+   900,
+   185
+  ],
+  "Golden Skeleton Key": [
+   225,
+   150
+  ],
+  "Green Iron Bracers": [
+   900,
+   165
+  ],
+  "Green Iron Hauberk": [
+   6750,
+   180
+  ],
+  "Green Iron Helm": [
+   1125,
+   170
+  ],
+  "Green Iron Leggings": [
+   900,
+   155
+  ],
+  "Heavy Bronze Mace": [
+   900,
+   130
+  ],
+  "Heavy Copper Broadsword": [
+   450,
+   90
+  ],
+  "Heavy Copper Maul": [
+   270,
+   65
+  ],
+  "Heavy Grinding Stone": [
+   900,
+   125
+  ],
+  "Heavy Mithril Axe": [
+   9000,
+   210
+  ],
+  "Heavy Mithril Boots": [
+   20000,
+   235
+  ],
+  "Heavy Mithril Breastplate": [
+   15000,
+   230
+  ],
+  "Heavy Mithril Gauntlet": [
+   4500,
+   205
+  ],
+  "Heavy Mithril Shoulder": [
+   4500,
+   205
+  ],
+  "Heavy Weightstone": [
+   900,
+   125
+  ],
+  "Iron Buckle": [
+   225,
+   150
+  ],
+  "Journeyman Blacksmith": [
+   450,
+   50
+  ],
+  "Mithril Coif": [
+   15000,
+   230
+  ],
+  "Mithril Plate Pants": [
+   4500,
+   205
+  ],
+  "Patterned Bronze Bracers": [
+   450,
+   120
+  ],
+  "Pearl-handled Dagger": [
+   720,
+   110
+  ],
+  "Phantom Blade": [
+   15000,
+   245
+  ],
+  "Rough Bronze Boots": [
+   180,
+   95
+  ],
+  "Rough Bronze Cuirass": [
+   450,
+   105
+  ],
+  "Rough Bronze Leggings": [
+   270,
+   105
+  ],
+  "Rough Bronze Shoulders": [
+   1000,
+   110
+  ],
+  "Rough Grinding Stone": [
+   90,
+   25
+  ],
+  "Runed Copper Belt": [
+   180,
+   70
+  ],
+  "Runed Copper Bracers": [
+   450,
+   90
+  ],
+  "Runed Copper Gauntlets": [
+   90,
+   40
+  ],
+  "Runed Copper Pants": [
+   180,
+   45
+  ],
+  "Shining Silver Breastplate": [
+   900,
+   145
+  ],
+  "Silver Rod": [
+   90,
+   100
+  ],
+  "Silver Skeleton Key": [
+   600,
+   100
+  ],
+  "Silvered Bronze Boots": [
+   450,
+   130
+  ],
+  "Silvered Bronze Gauntlets": [
+   900,
+   135
+  ],
+  "Solid Grinding Stone": [
+   2250,
+   200
+  ],
+  "Solid Sharpening Stone": [
+   2250,
+   200
+  ],
+  "Solid Weightstone": [
+   2250,
+   200
+  ],
+  "Steel Breastplate": [
+   2250,
+   200
+  ],
+  "Steel Plate Helm": [
+   4500,
+   215
+  ],
+  "The Shatterer": [
+   15000,
+   235
+  ],
+  "Thick War Axe": [
+   450,
+   70
+  ],
+  "Truesilver Breastplate": [
+   10000,
+   245
+  ],
+  "Truesilver Champion": [
+   10000,
+   260
+  ],
+  "Truesilver Gauntlets": [
+   10000,
+   225
+  ],
+  "Truesilver Rod": [
+   2250,
+   200
+  ],
+  "Truesilver Skeleton Key": [
+   2250,
+   200
+  ]
+ },
+ "Cooking": {
+  "Apprentice Cook": [
+   100,
+   0
+  ],
+  "Barbecued Buzzard Wing": [
+   500,
+   175
+  ],
+  "Boiled Clams": [
+   100,
+   50
+  ],
+  "Coyote Steak": [
+   100,
+   50
+  ],
+  "Crab Cake": [
+   200,
+   75
+  ],
+  "Dry Pork Ribs": [
+   150,
+   80
+  ],
+  "Goblin Deviled Clams": [
+   300,
+   125
+  ],
+  "Goldthorn Tea": [
+   0,
+   175
+  ],
+  "Journeyman Cook": [
+   500,
+   50
+  ],
+  "Spiced Wolf Meat": [
+   50,
+   10
+  ],
+  "Spider Sausage": [
+   4000,
+   200
+  ]
+ },
+ "Enchanting": {
+  "Enchant 2H Weapon - Greater Impact": [
+   6200,
+   240
+  ],
+  "Enchant 2H Weapon - Impact": [
+   3600,
+   200
+  ],
+  "Enchant 2H Weapon - Lesser Impact": [
+   2160,
+   145
+  ],
+  "Enchant 2H Weapon - Minor Impact": [
+   450,
+   100
+  ],
+  "Enchant Boots - Agility": [
+   5800,
+   235
+  ],
+  "Enchant Boots - Lesser Agility": [
+   2800,
+   160
+  ],
+  "Enchant Boots - Lesser Stamina": [
+   2800,
+   170
+  ],
+  "Enchant Boots - Minor Speed": [
+   4500,
+   225
+  ],
+  "Enchant Boots - Minor Stamina": [
+   1260,
+   125
+  ],
+  "Enchant Boots - Stamina": [
+   4140,
+   215
+  ],
+  "Enchant Bracer - Greater Strength": [
+   6200,
+   240
+  ],
+  "Enchant Bracer - Intellect": [
+   3960,
+   210
+  ],
+  "Enchant Bracer - Lesser Intellect": [
+   2255,
+   150
+  ],
+  "Enchant Bracer - Lesser Stamina": [
+   1350,
+   130
+  ],
+  "Enchant Bracer - Minor Agility": [
+   360,
+   80
+  ],
+  "Enchant Bracer - Minor Deflect": [
+   100,
+   20
+  ],
+  "Enchant Bracer - Minor Stamina": [
+   250,
+   50
+  ],
+  "Enchant Bracer - Spirit": [
+   2520,
+   165
+  ],
+  "Enchant Bracer - Stamina": [
+   2520,
+   170
+  ],
+  "Enchant Bracer - Strength": [
+   3240,
+   180
+  ],
+  "Enchant Chest - Lesser Absorption": [
+   2250,
+   140
+  ],
+  "Enchant Chest - Lesser Stats": [
+   3600,
+   200
+  ],
+  "Enchant Chest - Minor Absorption": [
+   100,
+   40
+  ],
+  "Enchant Chest - Minor Stats": [
+   2250,
+   150
+  ],
+  "Enchant Chest - Stats": [
+   6200,
+   245
+  ],
+  "Enchant Cloak - Defense": [
+   2600,
+   155
+  ],
+  "Enchant Cloak - Fire Resistance": [
+   2700,
+   175
+  ],
+  "Enchant Cloak - Greater Defense": [
+   3780,
+   205
+  ],
+  "Enchant Cloak - Lesser Fire Resistance": [
+   1125,
+   125
+  ],
+  "Enchant Cloak - Lesser Protection": [
+   720,
+   115
+  ],
+  "Enchant Cloak - Minor Protection": [
+   200,
+   70
+  ],
+  "Enchant Cloak - Minor Resistance": [
+   100,
+   45
+  ],
+  "Enchant Cloak - Resistance": [
+   3780,
+   205
+  ],
+  "Enchant Gloves - Agility": [
+   3960,
+   210
+  ],
+  "Enchant Gloves - Minor Haste": [
+   6500,
+   250
+  ],
+  "Enchant Gloves - Strength": [
+   4500,
+   225
+  ],
+  "Enchant Shield - Greater Spirit": [
+   5400,
+   230
+  ],
+  "Enchant Shield - Lesser Spirit": [
+   1350,
+   130
+  ],
+  "Enchant Shield - Lesser Stamina": [
+   2600,
+   155
+  ],
+  "Enchant Shield - Minor Stamina": [
+   540,
+   105
+  ],
+  "Enchant Shield - Spirit": [
+   2880,
+   180
+  ],
+  "Enchant Weapon - Greater Striking": [
+   6200,
+   245
+  ],
+  "Enchant Weapon - Lesser Striking": [
+   1800,
+   140
+  ],
+  "Enchant Weapon - Minor Striking": [
+   450,
+   90
+  ],
+  "Enchant Weapon - Striking": [
+   3600,
+   195
+  ],
+  "Enchanted Leather": [
+   10000,
+   250
+  ],
+  "Enchanted Thorium Bar": [
+   10000,
+   250
+  ],
+  "Greater Magic Wand": [
+   200,
+   70
+  ],
+  "Greater Mystic Wand": [
+   2700,
+   175
+  ],
+  "Lesser Magic Wand": [
+   50,
+   10
+  ],
+  "Lesser Mystic Wand": [
+   2600,
+   155
+  ],
+  "Runed Golden Rod": [
+   2250,
+   150
+  ],
+  "Runed Silver Rod": [
+   900,
+   100
+  ],
+  "Runed Truesilver Rod": [
+   3600,
+   200
+  ]
+ },
+ "Engineering": {
+  "Advanced Target Dummy": [
+   1080,
+   185
+  ],
+  "Apprentice Engineer": [
+   10,
+   0
+  ],
+  "Aquadynamic Fish Attractor": [
+   450,
+   150
+  ],
+  "Arclight Spanner": [
+   150,
+   50
+  ],
+  "Artisan Engineer": [
+   45000,
+   200
+  ],
+  "Big Bronze Bomb": [
+   540,
+   140
+  ],
+  "Big Iron Bomb": [
+   1260,
+   190
+  ],
+  "Bronze Framework": [
+   540,
+   145
+  ],
+  "Bronze Tube": [
+   405,
+   105
+  ],
+  "Coarse Blasting Powder": [
+   250,
+   75
+  ],
+  "Coarse Dynamite": [
+   250,
+   75
+  ],
+  "Compact Harvest Reaper Kit": [
+   900,
+   175
+  ],
+  "Copper Modulator": [
+   225,
+   65
+  ],
+  "Copper Tube": [
+   150,
+   50
+  ],
+  "Crafted Heavy Shot": [
+   250,
+   75
+  ],
+  "Crafted Solid Shot": [
+   270,
+   125
+  ],
+  "Crude Scope": [
+   200,
+   60
+  ],
+  "Deadly Blunderbuss": [
+   378,
+   105
+  ],
+  "Dense Blasting Powder": [
+   4000,
+   250
+  ],
+  "Dense Dynamite": [
+   5000,
+   250
+  ],
+  "Expert Engineer": [
+   4500,
+   125
+  ],
+  "Explosive Sheep": [
+   675,
+   150
+  ],
+  "Fire Goggles": [
+   1440,
+   205
+  ],
+  "Flying Tiger Goggles": [
+   360,
+   100
+  ],
+  "Gnomish Battle Chicken": [
+   2400,
+   230
+  ],
+  "Gnomish Death Ray": [
+   2800,
+   240
+  ],
+  "Gnomish Goggles": [
+   1500,
+   210
+  ],
+  "Gnomish Harm Prevention Belt": [
+   2000,
+   215
+  ],
+  "Gnomish Mind Control Cap": [
+   2600,
+   235
+  ],
+  "Gnomish Net-o-Matic Projector": [
+   1800,
+   210
+  ],
+  "Gnomish Rocket Boots": [
+   2200,
+   225
+  ],
+  "Gnomish Shrink Ray": [
+   1500,
+   205
+  ],
+  "Goblin Bomb Dispenser": [
+   2400,
+   230
+  ],
+  "Goblin Construction Helmet": [
+   1500,
+   205
+  ],
+  "Goblin Dragon Gun": [
+   2800,
+   240
+  ],
+  "Goblin Mining Helmet": [
+   1500,
+   205
+  ],
+  "Goblin Mortar": [
+   1500,
+   205
+  ],
+  "Goblin Rocket Boots": [
+   2200,
+   225
+  ],
+  "Goblin Rocket Helmet": [
+   3000,
+   245
+  ],
+  "Goblin Sapper Charge": [
+   1500,
+   205
+  ],
+  "Gold Power Core": [
+   900,
+   150
+  ],
+  "Green Lens": [
+   2800,
+   245
+  ],
+  "Green Tinted Goggles": [
+   675,
+   150
+  ],
+  "Gyrochronatom": [
+   810,
+   170
+  ],
+  "Gyromatic Micro-Adjustor": [
+   900,
+   175
+  ],
+  "Handful of Copper Bolts": [
+   115,
+   30
+  ],
+  "Heavy Blasting Powder": [
+   450,
+   125
+  ],
+  "Heavy Dynamite": [
+   450,
+   125
+  ],
+  "Hi-Explosive Bomb": [
+   2160,
+   235
+  ],
+  "Hi-Impact Mithril Slugs": [
+   1530,
+   210
+  ],
+  "Iron Grenade": [
+   900,
+   175
+  ],
+  "Iron Strut": [
+   720,
+   160
+  ],
+  "Journeyman Engineer": [
+   450,
+   50
+  ],
+  "Large Copper Bomb": [
+   405,
+   105
+  ],
+  "Mechanical Repair Kit": [
+   1350,
+   200
+  ],
+  "Mithril Blunderbuss": [
+   1440,
+   205
+  ],
+  "Mithril Casing": [
+   1620,
+   215
+  ],
+  "Mithril Frag Bomb": [
+   1620,
+   215
+  ],
+  "Mithril Gyro-Shot": [
+   2800,
+   245
+  ],
+  "Mithril Tube": [
+   1170,
+   195
+  ],
+  "Ornate Spyglass": [
+   360,
+   135
+  ],
+  "Plans: Inlaid Mithril Cylinder": [
+   1350,
+   200
+  ],
+  "Practice Lock": [
+   270,
+   100
+  ],
+  "Recipe: Goblin Rocket Fuel": [
+   1000,
+   205
+  ],
+  "Rose Colored Goggles": [
+   1980,
+   230
+  ],
+  "Rough Boomstick": [
+   150,
+   50
+  ],
+  "Rough Copper Bomb": [
+   130,
+   30
+  ],
+  "Salt Shaker": [
+   4000,
+   250
+  ],
+  "Silver Contact": [
+   270,
+   90
+  ],
+  "Silver-plated Shotgun": [
+   495,
+   130
+  ],
+  "Small Bronze Bomb": [
+   450,
+   120
+  ],
+  "Solid Blasting Powder": [
+   900,
+   175
+  ],
+  "Solid Dynamite": [
+   900,
+   175
+  ],
+  "Standard Scope": [
+   427,
+   110
+  ],
+  "Target Dummy": [
+   270,
+   85
+  ],
+  "The Big One": [
+   2600,
+   235
+  ],
+  "Thorium Grenade": [
+   9000,
+   260
+  ],
+  "Thorium Widget": [
+   4500,
+   260
+  ],
+  "Unstable Trigger": [
+   1350,
+   200
+  ],
+  "Whirring Bronze Gizmo": [
+   450,
+   125
+  ]
+ },
+ "First Aid": {
+  "Apprentice First Aid": [
+   100,
+   0
+  ],
+  "Journeyman First Aid": [
+   500,
+   50
+  ]
+ },
+ "Leatherworking": {
+  "Barbaric Harness": [
+   2800,
+   190
+  ],
+  "Barbaric Shoulders": [
+   2500,
+   175
+  ],
+  "Cured Heavy Hide": [
+   1800,
+   150
+  ],
+  "Cured Light Hide": [
+   50,
+   35
+  ],
+  "Cured Medium Hide": [
+   650,
+   100
+  ],
+  "Cured Rugged Hide": [
+   4300,
+   250
+  ],
+  "Dark Leather Belt": [
+   1500,
+   125
+  ],
+  "Dark Leather Cloak": [
+   1000,
+   110
+  ],
+  "Dark Leather Pants": [
+   1000,
+   115
+  ],
+  "Dragonscale Breastplate": [
+   12000,
+   255
+  ],
+  "Dragonscale Gauntlets": [
+   4000,
+   225
+  ],
+  "Dusky Belt": [
+   2800,
+   195
+  ],
+  "Dusky Bracers": [
+   2800,
+   180
+  ],
+  "Dusky Leather Armor": [
+   2500,
+   175
+  ],
+  "Embossed Leather Boots": [
+   100,
+   55
+  ],
+  "Embossed Leather Cloak": [
+   100,
+   60
+  ],
+  "Embossed Leather Gloves": [
+   150,
+   55
+  ],
+  "Embossed Leather Pants": [
+   500,
+   75
+  ],
+  "Embossed Leather Vest": [
+   100,
+   40
+  ],
+  "Feathered Breastplate": [
+   9000,
+   250
+  ],
+  "Fine Leather Belt": [
+   500,
+   80
+  ],
+  "Fine Leather Cloak": [
+   550,
+   85
+  ],
+  "Fine Leather Tunic": [
+   550,
+   85
+  ],
+  "Fletcher's Gloves": [
+   1500,
+   125
+  ],
+  "Frost Leather Cloak": [
+   2800,
+   180
+  ],
+  "Gauntlets of the Sea": [
+   4300,
+   230
+  ],
+  "Gray Leather Boots": [
+   650,
+   100
+  ],
+  "Green Dragonscale Gauntlets": [
+   30000,
+   280
+  ],
+  "Green Leather Belt": [
+   2500,
+   160
+  ],
+  "Green Leather Bracers": [
+   2800,
+   180
+  ],
+  "Guardian Gloves": [
+   2800,
+   190
+  ],
+  "Guardian Pants": [
+   2500,
+   160
+  ],
+  "Handstitched Leather Belt": [
+   75,
+   25
+  ],
+  "Handstitched Leather Pants": [
+   50,
+   15
+  ],
+  "Heavy Armor Kit": [
+   2000,
+   150
+  ],
+  "Heavy Leather": [
+   1800,
+   150
+  ],
+  "Heavy Leather Ammo Pouch": [
+   2000,
+   150
+  ],
+  "Heavy Quiver": [
+   2000,
+   150
+  ],
+  "Helm of Fire": [
+   5500,
+   250
+  ],
+  "Hillman's Cloak": [
+   2000,
+   150
+  ],
+  "Hillman's Leather Gloves": [
+   1800,
+   145
+  ],
+  "Hillman's Shoulders": [
+   1200,
+   130
+  ],
+  "Light Leather Bracers": [
+   450,
+   70
+  ],
+  "Light Leather Pants": [
+   600,
+   95
+  ],
+  "Light Leather Quiver": [
+   100,
+   30
+  ],
+  "Medium Armor Kit": [
+   650,
+   100
+  ],
+  "Medium Leather": [
+   500,
+   100
+  ],
+  "Nightscape Boots": [
+   4600,
+   235
+  ],
+  "Nightscape Headband": [
+   3500,
+   205
+  ],
+  "Nightscape Pants": [
+   4600,
+   235
+  ],
+  "Nightscape Tunic": [
+   3500,
+   205
+  ],
+  "Nimble Leather Gloves": [
+   1400,
+   120
+  ],
+  "Quickdraw Quiver": [
+   4000,
+   225
+  ],
+  "Rugged Armor Kit": [
+   4300,
+   250
+  ],
+  "Small Leather Ammo Pouch": [
+   100,
+   30
+  ],
+  "Thick Armor Kit": [
+   3500,
+   200
+  ],
+  "Thick Leather": [
+   2800,
+   200
+  ],
+  "Thick Leather Ammo Pouch": [
+   4000,
+   225
+  ],
+  "Toughened Leather Armor": [
+   1400,
+   120
+  ],
+  "Toughened Leather Gloves": [
+   1500,
+   135
+  ],
+  "Turtle Scale Bracers": [
+   4000,
+   210
+  ],
+  "Turtle Scale Breastplate": [
+   4000,
+   210
+  ],
+  "Turtle Scale Helm": [
+   4300,
+   230
+  ],
+  "Turtle Scale Leggings": [
+   4600,
+   235
+  ],
+  "Wolfshead Helm": [
+   9000,
+   225
+  ]
+ },
+ "Mining": {
+  "Apprentice Miner": [
+   10,
+   0
+  ],
+  "Artisan Miner": [
+   50000,
+   200
+  ],
+  "Bronze Bar": [
+   200,
+   65
+  ],
+  "Expert Miner": [
+   4500,
+   125
+  ],
+  "Gold Bar": [
+   2250,
+   155
+  ],
+  "Iron Bar": [
+   450,
+   125
+  ],
+  "Journeyman Miner": [
+   500,
+   50
+  ],
+  "Mithril Bar": [
+   4500,
+   175
+  ],
+  "Silver Bar": [
+   180,
+   75
+  ],
+  "Steel Bar": [
+   2250,
+   165
+  ],
+  "Tin Bar": [
+   50,
+   65
+  ]
+ },
+ "Tailoring": {
+  "Apprentice Tailor": [
+   10,
+   0
+  ],
+  "Artisan Tailor": [
+   50000,
+   200
+  ],
+  "Azure Silk Belt": [
+   900,
+   175
+  ],
+  "Azure Silk Hood": [
+   540,
+   145
+  ],
+  "Azure Silk Pants": [
+   540,
+   140
+  ],
+  "Azure Silk Vest": [
+   675,
+   150
+  ],
+  "Barbaric Linen Vest": [
+   270,
+   70
+  ],
+  "Black Mageweave Boots": [
+   5400,
+   230
+  ],
+  "Black Mageweave Gloves": [
+   4500,
+   215
+  ],
+  "Black Mageweave Headband": [
+   6000,
+   230
+  ],
+  "Black Mageweave Leggings": [
+   3600,
+   205
+  ],
+  "Black Mageweave Robe": [
+   3600,
+   210
+  ],
+  "Black Mageweave Shoulders": [
+   2400,
+   230
+  ],
+  "Black Mageweave Vest": [
+   3600,
+   205
+  ],
+  "Blue Linen Shirt": [
+   45,
+   40
+  ],
+  "Bolt of Mageweave": [
+   900,
+   175
+  ],
+  "Bolt of Runecloth": [
+   10000,
+   250
+  ],
+  "Bolt of Silk Cloth": [
+   450,
+   125
+  ],
+  "Bolt of Woolen Cloth": [
+   90,
+   75
+  ],
+  "Brown Linen Pants": [
+   45,
+   30
+  ],
+  "Brown Linen Robe": [
+   45,
+   30
+  ],
+  "Brown Linen Shirt": [
+   25,
+   1
+  ],
+  "Brown Linen Vest": [
+   45,
+   10
+  ],
+  "Cindercloth Boots": [
+   6750,
+   245
+  ],
+  "Cindercloth Robe": [
+   4500,
+   225
+  ],
+  "Crimson Silk Belt": [
+   900,
+   175
+  ],
+  "Crimson Silk Gloves": [
+   4500,
+   210
+  ],
+  "Crimson Silk Pantaloons": [
+   2700,
+   195
+  ],
+  "Crimson Silk Vest": [
+   2250,
+   185
+  ],
+  "Double-Stitched Woolen Shoulders": [
+   450,
+   110
+  ],
+  "Dreamweave Circlet": [
+   6750,
+   250
+  ],
+  "Dreamweave Gloves": [
+   4500,
+   225
+  ],
+  "Dreamweave Vest": [
+   4500,
+   225
+  ],
+  "Earthen Vest": [
+   810,
+   170
+  ],
+  "Expert Tailor": [
+   4500,
+   125
+  ],
+  "Formal White Shirt": [
+   450,
+   170
+  ],
+  "Gloves of Meditation": [
+   675,
+   130
+  ],
+  "Gray Woolen Shirt": [
+   180,
+   100
+  ],
+  "Green Linen Bracers": [
+   180,
+   60
+  ],
+  "Green Linen Shirt": [
+   180,
+   70
+  ],
+  "Green Silken Shoulders": [
+   900,
+   180
+  ],
+  "Green Woolen Vest": [
+   270,
+   85
+  ],
+  "Handstitched Linen Britches": [
+   270,
+   70
+  ],
+  "Heavy Linen Gloves": [
+   90,
+   35
+  ],
+  "Heavy Woolen Gloves": [
+   360,
+   85
+  ],
+  "Heavy Woolen Pants": [
+   450,
+   110
+  ],
+  "Journeyman Tailor": [
+   450,
+   50
+  ],
+  "Lesser Wizard's Robe": [
+   900,
+   135
+  ],
+  "Linen Bag": [
+   90,
+   45
+  ],
+  "Linen Belt": [
+   45,
+   10
+  ],
+  "Linen Boots": [
+   180,
+   65
+  ],
+  "Long Silken Cloak": [
+   900,
+   185
+  ],
+  "Mageweave Bag": [
+   4500,
+   225
+  ],
+  "Orange Mageweave Shirt": [
+   2250,
+   215
+  ],
+  "Pearl-clasped Cloak": [
+   360,
+   90
+  ],
+  "Red Linen Shirt": [
+   45,
+   40
+  ],
+  "Red Mageweave Bag": [
+   5850,
+   235
+  ],
+  "Red Swashbuckler's Shirt": [
+   675,
+   175
+  ],
+  "Reinforced Linen Cape": [
+   180,
+   60
+  ],
+  "Robe of Power": [
+   900,
+   190
+  ],
+  "Runecloth Belt": [
+   10000,
+   255
+  ],
+  "Shadoweave Boots": [
+   6300,
+   240
+  ],
+  "Shadoweave Gloves": [
+   5400,
+   225
+  ],
+  "Shadoweave Pants": [
+   4500,
+   210
+  ],
+  "Shadoweave Robe": [
+   4950,
+   215
+  ],
+  "Shadoweave Shoulders": [
+   5850,
+   235
+  ],
+  "Silk Headband": [
+   675,
+   160
+  ],
+  "Simple Black Dress": [
+   4500,
+   235
+  ],
+  "Simple Dress": [
+   45,
+   40
+  ],
+  "Simple Kilt": [
+   270,
+   75
+  ],
+  "Simple Linen Boots": [
+   45,
+   20
+  ],
+  "Simple Linen Pants": [
+   30,
+   1
+  ],
+  "Small Silk Pack": [
+   720,
+   150
+  ],
+  "Soft-soled Linen Boots": [
+   270,
+   80
+  ],
+  "Spidersilk Boots": [
+   675,
+   125
+  ],
+  "Stylish Red Shirt": [
+   225,
+   110
+  ],
+  "White Linen Robe": [
+   45,
+   30
+  ],
+  "White Linen Shirt": [
+   22,
+   1
+  ],
+  "White Swashbuckler's Shirt": [
+   450,
+   160
+  ],
+  "White Woolen Dress": [
+   225,
+   110
+  ],
+  "Woolen Bag": [
+   180,
+   80
+  ],
+  "Woolen Boots": [
+   270,
+   95
+  ],
+  "Woolen Cape": [
+   225,
+   75
+  ]
+ }
+}

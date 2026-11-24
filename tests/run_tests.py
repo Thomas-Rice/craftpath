@@ -176,6 +176,15 @@ def main():
     assert victim not in {st.recipe.name for st in lua_list(p.steps)}, victim
 
     # Trainer fees: recorded fees count, ranks the route passes are added, the rest is flagged.
+    classic, curve = ns.RawData.TrainerCostsClassic, ns.RawData.TrainerCostByLevel
+    # Classic's fees (Forever charges the same) are in the data: ranks and most trainer recipes.
+    with_classic = plan(lua, ns, "Engineering", 1, 300)
+    ranks = {l.recipe: l.cost for l in lua_list(with_classic.learn) if l.how == "rank"}
+    assert ranks["Artisan Engineering"] > ranks["Expert Engineering"] > ranks["Journeyman Engineering"] > 0, dict(ranks)
+    assert with_classic.trainerTotal > 0
+    assert ns.Planner.TrainerFee("Alchemy", "Fire Oil", 130, None) == (900, "classic")
+    ns.RawData.TrainerCostsClassic = lua.table_from({})
+    ns.RawData.TrainerCostByLevel = lua.table_from([])
     base = plan(lua, ns, "Engineering", 1, 300)
     assert base.trainerUnknown > 0 and any("Trainer fees" in n for n in lua_list(base.notes)), "unrecorded fees not flagged"
     ranks = [l for l in lua_list(base.learn) if l.how == "rank"]
@@ -206,7 +215,7 @@ def main():
     assert ns.Planner.TrainerFee("Engineering", "X", 250, None)[0] == 3000  # above the last
     est = plan(lua, ns, "Engineering", 1, 300)
     assert est.trainerEstimated > 0 and est.trainerTotal > 0
-    ns.RawData.TrainerCostByLevel = lua.table_from([])
+    ns.RawData.TrainerCostsClassic, ns.RawData.TrainerCostByLevel = classic, curve
 
     # Recipes that give 2 points per craft need half the crafts.
     r2 = lua.table_from({"name": "X", "learn": 1, "yellow": 50, "grey": 100, "points": 2})

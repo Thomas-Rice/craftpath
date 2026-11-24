@@ -216,7 +216,7 @@ def test_trainer_costs():
         lua = lua51.LuaRuntime(unpack_returned_tuples=True)
         db = lua.eval('{ trainerCost = { Alchemy = { ["Fire Oil"] = 800, ["Elixir of Wisdom"] = 500,'
                       ' ["Artisan Alchemist"] = 50000 } }, trainer = { Alchemy = { ["Stonescale Oil"] = 250 } } }')
-        msg = export_prices.export_trainer_costs(db, js, lua_path, lv)
+        msg = export_prices.export_trainer_costs(db, js, lua_path, lv, None)
         assert "2 new" in msg, msg
         costs = json.load(open(js))
         assert costs["Alchemy"] == {"Artisan Alchemist": 50000, "Elixir of Wisdom": 500, "Fire Oil": 900}, costs
@@ -225,7 +225,16 @@ def test_trainer_costs():
         assert ns.RawData.TrainerCosts.Alchemy["Artisan Alchemist"] == 50000
         curve = [(p[1], p[2]) for p in lua_list(ns.RawData.TrainerCostByLevel)]
         assert curve == [(90, 500), (130, 900)], curve
-        assert export_prices.export_trainer_costs(db, js, lua_path, lv) == "Trainer fees: nothing new."
+        assert export_prices.export_trainer_costs(db, js, lua_path, lv, None) == "Trainer fees: nothing new."
+        # Classic fees go in their own table and fill in the curve where nothing was recorded
+        cl = os.path.join(tmp, "classic.json")
+        json.dump({"_source": "x", "Alchemy": {"Fire Oil": [111, 130], "Mana Potion": [3000, 160]}}, open(cl, "w"))
+        export_prices.export_trainer_costs(db, js, lua_path, lv, cl)
+        ns = lua.table()
+        lua.execute("return function(src) return assert(loadstring(src)) end")(open(lua_path).read())("CraftPath", ns)
+        assert ns.RawData.TrainerCostsClassic.Alchemy["Mana Potion"] == 3000
+        curve = [(p[1], p[2]) for p in lua_list(ns.RawData.TrainerCostByLevel)]
+        assert curve == [(90, 500), (130, 900), (160, 3000)], curve
         print("Trainer cost export test passed")
     finally:
         shutil.rmtree(tmp)
