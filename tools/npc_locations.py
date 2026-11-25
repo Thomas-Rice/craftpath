@@ -146,16 +146,11 @@ class World:
             mx = a["UiMin_0"] + fx * (a["UiMax_0"] - a["UiMin_0"])
             my = a["UiMin_1"] + fy * (a["UiMax_1"] - a["UiMin_1"])
             margin = min(mx, 1 - mx, my, 1 - my)
+            if a["name"] in CITIES and margin > 0.01:
+                margin += 1  # a city's map sits inside its zone's: the city wins
             if best is None or margin > best[0]:
                 best = (margin, a["name"], round(mx * 100, 1), round(my * 100, 1))
         return best and best[1:]
-
-    def dump(self, names):
-        for m, lst in self.assign.items():
-            for a in lst:
-                if a["name"] in names:
-                    print("A", m, a)
-
 
 def faction_of(tables):
     """FactionTemplate id -> "Horde", "Alliance", None (serves both) or False (serves neither)."""
@@ -244,6 +239,8 @@ def build(src, tables):
         if fac is False or not loc:
             continue
         for prof, rank in best.items():
+            if prof in ("Herbalism", "Skinning"):
+                continue  # gathering: CraftPath doesn't plan these
             trainers.setdefault(prof, []).append({"npc": t["Name"], "title": t.get("SubName") or "", "zone": loc[0],
                                                   "x": loc[1], "y": loc[2], "faction": fac, "rank": rank,
                                                   "upto": tops.get(prof, 0)})

@@ -1,7 +1,9 @@
-name: probe
+name: NPC locations
+# Rebuilds data/npc-locations.json and CraftPath/Data/Locations.lua (trainers and material
+# vendors) from cmangos classic-db and Forever's maps. Download the "locations" artifact and commit.
 on: workflow_dispatch
 jobs:
-  p:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,10 +15,9 @@ jobs:
           import json
           d = json.load(open("data/npc-locations.json"))
           for p, vs in d["trainers"].items():
-              for v in vs:
-                  if v["rank"] >= 3 or v["zone"] in ("Hillsbrad Foothills", "Alterac Mountains", "Thousand Needles", "Feralas", "The Hinterlands"): print("T", p, v["npc"], v["zone"], v["x"], v["y"], v["faction"], v["rank"], v["upto"])
-          for i in ("Crystal Vial", "Rune Thread", "Empty Vial"):
-              for v in d["vendors"].get(i, []): print("V", i, v)
+              for v in vs: print("T", p, v["npc"], v["zone"], v["x"], v["y"], v["faction"], v["rank"], v["upto"])
+          for i, vs in d["vendors"].items():
+              print("V", i, "; ".join(f"{v['npc']} {v['zone']} {v['faction']}" for v in vs))
           PY
       - uses: actions/upload-artifact@v4
         with:
