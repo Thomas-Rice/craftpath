@@ -1,7 +1,10 @@
 name: NPC locations
 # Rebuilds data/npc-locations.json and CraftPath/Data/Locations.lua (trainers and material
-# vendors) from cmangos classic-db and Forever's maps. Download the "locations" artifact and commit.
+# vendors) from cmangos classic-db and Forever's maps, and pushes them to the npc-locations branch
+# for review.
 on: workflow_dispatch
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,9 +22,10 @@ jobs:
           for i, vs in d["vendors"].items():
               print("V", i, "; ".join(f"{v['npc']} {v['zone']} {v['faction']}" for v in vs))
           PY
-      - uses: actions/upload-artifact@v4
-        with:
-          name: locations
-          path: |
-            data/npc-locations.json
-            CraftPath/Data/Locations.lua
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B npc-locations
+          git add data/npc-locations.json CraftPath/Data/Locations.lua
+          git commit -m "NPC locations from cmangos classic-db and Forever's maps" || exit 0
+          git push -f origin npc-locations
