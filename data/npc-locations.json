@@ -1951,13 +1951,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Elaine Trias",
-    "zone": "Stormwind City",
-    "x": 66.6,
-    "y": 73.4,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Innkeeper Pala",
     "zone": "Thunder Bluff",
     "x": 45.8,
@@ -1993,6 +1986,13 @@
     "faction": "Alliance"
    },
    {
+    "npc": "Innkeeper Trelayne",
+    "zone": "Duskwood",
+    "x": 73.9,
+    "y": 44.4,
+    "faction": "Alliance"
+   },
+   {
     "npc": "Innkeeper Abeqwa",
     "zone": "Thousand Needles",
     "x": 46.1,
@@ -2006,20 +2006,6 @@
     "zone": "Darnassus",
     "x": 64.6,
     "y": 21.6,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
     "faction": "Alliance"
    },
    {
@@ -2037,24 +2023,38 @@
     "faction": "Horde"
    },
    {
-    "npc": "Felika",
-    "zone": "Orgrimmar",
-    "x": 60.6,
-    "y": 48.9,
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -2079,10 +2079,10 @@
     "faction": null
    },
    {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
     "faction": null
    }
   ],
@@ -2102,20 +2102,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Fillius Fizzlespinner",
-    "zone": "Ironforge",
-    "x": 38.1,
-    "y": 73.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Gearcutter Cogspinner",
-    "zone": "Ironforge",
-    "x": 67.8,
-    "y": 42.5,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Felika",
     "zone": "Orgrimmar",
     "x": 60.6,
@@ -2123,24 +2109,31 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Billibub Cogspinner",
+    "zone": "Stormwind City",
+    "x": 62.4,
+    "y": 29.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Shadi Mistrunner",
+    "zone": "Thunder Bluff",
+    "x": 40.6,
+    "y": 64.0,
     "faction": "Horde"
    },
    {
-    "npc": "Sovik",
-    "zone": "Orgrimmar",
-    "x": 75.5,
-    "y": 25.4,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Sumi",
-    "zone": "Orgrimmar",
-    "x": 82.6,
-    "y": 24.0,
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
     "faction": "Horde"
    },
    {
@@ -2151,6 +2144,13 @@
     "faction": null
    },
    {
+    "npc": "Hammon Karwn",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 47.4,
+    "faction": "Alliance"
+   },
+   {
     "npc": "Blimo Gadgetspring",
     "zone": "Azshara",
     "x": 45.2,
@@ -2158,17 +2158,17 @@
     "faction": null
    },
    {
-    "npc": "Jubie Gadgetspring",
-    "zone": "Azshara",
-    "x": 45.3,
-    "y": 90.9,
-    "faction": null
-   },
-   {
     "npc": "Jazzrik",
     "zone": "Badlands",
     "x": 42.5,
     "y": 52.5,
+    "faction": null
+   },
+   {
+    "npc": "Yuka Screwspigot",
+    "zone": "Burning Steppes",
+    "x": 66.1,
+    "y": 22.0,
     "faction": null
    }
   ],
@@ -2192,13 +2192,6 @@
     "zone": "Stormwind City",
     "x": 51.8,
     "y": 75.1,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Billibub Cogspinner",
-    "zone": "Stormwind City",
-    "x": 62.4,
-    "y": 29.9,
     "faction": "Alliance"
    },
    {
@@ -2244,6 +2237,13 @@
     "faction": "Alliance"
    },
    {
+    "npc": "Herble Baubbletump",
+    "zone": "Duskwood",
+    "x": 78.0,
+    "y": 48.3,
+    "faction": "Alliance"
+   },
+   {
     "npc": "Zorbin Fandazzle",
     "zone": "Feralas",
     "x": 44.8,
@@ -2267,20 +2267,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Fillius Fizzlespinner",
-    "zone": "Ironforge",
-    "x": 38.1,
-    "y": 73.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Outfitter Eric",
-    "zone": "Ironforge",
-    "x": 43.4,
-    "y": 29.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Borya",
     "zone": "Orgrimmar",
     "x": 63.1,
@@ -2288,11 +2274,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
    },
    {
     "npc": "Mahu",
@@ -2309,17 +2295,24 @@
     "faction": "Horde"
    },
    {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Gorbold Steelhand",
+    "zone": "Darkshore",
+    "x": 38.1,
+    "y": 41.2,
+    "faction": "Alliance"
+   },
+   {
     "npc": "Darnall",
     "zone": "Moonglade",
     "x": 51.5,
     "y": 33.3,
-    "faction": null
-   },
-   {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
     "faction": null
    },
    {
@@ -2335,6 +2328,13 @@
     "x": 27.0,
     "y": 82.5,
     "faction": null
+   },
+   {
+    "npc": "Haughty Modiste",
+    "zone": "Tanaris",
+    "x": 66.6,
+    "y": 22.3,
+    "faction": null
    }
   ],
   "Blue Dye": [
@@ -2346,24 +2346,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
     "y": 34.5,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Outfitter Eric",
-    "zone": "Ironforge",
-    "x": 43.4,
-    "y": 29.3,
     "faction": "Alliance"
    },
    {
@@ -2374,24 +2360,38 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
-    "faction": "Horde"
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
    },
    {
     "npc": "Mahu",
     "zone": "Thunder Bluff",
     "x": 43.8,
     "y": 45.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Joseph Moore",
+    "zone": "Undercity",
+    "x": 70.1,
+    "y": 58.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -2432,20 +2432,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
@@ -2460,25 +2446,39 @@
     "faction": "Horde"
    },
    {
-    "npc": "Felika",
-    "zone": "Orgrimmar",
-    "x": 60.6,
-    "y": 48.9,
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
     "faction": "Horde"
+   },
+   {
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -2502,10 +2502,10 @@
     "faction": null
    },
    {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
     "faction": null
    }
   ],
@@ -2515,20 +2515,6 @@
     "zone": "Darnassus",
     "x": 48.5,
     "y": 69.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Vaean",
-    "zone": "Darnassus",
-    "x": 58.6,
-    "y": 14.7,
     "faction": "Alliance"
    },
    {
@@ -2546,18 +2532,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Kithas",
-    "zone": "Orgrimmar",
-    "x": 53.9,
-    "y": 38.0,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
+    "npc": "Edna Mullby",
+    "zone": "Stormwind City",
+    "x": 64.7,
+    "y": 71.3,
+    "faction": "Alliance"
    },
    {
     "npc": "Nata Dawnstrider",
@@ -2565,6 +2544,27 @@
     "x": 45.0,
     "y": 38.8,
     "faction": "Horde"
+   },
+   {
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Hammon Karwn",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 47.4,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -2604,24 +2604,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Kyrai",
-    "zone": "Darnassus",
-    "x": 32.5,
-    "y": 19.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Ulthir",
-    "zone": "Darnassus",
-    "x": 55.8,
-    "y": 24.5,
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
     "faction": "Alliance"
    },
    {
@@ -2632,24 +2618,24 @@
     "faction": "Horde"
    },
    {
-    "npc": "Kor'geld",
-    "zone": "Orgrimmar",
-    "x": 56.1,
-    "y": 34.1,
+    "npc": "Edna Mullby",
+    "zone": "Stormwind City",
+    "x": 64.7,
+    "y": 71.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mani Winterhoof",
+    "zone": "Thunder Bluff",
+    "x": 47.4,
+    "y": 33.7,
     "faction": "Horde"
    },
    {
-    "npc": "Rekkul",
-    "zone": "Orgrimmar",
-    "x": 42.1,
-    "y": 49.5,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Algernon",
+    "zone": "Undercity",
+    "x": 51.7,
+    "y": 74.7,
     "faction": "Horde"
    },
    {
@@ -2658,6 +2644,20 @@
     "x": 38.2,
     "y": 38.9,
     "faction": null
+   },
+   {
+    "npc": "Drovnar Strongbrew",
+    "zone": "Arathi Highlands",
+    "x": 46.3,
+    "y": 47.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Keena",
+    "zone": "Arathi Highlands",
+    "x": 74.1,
+    "y": 32.7,
+    "faction": "Horde"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -2776,24 +2776,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Kyrai",
-    "zone": "Darnassus",
-    "x": 32.5,
-    "y": 19.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Ulthir",
-    "zone": "Darnassus",
-    "x": 55.8,
-    "y": 24.5,
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
     "faction": "Alliance"
    },
    {
@@ -2804,24 +2790,24 @@
     "faction": "Horde"
    },
    {
-    "npc": "Kor'geld",
-    "zone": "Orgrimmar",
-    "x": 56.1,
-    "y": 34.1,
+    "npc": "Edna Mullby",
+    "zone": "Stormwind City",
+    "x": 64.7,
+    "y": 71.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mani Winterhoof",
+    "zone": "Thunder Bluff",
+    "x": 47.4,
+    "y": 33.7,
     "faction": "Horde"
    },
    {
-    "npc": "Rekkul",
-    "zone": "Orgrimmar",
-    "x": 42.1,
-    "y": 49.5,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Algernon",
+    "zone": "Undercity",
+    "x": 51.7,
+    "y": 74.7,
     "faction": "Horde"
    },
    {
@@ -2830,6 +2816,20 @@
     "x": 38.2,
     "y": 38.9,
     "faction": null
+   },
+   {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Drovnar Strongbrew",
+    "zone": "Arathi Highlands",
+    "x": 46.3,
+    "y": 47.0,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -2876,13 +2876,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Billibub Cogspinner",
-    "zone": "Stormwind City",
-    "x": 62.4,
-    "y": 29.9,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Elizabeth Van Talen",
     "zone": "Undercity",
     "x": 75.5,
@@ -2925,6 +2918,13 @@
     "faction": "Alliance"
    },
    {
+    "npc": "Herble Baubbletump",
+    "zone": "Duskwood",
+    "x": 78.0,
+    "y": 48.3,
+    "faction": "Alliance"
+   },
+   {
     "npc": "Zorbin Fandazzle",
     "zone": "Feralas",
     "x": 44.8,
@@ -2957,20 +2957,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
@@ -2985,25 +2971,39 @@
     "faction": "Horde"
    },
    {
-    "npc": "Felika",
-    "zone": "Orgrimmar",
-    "x": 60.6,
-    "y": 48.9,
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
     "faction": "Horde"
+   },
+   {
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -3027,10 +3027,10 @@
     "faction": null
    },
    {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
     "faction": null
    }
   ],
@@ -3040,13 +3040,6 @@
     "zone": "Darnassus",
     "x": 64.7,
     "y": 53.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Mydrannul",
-    "zone": "Darnassus",
-    "x": 70.7,
-    "y": 45.4,
     "faction": "Alliance"
    },
    {
@@ -3061,13 +3054,6 @@
     "zone": "Orgrimmar",
     "x": 46.1,
     "y": 40.9,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Trak'gen",
-    "zone": "Orgrimmar",
-    "x": 48.1,
-    "y": 80.5,
     "faction": "Horde"
    },
    {
@@ -3090,6 +3076,20 @@
     "x": 69.2,
     "y": 48.9,
     "faction": "Horde"
+   },
+   {
+    "npc": "Graud",
+    "zone": "Arathi Highlands",
+    "x": 74.1,
+    "y": 32.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Vikki Lonsav",
+    "zone": "Arathi Highlands",
+    "x": 46.4,
+    "y": 47.6,
+    "faction": "Alliance"
    },
    {
     "npc": "Caretaker Alen",
@@ -3129,20 +3129,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
@@ -3157,24 +3143,38 @@
     "faction": "Horde"
    },
    {
-    "npc": "Felika",
-    "zone": "Orgrimmar",
-    "x": 60.6,
-    "y": 48.9,
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -3199,10 +3199,10 @@
     "faction": null
    },
    {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
     "faction": null
    }
   ],
@@ -3215,24 +3215,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
     "y": 34.5,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Outfitter Eric",
-    "zone": "Ironforge",
-    "x": 43.4,
-    "y": 29.3,
     "faction": "Alliance"
    },
    {
@@ -3243,24 +3229,38 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
-    "faction": "Horde"
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
    },
    {
     "npc": "Mahu",
     "zone": "Thunder Bluff",
     "x": 43.8,
     "y": 45.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Joseph Moore",
+    "zone": "Undercity",
+    "x": 70.1,
+    "y": 58.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -3301,20 +3301,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
@@ -3329,24 +3315,38 @@
     "faction": "Horde"
    },
    {
-    "npc": "Felika",
-    "zone": "Orgrimmar",
-    "x": 60.6,
-    "y": 48.9,
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -3371,10 +3371,10 @@
     "faction": null
    },
    {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
     "faction": null
    }
   ],
@@ -3394,20 +3394,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Fillius Fizzlespinner",
-    "zone": "Ironforge",
-    "x": 38.1,
-    "y": 73.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Gearcutter Cogspinner",
-    "zone": "Ironforge",
-    "x": 67.8,
-    "y": 42.5,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Felika",
     "zone": "Orgrimmar",
     "x": 60.6,
@@ -3415,24 +3401,31 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Sovik",
-    "zone": "Orgrimmar",
-    "x": 75.5,
-    "y": 25.4,
-    "faction": "Horde"
+    "npc": "Billibub Cogspinner",
+    "zone": "Stormwind City",
+    "x": 62.4,
+    "y": 29.9,
+    "faction": "Alliance"
    },
    {
     "npc": "Shadi Mistrunner",
     "zone": "Thunder Bluff",
     "x": 40.6,
     "y": 64.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
     "faction": "Horde"
    },
    {
@@ -3443,6 +3436,13 @@
     "faction": null
    },
    {
+    "npc": "Hammon Karwn",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 47.4,
+    "faction": "Alliance"
+   },
+   {
     "npc": "Blimo Gadgetspring",
     "zone": "Azshara",
     "x": 45.2,
@@ -3450,17 +3450,17 @@
     "faction": null
    },
    {
-    "npc": "Jubie Gadgetspring",
-    "zone": "Azshara",
-    "x": 45.3,
-    "y": 90.9,
-    "faction": null
-   },
-   {
     "npc": "Yuka Screwspigot",
     "zone": "Burning Steppes",
     "x": 66.1,
     "y": 22.0,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
     "faction": null
    }
   ],
@@ -3473,24 +3473,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Burbik Gearspanner",
     "zone": "Ironforge",
     "x": 46.4,
     "y": 26.9,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Emrul Riknussun",
-    "zone": "Ironforge",
-    "x": 59.9,
-    "y": 37.4,
     "faction": "Alliance"
    },
    {
@@ -3501,18 +3487,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Xen'to",
-    "zone": "Orgrimmar",
-    "x": 57.6,
-    "y": 52.9,
-    "faction": "Horde"
+    "npc": "Edna Mullby",
+    "zone": "Stormwind City",
+    "x": 64.7,
+    "y": 71.3,
+    "faction": "Alliance"
    },
    {
     "npc": "Naal Mistrunner",
@@ -3520,6 +3499,27 @@
     "x": 51.0,
     "y": 52.5,
     "faction": "Horde"
+   },
+   {
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Hammon Karwn",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 47.4,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -3559,24 +3559,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Fyrenna",
-    "zone": "Darnassus",
-    "x": 69.4,
-    "y": 45.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Innkeeper Saelienne",
-    "zone": "Darnassus",
-    "x": 67.4,
-    "y": 15.6,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Jaeana",
-    "zone": "Darnassus",
-    "x": 64.5,
-    "y": 71.7,
+    "npc": "Edris Barleybeard",
+    "zone": "Ironforge",
+    "x": 72.3,
+    "y": 75.8,
     "faction": "Alliance"
    },
    {
@@ -3587,18 +3573,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Innkeeper Gryshka",
-    "zone": "Orgrimmar",
-    "x": 54.1,
-    "y": 68.4,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Trak'gen",
-    "zone": "Orgrimmar",
-    "x": 48.1,
-    "y": 80.5,
-    "faction": "Horde"
+    "npc": "Ben Trias",
+    "zone": "Stormwind City",
+    "x": 66.4,
+    "y": 73.5,
+    "faction": "Alliance"
    },
    {
     "npc": "Innkeeper Pala",
@@ -3608,17 +3587,31 @@
     "faction": "Horde"
    },
    {
+    "npc": "Eleanor Rusk",
+    "zone": "Undercity",
+    "x": 69.2,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Shay",
+    "zone": "Alterac Mountains",
+    "x": 61.6,
+    "y": 80.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Haljan Oakheart",
+    "zone": "Ashenvale",
+    "x": 34.8,
+    "y": 50.9,
+    "faction": "Alliance"
+   },
+   {
     "npc": "Caretaker Alen",
     "zone": "Eastern Plaguelands",
     "x": 69.9,
     "y": 53.7,
-    "faction": null
-   },
-   {
-    "npc": "Jessica Chambers",
-    "zone": "Eastern Plaguelands",
-    "x": 71.8,
-    "y": 48.5,
     "faction": null
    },
    {
@@ -3629,9 +3622,16 @@
     "faction": null
    },
    {
-    "npc": "Dargon",
-    "zone": "Moonglade",
-    "x": 48.9,
+    "npc": "Master Smith Burninate",
+    "zone": "Searing Gorge",
+    "x": 38.8,
+    "y": 28.5,
+    "faction": null
+   },
+   {
+    "npc": "Calandrath",
+    "zone": "Silithus",
+    "x": 51.9,
     "y": 39.2,
     "faction": null
    }
@@ -3645,24 +3645,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Kyrai",
-    "zone": "Darnassus",
-    "x": 32.5,
-    "y": 19.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Ulthir",
-    "zone": "Darnassus",
-    "x": 55.8,
-    "y": 24.5,
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
     "faction": "Alliance"
    },
    {
@@ -3673,24 +3659,24 @@
     "faction": "Horde"
    },
    {
-    "npc": "Kor'geld",
-    "zone": "Orgrimmar",
-    "x": 56.1,
-    "y": 34.1,
+    "npc": "Edna Mullby",
+    "zone": "Stormwind City",
+    "x": 64.7,
+    "y": 71.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mani Winterhoof",
+    "zone": "Thunder Bluff",
+    "x": 47.4,
+    "y": 33.7,
     "faction": "Horde"
    },
    {
-    "npc": "Rekkul",
-    "zone": "Orgrimmar",
-    "x": 42.1,
-    "y": 49.5,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Algernon",
+    "zone": "Undercity",
+    "x": 51.7,
+    "y": 74.7,
     "faction": "Horde"
    },
    {
@@ -3699,6 +3685,20 @@
     "x": 38.2,
     "y": 38.9,
     "faction": null
+   },
+   {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Drovnar Strongbrew",
+    "zone": "Arathi Highlands",
+    "x": 46.3,
+    "y": 47.0,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -3731,24 +3731,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Ellandrieth",
-    "zone": "Darnassus",
-    "x": 64.7,
-    "y": 53.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Fyrenna",
-    "zone": "Darnassus",
-    "x": 69.4,
-    "y": 45.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Innkeeper Saelienne",
-    "zone": "Darnassus",
-    "x": 67.4,
-    "y": 15.6,
+    "npc": "Bryllia Ironbrand",
+    "zone": "Ironforge",
+    "x": 39.2,
+    "y": 74.5,
     "faction": "Alliance"
    },
    {
@@ -3759,24 +3745,31 @@
     "faction": "Horde"
    },
    {
-    "npc": "Barkeep Morag",
-    "zone": "Orgrimmar",
-    "x": 54.6,
-    "y": 67.7,
+    "npc": "Ben Trias",
+    "zone": "Stormwind City",
+    "x": 66.4,
+    "y": 73.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Pala",
+    "zone": "Thunder Bluff",
+    "x": 45.8,
+    "y": 64.7,
     "faction": "Horde"
    },
    {
-    "npc": "Innkeeper Gryshka",
-    "zone": "Orgrimmar",
-    "x": 54.1,
-    "y": 68.4,
+    "npc": "Eleanor Rusk",
+    "zone": "Undercity",
+    "x": 69.2,
+    "y": 48.9,
     "faction": "Horde"
    },
    {
-    "npc": "Trak'gen",
-    "zone": "Orgrimmar",
-    "x": 48.1,
-    "y": 80.5,
+    "npc": "Innkeeper Shay",
+    "zone": "Alterac Mountains",
+    "x": 61.6,
+    "y": 80.7,
     "faction": "Horde"
    },
    {
@@ -3787,11 +3780,11 @@
     "faction": null
    },
    {
-    "npc": "Targot Jinglepocket",
+    "npc": "Vikki Lonsav",
     "zone": "Arathi Highlands",
-    "x": 46.5,
-    "y": 45.3,
-    "faction": null
+    "x": 46.4,
+    "y": 47.6,
+    "faction": "Alliance"
    },
    {
     "npc": "Gapp Jinglepocket",
@@ -3806,6 +3799,13 @@
     "x": 69.9,
     "y": 53.7,
     "faction": null
+   },
+   {
+    "npc": "Daeolyn Summerleaf",
+    "zone": "Moonglade",
+    "x": 45.2,
+    "y": 34.7,
+    "faction": null
    }
   ],
   "Mild Spices": [
@@ -3817,24 +3817,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Burbik Gearspanner",
     "zone": "Ironforge",
     "x": 46.4,
     "y": 26.9,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Emrul Riknussun",
-    "zone": "Ironforge",
-    "x": 59.9,
-    "y": 37.4,
     "faction": "Alliance"
    },
    {
@@ -3845,18 +3831,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Xen'to",
-    "zone": "Orgrimmar",
-    "x": 57.6,
-    "y": 52.9,
-    "faction": "Horde"
+    "npc": "Edna Mullby",
+    "zone": "Stormwind City",
+    "x": 64.7,
+    "y": 71.3,
+    "faction": "Alliance"
    },
    {
     "npc": "Naal Mistrunner",
@@ -3864,6 +3843,27 @@
     "x": 51.0,
     "y": 52.5,
     "faction": "Horde"
+   },
+   {
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Hammon Karwn",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 47.4,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -3903,24 +3903,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Ellandrieth",
-    "zone": "Darnassus",
-    "x": 64.7,
-    "y": 53.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Fyrenna",
-    "zone": "Darnassus",
-    "x": 69.4,
-    "y": 45.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Innkeeper Saelienne",
-    "zone": "Darnassus",
-    "x": 67.4,
-    "y": 15.6,
+    "npc": "Bryllia Ironbrand",
+    "zone": "Ironforge",
+    "x": 39.2,
+    "y": 74.5,
     "faction": "Alliance"
    },
    {
@@ -3931,24 +3917,31 @@
     "faction": "Horde"
    },
    {
-    "npc": "Barkeep Morag",
-    "zone": "Orgrimmar",
-    "x": 54.6,
-    "y": 67.7,
+    "npc": "Ben Trias",
+    "zone": "Stormwind City",
+    "x": 66.4,
+    "y": 73.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Pala",
+    "zone": "Thunder Bluff",
+    "x": 45.8,
+    "y": 64.7,
     "faction": "Horde"
    },
    {
-    "npc": "Innkeeper Gryshka",
-    "zone": "Orgrimmar",
-    "x": 54.1,
-    "y": 68.4,
+    "npc": "Eleanor Rusk",
+    "zone": "Undercity",
+    "x": 69.2,
+    "y": 48.9,
     "faction": "Horde"
    },
    {
-    "npc": "Trak'gen",
-    "zone": "Orgrimmar",
-    "x": 48.1,
-    "y": 80.5,
+    "npc": "Innkeeper Shay",
+    "zone": "Alterac Mountains",
+    "x": 61.6,
+    "y": 80.7,
     "faction": "Horde"
    },
    {
@@ -3959,11 +3952,11 @@
     "faction": null
    },
    {
-    "npc": "Targot Jinglepocket",
+    "npc": "Vikki Lonsav",
     "zone": "Arathi Highlands",
-    "x": 46.5,
-    "y": 45.3,
-    "faction": null
+    "x": 46.4,
+    "y": 47.6,
+    "faction": "Alliance"
    },
    {
     "npc": "Gapp Jinglepocket",
@@ -3978,6 +3971,13 @@
     "x": 69.9,
     "y": 53.7,
     "faction": null
+   },
+   {
+    "npc": "Daeolyn Summerleaf",
+    "zone": "Moonglade",
+    "x": 45.2,
+    "y": 34.7,
+    "faction": null
    }
   ],
   "Morning Glory Dew": [
@@ -3989,24 +3989,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Fyrenna",
-    "zone": "Darnassus",
-    "x": 69.4,
-    "y": 45.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Innkeeper Saelienne",
-    "zone": "Darnassus",
-    "x": 67.4,
-    "y": 15.6,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Jaeana",
-    "zone": "Darnassus",
-    "x": 64.5,
-    "y": 71.7,
+    "npc": "Edris Barleybeard",
+    "zone": "Ironforge",
+    "x": 72.3,
+    "y": 75.8,
     "faction": "Alliance"
    },
    {
@@ -4017,11 +4003,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Innkeeper Gryshka",
-    "zone": "Orgrimmar",
-    "x": 54.1,
-    "y": 68.4,
-    "faction": "Horde"
+    "npc": "Ben Trias",
+    "zone": "Stormwind City",
+    "x": 66.4,
+    "y": 73.5,
+    "faction": "Alliance"
    },
    {
     "npc": "Innkeeper Pala",
@@ -4045,11 +4031,11 @@
     "faction": null
    },
    {
-    "npc": "Mirvyna Jinglepocket",
+    "npc": "Innkeeper Shay",
     "zone": "Alterac Mountains",
-    "x": 40.1,
-    "y": 80.2,
-    "faction": null
+    "x": 61.6,
+    "y": 80.7,
+    "faction": "Horde"
    },
    {
     "npc": "Kosco Copperpinch",
@@ -4059,10 +4045,24 @@
     "faction": null
    },
    {
-    "npc": "Targot Jinglepocket",
-    "zone": "Arathi Highlands",
-    "x": 46.5,
-    "y": 45.3,
+    "npc": "Gapp Jinglepocket",
+    "zone": "Ashenvale",
+    "x": 62.1,
+    "y": 82.8,
+    "faction": null
+   },
+   {
+    "npc": "Innkeeper Kimlya",
+    "zone": "Ashenvale",
+    "x": 37.0,
+    "y": 49.2,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Caretaker Alen",
+    "zone": "Eastern Plaguelands",
+    "x": 69.9,
+    "y": 53.7,
     "faction": null
    }
   ],
@@ -4075,24 +4075,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Voloren",
-    "zone": "Darnassus",
-    "x": 46.9,
-    "y": 57.0,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Burbik Gearspanner",
     "zone": "Ironforge",
     "x": 46.4,
     "y": 26.9,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Fillius Fizzlespinner",
-    "zone": "Ironforge",
-    "x": 38.1,
-    "y": 73.7,
     "faction": "Alliance"
    },
    {
@@ -4103,18 +4089,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shankys",
-    "zone": "Orgrimmar",
-    "x": 70.0,
-    "y": 29.8,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
+    "npc": "Catherine Leland",
+    "zone": "Stormwind City",
+    "x": 55.1,
+    "y": 69.8,
+    "faction": "Alliance"
    },
    {
     "npc": "Sewa Mistrunner",
@@ -4122,6 +4101,27 @@
     "x": 55.8,
     "y": 47.0,
     "faction": "Horde"
+   },
+   {
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Hammon Karwn",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 47.4,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -4161,24 +4161,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
     "y": 34.5,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Outfitter Eric",
-    "zone": "Ironforge",
-    "x": 43.4,
-    "y": 29.3,
     "faction": "Alliance"
    },
    {
@@ -4189,11 +4175,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
-    "faction": "Horde"
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
    },
    {
     "npc": "Mahu",
@@ -4207,6 +4193,20 @@
     "zone": "Undercity",
     "x": 70.1,
     "y": 58.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -4247,24 +4247,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
     "y": 34.5,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Outfitter Eric",
-    "zone": "Ironforge",
-    "x": 43.4,
-    "y": 29.3,
     "faction": "Alliance"
    },
    {
@@ -4275,11 +4261,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
-    "faction": "Horde"
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
    },
    {
     "npc": "Mahu",
@@ -4293,6 +4279,20 @@
     "zone": "Undercity",
     "x": 70.1,
     "y": 58.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -4333,20 +4333,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
@@ -4361,24 +4347,38 @@
     "faction": "Horde"
    },
    {
-    "npc": "Felika",
-    "zone": "Orgrimmar",
-    "x": 60.6,
-    "y": 48.9,
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -4403,10 +4403,10 @@
     "faction": null
    },
    {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
     "faction": null
    }
   ],
@@ -4416,20 +4416,6 @@
     "zone": "Darnassus",
     "x": 64.7,
     "y": 53.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Landria",
-    "zone": "Darnassus",
-    "x": 63.3,
-    "y": 66.3,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Mydrannul",
-    "zone": "Darnassus",
-    "x": 70.7,
-    "y": 45.4,
     "faction": "Alliance"
    },
    {
@@ -4447,18 +4433,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Jin'sora",
-    "zone": "Orgrimmar",
-    "x": 78.1,
-    "y": 38.5,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Trak'gen",
-    "zone": "Orgrimmar",
-    "x": 48.1,
-    "y": 80.5,
-    "faction": "Horde"
+    "npc": "Frederick Stover",
+    "zone": "Stormwind City",
+    "x": 58.3,
+    "y": 69.0,
+    "faction": "Alliance"
    },
    {
     "npc": "Kuna Thunderhorn",
@@ -4466,6 +4445,27 @@
     "x": 47.0,
     "y": 45.7,
     "faction": "Horde"
+   },
+   {
+    "npc": "Abigail Sawyer",
+    "zone": "Undercity",
+    "x": 54.7,
+    "y": 38.8,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Graud",
+    "zone": "Arathi Highlands",
+    "x": 74.1,
+    "y": 32.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Vikki Lonsav",
+    "zone": "Arathi Highlands",
+    "x": 46.4,
+    "y": 47.6,
+    "faction": "Alliance"
    },
    {
     "npc": "Caretaker Alen",
@@ -4482,17 +4482,17 @@
     "faction": null
    },
    {
-    "npc": "Narianna",
-    "zone": "Moonglade",
-    "x": 53.3,
-    "y": 42.7,
-    "faction": null
-   },
-   {
     "npc": "Master Smith Burninate",
     "zone": "Searing Gorge",
     "x": 38.8,
     "y": 28.5,
+    "faction": null
+   },
+   {
+    "npc": "Calandrath",
+    "zone": "Silithus",
+    "x": 51.9,
+    "y": 39.2,
     "faction": null
    }
   ],
@@ -4502,20 +4502,6 @@
     "zone": "Darnassus",
     "x": 64.6,
     "y": 21.6,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
     "faction": "Alliance"
    },
    {
@@ -4533,24 +4519,38 @@
     "faction": "Horde"
    },
    {
-    "npc": "Felika",
-    "zone": "Orgrimmar",
-    "x": 60.6,
-    "y": 48.9,
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -4575,10 +4575,10 @@
     "faction": null
    },
    {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
     "faction": null
    }
   ],
@@ -4591,24 +4591,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Ellandrieth",
-    "zone": "Darnassus",
-    "x": 64.7,
-    "y": 53.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Fyldan",
-    "zone": "Darnassus",
-    "x": 48.5,
-    "y": 21.6,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Fyrenna",
-    "zone": "Darnassus",
-    "x": 69.4,
-    "y": 45.0,
+    "npc": "Bryllia Ironbrand",
+    "zone": "Ironforge",
+    "x": 39.2,
+    "y": 74.5,
     "faction": "Alliance"
    },
    {
@@ -4619,38 +4605,45 @@
     "faction": "Horde"
    },
    {
-    "npc": "Barkeep Morag",
-    "zone": "Orgrimmar",
-    "x": 54.6,
-    "y": 67.7,
+    "npc": "Ben Trias",
+    "zone": "Stormwind City",
+    "x": 66.4,
+    "y": 73.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Pala",
+    "zone": "Thunder Bluff",
+    "x": 45.8,
+    "y": 64.7,
     "faction": "Horde"
    },
    {
-    "npc": "Innkeeper Gryshka",
-    "zone": "Orgrimmar",
-    "x": 54.1,
-    "y": 68.4,
+    "npc": "Eleanor Rusk",
+    "zone": "Undercity",
+    "x": 69.2,
+    "y": 48.9,
     "faction": "Horde"
    },
    {
-    "npc": "Trak'gen",
-    "zone": "Orgrimmar",
-    "x": 48.1,
-    "y": 80.5,
+    "npc": "Innkeeper Shay",
+    "zone": "Alterac Mountains",
+    "x": 61.6,
+    "y": 80.7,
     "faction": "Horde"
+   },
+   {
+    "npc": "Vikki Lonsav",
+    "zone": "Arathi Highlands",
+    "x": 46.4,
+    "y": 47.6,
+    "faction": "Alliance"
    },
    {
     "npc": "Caretaker Alen",
     "zone": "Eastern Plaguelands",
     "x": 69.9,
     "y": 53.7,
-    "faction": null
-   },
-   {
-    "npc": "Jessica Chambers",
-    "zone": "Eastern Plaguelands",
-    "x": 71.8,
-    "y": 48.5,
     "faction": null
    },
    {
@@ -4661,9 +4654,16 @@
     "faction": null
    },
    {
-    "npc": "Dargon",
-    "zone": "Moonglade",
-    "x": 48.9,
+    "npc": "Master Smith Burninate",
+    "zone": "Searing Gorge",
+    "x": 38.8,
+    "y": 28.5,
+    "faction": null
+   },
+   {
+    "npc": "Calandrath",
+    "zone": "Silithus",
+    "x": 51.9,
     "y": 39.2,
     "faction": null
    }
@@ -4677,20 +4677,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
@@ -4705,24 +4691,38 @@
     "faction": "Horde"
    },
    {
-    "npc": "Felika",
-    "zone": "Orgrimmar",
-    "x": 60.6,
-    "y": 48.9,
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -4747,10 +4747,10 @@
     "faction": null
    },
    {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
     "faction": null
    }
   ],
@@ -4763,24 +4763,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
     "y": 34.5,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Burbik Gearspanner",
-    "zone": "Ironforge",
-    "x": 46.4,
-    "y": 26.9,
     "faction": "Alliance"
    },
    {
@@ -4791,18 +4777,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
-    "faction": "Horde"
+    "npc": "Edna Mullby",
+    "zone": "Stormwind City",
+    "x": 64.7,
+    "y": 71.3,
+    "faction": "Alliance"
    },
    {
     "npc": "Mahu",
@@ -4810,6 +4789,27 @@
     "x": 43.8,
     "y": 45.1,
     "faction": "Horde"
+   },
+   {
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -4907,20 +4907,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Bombus Finespindle",
     "zone": "Ironforge",
     "x": 39.6,
@@ -4935,25 +4921,39 @@
     "faction": "Horde"
    },
    {
-    "npc": "Felika",
-    "zone": "Orgrimmar",
-    "x": 60.6,
-    "y": 48.9,
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
     "faction": "Horde"
+   },
+   {
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -4977,10 +4977,10 @@
     "faction": null
    },
    {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
     "faction": null
    }
   ],
@@ -4990,20 +4990,6 @@
     "zone": "Darnassus",
     "x": 64.7,
     "y": 53.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Mydrannul",
-    "zone": "Darnassus",
-    "x": 70.7,
-    "y": 45.4,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Vaean",
-    "zone": "Darnassus",
-    "x": 58.6,
-    "y": 14.7,
     "faction": "Alliance"
    },
    {
@@ -5021,18 +5007,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Kithas",
-    "zone": "Orgrimmar",
-    "x": 53.9,
-    "y": 38.0,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Trak'gen",
-    "zone": "Orgrimmar",
-    "x": 48.1,
-    "y": 80.5,
-    "faction": "Horde"
+    "npc": "Jessara Cordell",
+    "zone": "Stormwind City",
+    "x": 52.8,
+    "y": 74.3,
+    "faction": "Alliance"
    },
    {
     "npc": "Kuruk",
@@ -5040,6 +5019,27 @@
     "x": 38.9,
     "y": 64.7,
     "faction": "Horde"
+   },
+   {
+    "npc": "Eleanor Rusk",
+    "zone": "Undercity",
+    "x": 69.2,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Graud",
+    "zone": "Arathi Highlands",
+    "x": 74.1,
+    "y": 32.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Vikki Lonsav",
+    "zone": "Arathi Highlands",
+    "x": 46.4,
+    "y": 47.6,
+    "faction": "Alliance"
    },
    {
     "npc": "Caretaker Alen",
@@ -5079,24 +5079,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Burbik Gearspanner",
     "zone": "Ironforge",
     "x": 46.4,
     "y": 26.9,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Emrul Riknussun",
-    "zone": "Ironforge",
-    "x": 59.9,
-    "y": 37.4,
     "faction": "Alliance"
    },
    {
@@ -5107,18 +5093,11 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Xen'to",
-    "zone": "Orgrimmar",
-    "x": 57.6,
-    "y": 52.9,
-    "faction": "Horde"
+    "npc": "Edna Mullby",
+    "zone": "Stormwind City",
+    "x": 64.7,
+    "y": 71.3,
+    "faction": "Alliance"
    },
    {
     "npc": "Naal Mistrunner",
@@ -5126,6 +5105,27 @@
     "x": 51.0,
     "y": 52.5,
     "faction": "Horde"
+   },
+   {
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Hammon Karwn",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 47.4,
+    "faction": "Alliance"
    },
    {
     "npc": "Blimo Gadgetspring",
@@ -5230,20 +5230,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Fillius Fizzlespinner",
-    "zone": "Ironforge",
-    "x": 38.1,
-    "y": 73.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Gearcutter Cogspinner",
-    "zone": "Ironforge",
-    "x": 67.8,
-    "y": 42.5,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Felika",
     "zone": "Orgrimmar",
     "x": 60.6,
@@ -5251,24 +5237,31 @@
     "faction": "Horde"
    },
    {
-    "npc": "Gorina",
-    "zone": "Orgrimmar",
-    "x": 73.3,
-    "y": 26.6,
+    "npc": "Billibub Cogspinner",
+    "zone": "Stormwind City",
+    "x": 62.4,
+    "y": 29.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Kurm Stonehoof",
+    "zone": "Thunder Bluff",
+    "x": 34.3,
+    "y": 56.6,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Sovik",
-    "zone": "Orgrimmar",
-    "x": 75.5,
-    "y": 25.4,
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
     "faction": "Horde"
    },
    {
@@ -5279,6 +5272,13 @@
     "faction": null
    },
    {
+    "npc": "Hammon Karwn",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 47.4,
+    "faction": "Alliance"
+   },
+   {
     "npc": "Blimo Gadgetspring",
     "zone": "Azshara",
     "x": 45.2,
@@ -5286,17 +5286,17 @@
     "faction": null
    },
    {
-    "npc": "Jubie Gadgetspring",
-    "zone": "Azshara",
-    "x": 45.3,
-    "y": 90.9,
-    "faction": null
-   },
-   {
     "npc": "Jazzrik",
     "zone": "Badlands",
     "x": 42.5,
     "y": 52.5,
+    "faction": null
+   },
+   {
+    "npc": "Yuka Screwspigot",
+    "zone": "Burning Steppes",
+    "x": 66.1,
+    "y": 22.0,
     "faction": null
    }
   ],
@@ -5309,24 +5309,10 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Ellandrieth",
-    "zone": "Darnassus",
-    "x": 64.7,
-    "y": 53.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Fyrenna",
-    "zone": "Darnassus",
-    "x": 69.4,
-    "y": 45.0,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Innkeeper Saelienne",
-    "zone": "Darnassus",
-    "x": 67.4,
-    "y": 15.6,
+    "npc": "Bryllia Ironbrand",
+    "zone": "Ironforge",
+    "x": 39.2,
+    "y": 74.5,
     "faction": "Alliance"
    },
    {
@@ -5337,24 +5323,31 @@
     "faction": "Horde"
    },
    {
-    "npc": "Barkeep Morag",
-    "zone": "Orgrimmar",
-    "x": 54.6,
-    "y": 67.7,
+    "npc": "Ben Trias",
+    "zone": "Stormwind City",
+    "x": 66.4,
+    "y": 73.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Pala",
+    "zone": "Thunder Bluff",
+    "x": 45.8,
+    "y": 64.7,
     "faction": "Horde"
    },
    {
-    "npc": "Innkeeper Gryshka",
-    "zone": "Orgrimmar",
-    "x": 54.1,
-    "y": 68.4,
+    "npc": "Eleanor Rusk",
+    "zone": "Undercity",
+    "x": 69.2,
+    "y": 48.9,
     "faction": "Horde"
    },
    {
-    "npc": "Trak'gen",
-    "zone": "Orgrimmar",
-    "x": 48.1,
-    "y": 80.5,
+    "npc": "Innkeeper Shay",
+    "zone": "Alterac Mountains",
+    "x": 61.6,
+    "y": 80.7,
     "faction": "Horde"
    },
    {
@@ -5365,11 +5358,11 @@
     "faction": null
    },
    {
-    "npc": "Targot Jinglepocket",
+    "npc": "Vikki Lonsav",
     "zone": "Arathi Highlands",
-    "x": 46.5,
-    "y": 45.3,
-    "faction": null
+    "x": 46.4,
+    "y": 47.6,
+    "faction": "Alliance"
    },
    {
     "npc": "Gapp Jinglepocket",
@@ -5383,6 +5376,13 @@
     "zone": "Eastern Plaguelands",
     "x": 69.9,
     "y": 53.7,
+    "faction": null
+   },
+   {
+    "npc": "Daeolyn Summerleaf",
+    "zone": "Moonglade",
+    "x": 45.2,
+    "y": 34.7,
     "faction": null
    }
   ],
@@ -5402,20 +5402,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Fillius Fizzlespinner",
-    "zone": "Ironforge",
-    "x": 38.1,
-    "y": 73.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Gearcutter Cogspinner",
-    "zone": "Ironforge",
-    "x": 67.8,
-    "y": 42.5,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Felika",
     "zone": "Orgrimmar",
     "x": 60.6,
@@ -5423,24 +5409,31 @@
     "faction": "Horde"
    },
    {
-    "npc": "Gorina",
-    "zone": "Orgrimmar",
-    "x": 73.3,
-    "y": 26.6,
+    "npc": "Billibub Cogspinner",
+    "zone": "Stormwind City",
+    "x": 62.4,
+    "y": 29.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Kurm Stonehoof",
+    "zone": "Thunder Bluff",
+    "x": 34.3,
+    "y": 56.6,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Sovik",
-    "zone": "Orgrimmar",
-    "x": 75.5,
-    "y": 25.4,
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
     "faction": "Horde"
    },
    {
@@ -5451,6 +5444,13 @@
     "faction": null
    },
    {
+    "npc": "Hammon Karwn",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 47.4,
+    "faction": "Alliance"
+   },
+   {
     "npc": "Blimo Gadgetspring",
     "zone": "Azshara",
     "x": 45.2,
@@ -5458,17 +5458,17 @@
     "faction": null
    },
    {
-    "npc": "Jubie Gadgetspring",
-    "zone": "Azshara",
-    "x": 45.3,
-    "y": 90.9,
-    "faction": null
-   },
-   {
     "npc": "Jazzrik",
     "zone": "Badlands",
     "x": 42.5,
     "y": 52.5,
+    "faction": null
+   },
+   {
+    "npc": "Yuka Screwspigot",
+    "zone": "Burning Steppes",
+    "x": 66.1,
+    "y": 22.0,
     "faction": null
    }
   ],
@@ -5488,20 +5488,6 @@
     "faction": "Alliance"
    },
    {
-    "npc": "Fillius Fizzlespinner",
-    "zone": "Ironforge",
-    "x": 38.1,
-    "y": 73.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Gearcutter Cogspinner",
-    "zone": "Ironforge",
-    "x": 67.8,
-    "y": 42.5,
-    "faction": "Alliance"
-   },
-   {
     "npc": "Felika",
     "zone": "Orgrimmar",
     "x": 60.6,
@@ -5509,24 +5495,31 @@
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
-    "faction": "Horde"
-   },
-   {
-    "npc": "Sovik",
-    "zone": "Orgrimmar",
-    "x": 75.5,
-    "y": 25.4,
-    "faction": "Horde"
+    "npc": "Billibub Cogspinner",
+    "zone": "Stormwind City",
+    "x": 62.4,
+    "y": 29.9,
+    "faction": "Alliance"
    },
    {
     "npc": "Shadi Mistrunner",
     "zone": "Thunder Bluff",
     "x": 40.6,
     "y": 64.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Christoph Jeffcoat",
+    "zone": "Alterac Mountains",
+    "x": 61.1,
+    "y": 80.7,
     "faction": "Horde"
    },
    {
@@ -5537,6 +5530,13 @@
     "faction": null
    },
    {
+    "npc": "Hammon Karwn",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 47.4,
+    "faction": "Alliance"
+   },
+   {
     "npc": "Blimo Gadgetspring",
     "zone": "Azshara",
     "x": 45.2,
@@ -5544,17 +5544,17 @@
     "faction": null
    },
    {
-    "npc": "Jubie Gadgetspring",
-    "zone": "Azshara",
-    "x": 45.3,
-    "y": 90.9,
-    "faction": null
-   },
-   {
     "npc": "Yuka Screwspigot",
     "zone": "Burning Steppes",
     "x": 66.1,
     "y": 22.0,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
     "faction": null
    }
   ],
@@ -5564,20 +5564,6 @@
     "zone": "Darnassus",
     "x": 64.6,
     "y": 21.6,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Mythrin'dir",
-    "zone": "Darnassus",
-    "x": 61.0,
-    "y": 17.7,
-    "faction": "Alliance"
-   },
-   {
-    "npc": "Saenorion",
-    "zone": "Darnassus",
-    "x": 63.7,
-    "y": 22.3,
     "faction": "Alliance"
    },
    {
@@ -5595,24 +5581,38 @@
     "faction": "Horde"
    },
    {
-    "npc": "Felika",
-    "zone": "Orgrimmar",
-    "x": 60.6,
-    "y": 48.9,
+    "npc": "Alexandra Bolero",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
     "faction": "Horde"
    },
    {
-    "npc": "Shimra",
-    "zone": "Orgrimmar",
-    "x": 47.9,
-    "y": 80.3,
+    "npc": "Daniel Bartlett",
+    "zone": "Undercity",
+    "x": 64.0,
+    "y": 37.4,
     "faction": "Horde"
    },
    {
-    "npc": "Tamar",
-    "zone": "Orgrimmar",
-    "x": 63.0,
-    "y": 45.5,
+    "npc": "Leonard Porter",
+    "zone": "Alterac Mountains",
+    "x": 79.2,
+    "y": 29.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "George Candarte",
+    "zone": "Arathi Highlands",
+    "x": 28.1,
+    "y": 11.8,
     "faction": "Horde"
    },
    {
@@ -5637,10 +5637,10 @@
     "faction": null
    },
    {
-    "npc": "Lorelae Wintersong",
-    "zone": "Moonglade",
-    "x": 48.2,
-    "y": 40.1,
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
     "faction": null
    }
   ]
