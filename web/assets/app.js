@@ -115,6 +115,7 @@ function whereText(w) {
   else if (w.npc) t = `${esc(w.npc)}` + (w.where ? `, ${esc(w.where)}` : "");
   else if (w.where) t = esc(w.where);
   if (w.also) t += `. Also sold by ${esc(w.also)}`;
+  if (w.others) t += `<div class="muted">Also: ${esc(w.others)}</div>`;
   if (w.note) t += `. ${esc(w.note)}`;
   return t;
 }
@@ -218,7 +219,7 @@ function render(plan) {
   $("shopping").innerHTML = arr(plan.shopping).map((b) => `
     <div class="line">
       <span class="qty">${b.buy}×</span>
-      <span class="item">${esc(b.name)}${b.source === "vendor" ? ' <span class="badge">vendor</span>' : ""}${overrides[b.name] != null ? ' <span class="badge mine">your price</span>' : ""}${b.short ? ` <span class="badge short">only ${b.listed} listed</span>` : ""}</span>
+      <span class="item">${esc(b.name)}${b.source === "vendor" ? ' <span class="badge">vendor</span>' : ""}${overrides[b.name] != null ? ' <span class="badge mine">your price</span>' : ""}${b.short ? ` <span class="badge short">only ${b.listed} listed</span>` : ""}${b.where ? `<div class="where">${whereText(b.where)}</div>` : ""}</span>
       <span class="unit">${money(b.unit)}</span>
       <span class="total">${money(b.total)}</span>
     </div>`).join("") || `<p class="muted">Nothing to buy.</p>`;
@@ -230,12 +231,22 @@ function render(plan) {
 
   const learn = arr(plan.learn);
   $("learnPanel").hidden = !learn.length;
-  $("learn").innerHTML = learn.map((l) => `
+  // The same trainer recipe after recipe: say where once, then "same trainer".
+  let lastTrainer = null;
+  $("learn").innerHTML = learn.map((l) => {
+    let where = l.where;
+    if ((l.how === "trainer" || l.how === "rank") && where && where.trainer) {
+      const key = where.npc + where.where;
+      if (key === lastTrainer && l.how === "trainer") where = { where: "Same trainer" };
+      lastTrainer = key;
+    }
+    return `
     <div class="line learnline">
       <span class="qty">${l.at ?? ""}</span>
-      <span class="item">${esc(l.recipe)}<div class="where">${learnLine(l.how, null, l.where, l.favor, l.item)}${feeNote(l)}</div></span>
+      <span class="item">${esc(l.recipe)}<div class="where">${learnLine(l.how, null, where, l.favor, l.item)}${feeNote(l)}</div></span>
       <span class="total">${l.cost ? (l.fee === "estimate" ? "~" : "") + money(l.cost) : l.favor ? "Favor" : (l.how === "rank" ? "?" : "free")}</span>
-    </div>`).join("");
+    </div>`;
+  }).join("");
   $("learnTotal").innerHTML = money(plan.learnTotal);
 
   renderPrices(plan);

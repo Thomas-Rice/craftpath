@@ -215,7 +215,7 @@ local function learnText(l)
   end
   local fee = l.fee == "estimate" and " (fee estimated)" or (l.how == "trainer" or l.how == "rank") and not l.fee
     and " (fee not recorded yet)" or ""
-  if l.how == "rank" then return "Train the rank at your trainer" .. fee end
+  if l.how == "rank" then return (who and ("Train at " .. who) or "Train the rank at your trainer") .. fee end
   if w and w.trainer then return "Learn from " .. who .. fee end
   if l.how == "trainer" then return (who and ("Learn from " .. who) or "Learn from your trainer") .. fee end
   local item = l.item or l.recipe
@@ -297,6 +297,10 @@ local function buildShopping(plan)
           if oreNote then t[#t + 1] = oreNote end
           t[#t + 1] = b.buy > 0 and ("Buy %d at about %s each (%s)"):format(b.buy, Money(b.unit), sourceText(b))
             or "You have enough: nothing to buy"
+          if b.where then
+            t[#t + 1] = "Sold by " .. b.where.npc .. ", " .. b.where.where
+            if b.where.others then t[#t + 1] = "Also: " .. b.where.others end
+          end
           if b.short then t[#t + 1] = ("|cffff9933Only %d listed at the last scan, so the rest may cost more.|r"):format(b.listed) end
           if mail > 0 then t[#t + 1] = "|cff66ccffMailbox counts are from your last visit.|r" end
           t[#t + 1] = "Click: search the auction house"

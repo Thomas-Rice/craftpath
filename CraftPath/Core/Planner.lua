@@ -162,6 +162,49 @@ function Planner.RankFee(prof, rank, own)
   return nil
 end
 
+-- Where to go: profession trainers and the vendors selling materials (Data/Locations.lua), for
+-- your faction, capital cities first. Returns { npc, where = "Zone (x, y)", others = "..." } or nil.
+local CITIES = { Orgrimmar = true, Undercity = true, ["Thunder Bluff"] = true, ["Stormwind City"] = true,
+  Ironforge = true, Darnassus = true }
+local function spot(v) return ("%s (%.1f, %.1f)"):format(v.zone, v.x, v.y) end
+local function pick(list, faction, ok)
+  local found = {}
+  for _, v in ipairs(list or {}) do
+    if (v.faction == nil or faction == nil or v.faction == faction) and ok(v) then found[#found + 1] = v end
+  end
+  if #found == 0 then return nil end
+  local ordered, seen = {}, {}
+  for pass = 1, 2 do -- cities first, keeping the data's order (higher-rank trainers first)
+    for _, v in ipairs(found) do
+      if not seen[v] and (pass == 2 or CITIES[v.zone]) then seen[v] = true; ordered[#ordered + 1] = v end
+    end
+  end
+  local others = {}
+  for i = 2, math.min(#ordered, 3) do others[#others + 1] = ordered[i].npc .. ", " .. spot(ordered[i]) end
+  return { npc = ordered[1].npc, where = spot(ordered[1]), others = #others > 0 and table.concat(others, "; ") or nil }
+end
+
+-- A trainer who teaches a recipe learned at `learn`, or (rank given) that rank (1..4).
+function Planner.TrainerWhere(prof, faction, learn, rank)
+  local list = (ns.RawData.Trainers or {})[prof]
+  if not list then return nil end
+  local w = pick(list, faction, function(v)
+    if rank then return (v.rank or 0) >= rank end
+    return (v.upto or 0) >= (learn or 0)
+  end)
+  if not w and not rank then -- taught above any trainer's Classic list: the top trainers
+    local top = 0
+    for _, v in ipairs(list) do top = math.max(top, v.rank or 0) end
+    w = pick(list, faction, function(v) return (v.rank or 0) >= top end)
+  end
+  if w then w.trainer = true end
+  return w
+end
+
+function Planner.VendorWhere(item, faction)
+  return pick((ns.RawData.MaterialVendors or {})[item], faction, function() return true end)
+end
+
 -- How to get each recipe and what it costs to learn: known, automatic, trainer, Favor, quest,
 -- or a recipe item from a vendor or the auction house, with where to find it. Returns
 -- learnCost(r) -> cost (nil = can't be learned now), info. Used by the planner and the profit finder.
@@ -221,6 +264,7 @@ function Planner.Learner(opts, list)
       else
         info.how = "trainer"
         info.cost, info.fee = trainerFee(r)
+        info.where = Planner.TrainerWhere(opts.profession, faction, r.learn)
       end
     elseif r.source == "F" then
       if allowFavor then info.cost, info.how = 0, "favor" end
@@ -602,7 +646,10 @@ planOnce = function(opts, ownedFactor)
     expectedGold = total,
   }
   Planner.BuildShoppingList(plan, data, unitCost, opts.owned, opts.listed)
-  Planner.AddTrainerFees(plan, opts.trainerCosts)
+  Planner.AddTrainerFees(plan, opts.trainerCosts, opts.faction)
+  for _, b in ipairs(plan.shopping or {}) do
+    if b.source == "vendor" then b.where = Planner.VendorWhere(b.name, opts.faction) end
+  end
   Planner.AddRankNotes(plan)
   -- What selling the crafted items gets back, and the gold that leaves after that.
   local back = 0
@@ -758,7 +805,7 @@ end
 
 -- Trainer fees in the totals: ranks the route passes (Journeyman, Expert...) are added to the
 -- recipes to get. Recipe fees are already in it (learnCost). Counts what nobody has recorded yet.
-function Planner.AddTrainerFees(plan, own)
+function Planner.AddTrainerFees(plan, own, faction)
   local prof = plan.profession
   plan.learn = plan.learn or {}
   local fees, unknown = 0, {}
@@ -767,8 +814,10 @@ function Planner.AddTrainerFees(plan, own)
     local needed = rank.trainAt > 1 and plan.from <= prevCap and plan.to > prevCap or (rank.trainAt <= 1 and plan.from <= 1)
     if needed then
       local c, src = Planner.RankFee(prof, rank.name, own)
+      local idx = 1
+      for i, r in ipairs(ns.RawData.Ranks) do if r == rank then idx = i end end
       table.insert(plan.learn, { recipe = rank.name .. " " .. prof, cost = c or 0, how = "rank",
-        fee = src, at = math.max(rank.trainAt, plan.from) })
+        fee = src, at = math.max(rank.trainAt, plan.from), where = Planner.TrainerWhere(prof, faction, nil, idx) })
       if c then fees = fees + c else unknown[#unknown + 1] = rank.name end
     end
   end

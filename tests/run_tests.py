@@ -217,6 +217,22 @@ def main():
     assert est.trainerEstimated > 0 and est.trainerTotal > 0
     ns.RawData.TrainerCostsClassic, ns.RawData.TrainerCostByLevel = classic, curve
 
+    # Where to go: trainers (by rank and recipe skill) and material vendors, for your faction.
+    tp = plan(lua, ns, "Tailoring", 1, 230, faction="Horde")
+    ranks = {l.recipe: l.where for l in lua_list(tp.learn) if l.how == "rank"}
+    art = ranks["Artisan Tailoring"]
+    assert art and art.trainer and art.npc and "(" in art.where, art
+    trainers = {v.npc: v for v in lua_list(ns.RawData.Trainers["Tailoring"])}
+    assert trainers[art.npc].rank >= 4 and trainers[art.npc].faction in ("Horde", None), art.npc
+    jt = ranks["Journeyman Tailoring"]
+    assert jt.where.split(" (")[0] in ("Orgrimmar", "Undercity", "Thunder Bluff"), jt.where  # a capital first
+    vend = [b for b in lua_list(tp.shopping) if b.source == "vendor" and b.name in ("Coarse Thread", "Fine Thread")]
+    assert vend and all(b.where and b.where.npc for b in vend), [b.name for b in vend]
+    ap = plan(lua, ns, "Tailoring", 1, 230, faction="Alliance")
+    assert {l.recipe: l.where for l in lua_list(ap.learn) if l.how == "rank"}["Journeyman Tailoring"].where.split(" (")[0] \
+        in ("Stormwind City", "Ironforge", "Darnassus")
+    assert ns.Planner.TrainerWhere("Nonsense", "Horde", 10) is None
+
     # Recipes that give 2 points per craft need half the crafts.
     r2 = lua.table_from({"name": "X", "learn": 1, "yellow": 50, "grey": 100, "points": 2})
     assert R.PointsPerCraft(r2, 10, 0) == 2
