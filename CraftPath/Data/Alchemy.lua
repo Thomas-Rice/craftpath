@@ -94,8 +94,10 @@ Elixir of Frost Power|190|190|210|230|250|1|R|Wintersbite*2;Khadgar's Whisker*1;
 Frost Protection Potion|190|190|205|225|245|1|R|Wintersbite*1;Goldthorn*1;Leaded Vial*1
 Greater Frenzy Potion|190|190|195|197|200|1|R|Firebloom*3;Fadeleaf*2;Leaded Vial*1
 Nature Protection Potion|190|190|210|230|250|1|R|Liferoot*1;Stranglekelp*1;Leaded Vial*1
+Elixir of Defense|195|195|215|235|255|1|T|Wild Steelbloom*1;Goldthorn*1;Leaded Vial*1
 Greater Cleric's Elixir|195|195|200|202|205|1|R|Arthas' Tears*3;Purple Lotus*1;Crystal Vial*1
 Potion of Predatory Senses|195|195|200|202|205|1|R|Fadeleaf*2;Goldthorn*2;Leaded Vial*1
+Catseye Draught|200|200|220|240|260|1|T|Goldthorn*1;Fadeleaf*1;Leaded Vial*1
 Elixir of Greater Fortitude|200|200|205|207|210|1|R|Sungrass*4;Crystal Vial*1
 Frost Oil|200|200|220|240|260|2|R|Khadgar's Whisker*4;Wintersbite*2;Leaded Vial*1
 Insulating Gniodine|200|200|200|210|220|1|R|Leaded Vial*1;Crate of Tainted Gniodine Solution*5
@@ -105,15 +107,14 @@ Revealing Draught|205|205|205|207|210|1|T|Fadeleaf*3;Khadgar's Whisker*1;Leaded 
 Goblin Rocket Fuel|210|210|225|245|265|2|R|Firebloom*1;Volatile Rum*1;Leaded Vial*1
 Magic Resistance Potion|210|210|225|245|265|1|R|Khadgar's Whisker*1;Purple Lotus*1;Crystal Vial*1
 Draught of Detect Lesser Invisibility|215|215|215|235|255|1|T|Khadgar's Whisker*1;Fadeleaf*1;Leaded Vial*1
-Elixir of Defense|215|215|215|235|255|1|T|Wild Steelbloom*1;Goldthorn*1;Leaded Vial*1
+Draught of Greater Water Breathing|215|215|230|250|270|1|T|Ichor of Undeath*1;Purple Lotus*2;Crystal Vial*1
 Lesser Stoneshield Potion|215|215|230|250|270|1|R|Mithril Ore*1;Goldthorn*1;Leaded Vial*1
 Viridian Dye|215|215|230|250|270|1|T|Stranglevine*2;Crystal Vial*1
-Catseye Draught|220|220|220|240|260|1|T|Goldthorn*1;Fadeleaf*1;Leaded Vial*1
 Mildly Irradiated Rejuvenation Potion|225|225|225|230|235|5|T|Crate of Tainted Gniodine Solution*1;Minor Rejuvenation Potion*1;Gnomeregan Fallout*3;Crystal Vial*5
 Philosopher's Stone|225|225|240|260|280|1|R|Iron Bar*4;Black Vitriol*1;Purple Lotus*4;Firebloom*4
 Restorative Potion|225|225|225|245|265|1|T|Elemental Earth*1;Goldthorn*1;Crystal Vial*1
 Wildvine Potion|225|225|225|237|250|1|R|Wildvine*1;Purple Lotus*1;Crystal Vial*1
-Draught of Greater Water Breathing|230|230|230|250|270|1|T|Ichor of Undeath*1;Purple Lotus*2;Crystal Vial*1
+Draught of Detect Undead|230|230|245|265|285|1|T|Arthas' Tears*1;Crystal Vial*1
 Dreamless Sleep Potion|230|230|245|265|285|1|T|Purple Lotus*3;Crystal Vial*1
 Superior Discolored Healing Potion|230|230|230|250|270|1|T|Crystal Vial*1;Sungrass*1;Murloc Eye*1
 Superior Mender's Potion|230|230|235|237|240|1|R|Sungrass*2;Arthas' Tears*1;Crystal Vial*1
@@ -128,9 +129,9 @@ Gold Bar|240|240|240|260|280|1|T|Iron Bar*1
 Superior Frenzy Potion|240|240|245|247|250|1|R|Blindweed*3;Firebloom*2;Crystal Vial*1
 Truesilver Bar|240|240|240|260|280|1|T|Mithril Bar*1
 Dragonfire Potion|245|245|250|252|255|1|R|Mountain Silversage*2;Firebloom*2;Crystal Vial*1
-Draught of Detect Undead|245|245|245|265|285|1|T|Arthas' Tears*1;Crystal Vial*1
 Ghost Dye|245|245|260|280|300|2|R|Ghost Mushroom*2;Purple Dye*1;Crystal Vial*1
 Distilled Firewater|250|250|260|265|270|1|R|Wintersbite*4;Gromsblood*2;Leaded Vial*1
+Draught of Detect Demon|250|250|265|285|305|1|T|Gromsblood*2;Crystal Vial*1
 Elixir of Holy Power|250|250|265|285|305|1|R|Fire Oil*3;Firebloom*3;Crystal Vial*1
 Elixir of Shadow Power|250|250|265|285|305|1|R|Ghost Mushroom*3;Crystal Vial*1
 Elixir of the Phalanx|250|250|255|257|260|1|R|Golden Sansam*2;Sungrass*4;Crystal Vial*1
@@ -142,7 +143,6 @@ Mighty Rage Potion|255|255|270|290|310|1|R|Gromsblood*3;Crystal Vial*1
 Elixir of Greater Strength|260|260|260|280|300|1|T|Sungrass*1;Gromsblood*1;Crystal Vial*1
 Superior Mana Potion|260|260|275|295|315|1|R|Sungrass*2;Blindweed*2;Crystal Vial*1
 Caustic Smog Potion|265|265|270|272|275|1|R|Ghost Mushroom*2;Grave Moss*2;Crystal Vial*1
-Draught of Detect Demon|265|265|265|285|305|1|T|Gromsblood*2;Crystal Vial*1
 Elixir of Greater Defense|265|265|280|300|320|1|T|Stonescale Oil*2;Sungrass*1;Crystal Vial*1
 Elixir of the Sages|270|270|285|305|325|1|R|Dreamfoil*1;Plaguebloom*2;Crystal Vial*1
 Alchemist's Stone|275|275|315|322|330|1|R|Essence of Fire*8;Essence of Earth*8;Essence of Air*8;Essence of Water*8;Living Essence*8;Black Vitriol*2;Black Lotus*4
