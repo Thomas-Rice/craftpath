@@ -2000,6 +2000,92 @@
     "faction": "Horde"
    }
   ],
+  "Black Dye": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   }
+  ],
   "Blacksmith Hammer": [
    {
     "npc": "Mythrin'dir",
@@ -2165,6 +2251,178 @@
     "faction": null
    }
   ],
+  "Bleach": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fillius Fizzlespinner",
+    "zone": "Ironforge",
+    "x": 38.1,
+    "y": 73.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Outfitter Eric",
+    "zone": "Ironforge",
+    "x": 43.4,
+    "y": 29.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Millie Gregorian",
+    "zone": "Undercity",
+    "x": 70.6,
+    "y": 30.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   },
+   {
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
+    "faction": null
+   },
+   {
+    "npc": "Cowardly Crosby",
+    "zone": "Stranglethorn Vale",
+    "x": 27.0,
+    "y": 82.5,
+    "faction": null
+   }
+  ],
+  "Blue Dye": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Outfitter Eric",
+    "zone": "Ironforge",
+    "x": 43.4,
+    "y": 29.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
+    "faction": null
+   },
+   {
+    "npc": "Zannok Hidepiercer",
+    "zone": "Silithus",
+    "x": 82.0,
+    "y": 17.7,
+    "faction": null
+   },
+   {
+    "npc": "Blixrez Goodstitch",
+    "zone": "Stranglethorn Vale",
+    "x": 28.2,
+    "y": 77.5,
+    "faction": null
+   }
+  ],
   "Coarse Thread": [
    {
     "npc": "Elynna",
@@ -2248,6 +2506,178 @@
     "zone": "Moonglade",
     "x": 48.2,
     "y": 40.1,
+    "faction": null
+   }
+  ],
+  "Copper Rod": [
+   {
+    "npc": "Chardryn",
+    "zone": "Darnassus",
+    "x": 48.5,
+    "y": 69.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Vaean",
+    "zone": "Darnassus",
+    "x": 58.6,
+    "y": 14.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kithas",
+    "zone": "Orgrimmar",
+    "x": 53.9,
+    "y": 38.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Nata Dawnstrider",
+    "zone": "Thunder Bluff",
+    "x": 45.0,
+    "y": 38.8,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   },
+   {
+    "npc": "Kania",
+    "zone": "Silithus",
+    "x": 52.0,
+    "y": 39.7,
+    "faction": null
+   }
+  ],
+  "Crystal Vial": [
+   {
+    "npc": "Chardryn",
+    "zone": "Darnassus",
+    "x": 48.5,
+    "y": 69.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Kyrai",
+    "zone": "Darnassus",
+    "x": 32.5,
+    "y": 19.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Ulthir",
+    "zone": "Darnassus",
+    "x": 55.8,
+    "y": 24.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kor'geld",
+    "zone": "Orgrimmar",
+    "x": 56.1,
+    "y": 34.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Rekkul",
+    "zone": "Orgrimmar",
+    "x": 42.1,
+    "y": 49.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Bro'kin",
+    "zone": "Alterac Mountains",
+    "x": 38.2,
+    "y": 38.9,
+    "faction": null
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Smudge Thunderwood",
+    "zone": "Hillsbrad Foothills",
+    "x": 84.2,
+    "y": 18.1,
     "faction": null
    }
   ],
@@ -2335,6 +2765,92 @@
     "x": 45.5,
     "y": 51.4,
     "faction": "Horde"
+   }
+  ],
+  "Empty Vial": [
+   {
+    "npc": "Chardryn",
+    "zone": "Darnassus",
+    "x": 48.5,
+    "y": 69.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Kyrai",
+    "zone": "Darnassus",
+    "x": 32.5,
+    "y": 19.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Ulthir",
+    "zone": "Darnassus",
+    "x": 55.8,
+    "y": 24.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kor'geld",
+    "zone": "Orgrimmar",
+    "x": 56.1,
+    "y": 34.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Rekkul",
+    "zone": "Orgrimmar",
+    "x": 42.1,
+    "y": 49.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Bro'kin",
+    "zone": "Alterac Mountains",
+    "x": 38.2,
+    "y": 38.9,
+    "faction": null
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Smudge Thunderwood",
+    "zone": "Hillsbrad Foothills",
+    "x": 84.2,
+    "y": 18.1,
+    "faction": null
    }
   ],
   "Engineer's Ink": [
@@ -2604,6 +3120,92 @@
     "faction": null
    }
   ],
+  "Gray Dye": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   }
+  ],
   "Green Dye": [
    {
     "npc": "Elynna",
@@ -2687,6 +3289,92 @@
     "zone": "Stranglethorn Vale",
     "x": 28.2,
     "y": 77.5,
+    "faction": null
+   }
+  ],
+  "Heavy Silken Thread": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
     "faction": null
    }
   ],
@@ -2945,6 +3633,92 @@
     "zone": "Moonglade",
     "x": 48.9,
     "y": 39.2,
+    "faction": null
+   }
+  ],
+  "Leaded Vial": [
+   {
+    "npc": "Chardryn",
+    "zone": "Darnassus",
+    "x": 48.5,
+    "y": 69.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Kyrai",
+    "zone": "Darnassus",
+    "x": 32.5,
+    "y": 19.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Ulthir",
+    "zone": "Darnassus",
+    "x": 55.8,
+    "y": 24.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kor'geld",
+    "zone": "Orgrimmar",
+    "x": 56.1,
+    "y": 34.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Rekkul",
+    "zone": "Orgrimmar",
+    "x": 42.1,
+    "y": 49.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Bro'kin",
+    "zone": "Alterac Mountains",
+    "x": 38.2,
+    "y": 38.9,
+    "faction": null
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Smudge Thunderwood",
+    "zone": "Hillsbrad Foothills",
+    "x": 84.2,
+    "y": 18.1,
     "faction": null
    }
   ],
@@ -3378,6 +4152,264 @@
     "faction": null
    }
   ],
+  "Orange Dye": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Outfitter Eric",
+    "zone": "Ironforge",
+    "x": 43.4,
+    "y": 29.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Joseph Moore",
+    "zone": "Undercity",
+    "x": 70.1,
+    "y": 58.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
+    "faction": null
+   },
+   {
+    "npc": "Zannok Hidepiercer",
+    "zone": "Silithus",
+    "x": 82.0,
+    "y": 17.7,
+    "faction": null
+   },
+   {
+    "npc": "Blixrez Goodstitch",
+    "zone": "Stranglethorn Vale",
+    "x": 28.2,
+    "y": 77.5,
+    "faction": null
+   }
+  ],
+  "Pink Dye": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Outfitter Eric",
+    "zone": "Ironforge",
+    "x": 43.4,
+    "y": 29.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Joseph Moore",
+    "zone": "Undercity",
+    "x": 70.1,
+    "y": 58.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
+    "faction": null
+   },
+   {
+    "npc": "Zannok Hidepiercer",
+    "zone": "Silithus",
+    "x": 82.0,
+    "y": 17.7,
+    "faction": null
+   },
+   {
+    "npc": "Blixrez Goodstitch",
+    "zone": "Stranglethorn Vale",
+    "x": 28.2,
+    "y": 77.5,
+    "faction": null
+   }
+  ],
+  "Purple Dye": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   }
+  ],
   "Razor Arrow": [
    {
     "npc": "Ellandrieth",
@@ -3461,6 +4493,92 @@
     "zone": "Searing Gorge",
     "x": 38.8,
     "y": 28.5,
+    "faction": null
+   }
+  ],
+  "Red Dye": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
     "faction": null
    }
   ],
@@ -3550,6 +4668,178 @@
     "faction": null
    }
   ],
+  "Rune Thread": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   }
+  ],
+  "Salt": [
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   },
+   {
+    "npc": "Lhara",
+    "zone": "Mulgore",
+    "x": 37.4,
+    "y": 44.9,
+    "faction": null
+   }
+  ],
   "Shiny Red Apple": [
    {
     "npc": "Innkeeper Saelienne",
@@ -3606,6 +4896,92 @@
     "x": 52.0,
     "y": 29.9,
     "faction": "Horde"
+   }
+  ],
+  "Silken Thread": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
    }
   ],
   "Simple Wood": [
@@ -4179,6 +5555,92 @@
     "zone": "Burning Steppes",
     "x": 66.1,
     "y": 22.0,
+    "faction": null
+   }
+  ],
+  "Yellow Dye": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
     "faction": null
    }
   ]

@@ -279,7 +279,10 @@ def build(src, tables):
     for item, vs in vendors.items():
         keep = []
         for fac in ("Horde", "Alliance", None):
-            keep += sorted((v for v in vs if v["faction"] == fac), key=order)[:PER_FACTION]
+            mine = sorted((v for v in vs if v["faction"] == fac), key=order)
+            # one per zone first, so the list covers several cities
+            first = [v for i, v in enumerate(mine) if all(w["zone"] != v["zone"] for w in mine[:i])]
+            keep += (first + [v for v in mine if v not in first])[:PER_FACTION]
         vendors[item] = sorted(keep, key=order)
     return {"trainers": dict(sorted(trainers.items())), "vendors": dict(sorted(vendors.items()))}
 
