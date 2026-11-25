@@ -1,0 +1,25 @@
+name: probe
+on: workflow_dispatch
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install lupa
+      - run: git clone -q --depth 1 https://github.com/cmangos/classic-db.git /tmp/cdb
+      - run: python3 tools/npc_locations.py --cmangos /tmp/cdb/Full_DB/*.sql.gz
+      - run: |
+          python3 - <<'PY'
+          import json
+          d = json.load(open("data/npc-locations.json"))
+          for p in ("Alchemy", "Tailoring"):
+              for v in d["trainers"].get(p, [])[:12]: print("T", p, v)
+          for i in ("Crystal Vial", "Rune Thread", "Empty Vial"):
+              for v in d["vendors"].get(i, []): print("V", i, v)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: locations
+          path: |
+            data/npc-locations.json
+            CraftPath/Data/Locations.lua
