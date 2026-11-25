@@ -198,6 +198,7 @@ Dusky Bracers|160|160|180|190|200|1|T|Heavy Leather*16;Black Dye*1;Silken Thread
 Gem-studded Leather Belt|160|160|180|190|200|1|R|Cured Heavy Hide*4;Iridescent Pearl*2;Jade*2;Citrine*1;Fine Thread*1
 Guardian Cloak|160|160|180|190|200|1|R|Heavy Leather*14;Bolt of Silk Cloth*2;Silken Thread*2
 Barbaric Harness|165|165|185|195|205|1|T|Heavy Leather*14;Fine Thread*2;Iron Buckle*1
+Centaur Hoofwarmers|165|165|170|175|180|1|R|Thick Leather*12;Heavy Silken Thread*2
 Gloves of the Greatfather|165|165|185|195|205|1|R|Heavy Leather*8;Elemental Earth*4;Silken Thread*1
 Green Whelp Bracers|165|165|185|195|205|1|R|Green Whelp Scale*6;Heavy Leather*8;Silken Thread*2
 Guardian Gloves|165|165|185|195|205|1|T|Heavy Leather*4;Cured Heavy Hide*1;Silken Thread*1

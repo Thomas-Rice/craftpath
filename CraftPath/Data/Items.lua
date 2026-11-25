@@ -218,6 +218,7 @@ ns.RawData.ItemSell = {
   ["Caustic Smog Potion"] = 1,
   ["Cenarion Herb Bag"] = 10000,
   ["Centaur Banner Deployment Device"] = 500,
+  ["Centaur Hoofwarmers"] = 7110,
   ["Cerulean Dye"] = 75,
   ["Champion's Legplates"] = 50706,
   ["Charged Mithril Battleaxe"] = 10273,

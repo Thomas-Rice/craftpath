@@ -1,6 +1,6 @@
 [
  {
-  "date": "2026-11-24",
+  "date": "2026-11-25",
   "build": "1.60.1.71091",
   "professions": [
    {
@@ -301,13 +301,33 @@
      {
       "name": "Purification Potion",
       "change": "learn 295 → 285; orange 295 → 285"
+     },
+     {
+      "name": "Elixir of Defense",
+      "change": "learn 215 → 195; orange 215 → 195"
+     },
+     {
+      "name": "Catseye Draught",
+      "change": "learn 220 → 200; orange 220 → 200"
+     },
+     {
+      "name": "Draught of Greater Water Breathing",
+      "change": "learn 230 → 215; orange 230 → 215"
+     },
+     {
+      "name": "Draught of Detect Undead",
+      "change": "learn 245 → 230; orange 245 → 230"
+     },
+     {
+      "name": "Draught of Detect Demon",
+      "change": "learn 265 → 250; orange 265 → 250"
      }
     ]
    },
    {
     "profession": "Leatherworking",
     "before": 450,
-    "after": 525,
+    "after": 526,
     "minor": 0,
     "added": [
      {
@@ -765,6 +785,12 @@
       "skill": 300,
       "source": "recipe item",
       "materials": "Malleable Essence of Nature x3, Cured Rugged Hide x2, Fel Leather x18, Rune Thread x8"
+     },
+     {
+      "name": "Centaur Hoofwarmers",
+      "skill": 165,
+      "source": "recipe item",
+      "materials": "Thick Leather x12, Heavy Silken Thread x2"
      }
     ],
     "removed": [
