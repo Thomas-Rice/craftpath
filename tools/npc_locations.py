@@ -135,23 +135,26 @@ class World:
             self.assign.setdefault(to_int(r["MapID"]), []).append(a)
 
     def locate(self, map_id, x, y):
+        """Zone maps overlap at their edges, so of the zones whose map contains the spot, take the
+        one where it sits furthest from the edge."""
         best = None
         for a in self.assign.get(map_id, []):
-            if a["Region_0"] <= x <= a["Region_3"] and a["Region_1"] <= y <= a["Region_4"]:
-                area = (a["Region_3"] - a["Region_0"]) * (a["Region_4"] - a["Region_1"])
-                if a["type"] == 3 and (best is None or best[0] != 3 or area < best[1]):
-                    best = (3, area, a)
-                elif best is None:
-                    best = (a["type"], area, a)
-        if not best:
-            return None
-        a = best[2]
-        # map x runs west -> east (world y falling), map y north -> south (world x falling)
-        fx = (a["Region_4"] - y) / max(a["Region_4"] - a["Region_1"], 1e-6)
-        fy = (a["Region_3"] - x) / max(a["Region_3"] - a["Region_0"], 1e-6)
-        mx = a["UiMin_0"] + fx * (a["UiMax_0"] - a["UiMin_0"])
-        my = a["UiMin_1"] + fy * (a["UiMax_1"] - a["UiMin_1"])
-        return a["name"], round(mx * 100, 1), round(my * 100, 1)
+            if a["type"] != 3 or not (a["Region_0"] <= x <= a["Region_3"] and a["Region_1"] <= y <= a["Region_4"]):
+                continue
+            fx = (a["Region_4"] - y) / max(a["Region_4"] - a["Region_1"], 1e-6)
+            fy = (a["Region_3"] - x) / max(a["Region_3"] - a["Region_0"], 1e-6)
+            mx = a["UiMin_0"] + fx * (a["UiMax_0"] - a["UiMin_0"])
+            my = a["UiMin_1"] + fy * (a["UiMax_1"] - a["UiMin_1"])
+            margin = min(mx, 1 - mx, my, 1 - my)
+            if best is None or margin > best[0]:
+                best = (margin, a["name"], round(mx * 100, 1), round(my * 100, 1))
+        return best and best[1:]
+
+    def dump(self, names):
+        for m, lst in self.assign.items():
+            for a in lst:
+                if a["name"] in names:
+                    print("A", m, a)
 
 
 def faction_of(tables):

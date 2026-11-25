@@ -12,8 +12,9 @@ jobs:
           python3 - <<'PY'
           import json
           d = json.load(open("data/npc-locations.json"))
-          for p in ("Alchemy", "Leatherworking", "Enchanting"):
-              for v in d["trainers"].get(p, [])[:10]: print("T", p, v)
+          for p, vs in d["trainers"].items():
+              for v in vs:
+                  if v["rank"] >= 3 or v["zone"] in ("Hillsbrad Foothills", "Alterac Mountains", "Thousand Needles", "Feralas", "The Hinterlands"): print("T", p, v["npc"], v["zone"], v["x"], v["y"], v["faction"], v["rank"], v["upto"])
           for i in ("Crystal Vial", "Rune Thread", "Empty Vial"):
               for v in d["vendors"].get(i, []): print("V", i, v)
           PY
