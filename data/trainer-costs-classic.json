@@ -714,6 +714,22 @@
   "Runed Truesilver Rod": [
    3600,
    200
+  ],
+  "Apprentice Enchanting": [
+   10,
+   1
+  ],
+  "Journeyman Enchanting": [
+   500,
+   50
+  ],
+  "Expert Enchanting": [
+   5000,
+   125
+  ],
+  "Artisan Enchanting": [
+   50000,
+   200
   ]
  },
  "Engineering": {
@@ -1308,6 +1324,22 @@
   "Wolfshead Helm": [
    9000,
    225
+  ],
+  "Apprentice Leatherworking": [
+   10,
+   1
+  ],
+  "Journeyman Leatherworking": [
+   500,
+   50
+  ],
+  "Expert Leatherworking": [
+   5000,
+   125
+  ],
+  "Artisan Leatherworking": [
+   50000,
+   200
   ]
  },
  "Mining": {
@@ -1688,6 +1720,38 @@
   "Woolen Cape": [
    225,
    75
+  ]
+ },
+ "Skinning": {
+  "Apprentice Skinning": [
+   10,
+   1
+  ],
+  "Journeyman Skinning": [
+   500,
+   50
+  ],
+  "Expert Skinning": [
+   5000,
+   125
+  ],
+  "Artisan Skinning": [
+   50000,
+   200
+  ]
+ },
+ "Fishing": {
+  "Apprentice Fishing": [
+   100,
+   1
+  ],
+  "Journeyman Fishing": [
+   500,
+   50
+  ],
+  "Artisan Fishing": [
+   10000,
+   200
   ]
  }
 }

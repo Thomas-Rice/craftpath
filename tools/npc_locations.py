@@ -9,7 +9,8 @@ Forever's own client data (wago.tools: UiMapAssignment, UiMap, FactionTemplate, 
 Writes data/npc-locations.json and CraftPath/Data/Locations.lua:
 
   ns.RawData.Trainers[profession] = { { npc, title, zone, x, y, faction, rank }, ... }
-      rank: the highest rank they teach (1 Apprentice .. 4 Artisan). faction: "Horde",
+      rank: the highest rank they teach (1 Apprentice .. 4 Artisan); upto: the highest skill of
+      the recipes they teach. faction: "Horde",
       "Alliance" or nil (both).
   ns.RawData.MaterialVendors[item] = { { npc, zone, x, y, faction }, ... }  (a few per faction)
 
@@ -34,7 +35,10 @@ WAGO_TABLES = ["UiMapAssignment", "UiMap", "FactionTemplate", "ItemSparse"]
 # Trainer rank spells are named "<Rank> <Title>" ("Artisan Alchemist").
 TITLES = {"Alchemist": "Alchemy", "Blacksmith": "Blacksmithing", "Cook": "Cooking", "Engineer": "Engineering",
           "Leatherworker": "Leatherworking", "Tailor": "Tailoring", "Enchanter": "Enchanting", "Miner": "Mining",
-          "Fisherman": "Fishing", "Herbalist": "Herbalism", "Skinner": "Skinning"}
+          "Fisherman": "Fishing", "Herbalist": "Herbalism", "Skinner": "Skinning", "Enchanting": "Enchanting",
+          "Leatherworking": "Leatherworking", "First Aid": "First Aid", "Fishing": "Fishing", "Skinning": "Skinning"}
+SKILL_LINES = {171: "Alchemy", 164: "Blacksmithing", 185: "Cooking", 202: "Engineering", 129: "First Aid",
+               165: "Leatherworking", 197: "Tailoring", 333: "Enchanting", 186: "Mining", 356: "Fishing"}
 RANKS = ["Apprentice", "Journeyman", "Expert", "Artisan"]
 CITIES = {"Orgrimmar", "Undercity", "Thunder Bluff", "Stormwind City", "Ironforge", "Darnassus"}
 PER_FACTION = 4  # vendors listed per item and faction
@@ -207,13 +211,23 @@ def build(src, tables):
         return factions.get(to_int(t.get("Faction")), None)
 
     # Trainers: what rank spells each NPC (or its template) teaches.
-    teach = {}
+    teach, upto = {}, {}
     for table in ("npc_trainer", "npc_trainer_template"):
         for r in rows(src, table):
-            teach.setdefault((table, to_int(r["entry"])), []).append(to_int(r["spell"]))
+            key = (table, to_int(r["entry"]))
+            teach.setdefault(key, []).append(to_int(r["spell"]))
+            prof = SKILL_LINES.get(to_int(r.get("reqskill")))
+            if prof:
+                upto.setdefault(key, {})
+                upto[key][prof] = max(upto[key].get(prof, 0), to_int(r.get("reqskillvalue")))
     trainers = {}
     for entry, t in templates.items():
-        taught = teach.get(("npc_trainer", entry), []) + teach.get(("npc_trainer_template", to_int(t.get("TrainerTemplateId"))), [])
+        keys = (("npc_trainer", entry), ("npc_trainer_template", to_int(t.get("TrainerTemplateId"))))
+        taught = teach.get(keys[0], []) + teach.get(keys[1], [])
+        tops = {}
+        for k in keys:
+            for p, v in upto.get(k, {}).items():
+                tops[p] = max(tops.get(p, 0), v)
         best = {}
         for sp in taught:
             parts = (spells.get(sp) or "").split(" ", 1)
@@ -228,7 +242,8 @@ def build(src, tables):
             continue
         for prof, rank in best.items():
             trainers.setdefault(prof, []).append({"npc": t["Name"], "title": t.get("SubName") or "", "zone": loc[0],
-                                                  "x": loc[1], "y": loc[2], "faction": fac, "rank": rank})
+                                                  "x": loc[1], "y": loc[2], "faction": fac, "rank": rank,
+                                                  "upto": tops.get(prof, 0)})
 
     # Vendors of crafting materials (unlimited stock only).
     ids = {}
@@ -293,7 +308,7 @@ def write_lua(data, path=OUT_LUA):
     for prof, vs in data["trainers"].items():
         lines.append(f"  [{lua_str(prof)}] = {{")
         for v in vs:
-            lines.append("    " + entry_lua(v, ("npc", "title", "zone", "x", "y", "faction", "rank")) + ",")
+            lines.append("    " + entry_lua(v, ("npc", "title", "zone", "x", "y", "faction", "rank", "upto")) + ",")
         lines.append("  },")
     lines.append("}")
     lines.append("ns.RawData.MaterialVendors = {")

@@ -12,8 +12,8 @@ jobs:
           python3 - <<'PY'
           import json
           d = json.load(open("data/npc-locations.json"))
-          for p in ("Alchemy", "Tailoring"):
-              for v in d["trainers"].get(p, [])[:12]: print("T", p, v)
+          for p in ("Alchemy", "Leatherworking", "Enchanting"):
+              for v in d["trainers"].get(p, [])[:10]: print("T", p, v)
           for i in ("Crystal Vial", "Rune Thread", "Empty Vial"):
               for v in d["vendors"].get(i, []): print("V", i, v)
           PY
