@@ -173,12 +173,14 @@ def faction_of(tables):
 # --- building -----------------------------------------------------------------------------
 
 def materials():
-    """Names of the crafting materials vendors sell (VendorItems and VendorGoods in Shared.lua)."""
+    """Names of the crafting materials vendors sell (VendorItems in Shared.lua, VendorGoods in Items.lua)."""
     from lupa import lua51
     lua = lua51.LuaRuntime(unpack_returned_tuples=True)
     ns = lua.table()
-    with open(os.path.join(ADDON, "Data", "Shared.lua"), encoding="utf-8") as fh:
-        lua.execute("return function(src, ns) assert(loadstring(src))('CraftPath', ns) end")(fh.read(), ns)
+    run = lua.execute("return function(src, ns) assert(loadstring(src))('CraftPath', ns) end")
+    for f in ("Shared.lua", "Items.lua"):
+        with open(os.path.join(ADDON, "Data", f), encoding="utf-8") as fh:
+            run(fh.read(), ns)
     names = set()
     for key in ("VendorItems", "VendorGoods"):
         t = ns.RawData[key]

@@ -1,0 +1,4186 @@
+{
+ "trainers": {
+  "Alchemy": [
+   {
+    "npc": "Kylanna Windwhisper",
+    "title": "Master Alchemist",
+    "zone": "Feralas",
+    "x": 32.6,
+    "y": 43.8,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Rogvar",
+    "title": "Master Alchemist",
+    "zone": "Swamp of Sorrows",
+    "x": 48.5,
+    "y": 55.8,
+    "faction": "Horde",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Ainethil",
+    "title": "Artisan Alchemist",
+    "zone": "Darnassus",
+    "x": 54.9,
+    "y": 24.0,
+    "faction": "Alliance",
+    "rank": 3,
+    "upto": 200
+   },
+   {
+    "npc": "Doctor Herbert Halsey",
+    "title": "Artisan Alchemist",
+    "zone": "Undercity",
+    "x": 47.8,
+    "y": 73.3,
+    "faction": "Horde",
+    "rank": 3,
+    "upto": 200
+   },
+   {
+    "npc": "Sylvanna Forestmoon",
+    "title": "Expert Alchemist",
+    "zone": "Darnassus",
+    "x": 56.4,
+    "y": 24.2,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 140
+   },
+   {
+    "npc": "Tally Berryfizz",
+    "title": "Expert Alchemist",
+    "zone": "Ironforge",
+    "x": 66.6,
+    "y": 55.7,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 140
+   },
+   {
+    "npc": "Yelmak",
+    "title": "Expert Alchemist",
+    "zone": "Orgrimmar",
+    "x": 56.8,
+    "y": 33.0,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 180
+   },
+   {
+    "npc": "Lilyssia Nightbreeze",
+    "title": "Expert Alchemist",
+    "zone": "Stormwind City",
+    "x": 55.7,
+    "y": 86.1,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 140
+   },
+   {
+    "npc": "Doctor Marsh",
+    "title": "Expert Alchemist",
+    "zone": "Undercity",
+    "x": 50.9,
+    "y": 74.6,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 140
+   },
+   {
+    "npc": "Kylanna",
+    "title": "Expert Alchemist",
+    "zone": "Ashenvale",
+    "x": 50.9,
+    "y": 67.1,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 140
+   },
+   {
+    "npc": "Alchemist Narett",
+    "title": "Expert Alchemist",
+    "zone": "Dustwallow Marsh",
+    "x": 63.9,
+    "y": 47.6,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 140
+   },
+   {
+    "npc": "Serge Hinott",
+    "title": "Expert Alchemist",
+    "zone": "Hillsbrad Foothills",
+    "x": 61.6,
+    "y": 19.2,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 140
+   },
+   {
+    "npc": "Milla Fairancora",
+    "title": "Journeyman Alchemist",
+    "zone": "Darnassus",
+    "x": 55.4,
+    "y": 22.7,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 140
+   },
+   {
+    "npc": "Vosur Brakthel",
+    "title": "Journeyman Alchemist",
+    "zone": "Ironforge",
+    "x": 66.3,
+    "y": 55.7,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 140
+   },
+   {
+    "npc": "Whuut",
+    "title": "Journeyman Alchemist",
+    "zone": "Orgrimmar",
+    "x": 55.8,
+    "y": 32.9,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 140
+   },
+   {
+    "npc": "Alchemist Mallory",
+    "title": "Journeyman Alchemist",
+    "zone": "Stormwind City",
+    "x": 90.4,
+    "y": 91.5,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 140
+   },
+   {
+    "npc": "Tel'Athir",
+    "title": "Journeyman Alchemist",
+    "zone": "Stormwind City",
+    "x": 55.5,
+    "y": 85.6,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 140
+   },
+   {
+    "npc": "Bena Winterhoof",
+    "title": "Expert Alchemist",
+    "zone": "Thunder Bluff",
+    "x": 46.6,
+    "y": 33.2,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 55
+   },
+   {
+    "npc": "Kray",
+    "title": "Journeyman Alchemist",
+    "zone": "Thunder Bluff",
+    "x": 46.7,
+    "y": 34.4,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 140
+   },
+   {
+    "npc": "Doctor Martin Felben",
+    "title": "Journeyman Alchemist Trainer",
+    "zone": "Undercity",
+    "x": 46.6,
+    "y": 74.1,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 140
+   },
+   {
+    "npc": "Miao'zan",
+    "title": "Journeyman Alchemist",
+    "zone": "Durotar",
+    "x": 55.4,
+    "y": 73.9,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 140
+   },
+   {
+    "npc": "Ghak Healtouch",
+    "title": "Journeyman Alchemist",
+    "zone": "Loch Modan",
+    "x": 37.1,
+    "y": 49.4,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 140
+   },
+   {
+    "npc": "Cyndra Kindwhisper",
+    "title": "Journeyman Alchemist",
+    "zone": "Teldrassil",
+    "x": 57.6,
+    "y": 60.8,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 140
+   },
+   {
+    "npc": "Carolai Anise",
+    "title": "Journeyman Alchemist",
+    "zone": "Tirisfal Glades",
+    "x": 59.4,
+    "y": 52.2,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 140
+   }
+  ],
+  "Blacksmithing": [
+   {
+    "npc": "Brikk Keencraft",
+    "title": "Master Blacksmith",
+    "zone": "Stranglethorn Vale",
+    "x": 29.0,
+    "y": 75.6,
+    "faction": null,
+    "rank": 4,
+    "upto": 275
+   },
+   {
+    "npc": "Bengus Deepforge",
+    "title": "Artisan Blacksmith",
+    "zone": "Ironforge",
+    "x": 52.5,
+    "y": 41.5,
+    "faction": "Alliance",
+    "rank": 3,
+    "upto": 230
+   },
+   {
+    "npc": "Saru Steelfury",
+    "title": "Artisan Blacksmith",
+    "zone": "Orgrimmar",
+    "x": 82.3,
+    "y": 23.0,
+    "faction": "Horde",
+    "rank": 3,
+    "upto": 230
+   },
+   {
+    "npc": "Rotgath Stonebeard",
+    "title": "Expert Blacksmith",
+    "zone": "Ironforge",
+    "x": 52.4,
+    "y": 42.6,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Snarl",
+    "title": "Expert Blacksmith",
+    "zone": "Orgrimmar",
+    "x": 79.6,
+    "y": 23.3,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Therum Deepforge",
+    "title": "Expert Blacksmith",
+    "zone": "Stormwind City",
+    "x": 63.7,
+    "y": 37.0,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Karn Stonehoof",
+    "title": "Expert Blacksmith",
+    "zone": "Thunder Bluff",
+    "x": 39.4,
+    "y": 55.1,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "James Van Brunt",
+    "title": "Expert Blacksmith",
+    "zone": "Undercity",
+    "x": 61.3,
+    "y": 30.6,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Clarise Gnarltree",
+    "title": "Expert Blacksmith",
+    "zone": "Duskwood",
+    "x": 74.0,
+    "y": 48.5,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Traugh",
+    "title": "Expert Blacksmith",
+    "zone": "The Barrens",
+    "x": 51.3,
+    "y": 28.9,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Groum Stonebeard",
+    "title": "Journeyman Blacksmith",
+    "zone": "Ironforge",
+    "x": 52.3,
+    "y": 41.9,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Ug'thok",
+    "title": "Journeyman Blacksmith",
+    "zone": "Orgrimmar",
+    "x": 80.8,
+    "y": 23.7,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Dane Lindgren",
+    "title": "Journeyman Blacksmith",
+    "zone": "Stormwind City",
+    "x": 64.1,
+    "y": 37.0,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Thrag Stonehoof",
+    "title": "Journeyman Blacksmith",
+    "zone": "Thunder Bluff",
+    "x": 39.4,
+    "y": 56.7,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Basil Frye",
+    "title": "Journeyman Blacksmith",
+    "zone": "Undercity",
+    "x": 60.2,
+    "y": 29.1,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Delfrum Flintbeard",
+    "title": "Journeyman Blacksmith",
+    "zone": "Darkshore",
+    "x": 38.2,
+    "y": 40.9,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Tognus Flintfire",
+    "title": "Journeyman Blacksmith",
+    "zone": "Dun Morogh",
+    "x": 45.3,
+    "y": 51.9,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Dwukk",
+    "title": "Journeyman Blacksmith",
+    "zone": "Durotar",
+    "x": 52.0,
+    "y": 40.7,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Smith Argus",
+    "title": "Journeyman Blacksmith",
+    "zone": "Elwynn Forest",
+    "x": 41.7,
+    "y": 65.5,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Guillaume Sorouy",
+    "title": "Journeyman Blacksmith",
+    "zone": "Silverpine Forest",
+    "x": 43.2,
+    "y": 41.1,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   }
+  ],
+  "Cooking": [
+   {
+    "npc": "Alegorn",
+    "title": "Cooking Trainer",
+    "zone": "Darnassus",
+    "x": 49.0,
+    "y": 21.2,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Daryl Riknussun",
+    "title": "Cooking Trainer",
+    "zone": "Ironforge",
+    "x": 60.1,
+    "y": 36.4,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Zamja",
+    "title": "Cooking Trainer",
+    "zone": "Orgrimmar",
+    "x": 57.4,
+    "y": 54.0,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Stephen Ryback",
+    "title": "Cooking Trainer",
+    "zone": "Stormwind City",
+    "x": 78.2,
+    "y": 53.1,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Aska Mistrunner",
+    "title": "Cooking Trainer",
+    "zone": "Thunder Bluff",
+    "x": 50.7,
+    "y": 53.1,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Eunice Burch",
+    "title": "Cooking Trainer",
+    "zone": "Undercity",
+    "x": 62.1,
+    "y": 44.9,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Cook Ghilm",
+    "title": "Cooking Trainer",
+    "zone": "Dun Morogh",
+    "x": 68.4,
+    "y": 54.5,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Gremlock Pilsnor",
+    "title": "Cooking Trainer",
+    "zone": "Dun Morogh",
+    "x": 47.7,
+    "y": 52.3,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Tomas",
+    "title": "Cook",
+    "zone": "Elwynn Forest",
+    "x": 44.4,
+    "y": 66.0,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Pyall Silentstride",
+    "title": "Cook",
+    "zone": "Mulgore",
+    "x": 44.9,
+    "y": 61.7,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Crystal Boughman",
+    "title": "Cooking Trainer",
+    "zone": "Redridge Mountains",
+    "x": 17.7,
+    "y": 43.5,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Mudduk",
+    "title": "Superior Cook",
+    "zone": "Stranglethorn Vale",
+    "x": 31.3,
+    "y": 28.0,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Zarrin",
+    "title": "Cook",
+    "zone": "Teldrassil",
+    "x": 57.1,
+    "y": 61.3,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 200
+   },
+   {
+    "npc": "Duhng",
+    "title": "Cook",
+    "zone": "The Barrens",
+    "x": 55.3,
+    "y": 31.8,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 200
+   }
+  ],
+  "Enchanting": [
+   {
+    "npc": "Kitta Firewind",
+    "title": "Artisan Enchanter",
+    "zone": "Elwynn Forest",
+    "x": 64.9,
+    "y": 70.7,
+    "faction": "Alliance",
+    "rank": 3,
+    "upto": 225
+   },
+   {
+    "npc": "Hgarth",
+    "title": "Artisan Enchanter",
+    "zone": "Stonetalon Mountains",
+    "x": 49.2,
+    "y": 57.2,
+    "faction": "Horde",
+    "rank": 3,
+    "upto": 225
+   },
+   {
+    "npc": "Taladan",
+    "title": "Expert Enchanter",
+    "zone": "Darnassus",
+    "x": 58.4,
+    "y": 13.1,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Gimble Thistlefuzz",
+    "title": "Expert Enchanter",
+    "zone": "Ironforge",
+    "x": 59.8,
+    "y": 45.4,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Godan",
+    "title": "Expert Enchanter",
+    "zone": "Orgrimmar",
+    "x": 53.9,
+    "y": 38.7,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Lucan Cordell",
+    "title": "Expert Enchanter",
+    "zone": "Stormwind City",
+    "x": 52.9,
+    "y": 74.5,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Teg Dawnstrider",
+    "title": "Expert Enchanter",
+    "zone": "Thunder Bluff",
+    "x": 44.9,
+    "y": 37.5,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Lavinia Crowe",
+    "title": "Expert Enchanter",
+    "zone": "Undercity",
+    "x": 62.5,
+    "y": 61.8,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Xylinnia Starshine",
+    "title": "Expert Enchanter",
+    "zone": "Feralas",
+    "x": 31.5,
+    "y": 44.3,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Lalina Summermoon",
+    "title": "Journeyman Enchanter",
+    "zone": "Darnassus",
+    "x": 58.8,
+    "y": 12.7,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 70
+   },
+   {
+    "npc": "Thonys Pillarstone",
+    "title": "Journeyman Enchanter",
+    "zone": "Ironforge",
+    "x": 60.3,
+    "y": 45.4,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 70
+   },
+   {
+    "npc": "Jhag",
+    "title": "Journeyman Enchanter",
+    "zone": "Orgrimmar",
+    "x": 53.5,
+    "y": 38.6,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 70
+   },
+   {
+    "npc": "Betty Quin",
+    "title": "Journeyman Enchanter",
+    "zone": "Stormwind City",
+    "x": 53.0,
+    "y": 73.7,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 70
+   },
+   {
+    "npc": "Mot Dawnstrider",
+    "title": "Journeyman Enchanter",
+    "zone": "Thunder Bluff",
+    "x": 44.6,
+    "y": 38.5,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 70
+   },
+   {
+    "npc": "Malcomb Wynn",
+    "title": "Journeyman Enchanter",
+    "zone": "Undercity",
+    "x": 62.5,
+    "y": 60.3,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 70
+   },
+   {
+    "npc": "Alanna Raveneye",
+    "title": "Journeyman Enchanter",
+    "zone": "Teldrassil",
+    "x": 36.7,
+    "y": 34.2,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 70
+   },
+   {
+    "npc": "Vance Undergloom",
+    "title": "Journeyman Enchanter",
+    "zone": "Tirisfal Glades",
+    "x": 61.8,
+    "y": 51.6,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 70
+   }
+  ],
+  "Engineering": [
+   {
+    "npc": "Buzzek Bracketswing",
+    "title": "Master Engineer",
+    "zone": "Tanaris",
+    "x": 52.3,
+    "y": 27.7,
+    "faction": null,
+    "rank": 4,
+    "upto": 260
+   },
+   {
+    "npc": "Springspindle Fizzlegear",
+    "title": "Artisan Engineer",
+    "zone": "Ironforge",
+    "x": 68.5,
+    "y": 43.5,
+    "faction": "Alliance",
+    "rank": 3,
+    "upto": 215
+   },
+   {
+    "npc": "Roxxik",
+    "title": "Artisan Engineer",
+    "zone": "Orgrimmar",
+    "x": 76.2,
+    "y": 25.2,
+    "faction": "Horde",
+    "rank": 3,
+    "upto": 215
+   },
+   {
+    "npc": "Trixie Quikswitch",
+    "title": "Expert Engineer",
+    "zone": "Ironforge",
+    "x": 67.5,
+    "y": 42.9,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Nogg",
+    "title": "Expert Engineer",
+    "zone": "Orgrimmar",
+    "x": 76.0,
+    "y": 25.4,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Lilliam Sparkspindle",
+    "title": "Expert Engineer",
+    "zone": "Stormwind City",
+    "x": 62.1,
+    "y": 30.3,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Franklin Lloyd",
+    "title": "Expert Engineer",
+    "zone": "Undercity",
+    "x": 76.1,
+    "y": 74.0,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Jemma Quikswitch",
+    "title": "Journeyman Engineer",
+    "zone": "Ironforge",
+    "x": 67.7,
+    "y": 44.2,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Thund",
+    "title": "Journeyman Engineer",
+    "zone": "Orgrimmar",
+    "x": 76.0,
+    "y": 24.1,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Sprite Jumpsprocket",
+    "title": "Journeyman Engineer",
+    "zone": "Stormwind City",
+    "x": 61.9,
+    "y": 30.6,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Graham Van Talen",
+    "title": "Journeyman Engineer",
+    "zone": "Undercity",
+    "x": 75.3,
+    "y": 73.1,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Jenna Lemkenilli",
+    "title": "Journeyman Engineer",
+    "zone": "Darkshore",
+    "x": 38.3,
+    "y": 41.1,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Bronk Guzzlegear",
+    "title": "Journeyman Engineer",
+    "zone": "Dun Morogh",
+    "x": 50.2,
+    "y": 50.4,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Mukdrak",
+    "title": "Journeyman Engineer",
+    "zone": "Durotar",
+    "x": 52.2,
+    "y": 40.8,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Deek Fizzlebizz",
+    "title": "Journeyman Engineer",
+    "zone": "Loch Modan",
+    "x": 45.9,
+    "y": 13.4,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Twizwick Sprocketgrind",
+    "title": "Journeyman Engineer",
+    "zone": "Mulgore",
+    "x": 58.6,
+    "y": 39.4,
+    "faction": null,
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Tinkerwiz",
+    "title": "Journeyman Engineer",
+    "zone": "The Barrens",
+    "x": 62.7,
+    "y": 36.3,
+    "faction": null,
+    "rank": 1,
+    "upto": 75
+   }
+  ],
+  "First Aid": [
+   {
+    "npc": "Dannelor",
+    "title": "First Aid Trainer",
+    "zone": "Darnassus",
+    "x": 51.7,
+    "y": 12.2,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Nissa Firestone",
+    "title": "First Aid Trainer",
+    "zone": "Ironforge",
+    "x": 55.1,
+    "y": 58.3,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Arnok",
+    "title": "First Aid Trainer",
+    "zone": "Orgrimmar",
+    "x": 34.2,
+    "y": 84.6,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Shaina Fuller",
+    "title": "First Aid Trainer",
+    "zone": "Stormwind City",
+    "x": 53.0,
+    "y": 44.7,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Pand Stonebinder",
+    "title": "First Aid Trainer",
+    "zone": "Thunder Bluff",
+    "x": 29.7,
+    "y": 21.2,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Mary Edras",
+    "title": "First Aid Trainer",
+    "zone": "Undercity",
+    "x": 73.2,
+    "y": 55.1,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Thamner Pol",
+    "title": "Physician",
+    "zone": "Dun Morogh",
+    "x": 47.2,
+    "y": 52.6,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Rawrk",
+    "title": "First Aid Trainer",
+    "zone": "Durotar",
+    "x": 54.2,
+    "y": 41.9,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Michelle Belle",
+    "title": "Physician",
+    "zone": "Elwynn Forest",
+    "x": 43.4,
+    "y": 65.6,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Vira Younghoof",
+    "title": "First Aid Trainer",
+    "zone": "Mulgore",
+    "x": 46.1,
+    "y": 64.0,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Byancie",
+    "title": "First Aid Trainer",
+    "zone": "Teldrassil",
+    "x": 55.3,
+    "y": 56.8,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Nurse Neela",
+    "title": "First Aid Trainer",
+    "zone": "Tirisfal Glades",
+    "x": 61.8,
+    "y": 52.8,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Fremal Doohickey",
+    "title": "First Aid Trainer",
+    "zone": "Wetlands",
+    "x": 10.8,
+    "y": 61.4,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   }
+  ],
+  "Fishing": [
+   {
+    "npc": "Katoom the Angler",
+    "title": "Fishing Trainer & Supplies",
+    "zone": "The Hinterlands",
+    "x": 80.3,
+    "y": 81.5,
+    "faction": "Horde",
+    "rank": 4,
+    "upto": 200
+   },
+   {
+    "npc": "Astaia",
+    "title": "Fishing Trainer",
+    "zone": "Darnassus",
+    "x": 47.9,
+    "y": 56.7,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Grimnur Stonebrand",
+    "title": "Fishing Trainer",
+    "zone": "Ironforge",
+    "x": 48.1,
+    "y": 6.9,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Lumak",
+    "title": "Fishing Trainer",
+    "zone": "Orgrimmar",
+    "x": 69.8,
+    "y": 29.2,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Arnold Leland",
+    "title": "Fishing Trainer",
+    "zone": "Stormwind City",
+    "x": 55.0,
+    "y": 69.6,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Kah Mistrunner",
+    "title": "Fishing Trainer",
+    "zone": "Thunder Bluff",
+    "x": 56.1,
+    "y": 46.4,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Armand Cromwell",
+    "title": "Fishing Trainer",
+    "zone": "Undercity",
+    "x": 80.7,
+    "y": 31.3,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Kil'Hiwana",
+    "title": "Fisherman",
+    "zone": "Ashenvale",
+    "x": 10.8,
+    "y": 33.7,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Lui'Mala",
+    "title": "Fisherman",
+    "zone": "Desolace",
+    "x": 22.7,
+    "y": 72.4,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Paxton Ganter",
+    "title": "Fisherman",
+    "zone": "Dun Morogh",
+    "x": 35.5,
+    "y": 40.2,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Lee Brown",
+    "title": "Fisherman",
+    "zone": "Elwynn Forest",
+    "x": 47.6,
+    "y": 62.3,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Brannock",
+    "title": "Fisherman",
+    "zone": "Feralas",
+    "x": 32.3,
+    "y": 41.6,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Donald Rabonne",
+    "title": "Fisherman",
+    "zone": "Hillsbrad Foothills",
+    "x": 50.8,
+    "y": 61.0,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Warg Deepwater",
+    "title": "Fisherman",
+    "zone": "Loch Modan",
+    "x": 40.6,
+    "y": 39.7,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Uthan Stillwater",
+    "title": "Fisherman",
+    "zone": "Mulgore",
+    "x": 44.2,
+    "y": 63.8,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Matthew Hooper",
+    "title": "Fishing Trainer",
+    "zone": "Redridge Mountains",
+    "x": 21.9,
+    "y": 51.1,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Myizz Luckycatch",
+    "title": "Superior Fisherman",
+    "zone": "Stranglethorn Vale",
+    "x": 27.5,
+    "y": 77.1,
+    "faction": null,
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Androl Oakhand",
+    "title": "Fisherman",
+    "zone": "Teldrassil",
+    "x": 55.9,
+    "y": 93.5,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Lau'Tiki",
+    "title": "Fisherman",
+    "zone": "The Barrens",
+    "x": 73.0,
+    "y": 39.7,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Clyde Kellen",
+    "title": "Fisherman",
+    "zone": "Tirisfal Glades",
+    "x": 67.2,
+    "y": 51.0,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 50
+   },
+   {
+    "npc": "Harold Riggs",
+    "title": "Fishing Trainer",
+    "zone": "Wetlands",
+    "x": 8.1,
+    "y": 58.6,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 50
+   }
+  ],
+  "Leatherworking": [
+   {
+    "npc": "Caryssia Moonhunter",
+    "title": "Tribal Leatherworking Trainer",
+    "zone": "Feralas",
+    "x": 89.4,
+    "y": 46.6,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Hahrana Ironhide",
+    "title": "Master Leatherworker",
+    "zone": "Feralas",
+    "x": 74.4,
+    "y": 43.1,
+    "faction": "Horde",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Drakk Stonehand",
+    "title": "Master Leatherworking Trainer",
+    "zone": "The Hinterlands",
+    "x": 13.4,
+    "y": 43.5,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Telonis",
+    "title": "Artisan Leatherworker",
+    "zone": "Darnassus",
+    "x": 64.4,
+    "y": 21.5,
+    "faction": "Alliance",
+    "rank": 3,
+    "upto": 200
+   },
+   {
+    "npc": "Una",
+    "title": "Artisan Leatherworker",
+    "zone": "Thunder Bluff",
+    "x": 41.5,
+    "y": 42.6,
+    "faction": "Horde",
+    "rank": 3,
+    "upto": 200
+   },
+   {
+    "npc": "Faldron",
+    "title": "Expert Leatherworker",
+    "zone": "Darnassus",
+    "x": 64.8,
+    "y": 21.8,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 120
+   },
+   {
+    "npc": "Fimble Finespindle",
+    "title": "Expert Leatherworker",
+    "zone": "Ironforge",
+    "x": 40.2,
+    "y": 33.7,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 120
+   },
+   {
+    "npc": "Karolek",
+    "title": "Expert Leatherworker",
+    "zone": "Orgrimmar",
+    "x": 62.8,
+    "y": 44.1,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 120
+   },
+   {
+    "npc": "Simon Tanner",
+    "title": "Expert Leatherworker",
+    "zone": "Stormwind City",
+    "x": 71.7,
+    "y": 63.0,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 120
+   },
+   {
+    "npc": "Tarn",
+    "title": "Expert Leatherworker",
+    "zone": "Thunder Bluff",
+    "x": 42.3,
+    "y": 42.6,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 120
+   },
+   {
+    "npc": "Arthur Moore",
+    "title": "Expert Leatherworker",
+    "zone": "Undercity",
+    "x": 70.2,
+    "y": 57.4,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 120
+   },
+   {
+    "npc": "Brumn Winterhoof",
+    "title": "Master Elemental Leatherworker",
+    "zone": "Arathi Highlands",
+    "x": 28.3,
+    "y": 45.1,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 250
+   },
+   {
+    "npc": "Aayndia Floralwind",
+    "title": "Expert Leatherworker",
+    "zone": "Ashenvale",
+    "x": 36.0,
+    "y": 52.1,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 120
+   },
+   {
+    "npc": "Peter Galen",
+    "title": "Master Dragonscale Leatherworker",
+    "zone": "Azshara",
+    "x": 37.6,
+    "y": 65.4,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 300
+   },
+   {
+    "npc": "Thorkaf Dragoneye",
+    "title": "Master Dragonscale Leatherworker",
+    "zone": "Badlands",
+    "x": 62.7,
+    "y": 57.4,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 300
+   },
+   {
+    "npc": "Narv Hidecrafter",
+    "title": "Expert Leathercrafter",
+    "zone": "Desolace",
+    "x": 55.2,
+    "y": 56.3,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 120
+   },
+   {
+    "npc": "Sarah Tanner",
+    "title": "Master Elemental Leatherworker",
+    "zone": "Searing Gorge",
+    "x": 63.6,
+    "y": 76.0,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 250
+   },
+   {
+    "npc": "Brawn",
+    "title": "Expert Leatherworker",
+    "zone": "Stranglethorn Vale",
+    "x": 31.7,
+    "y": 28.9,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 120
+   },
+   {
+    "npc": "Krulmoo Fullmoon",
+    "title": "Expert Leatherworker",
+    "zone": "The Barrens",
+    "x": 44.8,
+    "y": 59.5,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 120
+   },
+   {
+    "npc": "Darianna",
+    "title": "Journeyman Leatherworker",
+    "zone": "Darnassus",
+    "x": 64.4,
+    "y": 20.9,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 60
+   },
+   {
+    "npc": "Gretta Finespindle",
+    "title": "Journeyman Leatherworker",
+    "zone": "Ironforge",
+    "x": 38.8,
+    "y": 32.9,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 60
+   },
+   {
+    "npc": "Kamari",
+    "title": "Journeyman Leatherworker",
+    "zone": "Orgrimmar",
+    "x": 63.3,
+    "y": 44.7,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 60
+   },
+   {
+    "npc": "Randal Worth",
+    "title": "Journeyman Leatherworker",
+    "zone": "Stormwind City",
+    "x": 72.1,
+    "y": 62.9,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 60
+   },
+   {
+    "npc": "Mak",
+    "title": "Journeyman Leatherworker",
+    "zone": "Thunder Bluff",
+    "x": 42.1,
+    "y": 43.5,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 60
+   },
+   {
+    "npc": "Dan Golthas",
+    "title": "Journeyman Leatherworker",
+    "zone": "Undercity",
+    "x": 70.9,
+    "y": 58.4,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 60
+   },
+   {
+    "npc": "Adele Fielder",
+    "title": "Journeyman Leatherworker",
+    "zone": "Elwynn Forest",
+    "x": 46.4,
+    "y": 62.0,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 60
+   },
+   {
+    "npc": "Chaw Stronghide",
+    "title": "Journeyman Leatherworker",
+    "zone": "Mulgore",
+    "x": 44.9,
+    "y": 61.5,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 60
+   },
+   {
+    "npc": "Nadyia Maneweaver",
+    "title": "Journeyman Leatherworker",
+    "zone": "Teldrassil",
+    "x": 41.9,
+    "y": 49.4,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 60
+   },
+   {
+    "npc": "Waldor",
+    "title": "Journeyman Leatherworker",
+    "zone": "The Barrens",
+    "x": 46.0,
+    "y": 35.8,
+    "faction": null,
+    "rank": 1,
+    "upto": 60
+   },
+   {
+    "npc": "Shelene Rhobart",
+    "title": "Journeyman Leatherworker",
+    "zone": "Tirisfal Glades",
+    "x": 65.4,
+    "y": 60.1,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 60
+   }
+  ],
+  "Mining": [
+   {
+    "npc": "Geofram Bouldertoe",
+    "title": "Mining Trainer",
+    "zone": "Ironforge",
+    "x": 50.0,
+    "y": 26.3,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Makaru",
+    "title": "Mining Trainer",
+    "zone": "Orgrimmar",
+    "x": 73.1,
+    "y": 26.1,
+    "faction": "Horde",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Gelman Stonehand",
+    "title": "Mining Trainer",
+    "zone": "Stormwind City",
+    "x": 59.3,
+    "y": 37.8,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Brek Stonehoof",
+    "title": "Mining Trainer",
+    "zone": "Thunder Bluff",
+    "x": 34.4,
+    "y": 57.9,
+    "faction": "Horde",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Brom Killian",
+    "title": "Mining Trainer",
+    "zone": "Undercity",
+    "x": 56.0,
+    "y": 37.5,
+    "faction": "Horde",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Kurdram Stonehammer",
+    "title": "Mining Trainer",
+    "zone": "Darkshore",
+    "x": 38.2,
+    "y": 41.0,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Dank Drizzlecut",
+    "title": "Mining Trainer",
+    "zone": "Dun Morogh",
+    "x": 69.3,
+    "y": 55.5,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Yarr Hammerstone",
+    "title": "Mining Trainer",
+    "zone": "Dun Morogh",
+    "x": 50.0,
+    "y": 50.3,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Krunn",
+    "title": "Miner",
+    "zone": "Durotar",
+    "x": 51.8,
+    "y": 40.9,
+    "faction": "Horde",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Matt Johnson",
+    "title": "Mining Trainer",
+    "zone": "Duskwood",
+    "x": 74.1,
+    "y": 49.6,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Brock Stoneseeker",
+    "title": "Mining Trainer",
+    "zone": "Loch Modan",
+    "x": 37.0,
+    "y": 47.8,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Johan Focht",
+    "title": "Miner",
+    "zone": "Silverpine Forest",
+    "x": 43.4,
+    "y": 40.5,
+    "faction": "Horde",
+    "rank": 4,
+    "upto": 250
+   },
+   {
+    "npc": "Pikkle",
+    "title": "Miner",
+    "zone": "Tanaris",
+    "x": 51.1,
+    "y": 28.1,
+    "faction": null,
+    "rank": 4,
+    "upto": 250
+   }
+  ],
+  "Tailoring": [
+   {
+    "npc": "Timothy Worthington",
+    "title": "Master Tailor",
+    "zone": "Dustwallow Marsh",
+    "x": 66.2,
+    "y": 51.8,
+    "faction": "Alliance",
+    "rank": 4,
+    "upto": 255
+   },
+   {
+    "npc": "Daryl Stack",
+    "title": "Master Tailor",
+    "zone": "Hillsbrad Foothills",
+    "x": 63.7,
+    "y": 20.8,
+    "faction": "Horde",
+    "rank": 4,
+    "upto": 255
+   },
+   {
+    "npc": "Meilosh",
+    "title": "",
+    "zone": "Winterspring",
+    "x": 25.6,
+    "y": 31.9,
+    "faction": null,
+    "rank": 4,
+    "upto": 255
+   },
+   {
+    "npc": "Georgio Bolero",
+    "title": "Artisan Tailor",
+    "zone": "Stormwind City",
+    "x": 53.1,
+    "y": 81.3,
+    "faction": "Alliance",
+    "rank": 3,
+    "upto": 225
+   },
+   {
+    "npc": "Josef Gregorian",
+    "title": "Artisan Tailor",
+    "zone": "Undercity",
+    "x": 70.8,
+    "y": 30.7,
+    "faction": "Horde",
+    "rank": 3,
+    "upto": 225
+   },
+   {
+    "npc": "Me'lynn",
+    "title": "Expert Tailor",
+    "zone": "Darnassus",
+    "x": 63.4,
+    "y": 22.4,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Jormund Stonebrow",
+    "title": "Expert Tailor",
+    "zone": "Ironforge",
+    "x": 43.1,
+    "y": 29.4,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Magar",
+    "title": "Expert Tailor",
+    "zone": "Orgrimmar",
+    "x": 63.6,
+    "y": 49.9,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Sellandus",
+    "title": "Expert Tailor",
+    "zone": "Stormwind City",
+    "x": 52.2,
+    "y": 83.1,
+    "faction": "Alliance",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Tepa",
+    "title": "Expert Tailor",
+    "zone": "Thunder Bluff",
+    "x": 44.5,
+    "y": 45.4,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Rhiannon Davis",
+    "title": "Expert Tailor",
+    "zone": "Undercity",
+    "x": 70.0,
+    "y": 30.6,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Grarnik Goodstitch",
+    "title": "Expert Tailor",
+    "zone": "Stranglethorn Vale",
+    "x": 28.8,
+    "y": 76.8,
+    "faction": null,
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Mahani",
+    "title": "Expert Tailor",
+    "zone": "The Barrens",
+    "x": 44.9,
+    "y": 59.4,
+    "faction": "Horde",
+    "rank": 2,
+    "upto": 150
+   },
+   {
+    "npc": "Trianna",
+    "title": "Journeyman Tailor",
+    "zone": "Darnassus",
+    "x": 63.5,
+    "y": 21.2,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Uthrar Threx",
+    "title": "Journeyman Tailor",
+    "zone": "Ironforge",
+    "x": 43.8,
+    "y": 27.9,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Snang",
+    "title": "Journeyman Tailor",
+    "zone": "Orgrimmar",
+    "x": 62.9,
+    "y": 49.2,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Lawrence Schneider",
+    "title": "Journeyman Tailor",
+    "zone": "Stormwind City",
+    "x": 53.5,
+    "y": 81.5,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Vhan",
+    "title": "Journeyman Tailor",
+    "zone": "Thunder Bluff",
+    "x": 44.3,
+    "y": 44.3,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Victor Ward",
+    "title": "Journeyman Tailor",
+    "zone": "Undercity",
+    "x": 70.1,
+    "y": 29.8,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Grondal Moonbreeze",
+    "title": "Journeyman Tailor",
+    "zone": "Darkshore",
+    "x": 38.2,
+    "y": 40.5,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Eldrin",
+    "title": "Journeyman Tailor",
+    "zone": "Elwynn Forest",
+    "x": 79.2,
+    "y": 69.0,
+    "faction": "Alliance",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Kil'hala",
+    "title": "Journeyman Tailor",
+    "zone": "The Barrens",
+    "x": 52.2,
+    "y": 31.7,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   },
+   {
+    "npc": "Bowen Brisboise",
+    "title": "Journeyman Tailor",
+    "zone": "Tirisfal Glades",
+    "x": 52.6,
+    "y": 55.5,
+    "faction": "Horde",
+    "rank": 1,
+    "upto": 75
+   }
+  ]
+ },
+ "vendors": {
+  "Alterac Swiss": [
+   {
+    "npc": "Ben Trias",
+    "zone": "Stormwind City",
+    "x": 66.4,
+    "y": 73.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Elaine Trias",
+    "zone": "Stormwind City",
+    "x": 66.6,
+    "y": 73.4,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Pala",
+    "zone": "Thunder Bluff",
+    "x": 45.8,
+    "y": 64.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Adegwa",
+    "zone": "Arathi Highlands",
+    "x": 73.8,
+    "y": 32.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Bernie Heisten",
+    "zone": "Blasted Lands",
+    "x": 63.5,
+    "y": 17.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Sikewa",
+    "zone": "Desolace",
+    "x": 24.1,
+    "y": 68.2,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kazan Mogosh",
+    "zone": "Dun Morogh",
+    "x": 68.6,
+    "y": 54.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Abeqwa",
+    "zone": "Thousand Needles",
+    "x": 46.1,
+    "y": 51.5,
+    "faction": "Horde"
+   }
+  ],
+  "Blacksmith Hammer": [
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fillius Fizzlespinner",
+    "zone": "Ironforge",
+    "x": 38.1,
+    "y": 73.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Gearcutter Cogspinner",
+    "zone": "Ironforge",
+    "x": 67.8,
+    "y": 42.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Sovik",
+    "zone": "Orgrimmar",
+    "x": 75.5,
+    "y": 25.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Sumi",
+    "zone": "Orgrimmar",
+    "x": 82.6,
+    "y": 24.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Rizz Loosebolt",
+    "zone": "Alterac Mountains",
+    "x": 47.3,
+    "y": 35.2,
+    "faction": null
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jubie Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.3,
+    "y": 90.9,
+    "faction": null
+   },
+   {
+    "npc": "Jazzrik",
+    "zone": "Badlands",
+    "x": 42.5,
+    "y": 52.5,
+    "faction": null
+   }
+  ],
+  "Blank Parchment": [
+   {
+    "npc": "Gearcutter Cogspinner",
+    "zone": "Ironforge",
+    "x": 67.8,
+    "y": 42.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Sovik",
+    "zone": "Orgrimmar",
+    "x": 75.5,
+    "y": 25.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Adair Gilroy",
+    "zone": "Stormwind City",
+    "x": 51.8,
+    "y": 75.1,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Billibub Cogspinner",
+    "zone": "Stormwind City",
+    "x": 62.4,
+    "y": 29.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Elizabeth Van Talen",
+    "zone": "Undercity",
+    "x": 75.5,
+    "y": 74.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Salazar Bloch",
+    "zone": "Undercity",
+    "x": 77.4,
+    "y": 39.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Rizz Loosebolt",
+    "zone": "Alterac Mountains",
+    "x": 47.3,
+    "y": 35.2,
+    "faction": null
+   },
+   {
+    "npc": "Jubie Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.3,
+    "y": 90.9,
+    "faction": null
+   },
+   {
+    "npc": "Yuka Screwspigot",
+    "zone": "Burning Steppes",
+    "x": 66.1,
+    "y": 22.0,
+    "faction": null
+   },
+   {
+    "npc": "Loslor Rudge",
+    "zone": "Dun Morogh",
+    "x": 50.1,
+    "y": 49.4,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Zorbin Fandazzle",
+    "zone": "Feralas",
+    "x": 44.8,
+    "y": 43.4,
+    "faction": null
+   }
+  ],
+  "Coarse Thread": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   }
+  ],
+  "Elemental Flux": [
+   {
+    "npc": "Thurgrum Deepforge",
+    "zone": "Ironforge",
+    "x": 51.7,
+    "y": 42.8,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Sumi",
+    "zone": "Orgrimmar",
+    "x": 82.6,
+    "y": 24.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kaita Deepforge",
+    "zone": "Stormwind City",
+    "x": 63.3,
+    "y": 37.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Taur Stonehoof",
+    "zone": "Thunder Bluff",
+    "x": 39.8,
+    "y": 55.6,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Samuel Van Brunt",
+    "zone": "Undercity",
+    "x": 61.4,
+    "y": 30.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Jazzrik",
+    "zone": "Badlands",
+    "x": 42.5,
+    "y": 52.5,
+    "faction": null
+   },
+   {
+    "npc": "Elisa Steelhand",
+    "zone": "Darkshore",
+    "x": 38.1,
+    "y": 41.1,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Thrawn Boltar",
+    "zone": "Dun Morogh",
+    "x": 45.3,
+    "y": 51.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Craftsman Wilhelm",
+    "zone": "Eastern Plaguelands",
+    "x": 71.2,
+    "y": 49.9,
+    "faction": null
+   },
+   {
+    "npc": "Master Smith Burninate",
+    "zone": "Searing Gorge",
+    "x": 38.8,
+    "y": 28.5,
+    "faction": null
+   },
+   {
+    "npc": "Vargus",
+    "zone": "Silithus",
+    "x": 51.2,
+    "y": 38.9,
+    "faction": null
+   },
+   {
+    "npc": "Gharash",
+    "zone": "Swamp of Sorrows",
+    "x": 45.5,
+    "y": 51.4,
+    "faction": "Horde"
+   }
+  ],
+  "Engineer's Ink": [
+   {
+    "npc": "Gearcutter Cogspinner",
+    "zone": "Ironforge",
+    "x": 67.8,
+    "y": 42.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Sovik",
+    "zone": "Orgrimmar",
+    "x": 75.5,
+    "y": 25.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Adair Gilroy",
+    "zone": "Stormwind City",
+    "x": 51.8,
+    "y": 75.1,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Billibub Cogspinner",
+    "zone": "Stormwind City",
+    "x": 62.4,
+    "y": 29.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Elizabeth Van Talen",
+    "zone": "Undercity",
+    "x": 75.5,
+    "y": 74.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Salazar Bloch",
+    "zone": "Undercity",
+    "x": 77.4,
+    "y": 39.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Rizz Loosebolt",
+    "zone": "Alterac Mountains",
+    "x": 47.3,
+    "y": 35.2,
+    "faction": null
+   },
+   {
+    "npc": "Jubie Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.3,
+    "y": 90.9,
+    "faction": null
+   },
+   {
+    "npc": "Yuka Screwspigot",
+    "zone": "Burning Steppes",
+    "x": 66.1,
+    "y": 22.0,
+    "faction": null
+   },
+   {
+    "npc": "Loslor Rudge",
+    "zone": "Dun Morogh",
+    "x": 50.1,
+    "y": 49.4,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Zorbin Fandazzle",
+    "zone": "Feralas",
+    "x": 44.8,
+    "y": 43.4,
+    "faction": null
+   }
+  ],
+  "Expert Cookbook": [
+   {
+    "npc": "Shandrina",
+    "zone": "Ashenvale",
+    "x": 49.5,
+    "y": 67.1,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Wulan",
+    "zone": "Desolace",
+    "x": 26.2,
+    "y": 69.6,
+    "faction": "Horde"
+   }
+  ],
+  "Fine Thread": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   }
+  ],
+  "Flint and Tinder": [
+   {
+    "npc": "Ellandrieth",
+    "zone": "Darnassus",
+    "x": 64.7,
+    "y": 53.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mydrannul",
+    "zone": "Darnassus",
+    "x": 70.7,
+    "y": 45.4,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bryllia Ironbrand",
+    "zone": "Ironforge",
+    "x": 39.2,
+    "y": 74.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Asoran",
+    "zone": "Orgrimmar",
+    "x": 46.1,
+    "y": 40.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Trak'gen",
+    "zone": "Orgrimmar",
+    "x": 48.1,
+    "y": 80.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Thurman Mullby",
+    "zone": "Stormwind City",
+    "x": 64.8,
+    "y": 72.2,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Kuruk",
+    "zone": "Thunder Bluff",
+    "x": 38.9,
+    "y": 64.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Eleanor Rusk",
+    "zone": "Undercity",
+    "x": 69.2,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Caretaker Alen",
+    "zone": "Eastern Plaguelands",
+    "x": 69.9,
+    "y": 53.7,
+    "faction": null
+   },
+   {
+    "npc": "Daeolyn Summerleaf",
+    "zone": "Moonglade",
+    "x": 45.2,
+    "y": 34.7,
+    "faction": null
+   },
+   {
+    "npc": "Master Smith Burninate",
+    "zone": "Searing Gorge",
+    "x": 38.8,
+    "y": 28.5,
+    "faction": null
+   },
+   {
+    "npc": "Calandrath",
+    "zone": "Silithus",
+    "x": 51.9,
+    "y": 39.2,
+    "faction": null
+   }
+  ],
+  "Green Dye": [
+   {
+    "npc": "Elynna",
+    "zone": "Darnassus",
+    "x": 64.6,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Saenorion",
+    "zone": "Darnassus",
+    "x": 63.7,
+    "y": 22.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bombus Finespindle",
+    "zone": "Ironforge",
+    "x": 39.6,
+    "y": 34.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Outfitter Eric",
+    "zone": "Ironforge",
+    "x": 43.4,
+    "y": 29.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Borya",
+    "zone": "Orgrimmar",
+    "x": 63.1,
+    "y": 51.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Tamar",
+    "zone": "Orgrimmar",
+    "x": 63.0,
+    "y": 45.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Mahu",
+    "zone": "Thunder Bluff",
+    "x": 43.8,
+    "y": 45.1,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Darnall",
+    "zone": "Moonglade",
+    "x": 51.5,
+    "y": 33.3,
+    "faction": null
+   },
+   {
+    "npc": "Captured Servant of Azora",
+    "zone": "Redridge Mountains",
+    "x": 69.4,
+    "y": 79.5,
+    "faction": null
+   },
+   {
+    "npc": "Zannok Hidepiercer",
+    "zone": "Silithus",
+    "x": 82.0,
+    "y": 17.7,
+    "faction": null
+   },
+   {
+    "npc": "Blixrez Goodstitch",
+    "zone": "Stranglethorn Vale",
+    "x": 28.2,
+    "y": 77.5,
+    "faction": null
+   }
+  ],
+  "Heavy Stock": [
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fillius Fizzlespinner",
+    "zone": "Ironforge",
+    "x": 38.1,
+    "y": 73.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Gearcutter Cogspinner",
+    "zone": "Ironforge",
+    "x": 67.8,
+    "y": 42.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Sovik",
+    "zone": "Orgrimmar",
+    "x": 75.5,
+    "y": 25.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shadi Mistrunner",
+    "zone": "Thunder Bluff",
+    "x": 40.6,
+    "y": 64.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Rizz Loosebolt",
+    "zone": "Alterac Mountains",
+    "x": 47.3,
+    "y": 35.2,
+    "faction": null
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jubie Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.3,
+    "y": 90.9,
+    "faction": null
+   },
+   {
+    "npc": "Yuka Screwspigot",
+    "zone": "Burning Steppes",
+    "x": 66.1,
+    "y": 22.0,
+    "faction": null
+   }
+  ],
+  "Hot Spices": [
+   {
+    "npc": "Fyldan",
+    "zone": "Darnassus",
+    "x": 48.5,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Emrul Riknussun",
+    "zone": "Ironforge",
+    "x": 59.9,
+    "y": 37.4,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Xen'to",
+    "zone": "Orgrimmar",
+    "x": 57.6,
+    "y": 52.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Naal Mistrunner",
+    "zone": "Thunder Bluff",
+    "x": 51.0,
+    "y": 52.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   },
+   {
+    "npc": "Mishta",
+    "zone": "Silithus",
+    "x": 49.9,
+    "y": 36.3,
+    "faction": null
+   }
+  ],
+  "Ice Cold Milk": [
+   {
+    "npc": "Dendrythis",
+    "zone": "Darnassus",
+    "x": 33.6,
+    "y": 15.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fyrenna",
+    "zone": "Darnassus",
+    "x": 69.4,
+    "y": 45.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Saelienne",
+    "zone": "Darnassus",
+    "x": 67.4,
+    "y": 15.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Jaeana",
+    "zone": "Darnassus",
+    "x": 64.5,
+    "y": 71.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Barkeep Morag",
+    "zone": "Orgrimmar",
+    "x": 54.6,
+    "y": 67.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Gryshka",
+    "zone": "Orgrimmar",
+    "x": 54.1,
+    "y": 68.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Trak'gen",
+    "zone": "Orgrimmar",
+    "x": 48.1,
+    "y": 80.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Pala",
+    "zone": "Thunder Bluff",
+    "x": 45.8,
+    "y": 64.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Caretaker Alen",
+    "zone": "Eastern Plaguelands",
+    "x": 69.9,
+    "y": 53.7,
+    "faction": null
+   },
+   {
+    "npc": "Jessica Chambers",
+    "zone": "Eastern Plaguelands",
+    "x": 71.8,
+    "y": 48.5,
+    "faction": null
+   },
+   {
+    "npc": "Daeolyn Summerleaf",
+    "zone": "Moonglade",
+    "x": 45.2,
+    "y": 34.7,
+    "faction": null
+   },
+   {
+    "npc": "Dargon",
+    "zone": "Moonglade",
+    "x": 48.9,
+    "y": 39.2,
+    "faction": null
+   }
+  ],
+  "Melon Juice": [
+   {
+    "npc": "Dendrythis",
+    "zone": "Darnassus",
+    "x": 33.6,
+    "y": 15.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Ellandrieth",
+    "zone": "Darnassus",
+    "x": 64.7,
+    "y": 53.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fyrenna",
+    "zone": "Darnassus",
+    "x": 69.4,
+    "y": 45.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Saelienne",
+    "zone": "Darnassus",
+    "x": 67.4,
+    "y": 15.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Asoran",
+    "zone": "Orgrimmar",
+    "x": 46.1,
+    "y": 40.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Barkeep Morag",
+    "zone": "Orgrimmar",
+    "x": 54.6,
+    "y": 67.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Gryshka",
+    "zone": "Orgrimmar",
+    "x": 54.1,
+    "y": 68.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Trak'gen",
+    "zone": "Orgrimmar",
+    "x": 48.1,
+    "y": 80.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kosco Copperpinch",
+    "zone": "Arathi Highlands",
+    "x": 74.2,
+    "y": 29.3,
+    "faction": null
+   },
+   {
+    "npc": "Targot Jinglepocket",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 45.3,
+    "faction": null
+   },
+   {
+    "npc": "Gapp Jinglepocket",
+    "zone": "Ashenvale",
+    "x": 62.1,
+    "y": 82.8,
+    "faction": null
+   },
+   {
+    "npc": "Caretaker Alen",
+    "zone": "Eastern Plaguelands",
+    "x": 69.9,
+    "y": 53.7,
+    "faction": null
+   }
+  ],
+  "Mild Spices": [
+   {
+    "npc": "Fyldan",
+    "zone": "Darnassus",
+    "x": 48.5,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Emrul Riknussun",
+    "zone": "Ironforge",
+    "x": 59.9,
+    "y": 37.4,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Xen'to",
+    "zone": "Orgrimmar",
+    "x": 57.6,
+    "y": 52.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Naal Mistrunner",
+    "zone": "Thunder Bluff",
+    "x": 51.0,
+    "y": 52.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   },
+   {
+    "npc": "Mishta",
+    "zone": "Silithus",
+    "x": 49.9,
+    "y": 36.3,
+    "faction": null
+   }
+  ],
+  "Moonberry Juice": [
+   {
+    "npc": "Dendrythis",
+    "zone": "Darnassus",
+    "x": 33.6,
+    "y": 15.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Ellandrieth",
+    "zone": "Darnassus",
+    "x": 64.7,
+    "y": 53.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fyrenna",
+    "zone": "Darnassus",
+    "x": 69.4,
+    "y": 45.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Saelienne",
+    "zone": "Darnassus",
+    "x": 67.4,
+    "y": 15.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Asoran",
+    "zone": "Orgrimmar",
+    "x": 46.1,
+    "y": 40.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Barkeep Morag",
+    "zone": "Orgrimmar",
+    "x": 54.6,
+    "y": 67.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Gryshka",
+    "zone": "Orgrimmar",
+    "x": 54.1,
+    "y": 68.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Trak'gen",
+    "zone": "Orgrimmar",
+    "x": 48.1,
+    "y": 80.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kosco Copperpinch",
+    "zone": "Arathi Highlands",
+    "x": 74.2,
+    "y": 29.3,
+    "faction": null
+   },
+   {
+    "npc": "Targot Jinglepocket",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 45.3,
+    "faction": null
+   },
+   {
+    "npc": "Gapp Jinglepocket",
+    "zone": "Ashenvale",
+    "x": 62.1,
+    "y": 82.8,
+    "faction": null
+   },
+   {
+    "npc": "Caretaker Alen",
+    "zone": "Eastern Plaguelands",
+    "x": 69.9,
+    "y": 53.7,
+    "faction": null
+   }
+  ],
+  "Morning Glory Dew": [
+   {
+    "npc": "Dendrythis",
+    "zone": "Darnassus",
+    "x": 33.6,
+    "y": 15.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fyrenna",
+    "zone": "Darnassus",
+    "x": 69.4,
+    "y": 45.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Saelienne",
+    "zone": "Darnassus",
+    "x": 67.4,
+    "y": 15.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Jaeana",
+    "zone": "Darnassus",
+    "x": 64.5,
+    "y": 71.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Barkeep Morag",
+    "zone": "Orgrimmar",
+    "x": 54.6,
+    "y": 67.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Gryshka",
+    "zone": "Orgrimmar",
+    "x": 54.1,
+    "y": 68.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Pala",
+    "zone": "Thunder Bluff",
+    "x": 45.8,
+    "y": 64.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Eleanor Rusk",
+    "zone": "Undercity",
+    "x": 69.2,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Dillord Copperpinch",
+    "zone": "Alterac Mountains",
+    "x": 62.0,
+    "y": 58.6,
+    "faction": null
+   },
+   {
+    "npc": "Mirvyna Jinglepocket",
+    "zone": "Alterac Mountains",
+    "x": 40.1,
+    "y": 80.2,
+    "faction": null
+   },
+   {
+    "npc": "Kosco Copperpinch",
+    "zone": "Arathi Highlands",
+    "x": 74.2,
+    "y": 29.3,
+    "faction": null
+   },
+   {
+    "npc": "Targot Jinglepocket",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 45.3,
+    "faction": null
+   }
+  ],
+  "Nightcrawlers": [
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Voloren",
+    "zone": "Darnassus",
+    "x": 46.9,
+    "y": 57.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fillius Fizzlespinner",
+    "zone": "Ironforge",
+    "x": 38.1,
+    "y": 73.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shankys",
+    "zone": "Orgrimmar",
+    "x": 70.0,
+    "y": 29.8,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Sewa Mistrunner",
+    "zone": "Thunder Bluff",
+    "x": 55.8,
+    "y": 47.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   },
+   {
+    "npc": "Mishta",
+    "zone": "Silithus",
+    "x": 49.9,
+    "y": 36.3,
+    "faction": null
+   }
+  ],
+  "Razor Arrow": [
+   {
+    "npc": "Ellandrieth",
+    "zone": "Darnassus",
+    "x": 64.7,
+    "y": 53.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Landria",
+    "zone": "Darnassus",
+    "x": 63.3,
+    "y": 66.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mydrannul",
+    "zone": "Darnassus",
+    "x": 70.7,
+    "y": 45.4,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bryllia Ironbrand",
+    "zone": "Ironforge",
+    "x": 39.2,
+    "y": 74.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Asoran",
+    "zone": "Orgrimmar",
+    "x": 46.1,
+    "y": 40.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Jin'sora",
+    "zone": "Orgrimmar",
+    "x": 78.1,
+    "y": 38.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Trak'gen",
+    "zone": "Orgrimmar",
+    "x": 48.1,
+    "y": 80.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kuna Thunderhorn",
+    "zone": "Thunder Bluff",
+    "x": 47.0,
+    "y": 45.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Caretaker Alen",
+    "zone": "Eastern Plaguelands",
+    "x": 69.9,
+    "y": 53.7,
+    "faction": null
+   },
+   {
+    "npc": "Daeolyn Summerleaf",
+    "zone": "Moonglade",
+    "x": 45.2,
+    "y": 34.7,
+    "faction": null
+   },
+   {
+    "npc": "Narianna",
+    "zone": "Moonglade",
+    "x": 53.3,
+    "y": 42.7,
+    "faction": null
+   },
+   {
+    "npc": "Master Smith Burninate",
+    "zone": "Searing Gorge",
+    "x": 38.8,
+    "y": 28.5,
+    "faction": null
+   }
+  ],
+  "Refreshing Spring Water": [
+   {
+    "npc": "Dendrythis",
+    "zone": "Darnassus",
+    "x": 33.6,
+    "y": 15.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Ellandrieth",
+    "zone": "Darnassus",
+    "x": 64.7,
+    "y": 53.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fyldan",
+    "zone": "Darnassus",
+    "x": 48.5,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fyrenna",
+    "zone": "Darnassus",
+    "x": 69.4,
+    "y": 45.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Asoran",
+    "zone": "Orgrimmar",
+    "x": 46.1,
+    "y": 40.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Barkeep Morag",
+    "zone": "Orgrimmar",
+    "x": 54.6,
+    "y": 67.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Gryshka",
+    "zone": "Orgrimmar",
+    "x": 54.1,
+    "y": 68.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Trak'gen",
+    "zone": "Orgrimmar",
+    "x": 48.1,
+    "y": 80.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Caretaker Alen",
+    "zone": "Eastern Plaguelands",
+    "x": 69.9,
+    "y": 53.7,
+    "faction": null
+   },
+   {
+    "npc": "Jessica Chambers",
+    "zone": "Eastern Plaguelands",
+    "x": 71.8,
+    "y": 48.5,
+    "faction": null
+   },
+   {
+    "npc": "Daeolyn Summerleaf",
+    "zone": "Moonglade",
+    "x": 45.2,
+    "y": 34.7,
+    "faction": null
+   },
+   {
+    "npc": "Dargon",
+    "zone": "Moonglade",
+    "x": 48.9,
+    "y": 39.2,
+    "faction": null
+   }
+  ],
+  "Shiny Red Apple": [
+   {
+    "npc": "Innkeeper Saelienne",
+    "zone": "Darnassus",
+    "x": 67.4,
+    "y": 15.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bimble Longberry",
+    "zone": "Ironforge",
+    "x": 26.8,
+    "y": 27.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Shan'ti",
+    "zone": "Orgrimmar",
+    "x": 37.4,
+    "y": 52.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Nan Mistrunner",
+    "zone": "Thunder Bluff",
+    "x": 47.3,
+    "y": 42.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Maliynn",
+    "zone": "Ashenvale",
+    "x": 36.6,
+    "y": 50.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Allyndia",
+    "zone": "Darkshore",
+    "x": 37.1,
+    "y": 43.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Thulbek",
+    "zone": "Stranglethorn Vale",
+    "x": 31.5,
+    "y": 29.8,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Boorand Plainswind",
+    "zone": "The Barrens",
+    "x": 52.0,
+    "y": 29.9,
+    "faction": "Horde"
+   }
+  ],
+  "Simple Wood": [
+   {
+    "npc": "Ellandrieth",
+    "zone": "Darnassus",
+    "x": 64.7,
+    "y": 53.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mydrannul",
+    "zone": "Darnassus",
+    "x": 70.7,
+    "y": 45.4,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Vaean",
+    "zone": "Darnassus",
+    "x": 58.6,
+    "y": 14.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Bryllia Ironbrand",
+    "zone": "Ironforge",
+    "x": 39.2,
+    "y": 74.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Asoran",
+    "zone": "Orgrimmar",
+    "x": 46.1,
+    "y": 40.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kithas",
+    "zone": "Orgrimmar",
+    "x": 53.9,
+    "y": 38.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Trak'gen",
+    "zone": "Orgrimmar",
+    "x": 48.1,
+    "y": 80.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kuruk",
+    "zone": "Thunder Bluff",
+    "x": 38.9,
+    "y": 64.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Caretaker Alen",
+    "zone": "Eastern Plaguelands",
+    "x": 69.9,
+    "y": 53.7,
+    "faction": null
+   },
+   {
+    "npc": "Daeolyn Summerleaf",
+    "zone": "Moonglade",
+    "x": 45.2,
+    "y": 34.7,
+    "faction": null
+   },
+   {
+    "npc": "Master Smith Burninate",
+    "zone": "Searing Gorge",
+    "x": 38.8,
+    "y": 28.5,
+    "faction": null
+   },
+   {
+    "npc": "Calandrath",
+    "zone": "Silithus",
+    "x": 51.9,
+    "y": 39.2,
+    "faction": null
+   }
+  ],
+  "Soothing Spices": [
+   {
+    "npc": "Fyldan",
+    "zone": "Darnassus",
+    "x": 48.5,
+    "y": 21.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Emrul Riknussun",
+    "zone": "Ironforge",
+    "x": 59.9,
+    "y": 37.4,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Xen'to",
+    "zone": "Orgrimmar",
+    "x": 57.6,
+    "y": 52.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Naal Mistrunner",
+    "zone": "Thunder Bluff",
+    "x": 51.0,
+    "y": 52.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jase Farlane",
+    "zone": "Eastern Plaguelands",
+    "x": 70.9,
+    "y": 48.1,
+    "faction": null
+   },
+   {
+    "npc": "Lorelae Wintersong",
+    "zone": "Moonglade",
+    "x": 48.2,
+    "y": 40.1,
+    "faction": null
+   },
+   {
+    "npc": "Mishta",
+    "zone": "Silithus",
+    "x": 49.9,
+    "y": 36.3,
+    "faction": null
+   }
+  ],
+  "Star Wood": [
+   {
+    "npc": "Vaean",
+    "zone": "Darnassus",
+    "x": 58.6,
+    "y": 14.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Tilli Thistlefuzz",
+    "zone": "Ironforge",
+    "x": 61.0,
+    "y": 44.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Kithas",
+    "zone": "Orgrimmar",
+    "x": 53.9,
+    "y": 38.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Jessara Cordell",
+    "zone": "Stormwind City",
+    "x": 52.8,
+    "y": 74.3,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Nata Dawnstrider",
+    "zone": "Thunder Bluff",
+    "x": 45.0,
+    "y": 38.8,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Thaddeus Webb",
+    "zone": "Undercity",
+    "x": 62.4,
+    "y": 61.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kania",
+    "zone": "Silithus",
+    "x": 52.0,
+    "y": 39.7,
+    "faction": null
+   },
+   {
+    "npc": "Leo Sarn",
+    "zone": "Silverpine Forest",
+    "x": 53.9,
+    "y": 82.2,
+    "faction": "Horde"
+   }
+  ],
+  "Strong Flux": [
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fillius Fizzlespinner",
+    "zone": "Ironforge",
+    "x": 38.1,
+    "y": 73.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Gearcutter Cogspinner",
+    "zone": "Ironforge",
+    "x": 67.8,
+    "y": 42.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Gorina",
+    "zone": "Orgrimmar",
+    "x": 73.3,
+    "y": 26.6,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Sovik",
+    "zone": "Orgrimmar",
+    "x": 75.5,
+    "y": 25.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Rizz Loosebolt",
+    "zone": "Alterac Mountains",
+    "x": 47.3,
+    "y": 35.2,
+    "faction": null
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jubie Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.3,
+    "y": 90.9,
+    "faction": null
+   },
+   {
+    "npc": "Jazzrik",
+    "zone": "Badlands",
+    "x": 42.5,
+    "y": 52.5,
+    "faction": null
+   }
+  ],
+  "Sweet Nectar": [
+   {
+    "npc": "Dendrythis",
+    "zone": "Darnassus",
+    "x": 33.6,
+    "y": 15.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Ellandrieth",
+    "zone": "Darnassus",
+    "x": 64.7,
+    "y": 53.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fyrenna",
+    "zone": "Darnassus",
+    "x": 69.4,
+    "y": 45.0,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Innkeeper Saelienne",
+    "zone": "Darnassus",
+    "x": 67.4,
+    "y": 15.6,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Asoran",
+    "zone": "Orgrimmar",
+    "x": 46.1,
+    "y": 40.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Barkeep Morag",
+    "zone": "Orgrimmar",
+    "x": 54.6,
+    "y": 67.7,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Innkeeper Gryshka",
+    "zone": "Orgrimmar",
+    "x": 54.1,
+    "y": 68.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Trak'gen",
+    "zone": "Orgrimmar",
+    "x": 48.1,
+    "y": 80.5,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Kosco Copperpinch",
+    "zone": "Arathi Highlands",
+    "x": 74.2,
+    "y": 29.3,
+    "faction": null
+   },
+   {
+    "npc": "Targot Jinglepocket",
+    "zone": "Arathi Highlands",
+    "x": 46.5,
+    "y": 45.3,
+    "faction": null
+   },
+   {
+    "npc": "Gapp Jinglepocket",
+    "zone": "Ashenvale",
+    "x": 62.1,
+    "y": 82.8,
+    "faction": null
+   },
+   {
+    "npc": "Caretaker Alen",
+    "zone": "Eastern Plaguelands",
+    "x": 69.9,
+    "y": 53.7,
+    "faction": null
+   }
+  ],
+  "Weak Flux": [
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fillius Fizzlespinner",
+    "zone": "Ironforge",
+    "x": 38.1,
+    "y": 73.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Gearcutter Cogspinner",
+    "zone": "Ironforge",
+    "x": 67.8,
+    "y": 42.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Gorina",
+    "zone": "Orgrimmar",
+    "x": 73.3,
+    "y": 26.6,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Sovik",
+    "zone": "Orgrimmar",
+    "x": 75.5,
+    "y": 25.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Rizz Loosebolt",
+    "zone": "Alterac Mountains",
+    "x": 47.3,
+    "y": 35.2,
+    "faction": null
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jubie Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.3,
+    "y": 90.9,
+    "faction": null
+   },
+   {
+    "npc": "Jazzrik",
+    "zone": "Badlands",
+    "x": 42.5,
+    "y": 52.5,
+    "faction": null
+   }
+  ],
+  "Wooden Stock": [
+   {
+    "npc": "Mythrin'dir",
+    "zone": "Darnassus",
+    "x": 61.0,
+    "y": 17.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Burbik Gearspanner",
+    "zone": "Ironforge",
+    "x": 46.4,
+    "y": 26.9,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Fillius Fizzlespinner",
+    "zone": "Ironforge",
+    "x": 38.1,
+    "y": 73.7,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Gearcutter Cogspinner",
+    "zone": "Ironforge",
+    "x": 67.8,
+    "y": 42.5,
+    "faction": "Alliance"
+   },
+   {
+    "npc": "Felika",
+    "zone": "Orgrimmar",
+    "x": 60.6,
+    "y": 48.9,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shimra",
+    "zone": "Orgrimmar",
+    "x": 47.9,
+    "y": 80.3,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Sovik",
+    "zone": "Orgrimmar",
+    "x": 75.5,
+    "y": 25.4,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Shadi Mistrunner",
+    "zone": "Thunder Bluff",
+    "x": 40.6,
+    "y": 64.0,
+    "faction": "Horde"
+   },
+   {
+    "npc": "Rizz Loosebolt",
+    "zone": "Alterac Mountains",
+    "x": 47.3,
+    "y": 35.2,
+    "faction": null
+   },
+   {
+    "npc": "Blimo Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.2,
+    "y": 90.8,
+    "faction": null
+   },
+   {
+    "npc": "Jubie Gadgetspring",
+    "zone": "Azshara",
+    "x": 45.3,
+    "y": 90.9,
+    "faction": null
+   },
+   {
+    "npc": "Yuka Screwspigot",
+    "zone": "Burning Steppes",
+    "x": 66.1,
+    "y": 22.0,
+    "faction": null
+   }
+  ]
+ }
+}
