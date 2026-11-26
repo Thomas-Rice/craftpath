@@ -5,6 +5,12 @@
 local _, ns = ...
 ns.RawData = ns.RawData or {}
 ns.RawData.TrainerCosts = {
+  ["Mining"] = {
+    ["Azerothium Bar"] = 45000,
+    ["Heavy Thorium Bar"] = 45000,
+    ["Smelt Azerothium"] = 45000,
+    ["Thorium Bar"] = 18000,
+  },
 }
 ns.RawData.TrainerCostsClassic = {
   ["Alchemy"] = {
@@ -137,6 +143,8 @@ ns.RawData.TrainerCostsClassic = {
     ["Spider Sausage"] = 4000,
   },
   ["Enchanting"] = {
+    ["Apprentice Enchanting"] = 10,
+    ["Artisan Enchanting"] = 50000,
     ["Enchant 2H Weapon - Greater Impact"] = 6200,
     ["Enchant 2H Weapon - Impact"] = 3600,
     ["Enchant 2H Weapon - Lesser Impact"] = 2160,
@@ -184,8 +192,10 @@ ns.RawData.TrainerCostsClassic = {
     ["Enchant Weapon - Striking"] = 3600,
     ["Enchanted Leather"] = 10000,
     ["Enchanted Thorium Bar"] = 10000,
+    ["Expert Enchanting"] = 5000,
     ["Greater Magic Wand"] = 200,
     ["Greater Mystic Wand"] = 2700,
+    ["Journeyman Enchanting"] = 500,
     ["Lesser Magic Wand"] = 50,
     ["Lesser Mystic Wand"] = 2600,
     ["Runed Golden Rod"] = 2250,
@@ -278,7 +288,14 @@ ns.RawData.TrainerCostsClassic = {
     ["Apprentice First Aid"] = 100,
     ["Journeyman First Aid"] = 500,
   },
+  ["Fishing"] = {
+    ["Apprentice Fishing"] = 100,
+    ["Artisan Fishing"] = 10000,
+    ["Journeyman Fishing"] = 500,
+  },
   ["Leatherworking"] = {
+    ["Apprentice Leatherworking"] = 10,
+    ["Artisan Leatherworking"] = 50000,
     ["Barbaric Harness"] = 2800,
     ["Barbaric Shoulders"] = 2500,
     ["Cured Heavy Hide"] = 1800,
@@ -298,6 +315,7 @@ ns.RawData.TrainerCostsClassic = {
     ["Embossed Leather Gloves"] = 150,
     ["Embossed Leather Pants"] = 500,
     ["Embossed Leather Vest"] = 100,
+    ["Expert Leatherworking"] = 5000,
     ["Feathered Breastplate"] = 9000,
     ["Fine Leather Belt"] = 500,
     ["Fine Leather Cloak"] = 550,
@@ -321,6 +339,7 @@ ns.RawData.TrainerCostsClassic = {
     ["Hillman's Cloak"] = 2000,
     ["Hillman's Leather Gloves"] = 1800,
     ["Hillman's Shoulders"] = 1200,
+    ["Journeyman Leatherworking"] = 500,
     ["Light Leather Bracers"] = 450,
     ["Light Leather Pants"] = 600,
     ["Light Leather Quiver"] = 100,
@@ -357,6 +376,12 @@ ns.RawData.TrainerCostsClassic = {
     ["Silver Bar"] = 180,
     ["Steel Bar"] = 2250,
     ["Tin Bar"] = 50,
+  },
+  ["Skinning"] = {
+    ["Apprentice Skinning"] = 10,
+    ["Artisan Skinning"] = 50000,
+    ["Expert Skinning"] = 5000,
+    ["Journeyman Skinning"] = 500,
   },
   ["Tailoring"] = {
     ["Apprentice Tailor"] = 10,
@@ -493,9 +518,10 @@ ns.RawData.TrainerCostByLevel = {
   { 235, 4600 },
   { 240, 6200 },
   { 245, 6200 },
-  { 250, 9000 },
+  { 250, 10000 },
   { 255, 10000 },
   { 260, 9000 },
   { 275, 10000 },
   { 280, 30000 },
+  { 300, 45000 },
 }
