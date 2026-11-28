@@ -1,5 +1,47 @@
 [
  {
+  "date": "2026-11-28",
+  "build": "1.60.1.71139",
+  "professions": [
+   {
+    "profession": "Engineering",
+    "before": 241,
+    "after": 241,
+    "minor": 0,
+    "added": [],
+    "removed": [],
+    "changed": [
+     {
+      "name": "SAF-T Tabs",
+      "change": "materials now Linen Cloth x1, Cerulean Dye x1"
+     },
+     {
+      "name": "SAF-T Copper Bomb",
+      "change": "materials now Copper Bar x1, Handful of Copper Bolts x1, Rough Blasting Powder x2, Linen Cloth x1, SAF-T Tabs x2"
+     }
+    ]
+   },
+   {
+    "profession": "Cooking",
+    "before": 131,
+    "after": 131,
+    "minor": 0,
+    "added": [],
+    "removed": [],
+    "changed": [
+     {
+      "name": "Skywall Souffle",
+      "change": "materials now Small Egg x1, Mild Spices x1"
+     },
+     {
+      "name": "Pincer Bites",
+      "change": "materials now Crawler Claw x1, Mild Spices x1"
+     }
+    ]
+   }
+  ]
+ },
+ {
   "date": "2026-11-25",
   "build": "1.60.1.71091",
   "professions": [
